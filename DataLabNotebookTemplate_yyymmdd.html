@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>DataLabNotebookTemplate</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>DataLabNotebookTemplate_yyymmdd</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11793,8 +11793,8 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Jane User &lt;jane@noao.edu&gt;, John Doe &lt;john.doe@noao.edu&gt;&#39;</span> <span class="c1"># single string; emails in &lt;&gt;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20171009&#39;</span> <span class="c1"># yyyymmdd; version of the notebook</span>
-<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;LS&#39;</span><span class="p">,</span><span class="s1">&#39;SMASH&#39;</span><span class="p">,</span><span class="s1">&#39;NSC&#39;</span><span class="p">,</span><span class="s1">&#39;SDSS&#39;</span><span class="p">]</span> <span class="c1"># list of strings; list the datasets that this notebooks uses</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20171011&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>  <span class="c1"># enter used datasets by hand; for a list of available datasets, see cell &quot;Available datasets in Data Lab&quot; further below</span>
 </pre></div>
 
 </div>
@@ -11807,7 +11807,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Short-self-describing-title-of-this-notebook">Short self-describing title of this notebook<a class="anchor-link" href="#Short-self-describing-title-of-this-notebook">&#182;</a></h1><p>Brief description: we do X, using data Y. The technique used is Z. Also rename the notebook file to something meaningful, e.g. 'Time_series_analysis_RRLyrae_20171009'.</p>
+<h1 id="Short-self-describing-title-of-this-notebook">Short self-describing title of this notebook<a class="anchor-link" href="#Short-self-describing-title-of-this-notebook">&#182;</a></h1><p>Brief description: we do X, using data Y. The technique used is Z. Also rename the notebook file to something meaningful, e.g. 'TimeSeriesAnalysisRRLyrae_20171011'.</p>
 <p><em>Jane User, John Doe &amp; NOAO Data Lab Team</em></p>
 
 </div>
@@ -11885,11 +11885,49 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># authenticated user</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter user name: &quot;</span><span class="p">),</span><span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter password: &quot;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Python 2/3 compatibility</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="n">raw_input</span>
+<span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
+    <span class="k">pass</span>
 
-<span class="c1"># ... or get token for anonymous user</span>
-<span class="c1">#token = ac.login(&#39;anonymous&#39;,&#39;&#39;)</span>
+<span class="c1"># Either get token for anonymous user</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">)</span>
+
+<span class="c1"># ... or for authenticated user</span>
+<span class="c1">#token = ac.login(input(&quot;Enter user name: &quot;),getpass(&quot;Enter password: &quot;))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Available-datasets-in-Data-Lab">Available datasets in Data Lab<a class="anchor-link" href="#Available-datasets-in-Data-Lab">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># these schemas are not astronomical datasets</span>
+<span class="n">_remove</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;ivao&#39;</span><span class="p">,</span><span class="s1">&#39;ivao_smash&#39;</span><span class="p">,</span><span class="s1">&#39;tap_schema&#39;</span><span class="p">,</span><span class="s1">&#39;schema&#39;</span><span class="p">])</span>
+
+<span class="c1"># get all schemas from DB</span>
+<span class="n">_schemas</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">token</span><span class="p">,</span><span class="n">sql</span><span class="o">=</span><span class="s1">&#39;SELECT schema FROM tbl_stat&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+
+<span class="c1"># remove non-astro schemas</span>
+<span class="n">_alldatasets</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">_schemas</span> <span class="o">-</span> <span class="n">_remove</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Datasets available in Data Lab (with current profile):</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">_alldatasets</span><span class="p">)</span>
+
+<span class="c1"># TODO: Enter used datasets by hand in the list __datasets__ in the very first cell above</span>
 </pre></div>
 
 </div>
@@ -11904,8 +11942,8 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Enter user name: 
-Enter password: ········
+<pre>Datasets available in Data Lab (with current profile):
+ [&#39;allwise&#39;, &#39;des_sva1&#39;, &#39;gaia_dr1&#39;, &#39;ivoa&#39;, &#39;ivoa_smash&#39;, &#39;ls_dr3&#39;, &#39;ls_dr4&#39;, &#39;ls_dr5&#39;, &#39;neo_dr1&#39;, &#39;phat_v2&#39;, &#39;sdss_dr13&#39;, &#39;smash_dr1&#39;, &#39;twomass&#39;, &#39;usno&#39;]
 </pre>
 </div>
 </div>
@@ -11926,7 +11964,7 @@ Enter password: ········
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="o">+</span><span class="mi">3</span>
