@@ -11791,7 +11791,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Jane User &lt;jane@noao.edu&gt;, John Doe &lt;john.doe@noao.edu&gt;&#39;</span> <span class="c1"># single string; emails in &lt;&gt;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20171019&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20180105&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>  <span class="c1"># enter used datasets by hand; for a list of available datasets, see cell &quot;Available datasets in Data Lab&quot; further below</span>
 </pre></div>
 
@@ -11804,7 +11804,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Table-of-contents">Table of contents<a class="anchor-link" href="#Table-of-contents">&#194;&#182;</a></h2><ul>
+<h2 id="Table-of-contents">Table of contents<a class="anchor-link" href="#Table-of-contents">&#182;</a></h2><ul>
 <li><a href="#attribution">Disclaimer &amp; attribution</a></li>
 <li><a href="#import">Imports &amp; setup</a></li>
 <li><a href="#auth">Authentication</a></li>
@@ -11819,7 +11819,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Short-self-describing-title-of-this-notebook">Short self-describing title of this notebook<a class="anchor-link" href="#Short-self-describing-title-of-this-notebook">&#194;&#182;</a></h1><p>Brief description: we do X, using data Y. The technique used is Z. Also rename the notebook file to something meaningful, e.g. 'TimeSeriesAnalysisRRLyrae_20171011'.</p>
+<h1 id="Short-self-describing-title-of-this-notebook">Short self-describing title of this notebook<a class="anchor-link" href="#Short-self-describing-title-of-this-notebook">&#182;</a></h1><p>Brief description: we do X, using data Y. The technique used is Z. Also rename the notebook file to something meaningful, e.g. 'TimeSeriesAnalysisRRLyrae_20171011'.</p>
 <p><em>Jane User, John Doe &amp; NOAO Data Lab Team</em></p>
 
 </div>
@@ -11830,11 +11830,11 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="attribution"></a></p>
-<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#194;&#182;</a></h1><p>If you use this notebook for your published science, please acknowledge the following:</p>
+<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h1><p>If you use this notebook for your published science, please acknowledge the following:</p>
 <ul>
 <li><p>Data Lab concept paper: Fitzpatrick et al., "The NOAO Data Laboratory: a conceptual overview", SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></p>
 </li>
-<li><p>Data Lab disclaimer: <a href="http://datalab.noao.edu/known-issues.php">http://datalab.noao.edu/known-issues.php</a></p>
+<li><p>Data Lab disclaimer: <a href="http://datalab.noao.edu/disclaimers.php">http://datalab.noao.edu/disclaimers.php</a></p>
 </li>
 </ul>
 
@@ -11846,7 +11846,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="import"></a></p>
-<h1 id="Imports-and-setup">Imports and setup<a class="anchor-link" href="#Imports-and-setup">&#194;&#182;</a></h1>
+<h1 id="Imports-and-setup">Imports and setup<a class="anchor-link" href="#Imports-and-setup">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11874,7 +11874,14 @@ div#notebook {
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="c1"># Data Lab</span>
-<span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span><span class="p">,</span> <span class="n">helpers</span>
+<span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span>
+<span class="c1"># Data Lab helpers as needed, e.g.: (uncomment as needed)</span>
+<span class="c1"># from dl.helpers import cluster  # import one particular helper module</span>
+<span class="c1"># from dl.helpers.plot import plotSkymapScatter  # import one function from a helper module</span>
+<span class="c1"># from dl.helpers import all  # convenience import of all helper modules</span>
+<span class="c1">#</span>
+<span class="c1"># or old-style:</span>
+<span class="c1"># from dl.helpers import convert</span>
 </pre></div>
 
 </div>
@@ -11887,7 +11894,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="auth"></a></p>
-<h1 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">&#194;&#182;</a></h1>
+<h1 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11906,7 +11913,7 @@ div#notebook {
 <span class="n">token</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">)</span>
 
 <span class="c1"># ... or for authenticated user</span>
-<span class="c1">#token = ac.login(input(&quot;Enter user name: &quot;),getpass(&quot;Enter password: &quot;))</span>
+<span class="c1">#token = ac.login(input(&quot;Enter user name: (+ENTER)&quot;),getpass(&quot;Enter password: (+ENTER)&quot;))</span>
 </pre></div>
 
 </div>
@@ -11918,7 +11925,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Available-datasets-in-Data-Lab">Available datasets in Data Lab<a class="anchor-link" href="#Available-datasets-in-Data-Lab">&#194;&#182;</a></h1>
+<h1 id="Available-datasets-in-Data-Lab">Available datasets in Data Lab<a class="anchor-link" href="#Available-datasets-in-Data-Lab">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11955,7 +11962,7 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Datasets available in Data Lab (with current profile):
- [&#39;allwise&#39;, &#39;des_sva1&#39;, &#39;gaia_dr1&#39;, &#39;ivoa&#39;, &#39;ivoa_smash&#39;, &#39;ls_dr3&#39;, &#39;ls_dr4&#39;, &#39;ls_dr5&#39;, &#39;neo_dr1&#39;, &#39;phat_v2&#39;, &#39;sdss_dr13&#39;, &#39;smash_dr1&#39;, &#39;twomass&#39;, &#39;usno&#39;]
+ [&#39;allwise&#39;, &#39;cp_calib&#39;, &#39;dad_dr1&#39;, &#39;decaps_dr1&#39;, &#39;des_dr1&#39;, &#39;des_sva1&#39;, &#39;gaia_dr1&#39;, &#39;ivoa&#39;, &#39;ivoa_calibrated&#39;, &#39;ivoa_coadd&#39;, &#39;ivoa_des_dr1&#39;, &#39;ivoa_ls_dr3&#39;, &#39;ivoa_ls_dr4&#39;, &#39;ivoa_ls_dr5&#39;, &#39;ivoa_nsa&#39;, &#39;ivoa_raw&#39;, &#39;ivoa_smash&#39;, &#39;ivoa_smash_dr1&#39;, &#39;ls_dr3&#39;, &#39;ls_dr4&#39;, &#39;ls_dr5&#39;, &#39;neo_dr1&#39;, &#39;phat_v2&#39;, &#39;sdss_dr13&#39;, &#39;sdss_dr14&#39;, &#39;smash_dr1&#39;, &#39;twomass&#39;, &#39;usno&#39;]
 </pre>
 </div>
 </div>
@@ -11969,7 +11976,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="chapter1"></a></p>
-<h1 id="Chapter-1----your-content-below...">Chapter 1 -- your content below...<a class="anchor-link" href="#Chapter-1----your-content-below...">&#194;&#182;</a></h1>
+<h1 id="Chapter-1----your-content-below...">Chapter 1 -- your content below...<a class="anchor-link" href="#Chapter-1----your-content-below...">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -12010,7 +12017,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="resources"></a></p>
-<h2 id="Resources-and-references">Resources and references<a class="anchor-link" href="#Resources-and-references">&#194;&#182;</a></h2><p>Lomb, N.R. (1976) "Least-squares frequency analysis of unequally spaced data". Astrophysics and Space Science. 39 (2): 447–462: <a href="http://adsabs.harvard.edu/abs/1976Ap%26SS..39..447L">http://adsabs.harvard.edu/abs/1976Ap%26SS..39..447L</a></p>
+<h2 id="Resources-and-references">Resources and references<a class="anchor-link" href="#Resources-and-references">&#182;</a></h2><p>Lomb, N.R. (1976) "Least-squares frequency analysis of unequally spaced data". Astrophysics and Space Science. 39 (2): 447–462: <a href="http://adsabs.harvard.edu/abs/1976Ap%26SS..39..447L">http://adsabs.harvard.edu/abs/1976Ap%26SS..39..447L</a></p>
 <p>Scargle, J. D. (1982) "Studies in astronomical time series analysis. II - Statistical aspects of spectral analysis of unevenly spaced data". Astrophysical Journal. 263, 835: <a href="http://adsabs.harvard.edu/doi/10.1086/160554">http://adsabs.harvard.edu/doi/10.1086/160554</a></p>
 <p>Lomb-Scargle periodograms in <code>astropy</code>: <a href="http://docs.astropy.org/en/stable/stats/lombscargle.html">http://docs.astropy.org/en/stable/stats/lombscargle.html</a></p>
 
