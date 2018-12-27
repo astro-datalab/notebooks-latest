@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>GettingStartedWithDataLab</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>_02_GettingStartedWithDataLab</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11779,6 +11779,7 @@ div#notebook {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Knut Olsen &lt;kolsen@noao.edu&gt;&#39;</span> <span class="c1"># single string; emails in &lt;&gt;</span>
 <span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20180104&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>  <span class="c1"># enter used datasets by hand</span>
+<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tutorial&#39;</span><span class="p">,</span><span class="s1">&#39;query&#39;</span><span class="p">,</span><span class="s1">&#39;image cutout&#39;</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -11790,7 +11791,18 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Welcome-to-the-NOAO-Data-Lab">Welcome to the NOAO Data Lab<a class="anchor-link" href="#Welcome-to-the-NOAO-Data-Lab">&#182;</a></h1><p><em>Knut Olsen, NOAO Data Lab Team</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Table-of-contents">Table of contents<a class="anchor-link" href="#Table-of-contents">&#182;</a></h2><ul>
+<li><a href="#goals">Goals</a></li>
+<li><a href="#summary">Summary</a></li>
 <li><a href="#attribution">Disclaimer &amp; attribution</a></li>
 <li><a href="#import">Imports &amp; setup</a></li>
 <li><a href="#auth">Authentication</a></li>
@@ -11807,7 +11819,26 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Welcome-to-the-NOAO-Data-Lab">Welcome to the NOAO Data Lab<a class="anchor-link" href="#Welcome-to-the-NOAO-Data-Lab">&#182;</a></h1><p>If you've gotten this far, you're planning to use the Data Lab Jupyter notebook environment to access, explore, and analyze datasets available in the Data Lab.  This notebook aims to provide you with a very quick overview of how to use some common Data Lab services.  For more detailed explanations of data access, the full range of services, or for complete science examples, check out the other notebooks in this directory.</p>
+<p><a class="anchor" id="goals"></a></p>
+<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><p>Learn how to:</p>
+<ul>
+<li>Import standard Data Lab modules</li>
+<li>Set up the Simple Image Access (SIA) Service to let you create image cutouts</li>
+<li>Discover the datasets available in the database</li>
+<li>Issue a simple query to the database</li>
+<li>Retrieve image cutouts</li>
+<li>Create a color image</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="summary"></a></p>
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>If you've gotten this far, you're planning to use the Data Lab Jupyter notebook environment to access, explore, and analyze datasets available in the Data Lab.  This notebook aims to provide you with a very quick overview of how to use some common Data Lab services.  For more detailed explanations of data access, the full range of services, or for complete science examples, check out the other notebooks in this directory tree.</p>
 
 </div>
 </div>
@@ -11859,7 +11890,7 @@ div#notebook {
 <span class="c1"># You&#39;ll need at least these for authenticating and for issuing database queries</span>
 <span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span>
 <span class="c1"># You&#39;ll want storeClient if you plan to use virtual storage or myDB</span>
-<span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span>
+<span class="c1">#from dl import storeClient as sc</span>
 <span class="c1"># Get helpers for various convenience function</span>
 <span class="kn">from</span> <span class="nn">dl.helpers.utils</span> <span class="k">import</span> <span class="n">convert</span>
 
@@ -11880,7 +11911,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="auth"></a></p>
-<h1 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">&#182;</a></h1><p>For the moment, to use most of the Data Lab services, you need to retrieve an authorization token.  This is done through the authClient. As an anonymous user, you can issue queries to the database or retrieve image cutouts, but not store your results in virtual storage or myDB.</p>
+<h1 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">&#182;</a></h1><p>For the purposes of this notebook, there is no need to log in with your username and password inside the notebook. As an anonymous user, you can issue queries to the database or retrieve image cutouts, but not store your results in virtual storage or myDB.  If you need these things, you would use the <em>authClient</em> module to log in.  You only need to do this once (unless you log out through authClient), as the authentication token is stored on the server and automatically detected.</p>
 
 </div>
 </div>
@@ -11890,21 +11921,35 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Python 2/3 compatibility</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="nb">input</span> <span class="o">=</span> <span class="n">raw_input</span>
-<span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
-    <span class="k">pass</span>
-
-<span class="c1"># As an anonymous user, you can issue queries to the database or retrieve image cutouts, but</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># As an anonymous user, you can issue queries to the database or retrieve image cutouts, but</span>
 <span class="c1"># not store your results in virtual storage or myDB</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">)</span>
 
 <span class="c1"># Get token for an authenticated user if you wish to use virtual storage or myDB</span>
 <span class="c1">#token = ac.login(input(&quot;Enter user name: &quot;),getpass(&quot;Enter password: &quot;))</span>
+<span class="n">ac</span><span class="o">.</span><span class="n">whoAmI</span><span class="p">()</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;kolsen&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -11952,24 +11997,39 @@ div#notebook {
         des_sva1   DES SVA1 Data Products
         gaia_dr1   GAIA Data Release 1
         gaia_dr2   Gaia Data Release 2 -- April 25, 2018
-            ivoa   IVOA ObsCore tables
- ivoa_calibrated   
-      ivoa_coadd   
-    ivoa_des_dr1   
-     ivoa_ls_dr3   
-     ivoa_ls_dr4   
-     ivoa_ls_dr5   
+            ivoa   IVOA SIA/ObsCore Tables for NOAO Science Archive images
+ ivoa_calibrated   IVOA SIA/ObsCore Tables for calibrated images
+      ivoa_coadd   IVOA SIA/ObsCore Tables for coadded images
+ ivoa_decaps_dr1   IVOA SIA/ObsCore Tables for ivoa_decaps_dr1 images
+    ivoa_des_dr1   IVOA SIA/ObsCore Tables for Dark Energy Survey DR1 images
+   ivoa_des_sva1   IVOA SIA/ObsCore Tables for ivoa_des_sva1 images
+     ivoa_des_y1   IVOA SIA/ObsCore Tables for ivoa_des_y1 images
+     ivoa_des_y2   IVOA SIA/ObsCore Tables for ivoa_des_y2 images
+     ivoa_des_y3   IVOA SIA/ObsCore Tables for ivoa_des_y3 images
+     ivoa_des_y4   IVOA SIA/ObsCore Tables for ivoa_des_y4 images
+     ivoa_ls_dr3   IVOA SIA/ObsCore Tables for Legacy Survey DR3 images
+     ivoa_ls_dr4   IVOA SIA/ObsCore Tables for Legacy Survey DR4 images
+     ivoa_ls_dr5   IVOA SIA/ObsCore Tables for Legacy Survey DR5 images
+     ivoa_ls_dr6   IVOA SIA/ObsCore Tables for Legacy Survey DR6 images
+     ivoa_ls_dr7   IVOA SIA/ObsCore Tables for Legacy Survey DR7 images
+        ivoa_nsa   IVOA SIA/ObsCore Tables for NOAO Science Archive images
         ivoa_raw   
   ivoa_smash_dr1   
+  ivoa_splus_dr1   IVOA SIA/ObsCore Tables for ivoa_splus_dr1 images
           ls_dr3   The DECam Legacy Survey Data Release 3
           ls_dr4   The DECam Legacy Survey Data Release 4
           ls_dr5   The DECam Legacy Survey Data Release 5
-          ls_dr6   The DECam Legacy Survey Data Release 6
+          ls_dr6   The DECam Legacy Survey Data Release 5
+          ls_dr7   ls_dr7
+        lsst_sim   lsst_sim
          nsc_dr1   NOAO Source Catalog Data Release 1
          phat_v2   Panchromatic Hubble Andromeda Treasury Version 2
        sdss_dr13   
        sdss_dr14   Sloan Digital Sky Survey Data Release 14
+   skymapper_dr1   http://skymapper.anu.edu.au/data-release/
        smash_dr1   SMASH Data Release 1
+       splus_dr1   The Southern Photometric Local Universe Survey (S-PLUS) --
+                   Data Release 1
         stripe82   
       tap_schema   TAP Service Schema Tables
          twomass   2MASS All-Sky Catalogs (2003)
@@ -12163,10 +12223,7 @@ Schema: smash_dr1
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
-try:
-    info = qc.query(token,sql=query) # by default the result is a CSV formatted string
-except Exception as e:
-    print(e.message)
+info = qc.query(sql=query) # by default the result is a CSV formatted string
 </pre></div>
 
 </div>
@@ -12183,8 +12240,8 @@ except Exception as e:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 22 ms, sys: 4 ms, total: 26 ms
-Wall time: 70.5 ms
+<pre>CPU times: user 21 ms, sys: 2 ms, total: 23 ms
+Wall time: 70 ms
 </pre>
 </div>
 </div>
@@ -12243,10 +12300,7 @@ smash_dr1,object,101425208,45,21,22 GB,41 GB,63 GB
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
 query=&quot;SELECT * FROM smash_dr1.object LIMIT 10&quot;
-try:
-    result = qc.query(token,sql=query) # by default the result is a CSV formatted string
-except Exception as e:
-    print(e.message)
+result = qc.query(sql=query) # by default the result is a CSV formatted string
 </pre></div>
 
 </div>
@@ -12263,8 +12317,8 @@ except Exception as e:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 19 ms, sys: 4 ms, total: 23 ms
-Wall time: 85.6 ms
+<pre>CPU times: user 23 ms, sys: 0 ns, total: 23 ms
+Wall time: 88 ms
 </pre>
 </div>
 </div>
@@ -12392,123 +12446,123 @@ ra,dec,glon,glat,elon,elat,htm9,ring256,nest4096,random_id,raerr,decerr,umag,uer
   <tbody>
     <tr>
       <th>0</th>
-      <td>175.215071</td>
-      <td>-38.489786</td>
-      <td>288.069778</td>
-      <td>22.336554</td>
-      <td>193.528059</td>
-      <td>-36.654574</td>
-      <td>2527211</td>
-      <td>637938</td>
-      <td>156724310</td>
-      <td>57.9474</td>
-      <td>...</td>
-      <td>10</td>
-      <td>2</td>
-      <td>0</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>1</td>
-      <td>0</td>
-      <td>104</td>
-      <td>104.1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>175.241595</td>
-      <td>-38.416377</td>
-      <td>288.068123</td>
-      <td>22.412831</td>
-      <td>193.505392</td>
-      <td>-36.580484</td>
-      <td>2527210</td>
-      <td>636914</td>
-      <td>156724494</td>
-      <td>58.7164</td>
+      <td>160.556272</td>
+      <td>-38.335151</td>
+      <td>276.797100</td>
+      <td>17.892396</td>
+      <td>180.554721</td>
+      <td>-42.294502</td>
+      <td>2571166</td>
+      <td>636872</td>
+      <td>158400843</td>
+      <td>49.2062</td>
       <td>...</td>
       <td>7</td>
       <td>2</td>
       <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>163</td>
+      <td>163.471829</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>160.556641</td>
+      <td>-38.340850</td>
+      <td>276.800357</td>
+      <td>17.887604</td>
+      <td>180.558966</td>
+      <td>-42.299267</td>
+      <td>2571166</td>
+      <td>636872</td>
+      <td>158400843</td>
+      <td>92.8491</td>
+      <td>...</td>
+      <td>8</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
       <td>2</td>
       <td>3</td>
+      <td>3</td>
       <td>2</td>
-      <td>0</td>
-      <td>0</td>
-      <td>104</td>
-      <td>104.2</td>
+      <td>163</td>
+      <td>163.471830</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>175.251290</td>
-      <td>-38.439329</td>
-      <td>288.083213</td>
-      <td>22.393086</td>
-      <td>193.527730</td>
-      <td>-36.596694</td>
-      <td>2527210</td>
-      <td>636914</td>
-      <td>156724492</td>
-      <td>19.8707</td>
-      <td>...</td>
-      <td>5</td>
-      <td>2</td>
-      <td>0</td>
-      <td>2</td>
-      <td>1</td>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
-      <td>104</td>
-      <td>104.3</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>175.265049</td>
-      <td>-38.424372</td>
-      <td>288.089657</td>
-      <td>22.410533</td>
-      <td>193.530207</td>
-      <td>-36.578365</td>
-      <td>2527210</td>
-      <td>636914</td>
-      <td>156724493</td>
-      <td>65.8361</td>
-      <td>...</td>
-      <td>4</td>
-      <td>2</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>2</td>
-      <td>1</td>
-      <td>0</td>
-      <td>104</td>
-      <td>104.4</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>175.265161</td>
-      <td>-38.491511</td>
-      <td>288.110871</td>
-      <td>22.346323</td>
-      <td>193.571605</td>
-      <td>-36.636704</td>
-      <td>2527211</td>
-      <td>637939</td>
-      <td>156723114</td>
-      <td>56.0112</td>
+      <td>160.556596</td>
+      <td>-38.261418</td>
+      <td>276.758595</td>
+      <td>17.956383</td>
+      <td>180.504522</td>
+      <td>-42.230812</td>
+      <td>2571164</td>
+      <td>636872</td>
+      <td>158400888</td>
+      <td>44.7870</td>
       <td>...</td>
       <td>9</td>
       <td>2</td>
       <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>2</td>
+      <td>163</td>
+      <td>163.471831</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>160.558190</td>
+      <td>-38.347906</td>
+      <td>276.805168</td>
+      <td>17.882099</td>
+      <td>180.565220</td>
+      <td>-42.304732</td>
+      <td>2571166</td>
+      <td>636872</td>
+      <td>158400841</td>
+      <td>15.7256</td>
+      <td>...</td>
+      <td>9</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3</td>
       <td>2</td>
       <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>163</td>
+      <td>163.471832</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>160.559745</td>
+      <td>-38.387543</td>
+      <td>276.827087</td>
+      <td>17.848374</td>
+      <td>180.593838</td>
+      <td>-42.338271</td>
+      <td>2571158</td>
+      <td>636872</td>
+      <td>158400791</td>
+      <td>35.4929</td>
+      <td>...</td>
       <td>3</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
       <td>1</td>
       <td>0</td>
-      <td>104</td>
-      <td>104.5</td>
+      <td>163</td>
+      <td>163.471833</td>
     </tr>
   </tbody>
 </table>
@@ -12601,29 +12655,29 @@ ra,dec,glon,glat,elon,elat,htm9,ring256,nest4096,random_id,raerr,decerr,umag,uer
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-&lt;Table masked=True length=18&gt;
-<table id="table140260935338472" class="table-striped table-bordered table-condensed">
+<i>Table masked=True length=18</i>
+<table id="table140702884917200" class="table-striped table-bordered table-condensed">
 <thead><tr><th>assoc_id</th><th>access_url</th><th>access_format</th><th>access_estsize</th><th>dataproduct_type</th><th>dataproduct_subtype</th><th>calib_level</th><th>dataset_length</th><th>im_nsubarrays</th><th>im_naxes</th><th>im_naxis</th><th>im_pixtype</th><th>im_wcsaxes</th><th>im_scale</th><th>obs_title</th><th>obs_id</th><th>obs_creator_name</th><th>obs_collection</th><th>obs_creation_type</th><th>obs_creation_date</th><th>facility_name</th><th>instrument_name</th><th>obs_bandpass</th><th>obs_datasource</th><th>proposal_id</th><th>obs_publisher_did</th><th>obs_release_date</th><th>preview</th><th>target_name</th><th>target_class</th><th>s_ra</th><th>s_dec</th><th>s_fov</th><th>s_region</th><th>s_calib_status</th><th>s_resolution</th><th>em_min</th><th>em_max</th><th>em_resolution</th><th>em_res_power</th><th>t_min</th><th>t_max</th><th>t_exptime</th><th>t_resolution</th><th>o_ucd</th><th>o_unit</th><th>pol_states</th><th>object</th><th>airmass</th><th>project_code</th><th>magzero</th><th>prodtype</th><th>seeing</th><th>fwhm</th><th>file_set_id</th><th>exptime</th><th>photflag</th><th>proctype</th><th>date_obs</th><th>mjd_obs</th><th>elliptic</th></tr></thead>
 <thead><tr><th></th><th></th><th></th><th>bytes</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th>deg</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th></th><th>arcs</th><th>m</th><th>m</th><th>m</th><th></th><th>d</th><th>d</th><th>s</th><th>s</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead>
 <thead><tr><th>object</th><th>object</th><th>object</th><th>int32</th><th>object</th><th>object</th><th>int64</th><th>int64</th><th>int32</th><th>int32</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>bytes1</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>float64</th><th>float64</th><th>float64</th><th>object</th><th>object</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th></tr></thead>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_det.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>86526</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td></td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_det.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_det.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>-2.9815600000000003e-39</td><td>2.9815600000000003e-39</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>image</td><td>0</td><td>0</td><td></td><td>1710</td><td></td><td>Stack</td><td></td><td>556580.19824569</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_det.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>86526</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td></td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_det.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_det.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>-3.1389099999999998e-43</td><td>3.1389099999999998e-43</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>mask</td><td>0</td><td>0</td><td></td><td>1710</td><td></td><td>Stack</td><td></td><td>556580.19824569</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_det.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>86526</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td></td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_det.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_det.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>-2.7656000000000001e-41</td><td>2.7656000000000001e-41</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>weight</td><td>0</td><td>0</td><td></td><td>1710</td><td></td><td>Stack</td><td></td><td>556580.19824569</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>164905</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>g</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_g.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>3960.0</td><td>5480.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>image</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556579.36250174</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>164905</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>g</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_g.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>3960.0</td><td>5480.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>mask</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556579.36250174</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>164905</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>g</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_g.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>3960.0</td><td>5480.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>weight</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556579.36250174</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_i.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165557</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>i</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_i.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_i.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>7100.0</td><td>8570.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>image</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556630.13141036</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_i.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165557</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>i</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_i.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_i.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>7100.0</td><td>8570.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>mask</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556630.13141036</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_i.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165557</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>i</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_i.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_i.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>7100.0</td><td>8570.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>weight</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556630.13141036</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_r.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165999</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>r</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_r.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_r.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>5675.0</td><td>7155.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>image</td><td>0</td><td>0</td><td></td><td>630</td><td></td><td>Stack</td><td></td><td>556580.32478959</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_r.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165999</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>r</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_r.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_r.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>5675.0</td><td>7155.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>mask</td><td>0</td><td>0</td><td></td><td>630</td><td></td><td>Stack</td><td></td><td>556580.32478959</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_r.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165999</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>r</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_r.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_r.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>5675.0</td><td>7155.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>weight</td><td>0</td><td>0</td><td></td><td>630</td><td></td><td>Stack</td><td></td><td>556580.32478959</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_Y.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165675</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>Y</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_Y.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_Y.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>1130.0</td><td>1130.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>image</td><td>0</td><td>0</td><td></td><td>270</td><td></td><td>Stack</td><td></td><td>556557.37074453</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_Y.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165675</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>Y</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_Y.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_Y.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>1130.0</td><td>1130.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>mask</td><td>0</td><td>0</td><td></td><td>270</td><td></td><td>Stack</td><td></td><td>556557.37074453</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_Y.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165675</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>Y</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_Y.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_Y.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>1130.0</td><td>1130.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>weight</td><td>0</td><td>0</td><td></td><td>270</td><td></td><td>Stack</td><td></td><td>556557.37074453</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_z.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>166798</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>z</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_z.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_z.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>8500.0</td><td>10020.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>image</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556580.19824569</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_z.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>166798</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>z</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_z.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_z.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>8500.0</td><td>10020.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>mask</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556580.19824569</td><td>0</td></tr>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_z.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>166798</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>z</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_z.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_z.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>8500.0</td><td>10020.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>weight</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556580.19824569</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_det.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>86526</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td></td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_det.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_det.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>-2.9815600000000003e-39</td><td>2.9815600000000003e-39</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>image</td><td>0</td><td>0</td><td></td><td>1710</td><td></td><td>Stack</td><td></td><td>556580.19824569</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_det.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>86526</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td></td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_det.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_det.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>-3.1389099999999998e-43</td><td>3.1389099999999998e-43</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>mask</td><td>0</td><td>0</td><td></td><td>1710</td><td></td><td>Stack</td><td></td><td>556580.19824569</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_det.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>86526</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td></td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_det.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_det.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>-2.7656000000000001e-41</td><td>2.7656000000000001e-41</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>weight</td><td>0</td><td>0</td><td></td><td>1710</td><td></td><td>Stack</td><td></td><td>556580.19824569</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>164905</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>g</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_g.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>3960.0</td><td>5480.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>image</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556579.36250174</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>164905</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>g</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_g.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>3960.0</td><td>5480.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>mask</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556579.36250174</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>164905</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>g</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_g.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>3960.0</td><td>5480.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>weight</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556579.36250174</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_i.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165557</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>i</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_i.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_i.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>7100.0</td><td>8570.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>image</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556630.13141036</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_i.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165557</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>i</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_i.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_i.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>7100.0</td><td>8570.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>mask</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556630.13141036</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_i.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165557</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>i</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_i.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_i.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>7100.0</td><td>8570.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>weight</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556630.13141036</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_r.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165999</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>r</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_r.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_r.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>5675.0</td><td>7155.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>image</td><td>0</td><td>0</td><td></td><td>630</td><td></td><td>Stack</td><td></td><td>556580.32478959</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_r.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165999</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>r</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_r.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_r.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>5675.0</td><td>7155.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>mask</td><td>0</td><td>0</td><td></td><td>630</td><td></td><td>Stack</td><td></td><td>556580.32478959</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_r.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165999</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>r</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_r.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_r.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>5675.0</td><td>7155.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>weight</td><td>0</td><td>0</td><td></td><td>630</td><td></td><td>Stack</td><td></td><td>556580.32478959</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_Y.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165675</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>Y</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_Y.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_Y.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>1130.0</td><td>1130.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>image</td><td>0</td><td>0</td><td></td><td>270</td><td></td><td>Stack</td><td></td><td>556557.37074453</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_Y.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165675</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>Y</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_Y.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_Y.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>1130.0</td><td>1130.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>mask</td><td>0</td><td>0</td><td></td><td>270</td><td></td><td>Stack</td><td></td><td>556557.37074453</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_Y.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>165675</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>Y</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_Y.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_Y.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>1130.0</td><td>1130.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>weight</td><td>0</td><td>0</td><td></td><td>270</td><td></td><td>Stack</td><td></td><td>556557.37074453</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_z.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>166798</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>z</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_z.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_z.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>8500.0</td><td>10020.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>image</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556580.19824569</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_z.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>166798</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>z</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_z.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_z.fits.fz&amp;extn=2&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>8500.0</td><td>10020.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>mask</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556580.19824569</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_z.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>166798</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>z</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_z.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_z.fits.fz&amp;extn=3&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>8500.0</td><td>10020.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>weight</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556580.19824569</td><td>0</td></tr>
 </table>
 </div>
 
@@ -12668,12 +12722,12 @@ ra,dec,glon,glat,elon,elat,htm9,ring256,nest4096,random_id,raerr,decerr,umag,uer
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-&lt;Table masked=True length=1&gt;
-<table id="table140260009550400" class="table-striped table-bordered table-condensed">
+<i>Table masked=True length=1</i>
+<table id="table140701913683168" class="table-striped table-bordered table-condensed">
 <thead><tr><th>assoc_id</th><th>access_url</th><th>access_format</th><th>access_estsize</th><th>dataproduct_type</th><th>dataproduct_subtype</th><th>calib_level</th><th>dataset_length</th><th>im_nsubarrays</th><th>im_naxes</th><th>im_naxis</th><th>im_pixtype</th><th>im_wcsaxes</th><th>im_scale</th><th>obs_title</th><th>obs_id</th><th>obs_creator_name</th><th>obs_collection</th><th>obs_creation_type</th><th>obs_creation_date</th><th>facility_name</th><th>instrument_name</th><th>obs_bandpass</th><th>obs_datasource</th><th>proposal_id</th><th>obs_publisher_did</th><th>obs_release_date</th><th>preview</th><th>target_name</th><th>target_class</th><th>s_ra</th><th>s_dec</th><th>s_fov</th><th>s_region</th><th>s_calib_status</th><th>s_resolution</th><th>em_min</th><th>em_max</th><th>em_resolution</th><th>em_res_power</th><th>t_min</th><th>t_max</th><th>t_exptime</th><th>t_resolution</th><th>o_ucd</th><th>o_unit</th><th>pol_states</th><th>object</th><th>airmass</th><th>project_code</th><th>magzero</th><th>prodtype</th><th>seeing</th><th>fwhm</th><th>file_set_id</th><th>exptime</th><th>photflag</th><th>proctype</th><th>date_obs</th><th>mjd_obs</th><th>elliptic</th></tr></thead>
 <thead><tr><th></th><th></th><th></th><th>bytes</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th>deg</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th></th><th>arcs</th><th>m</th><th>m</th><th>m</th><th></th><th>d</th><th>d</th><th>s</th><th>s</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead>
 <thead><tr><th>object</th><th>object</th><th>object</th><th>int32</th><th>object</th><th>object</th><th>int64</th><th>int64</th><th>int32</th><th>int32</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>bytes1</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>float64</th><th>float64</th><th>float64</th><th>object</th><th>object</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th></tr></thead>
-<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>164905</td><td></td><td></td><td>2</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>g</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_g.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>3960.0</td><td>5480.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>image</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556579.36250174</td><td>0</td></tr>
+<tr><td>des_dr1</td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666</td><td>image/fits</td><td>164905</td><td></td><td></td><td>3</td><td>0</td><td>0</td><td>2</td><td>[10000 10000]</td><td></td><td></td><td>[0.27]</td><td></td><td>des_dr1</td><td></td><td>DES DR1</td><td>archival</td><td></td><td></td><td>DECam</td><td>g</td><td></td><td></td><td>ivo://datalab.noao/vo#ivoa_des_dr1.siav1:ivo://datalab.noao/des_dr1/DES0218-5205_r2577p01_g.fits.fz</td><td></td><td>http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_g.fits.fz&amp;extn=1&amp;POS=35.0,-52.0&amp;SIZE=0.0270711540914,0.016666666666666666&amp;preview=true</td><td></td><td></td><td>34.698399999999999</td><td>-52.095700000000001</td><td>--</td><td></td><td></td><td>--</td><td>3960.0</td><td>5480.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td></td><td></td><td></td><td>DES0218-5205</td><td>0</td><td>DES DR1</td><td>30</td><td>image</td><td>0</td><td>0</td><td></td><td>540</td><td></td><td>Stack</td><td></td><td>556579.36250174</td><td>0</td></tr>
 </table>
 </div>
 
@@ -12771,7 +12825,7 @@ ra,dec,glon,glat,elon,elat,htm9,ring256,nest4096,random_id,raerr,decerr,umag,uer
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f90d3cfde10&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7ff7b7528d30&gt;</pre>
 </div>
 
 </div>
@@ -14340,7 +14394,7 @@ http://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01_
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f90d1d411d0&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7ff7b562ac50&gt;</pre>
 </div>
 
 </div>
