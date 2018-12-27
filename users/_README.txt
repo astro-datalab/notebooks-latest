@@ -20,7 +20,7 @@
 
 
                        web: https://datalab.noao.edu
-                  github: https://github.com/noao-datalab
+                  github: https://github.com/noaodatalab
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -53,24 +53,7 @@ the Data Lab. It is a reference for scientific applications, though not as
 detailed as the specific science examples given below (item 4).
 
 
-3- HOW-TOS
-
-The "HowTos" folder contains sub-folders with notebooks that show how to use 
-Data Lab services with more detail than the brief examples included in the 
-Getting Started and Data Access Overview notebooks. The functionality is 
-shown for the full set of keywords and options for the following:
-
-- AuthClient: authenticating with the Data Lab
-- QueryClient: sending queries to the databases and retrieving results
-- RowVsCstore: using row-stored versus column-stored database tables
-- SIA service: obtaining cutouts using a Simple Image Access service
-- StoreClient: storing data in virtual storage (vospace or mydb)
-
-The How-To notebooks are located here: 
-   https://datalab.noao.edu/notebooks/web/HowTos/
-
-
-4- SCIENCE EXAMPLES
+3- SCIENCE EXAMPLES
 
 The "ScienceExamples" folder contains notebooks that showcase scientific 
 applications using the datasets hosted at Data Lab. Each science application 
@@ -89,6 +72,10 @@ with two or more surveys.
 - LargeScaleStructure: inspect large-scale structures using spectroscopic 
                        information from SDSS combined with photometric 
                        information from the DESI pre-imaging Legacy Survey (LS)
+		     
+- Pal5TidalTails: identify tidal tails of the globular cluster Palomar 5 in the 
+		  NSC DR1 catalog, as well as a jointly with Gaia DR2 to explore 
+		  the proper motion of the cluster and its tails	     
 
 - StarGalQSOSeparation: use photometric properties (colors, morphology/shape 
                         parameters, etc.) to distinguish between stars, galaxies, 
@@ -97,12 +84,27 @@ with two or more surveys.
 - TimeSeriesAnalysisRrLyraeStar: analyze time-series to measure the period of 
                                  RR Lyrae stars using photometry from SMASH
 
-- DECaPSBasicAccess: investigate Galactic structure by creating CMDs for 
-		     stellar populations within the Galactic bulge, star 
-		     clusters, and field.
-
 The ScienceExamples notebooks are located here: 
    https://datalab.noao.edu/notebooks/web/ScienceExamples/
+
+
+4- HOW-TOS
+
+The "HowTos" folder contains sub-folders with notebooks that show how to use 
+Data Lab services with more detail than the brief examples included in the 
+Getting Started and Data Access Overview notebooks. The functionality is 
+shown for the full set of keywords and options for the following:
+
+- AuthClient: authenticating with the Data Lab
+- CrossmatchTables: crossmatching a user-provided table against a table 
+                    hosted by Data Lab
+- QueryClient: sending queries to the databases and retrieving results
+- RowVsCstore: using row-stored versus column-stored database tables
+- SIA service: obtaining cutouts using a Simple Image Access service [future]
+- StoreClient: storing data in virtual storage (vospace or mydb)
+
+The How-To notebooks are located here: 
+   https://datalab.noao.edu/notebooks/web/HowTos/
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -135,7 +137,7 @@ Finally, copies of this README file as well as the latest notebooks
 are kept on:
 
 - the Data Lab website: https://datalab.noao.edu/notebooks/web/
-- the Data Lab Github account: https://github.com/noao-datalab
+- the Data Lab Github account: https://github.com/noaodatalab/notebooks-latest
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 

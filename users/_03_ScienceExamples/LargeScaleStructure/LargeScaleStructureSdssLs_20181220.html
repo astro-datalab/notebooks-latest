@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>LargeScaleStructureSdssLs_20180108</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>LargeScaleStructureSdssLs_20181220</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11773,12 +11773,13 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Stephanie Juneau, NOAO Data Lab Team&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20180108&#39;</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20181220&#39;</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ls_dr3&#39;</span><span class="p">,</span><span class="s1">&#39;sdss_dr13&#39;</span><span class="p">]</span>
+<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;extragalactic&#39;</span><span class="p">,</span><span class="s1">&#39;galaxies&#39;</span><span class="p">,</span><span class="s1">&#39;joint query&#39;</span><span class="p">,</span><span class="s1">&#39;spectroscopic redshift&#39;</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -11800,12 +11801,12 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Table-of-contents">Table of contents<a class="anchor-link" href="#Table-of-contents">&#182;</a></h3><ul>
-<li><a href="#attribution">0. Disclaimer &amp; attribution</a></li>
-<li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#import">2. Imports &amp; setup</a></li>
-<li><a href="#auth">3. Authentication</a></li>
-<li><a href="#query">4. Joint Query of LS and SDSS catalogs</a></li>
-<li><a href="#plots">5. Plot Results</a></li>
+<li><a href="#goals">Goals &amp; Summary</a></li>
+<li><a href="#attribution">Disclaimer &amp; attribution</a></li>
+<li><a href="#import">Imports &amp; setup</a></li>
+<li><a href="#query">Joint Query of LS and SDSS catalogs</a></li>
+<li><a href="#plots">Plot Results</a></li>
+<li><a href="#exercise">Exercise</a></li>
 </ul>
 
 </div>
@@ -11815,8 +11816,25 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="goals"></a></p>
+<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><ul>
+<li>Joint query between photometric (LS) and spectroscopic (SDSS) catalogs</li>
+<li>Plot on-sky position of extragalactic objects, color-coded by redshift</li>
+</ul>
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>In this Notebook, we explore large-scale structures of galaxies by combining spectroscopic redshifts from SDSS/BOSS with photometry from the DESI pre-imaging Legacy Survey (LS). The advantage of spectroscopic redshifts is that they are far more accurate than photometric redshifts to probe distances to galaxies (though still need to be corrected for possible distortion effects such as the finger-of-God effect, which we ignore here). The advantage of the LS photometry is that it reaches deeper than SDSS by about 1 magnitude, which yields better image quality to measure magnitudes, colors, and galaxy shapes. While there are several possible extensions to the example work included below, we will show that a simple figure of galaxy spatial locations color-coded by galaxy morphological type reveals the known morphology-density relation.</p>
+<p>On a technical point of view, this short notebook illustrates an example joint query between the LS DR3 photometry Tractor table, and the SDSS/BOSS DR13 specObj spectroscopy table. It takes advantage of the fact that there is a version of the LS DR3 tractor table that was pre-matched to SDSS/BOSS DR13 so we can join on a common column called <strong>specobjid</strong>.</p>
+<p>The columns from the LS table used (Tractor, pre-matched to specObj DR13) can be seen here: <a href="http://datalab.noao.edu/query.php?name=ls_dr3.dr3_specobj_dr13">http://datalab.noao.edu/query.php?name=ls_dr3.dr3_specobj_dr13</a></p>
+<p>The columns from the SDSS/BOSS DR13 table can be seen here: <a href="http://datalab.noao.edu/tutdev/query.php?name=sdss_dr13.specobj">http://datalab.noao.edu/tutdev/query.php?name=sdss_dr13.specobj</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="attribution"></a></p>
-<h1 id="0.-Disclaimer-&amp;-attribution">0. Disclaimer &amp; attribution<a class="anchor-link" href="#0.-Disclaimer-&amp;-attribution">&#182;</a></h1><p>If you use this notebook for your published science, please acknowledge the following:</p>
+<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h1><p>If you use this notebook for your published science, please acknowledge the following:</p>
 <ul>
 <li><p>Data Lab concept paper: Fitzpatrick et al., "The NOAO Data Laboratory: a conceptual overview", SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></p>
 </li>
@@ -11831,28 +11849,15 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a class="anchor" id="introduction"></a></p>
-<h1 id="1.-Introduction">1. Introduction<a class="anchor-link" href="#1.-Introduction">&#182;</a></h1><p>In this Notebook, we explore large-scale structures of galaxies by combining spectroscopic redshifts from SDSS/BOSS with photometry from the DESI pre-imaging Legacy Survey (LS). The advantage of spectroscopic redshifts is that they are far more accurate than photometric redshifts to probe distances to galaxies (though still need to be corrected for possible distortion effects such as the finger-of-God effect, which we ignore here). The advantage of the LS photometry is that it reaches deeper than SDSS by about 1 magnitude, which yields better image quality to measure magnitudes, colors, and galaxy shapes. While there are several possible extensions to the example work included below, we will show that a simple figure of galaxy spatial locations color-coded by galaxy morphological type reveals the known morphology-density relation.</p>
-<p>On a technical point of view, this short notebook illustrates an example joint query between the LS DR3 photometry Tractor table, and the SDSS/BOSS DR13 specObj spectroscopy table. It takes advantage of the fact that there is a version of the LS DR3 tractor table that was pre-matched to SDSS/BOSS DR13 so we can join on a common column called <strong>specobjid</strong>.</p>
-<p>The columns from the LS table used (Tractor, pre-matched to specObj DR13) can be seen here: <a href="http://datalab.noao.edu/query.php?name=ls_dr3.dr3_specobj_dr13">http://datalab.noao.edu/query.php?name=ls_dr3.dr3_specobj_dr13</a></p>
-<p>The columns from the SDSS/BOSS DR13 table can be seen here: <a href="http://datalab.noao.edu/tutdev/query.php?name=sdss_dr13.specobj">http://datalab.noao.edu/tutdev/query.php?name=sdss_dr13.specobj</a></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="import"></a></p>
-<h1 id="2.-Imports-and-setup">2. Imports and setup<a class="anchor-link" href="#2.-Imports-and-setup">&#182;</a></h1><p>Please note that one package is different between Python 2 &amp; Python 3. The default is for Python 3.</p>
+<h1 id="Imports-and-setup">Imports and setup<a class="anchor-link" href="#Imports-and-setup">&#182;</a></h1><p>Please note that one package is different between Python 2 &amp; Python 3. The default is for Python 3.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Python 2/3 compatibility</span>
@@ -11876,7 +11881,7 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">astropy.table</span> <span class="k">import</span> <span class="n">Table</span>
 
 <span class="c1"># Data Lab</span>
-<span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span>
+<span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done importing&#39;</span><span class="p">)</span>
 </pre></div>
@@ -11908,50 +11913,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a class="anchor" id="auth"></a></p>
-<h1 id="3.-Authentication">3. Authentication<a class="anchor-link" href="#3.-Authentication">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># To save to virtual space, need to log in your account (not anonymous)</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done getting token&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Done getting token
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="query"></a></p>
-<h1 id="4.-Query-DECaLS-Tractor-Photometry-Catalog">4. Query DECaLS Tractor Photometry Catalog<a class="anchor-link" href="#4.-Query-DECaLS-Tractor-Photometry-Catalog">&#182;</a></h1><p>The photometry is derived from Tractor modeling of sources, and the database includes model photometry, type (shape), as well as other quantities.</p>
+<h1 id="Query-DECaLS-Tractor-Photometry-Catalog">Query DECaLS Tractor Photometry Catalog<a class="anchor-link" href="#Query-DECaLS-Tractor-Photometry-Catalog">&#182;</a></h1><p>The photometry is derived from Tractor modeling of sources, and the database includes model photometry, type (shape), as well as other quantities.</p>
 <p>The Legacy Survey DR3 database is called <strong>ls_dr3</strong> and includes several tables. We will use the <strong>dr3_specobj_dr13</strong> table, which is a version of the LS DR3 tractor table which was pre-matched with specObj table from SDSS/BOSS DR13. The column names and descriptions can be found from the <a href="http://datalab.noao.edu/query.php">Data Lab Query Interface</a> or using the Table Access Protocol (TAP) service with, e.g., TOPCAT. In both cases, we are interested in <strong>ls_dr3.dr3_specobj_dr13</strong>.</p>
 <p>The SDSS DR13 database is called <strong>sdss_dr13</strong> and also includes several tables. We will use the <strong>specObj</strong> table, which has spectroscopic information.</p>
 
@@ -11960,7 +11923,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
@@ -11968,7 +11931,7 @@ div#notebook {
 query=&quot;SELECT nrows FROM tbl_stat WHERE schema=&#39;ls_dr3&#39; and tbl_name=&#39;tractor&#39;&quot;
 
 # Call query manager
-response = qc.query(token, sql=query, fmt=&#39;csv&#39;)
+response = qc.query(sql=query, fmt=&#39;csv&#39;)
 
 print(response)
 print(&#39;Time&#39;)
@@ -11992,8 +11955,8 @@ print(&#39;Time&#39;)
 524060864
 
 Time
-CPU times: user 29 ms, sys: 2 ms, total: 31 ms
-Wall time: 194 ms
+CPU times: user 30 ms, sys: 2 ms, total: 32 ms
+Wall time: 79.1 ms
 </pre>
 </div>
 </div>
@@ -12004,7 +11967,7 @@ Wall time: 194 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
@@ -12012,7 +11975,7 @@ Wall time: 194 ms
 query=&quot;SELECT nrows FROM tbl_stat WHERE schema=&#39;sdss_dr13&#39; and tbl_name=&#39;specobj&#39;&quot;
 
 # Call query manager
-response = qc.query(token, sql=query, fmt=&#39;csv&#39;)
+response = qc.query(sql=query, fmt=&#39;csv&#39;)
 
 print(response)
 print(&#39;Time&#39;)
@@ -12033,11 +11996,11 @@ print(&#39;Time&#39;)
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>nrows
-4411063
+4411200
 
 Time
-CPU times: user 16 ms, sys: 2 ms, total: 18 ms
-Wall time: 57.7 ms
+CPU times: user 24 ms, sys: 999 µs, total: 25 ms
+Wall time: 71.3 ms
 </pre>
 </div>
 </div>
@@ -12048,7 +12011,7 @@ Wall time: 57.7 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ls_dr3.dr3_specobj_dr13           #DECaLS matched to SDSS DR13 specobj</span>
@@ -12109,12 +12072,12 @@ Wall time: 57.7 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
 # Call query manager
-response = qc.query(token, adql=query, fmt=&#39;csv&#39;)
+response = qc.query(adql=query, fmt=&#39;csv&#39;)
 
 print(&#39;Time&#39;)
 </pre></div>
@@ -12134,8 +12097,8 @@ print(&#39;Time&#39;)
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Time
-CPU times: user 27 ms, sys: 5 ms, total: 32 ms
-Wall time: 1.15 s
+CPU times: user 39 ms, sys: 4 ms, total: 43 ms
+Wall time: 1.49 s
 </pre>
 </div>
 </div>
@@ -12146,7 +12109,7 @@ Wall time: 1.15 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Reformat output into a table</span>
@@ -12165,13 +12128,13 @@ Wall time: 1.15 s
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[8]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-&lt;Table length=10&gt;
-<table id="table140103985830768" class="table-striped table-bordered table-condensed">
+<i>Table length=10</i>
+<table id="table140585109197544" class="table-striped table-bordered table-condensed">
 <thead><tr><th>ra</th><th>dec</th><th>type</th><th>g_r</th><th>r_z</th><th>z</th><th>plug_ra</th><th>plug_dec</th><th>class</th><th>vdisp</th><th>vdisp_err</th></tr></thead>
 <thead><tr><th>float64</th><th>float64</th><th>str4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>str6</th><th>float64</th><th>float64</th></tr></thead>
 <tr><td>126.000079167</td><td>7.03495434515</td><td>DEV</td><td>1.3311861</td><td>0.81087899</td><td>0.212844</td><td>126.00008</td><td>7.0349361</td><td>GALAXY</td><td>284.43051</td><td>15.617004</td></tr>
@@ -12198,21 +12161,13 @@ Wall time: 1.15 s
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="plots"></a></p>
-<h1 id="5.-Plot-Results">5. Plot Results<a class="anchor-link" href="#5.-Plot-Results">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="5.1-Sanity-check:-RA,-Dec-positions-from-both-tables">5.1 Sanity check: RA, Dec positions from both tables<a class="anchor-link" href="#5.1-Sanity-check:-RA,-Dec-positions-from-both-tables">&#182;</a></h2>
+<h1 id="Plot-Results">Plot Results<a class="anchor-link" href="#Plot-Results">&#182;</a></h1><h2 id="Sanity-check:-RA,-Dec-positions-from-both-tables">Sanity check: RA, Dec positions from both tables<a class="anchor-link" href="#Sanity-check:-RA,-Dec-positions-from-both-tables">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># convert RA coordinates from [0,360] to [-180,180] </span>
@@ -13739,14 +13694,14 @@ jIwlh0xwMjIyMjIyMpYcMsHJyMjIyMjIWHL4/4PRIleNRLd9AAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="5.2-Visual-Inspection-of-Large-Scale-Structures">5.2 Visual Inspection of Large-Scale Structures<a class="anchor-link" href="#5.2-Visual-Inspection-of-Large-Scale-Structures">&#182;</a></h2><p>Plot the positions of a broad range of redshift, and overplot a thin slice in redshift to show possible structures within that slice.</p>
+<h2 id="Visual-Inspection-of-Large-Scale-Structures">Visual Inspection of Large-Scale Structures<a class="anchor-link" href="#Visual-Inspection-of-Large-Scale-Structures">&#182;</a></h2><p>Plot the positions of a broad range of redshift, and overplot a thin slice in redshift to show possible structures within that slice.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Select redshift slice</span>
@@ -15490,7 +15445,7 @@ iqIoiqJE+X+pr7zq+N9ssAAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## ZOOM IN AGAIN OVER AN EVEN SMALLER REGION</span>
@@ -20567,7 +20522,7 @@ URRFURSdMP8/fiqdq3F8CncAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="5.3-Large-Scale-Structures-with-LS-Morphologies">5.3 Large-Scale Structures with LS Morphologies<a class="anchor-link" href="#5.3-Large-Scale-Structures-with-LS-Morphologies">&#182;</a></h2><p>There are many possible extensions to this work. For instance, one could plot again with symbols coded with object <em>type</em> (from LS) and/or <em>class</em> (from SDSS) and/or velocity dispersion (from SDSS) and/or other quantities. Here, we will start with the object "TYPE" from LS, related to the morphological shapes.</p>
+<h2 id="Large-Scale-Structures-with-LS-Morphologies">Large-Scale Structures with LS Morphologies<a class="anchor-link" href="#Large-Scale-Structures-with-LS-Morphologies">&#182;</a></h2><p>There are many possible extensions to this work. For instance, one could plot again with symbols coded with object <em>type</em> (from LS) and/or <em>class</em> (from SDSS) and/or velocity dispersion (from SDSS) and/or other quantities. Here, we will start with the object "TYPE" from LS, related to the morphological shapes.</p>
 <p>The object shape (2D light profile) is modeled by <a href="http://thetractor.org">the Tractor</a> (<a href="http://adsabs.harvard.edu/abs/2016ascl.soft04008L">Lang, Hogg &amp; Mykytyn</a>) as part of the procedure to compute model photometry.</p>
 <p>Possible shapes for LS DR3:</p>
 <ul>
@@ -20586,7 +20541,7 @@ URRFURSdMP8/fiqdq3F8CncAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Select redshift slice</span>
@@ -23621,7 +23576,8 @@ YQD8f77h6aLXiLnfAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="5.4-Large-Scale-Structures-with-Galaxy-Colors">5.4 Large-Scale Structures with Galaxy Colors<a class="anchor-link" href="#5.4-Large-Scale-Structures-with-Galaxy-Colors">&#182;</a></h2><p>There are pre-computed colors available. The columns are described here:
+<p><a class="anchor" id="exercise"></a></p>
+<h2 id="EXERCISE:-Large-Scale-Structures-with-Galaxy-Colors">EXERCISE: Large-Scale Structures with Galaxy Colors<a class="anchor-link" href="#EXERCISE:-Large-Scale-Structures-with-Galaxy-Colors">&#182;</a></h2><p>There are pre-computed colors available. The columns are described here:
 <a href="http://datalab.noao.edu/query.php?name=ls_dr3.dr3_specobj_dr13">http://datalab.noao.edu/query.php?name=ls_dr3.dr3_specobj_dr13</a></p>
 <p>Another possibility would be to plot again the galaxies spatial coordinates, but color-coded according to their photometric colors. This is left as an exercise for the user, but feel free to get in touch with the Data Lab Team if you have questions.</p>
 
