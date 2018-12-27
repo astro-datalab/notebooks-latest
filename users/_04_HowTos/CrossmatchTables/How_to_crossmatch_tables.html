@@ -11771,18 +11771,86 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Knut Olsen &lt;kolsen@noao.edu&gt;, Mike Fitzpatrick &lt;mfitzpatrick@noao.edu&gt;, Adam Scott &lt;ascott@noao.edu&gt;&#39;</span> <span class="c1"># single string; emails in &lt;&gt;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20181227&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;usno.a2&#39;</span><span class="p">,</span><span class="s1">&#39;gaia_dr2&#39;</span><span class="p">]</span>  <span class="c1"># datasets used in this notebook; for available datasets, see cell &quot;Available datasets in Data Lab&quot; further below</span>
+<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;crossmatch&#39;</span><span class="p">,</span><span class="s1">&#39;mydb&#39;</span><span class="p">,</span><span class="s1">&#39;query&#39;</span><span class="p">,</span><span class="s1">&#39;tutorial&#39;</span><span class="p">,</span><span class="s1">&#39;vospace&#39;</span><span class="p">],</span> <span class="c1"># keywords relevant to this notebook, e.g. [&#39;science case&#39;,&#39;dwarf galaxies&#39;] Use only keywords from the master list: https://github.com/noaodatalab/notebooks_private/blob/master/internal/keywords.txt </span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-to-do-an-efficient-crossmatch-of-a-user-table-with-a-table-in-Data-Lab">How to do an efficient crossmatch of a user table with a table in Data Lab<a class="anchor-link" href="#How-to-do-an-efficient-crossmatch-of-a-user-table-with-a-table-in-Data-Lab">&#182;</a></h2><p>In this notebook, we demonstrate how to do an efficient crossmatch of a user-provided table of data against a table hosted by Data Lab.  The basic steps are:</p>
+<h1 id="How-to-do-an-efficient-crossmatch-of-a-user-table-with-a-table-in-Data-Lab">How to do an efficient crossmatch of a user table with a table in Data Lab<a class="anchor-link" href="#How-to-do-an-efficient-crossmatch-of-a-user-table-with-a-table-in-Data-Lab">&#182;</a></h1><p><em>Knut Olsen, Mike Fitzpatrick, and Adam Scott</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h1><ul>
+<li><a href="#goals">Goals</a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#attribution">Disclaimer &amp; attribution</a></li>
+<li><a href="#login">Standard Imports and Data Lab Login</a></li>
+<li><a href="#mydb">MyDB, your personal database storage</a></li>
+<li><a href="#import">Importing a user table</a></li>
+<li><a href="#crossmatch">Run the crossmatch</a></li>
+<li><a href="#cleanup">Cleanup</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="goals"></a></p>
+<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><p>In this notebook, we demonstrate how to do an efficient crossmatch of a user-provided table of data against a table hosted by Data Lab.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="summary"></a></p>
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>The basic steps are:</p>
 <ul>
 <li><a href="#login">Make sure that you are logged in as a registered user</a></li>
 <li><a href="#import">Upload your table into myDB, your personal database storage area</a></li>
 <li><a href="#crossmatch">Create and run a query to do the crossmatch using the q3c_join() function</a></li>
 </ul>
-<p>Click one of the links above if you want to jump to a section.</p>
-<p><em>Revised: 09/24/18</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="attribution"></a></p>
+<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h1><p>If you use this notebook for your published science, please acknowledge the following:</p>
+<ul>
+<li><p>Data Lab concept paper: Fitzpatrick et al., "The NOAO Data Laboratory: a conceptual overview", SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></p>
+</li>
+<li><p>Data Lab disclaimer: <a href="http://datalab.noao.edu/disclaimers.php">http://datalab.noao.edu/disclaimers.php</a></p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -11792,13 +11860,13 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="login"></a></p>
-<h3 id="Standard-Imports-and-Data-Lab-Login">Standard Imports and Data Lab Login<a class="anchor-link" href="#Standard-Imports-and-Data-Lab-Login">&#182;</a></h3>
+<h1 id="Standard-Imports-and-Data-Lab-Login">Standard Imports and Data Lab Login<a class="anchor-link" href="#Standard-Imports-and-Data-Lab-Login">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span>
@@ -11807,32 +11875,15 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">dl.helpers.utils</span> <span class="k">import</span> <span class="n">convert</span>        <span class="c1"># to use Pandas</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">getpass</span>
 
-<span class="n">do_cleanup</span> <span class="o">=</span> <span class="kc">False</span>                          <span class="c1"># Remove any files/tables created by this notebook</span>
+<span class="n">do_cleanup</span> <span class="o">=</span> <span class="kc">True</span>                          <span class="c1"># Remove any files/tables created by this notebook</span>
 
 <span class="c1"># Being logged in as a registered user is a necessary step since we will be using MyDB for storage.  </span>
 <span class="c1"># Once logged in, the token is stored on the server in the user&#39;s $HOME/.datalab directory.  </span>
 <span class="c1"># Passing the token to queryClient and storeClient is optional.</span>
 
-<span class="c1"># Check if logged in as user other than anonymous</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">user</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">whoAmI</span><span class="p">()</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">user</span> <span class="o">==</span> <span class="s1">&#39;anonymous&#39;</span><span class="p">):</span>
-        <span class="n">logged_in</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">logged_in</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">token</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="c1">#Retrieve token (OPTIONAL)</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="n">logged_in</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="c1"># if not, prompt user to log in</span>
-<span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">logged_in</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">token</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter user name (+ENTER): &#39;</span><span class="p">),</span><span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s1">&#39;Enter password (+ENTER): &#39;</span><span class="p">))</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Error: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="c1">#token = ac.login(input(&#39;Enter user name (+ENTER): &#39;),getpass.getpass(&#39;Enter password (+ENTER): &#39;))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;User: &#39;</span> <span class="o">+</span> <span class="n">ac</span><span class="o">.</span><span class="n">whoAmI</span><span class="p">())</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Service:  &#39;</span> <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">get_svc_url</span><span class="p">())</span>
 </pre></div>
 
 </div>
@@ -11850,7 +11901,6 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>User: kolsen
-Service:  http://dldev.datalab.noao.edu/query
 </pre>
 </div>
 </div>
@@ -11858,6 +11908,15 @@ Service:  http://dldev.datalab.noao.edu/query
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="mydb"></a></p>
+<h1 id="MyDB,-your-personal-database-storage">MyDB, your personal database storage<a class="anchor-link" href="#MyDB,-your-personal-database-storage">&#182;</a></h1>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -11880,7 +11939,7 @@ Service:  http://dldev.datalab.noao.edu/query
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Listing mydb tables:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">())</span>
@@ -11901,17 +11960,7 @@ Service:  http://dldev.datalab.noao.edu/query
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Listing mydb tables:
-objects5
 usno_objects
-objects6a
-objects1
-objects6b
-objects2
-objects6c
-objects3
-test1
-objects4
-test2
 
 </pre>
 </div>
@@ -11932,7 +11981,7 @@ test2
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;select top 15 id,raj2000,dej2000 from usno.a2&#39;</span>
@@ -11961,17 +12010,7 @@ test2
 <pre>Error: relation &#34;usno_objects&#34; already exists
 
 Listing mydb tables:
-objects5
 usno_objects
-objects6a
-objects1
-objects6b
-objects2
-objects6c
-objects3
-test1
-objects4
-test2
 
 </pre>
 </div>
@@ -11985,7 +12024,8 @@ test2
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Importing-a-user-table">Importing a user table<a class="anchor-link" href="#Importing-a-user-table">&#182;</a></h2><p>But often a user will have an existing table that they wish to import into mydb.  The sections below show how to do this with a variety of examples.</p>
+<p><a class="anchor" id="import"></a></p>
+<h1 id="Importing-a-user-table">Importing a user table<a class="anchor-link" href="#Importing-a-user-table">&#182;</a></h1><p>But often a user will have an existing table that they wish to import into mydb.  The sections below show how to do this with a variety of examples.</p>
 
 </div>
 </div>
@@ -12001,7 +12041,7 @@ test2
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span> <span class="p">(</span><span class="s1">&#39;select id,raj2000 as ra,dej2000 as dec from usno.a2 limit 15&#39;</span><span class="p">)</span>  <span class="c1"># CSV String</span>
@@ -12035,7 +12075,7 @@ test2
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>(1 / 1) objects.csv -&gt; vos://objects.csv
--rw-rw----  kolsen     527  26 Sep 2018 11:29  objects.csv
+-rw-rw----  kolsen     527  27 Dec 2018 14:29  objects.csv
 
 </pre>
 </div>
@@ -12056,7 +12096,7 @@ test2
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;select top 15 id,raj2000,dej2000 from usno.a2&#39;</span>
@@ -12078,8 +12118,8 @@ test2
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>-rw-rw----  kolsen     527  26 Sep 2018 11:29  objects.csv
--rw-rw----  kolsen    2201  26 Sep 2018 11:29  objects.vot
+<pre>-rw-rw----  kolsen     527  27 Dec 2018 14:29  objects.csv
+-rw-rw----  kolsen    2201  27 Dec 2018 14:29  objects.vot
 
 </pre>
 </div>
@@ -12121,7 +12161,7 @@ test2
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Local file result: &#39;</span>   <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects1&#39;</span><span class="p">,</span> <span class="s1">&#39;objects.csv&#39;</span><span class="p">))</span>
@@ -12160,7 +12200,7 @@ test2
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;VOS file result: &#39;</span>   <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects2&#39;</span><span class="p">,</span> <span class="s1">&#39;vos://objects.csv&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
@@ -12199,7 +12239,7 @@ test2
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;String (CSV) result: &#39;</span> <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects3&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span>
@@ -12241,7 +12281,7 @@ test2
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Pandas result: &#39;</span> <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects4&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">))</span>
@@ -12280,7 +12320,7 @@ test2
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects5&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>             <span class="c1"># Drop existing table by default</span>
@@ -12328,7 +12368,7 @@ Num rows in objects5: count
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generate a VOTable by calling the PanSTARRS Cone Search service.</span>
@@ -12377,7 +12417,7 @@ http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=PS1V3OBJECTS&amp;RA=0.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects6a&#39;</span><span class="p">,</span> <span class="s1">&#39;ps1.vot&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>             <span class="c1"># Load from local VOTable</span>
@@ -12413,7 +12453,7 @@ Num rows in objects6a: count
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects6b&#39;</span><span class="p">,</span> <span class="s1">&#39;vos://ps1.vot&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>       <span class="c1"># Load from virtual storage VOTable</span>
@@ -12447,7 +12487,7 @@ Num rows in objects6a: count
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects6c&#39;</span><span class="p">,</span> <span class="n">ps1_url</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>               <span class="c1"># Load from service URL directly</span>
@@ -12490,7 +12530,7 @@ Num rows in objects6a: count
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">(</span><span class="s1">&#39;objects4&#39;</span><span class="p">))</span>              <span class="c1"># Use of the &#39;mydb://&#39; prefix is optional</span>
@@ -12646,7 +12686,7 @@ drop          [Optional, default=True] Drop any existing table before loading th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a simple (id,ra,dec) schema of a text string and two double values</span>
@@ -12662,7 +12702,7 @@ drop          [Optional, default=True] Drop any existing table before loading th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Example 1:  Create a table from a schema definition file, drop existing table</span>
@@ -12694,7 +12734,7 @@ drop          [Optional, default=True] Drop any existing table before loading th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Example 2:  Create a table from a schema definition str</span>
@@ -12726,7 +12766,7 @@ drop          [Optional, default=True] Drop any existing table before loading th
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;table1 structure:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">(</span><span class="s1">&#39;test1&#39;</span><span class="p">))</span>
@@ -12788,7 +12828,7 @@ csv_header    [Optional, default=True] CSV data contains a header row of column 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Example 1:  Load from a CSV file</span>
@@ -12833,7 +12873,7 @@ Loading from string: OK
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running query: &#39;select * from mydb://test1&#39;&quot;</span><span class="p">)</span>
@@ -12862,7 +12902,7 @@ Loading from string: OK
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[21]:</div>
+<div class="prompt output_prompt">Out[22]:</div>
 
 
 
@@ -12997,7 +13037,7 @@ Loading from string: OK
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="crossmatch"></a></p>
-<h2 id="Run-the-crossmatch">Run the crossmatch<a class="anchor-link" href="#Run-the-crossmatch">&#182;</a></h2><p>We now construct a query to run the crossmatch in the database using <em>q3c_join()</em>, which identifies all matching objects within a specified radius. (See <a href="https://github.com/segasai/q3c">https://github.com/segasai/q3c</a> for details on using Q3C functions.)  The format is</p>
+<h1 id="Run-the-crossmatch">Run the crossmatch<a class="anchor-link" href="#Run-the-crossmatch">&#182;</a></h1><p>We now construct a query to run the crossmatch in the database using <em>q3c_join()</em>, which identifies all matching objects within a specified radius. (See <a href="https://github.com/segasai/q3c">https://github.com/segasai/q3c</a> for details on using Q3C functions.)  The format is</p>
 
 <pre><code>    q3c_join (ra_user, dec_user, ra_DLtable, dec_DLtable, radius) 
 </code></pre>
@@ -13007,13 +13047,14 @@ Loading from string: OK
 <li>That the ra, dec of the SMALL catalog appears FIRST in the query</li>
 <li>That the radius is in DEGREES, not e.g. arcseconds</li>
 </ul>
+<p>(Note that in this notebook, we use a radius of 0.01 degrees or ~36 arcseconds.  It's usually best to start with a smaller radius, especially if you expect a lot of matches.)</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
@@ -13041,8 +13082,8 @@ df2 = convert(qc.query(sql=sql))
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 0 ns, sys: 15 ms, total: 15 ms
-Wall time: 154 ms
+<pre>CPU times: user 22 ms, sys: 3 ms, total: 25 ms
+Wall time: 158 ms
 </pre>
 </div>
 </div>
@@ -13053,7 +13094,7 @@ Wall time: 154 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;nrows x ncols: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -13081,7 +13122,7 @@ Wall time: 154 ms
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[23]:</div>
+<div class="prompt output_prompt">Out[24]:</div>
 
 
 
@@ -13201,7 +13242,7 @@ Wall time: 154 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
@@ -13236,8 +13277,8 @@ df3 = convert(qc.query(sql=sql))
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 0 ns, sys: 18 ms, total: 18 ms
-Wall time: 146 ms
+<pre>CPU times: user 29 ms, sys: 1 ms, total: 30 ms
+Wall time: 168 ms
 </pre>
 </div>
 </div>
@@ -13248,7 +13289,7 @@ Wall time: 146 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;nrows x ncols: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df3</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -13276,7 +13317,7 @@ Wall time: 146 ms
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[25]:</div>
+<div class="prompt output_prompt">Out[26]:</div>
 
 
 
@@ -13387,7 +13428,7 @@ Wall time: 146 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
@@ -13422,8 +13463,8 @@ df4 = convert(qc.query(sql=sql))
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 0 ns, sys: 0 ns, total: 0 ns
-Wall time: 137 ms
+<pre>CPU times: user 27 ms, sys: 2 ms, total: 29 ms
+Wall time: 172 ms
 </pre>
 </div>
 </div>
@@ -13434,7 +13475,7 @@ Wall time: 137 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;nrows x ncols: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df4</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -13462,7 +13503,7 @@ Wall time: 137 ms
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[27]:</div>
+<div class="prompt output_prompt">Out[28]:</div>
 
 
 
@@ -13566,14 +13607,15 @@ Wall time: 137 ms
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Cleanup">Cleanup<a class="anchor-link" href="#Cleanup">&#182;</a></h3><p>If the myDB table was meant to be temporary, it can be dropped with <em>mydb_drop()</em>.  Here, we'll drop only the tables created in this notebook:</p>
+<p><a class="anchor" id="cleanup"></a></p>
+<h1 id="Cleanup">Cleanup<a class="anchor-link" href="#Cleanup">&#182;</a></h1><p>If the myDB table was meant to be temporary, it can be dropped with <em>mydb_drop()</em>.  Here, we'll drop only the tables created in this notebook:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Drop any tables or temp files we created.</span>
@@ -13597,6 +13639,38 @@ Wall time: 137 ms
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dropping table &#39;test1&#39; ... 	OK
+Dropping table &#39;test2&#39; ... 	OK
+Dropping table &#39;objects1&#39; ... 	OK
+Dropping table &#39;objects2&#39; ... 	OK
+Dropping table &#39;objects3&#39; ... 	OK
+Dropping table &#39;objects4&#39; ... 	OK
+Dropping table &#39;objects5&#39; ... 	OK
+Dropping table &#39;objects6a&#39; ... 	OK
+Dropping table &#39;objects6b&#39; ... 	OK
+Dropping table &#39;objects6c&#39; ... 	OK
+Listing mydb tables:
+usno_objects
+
+removing objects.csv
+removing objects.vot
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -13609,10 +13683,10 @@ Wall time: 137 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>      <span class="c1"># Change this to remove all tables</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="kc">False</span><span class="p">:</span>      <span class="c1"># Change this to True to remove all tables</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initial listing of mydb tables:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">())</span>
     <span class="n">table_list</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">list</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>    <span class="c1"># convert string return to array</span>
     <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">table_list</span><span class="p">:</span>
@@ -13622,64 +13696,6 @@ Wall time: 137 ms
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Initial listing of mydb tables:
-objects6a
-usno_objects
-objects1
-objects6b
-objects2
-objects6c
-objects3
-test1
-objects4
-test2
-objects5
-
-Dropping table &#39;objects6a&#39; ... 	OK
-Dropping table &#39;usno_objects&#39; ... 	OK
-Dropping table &#39;objects1&#39; ... 	OK
-Dropping table &#39;objects6b&#39; ... 	OK
-Dropping table &#39;objects2&#39; ... 	OK
-Dropping table &#39;objects6c&#39; ... 	OK
-Dropping table &#39;objects3&#39; ... 	OK
-Dropping table &#39;test1&#39; ... 	OK
-Dropping table &#39;objects4&#39; ... 	OK
-Dropping table &#39;test2&#39; ... 	OK
-Dropping table &#39;objects5&#39; ... 	OK
-Dropping table &#39;&#39; ... 	OK
-
-Final listing of mydb tables:
-No tables
-
-Final list of VOSpace:
--rw-rw----  kolsen    3066  22 Sep 2017 15:30  README.md
--rw-rw----  kolsen    3439  03 Jun 2017 18:32  foo1
--rw-rw----  kolsen     527  26 Sep 2018 11:29  objects.csv
--rw-rw----  kolsen    2201  26 Sep 2018 11:29  objects.vot
--rw-rw----  kolsen  360559  26 Sep 2018 10:32  ps1.vot
-drw-rw----  kolsen       0  21 Feb 2017 00:00  public/
-drw-rw----  kolsen     512  20 Jun 2017 11:11  test/
--rw-rw----  kolsen    1167  03 Jun 2017 17:45  test1
--rw-rw----  kolsen   11789  13 Feb 2018 14:07  test1.csv
-drw-rw----  kolsen       0  21 Feb 2017 00:00  tmp/
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
