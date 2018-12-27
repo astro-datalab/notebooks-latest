@@ -20,7 +20,7 @@
 
 
                        web: https://datalab.noao.edu
-                  github: https://github.com/noao-datalab
+                  github: https://github.com/noaodatalab
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -135,7 +135,7 @@ Finally, copies of this README file as well as the latest notebooks
 are kept on:
 
 - the Data Lab website: https://datalab.noao.edu/notebooks/web/
-- the Data Lab Github account: https://github.com/noao-datalab
+- the Data Lab Github account: https://github.com/noaodatalab/notebooks-latest
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
