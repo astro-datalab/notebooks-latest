@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>M31WithPhat_20180928</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>M31WithPhat_20190102</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11777,8 +11777,9 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Knut Olsen &lt;kolsen@noao.edu&gt;&#39;</span> <span class="c1"># single string; emails in &lt;&gt;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20180928&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20190102&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;phat_v2&#39;</span><span class="p">]</span>  <span class="c1"># enter used datasets by hand</span>
+<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;M31&#39;</span><span class="p">,</span><span class="s1">&#39;Healpix map&#39;</span><span class="p">,</span><span class="s1">&#39;plot:cmd&#39;</span><span class="p">,</span><span class="s1">&#39;lightcurve&#39;</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -11790,7 +11791,17 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Fun-with-PHAT!">Fun with PHAT!<a class="anchor-link" href="#Fun-with-PHAT!">&#182;</a></h1><p><em>Knut Olsen &amp; the NOAO Data Lab Team</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Table-of-contents">Table of contents<a class="anchor-link" href="#Table-of-contents">&#182;</a></h2><ul>
+<li><a href="#goals">Goals &amp; Summary</a></li>
 <li><a href="#attribution">Disclaimer &amp; attribution</a></li>
 <li><a href="#import">Imports &amp; setup</a></li>
 <li><a href="#auth">Authentication</a></li>
@@ -11810,7 +11821,21 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Fun-with-PHAT!">Fun with PHAT!<a class="anchor-link" href="#Fun-with-PHAT!">&#182;</a></h1><p>The Panchromatic Hubble Andromeda Treasury (PHAT; PI Dalcanton) is a Hubble Space Telescope Multi-cycle program to map roughly a third of M31's star forming disk, using 6 filters covering from the ultraviolet through the near infrared.</p>
+<p><a class="anchor" id="goals"></a></p>
+<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><ul>
+<li>Learn how to access the PHAT average photometry and single epoch measurement tables</li>
+<li>Learn how to use an SQL query to make Healpix maps of object density, average depth, average color, and PHAT brick number</li>
+<li>Learn how to retrieve and plot lightcurve data from the PHAT single epoch measurement table</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>The Panchromatic Hubble Andromeda Treasury (PHAT; PI Dalcanton) was a Hubble Space Telescope Multi-cycle program to map roughly a third of M31's star forming disk, using 6 filters covering from the ultraviolet through the near infrared.</p>
 <p>The Data Lab hosts two main tables from PHAT: the version 2 object table (phat_v2.phot_mod) and the version 2 single epoch measurement table (phat_v2.phot_meas).  The object table contains average photometry in all filters, with one row per object.  The measurement table contains all of the photometric measurements for all objects, with one row per measurement.  The measurement table contains ~7.5 billion rows.</p>
 <p>In this notebook, we'll use these tables to do some exploration of the PHAT survey.</p>
 
@@ -11882,10 +11907,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Either get token for anonymous user</span>
-<span class="c1">#token = ac.login(&#39;anonymous&#39;)</span>
-
-<span class="c1"># Authenticated users please uncomment the next line</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Authenticated users please uncomment the next line</span>
 <span class="c1">#token = ac.login(input(&quot;Enter user name: &quot;),getpass(&quot;Enter password: &quot;))</span>
 </pre></div>
 
@@ -11974,8 +11996,8 @@ except Exception as e:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 23 ms, sys: 2 ms, total: 25 ms
-Wall time: 72.8 ms
+<pre>CPU times: user 25 ms, sys: 2 ms, total: 27 ms
+Wall time: 73.4 ms
 </pre>
 </div>
 </div>
@@ -11986,7 +12008,7 @@ Wall time: 72.8 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
@@ -12029,7 +12051,7 @@ phat_v2,phot_mod,117335544,88,44,43 GB,100 GB,143 GB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT *</span>
@@ -12045,7 +12067,7 @@ phat_v2,phot_mod,117335544,88,44,43 GB,100 GB,143 GB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
@@ -12069,8 +12091,8 @@ except Exception as e:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 28 ms, sys: 5 ms, total: 33 ms
-Wall time: 815 ms
+<pre>CPU times: user 24 ms, sys: 2 ms, total: 26 ms
+Wall time: 97.1 ms
 </pre>
 </div>
 </div>
@@ -12090,7 +12112,7 @@ Wall time: 815 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
@@ -12156,7 +12178,7 @@ Index([&#39;ra&#39;, &#39;dec&#39;, &#39;htm9&#39;, &#39;pix256&#39;, &#39;pix40
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT avg(ra) as ra0,avg(dec) as dec0,pix4096,count(pix4096) as nb</span>
@@ -12172,7 +12194,7 @@ Index([&#39;ra&#39;, &#39;dec&#39;, &#39;htm9&#39;, &#39;pix256&#39;, &#39;pix40
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
@@ -12197,8 +12219,8 @@ except Exception as e:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 30 ms, sys: 0 ns, total: 30 ms
-Wall time: 35.2 s
+<pre>CPU times: user 26 ms, sys: 3 ms, total: 29 ms
+Wall time: 6.1 s
 </pre>
 </div>
 </div>
@@ -12218,7 +12240,7 @@ Wall time: 35.2 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_density</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
@@ -12261,7 +12283,7 @@ Wall time: 35.2 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">hmap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">hp</span><span class="o">.</span><span class="n">nside2npix</span><span class="p">(</span><span class="mi">4096</span><span class="p">))</span>
@@ -12274,7 +12296,7 @@ Wall time: 35.2 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_density</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
@@ -12319,7 +12341,7 @@ Wall time: 35.2 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">hmap</span><span class="p">[</span><span class="n">df_density</span><span class="p">[</span><span class="s1">&#39;pix4096&#39;</span><span class="p">]]</span><span class="o">=</span><span class="n">df_density</span><span class="p">[</span><span class="s1">&#39;nb&#39;</span><span class="p">]</span>
@@ -12333,7 +12355,7 @@ Wall time: 35.2 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">hp</span><span class="o">.</span><span class="n">gnomview</span><span class="p">(</span><span class="n">hmap</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">notext</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">reso</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span><span class="n">nest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">rot</span><span class="o">=</span><span class="p">(</span><span class="n">rarot</span><span class="p">,</span><span class="n">decrot</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;inferno&#39;</span><span class="p">,</span><span class="nb">min</span><span class="o">=</span><span class="mf">1e3</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mf">8e4</span><span class="p">)</span>
@@ -12864,7 +12886,7 @@ ARERkS84ARERkS/+B/nQwtTtfx2hAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT avg(ra) as ra0,avg(dec) as dec0,pix4096,count(pix4096) as nb,</span>
@@ -12908,7 +12930,7 @@ ARERkS84ARERkS/+B/nQwtTtfx2hAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
@@ -12933,8 +12955,8 @@ except Exception as e:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 26 ms, sys: 1e+03 µs, total: 27 ms
-Wall time: 12.5 s
+<pre>CPU times: user 30 ms, sys: 0 ns, total: 30 ms
+Wall time: 11 s
 </pre>
 </div>
 </div>
@@ -12945,7 +12967,7 @@ Wall time: 12.5 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_all</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
@@ -12979,7 +13001,7 @@ Wall time: 12.5 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_all</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
@@ -13024,7 +13046,7 @@ Wall time: 12.5 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">gmap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">hp</span><span class="o">.</span><span class="n">nside2npix</span><span class="p">(</span><span class="mi">4096</span><span class="p">))</span>
@@ -13499,7 +13521,7 @@ yvR4uzQKuwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">gimap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">hp</span><span class="o">.</span><span class="n">nside2npix</span><span class="p">(</span><span class="mi">4096</span><span class="p">))</span>
@@ -14004,7 +14026,7 @@ TkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">brickmap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">hp</span><span class="o">.</span><span class="n">nside2npix</span><span class="p">(</span><span class="mi">4096</span><span class="p">))</span>
@@ -14295,7 +14317,7 @@ RESkFAUSEREpRYFERERK+X9+9vALFpRXEgAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT *</span>
@@ -14331,7 +14353,7 @@ RESkFAUSEREpRYFERERK+X9+9vALFpRXEgAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
@@ -14355,8 +14377,8 @@ except Exception as e:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 1.09 s, sys: 289 ms, total: 1.38 s
-Wall time: 12.4 s
+<pre>CPU times: user 1.15 s, sys: 392 ms, total: 1.54 s
+Wall time: 12.1 s
 </pre>
 </div>
 </div>
@@ -14376,7 +14398,7 @@ Wall time: 12.4 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
@@ -14421,7 +14443,7 @@ Number of rows: 97786
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># make a figure</span>
@@ -14459,7 +14481,7 @@ Number of rows: 97786
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[28]:</div>
+<div class="prompt output_prompt">Out[27]:</div>
 
 
 
@@ -23922,7 +23944,7 @@ A0uGYRiGYRiGYRiGYRhGS9jAkmEYhmEYhmEYhmEYhtES/z9Dzh2wqWUQxwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># define a function to select only measurements in one band</span>
@@ -23941,7 +23963,7 @@ A0uGYRiGYRiGYRiGYRhGS9jAkmEYhmEYhmEYhmEYhtES/z9Dzh2wqWUQxwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># a reusable function to plot the lightcurve</span>
@@ -23970,7 +23992,7 @@ A0uGYRiGYRiGYRiGYRhGS9jAkmEYhmEYhmEYhmEYhtES/z9Dzh2wqWUQxwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_folded_phase</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">best_period</span><span class="p">):</span>
@@ -23990,7 +24012,7 @@ A0uGYRiGYRiGYRiGYRhGS9jAkmEYhmEYhmEYhmEYhtES/z9Dzh2wqWUQxwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_folded_lightcurve</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">best_period</span><span class="p">,</span><span class="n">dy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
@@ -24042,7 +24064,7 @@ A0uGYRiGYRiGYRiGYRhGS9jAkmEYhmEYhmEYhmEYhtES/z9Dzh2wqWUQxwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pick a star from Wagner-Kaiser et al. (2015)</span>
@@ -24078,7 +24100,7 @@ A0uGYRiGYRiGYRiGYRhGS9jAkmEYhmEYhmEYhmEYhtES/z9Dzh2wqWUQxwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
@@ -24102,8 +24124,8 @@ except Exception as e:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 22 ms, sys: 3 ms, total: 25 ms
-Wall time: 588 ms
+<pre>CPU times: user 18 ms, sys: 6 ms, total: 24 ms
+Wall time: 210 ms
 </pre>
 </div>
 </div>
@@ -24114,7 +24136,7 @@ Wall time: 588 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_ts</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
@@ -24150,7 +24172,7 @@ Wall time: 588 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">uid</span><span class="o">=</span><span class="n">df_ts</span><span class="p">[</span><span class="s1">&#39;objid&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
@@ -24164,7 +24186,7 @@ Wall time: 588 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;gcbrkm&#39;</span><span class="p">)</span>
