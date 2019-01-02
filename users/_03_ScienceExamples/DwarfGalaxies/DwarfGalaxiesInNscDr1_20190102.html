@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>DwarfGalaxiesInNscDr1_20190101</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>DwarfGalaxiesInNscDr1_20190102</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -13,8 +11,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1109,7 +1107,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2538,7 +2535,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3029,7 +3025,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8760,6 +8755,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8962,8 +8960,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8986,6 +8990,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9122,6 +9136,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9211,6 +9228,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9255,6 +9275,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9551,6 +9574,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9571,11 +9595,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11246,7 +11265,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11558,6 +11577,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11571,6 +11591,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11631,8 +11654,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11643,9 +11668,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11751,8 +11778,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;David Nidever &lt;dnidever@noao.edu&gt;, Knut Olsen &lt;kolsen@noao.edu&gt;, Robert Nikutta &lt;rnikutta@noao.edu&gt;, Stephanie Juneau &lt;sjuneau@noao.edu&gt;&#39;</span> <span class="c1"># single string; emails in &lt;&gt;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20190101&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;David Nidever &lt;dnidever@noao.edu&gt;, Knut Olsen &lt;kolsen@noao.edu&gt;, Robert Nikutta &lt;rnikutta@noao.edu&gt;, Stephanie Juneau &lt;sjuneau@noao.edu&gt;&#39;</span> <span class="c1"># single string; emails in &lt;&gt;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20190102&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nsc_dr1&#39;</span><span class="p">]</span>  <span class="c1"># enter used datasets by hand</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;science example&#39;</span><span class="p">,</span><span class="s1">&#39;dwarf galaxies&#39;</span><span class="p">],</span> <span class="c1"># keywords relevant to this notebook, e.g. [&#39;science case&#39;,&#39;dwarf galaxies&#39;] </span>
 </pre></div>
@@ -11851,39 +11878,39 @@ We will convolve the spatial distribution of our dataset with a pair of Gaussian
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Python 2/3 compatibility</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span> <span class="c1"># to use print() as a function in Python 2</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Python 2/3 compatibility</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span> <span class="c1"># to use print() as a function in Python 2</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="nb">input</span> <span class="o">=</span> <span class="nb">raw_input</span> <span class="c1"># use &#39;input&#39; function in both Python 2 and 3</span>
+    <span class="nb">input</span> <span class="o">=</span> <span class="n">raw_input</span> <span class="c1"># use &#39;input&#39; function in both Python 2 and 3</span>
 <span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
     <span class="k">pass</span>
 
 <span class="c1"># std lib</span>
-<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="k">import</span> <span class="n">getpass</span>
 
 <span class="c1"># 3rd party</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pylab</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">utils</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span> <span class="n">convolution</span><span class="p">,</span> <span class="n">stats</span><span class="p">,</span> <span class="n">wcs</span>
-<span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="kn">import</span> <span class="n">make_lupton_rgb</span>
-<span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
-<span class="kn">from</span> <span class="nn">astropy.stats</span> <span class="kn">import</span> <span class="n">median_absolute_deviation</span> <span class="k">as</span> <span class="n">mad</span>
+<span class="kn">from</span> <span class="nn">astropy</span> <span class="k">import</span> <span class="n">utils</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span> <span class="n">convolution</span><span class="p">,</span> <span class="n">stats</span><span class="p">,</span> <span class="n">wcs</span>
+<span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="k">import</span> <span class="n">make_lupton_rgb</span>
+<span class="kn">from</span> <span class="nn">astropy</span> <span class="k">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">from</span> <span class="nn">astropy.stats</span> <span class="k">import</span> <span class="n">median_absolute_deviation</span> <span class="k">as</span> <span class="n">mad</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="c1"># Data Lab</span>
-<span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span><span class="p">,</span> <span class="n">helpers</span>
+<span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span><span class="p">,</span> <span class="n">helpers</span>
 
 <span class="c1">#Simple Image Access (SIA) service</span>
-<span class="kn">from</span> <span class="nn">pyvo.dal</span> <span class="kn">import</span> <span class="n">sia</span>
+<span class="kn">from</span> <span class="nn">pyvo.dal</span> <span class="k">import</span> <span class="n">sia</span>
 <span class="n">DEF_ACCESS_URL</span> <span class="o">=</span> <span class="s2">&quot;http://datalab.noao.edu/sia&quot;</span>
 <span class="n">svc</span> <span class="o">=</span> <span class="n">sia</span><span class="o">.</span><span class="n">SIAService</span><span class="p">(</span><span class="n">DEF_ACCESS_URL</span><span class="p">)</span>
 
 <span class="c1"># Quiet the Astropy warnings</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">from</span> <span class="nn">astropy.utils.exceptions</span> <span class="kn">import</span> <span class="n">AstropyWarning</span>
+<span class="kn">from</span> <span class="nn">astropy.utils.exceptions</span> <span class="k">import</span> <span class="n">AstropyWarning</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">AstropyWarning</span><span class="p">)</span>
 </pre></div>
 
@@ -11908,8 +11935,8 @@ We will convolve the spatial distribution of our dataset with a pair of Gaussian
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Authenticated users please uncomment the next line</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s2">&quot;Enter user name: &quot;</span><span class="p">),</span><span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter password: &quot;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Authenticated users please uncomment the next line</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter user name: &quot;</span><span class="p">),</span><span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter password: &quot;</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -11920,7 +11947,9 @@ We will convolve the spatial distribution of our dataset with a pair of Gaussian
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Enter user name: dnidever
 Enter password: ········
@@ -11948,11 +11977,11 @@ Enter password: ········
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#The NSC DR1 schema</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#The NSC DR1 schema</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">schema</span><span class="p">(</span><span class="s1">&#39;nsc_dr1&#39;</span><span class="p">,</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;json&#39;</span><span class="p">,</span><span class="n">profile</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">schema</span><span class="p">(</span><span class="s1">&#39;nsc_dr1&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;json&#39;</span><span class="p">,</span><span class="n">profile</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">))</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11963,7 +11992,9 @@ Enter password: ········
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 Schema: nsc_dr1
@@ -11993,7 +12024,7 @@ Schema: nsc_dr1
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># A function to retrieve data from a point on the sky</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A function to retrieve data from a point on the sky</span>
 <span class="k">def</span> <span class="nf">getData</span> <span class="p">(</span><span class="n">ra</span><span class="p">,</span><span class="n">dec</span><span class="p">,</span><span class="n">radius</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">):</span>
 
     <span class="n">query_template</span> <span class="o">=</span> \
@@ -12001,12 +12032,12 @@ Schema: nsc_dr1
 <span class="sd">       WHERE q3c_radial_query(ra,dec,{1:f},{2:f},{3:f})&quot;&quot;&quot;</span>
 
     <span class="n">query</span> <span class="o">=</span> <span class="n">query_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span><span class="n">ra</span><span class="p">,</span><span class="n">dec</span><span class="p">,</span><span class="n">radius</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
     
     <span class="k">try</span><span class="p">:</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">token</span><span class="p">,</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">)</span> <span class="c1"># by default the result is a CSV formatted string</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
         
     <span class="n">df</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
     
@@ -12023,7 +12054,7 @@ Schema: nsc_dr1
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># A Mexican-hat convolution filter</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A Mexican-hat convolution filter</span>
 <span class="k">def</span> <span class="nf">dwarf_filter</span> <span class="p">(</span><span class="n">ra</span><span class="p">,</span><span class="n">dec</span><span class="p">,</span><span class="n">fwhm_small</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span><span class="n">fwhm_big</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
 
     <span class="c1"># Based on Koposov et al. (2008).</span>
@@ -12091,11 +12122,11 @@ Schema: nsc_dr1
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># A little function to download the deepest stacked images</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A little function to download the deepest stacked images</span>
 <span class="c1">#   adapted from R. Nikutta</span>
 <span class="k">def</span> <span class="nf">download_deepest_image</span><span class="p">(</span><span class="n">ra</span><span class="p">,</span><span class="n">dec</span><span class="p">,</span><span class="n">fov</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">band</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">):</span>
     <span class="n">imgTable</span> <span class="o">=</span> <span class="n">svc</span><span class="o">.</span><span class="n">search</span><span class="p">((</span><span class="n">ra</span><span class="p">,</span><span class="n">dec</span><span class="p">),</span> <span class="p">(</span><span class="n">fov</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">dec</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">),</span> <span class="n">fov</span><span class="p">),</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">votable</span><span class="o">.</span><span class="n">to_table</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The full image list contains&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">imgTable</span><span class="p">),</span> <span class="s2">&quot;entries&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The full image list contains&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">imgTable</span><span class="p">),</span> <span class="s2">&quot;entries&quot;</span><span class="p">)</span>
     
     <span class="n">sel0</span> <span class="o">=</span> <span class="n">imgTable</span><span class="p">[</span><span class="s1">&#39;obs_bandpass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">==</span><span class="n">band</span>
     <span class="n">sel</span> <span class="o">=</span> <span class="n">sel0</span> <span class="o">&amp;</span> <span class="p">((</span><span class="n">imgTable</span><span class="p">[</span><span class="s1">&#39;proctype&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">==</span><span class="s1">&#39;Stack&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">imgTable</span><span class="p">[</span><span class="s1">&#39;prodtype&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">==</span><span class="s1">&#39;image&#39;</span><span class="p">))</span> <span class="c1"># basic selection</span>
@@ -12103,12 +12134,12 @@ Schema: nsc_dr1
     <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Table</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
         <span class="n">row</span> <span class="o">=</span> <span class="n">Table</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Table</span><span class="p">[</span><span class="s1">&#39;exptime&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">))]</span> <span class="c1"># pick image with longest exposure time</span>
         <span class="n">url</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;access_url&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span> <span class="c1"># get the download URL</span>
-        <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;downloading deepest image...&#39;</span><span class="p">)</span>
-        <span class="n">image</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">fits</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">cache</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">show_progress</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mi">120</span><span class="p">))</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;downloading deepest image...&#39;</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">fits</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">show_progress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mi">120</span><span class="p">))</span>
 
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;No image available.&#39;</span><span class="p">)</span>
-        <span class="n">image</span><span class="o">=</span><span class="bp">None</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;No image available.&#39;</span><span class="p">)</span>
+        <span class="n">image</span><span class="o">=</span><span class="kc">None</span>
         
     <span class="k">return</span> <span class="n">image</span>
 </pre></div>
@@ -12123,22 +12154,22 @@ Schema: nsc_dr1
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Multi panel image plotter</span>
-<span class="k">def</span> <span class="nf">plot_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span><span class="n">geo</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span><span class="n">panelsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">bands</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;gri&#39;</span><span class="p">),</span><span class="n">cmap</span><span class="o">=</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Multi panel image plotter</span>
+<span class="k">def</span> <span class="nf">plot_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span><span class="n">geo</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">panelsize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">bands</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;gri&#39;</span><span class="p">),</span><span class="n">cmap</span><span class="o">=</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray_r</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">geo</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span> <span class="n">geo</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">geo</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">geo</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
         
     <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">geo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">panelsize</span><span class="p">,</span><span class="n">geo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">panelsize</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
         <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">geo</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">geo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">img</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">img</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">img</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">img</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
             <span class="n">vmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
             <span class="n">vmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span><span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span><span class="n">norm</span><span class="o">=</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">LogNorm</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">))</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> band&#39;</span> <span class="o">%</span> <span class="n">bands</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12162,7 +12193,7 @@ Schema: nsc_dr1
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Locations of Dwarfs from McConnachie et al. (2012), Bechtol et al. (2015) and others</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Locations of Dwarfs from McConnachie et al. (2012), Bechtol et al. (2015) and others</span>
 <span class="n">ra</span> <span class="o">=</span> <span class="p">[</span><span class="mf">86.4</span><span class="p">,</span><span class="mf">260.1</span><span class="p">,</span><span class="mf">185.43</span><span class="p">,</span><span class="mf">56.09</span><span class="p">]</span>
 <span class="n">dec</span> <span class="o">=</span> <span class="p">[</span><span class="mf">34.7</span><span class="p">,</span><span class="o">-</span><span class="mf">22.2</span><span class="p">,</span><span class="o">-</span><span class="mf">31.99</span><span class="p">,</span><span class="o">-</span><span class="mf">43.53</span><span class="p">]</span>
 <span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Draco&#39;</span><span class="p">,</span><span class="s1">&#39;Carina&#39;</span><span class="p">,</span><span class="s1">&#39;Hya II&#39;</span><span class="p">,</span><span class="s1">&#39;Eri II&#39;</span><span class="p">]</span>
@@ -12181,7 +12212,7 @@ Schema: nsc_dr1
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="n">name_resolve</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="k">import</span> <span class="n">name_resolve</span>
 </pre></div>
 
 </div>
@@ -12194,7 +12225,7 @@ Schema: nsc_dr1
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">resolve_coordinates</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">resolve_coordinates</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">coords</span> <span class="o">=</span> <span class="n">name_resolve</span><span class="o">.</span><span class="n">get_icrs_coordinates</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
@@ -12216,7 +12247,7 @@ Schema: nsc_dr1
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
 for j,name_ in enumerate(name):
     print(name_)
     coords, ra_, dec_ = resolve_coordinates(name_)
@@ -12234,7 +12265,9 @@ for j,name_ in enumerate(name):
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Draco
 &lt;SkyCoord (ICRS): (ra, dec) in deg
@@ -12286,7 +12319,7 @@ Wall time: 1min 36s
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Create a WCS for a tangent plane projection in our region</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a WCS for a tangent plane projection in our region</span>
 <span class="k">def</span> <span class="nf">get_wcs</span><span class="p">(</span><span class="n">ra</span><span class="p">,</span><span class="n">dec</span><span class="p">,</span><span class="n">image</span><span class="p">,</span><span class="n">fov</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span><span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;RA---TAN&quot;</span><span class="p">,</span><span class="s2">&quot;DEC--TAN&quot;</span><span class="p">)):</span>
     <span class="n">npix</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">crpix</span> <span class="o">=</span> <span class="n">npix</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
@@ -12310,11 +12343,11 @@ Wall time: 1min 36s
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Loop over the dwarfs, filter then and plot a density map</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Loop over the dwarfs, filter then and plot a density map</span>
 <span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="n">ncol</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">nrow</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">name_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_dict</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">name_</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name_</span><span class="p">)</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df_dict</span><span class="p">[</span><span class="n">name_</span><span class="p">]</span>
     <span class="n">keep</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;gmag&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">90</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rmag&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">90</span><span class="p">)</span> <span class="o">&amp;</span> \
            <span class="mf">1.087</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;gerr&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">10</span> <span class="o">&amp;</span> \
@@ -12338,7 +12371,9 @@ Wall time: 1min 36s
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Eri II
 Draco
@@ -12348,7 +12383,9 @@ Carina
 </div>
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -14046,7 +14083,7 @@ SUVORK5CYII=
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Get g, r and i stacked image for the third galaxy</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get g, r and i stacked image for the third galaxy</span>
 <span class="n">rac</span> <span class="o">=</span> <span class="n">ra</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">decc</span> <span class="o">=</span> <span class="n">dec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">band</span> <span class="o">=</span> <span class="s1">&#39;g&#39;</span>
@@ -14066,7 +14103,9 @@ SUVORK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>The full image list contains 3157 entries
 downloading deepest image...
@@ -14087,7 +14126,7 @@ downloading deepest image...
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Now plot the image per band and a 3-color image</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Now plot the image per band and a 3-color image</span>
 <span class="n">gimage2</span> <span class="o">=</span> <span class="n">gimage</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">gimage</span><span class="p">)</span>
 <span class="n">rimage2</span> <span class="o">=</span> <span class="n">rimage</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">rimage</span><span class="p">)</span>
 <span class="n">iimage2</span> <span class="o">=</span> <span class="n">iimage</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">iimage</span><span class="p">)</span>
@@ -14098,8 +14137,8 @@ downloading deepest image...
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14110,7 +14149,9 @@ downloading deepest image...
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>2304.0452 39016.523
 3063.2227 39893.363
@@ -14119,7 +14160,9 @@ downloading deepest image...
 </div>
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -15629,7 +15672,9 @@ QFcIsCWzAABsySwAAFsyCwDAlswCALAlswAAbAUI8UAL6yHdnAAAAABJRU5ErkJggg==
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -29588,4 +29633,8 @@ gQIFCj4zKGRUgQIFChQoUKBAwWcGhYwqUKBAgQIFChQo+MygkFEFChQoUKBAgQIFnxn+L9sGAENy
     </div>
   </div>
 </body>
+
+ 
+
+
 </html>
