@@ -11814,6 +11814,7 @@ div#notebook {
 <tr>
 <td>/access</td>
 <td>Determine file accessability</td>
+<td>name</td>
 </tr>
 <tr>
 <td>/stat</td>
@@ -11866,12 +11867,12 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Standard notebook imports</span>
-<span class="kn">import</span> <span class="nn">getpass</span>
-<span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">authClient</span><span class="p">,</span> <span class="n">storeClient</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Standard notebook imports</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="k">import</span> <span class="n">getpass</span>
+<span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">authClient</span><span class="p">,</span> <span class="n">storeClient</span>
 </pre></div>
 
 </div>
@@ -11884,12 +11885,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Get the security token for the demo00 user</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">authClient</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter user name: (+ENTER)&quot;</span><span class="p">),</span><span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter password: (+ENTER)&quot;</span><span class="p">))</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isValidToken</span> <span class="p">(</span><span class="n">token</span><span class="p">):</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Error: invalid user login (</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">token</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Login token:   </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">token</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get the security token for the demo00 user</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">authClient</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter user name (+ENTER): &quot;</span><span class="p">),</span><span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter password (+ENTER): &quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">authClient</span><span class="o">.</span><span class="n">whoAmI</span><span class="p">())</span>
 </pre></div>
 
 </div>
@@ -11906,8 +11904,9 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Account password: ········
-Login token:   demo00.1018.1018.$1$8tiCBPo5$codJdzYXOR3s2yPklEZwP.
+<pre>Enter user name (+ENTER): geychaner
+Enter password (+ENTER): ········
+geychaner
 </pre>
 </div>
 </div>
@@ -11930,8 +11929,8 @@ Login token:   demo00.1018.1018.$1$8tiCBPo5$codJdzYXOR3s2yPklEZwP.
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">listing</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">listing</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">listing</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">listing</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11948,7 +11947,7 @@ Login token:   demo00.1018.1018.$1$8tiCBPo5$codJdzYXOR3s2yPklEZwP.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>gavo_out.csv,public,results,tmp,zxmags.csv
+<pre>grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,tmp
 </pre>
 </div>
 </div>
@@ -11977,46 +11976,23 @@ Login token:   demo00.1018.1018.$1$8tiCBPo5$codJdzYXOR3s2yPklEZwP.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># A simple file existence test:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A simple file existence test:</span>
 <span class="k">if</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;vos://public&#39;</span><span class="p">):</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;public&quot; directory exists&#39;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;public&quot; directory exists&#39;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;vos://public&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">):</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;public&quot; directory is grooup/world writable&#39;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;public&quot; directory is group/world writable&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;public&quot; directory is not group/world writable&#39;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;public&quot; directory is not group/world writable&#39;</span><span class="p">)</span>
     
 <span class="k">if</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;vos://tmp&#39;</span><span class="p">):</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;tmp&quot; directory exists&#39;</span><span class="p">)</span>        
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;tmp&quot; directory exists&#39;</span><span class="p">)</span>        
 <span class="k">if</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;vos://tmp&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">):</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;tmp&quot; directory is group/world writable&#39;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;tmp&quot; directory is group/world writable&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;tmp&quot; directory is not group/world writable&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Uploading-a-file">Uploading a file<a class="anchor-link" href="#Uploading-a-file">&#182;</a></h4><p>Now we want to upload a new data file from our local disk to the virtual storage:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">put</span> <span class="p">(</span><span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;./newmags.csv&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;tmp&quot; directory is not group/world writable&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12032,36 +12008,54 @@ Login token:   demo00.1018.1018.$1$8tiCBPo5$codJdzYXOR3s2yPklEZwP.
 <div class="prompt"></div>
 
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">IndexError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-3-4376d46f114a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>storeClient<span class="ansi-blue-fg">.</span>put <span class="ansi-blue-fg">(</span>to <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;vos://newmags.csv&#39;</span><span class="ansi-blue-fg">,</span> fr <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;./newmags.csv&#39;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">print</span><span class="ansi-blue-fg">(</span>storeClient<span class="ansi-blue-fg">.</span>ls <span class="ansi-blue-fg">(</span>name<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;vos://&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>User &#34;public&#34; directory exists
+User &#34;public&#34; directory is group/world writable
+User &#34;tmp&#34; directory exists
+User &#34;tmp&#34; directory is group/world writable
+</pre>
+</div>
+</div>
 
-<span class="ansi-green-fg">/data0/sw/anaconda2/lib/python2.7/site-packages/datalab_client-2.5.11-py2.7.egg/dl/Util.pyc</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, *args, **kw)</span>
-<span class="ansi-green-intense-fg ansi-bold">    125</span> 
-<span class="ansi-green-intense-fg ansi-bold">    126</span>         <span class="ansi-red-fg"># Call the function with all original args/keywords and return result.</span>
-<span class="ansi-green-fg">--&gt; 127</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> function<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kw<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    128</span> 
-<span class="ansi-green-intense-fg ansi-bold">    129</span>     <span class="ansi-green-fg">def</span> register<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> nargs<span class="ansi-blue-fg">,</span> function<span class="ansi-blue-fg">,</span> module<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+</div>
+</div>
 
-<span class="ansi-green-fg">/data0/sw/anaconda2/lib/python2.7/site-packages/datalab_client-2.5.11-py2.7.egg/dl/storeClient.pyc</span> in <span class="ansi-cyan-fg">put</span><span class="ansi-blue-fg">(fr, to, token, verbose, debug)</span>
-<span class="ansi-green-intense-fg ansi-bold">    274</span>     &#39;&#39;&#39;
-<span class="ansi-green-intense-fg ansi-bold">    275</span>     return sc_client._put (fr=fr, to=to, token=def_token(token),
-<span class="ansi-green-fg">--&gt; 276</span><span class="ansi-red-fg">                         verbose=verbose, debug=debug)
-</span><span class="ansi-green-intense-fg ansi-bold">    277</span> 
-<span class="ansi-green-intense-fg ansi-bold">    278</span> 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Uploading-a-file">Uploading a file<a class="anchor-link" href="#Uploading-a-file">&#182;</a></h4><p>Now we want to upload a new data file from our local disk to the virtual storage:</p>
 
-<span class="ansi-green-fg">/data0/sw/anaconda2/lib/python2.7/site-packages/datalab_client-2.5.11-py2.7.egg/dl/storeClient.pyc</span> in <span class="ansi-cyan-fg">_put</span><span class="ansi-blue-fg">(self, token, fr, to, verbose, debug)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1201</span>             fnum <span class="ansi-blue-fg">+=</span> <span class="ansi-cyan-fg">1</span>
-<span class="ansi-green-intense-fg ansi-bold">   1202</span> 
-<span class="ansi-green-fg">-&gt; 1203</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> <span class="ansi-blue-fg">(</span>str<span class="ansi-blue-fg">(</span>resp<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">if</span> len<span class="ansi-blue-fg">(</span>resp<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">&gt;</span> <span class="ansi-cyan-fg">1</span> <span class="ansi-green-fg">else</span> resp<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1204</span> 
-<span class="ansi-green-intense-fg ansi-bold">   1205</span> 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">put</span> <span class="p">(</span><span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;./newmags.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
+</pre></div>
 
-<span class="ansi-red-fg">IndexError</span>: list index out of range</pre>
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(1 / 1) ./newmags.csv -&gt; vos://newmags.csv
+grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,tmp
+</pre>
 </div>
 </div>
 
@@ -12080,10 +12074,10 @@ Login token:   demo00.1018.1018.$1$8tiCBPo5$codJdzYXOR3s2yPklEZwP.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;./mymags.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;./mymags.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12107,13 +12101,13 @@ Login token:   demo00.1018.1018.$1$8tiCBPo5$codJdzYXOR3s2yPklEZwP.
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[5]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;[&lt;Response [200]&gt;]&#39;</pre>
+<pre>[&#39;OK&#39;]</pre>
 </div>
 
 </div>
@@ -12133,11 +12127,11 @@ Login token:   demo00.1018.1018.$1$8tiCBPo5$codJdzYXOR3s2yPklEZwP.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12182,10 +12176,10 @@ Login token:   demo00.1018.1018.$1$8tiCBPo5$codJdzYXOR3s2yPklEZwP.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mkdir</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mkdir</span> <span class="p">(</span><span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12198,7 +12192,7 @@ Login token:   demo00.1018.1018.$1$8tiCBPo5$codJdzYXOR3s2yPklEZwP.
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[7]:</div>
+<div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -12224,13 +12218,13 @@ Login token:   demo00.1018.1018.$1$8tiCBPo5$codJdzYXOR3s2yPklEZwP.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mkdir</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://temp&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Before: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://temp/&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mkdir</span> <span class="p">(</span><span class="s1">&#39;vos://temp&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Before: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://temp/&#39;</span><span class="p">))</span>
 <span class="n">storeClient</span><span class="o">.</span><span class="n">cp</span> <span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;vos://temp/newmags.csv&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;After: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://temp/&#39;</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;After: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://temp/&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12248,7 +12242,7 @@ Login token:   demo00.1018.1018.$1$8tiCBPo5$codJdzYXOR3s2yPklEZwP.
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Before: 
-After: 
+After: newmags.csv
 </pre>
 </div>
 </div>
@@ -12278,12 +12272,12 @@ After:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">ln</span> <span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://mags.csv&#39;</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="s1">&#39;vos://temp/newmags.csv&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Root dir: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Temp dir: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://temp/&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">ln</span> <span class="p">(</span><span class="s1">&#39;vos://mags.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;vos://temp/newmags.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Root dir: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Temp dir: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://temp/&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12300,8 +12294,8 @@ After:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Root dir: gavo_out.csv,mags.csv,newmags.csv,public,results,temp,tmp,zxmags.csv
-Temp dir: 
+<pre>Root dir: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,mags.csv,newmags.csv,newmap.fits,public,results,temp,tmp
+Temp dir: newmags.csv
 </pre>
 </div>
 </div>
@@ -12321,11 +12315,11 @@ Temp dir:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://temp/newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Results dir: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://results/&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://temp/newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Results dir: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://results/&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12362,12 +12356,12 @@ Temp dir:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Before: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Before: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
 <span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://mags.csv&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;After: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;After: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12384,8 +12378,8 @@ Temp dir:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before: gavo_out.csv,mags.csv,newmags.csv,public,results,temp,tmp,zxmags.csv
-After: gavo_out.csv,newmags.csv,public,results,temp,tmp,zxmags.csv
+<pre>Before: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,mags.csv,newmags.csv,newmap.fits,public,results,temp,tmp
+After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,temp,tmp
 </pre>
 </div>
 </div>
@@ -12405,53 +12399,10 @@ After: gavo_out.csv,newmags.csv,public,results,temp,tmp,zxmags.csv
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://temp&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[12]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;OK&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Tagging-a-file/directory">Tagging a file/directory<a class="anchor-link" href="#Tagging-a-file/directory">&#182;</a></h4><p><strong>Warning</strong>: Tagging is currently <strong>not</strong> working in the Data Lab storage manager. This notebook will be updated when the problem has been resolved.</p>
-<p>We can tag any file or directory with arbitrary metadata:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">,</span> <span class="n">tag</span> <span class="o">=</span> <span class="s1">&#39;The results from my analysis&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://temp&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12483,16 +12434,9 @@ After: gavo_out.csv,newmags.csv,public,results,temp,tmp,zxmags.csv
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>NOTE: We need a method to retrieve tags or include them in the listing.</p>
+<h4 id="Tagging-a-file/directory">Tagging a file/directory<a class="anchor-link" href="#Tagging-a-file/directory">&#182;</a></h4><p><strong>Warning</strong>: Tagging is currently <strong>not</strong> working in the Data Lab storage manager. This notebook will be updated when the problem has been resolved.</p>
+<p>We can tag any file or directory with arbitrary metadata:</p>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Cleanup-the-demo-directory-of-remaining-files">Cleanup the demo directory of remaining files<a class="anchor-link" href="#Cleanup-the-demo-directory-of-remaining-files">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -12501,9 +12445,7 @@ After: gavo_out.csv,newmags.csv,public,results,temp,tmp,zxmags.csv
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">)</span>
-<span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
-<span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="s1">&#39;vos://results&#39;</span><span class="p">,</span> <span class="s1">&#39;The results from my analysis&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12522,7 +12464,50 @@ After: gavo_out.csv,newmags.csv,public,results,temp,tmp,zxmags.csv
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>u&#39;gavo_out.csv,public,tmp,zxmags.csv&#39;</pre>
+<pre>&#39;&lt;!DOCTYPE HTML PUBLIC &#34;-//W3C//DTD HTML 3.2 Final//EN&#34;&gt;\n&lt;title&gt;500 Internal Server Error&lt;/title&gt;\n&lt;h1&gt;Internal Server Error&lt;/h1&gt;\n&lt;p&gt;The server encountered an internal error and was unable to complete your request.  Either the server is overloaded or there is an error in the application.&lt;/p&gt;\n&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Cleanup-the-demo-directory-of-remaining-files">Cleanup the demo directory of remaining files<a class="anchor-link" href="#Cleanup-the-demo-directory-of-remaining-files">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">)</span>
+<span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
+<span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmap.fits,public,tmp&#39;</pre>
 </div>
 
 </div>
@@ -12546,7 +12531,7 @@ After: gavo_out.csv,newmags.csv,public,results,temp,tmp,zxmags.csv
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab login <span class="nv">user</span><span class="o">=</span>demo00 <span class="nv">password</span><span class="o">=</span>...
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab login <span class="nv">user</span><span class="o">=</span>geychaner <span class="nv">password</span><span class="o">=</span>
 </pre></div>
 
 </div>
@@ -12563,8 +12548,7 @@ After: gavo_out.csv,newmags.csv,public,results,temp,tmp,zxmags.csv
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
-Welcome to the Data Lab, demo00
+<pre>User &#39;geychaner&#39; is already logged in to the Data Lab
 </pre>
 </div>
 </div>
@@ -12587,28 +12571,10 @@ Welcome to the Data Lab, demo00
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab get <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://mags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;./mags.csv&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab get <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://mags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;./mags.csv&quot;</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12627,29 +12593,10 @@ Welcome to the Data Lab, demo00
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab put <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;./newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://newmags.csv&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab put <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;./newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://newmags.csv&quot;</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
-(1 / 1) ./newmags.csv -&gt; vos://newmags.csv
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12668,28 +12615,10 @@ Welcome to the Data Lab, demo00
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab cp <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://temp/newmags.csv&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab cp <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://temp/newmags.csv&quot;</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12708,28 +12637,10 @@ Welcome to the Data Lab, demo00
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab ln <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://temp/mags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://mags.csv&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab ln <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://temp/mags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://mags.csv&quot;</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12748,7 +12659,7 @@ Welcome to the Data Lab, demo00
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab ls <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://temp&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab ls <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://temp&quot;</span>
 </pre></div>
 
 </div>
@@ -12765,8 +12676,7 @@ Welcome to the Data Lab, demo00
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
-
+<pre>grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,tmp
 </pre>
 </div>
 </div>
@@ -12789,28 +12699,10 @@ Welcome to the Data Lab, demo00
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab mkdir <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab mkdir <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12829,28 +12721,10 @@ Welcome to the Data Lab, demo00
 <div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab mv <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://temp/newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab mv <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://temp/newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12869,28 +12743,10 @@ Welcome to the Data Lab, demo00
 <div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab rm <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://temp/mags.csv&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab rm <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://temp/mags.csv&quot;</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12909,28 +12765,10 @@ Welcome to the Data Lab, demo00
 <div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab rmdir <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://temp&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab rmdir <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://temp&quot;</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12949,28 +12787,10 @@ Welcome to the Data Lab, demo00
 <div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab tag <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span> <span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;The results from my analysis&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab tag <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span> <span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;The results from my analysis&quot;</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12980,7 +12800,7 @@ Welcome to the Data Lab, demo00
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
 </div>
