@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>LargeScaleStructureSdssLs_20181220</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>LargeScaleStructureSdssLs_20190103</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11773,11 +11773,11 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Stephanie Juneau, NOAO Data Lab Team&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20181220&#39;</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20190103&#39;</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ls_dr3&#39;</span><span class="p">,</span><span class="s1">&#39;sdss_dr13&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;extragalactic&#39;</span><span class="p">,</span><span class="s1">&#39;galaxies&#39;</span><span class="p">,</span><span class="s1">&#39;joint query&#39;</span><span class="p">,</span><span class="s1">&#39;spectroscopic redshift&#39;</span><span class="p">]</span>
 </pre></div>
@@ -11791,7 +11791,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="DECaLS-and-SDSS/BOSS-Large-Scale-Structure">DECaLS and SDSS/BOSS Large Scale Structure<a class="anchor-link" href="#DECaLS-and-SDSS/BOSS-Large-Scale-Structure">&#182;</a></h1><p>by Stephanie Juneau and the NOAO Data Lab Team</p>
+<h1 id="DECaLS-and-SDSS/BOSS-Large-Scale-Structure">DECaLS and SDSS/BOSS Large Scale Structure<a class="anchor-link" href="#DECaLS-and-SDSS/BOSS-Large-Scale-Structure">&#182;</a></h1><p>by Stéphanie Juneau and the NOAO Data Lab Team</p>
 
 </div>
 </div>
@@ -11850,25 +11850,17 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="import"></a></p>
-<h1 id="Imports-and-setup">Imports and setup<a class="anchor-link" href="#Imports-and-setup">&#182;</a></h1><p>Please note that one package is different between Python 2 &amp; Python 3. The default is for Python 3.</p>
+<h1 id="Imports-and-setup">Imports and setup<a class="anchor-link" href="#Imports-and-setup">&#182;</a></h1><p>Please note that this notebook is written for Python 3.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Python 2/3 compatibility</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span> <span class="c1"># to use print() as a function in Python 2</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="nb">input</span> <span class="o">=</span> <span class="n">raw_input</span> <span class="c1"># use &#39;input&#39; function in both Python 2 and 3</span>
-<span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
-    <span class="k">pass</span>
-
-<span class="c1"># std lib</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># std lib</span>
 <span class="kn">from</span> <span class="nn">getpass</span> <span class="k">import</span> <span class="n">getpass</span>
 
 <span class="c1"># 3rd party</span>
@@ -11923,7 +11915,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
@@ -11955,8 +11947,8 @@ print(&#39;Time&#39;)
 524060864
 
 Time
-CPU times: user 30 ms, sys: 2 ms, total: 32 ms
-Wall time: 79.1 ms
+CPU times: user 28 ms, sys: 6 ms, total: 34 ms
+Wall time: 105 ms
 </pre>
 </div>
 </div>
@@ -11967,7 +11959,7 @@ Wall time: 79.1 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
@@ -11999,8 +11991,8 @@ print(&#39;Time&#39;)
 4411200
 
 Time
-CPU times: user 24 ms, sys: 999 µs, total: 25 ms
-Wall time: 71.3 ms
+CPU times: user 27 ms, sys: 2 ms, total: 29 ms
+Wall time: 80.7 ms
 </pre>
 </div>
 </div>
@@ -12011,7 +12003,7 @@ Wall time: 71.3 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ls_dr3.dr3_specobj_dr13           #DECaLS matched to SDSS DR13 specobj</span>
@@ -12072,7 +12064,7 @@ Wall time: 71.3 ms
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
@@ -12097,8 +12089,8 @@ print(&#39;Time&#39;)
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Time
-CPU times: user 39 ms, sys: 4 ms, total: 43 ms
-Wall time: 1.49 s
+CPU times: user 31 ms, sys: 3 ms, total: 34 ms
+Wall time: 695 ms
 </pre>
 </div>
 </div>
@@ -12109,7 +12101,7 @@ Wall time: 1.49 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Reformat output into a table</span>
@@ -12128,13 +12120,13 @@ Wall time: 1.49 s
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[12]:</div>
+<div class="prompt output_prompt">Out[7]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <i>Table length=10</i>
-<table id="table140585109197544" class="table-striped table-bordered table-condensed">
+<table id="table139640460279992" class="table-striped table-bordered table-condensed">
 <thead><tr><th>ra</th><th>dec</th><th>type</th><th>g_r</th><th>r_z</th><th>z</th><th>plug_ra</th><th>plug_dec</th><th>class</th><th>vdisp</th><th>vdisp_err</th></tr></thead>
 <thead><tr><th>float64</th><th>float64</th><th>str4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>str6</th><th>float64</th><th>float64</th></tr></thead>
 <tr><td>126.000079167</td><td>7.03495434515</td><td>DEV</td><td>1.3311861</td><td>0.81087899</td><td>0.212844</td><td>126.00008</td><td>7.0349361</td><td>GALAXY</td><td>284.43051</td><td>15.617004</td></tr>
@@ -12167,7 +12159,7 @@ Wall time: 1.49 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># convert RA coordinates from [0,360] to [-180,180] </span>
@@ -13701,7 +13693,7 @@ jIwlh0xwMjIyMjIyMpYcMsHJyMjIyMjIWHL4/4PRIleNRLd9AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Select redshift slice</span>
@@ -15445,7 +15437,7 @@ iqIoiqJE+X+pr7zq+N9ssAAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## ZOOM IN AGAIN OVER AN EVEN SMALLER REGION</span>
@@ -20541,7 +20533,7 @@ URRFURSdMP8/fiqdq3F8CncAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Select redshift slice</span>
