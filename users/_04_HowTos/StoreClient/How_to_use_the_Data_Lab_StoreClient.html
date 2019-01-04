@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>How_to_use_the_Data_Lab_StorageManager</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>How_to_use_the_Data_Lab_StoreClient</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11714,1510 +11714,6 @@ ul.typeahead-list > li > a {
 .ansi-bold { font-weight: bold; }
 
     </style>
-<style type="text/css">
-    /* JS9 allinone: v1.11, Mon Jan 23 20:51:06 EST 2017 */
-@charset "UTF-8";
-/*!
- * jQuery contextMenu - Plugin for simple contextMenu handling
- *
- * Version: v2.2.1-dev
- *
- * Authors: Björn Brala (SWIS.nl), Rodney Rehm, Addy Osmani (patches for FF)
- * Web: http://swisnl.github.io/jQuery-contextMenu/
- *
- * Copyright (c) 2011-2016 SWIS BV and contributors
- *
- * Licensed under
- *   MIT License http://www.opensource.org/licenses/mit-license
- *
- * Date: 2016-06-17T13:49:48.330Z
- */
-@font-face {
-  font-family: "context-menu-icons";
-  font-style: normal; 
-  font-weight: normal;
-
-  src: url("font/context-menu-icons.eot?1ugwy");
-  src: url("font/context-menu-icons.eot?1ugwy#iefix") format("embedded-opentype"), url("font/context-menu-icons.woff2?1ugwy") format("woff2"), url("font/context-menu-icons.woff?1ugwy") format("woff"), url("font/context-menu-icons.ttf?1ugwy") format("truetype");
-}
-
-.context-menu-icon-add:before {
-  content: "\EA01";
-}
-
-.context-menu-icon-copy:before {
-  content: "\EA02";
-}
-
-.context-menu-icon-cut:before {
-  content: "\EA03";
-}
-
-.context-menu-icon-delete:before {
-  content: "\EA04";
-}
-
-.context-menu-icon-edit:before {
-  content: "\EA05";
-}
-
-.context-menu-icon-paste:before {
-  content: "\EA06";
-}
-
-.context-menu-icon-quit:before {
-  content: "\EA07";
-}
-
-.context-menu-icon::before {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 2em; 
-  font-family: "context-menu-icons";
-  font-size: 1em;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  color: #2980b9;
-  text-align: center;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-       -o-transform: translateY(-50%);
-          transform: translateY(-50%);
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.context-menu-icon.context-menu-hover:before {
-  color: #fff;
-}
-
-.context-menu-icon.context-menu-disabled::before {
-  color: #bbb;
-}
-
-.context-menu-icon.context-menu-icon--fa {
-  display: list-item;
-}
-.context-menu-icon.context-menu-icon--fa::before {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 2em; 
-  font-family: FontAwesome;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  color: #2980b9;
-  text-align: center;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-       -o-transform: translateY(-50%);
-          transform: translateY(-50%);
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.context-menu-icon.context-menu-icon--fa.context-menu-hover:before {
-  color: #fff;
-}
-.context-menu-icon.context-menu-icon--fa.context-menu-disabled::before {
-  color: #bbb;
-}
-
-.context-menu-list {
-  position: absolute; 
-  display: inline-block;
-  min-width: 13em;
-  max-width: 26em;
-  padding: .25em 0;
-  margin: .3em;
-  font-family: inherit;
-  font-size: inherit;
-  list-style-type: none;
-  background: #fff;
-  border: 1px solid #bebebe;
-  border-radius: .2em;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
-}
-
-.context-menu-item {
-  position: relative;
-  padding: .2em 2em;
-  color: #2f2f2f;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; 
-  background-color: #fff;
-}
-
-.context-menu-separator {
-  padding: 0; 
-  margin: .35em 0;
-  border-bottom: 1px solid #e6e6e6;
-}
-
-.context-menu-item > label > input,
-.context-menu-item > label > textarea {
-  -webkit-user-select: text;
-     -moz-user-select: text;
-      -ms-user-select: text;
-          user-select: text;
-}
-
-.context-menu-item.context-menu-hover {
-  color: #fff;
-  cursor: pointer; 
-  background-color: #2980b9;
-}
-
-.context-menu-item.context-menu-disabled {
-  color: #bbb;
-  cursor: default; 
-  background-color: #fff;
-}
-
-.context-menu-input.context-menu-hover {
-  cursor: default;
-}
-
-.context-menu-submenu:after {
-  position: absolute;
-  top: 50%;
-  right: .5em;
-  z-index: 1; 
-  width: 0;
-  height: 0;
-  content: '';
-  border-color: transparent transparent transparent #2f2f2f;
-  border-style: solid;
-  border-width: .25em 0 .25em .25em;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-       -o-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-/**
- * Inputs
- */
-.context-menu-item.context-menu-input {
-  padding: .3em .6em;
-}
-
-/* vertically align inside labels */
-.context-menu-input > label > * {
-  vertical-align: top;
-}
-
-/* position checkboxes and radios as icons */
-.context-menu-input > label > input[type="checkbox"],
-.context-menu-input > label > input[type="radio"] {
-  position: relative;
-  top: .12em; 
-  margin-right: .4em;
-}
-
-.context-menu-input > label {
-  margin: 0;
-}
-
-.context-menu-input > label,
-.context-menu-input > label > input[type="text"],
-.context-menu-input > label > textarea,
-.context-menu-input > label > select {
-  display: block;
-  width: 100%; 
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.context-menu-input > label > textarea {
-  height: 7em;
-}
-
-.context-menu-item > .context-menu-list {
-  top: .3em; 
-  /* re-positioned by js */
-  right: -.3em;
-  display: none;
-}
-
-.context-menu-item.context-menu-visible > .context-menu-list {
-  display: block;
-}
-
-.context-menu-accesskey {
-  text-decoration: underline;
-}
-.dhtmlwindow{
-position: absolute;
-border: 2px solid black;
-visibility: hidden;
-background-color: white;
-}
-
-.drag-handle{ /*CSS for Drag Handle*/
-padding: 1px;
-text-indent: 3px;
-font: bold 14px Arial;
-background-color: #CA0000;
-color: white;
-cursor: move;
-overflow: hidden;
-width: auto;
-filter:progid:DXImageTransform.Microsoft.alpha(opacity=100);
--moz-opacity: 1;
-opacity: 1;
-}
-
-.drag-handle .drag-controls{ /*CSS for controls (min, close etc) within Drag Handle*/
-position: absolute;
-right: 1px;
-top: 2px;
-cursor: hand;
-cursor: pointer;
-}
-
-* html .drag-handle{ /*IE6 and below CSS hack. Width must be set to 100% in order for opaque title bar to render*/
-width: 100%;
-}
-
-
-.drag-contentarea{ /*CSS for Content Display Area div*/
-border-top: 1px solid brown;
-background-color: white;
-color: black;
-height: 150px;
-padding: 2px;
-overflow: auto;
-}
-
-.drag-statusarea{ /*CSS for Status Bar div (includes resizearea)*/
-border-top: 1px solid gray;
-background-color: #F8F8F8;
-height: 13px; /*height of resize image*/
-}
-
-
-.drag-resizearea{ /*CSS for Resize Area itself*/
-float: right;
-width: 13px; /*width of resize image*/
-height: 13px; /*height of resize image*/
-cursor: nw-resize;
-font-size: 0;
-}
-
-.osxA {
-  text-decoration: none;
-}
-
-.osxSpan {
-  line-height: 8px;
-  vertical-align: 0%;
-}
-
-.osxButtons {
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 4px;
-  line-height: 0px;
-}
-
-.osxButtons:hover a {
-  visibility: visible;
-}
-
-.osxClose {
-  background: #ff5c5c;
-  font-family: HelveticaNeue, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
-  font-size: 8pt;
-  width: 11px;
-  height: 11px;
-  border: 1px solid #e33e41;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.osxClose:active {
-  background: #c14645;
-  border: 1px solid #b03537;
-}
-
-.osxClose:active .osxClosebutton {
-  color: #4e0002;
-}
-
-.osxClosebutton {
-  color: #820005;
-  visibility: hidden;
-  cursor: default;
-}
-
-.osxMinimize {
-  background: #ffbd4c;
-  font-family: HelveticaNeue, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
-  font-size: 8pt;
-  margin-left: 8px;
-  width: 11px;
-  height: 11px;
-  border: 1px solid #e09e3e;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.osxMinimize:active {
-  background: #c08e38;
-  border: 1px solid #af7c33;
-}
-
-.osxMinimize:active .osxMinimizebutton {
-  color: #5a2607;
-}
-
-.osxMinimizebutton {
-  color: #9a5518;
-  visibility: hidden;
-  cursor: default;
-}
-/* ######### CSS for Shade Tabs. Remove if not using ######### */
-
-.shadetabs{
-padding: 3px 0;
-margin-left: 0;
-margin-top: 1px;
-margin-bottom: 0;
-font: bold 12px Verdana;
-list-style-type: none;
-text-align: left; /*set to left, center, or right to align the menu as desired*/
-}
-
-.shadetabs li{
-display: inline;
-margin: 0;
-}
-
-.shadetabs li a{
-text-decoration: none;
-position: relative;
-z-index: 1;
-padding: 3px 7px;
-margin-right: 3px;
-border: 1px solid #778;
-color: #2d2b2b;
-background: white url(shade.gif) top left repeat-x;
-}
-
-.shadetabs li a:visited{
-color: #2d2b2b;
-}
-
-.shadetabs li a:hover{
-text-decoration: underline;
-color: #2d2b2b;
-}
-
-.shadetabs li a.selected{ /*selected main tab style */
-position: relative;
-top: 1px;
-}
-
-.shadetabs li a.selected{ /*selected main tab style */
-background-image: url(shadeactive.gif);
-border-bottom-color: white;
-}
-
-.shadetabs li a.selected:hover{ /*selected main tab style */
-text-decoration: none;
-}
-
-.tabcontent{
-display:none;
-}
-
-@media print {
-.tabcontent {
-display:block !important;
-}
-}
-
-/* ######### CSS for Inverted Modern Bricks II Tabs. Remove if not using ######### */
-
-.modernbricksmenu2{
-padding: 0;
-width: 362px;
-border-top: 5px solid #D25A0B; /*Brown color theme*/ 
-background: transparent;
-voice-family: "\"}\"";
-voice-family: inherit;
-}
-
-.modernbricksmenu2 ul{
-margin:0;
-margin-left: 10px; /*margin between first menu item and left browser edge*/
-padding: 0;
-list-style: none;
-}
-
-.modernbricksmenu2 li{
-display: inline;
-margin: 0 2px 0 0;
-padding: 0;
-text-transform:uppercase;
-}
-
-.modernbricksmenu2 a{
-float: left;
-display: block;
-font: bold 11px Arial;
-color: white;
-text-decoration: none;
-margin: 0 1px 0 0; /*Margin between each menu item*/
-padding: 5px 10px;
-background-color: black; /*Brown color theme*/ 
-border-top: 1px solid white;
-}
-
-.modernbricksmenu2 a:hover{
-background-color: #D25A0B; /*Brown color theme*/ 
-color: white;
-}
-
-.modernbricksmenu2 a.selected{ /*currently selected tab*/
-background-color: #D25A0B; /*Brown color theme*/ 
-color: white;
-border-color: #D25A0B; /*Brown color theme*/ 
-}
-
-.tabcontent{
-display:none;
-}
-
-@media print {
-.tabcontent {
-display:block !important;
-}
-}
-
-/* ######### CSS for Indented CSS Tabs. Remove if not using ######### */
-
-
-.indentmenu{
-font: bold 13px Arial;
-width: 100%; /*leave this value as is in most cases*/
-}
-
-.indentmenu ul{
-margin: 0;
-padding: 0;
-float: left;
-/* width: 80%; width of menu*/
-border-top: 1px solid navy; /*navy border*/
-background: black url(indentbg.gif) center center repeat-x;
-}
-
-.indentmenu ul li{
-display: inline;
-}
-
-.indentmenu ul li a{
-float: left;
-color: white; /*text color*/
-padding: 5px 11px;
-text-decoration: none;
-border-right: 1px solid navy; /*navy divider between menu items*/
-}
-
-.indentmenu ul li a:visited{
-color: white;
-}
-
-.indentmenu ul li a.selected{
-color: white !important;
-padding-top: 6px; /*shift text down 1px*/
-padding-bottom: 4px;
-background: black url(indentbg2.gif) center center repeat-x;
-}
-
-
-.tabcontentstyle{ /*style of tab content oontainer*/
-border: 1px solid gray;
-width: 450px;
-margin-bottom: 1em;
-padding: 10px;
-}
-
-.tabcontent{
-display:none;
-}
-
-@media print {
-.tabcontent {
-display:block !important;
-}
-}div.JS9BlendContainer {
-    padding: 2px;
-}
-
-div.JS9BlendImage {
-    margin: 5px;
-    background: #E9E9E9;
-    overflow: auto;
-}
-
-div.JS9BlendImageInactive {
-    padding: 10px;
-    border: 1px solid black;
-}
-
-div.JS9BlendImageActive {
-    padding: 9px;
-    border: 2px solid #00F000;
-}
-
-div.JS9BlendHeader {
-    border: 0px solid black;
-    background: #E9E9E9;
-    padding: 0px;
-    margin-left: 15px;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-bottom: 0px;
-}
-
-#blendModeSelect {
-    width: 110px;
-}
-
-#blendModeSelect option {
-    width: 110px;
-}
-
-#blendOpacitySelect {
-    width: 80px;
-}
-
-#blendOpacitySelect option {
-    width: 80px;
-}
-
-#blendFile {
-    float: right;
-}
-
-#blendNoFile {
-    margin-left: 15px;
-}
-
-div.JS9BlinkContainer {
-    padding: 2px;
-}
-
-div.JS9BlinkImage {
-    margin: 5px;
-    background: #E9E9E9;
-    overflow: auto;
-}
-
-div.JS9BlinkImageInactive {
-    padding: 10px;
-    border: 1px solid black;
-}
-
-div.JS9BlinkImageActive {
-    padding: 9px;
-    border: 2px solid #00F000;
-}
-
-div.JS9BlinkHeader {
-    border: 0px solid black;
-    background: #E9E9E9;
-    padding: 0px;
-    margin-left: 15px;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-bottom: 0px;
-}
-
-#blinkModeSelect {
-    width: 110px;
-}
-
-#blinkModeSelect option {
-    width: 110px;
-}
-
-#blinkOpacitySelect {
-    width: 80px;
-}
-
-#blinkOpacitySelect option {
-    width: 80px;
-}
-
-#blinkFile {
-    float: right;
-}
-
-#blinkNoFile {
-    margin-left: 15px;
-}
-
-canvas.JS9ColorbarCanvas {
-    border: 1px solid black;
-}
-
-canvas.JS9ColorbarTextCanvas {
-    background-color: white;
-}
-
-
-.JS9CubeContainer {
-    padding: 5px;
-}
-
-.JS9CubeLinegroup {
-    float: left;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    width: 95%;
-    padding: 5px;
-    margin: 5px;
-}
-
-.JS9CubeRangeLine {
-  font-size: 9pt;
-}
-
-.JS9CubeRange {
-  vertical-align: middle;
-}
-
-.JS9CubeValue {
-  vertical-align: top;
-  text-align: center;
-}
-
-.JS9CubeOrder {
-  vertical-align: top;
-}
-
-div.JS9DivsContainer {
-    padding: 2px;
-}
-
-div.JS9DivsHeader {
-    border: 0px solid black;
-    background: #E9E9E9;
-    padding: 10px;
-    margin-left: 15px;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-bottom: 0px;
-}
-
-div.JS9DivsDiv {
-    margin: 5px;
-    background: #E9E9E9;
-    overflow: auto;
-    padding: 10px;
-    border: 1px solid black;
-}
-
-span.JS9DivsSpan {
-    float: right;
-    margin-right: 10px;
-}
-
-span.JS9NoDivs {
-    margin-left: 15px;
-}
-
-div.JS9ImarithLinegroup {
-    float: left;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    width: 95%;
-    padding: 5px;
-    margin: 5px;
-}
-
-div.JS9ImarithContainer {
-    padding: 5px;
-}
-div.JS9KeyboardContainer {
-    padding: 0px;
-    margin:  0px;
-}
-
-div.JS9KeyboardActionContainer {
-    padding: 0px;
-    margin:  0px;
-}
-
-div.JS9KeyboardItem {
-    padding: 0px;
-    margin:  0px;
-}
-
-div.JS9KeyboardText {
-    margin: 0px;
-    padding: 1px 1px 1px 30px;
-    background: #E9E9E9;
-    overflow: auto;
-    border: 1px solid transparent;
-    display: inline-block;
-    width: 120px;
-}
-
-div.JS9KeyboardAction {
-    margin: 0px;
-    padding: 1px;
-    background: #E9E9E9;
-    overflow: auto;
-    border: 1px solid transparent;
-    display: inline-block;
-}
-
-div.JS9KeyboardHeader, div.JS9KeyboardFooter {
-    background: #E9E9E9;
-    text-align: left;
-    padding: 0px;
-    margin-left: 15px;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-bottom: 0px;
-    border: 1px solid transparent;
-}
-div.JS9LayersContainer {
-    padding: 2px;
-}
-
-div.JS9LayersHeader {
-    border: 0px solid black;
-    background: #E9E9E9;
-    padding: 0px;
-    margin-left: 15px;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-bottom: 0px;
-}
-
-div.JS9LayersLayer {
-    margin: 5px;
-    background: #E9E9E9;
-    overflow: auto;
-}
-
-div.JS9LayersLayerInactive {
-    padding: 10px;
-    border: 1px solid black;
-}
-
-div.JS9LayersLayerActive {
-    padding: 9px;
-    border: 2px solid #00F000;
-}
-
-span.JS9LayersSpan {
-    float: right;
-    margin-right: 10px;
-}
-
-span.JS9NoLayers {
-    margin-left: 15px;
-}
-
-.JS9MefContainer {
-    padding: 10px;
-    overflow: auto;
-}
-
-.JS9MefExtension {
-    margin: 5px;
-    background: #E9E9E9;
-    overflow: auto;
-    font-size: 10pt;
-}
-
-.JS9MefHeader {
-    margin: 5px;
-    background: #E9E9E9;
-}
-
-.JS9MefInput {
-    margin: 5px;
-    background: #E9E9E9;
-}
-
-.JS9MefExtensionInactive {
-    padding: 0px;
-    border: 1px solid black;
-}
-
-.JS9MefExtensionActive {
-    padding: 0px;
-    border: 2px solid #00F000;
-}
-
-span.JS9MefStrike{
-    font-weight:bold; /*set line weight here*/
-    color:red;
-    text-decoration:line-through;
-}
-
-span.JS9MefStrike>span {
-    font-weight:normal;
-    color: black;
-}div.JS9MouseTouchContainer {
-    padding: 2px;
-}
-
-div.JS9MouseTouchText {
-    margin: 5px;
-    padding: 6px 6px 6px 10px;
-    background: #E9E9E9;
-    overflow: auto;
-    border: 1px solid transparent;
-}
-
-div.JS9MouseTouchAction {
-    margin: 5px;
-    padding: 6px;
-    background: #E9E9E9;
-    overflow: auto;
-    border: 1px solid black;
-}
-
-div.JS9MouseTouchHeader, div.JS9MouseTouchFooter {
-    background: #E9E9E9;
-    text-align: center;
-    padding: 0px;
-    margin-left: 15px;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-bottom: 0px;
-    border: 1px solid transparent;
-}
-/*
- *
- * JS9 CSS specifications
- *
- */
-
-/* high-level divs used by Web designers */
-div.JS9 {
-    /* relative pos top/left for container, Flanagan's JavaScript, p 357 */
-    position: relative;
-    top:  0px;
-    left: 0px;
-    display: block;
-    padding: 0px;
-}
-
-/* plugin divs */
-div.JS9Panner, div.JS9Magnifier, div.JS9Menubar, div.JS9Console, div.JS9Info {
-    /* relative pos top/left for container, Flanagan's JavaScript, p 357 */
-    position: relative;
-    top:  0px;
-    left: 0px;
-    display: block;
-    padding: 0px;
-}
-
-/* containers used internally to place content inside high-level divs */
-div.JS9Container {
-    /* absolute pos top/left for positioning, Flanagan's JavaScript, p 357 */
-    position: absolute;
-    top:  0px;
-    left: 0px;
-    outline: none;
-    background-color: transparent;
-}
-
-/* containers used internally to wrap around div plugin content */
-div.JS9PluginContainer {
-    /* background: #E9E9E9; */
-    background: transparent;
-    position: relative;
-    display: inline-block;
-    outline: none;
-}
-
-/* this is the plugin div itself */
-div.JS9Plugin {
-    background: #E9E9E9;
-}
-
-/* tell plugin div to scroll on overflow */
-div.JS9PluginScrolling {
-    overflow: auto;
-}
-
-/* commands and buttons on top of plugins */
-div.JS9PluginToolbar-div {
-    /* absolute positioning places the toolbar on the dhtml title bar */
-    position:absolute;
-    display:inline-block;
-    top: 0px;
-    overflow: auto;
-    cursor: default;
-    text-align: center;
-    left: 10px;
-}
-
-div.JS9PluginToolbar-light {
-    /* absolute positioning places the toolbar on the dhtml title bar */
-    position:absolute;
-    display:inline-block;
-    top: 0px;
-    right: 48px;
-    overflow: auto;
-    text-align: center;
-}
-
-div.JS9MenubarContainer, div.JS9MenubarContainer-classic {
-    /* absolute pos top/left for positioning, Flanagan's JavaScript, p 357 */
-    /* why is this relative?? absolute positions the menu under the canvas!! */
-    position: relative;
-    /* sigh ... why does this make the menubar too short?? */
-    display: block;
-    top: 0px;
-    left: 0px;
-    /* height: 25px; */
-    text-align: left;
-    padding: 2px 6px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ebebeb, color-stop(1.0, #d5d5d5)));
-    background: -webkit-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: -moz-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: -ms-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: -o-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: linear-gradient(top, #ebebeb, #d5d5d5);
-    color: #4d494d;
-}
-
-div.JS9MenubarContainer-flat, div.JS9MenubarContainer-border {
-    /* absolute pos top/left for positioning, Flanagan's JavaScript, p 357 */
-    /* why is this relative?? absolute positions the menu under the canvas!! */
-    position: relative;
-    /* sigh ... why does this make the menubar too short?? */
-    display: block;
-    top: 0px;
-    left: 0px;
-    /* height: 25px; */
-    text-align: left;
-    padding: 2px 10px;
-    background-color: lightblue;
-}
-
-div.JS9ConsoleContainer {
-    /* absolute pos top/left for positioning, Flanagan's JavaScript, p 357 */
-    /* why is this relative?? absolute positions make it tiny!! */
-    position: relative;
-    display: block;
-    top: 0px;
-    left: 0px;
-    background: #E9E9E9;
-    text-align: left;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    overflow-x: hidden;
-}
-
-/* canvas elements */
-canvas.JS9Image, canvas.JS9Panner, canvas.JS9Magnifier, canvas.JS9Info {
-    /* absolute positioning of canvas is required to overlay/align with 
-       graphics canvas (which is positioned relative) */
-    position:absolute;
-    top:  0px;
-    left: 0px;
-    background: #E9E9E9;
-}
-
-/* canvas element for transparent layers */
-canvas.JS9Layer {
-    /* absolute positioning of canvas is required to overlay/align with 
-       graphics canvas (which is positioned relative) */
-    position:absolute;
-    top:  0px;
-    left: 0px;
-    background-color: transparent;
-}
-
-/* message display */
-div.JS9Message {
-    width: 100%;
-    padding-top: 10px;
-    padding-left: 10px;
-    font-family: Helvetica, sans-serif;
-    font-size: 10pt;
-    font-weight: 300;
-}
-
-.JS9Button, .JS9Button-classic {
-    font: normal 12px Arial;
-    background: #F6F6F6;
-    border:  black 2px;
-    border-radius: 4px;
-    padding: 3px 6px 3px 6px;
-    margin: 6px 4px 6px 4px;
-    outline: none;
-}
-
-.JS9Button:hover, .JS9Button-classic:hover {
-    background-color: #C0C0C0;
-}
-
-/* prevent firefox from adding extra button padding */
-.JS9Button::-moz-focus-inner, .JS9Button-classic::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-}
-
-.JS9Button-flat {
-  color: #fff;
-  background-color: #6496c8;
-  text-shadow: -1px 1px #417cb8;
-  border: none;
-  padding-top: 4px;
-  padding-right: 6px;
-  padding-bottom: 4px;
-  padding-left: 6px;
-  margin:  4px;
-  outline: none;
-}
-
-.JS9Button-flat:hover, .JS9Button-flat.hover {
-  background-color: #346392;
-  text-shadow: -1px 1px #27496d;
-}
-
-.JS9Button-flat:active, .JS9Button-flat.active {
-  background-color: #27496d;
-  text-shadow: -1px 1px #193047;
-}
-
-.JS9Button-flat::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-}
-
-.JS9Button-border {
-  color: #6496c8;
-  background: #fff;
-  border: solid 3px #6496c8;
-  margin:  4px;
-  outline: none;
-}
-
-.JS9Button-border:hover, .JS9Button-border.hover {
-  border-color: #346392;
-  color: #346392;
-}
-
-.JS9Button-border:active, .JS9Button-border.active {
-  border-color: #27496d;
-  color: #27496d;
-}/* the commands inside a console */
-
-.JS9CmdForm {
-    border: 0px;
-    padding: 1px;
-    font-size: 12px;
-    font-family: monospace;
-    width:100%;
-}
-
-.JS9CmdTable {
-    vertical-align:top;
-    width:100%;
-}
-
-.JS9CmdTd  {
-    width:100%;
-}
-
-.JS9CmdIn, .JS9CmdOut {
-    border: 0px;
-    padding-top: 0px;
-    padding-left: 4px;
-    margin-left: 2px;
-    font-size: 12px;
-    font-family: monospace;
-    width:97%;
-    background: #E9E9E9;
-}
-
-/* get rid of blue border for input in Safari, Chrome */
-input:focus.JS9CmdIn {
-    outline: none;
-}
-
-.JS9CmdError {
-    border: 0px;
-    padding-top: 2px;
-    padding-left: 4px;
-    margin-left: 2px;
-    font-size: 12px;
-    font-family: monospace;
-    width:100%;
-    color: red;
-}
-
-.JS9CmdWarning {
-    border: 0px;
-    padding-top: 2px;
-    padding-left: 4px;
-    margin-left: 2px;
-    font-size: 12px;
-    font-family: monospace;
-    width:100%;
-    color: yellow;
-}
-
-.JS9CmdInfo {
-    border: 0px;
-    padding-top: 2px;
-    padding-left: 4px;
-    margin-left: 4px;
-    font-size: 12px;
-    font-family: monospace;
-    width:100%;
-    color: #3333FF;
-}
-
-.JS9CmdPrompt { 
-    color: #777;
-    font-size: 12px;
-    font-family: monospace;
-    white-space:nowrap;
-}
-
-.JS9AnalysisText {
-    padding-left: 10px;
-}
-
-.JS9Plot {
-    width:  800px;
-    height: 400px;
-    margin: 10px;
-}
-
-.JS9Tooltip{
-    position: relative;
-    z-index: 999;
-    background: #E9E9E9;
-    padding: 10px;
-    border: 0px;
-    font-family: Helvetica, sans-serif;
-    font-size: 10pt;
-    display: none;
-}
-
-/* context menu overrides */
-.context-menu-list  {
-    border: 1px solid black;
-    font-family: Helvetica, sans-serif;
-    font-size: 12px;
-    background-color: #E9E9E9;
-}
-
-/* jqueryContextMenu v2.2 */
-.context-menu-icon-sun:before {
-   content: url(images/sun.png);
-}
-
-.context-menu-item {
-    background-color: #E9E9E9;
-}
-
-.context-menu-item.context-menu-disabled {
-    color: #AAA;
-    cursor: default; 
-    background-color: #E9E9E9;
-}
-
-.context-menu-separator {
-    border-bottom: 1px solid #AAA;
-}
-
-.context-menu-input > label {
-   margin-left: 18px;
-}
-
-.context-menu-input > label > input[type="text"] {
-   width: 80%;
-   padding: 2px;
-}
-
-/* jqueryContextMenu pre-v2.2 */
-.pre-v2.2-context-menu-item.icon-sun {
-   background-image: url(images/sun.png);
-}
-
-/* jqueryContextMenu pre-v2.2 */
-.pre-v2.2-context-menu-input > label > span {
-    margin-left: 0px;
-}
-
-/* jqueryContextMenu pre-v2.2 */
-.pre-v2.2-context-menu-submenu:after {
-    content: "\2192";
-    color: black;
-    position: absolute;
-    right: 5px;
-}
-
-/* dhtml window overrides */
-.dhtmlwindow {
-    border: 1px solid grey;
-    padding: 0px;
-}
-
-.drag-controls {
-    padding: 2px;
-}
-
-.drag-handle {
-    /* height: 25px; */
-    height: 30px;
-    text-align: left;
-    color: black;
-    font-size: 14px;
-    font-weight: normal;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ebebeb, color-stop(1.0, #d5d5d5)));
-    background: -webkit-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: -moz-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: -ms-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: -o-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: linear-gradient(top, #ebebeb, #d5d5d5);
-    color: #4d494d;
-}
-
-.drag-contentarea {
-    background: #E9E9E9;
-    border-width: 0px;
-    padding: 0px;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-}
-
-.indentmenu{
-    font: normal 11px Arial;
-    margin-left: 4px;
-}
-
-.indentmenu ul{
-    border-top: 0px;
-    background: #A9A9A9;
-}
-
-.indentmenu ul li a{
-    border-top: 0px;
-    border-bottom: 0px;
-    border-left: 0px;
-    border-right: 6px solid #E9E9E9;
-    padding-left: 8px;
-    padding-right: 8px;
-}
-
-.indentmenu ul li a:hover,
-.indentmenu ul li a.hover {
-    background-color: #808080;
-}
-
-.indentmenu ul li a.selected{
-    padding-top: 5px; /* don't shift text down 1px */
-    padding-bottom: 5px;
-    background: #696969;
-}
-
-/* 3d surface plot bug */
-canvas.surfacePlotCanvas {
-    position: absolute;
-}
-
-/* js9 info */
-.js9InfoTable {
-    border: 0px;
-    margin: 0px;
-    padding: 8px;
-    font-size: 12px;
-    font-family: monospace;
-    border-spacing: 4px;
-}
-
-.js9InfoTable input,  .js9InfoTable textarea{
-    font-size: 12px;
-    font-family: monospace;
-    overflow-x: hidden;
-}
-
-/* js9Analysis forms */
-.js9AnalysisForm {
-    border: solid grey 1px;
-    margin: 8px;
-    padding: 8px;
-    background: #E9E9E9;
-}
-
-.JS9Archive-form {
-    background: #E9E9E9;
-    padding: 8px;
-}
-
-.linegroup {
-    float: left;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 24px;
-    padding: 0;
-    margin: 0 0 1.25em 0;
-}
-
-.column_A {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 300px;
-}
-
-.column_B {
-    position: absolute;
-    top: 0;
-    left: 300px;
-    width: 100px;
-}
-
-.text_B {
-    width: 100px;
-}
-
-.column_C {
-    position: absolute;
-    top: 0;
-    left: 450px;
-    width: 340px;
-}
-
-.column_R1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 140px;
-}
-
-.column_R2 {
-    position: absolute;
-    top: 0;
-    left: 150px;
-    width: 100px;
-}
-
-.column_R2l {
-    position: absolute;
-    top: 0;
-    left: 150px;
-    width: 250px;
-}
-
-.column_R2L {
-    position: absolute;
-    top: 0;
-    left: 150px;
-    width: 400px;
-}
-
-.column_R3 {
-    position: absolute;
-    top: 0;
-    left: 300px;
-    width: 100px;
-}
-
-.column_R3l {
-    position: absolute;
-    top: 0;
-    left: 300px;
-    width: 150px;
-}
-
-.column_R3L {
-    position: absolute;
-    top: 0;
-    left: 300px;
-    width: 300px;
-}
-
-.column_R4 {
-    position: absolute;
-    top: 0;
-    left: 450px;
-    width: 100px;
-}
-
-.column_R4l {
-    position: absolute;
-    top: 0;
-    left: 450px;
-    width: 250px;
-}
-
-.column_R5 {
-    position: absolute;
-    top: 0;
-    left: 600px;
-    width: 200px;
-}
-
-.text_R {
-    width: 100%;
-    font: normal 12px Arial
-}
-
-.nodisplay {
-  display: none;
-}
-
-.control {
-    border: transparent 1px;
-    padding: 2px;
-} 
-
-.js9HelpText {
-    border: solid grey 1px;
-    margin: 8px;
-    padding: 8px;
-    background: #E9E9E9;
-}
-
-.hline0 {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid black;
-    margin: 0;
-    padding: 0;
-}
-
-/* to make wait cursor override other element cursors (e.g. fabric.js canvas) */
-body.waiting, body.waiting * { 
-    cursor: wait !important;
-}
-.context-menu-icon-sun:before{content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAD8GlDQ1BJQ0MgUHJvZmlsZQAAKJGNVd1v21QUP4lvXKQWP6Cxjg4Vi69VU1u5GxqtxgZJk6XpQhq5zdgqpMl1bhpT1za2021Vn/YCbwz4A4CyBx6QeEIaDMT2su0BtElTQRXVJKQ9dNpAaJP2gqpwrq9Tu13GuJGvfznndz7v0TVAx1ea45hJGWDe8l01n5GPn5iWO1YhCc9BJ/RAp6Z7TrpcLgIuxoVH1sNfIcHeNwfa6/9zdVappwMknkJsVz19HvFpgJSpO64PIN5G+fAp30Hc8TziHS4miFhheJbjLMMzHB8POFPqKGKWi6TXtSriJcT9MzH5bAzzHIK1I08t6hq6zHpRdu2aYdJYuk9Q/881bzZa8Xrx6fLmJo/iu4/VXnfH1BB/rmu5ScQvI77m+BkmfxXxvcZcJY14L0DymZp7pML5yTcW61PvIN6JuGr4halQvmjNlCa4bXJ5zj6qhpxrujeKPYMXEd+q00KR5yNAlWZzrF+Ie+uNsdC/MO4tTOZafhbroyXuR3Df08bLiHsQf+ja6gTPWVimZl7l/oUrjl8OcxDWLbNU5D6JRL2gxkDu16fGuC054OMhclsyXTOOFEL+kmMGs4i5kfNuQ62EnBuam8tzP+Q+tSqhz9SuqpZlvR1EfBiOJTSgYMMM7jpYsAEyqJCHDL4dcFFTAwNMlFDUUpQYiadhDmXteeWAw3HEmA2s15k1RmnP4RHuhBybdBOF7MfnICmSQ2SYjIBM3iRvkcMki9IRcnDTthyLz2Ld2fTzPjTQK+Mdg8y5nkZfFO+se9LQr3/09xZr+5GcaSufeAfAww60mAPx+q8u/bAr8rFCLrx7s+vqEkw8qb+p26n11Aruq6m1iJH6PbWGv1VIY25mkNE8PkaQhxfLIF7DZXx80HD/A3l2jLclYs061xNpWCfoB6WHJTjbH0mV35Q/lRXlC+W8cndbl9t2SfhU+Fb4UfhO+F74GWThknBZ+Em4InwjXIyd1ePnY/Psg3pb1TJNu15TMKWMtFt6ScpKL0ivSMXIn9QtDUlj0h7U7N48t3i8eC0GnMC91dX2sTivgloDTgUVeEGHLTizbf5Da9JLhkhh29QOs1luMcScmBXTIIt7xRFxSBxnuJWfuAd1I7jntkyd/pgKaIwVr3MgmDo2q8x6IdB5QH162mcX7ajtnHGN2bov71OU1+U0fqqoXLD0wX5ZM005UHmySz3qLtDqILDvIL+iH6jB9y2x83ok898GOPQX3lk3Itl0A+BrD6D7tUjWh3fis58BXDigN9yF8M5PJH4B8Gr79/F/XRm8m241mw/wvur4BGDj42bzn+Vmc+NL9L8GcMn8F1kAcXjEKMJAAAAACXBIWXMAAAsTAAALEwEAmpwYAAADO0lEQVQokW3T3W9TZQAH4N/7cU7pStuVlnZrq3SDyaSSjpHNMZWAZgS5g9htmCh6oRK40AsTbxCzEEnQqNfohR+Ji7Z+AYY5MIEBcaAsg2Rtl411hLK5rqxraWnPac95X6/0yj/guXyIlBIA0B8Hi0VhAsChcQTc5tzWfFVzNVlZebNvXeL1Nm8aAHYPXeaXPthlAACRUv4HT6Xh1DJjH7nF3MDIaodzsz2D2w83IsiXKxHncmzBNnj8ky5kSDzOZDRqsmQ4zGLRsDmcutg2mlwdO13y973n/mlNXVPkduuUGM/78UbzRbXCPB3fZZTXGsyZP355fu/d/nicESklPkti3beJ1MSbzZdDfy75ay/7r3EhDdqoFCAhoBDI05n99U7PXfVCvqcU8vdEPu7GPAUAUvz13QO++dDNbEB/u2VYfdw6Rbtcv2OT7TYizlFopkqObhhWU/mg/oPut/Py2IcAQM7kpH3k+oXEgHfkMYuoC0MKusP9PapGCJTUYQgLbPw+FrV2zDzqFCrV6VR1a+kr9laY3pxNbpos+YKHpwfBaJl0uc6iUm8FYEBICkZqqJp+uNQsVKKRqw865W/FbnuHfmcbz2mqt9eVIr1rJsGJgC484LQGIQkIJCQICAyY0gIbK5EtjrQo6XZyoxKy8rUKL0zmgiCagEIlNtpuQUgOwIQEQCBhSgVWvgBK2vDl4i5SVr1ot9Ma/ZyFZne75pejwVFssC7K1VoTrGwJEhwEgACHjWcxXXoBjKjycPAS8cgVLeBomKLFHchDUc8eW3wHJ9IHDV1aMFN+BpyUAZhgpIwHtSCsfBVf3Dtg5GgLdnrvXzv2dOssB4B7yr4TVW06OuhLOGMLL9W6G1OKha2QqulGoeaBQg15PrfT2N6YUk5m9qOvqeU4ALBkOMy+2RspFCuzf/34d8uAu0Gx9Kwdw/t3jopWS0FeL0Rkqy1NXl06yBgC2NO88sqp5544T+JxxhKxmOyPx9mnfS/OfZ0NnOtSJraMP+wIXTHa6XqroJP6U9TBJWlX6S1HY+TQyd4nfyZDQ1QeOSLI/60aupF+NlusbJurPrL5LA69SD0TZ/asvwIA/6YAgH8A+sdxmMb2E7oAAAAASUVORK5CYII=");}
-
-    </style>
 
 
 <style type="text/css">
@@ -13275,34 +11771,18 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;M. Fitzpatrick &lt;fitz@noao.edu&gt;. M. Graham &lt;graham@noao.edu&gt;&#39;</span> <span class="c1"># single string; emails in &lt;&gt;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20180604&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
-<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>      <span class="c1"># datasets used</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-to-use-the-Data-Lab-Storage-Manager-Service">How to use the Data Lab <em>Storage Manager</em> Service<a class="anchor-link" href="#How-to-use-the-Data-Lab-Storage-Manager-Service">&#182;</a></h2><p><em>Revised:  June 04, 2018</em></p>
-<p>This notebook documents how to use the Data Lab <em>virtual storage system</em> via the Storage Manager service. This can be done either from a Python script (e.g. within this notebook) or from the command line using the <i>datalab</i> command.  The Storage Manager provides a simpler interface to the VOSpace system used on the backend to implement the Data Lab virtual storage.</p>
-<h3 id="The-Storage-Manager-Web-Service-Interface">The Storage Manager Web Service Interface<a class="anchor-link" href="#The-Storage-Manager-Web-Service-Interface">&#182;</a></h3><p>The Storage Manager service simplifies access to the Data Lab virtual storage system. This section describes the storage manager service interface in case we want to write our own code against that rather than using one of the provided tools. The Storage Manager service accepts an HTTP GET or POST call and then makes the appropriate call to the VOSpace backend for the requested operation:</p>
+<h2 id="How-to-use-the-Data-Lab-Store-Client-Service">How to use the Data Lab <em>Store Client</em> Service<a class="anchor-link" href="#How-to-use-the-Data-Lab-Store-Client-Service">&#182;</a></h2><p><em>Revised:  Jan 03, 2019</em></p>
+<p>This notebook documents how to use the Data Lab virtual storage system via the store client service. This can be done either from a Python script (e.g. within this notebook) or from the command line using the <i>datalab</i> command.</p>
+<h3 id="The-storage-manager-service-interface">The storage manager service interface<a class="anchor-link" href="#The-storage-manager-service-interface">&#182;</a></h3><p>The store client service simplifies access to the Data Lab virtual storage system. This section describes the store client service interface in case we want to write our own code against that rather than using one of the provided tools. The store client service accepts an HTTP GET call to the appropriate endpoint for the particular operation:</p>
 <table>
 <thead><tr>
 <th>Endpoint</th>
 <th>Description</th>
 <th>Parameters</th>
-<th style="text-align:center">Client Interface</th>
 </tr>
 </thead>
 <tbody>
@@ -13310,140 +11790,88 @@ div#notebook {
 <td>/get</td>
 <td>Retrieve a file</td>
 <td>name</td>
-<td style="text-align:center">res = get (fr [, to])</td>
 </tr>
 <tr>
 <td>/put</td>
 <td>Upload a file</td>
 <td>name</td>
-<td style="text-align:center">put (fr, to)</td>
 </tr>
 <tr>
 <td>/cp</td>
 <td>Copy a file/directory</td>
 <td>from, to</td>
-<td style="text-align:center">cp (fr, to)</td>
 </tr>
 <tr>
 <td>/ln</td>
 <td>Link a file/directory</td>
 <td>from, to</td>
-<td style="text-align:center">ln (src, target)</td>
 </tr>
 <tr>
 <td>/ls</td>
 <td>Get a file/directory listing</td>
 <td>name</td>
-<td style="text-align:center">res = ls ([name])</td>
 </tr>
 <tr>
 <td>/access</td>
 <td>Determine file accessability</td>
-<td>path, mode</td>
-<td style="text-align:center">bool = access (path [,mode])</td>
 </tr>
 <tr>
 <td>/stat</td>
 <td>File status info</td>
 <td>path</td>
-<td style="text-align:center">stat_dict = stat (path)</td>
 </tr>
 <tr>
 <td>/mkdir</td>
 <td>Create a directory</td>
 <td>name</td>
-<td style="text-align:center">mkdir (name)</td>
 </tr>
 <tr>
 <td>/mv</td>
 <td>Move/rename a file/directory</td>
 <td>from, to</td>
-<td style="text-align:center">mv (fr, to)</td>
 </tr>
 <tr>
 <td>/rm</td>
 <td>Delete a file</td>
 <td>name</td>
-<td style="text-align:center">rm (name)</td>
 </tr>
 <tr>
 <td>/rmdir</td>
 <td>Delete a directory</td>
 <td>name</td>
-<td style="text-align:center">rmdir (name)</td>
 </tr>
 <tr>
 <td>/tag</td>
 <td>Annotate a file/directory</td>
 <td>name, tag</td>
-<td style="text-align:center">tag (name)</td>
-</tr>
-<tr>
-<td>/resolve</td>
-<td>Resolve shorthand to full URI</td>
-<td>name</td>
-<td style="text-align:center">res = resolve (name)</td>
-</tr>
-<tr>
-<td>/setProperty</td>
-<td>Set a node property</td>
-<td>name, prop, val</td>
-<td style="text-align:center">setProperty (name)</td>
-</tr>
-<tr>
-<td>/getProperty</td>
-<td>Get a node property</td>
-<td>name, prop</td>
-<td style="text-align:center">val = getProperty (name)</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td style="text-align:center"></td>
-<td></td>
-</tr>
-<tr>
-<td>/available</td>
-<td>Service availability endpoint</td>
-<td>N/A</td>
-<td style="text-align:center">N/A</td>
-</tr>
-<tr>
-<td>/profiles</td>
-<td>List available service profiles</td>
-<td>profile, format</td>
-<td style="text-align:center">res = get_profiles (profile)</td>
-</tr>
-<tr>
-<td>/debug</td>
-<td>Toggle service debug flag</td>
-<td>N/A</td>
-<td style="text-align:center">N/A</td>
 </tr>
 </tbody>
 </table>
 <p>For example, a call to <i>http://datalab.noao.edu/storage/get?name=vos://mag.csv</i> will retrieve the file '<em>mag.csv</em>' from the root directory of the user's virtual storage.  Likewise, a python call using the <em>storeClient</em> interface such as "<em>storeClient.get('vos://mag.csv')</em>" would get the same file.</p>
-<h4 id="Virtual-Storage-Identifiers">Virtual Storage Identifiers<a class="anchor-link" href="#Virtual-Storage-Identifiers">&#182;</a></h4><p>Files in the virtual storage are usually identified via the prefix "<em>vos://</em>". This shorthand identifier is resolved to a user's home directory of the storage space in the service.  As a convenience, the prefix may optionally be omitted when the parameter refers to a node in the virtual storage. Navigation above a user's home directory is not supported however subdirectories within the space may be created and used as needed.</p>
-<p>If the '<em>vos</em>' prefix is instead the name of another user, and the remainder of the path grants public or group read/write access, then the other user's spaces will be accessed.  <em>Public spaces</em> are specially created user accounts where all files are world-readable, otherwise it is typically only a user's "<em>/public</em>" directory that can be accessed (e.g. '<em>sarah://public/foo.fits</em>' will access the '<em>foo.fits</em>' file from user '<em>sarah</em>').  Users can make any file (or directory) public by moving it to (or creating a link in) their "/public" directory.</p>
-<h4 id="User-Authentication-and-Public-Spaces">User Authentication and Public Spaces<a class="anchor-link" href="#User-Authentication-and-Public-Spaces">&#182;</a></h4><p>The Storage Manager service requires a Data Lab token to be passed as the value of the HTTP header keyword "X-DL-AuthToken" in any call to the service. This token identifies the user and which space to access.  If the token is not supplied anonymous access is assumed but provides access only to public storage spaces.</p>
-<h2 id="From-Python-code">From Python code<a class="anchor-link" href="#From-Python-code">&#182;</a></h2><p>The Storage Manager service can be called from Python code using the <i>datalab</i> client module. This provides methods to access the various Storage Manager functions in the <i>storeClient</i> subpackage.</p>
-<h3 id="Initialization">Initialization<a class="anchor-link" href="#Initialization">&#182;</a></h3><p>This is the setup that is required to use the Storage Manager. The first thing to do is import the relevant Python modules and also retrieve our Data Lab security token.</p>
-<hr>
-<h3 id="Standard-Notebook-Setup">Standard Notebook Setup<a class="anchor-link" href="#Standard-Notebook-Setup">&#182;</a></h3>
+<h4 id="Virtual-storage-identifiers">Virtual storage identifiers<a class="anchor-link" href="#Virtual-storage-identifiers">&#182;</a></h4><p>Files in the virtual storage are usually identified via the prefix "<em>vos://</em>". This shorthand identifier is resolved to a user's home directory of the storage space in the service.  As a convenience, the prefix may optionally be omitted when the parameter refers to a node in the virtual storage. Navigation above a user's home directory is not supported, however, subdirectories within the space may be created and used as needed.</p>
+<h4 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">&#182;</a></h4><p>The storage manager service requires a DataLab security token. This needs to be passed as the value of the header keyword "X-DL-AuthToken" in any HTTP GET call to the service. If the token is not supplied anonymous access is assumed but provides access only to public storage spaces.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="From-Python-code">From Python code<a class="anchor-link" href="#From-Python-code">&#182;</a></h3><p>The store client service can be called from Python code using the <i>datalab</i> module. This provides methods to access the various functions in the <i>storeClient</i> subpackage.</p>
+<h4 id="Initialization">Initialization<a class="anchor-link" href="#Initialization">&#182;</a></h4><p>This is the setup that is required to use the store client. The first thing to do is import the relevant Python modules and also retrieve our DataLab security token.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Standard notebook imports</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>   <span class="c1"># Py2/Py3 compatability</span>
-<span class="kn">import</span> <span class="nn">getpass</span>                          <span class="c1"># for Data Lab login</span>
-<span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">authClient</span>               <span class="c1"># for Data Lab login</span>
-<span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">storeClient</span>              <span class="c1"># Storage Manager client interface</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Standard notebook imports</span>
+<span class="kn">import</span> <span class="nn">getpass</span>
+<span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">authClient</span><span class="p">,</span> <span class="n">storeClient</span>
 </pre></div>
 
 </div>
@@ -13451,32 +11879,39 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Data-Lab-Login">Data Lab Login<a class="anchor-link" href="#Data-Lab-Login">&#182;</a></h4><p>Logging into the Data Lab is only required when a user identity is required, i.e. when you wish to access protected resources such as virtual storage or MyDB.  If no token is provided, the <em>anonymous</em> user is assumed.  Once you login, the token is saved and will automatically be passed to interface methods that require it;  If you wish to supply a different token, each interface method accepts a <em>token</em> parameter argument.</p>
-<p>The first time this notebook is executed, login as the example <em>demo00</em> user (passwd: <em>balatad</em>) in the cell below. Subsequent runs may skip this cell.  Note, this token will persist for other notebooks as well.</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get the login token for the &#39;demo00&#39; scratch user</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">authClient</span><span class="o">.</span><span class="n">login</span> <span class="p">(</span><span class="s1">&#39;demo00&#39;</span><span class="p">,</span><span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s1">&#39;Account password: &#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Get the security token for the demo00 user</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">authClient</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter user name: (+ENTER)&quot;</span><span class="p">),</span><span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter password: (+ENTER)&quot;</span><span class="p">))</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isValidToken</span> <span class="p">(</span><span class="n">token</span><span class="p">):</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Error: invalid user login (</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">token</span><span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Error: invalid user login (</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">token</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Login token:   </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">token</span><span class="p">)</span>
-
-<span class="n">anon_tok</span> <span class="o">=</span> <span class="s1">&#39;anonymous.0.0.anon_access&#39;</span>                            <span class="c1"># EXAMPLES ONLY</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Login token:   </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">token</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Account password: ········
+Login token:   demo00.1018.1018.$1$8tiCBPo5$codJdzYXOR3s2yPklEZwP.
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13485,29 +11920,57 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-<h2 id="Client-Interface-Summary">Client Interface Summary<a class="anchor-link" href="#Client-Interface-Summary">&#182;</a></h2><h3 id="Listing-a-file/directory">Listing a file/directory<a class="anchor-link" href="#Listing-a-file/directory">&#182;</a></h3><p>We can see all the files that are in a specific directory or get a full listing for a specific file.  In this case, we'll list the default virtual storage directory to use as a basis for changes we'll make below.  Listing the virtual storage is done using the <em><strong>storeClient.ls()</strong></em> method:</p>
+<h4 id="Listing-a-file/directory">Listing a file/directory<a class="anchor-link" href="#Listing-a-file/directory">&#182;</a></h4><p>We can see all the files that are in a specific directory or get a full listing for a specific file.  In this case, we'll list the default virtual storage directory to use as a basis for changes we'll make below.</p>
 
-<pre><code>    listing = storeClient.ls (name, token=None, format='csv', verbose=False)
-</code></pre>
-<p>where:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">listing</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">listing</span><span class="p">)</span>
+</pre></div>
 
-<pre><code>    name - A vos identifier of the space to be listed
-    token - Data Lab auth token to use when overriding login token
-    format - Requested listing format
-    verbose - Verbose output?
+</div>
+</div>
+</div>
 
-</code></pre>
-<p>Multiple <em>format</em> options are supported:</p>
+<div class="output_wrapper">
+<div class="output">
 
-<pre><code>    raw - return the raw XML description of the storage nodes
-    csv - return a CSV listing of directory contents
-   list - return a single-file listing of directory contents
-  short - return a multi-column short listing of contents (similar to 'ls')
-   long - return a verbose long listing of contents (similar to 'ls -l')
 
-</code></pre>
-<p>Note that some formats are suitable only for displaying the listing.</p>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>gavo_out.csv,public,results,tmp,zxmags.csv
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <em>public</em> directory shown here is visible to all Data Lab users and provides a means of sharing data without having to setup special access.  Similarly, the <em>tmp</em> directory is read-protected and provides a convenient temporary directory to be used in a workflow.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="File-Existence-and-Info">File Existence and Info<a class="anchor-link" href="#File-Existence-and-Info">&#182;</a></h4><p>Aside from simply listing files, it's possible to test whether a named file already exists or to determine more information about it.</p>
 
 </div>
 </div>
@@ -13517,80 +11980,20 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">listing</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;vos://public&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">listing</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The <em><strong>storeClient.ls()</strong></em> method (along with others in this interfaceO can be called with a variable number of arguments, i.e. in previous versions of the interface the 'token' was required to always be the first argument, however this is now optional.  Examples below show the use of hidden and explicit token arguments, pattern matching and the optional prefix usage.  Uncomment as desired to see each example.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#listing = storeClient.ls ()                         # default CSV listing of root directory</span>
-<span class="n">listing</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">)</span>        <span class="c1"># single-column listing of root directory, no prefix</span>
-<span class="c1">#listing = storeClient.ls (&#39;&#39;, format=&#39;list&#39;)        # single-column listing of root directory, no prefix</span>
-<span class="c1">#listing = storeClient.ls (&#39;&#39;, format=&#39;short&#39;)        # single-column listing of root directory, no prefix</span>
-<span class="c1">#listing = storeClient.ls (&#39;/&#39;, format=&#39;long&#39;)       # long listing of root directory, no prefix</span>
-<span class="c1">#listing = storeClient.ls (&#39;/public&#39;, format=&#39;long&#39;) # long listing of sub-directory, no prefix</span>
-<span class="c1">#listing = storeClient.ls (&#39;vos://t*&#39;)               # default CSV output with pattern matching</span>
-<span class="c1">#listing = storeClient.ls (token, &#39;&#39;)                # default CSV output w/ supplied token arg (deprecated)</span>
-<span class="c1">#token = &#39;baweaver.1159.1159.$1$.IEbGBIK$PgJvZOt0M6AVrxP5pCmoc.&#39;</span>
-<span class="c1">#listing = storeClient.ls (&#39;vos://&#39;, token=token)    # default CSV output using hidden &#39;token&#39; param</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">listing</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="File-Existence-and-Info">File Existence and Info<a class="anchor-link" href="#File-Existence-and-Info">&#182;</a></h4><p>Aside from simply listing files, it's possible to test whether a named file already exists or to determine more information about it. Existence testing is done using the <em><strong>storeClient.access()</strong></em> method, a <em><strong>storeClient.stat()</strong></em> method will get more information:</p>
-
-<pre><code>     bool_val = storeClient.access (path [,mode=None,token=None])
-    stat_dict = storeClient.stat (path)</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A simple file existence test:</span>
-<span class="c1">#if storeClient.access (&#39;public&#39;):                  # simple filename check</span>
-<span class="c1">#if storeClient.access (&#39;/public&#39;):                 # leading path</span>
-<span class="k">if</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;vos://public&#39;</span><span class="p">):</span>             <span class="c1"># full URI</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;public&quot; directory exists&#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;vos://public&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">):</span>   <span class="c1"># available modes: &#39;r&#39;,&#39;w&#39;,&#39;rw&#39;</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;public&quot; directory is grooup/world writable&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># A simple file existence test:</span>
+<span class="k">if</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;vos://public&#39;</span><span class="p">):</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;public&quot; directory exists&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;vos://public&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">):</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;public&quot; directory is grooup/world writable&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;public&quot; directory is not group/world writable&#39;</span><span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;public&quot; directory is not group/world writable&#39;</span><span class="p">)</span>
     
-<span class="k">if</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;vos://tmp&#39;</span><span class="p">):</span>             <span class="c1"># full URI</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;tmp&quot; directory exists&#39;</span><span class="p">)</span>        
-<span class="k">if</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;vos://tmp&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">):</span>   <span class="c1"># available modes: &#39;r&#39;,&#39;w&#39;,&#39;rw&#39;</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;tmp&quot; directory is group/world writable&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;vos://tmp&#39;</span><span class="p">):</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;tmp&quot; directory exists&#39;</span><span class="p">)</span>        
+<span class="k">if</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;vos://tmp&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">):</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;tmp&quot; directory is group/world writable&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;tmp&quot; directory is not group/world writable&#39;</span><span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;tmp&quot; directory is not group/world writable&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13602,37 +12005,66 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <em><strong>stat()</strong></em> methong returns a dictionary of node status values.  Returned fields include:</p>
-
-<pre><code>    name            Name of node
-    groupread       List of group/owner names w/ read access
-    groupwrite      List of group/owner names w/ write access
-    publicread      Publicly readable (0=False, 1=True)
-    owner           Owner name
-    ctime           Creation time
-    perms           Formatted unix-like permission string
-    target          Node target if LinkNode
-    size            Size of file node (bytes)
-    type            Node type (container|data|link)</code></pre>
+<h4 id="Uploading-a-file">Uploading a file<a class="anchor-link" href="#Uploading-a-file">&#182;</a></h4><p>Now we want to upload a new data file from our local disk to the virtual storage:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># More information about a file:  </span>
-<span class="c1">#stat = storeClient.stat(&#39;/doesnt_exist&#39;)</span>
-<span class="n">stat</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s1">&#39;/public&#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stat</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Error: Node does not exist&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;  </span><span class="si">%s</span><span class="s1">  </span><span class="si">%s</span><span class="s1">   </span><span class="si">%s</span><span class="s1">   </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">stat</span><span class="p">[</span><span class="s1">&#39;perms&#39;</span><span class="p">],</span><span class="n">stat</span><span class="p">[</span><span class="s1">&#39;owner&#39;</span><span class="p">],</span><span class="n">stat</span><span class="p">[</span><span class="s1">&#39;ctime&#39;</span><span class="p">],</span><span class="n">stat</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]))</span> 
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">put</span> <span class="p">(</span><span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;./newmags.csv&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">IndexError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-3-4376d46f114a&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>storeClient<span class="ansi-blue-fg">.</span>put <span class="ansi-blue-fg">(</span>to <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;vos://newmags.csv&#39;</span><span class="ansi-blue-fg">,</span> fr <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#39;./newmags.csv&#39;</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">print</span><span class="ansi-blue-fg">(</span>storeClient<span class="ansi-blue-fg">.</span>ls <span class="ansi-blue-fg">(</span>name<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;vos://&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/data0/sw/anaconda2/lib/python2.7/site-packages/datalab_client-2.5.11-py2.7.egg/dl/Util.pyc</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, *args, **kw)</span>
+<span class="ansi-green-intense-fg ansi-bold">    125</span> 
+<span class="ansi-green-intense-fg ansi-bold">    126</span>         <span class="ansi-red-fg"># Call the function with all original args/keywords and return result.</span>
+<span class="ansi-green-fg">--&gt; 127</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> function<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kw<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    128</span> 
+<span class="ansi-green-intense-fg ansi-bold">    129</span>     <span class="ansi-green-fg">def</span> register<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> nargs<span class="ansi-blue-fg">,</span> function<span class="ansi-blue-fg">,</span> module<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/data0/sw/anaconda2/lib/python2.7/site-packages/datalab_client-2.5.11-py2.7.egg/dl/storeClient.pyc</span> in <span class="ansi-cyan-fg">put</span><span class="ansi-blue-fg">(fr, to, token, verbose, debug)</span>
+<span class="ansi-green-intense-fg ansi-bold">    274</span>     &#39;&#39;&#39;
+<span class="ansi-green-intense-fg ansi-bold">    275</span>     return sc_client._put (fr=fr, to=to, token=def_token(token),
+<span class="ansi-green-fg">--&gt; 276</span><span class="ansi-red-fg">                         verbose=verbose, debug=debug)
+</span><span class="ansi-green-intense-fg ansi-bold">    277</span> 
+<span class="ansi-green-intense-fg ansi-bold">    278</span> 
+
+<span class="ansi-green-fg">/data0/sw/anaconda2/lib/python2.7/site-packages/datalab_client-2.5.11-py2.7.egg/dl/storeClient.pyc</span> in <span class="ansi-cyan-fg">_put</span><span class="ansi-blue-fg">(self, token, fr, to, verbose, debug)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1201</span>             fnum <span class="ansi-blue-fg">+=</span> <span class="ansi-cyan-fg">1</span>
+<span class="ansi-green-intense-fg ansi-bold">   1202</span> 
+<span class="ansi-green-fg">-&gt; 1203</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> <span class="ansi-blue-fg">(</span>str<span class="ansi-blue-fg">(</span>resp<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">if</span> len<span class="ansi-blue-fg">(</span>resp<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">&gt;</span> <span class="ansi-cyan-fg">1</span> <span class="ansi-green-fg">else</span> resp<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1204</span> 
+<span class="ansi-green-intense-fg ansi-bold">   1205</span> 
+
+<span class="ansi-red-fg">IndexError</span>: list index out of range</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13641,21 +12073,51 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Listing-Public-VOSpaces">Listing Public VOSpaces<a class="anchor-link" href="#Listing-Public-VOSpaces">&#182;</a></h5><p>Public storage can be listed or accessed in the same way, except that the '<em>vos</em>' URI prefix is replaced with the name of the user or storage space.  For example, to list the contents of the "/public' directory for user '<em>demo00</em>':</p>
+<h4 id="Downloading-a-file">Downloading a file<a class="anchor-link" href="#Downloading-a-file">&#182;</a></h4><p>Let's say we want to download a file from our virtual storage space, in this case a query result that we saved to it in the "How to use the Data Lab query manager service" notebook:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;demo00://public&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;long&#39;</span><span class="p">))</span>              <span class="c1"># as current user</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;demo00://public&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;long&#39;</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>  <span class="c1"># as anonymous user</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;./mymags.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(1/1) [====================] [   142B] newmags.csv
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;[&lt;Response [200]&gt;]&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13664,91 +12126,47 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <em>public</em> directory show here is visible to all Data Lab users and provides a means of sharing data without having to setup special access.  Conversely, the <em>tmp</em> directory is read-protected and provides a convenient temporary directory to be used in a workflow.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Uploading-and-Downloading-Files">Uploading and Downloading Files<a class="anchor-link" href="#Uploading-and-Downloading-Files">&#182;</a></h3><p>Now we want to upload a new data file from our local disk to the virtual storage for our account, or perhaps retrieve a file from virtual storage to our local disk or directly into the notebook.  Within the Jupyter environment the '<em>local disk</em>' refers to storage on the notebook server. Other methods are available for copying a file from your laptop/desktop computer or for saving query results to virtual storage, or for accessing remote files automatically.</p>
-<p>Uploading/downloading files is done using the <em><strong>storeClient.put()</strong></em> and <em><strong>storeClient.get()</strong></em> methods respectively:</p>
-
-<pre><code>    resp = storeClient.put (fr, to, token=None, verbose=True)
-    resp = storeClient.get (fr, to, token=None, verbose=True)
-</code></pre>
-<p>where for <em><strong>put()</strong></em>:</p>
-
-<pre><code>    fr - Source path to upload (e.g. './foo.fits')
-    to - Destination URI of file (e.g. 'vos://foo.fits', defaults to 'vos://' if not given)
-</code></pre>
-<p>where for <em><strong>get()</strong></em>:</p>
-
-<pre><code>    fr - URI path to download (e.g. 'vos://foo.fits')
-    to - Name of the local file to save, if not prov   
-
-    token - Data Lab auth token to use when overriding login token
-    verbose - Verbose output?
-
-</code></pre>
-<p>Both method return a <em><a href="http://docs.python-requests.org/en/master/">requests</a></em> <em>Response</em> object that can be used to check for status codes and error messages.</p>
-<h4 id="Uploading-Files">Uploading Files<a class="anchor-link" href="#Uploading-Files">&#182;</a></h4><p>Assuming a local file called 'mags.csv' exists in the notebook directory, it can be moved to virtual storage as follows:</p>
+<p>It is also possible to get the contents of a remote file directly into your notebook by specifying the location as an empty string:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;vos://test&#39;</span><span class="p">):</span>
-    <span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">mkdir</span> <span class="p">(</span><span class="s1">&#39;vos://test&#39;</span><span class="p">)</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">put</span> <span class="p">(</span><span class="s1">&#39;./mags.csv&#39;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s1">&#39;vos://mags.csv&#39;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>id,g,r,i
+001,22.3,12.4,21.5
+002,22.3,12.4,21.5
+003,22.3,12.4,21.5
+004,22.3,12.4,21.5
+005,22.3,12.4,21.5
+006,22.3,12.4,21.5
+007,22.3,12.4,21.5
+
+</pre>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># List the directory before we upload</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Before upload: /public</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;/public&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Transfering file &quot;mags.csv&quot; to public directory under same name...&#39;</span><span class="p">)</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">put</span> <span class="p">(</span><span class="s1">&#39;./mags.csv&#39;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s1">&#39;public&#39;</span><span class="p">)</span>
-<span class="c1">#resp = storeClient.put (&#39;./mags.csv&#39;, to=&#39;public/&#39;)</span>
-<span class="c1">#resp = storeClient.put (&#39;./mags.csv&#39;, to=&#39;/public&#39;)</span>
-<span class="c1">#resp = storeClient.put (&#39;./mags.csv&#39;, to=&#39;/public/&#39;)</span>
-<span class="c1">#resp = storeClient.put (&#39;./mags.csv&#39;, to=&#39;vos://public&#39;)</span>
-<span class="c1">#resp = storeClient.put (&#39;./mags.csv&#39;, to=&#39;vos://public/&#39;)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">resp</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Put successful&#39;</span> <span class="k">if</span> <span class="n">resp</span> <span class="o">==</span> <span class="s1">&#39;OK&#39;</span> <span class="k">else</span> <span class="p">(</span><span class="s1">&#39;Put error: &#39;</span> <span class="o">+</span> <span class="n">resp</span><span class="p">))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;After upload: /public</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;/public&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">))</span>
-
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Transfering file &quot;mags.csv&quot; to public directory under different name...&#39;</span><span class="p">)</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">put</span> <span class="p">(</span><span class="s1">&#39;./mags.csv&#39;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s1">&#39;public/xyzzy.csv&#39;</span><span class="p">)</span>
-<span class="c1">#resp = storeClient.put (&#39;./mags.csv&#39;, to=&#39;/public/xyzzy.csv&#39;)</span>
-<span class="c1">#resp = storeClient.put (&#39;./mags.csv&#39;, to=&#39;vos://public/xyzzy.csv&#39;)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Put successful&#39;</span> <span class="k">if</span> <span class="n">resp</span> <span class="o">==</span> <span class="s1">&#39;OK&#39;</span> <span class="k">else</span> <span class="p">(</span><span class="s1">&#39;Put error: &#39;</span> <span class="o">+</span> <span class="n">resp</span><span class="p">))</span>
-
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Transfering multiple files &quot;*.csv&quot;...&#39;</span><span class="p">)</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">put</span> <span class="p">(</span><span class="s1">&#39;./*.csv&#39;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s1">&#39;vos://public&#39;</span><span class="p">)</span><span class="c1"># put the file to vospace</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Transfer status: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">resp</span><span class="p">))</span>
-
-<span class="c1"># List the directory again to verify it is there</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;After upload: /public</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;/public&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">))</span>
-</pre></div>
-
 </div>
+
 </div>
 </div>
 
@@ -13757,30 +12175,40 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Downloading-a-file">Downloading a file<a class="anchor-link" href="#Downloading-a-file">&#182;</a></h4><p>Let's say we want to download a file from our virtual storage space, in this case a query result that we saved to it in the "<em>How to Use the Data Lab Query Manager Service</em>" notebook.  When called with a single argument, the contents of the remote file are returned as the result of the <em><strong>get()</strong></em> method call:</p>
+<h4 id="Creating-a-directory">Creating a directory<a class="anchor-link" href="#Creating-a-directory">&#182;</a></h4><p>We can create a directory on the remote storage to be used for saving data later:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;public/mags.csv&#39;</span><span class="p">)</span>                        <span class="c1"># simple name</span>
-    <span class="c1">#data = storeClient.get (&#39;/public/mags.csv&#39;)                      # path prefix</span>
-    <span class="c1">#data = storeClient.get (&#39;vos://public/mags.csv&#39;)                 # full URI</span>
-    <span class="c1">#data = storeClient.get (token,&#39;vos://public/mags.csv&#39;)            # explicit token</span>
-    <span class="c1">#data = storeClient.get (token, fr=&#39;vos://public/mags.csv&#39;,to=&#39;&#39;) # deprecated syntax</span>
-    <span class="c1">#data = storeClient.get (&#39;/does_not_exist&#39;)                       # test access to non-existent file</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Donwload error: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mkdir</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;OK&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13789,30 +12217,42 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To save the file to local disk, a second argument may be given to name the local file.</p>
+<h4 id="Copying-a-file/directory">Copying a file/directory<a class="anchor-link" href="#Copying-a-file/directory">&#182;</a></h4><p>We want to put a copy of the file in a remote work directory:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;vos://public/mags.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;./new_mymags.csv&#39;</span><span class="p">)</span>
-<span class="c1">#resp = storeClient.get (&#39;mags.csv&#39;, &#39;new_mymags.csv&#39;)</span>
-<span class="c1">#resp = storeClient.get (&#39;/mags.csv&#39;, &#39;./new_mymags.csv&#39;)</span>
-<span class="c1">#resp = storeClient.get (token, fr = &#39;vos://mags.csv&#39;, to = &#39;./new_mymags.csv&#39;) # deprecated syntax</span>
-
-<span class="c1"># When specifying an output name, the &#39;resp&#39; is an array of &quot;OK&quot;</span>
-<span class="c1"># or error messages for each downloaded objects.</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Reponse: &quot;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">resp</span><span class="p">))</span>
-
-<span class="c1"># Use an escape to verify the local file was created then clean up</span>
-<span class="o">!</span>ls -l new_mymags.csv <span class="p">;</span> rm -f new_mymags.csv
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mkdir</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://temp&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Before: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://temp/&#39;</span><span class="p">))</span>
+<span class="n">storeClient</span><span class="o">.</span><span class="n">cp</span> <span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;vos://temp/newmags.csv&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;After: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://temp/&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before: 
+After: 
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13821,26 +12261,51 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Multiple files may be downloaded by using a filename template:</p>
+<p>Notice that in the <em>ls()</em> call we append the directory name with a trailing '/' to list the contents of the directory rather than the directory itself.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Linking-to-a-file/directory">Linking to a file/directory<a class="anchor-link" href="#Linking-to-a-file/directory">&#182;</a></h4><p><strong>WARNING</strong>: Linking is currently <strong>not</strong> working in the Data Lab storage manager. This notebook will be updated when the problem has been resolved.</p>
+<p>Sometimes we want to create a link to a file or directory.  In this case, the link named by the <em>'fr'</em> parameter is created and points to the file/container named by the <em>'target'</em> parameter.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>mkdir -p ./testdir                                            # create a <span class="nb">local</span> download directory
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">storeClient</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="s1">&#39;vos://public/*.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;./testdir&#39;</span><span class="p">)</span>       <span class="c1"># get all public CSV files to this dir</span>
-    <span class="c1">#resp = storeClient.get (&#39;vos://public/*.csv&#39;, &#39;./does_not_exist&#39;) # test download to non-existent directory</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Download error: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-<span class="o">!</span>ls -l testdir <span class="p">;</span> /bin/rm -rf testdir                           # list it to verify and cleanup
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">ln</span> <span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://mags.csv&#39;</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="s1">&#39;vos://temp/newmags.csv&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Root dir: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Temp dir: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://temp/&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Root dir: gavo_out.csv,mags.csv,newmags.csv,public,results,temp,tmp,zxmags.csv
+Temp dir: 
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13849,34 +12314,39 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Saving-Python-Objects-as-Files">Saving Python Objects as Files<a class="anchor-link" href="#Saving-Python-Objects-as-Files">&#182;</a></h4><p>Limited support for saving Python objects to files in virtual storage is provided by the <em><strong>storeClient.saveAs()</strong></em> method.  This function save the <em>str()</em> representation of the data to a named file in storage.</p>
-
-<pre><code>    resp = storeClient.saveAs (data, name, token=None)
-</code></pre>
-<p>where:</p>
-
-<pre><code>    data - Data object to be saved
-    name - Path to file to create in storage (e.g. 'vos://foo.csv')</code></pre>
+<h4 id="Moving/renaming-a-file/directory">Moving/renaming a file/directory<a class="anchor-link" href="#Moving/renaming-a-file/directory">&#182;</a></h4><p>We can move a file or directory:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>                     <span class="c1"># test dictionary</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">saveAs</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;vos://test1.dict&quot;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;SaveAs response:  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">resp</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="s1">&#39;vos://&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">))</span>  <span class="c1"># verify it was saved</span>
-
-<span class="nb">str</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;test1.dict&#39;</span><span class="p">)</span>             <span class="c1"># read it back</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;String version: &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://temp/newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Results dir: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://results/&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Results dir: 
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13885,39 +12355,41 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Creating-and-Deleting-Directories">Creating and Deleting Directories<a class="anchor-link" href="#Creating-and-Deleting-Directories">&#182;</a></h4><p>We can create a directory on the remote storage to be used for saving data, later deleting this directory will also automatically remove the contents.  Directories are created and removed using the <em><strong>storeClient.mkdir()</strong></em> and <em><strong>storeClient.rmdir()</strong></em> methods.</p>
-
-<pre><code>    storeClient.mkdir (name, token=None)
-    storeClient.rmdir (name, token=None)
-</code></pre>
-<p>where <em>name</em> is the URI or pathname of the directory to create/remove.</p>
+<h4 id="Deleting-a-file">Deleting a file<a class="anchor-link" href="#Deleting-a-file">&#182;</a></h4><p>We can delete a file:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dirname</span> <span class="o">=</span> <span class="s1">&#39;testdir&#39;</span>              <span class="c1"># simple name</span>
-<span class="c1">#dirname = &#39;/testdir&#39;            # path prefix</span>
-<span class="c1">#dirname = &#39;vos://testdir&#39;       # URI</span>
-
-<span class="c1"># Create a directory if it doesn&#39;t already exist</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="n">dirname</span><span class="p">):</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Creating test dir: &#39;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">mkdir</span> <span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">dirname</span><span class="p">))</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Error: test directory already exists&#39;</span><span class="p">)</span>
-    
-<span class="c1"># Now delete it</span>
-<span class="k">if</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="n">dirname</span><span class="p">):</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Removing test dir: &#39;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">rmdir</span> <span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">dirname</span><span class="p">))</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Error: test directory does not exist&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Before: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
+<span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://mags.csv&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;After: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before: gavo_out.csv,mags.csv,newmags.csv,public,results,temp,tmp,zxmags.csv
+After: gavo_out.csv,newmags.csv,public,results,temp,tmp,zxmags.csv
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13926,32 +12398,40 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Copying-a-File-or-Directory">Copying a File or Directory<a class="anchor-link" href="#Copying-a-File-or-Directory">&#182;</a></h4><p>Nodes (i.e. files or directories) in virtual storage may be copied to a new name or to other directories.
-Files and directories are copied using the <em><strong>storeClient.cp()</strong></em> method.</p>
-
-<pre><code>    resp = storeClient.cp (fr, to, token=None)
-</code></pre>
-<p>where both the <em>fr</em> and <em>to</em> arguments are required and are the URI or pathname of the directory to copy.</p>
+<h4 id="Deleting-a-directory">Deleting a directory<a class="anchor-link" href="#Deleting-a-directory">&#182;</a></h4><p>We can also delete a directory, doing so also deletes the contents of that directory:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;/tmp/mags.csv&#39;</span><span class="p">):</span>
-    <span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="s1">&#39;/tmp/mags.csv&#39;</span><span class="p">)</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">cp</span> <span class="p">(</span><span class="s1">&#39;mags.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;/tmp&#39;</span><span class="p">)</span>
-<span class="c1">#resp = storeClient.cp (&#39;*.csv&#39;, &#39;/tmp&#39;, verbose=True)</span>
-<span class="c1">#resp = storeClient.cp (token, &#39;vos://mags.csv&#39;, &#39;vos://tmp/mags.csv&#39;)</span>
-<span class="c1">#resp = storeClient.cp (fr=&#39;vos://mags.csv&#39;, to=&#39;vos://tmp/mags.csv&#39;)</span>
-<span class="c1">#resp = storeClient.cp (token, fr=&#39;vos://mags.csv&#39;, to=&#39;vos://tmp/mags.csv&#39;)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Copy reponse: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">resp</span><span class="p">))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://temp&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;OK&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13960,300 +12440,41 @@ Files and directories are copied using the <em><strong>storeClient.cp()</strong>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When copying multiple files to a directory, the response is an array of the individual response objects:</p>
+<h4 id="Tagging-a-file/directory">Tagging a file/directory<a class="anchor-link" href="#Tagging-a-file/directory">&#182;</a></h4><p><strong>Warning</strong>: Tagging is currently <strong>not</strong> working in the Data Lab storage manager. This notebook will be updated when the problem has been resolved.</p>
+<p>We can tag any file or directory with arbitrary metadata:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">cp</span> <span class="p">(</span><span class="s1">&#39;*.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;/tmp&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">resp</span><span class="p">)</span>
-
-<span class="n">junk</span><span class="o">=</span><span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="s1">&#39;vos://tmp/mags.csv&#39;</span><span class="p">)</span>          <span class="c1"># clean up</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">,</span> <span class="n">tag</span> <span class="o">=</span> <span class="s1">&#39;The results from my analysis&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Linking-to-a-file/directory">Linking to a file/directory<a class="anchor-link" href="#Linking-to-a-file/directory">&#182;</a></h4><p>Sometimes we want to create a link to a file or directory.  In this case, the link named by the <em>'fr'</em> parameter is created and points to the file/container named by the <em>'target'</em> parameter.  Links are created using the <em><strong>storeClient.ln()</strong></em> method:</p>
+<div class="output_wrapper">
+<div class="output">
 
-<pre><code>    stat = storeClient.ln (fr, target, token=None, verbose=True)
-</code></pre>
-<p>where</p>
 
-<pre><code>        fr - Name/URI of the link to create
-    target - Name/URI of the link target
+<div class="output_area">
 
-</code></pre>
-<p>The <em><strong>ln()</strong></em> method returns an "OK" string if the link was created, otherwise it throws an Exception to indicate the error. For example, to create a link named 'link.csv' that points to the 'mags.csv' file in our toplevel directory:</p>
+<div class="prompt output_prompt">Out[13]:</div>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;vos://link.csv&#39;</span><span class="p">):</span>
-        <span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="s1">&#39;vos://link.csv&#39;</span><span class="p">)</span>
-    <span class="n">stat</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ln</span> <span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://link.csv&#39;</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="s1">&#39;vos://mags.csv&#39;</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Link Error: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Link status = </span><span class="si">%s</span><span class="s1">, info: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">stat</span><span class="p">,</span><span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="s1">&#39;link.csv&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;json&#39;</span><span class="p">)))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Tmp dir after link:  &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
-</pre></div>
 
-</div>
-</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;OK&#39;</pre>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Moving/Renaming-a-File-or-Directory">Moving/Renaming a File or Directory<a class="anchor-link" href="#Moving/Renaming-a-File-or-Directory">&#182;</a></h4><p>Files and directories are moved (or renamed) using the <em><strong>storeClient.mv()</strong></em> method.</p>
 
-<pre><code>    resp = storeClient.mv (fr, to, token=None)
-</code></pre>
-<p>where both the <em>fr</em> and <em>to</em> arguments are required and are the URI or pathname of the directory to move.  If the '<em>to</em>' parameter is an existing directory the '<em>fr</em>' file/directory is moved, otherwise it is renamed.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Before move: access() to /results/mags.csv = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="s1">&#39;/results/mags.csv&#39;</span><span class="p">))</span>
-
-<span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">fr</span><span class="o">=</span><span class="s1">&#39;mags.csv&#39;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s1">&#39;/results/zz.csv&#39;</span><span class="p">)</span>                    <span class="c1"># simply names                  FIXME</span>
-<span class="c1">#resp = storeClient.mv(&#39;vos://zzz.csv&#39;, &#39;vos://results&#39;)         # full URI</span>
-<span class="c1">#resp = storeClient.mv(fr=&#39;vos://zzz.csv&#39;, to=&#39;vos://results&#39;)   # deprecated syntax</span>
-<span class="c1">#resp = storeClient.mv(token, &#39;vos://zzz.csv&#39;, &#39;results&#39;)  # specify token, mixed names</span>
-<span class="c1">#resp = storeClient.mv(token, fr=&#39;vos://zzz.csv&#39;, to=&#39;vos://results&#39;)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Move response:  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">resp</span><span class="p">))</span>
-
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;After move: access() to /results/zz.csv = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="s1">&#39;/results/zz.csv&#39;</span><span class="p">))</span>
-
-<span class="c1"># FIXME -- Seems to be a bug in moving to the toplevel dir w/out filename</span>
-<span class="c1">#resp = storeClient.cp(&#39;vos://results/mags.csv&#39;, &#39;/&#39;, verbose=True)  # put it back for next time</span>
-<span class="c1">#resp = storeClient.cp(&#39;vos://results/mags.csv&#39;, &#39;vos://&#39;, verbose=True)  # put it back for next time</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">cp</span><span class="p">(</span><span class="s1">&#39;vos://results/zz.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;/mags.csv&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># put it back for next time</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Copy response:  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">resp</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Moving multiple files can be done using template strings as above:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Root listing before move: </span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Public listing before move: </span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;/public&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">))</span>
-
-<span class="n">storeClient</span><span class="o">.</span><span class="n">mv</span> <span class="p">(</span><span class="s1">&#39;*.csv&#39;</span><span class="p">,</span><span class="s1">&#39;/public&#39;</span><span class="p">)</span>                     <span class="c1"># move the file</span>
-
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Root listing after move: </span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Public listing after move: </span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;/public&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">))</span>
-
-<span class="n">junk</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">mv</span> <span class="p">(</span><span class="s1">&#39;/public/*.csv&#39;</span><span class="p">,</span><span class="s1">&#39;vos://&#39;</span><span class="p">)</span>             <span class="c1"># put them back for next time</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Deleting-a-File">Deleting a File<a class="anchor-link" href="#Deleting-a-File">&#182;</a></h4><p>We can delete a file:
-Files deleted using the <em><strong>storeClient.rm()</strong></em> method.</p>
-
-<pre><code>    resp = storeClient.rm (name, token=None, verbose=False)
-</code></pre>
-<p>where <em>name</em> is required and specified as the URI or pathname of the file to remove.  Filename templates may be used to delete multiple files.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Upload a file to use as a test</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">put</span> <span class="p">(</span><span class="s1">&#39;./mags.csv&#39;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s1">&#39;/rmtest.csv&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Before: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
-
-<span class="c1"># Delete the test file.  Note this returns status=204 on success</span>
-<span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="s1">&#39;vos://rmtest.csv&#39;</span><span class="p">)</span>
-<span class="c1">#resp = storeClient.rm (token, name = &#39;vos://mags.csv&#39;)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Remove response:  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">resp</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now let's try deleting a non-existent file, i.e. the file we just removed:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">access</span> <span class="p">(</span><span class="s1">&#39;vos://rmtest.csv&#39;</span><span class="p">):</span>           <span class="c1"># verify it doesn&#39;t exist first</span>
-    <span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="s1">&#39;vos://rmtest.csv&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">resp</span> <span class="o">!=</span> <span class="s2">&quot;OK&quot;</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Remove error: </span><span class="si">%s</span><span class="s1"> &#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">resp</span><span class="p">))</span>  
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Removed non-existent file&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Multiple files may be removed using filename templates.  Note that in this case the <em>rm()</em> method returns an array of <em>Response</em> objects.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mkdir</span> <span class="p">(</span><span class="s1">&#39;rmtest&#39;</span><span class="p">)</span>                               <span class="c1"># create some test data</span>
-<span class="n">storeClient</span><span class="o">.</span><span class="n">cp</span> <span class="p">(</span><span class="s1">&#39;*.csv&#39;</span><span class="p">,</span><span class="s1">&#39;rmtest&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Test directory: </span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;vos:///rmtest&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">))</span>
-
-<span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="s1">&#39;/rmtest/*.csv&#39;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Remove status: &#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">----------</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's see what happens if we try to remove the directory:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Root directory before removing &quot;rmtest&quot; dir: </span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;vos://&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">))</span>
-<span class="n">storeClient</span><span class="o">.</span><span class="n">cp</span> <span class="p">(</span><span class="s1">&#39;*.csv&#39;</span><span class="p">,</span><span class="s1">&#39;rmtest&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;rmtest directory before removing &quot;rmtest&quot; dir: </span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;vos:///rmtest&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">))</span>
-
-<span class="n">resp</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="s1">&#39;/rmtest&#39;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Remove status: &#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">resp</span><span class="p">))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Root directory after removing &quot;rmtest&quot; dir: </span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;vos://&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Deleting-a-directory">Deleting a directory<a class="anchor-link" href="#Deleting-a-directory">&#182;</a></h4><p>We can also delete a directory, doing so also deletes the contents of that directory:
-Directories can be deleted using the <em><strong>storeClient.rmdir()</strong></em> method.</p>
-
-<pre><code>    resp = storeClient.rmdir (name, token=None, verbose=False)
-</code></pre>
-<p>where <em>name</em> is required and specified as the URI or pathname of the directory to remove.  Filename templates may be used to delete multiple directories.  Deleting a directory also deletes the contents of that directory:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span> <span class="n">token</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://results2&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Tagging-a-file/directory">Tagging a file/directory<a class="anchor-link" href="#Tagging-a-file/directory">&#182;</a></h4><p>We can <em>tag</em> any file or directory with arbitrary metadata.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># FIXME -- This doesn&#39;t appear to work</span>
-<span class="n">storeClient</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">,</span> <span class="n">tag</span> <span class="o">=</span> <span class="s1">&#39;The results from my analysis&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
 </div>
 </div>
 
@@ -14277,15 +12498,35 @@ Directories can be deleted using the <em><strong>storeClient.rmdir()</strong></e
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">)</span>
-<span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
-<span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">)</span>
+<span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
+<span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[14]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>u&#39;gavo_out.csv,public,tmp,zxmags.csv&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -14294,21 +12535,40 @@ Directories can be deleted using the <em><strong>storeClient.rmdir()</strong></e
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Using-the-datalab-command">Using the datalab command<a class="anchor-link" href="#Using-the-datalab-command">&#182;</a></h3><p>The <i>datalab</i> command provides an alternate command line way to work with the Storage Manager through the storage subcommands.</p>
-<h4 id="Initialization">Initialization<a class="anchor-link" href="#Initialization">&#182;</a></h4><p>We need to be logged into the Data Lab to use the Storage Manager.</p>
+<h3 id="Using-the-datalab-command">Using the datalab command<a class="anchor-link" href="#Using-the-datalab-command">&#182;</a></h3><p>The <i>datalab</i> command provides an alternate command line way to work with the query manager through the <i>query</i> subcommands.</p>
+<h4 id="Initialization">Initialization<a class="anchor-link" href="#Initialization">&#182;</a></h4><p>We need to be logged into the DataLab to use the query manager.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab login <span class="nv">user</span><span class="o">=</span>demo00 <span class="nv">password</span><span class="o">=</span>...
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab login <span class="nv">user</span><span class="o">=</span>demo00 <span class="nv">password</span><span class="o">=</span>...
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
+Welcome to the Data Lab, demo00
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -14324,13 +12584,31 @@ Directories can be deleted using the <em><strong>storeClient.rmdir()</strong></e
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab get <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://mags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;./mags.csv&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab get <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://mags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;./mags.csv&quot;</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -14346,13 +12624,32 @@ Directories can be deleted using the <em><strong>storeClient.rmdir()</strong></e
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab put <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;./newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://newmags.csv&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab put <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;./newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://newmags.csv&quot;</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
+(1 / 1) ./newmags.csv -&gt; vos://newmags.csv
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -14368,13 +12665,31 @@ Directories can be deleted using the <em><strong>storeClient.rmdir()</strong></e
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab cp <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://tmp/newmags.csv&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab cp <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://temp/newmags.csv&quot;</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -14390,13 +12705,31 @@ Directories can be deleted using the <em><strong>storeClient.rmdir()</strong></e
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab ln <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://tmp/mags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://mags.csv&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab ln <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://temp/mags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://mags.csv&quot;</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -14412,13 +12745,32 @@ Directories can be deleted using the <em><strong>storeClient.rmdir()</strong></e
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab ls <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://tmp&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab ls <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://temp&quot;</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -14434,13 +12786,31 @@ Directories can be deleted using the <em><strong>storeClient.rmdir()</strong></e
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab mkdir <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab mkdir <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -14456,13 +12826,31 @@ Directories can be deleted using the <em><strong>storeClient.rmdir()</strong></e
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab mv <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://tmp/newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab mv <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://temp/newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -14478,13 +12866,31 @@ Directories can be deleted using the <em><strong>storeClient.rmdir()</strong></e
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab rm <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://tmp/mags.csv&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab rm <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://temp/mags.csv&quot;</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -14500,13 +12906,31 @@ Directories can be deleted using the <em><strong>storeClient.rmdir()</strong></e
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab rmdir <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://tmp&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab rmdir <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://temp&quot;</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -14522,10 +12946,41 @@ Directories can be deleted using the <em><strong>storeClient.rmdir()</strong></e
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="o">!</span>datalab tag <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span> <span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;The results from my analysis&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-yellow-fg">WARNING</span>: AstropyDeprecationWarning: The astropy.vo.samp module has now been moved to astropy.samp [astropy.vo.samp]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab tag <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span> <span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;The results from my analysis&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span> 
 </pre></div>
 
 </div>
