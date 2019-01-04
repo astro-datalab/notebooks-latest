@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>How_to_use_the_Data_Lab_AuthManager</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>How_to_use_the_Data_Lab_AuthClient_20190104</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11771,30 +11771,15 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="How-to-use-the-Data-Lab-Auth-Client-Service">How to use the Data Lab <em>Auth Client</em> Service<a class="anchor-link" href="#How-to-use-the-Data-Lab-Auth-Client-Service">&#182;</a></h3><p><em>Revised: Dec 22, 2017</em></p>
-<p>This notebook documents how to use the Data Lab authorization system via the <em>Auth Client</em> service. This can be done either from a Python script or from the command line using the <i>datalab</i> command.</p>
-<p>While most Data Lab services may be accessed anonymously, others require a valid user account in order to take advantage of resources such as <i>Virtual Storage</i> or <i>Compute Services</i>.  User accounts may be created on the main Data Lab website and are not discussed here.</p>
-<p>Assuming an account has been created, the <i><b>authClient</b></i> interface can be used to authenticate yourself to the Data Lab to obtain an identity token used to access the resources allocated to the account.  This is typically the first step in any notebook or application, the returned token is then passed to every other interface method that requires authenticated access to a resource or service.</p>
-<p>A complete summary of the <em>AuthClient</em> interface is given below.</p>
-<hr>
-<h4 id="Example-User-Login">Example User Login<a class="anchor-link" href="#Example-User-Login">&#182;</a></h4><p>Most notebooks will begin by importing whatever packages are required.  In this case we'll want to import the <em>authClient</em> interface from the <em>dl</em> (i.e. Data Lab) package.  The next step is to call the <em>login()</em> method with your account name and password to obtain an identity token:</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Standard notebook imports</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-<span class="kn">import</span> <span class="nn">getpass</span>
-<span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">authClient</span><span class="p">,</span> <span class="n">queryClient</span><span class="p">,</span> <span class="n">storeClient</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Mike Fitzpatrick &lt;fitz@noao.edu&gt;, Robert Nikutta &lt;nikutta@noao.edu&gt;&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20190104&#39;</span>
+<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 
 </div>
@@ -11802,18 +11787,96 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="How-to-use-the-Data-Lab-Auth-Client-Service">How to use the Data Lab <em>Auth Client</em> Service<a class="anchor-link" href="#How-to-use-the-Data-Lab-Auth-Client-Service">&#182;</a></h1><p><em>Mike Fitzpatrick, Robert Nikutta, and the NOAO Data Lab Team</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><p>To demonstrate the use of the Data Lab <code>authClient</code> API (login, logout, token validity checks, etc.)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>This notebook documents how to use the Data Lab authorization system via the <em>Auth Client</em> service. This can be done either from a Python script or from the command line using the <i>datalab</i> command.</p>
+<p>While most Data Lab services may be accessed anonymously, others require a valid user account in order to take advantage of resources such as <i>Virtual Storage</i> or <i>Compute Services</i>.  User accounts may be created on the main Data Lab website and are not discussed here.</p>
+<p>Assuming an account has been created, the <i><b>authClient</b></i> interface can be used to authenticate yourself to the Data Lab to obtain an identity token used to access the resources allocated to the account.  This is typically the first step in any notebook or application, the returned token is then passed to every other interface method that requires authenticated access to a resource or service.</p>
+<p>A complete summary of the <em>AuthClient</em> interface is given below.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h1><p>If you use this notebook for your published science, please acknowledge the following:</p>
+<ul>
+<li><p>Data Lab concept paper: Fitzpatrick et al., "The NOAO Data Laboratory: a conceptual overview", SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></p>
+</li>
+<li><p>Data Lab disclaimer: <a href="http://datalab.noao.edu/known-issues.php">http://datalab.noao.edu/known-issues.php</a></p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Imports">Imports<a class="anchor-link" href="#Imports">&#182;</a></h1><p>Most notebooks will begin by importing whatever packages are required. In this case we'll want to import the <code>authClient</code> interface from the <code>dl</code> (i.e. Data Lab) package.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Login using your user name and password, validate the returned</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">getpass</span> <span class="k">import</span> <span class="n">getpass</span>
+<span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The next step is to call the <code>login()</code> method with your account name and password to obtain an identity token:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Login using your user name and password, validate the returned</span>
 <span class="c1"># token or else print the returned error message.</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">authClient</span><span class="o">.</span><span class="n">login</span> <span class="p">(</span><span class="s1">&#39;demo00&#39;</span><span class="p">,</span><span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s1">&#39;Account Password: &#39;</span><span class="p">))</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isValidToken</span> <span class="p">(</span><span class="n">token</span><span class="p">):</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Error: invalid user login (</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">token</span><span class="p">)</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;demo00&#39;</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span><span class="n">getpass</span><span class="p">(</span><span class="s1">&#39;Account Password: &#39;</span><span class="p">))</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">ac</span><span class="o">.</span><span class="n">isValidToken</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error: invalid login for user </span><span class="si">%s</span><span class="s1"> (</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">username</span><span class="p">,</span><span class="n">token</span><span class="p">))</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Login token:   </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">token</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Login token:   </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">token</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11831,7 +11894,7 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Account Password: ········
-Login token:   demo00.1018.1018.$1$Dyy.y/qT$z7u.OUM3y69TOXOV.zRL4.
+Login token:   demo00.1018.1018.$1$NFtMOsLL$FXNAdDuX8oPzx6rzKU2il/
 </pre>
 </div>
 </div>
@@ -11844,7 +11907,7 @@ Login token:   demo00.1018.1018.$1$Dyy.y/qT$z7u.OUM3y69TOXOV.zRL4.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>login()</code> method will return either a valid token or an error message.  By calling the <code>isValidToken()</code> method it is possible to trap any login errors in the task.  The use of the '<em>getpass</em>' function means passwords do not need to be exposed and notebooks can be shared more freely.</p>
+<p>The <code>login()</code> method will return either a valid token or an error message.  By calling the <code>isValidToken()</code> method it is possible to trap any login errors in the task.  The use of the <code>getpass()</code> function means passwords do not need to be exposed and notebooks can be shared more freely.</p>
 
 </div>
 </div>
@@ -11863,13 +11926,13 @@ Once you have logged in successfully, an identity token is saved on the server r
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># An example of using the stored token to login to the Data Lab</span>
-<span class="n">tok2</span> <span class="o">=</span> <span class="n">authClient</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;New login token: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">tok2</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Is new token valid?  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isValidToken</span> <span class="p">(</span><span class="n">tok2</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># An example of using the stored token to login to the Data Lab</span>
+<span class="n">tok2</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;New login token: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">tok2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is new token valid?  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ac</span><span class="o">.</span><span class="n">isValidToken</span><span class="p">(</span><span class="n">tok2</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -11907,12 +11970,12 @@ Is new token valid?  True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Is &quot;demo00&quot; a valid user?  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isValidUser</span> <span class="p">(</span><span class="s1">&#39;demo00&#39;</span><span class="p">))</span>
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Is &quot;foobar&quot; the current password?  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isValidPassword</span> <span class="p">(</span><span class="s1">&#39;demo00&#39;</span><span class="p">,</span><span class="s1">&#39;foobar&#39;</span><span class="p">))</span>
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Do we have a valid login token?  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isValidToken</span> <span class="p">(</span><span class="n">token</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is &quot;demo00&quot; a valid user?  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ac</span><span class="o">.</span><span class="n">isValidUser</span><span class="p">(</span><span class="s1">&#39;demo00&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is &quot;foobar&quot; the current password?  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ac</span><span class="o">.</span><span class="n">isValidPassword</span><span class="p">(</span><span class="s1">&#39;demo00&#39;</span><span class="p">,</span><span class="s1">&#39;foobar&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Do we have a valid login token?  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ac</span><span class="o">.</span><span class="n">isValidToken</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -11951,12 +12014,12 @@ Do we have a valid login token?  True
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Is user &quot;dldemo&quot; currently logged-in?  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isUserLoggedIn</span> <span class="p">(</span><span class="s1">&#39;demo00&#39;</span><span class="p">))</span>
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Is my token currently logged-in:  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isTokenLoggedIn</span> <span class="p">(</span><span class="n">token</span><span class="p">))</span>
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Is user &quot;Scooby&quot; currently logged-in?  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isUserLoggedIn</span> <span class="p">(</span><span class="s1">&#39;Scooby&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is user &quot;dldemo&quot; currently logged-in?  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ac</span><span class="o">.</span><span class="n">isUserLoggedIn</span> <span class="p">(</span><span class="s1">&#39;demo00&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is my token currently logged-in:  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ac</span><span class="o">.</span><span class="n">isTokenLoggedIn</span> <span class="p">(</span><span class="n">token</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is user &quot;Scooby&quot; currently logged-in?  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">ac</span><span class="o">.</span><span class="n">isUserLoggedIn</span> <span class="p">(</span><span class="s1">&#39;Scooby&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -11988,56 +12051,7 @@ Is user &#34;Scooby&#34; currently logged-in?  False
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Resetting-the-User-Account-Password">Resetting the User Account Password<a class="anchor-link" href="#Resetting-the-User-Account-Password">&#182;</a></h4><p>An account password can be reset by presenting a valid token for the account, the account name and the new password.  If the password reset succeeds, a new identity token is returned to the task. A failed reset will return an error message so it is advisable to check the return value before overwriting the current token.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">new_token</span> <span class="o">=</span> <span class="n">authClient</span><span class="o">.</span><span class="n">passwordReset</span> <span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="s1">&#39;demo00&#39;</span><span class="p">,</span> <span class="s1">&#39;datalab&#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isValidToken</span> <span class="p">(</span><span class="n">new_token</span><span class="p">):</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Error: password reset failed (</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">new_token</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;New Login token: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">new_token</span><span class="p">)</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Old Login token: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">token</span><span class="p">)</span>
-    
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Is new token currently logged in: &#39;</span> <span class="o">+</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isTokenLoggedIn</span> <span class="p">(</span><span class="n">new_token</span><span class="p">))</span>    
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>New Login token: demo00.1018.1018.$1$k3LeRBKt$ksi16AiRR6d8pXn0vpQ4d/
-Old Login token: demo00.1018.1018.$1$Dyy.y/qT$z7u.OUM3y69TOXOV.zRL4.
-Is new token currently logged in: True
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We need to remember to reset the account password here so the next time we run the notebook we can login at the first cell.</p>
+<h4 id="Logging-Out-of-the-Data-Lab">Logging <i>Out</i> of the Data Lab<a class="anchor-link" href="#Logging-Out-of-the-Data-Lab">&#182;</a></h4><p>The <code>logout()</code> method is used to log the user out of the Data Lab and remove the identity token from the server.  Strictly speaking, it is not required that an application log out once it is complete, subsequent logins will return the same identity token the next time you log in so long as it is still valid (e.g. you haven't logged out elsewhere)</p>
 
 </div>
 </div>
@@ -12047,16 +12061,11 @@ Is new token currently logged in: True
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">token</span> <span class="o">=</span> <span class="n">authClient</span><span class="o">.</span><span class="n">passwordReset</span> <span class="p">(</span><span class="n">new_token</span><span class="p">,</span> <span class="s1">&#39;demo00&#39;</span><span class="p">,</span> <span class="s1">&#39;balatad&#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isValidToken</span> <span class="p">(</span><span class="n">token</span><span class="p">):</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Error: password reset failed (</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">token</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Token:  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">token</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Is the reset token currently logged in: &#39;</span> <span class="o">+</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isTokenLoggedIn</span> <span class="p">(</span><span class="n">token</span><span class="p">))</span> 
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Is the old reset token currently logged in: &#39;</span> <span class="o">+</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isTokenLoggedIn</span> <span class="p">(</span><span class="n">new_token</span><span class="p">))</span>
-
-<span class="c1"># In order to run this cell multiple times, we&#39;ll reset the &#39;new_token&#39; </span>
-<span class="c1"># so the next invocation of the reset works properly.</span>
-<span class="n">new_token</span> <span class="o">=</span> <span class="n">token</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Log out the current user and remove the identity token.</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Is token logged in: &#39;</span><span class="p">,</span> <span class="n">ac</span><span class="o">.</span><span class="n">isTokenLoggedIn</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">logout</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Log out result = &quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span><span class="o">%</span> <span class="n">res</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is token logged in following logout(): &#39;</span><span class="p">,</span> <span class="n">ac</span><span class="o">.</span><span class="n">isTokenLoggedIn</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12073,55 +12082,9 @@ Is new token currently logged in: True
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Token:  demo00.1018.1018.$1$Yy0EOfOo$XzAcDNHsKYXgV.5ppJq5p/
-Is the reset token currently logged in: True
-Is the old reset token currently logged in: False
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Logging-Out-of-the-Data-Lab">Logging <i>Out</i> of the Data Lab<a class="anchor-link" href="#Logging-Out-of-the-Data-Lab">&#182;</a></h4><p>The <code>logout()</code> method is used to log the user out of the Data Lab and remove the identity token from the server.  Strictly speaking, it is not required that an application log out once it is complete, subsequent logins will return the same identity token the next time you log in so long as it is still valid (e.g. you haven't logged out elsewhere)</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Log out the current user and remove the identity token.</span>
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Is token logged in: &#39;</span> <span class="o">+</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isTokenLoggedIn</span> <span class="p">(</span><span class="n">token</span><span class="p">))</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">authClient</span><span class="o">.</span><span class="n">logout</span> <span class="p">(</span><span class="n">token</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Log out result = &quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span><span class="o">%</span> <span class="n">res</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Is token logged in following logout(): &#39;</span> <span class="o">+</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isTokenLoggedIn</span> <span class="p">(</span><span class="n">token</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Is token logged in: True
+<pre>Is token logged in:  True
 Log out result = &#34;OK&#34;
-Is token logged in following logout(): False
+Is token logged in following logout():  False
 </pre>
 </div>
 </div>
@@ -12141,13 +12104,15 @@ Is token logged in following logout(): False
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">anon_token</span> <span class="o">=</span> <span class="n">authClient</span><span class="o">.</span><span class="n">login</span> <span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#anon_token = ac.login(&#39;anonymous&#39;)</span>
+<span class="c1">#print(anon_token)</span>
 <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;select * from usno.a2 limit 3&quot;</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">queryClient</span><span class="o">.</span><span class="n">query</span> <span class="p">(</span><span class="n">anon_token</span><span class="p">,</span> <span class="n">adql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;foo.csv&#39;</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="c1">#response = qc.query(anon_token, adql=query, fmt=&#39;csv&#39;, output=&#39;foo.csv&#39;)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12164,10 +12129,10 @@ Is token logged in following logout(): False
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>id,raj2000_,dej2000_,actflag,mflag,bmag,rmag,epoch,raj2000,dej2000
-1275-16995435,22:04:54.538,+42:13:16.11, , ,16.6,16,1952.653,331.227239,42.221142
-1275-16995600,22:04:54.937,+42:13:23.96, , ,19.299999,19.1,1952.653,331.228903,42.223323000000001
-1275-16998356,22:05:01.470,+42:12:18.74, , ,15.8,14.5,1952.653,331.256125,42.205205999999997
+<pre>id,raj2000,dej2000,htm9,nest256,ring256,bmag,rmag,epoch,raj2000_,dej2000_,actflag,mflag
+1275-16995435,331.227239,42.221142,3388269,222814,129458,16.6,16,1952.65,22:04:54.538,+42:13:16.11, , 
+1275-16995600,331.228903,42.223323,3388269,222814,129458,19.3,19.1,1952.65,22:04:54.937,+42:13:23.96, , 
+1275-16998356,331.256125,42.205206,3388269,222814,129458,15.8,14.5,1952.65,22:05:01.470,+42:12:18.74, , 
 
 </pre>
 </div>
@@ -12191,22 +12156,21 @@ Is token logged in following logout(): False
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;select * from usno.b1 limit 20&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;select * from usno.b1 limit 20&quot;</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">queryClient</span><span class="o">.</span><span class="n">query</span> <span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">adql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> 
-                                  <span class="n">out</span><span class="o">=</span><span class="s1">&#39;vos://mags.csv&#39;</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">adql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;vos://mags.csv&#39;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="c1"># Handle any errors in the query.  By running this cell multiple times with the same</span>
     <span class="c1"># output file, or by using a bogus SQL statement, you can view various error messages.</span>
-    <span class="k">print</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span> 
-        <span class="k">print</span> <span class="p">(</span><span class="n">response</span><span class="p">)</span>           <span class="c1"># print the response</span>
+    <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>           <span class="c1"># print the response</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12245,22 +12209,21 @@ Is token logged in following logout(): False
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;select * from usno.b1 limit 1000&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;select * from usno.b1 limit 1000&quot;</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">queryClient</span><span class="o">.</span><span class="n">query</span> <span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">adql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> 
-                                  <span class="n">out</span><span class="o">=</span><span class="s1">&#39;mydb://usno_test&#39;</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span> <span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">adql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;mydb://usno_test&#39;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="c1"># Handle any errors in the query.  By running this cell multiple times with the same</span>
     <span class="c1"># output file, or by using a bogus SQL statement, you can view various error messages.</span>
-    <span class="k">print</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span> 
-        <span class="k">print</span> <span class="p">(</span><span class="n">response</span><span class="p">)</span>           <span class="c1"># print the response</span>
+    <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>           <span class="c1"># print the response</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12329,19 +12292,6 @@ To instantiate a Client object:
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
     </div>
   </div>
