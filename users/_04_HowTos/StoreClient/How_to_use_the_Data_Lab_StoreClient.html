@@ -11885,9 +11885,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get the security token for the demo00 user</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">authClient</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter user name (+ENTER): &quot;</span><span class="p">),</span><span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter password (+ENTER): &quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">authClient</span><span class="o">.</span><span class="n">whoAmI</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get the authentication token for the user</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">authClient</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter user name: (+ENTER) &quot;</span><span class="p">),</span><span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter password: (+ENTER) &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isValidToken</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Token is not valid. Please check your usename/password and execute this cell again.&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11904,9 +11905,8 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Enter user name (+ENTER): geychaner
-Enter password (+ENTER): ········
-geychaner
+<pre>Enter user name: (+ENTER) geychaner
+Enter password: (+ENTER) ········
 </pre>
 </div>
 </div>
@@ -12294,7 +12294,7 @@ After: newmags.csv
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Root dir: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,mags.csv,newmags.csv,newmap.fits,public,results,temp,tmp
+<pre>Root dir: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,temp,tmp
 Temp dir: newmags.csv
 </pre>
 </div>
@@ -12378,7 +12378,7 @@ Temp dir: newmags.csv
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Before: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,mags.csv,newmags.csv,newmap.fits,public,results,temp,tmp
+<pre>Before: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,temp,tmp
 After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,temp,tmp
 </pre>
 </div>
@@ -12788,19 +12788,6 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab tag <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span> <span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;The results from my analysis&quot;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
 </div>
