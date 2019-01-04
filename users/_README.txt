@@ -77,9 +77,12 @@ with two or more surveys.
 		  NSC DR1 catalog, as well as a jointly with Gaia DR2 to explore 
 		  the proper motion of the cluster and its tails	     
 
+- SpectralEnergyDistributions: use narrow-band filters to construct SEDs of
+                               objects from the S-PLUS DR1 dataset
+
 - StarGalQSOSeparation: use photometric properties (colors, morphology/shape 
                         parameters, etc.) to distinguish between stars, galaxies, 
-                        and QSOs in the DES DR1 and LS DR3 datasets
+                        and QSOs in the DES DR1 and LS DR7 datasets
 
 - TimeSeriesAnalysisRrLyraeStar: analyze time-series to measure the period of 
                                  RR Lyrae stars using photometry from SMASH
@@ -98,6 +101,8 @@ shown for the full set of keywords and options for the following:
 - AuthClient: authenticating with the Data Lab
 - CrossmatchTables: crossmatching a user-provided table against a table 
                     hosted by Data Lab
+- FileService: using files rather than database tables, including spectra 
+	       from SDSS/BOSS
 - QueryClient: sending queries to the databases and retrieving results
 - RowVsCstore: using row-stored versus column-stored database tables
 - SIA service: obtaining cutouts using a Simple Image Access service [future]
