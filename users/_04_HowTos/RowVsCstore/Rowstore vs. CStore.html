@@ -11771,19 +11771,27 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Adam Scott &lt;ascott@noao.edu&gt;&#39;</span> <span class="c1"># single string; emails in &lt;&gt;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20190103&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ls_dr5&#39;</span><span class="p">]</span>  <span class="c1"># datasets used in this notebook; for available datasets, see cell &quot;Available datasets in Data Lab&quot; further below</span>
+<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tutorial&#39;</span><span class="p">,</span><span class="s1">&#39;query&#39;</span><span class="p">],</span> <span class="c1"># keywords relevant to this notebook, e.g. [&#39;science case&#39;,&#39;dwarf galaxies&#39;] Use only keywords from the master list: https://github.com/noaodatalab/notebooks_private/blob/master/internal/keywords.txt </span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="CStore-Performance-Vs.-Row-Store">CStore Performance Vs. Row Store<a class="anchor-link" href="#CStore-Performance-Vs.-Row-Store">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>At Data Lab, we ran performance tests of various scenarios against many open-source DBMSs.  The cstore_fdw (for columnar store, foreign data wrapper), proved very fast.  Below we compare the run time between both storage formats.  (For more on cstore see <a href="https://github.com/citusdata/cstore_fdw">https://github.com/citusdata/cstore_fdw</a>)</p>
+<h1 id="CStore-Performance-Vs.-Row-Store">CStore Performance Vs. Row Store<a class="anchor-link" href="#CStore-Performance-Vs.-Row-Store">&#182;</a></h1><p><em>Adam Scott &amp; NOAO Data Lab Team</em></p>
 
 </div>
 </div>
@@ -11792,43 +11800,77 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Basic Imports</p>
+<h3 id="Table-of-contents">Table of contents<a class="anchor-link" href="#Table-of-contents">&#182;</a></h3><ul>
+<li><a href="#goals">Goals &amp; notebook summary</a></li>
+<li><a href="#attribution">Disclaimer &amp; Attribution</a></li>
+<li><a href="#import">Imports &amp; setup</a></li>
+<li><a href="#rstore">Query against Rowstore</a></li>
+<li><a href="#cstore">Query against CStore</a></li>
+<li><a href="#graph">Graph of results</a></li>
+<li><a href="#when">When should I use CStore tables in Data Lab?</a></li>
+</ul>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="goals"></a></p>
+<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><ul>
+<li>Learn the difference between column store (cstore) and row store database tables</li>
+<li>Understand the circumstances when you might want to use cstore tables</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>At Data Lab, we ran performance tests of various scenarios against many open-source DBMSs.  The cstore_fdw (for columnar store, foreign data wrapper), proved very fast for some applications.  Below we compare the run time between both storage formats.  (For more on cstore see <a href="https://github.com/citusdata/cstore_fdw">https://github.com/citusdata/cstore_fdw</a>)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="attribution"></a></p>
+<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h1><p>If you use this notebook for your published science, please acknowledge the following:</p>
+<ul>
+<li><p>Data Lab concept paper: Fitzpatrick et al., "The NOAO Data Laboratory: a conceptual overview", SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></p>
+</li>
+<li><p>Data Lab disclaimer: <a href="http://datalab.noao.edu/disclaimers.php">http://datalab.noao.edu/disclaimers.php</a></p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="import"></a></p>
+<h1 id="Basic-Imports">Basic Imports<a class="anchor-link" href="#Basic-Imports">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># std lib</span>
-<span class="kn">from</span> <span class="nn">cStringIO</span> <span class="kn">import</span> <span class="n">StringIO</span>
-<span class="kn">import</span> <span class="nn">getpass</span>
-
-<span class="c1"># 3rd party</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">N</span>
-<span class="kn">import</span> <span class="nn">pylab</span> <span class="kn">as</span> <span class="nn">p</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3rd party</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">FileLink</span>
 
 <span class="c1"># Datalab</span>
-<span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">helpers</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># anonymous login (some functionality is limited)</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">ac</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;anonymous&#39;</span><span class="p">)</span> <span class="c1"># username, here anonymous</span>
+<span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span>
 </pre></div>
 
 </div>
@@ -11840,16 +11882,17 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="rstore"></a></p>
 <h1 id="Query-against-Rowstore">Query against Rowstore<a class="anchor-link" href="#Query-against-Rowstore">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
 query = &quot;&quot;&quot;SELECT min(flux_g), max(flux_g), avg(flux_g),
                   min(flux_r), max(flux_r), avg(flux_r),
                   min(flux_z), max(flux_z), avg(flux_z)
@@ -11857,29 +11900,10 @@ query = &quot;&quot;&quot;SELECT min(flux_g), max(flux_g), avg(flux_g),
            WHERE psfsize_r &gt; 0.6635 and psfsize_r &lt; 1.327&quot;&quot;&quot;
 
 # Send the query to the Queryclient in SQL, with a comma-separated-value (csv) output
-response = qc.query(token, sql=query, fmt=&#39;csv&#39;)
+response = qc.query(sql=query, fmt=&#39;csv&#39;)
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 27 ms, sys: 10 ms, total: 37 ms
-Wall time: 9min 31s
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11888,18 +11912,27 @@ Wall time: 9min 31s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this run, it took <strong>9min 31s</strong> to execute the query against the normal rowstore table in Postgres.  Since <code>psfsize_r</code> is not indexed (only bold columns listed here are indexed: <a href="http://datalab.noao.edu/query.php?name=ls_dr3.tractor">http://datalab.noao.edu/query.php?name=ls_dr3.tractor</a>), the database has to read through every row in <code>ls_dr5.tractor</code> to find all rows satisfying the WHERE clause.</p>
+<p>In this run, it took <strong>5min 22s</strong> to execute the query against the normal rowstore table in Postgres.  Since <code>psfsize_r</code> is not indexed (only bold columns listed here are indexed: <a href="http://datalab.noao.edu/query.php?name=ls_dr5.tractor">http://datalab.noao.edu/query.php?name=ls_dr5.tractor</a>), the database has to read through every row in <code>ls_dr5.tractor</code> to find all rows satisfying the WHERE clause.</p>
 <p>Compare this to the next run.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="cstore"></a></p>
 <h1 id="Query-Against-CStore">Query Against CStore<a class="anchor-link" href="#Query-Against-CStore">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
 query = &quot;&quot;&quot;SELECT min(flux_g), max(flux_g), avg(flux_g),
                   min(flux_r), max(flux_r), avg(flux_r),
                   min(flux_z), max(flux_z), avg(flux_z)
@@ -11907,38 +11940,19 @@ query = &quot;&quot;&quot;SELECT min(flux_g), max(flux_g), avg(flux_g),
            WHERE psfsize_r &gt; 0.6635 and psfsize_r &lt; 1.327&quot;&quot;&quot;
 
 # Send the query to the Queryclient in SQL, with a comma-separated-value (csv) output
-response = qc.query(token, sql=query, fmt=&#39;csv&#39;)
+response = qc.query(sql=query, fmt=&#39;csv&#39;)
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 21 ms, sys: 5 ms, total: 26 ms
-Wall time: 4min 21s
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This time, we queried against a cstore table (denoted by the <code>_cs</code> in the table name in the query above), and it took less than half the time at <strong>4min 21s</strong>.  Since cstore tables store the min/max values of each stripe, they have an inherent index <strong>on every column</strong> that requires litte extra space to store on disk.</p>
+<p>This time, we queried against a cstore table (denoted by the <code>_cs</code> in the table name in the query above), and it took significantly less time at <strong>3min 44s</strong>.  Since cstore tables store the min/max values of each stripe, they have an inherent index <strong>on every column</strong> that requires litte extra space to store on disk.</p>
 
 </div>
 </div>
@@ -11947,17 +11961,18 @@ Wall time: 4min 21s
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="graph"></a></p>
 <h1 id="Graph-of-results">Graph of results<a class="anchor-link" href="#Graph-of-results">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">540</span><span class="p">,</span><span class="mi">261</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">322</span><span class="p">,</span><span class="mi">224</span><span class="p">]</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">()</span>
 <span class="n">pr</span><span class="p">,</span> <span class="n">pc</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 <span class="n">pr</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
@@ -11979,13 +11994,13 @@ Wall time: 4min 21s
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[24]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.text.Text at 0x7fea1f951550&gt;</pre>
+<pre>&lt;matplotlib.text.Text at 0x7fc1d5888780&gt;</pre>
 </div>
 
 </div>
@@ -11999,146 +12014,146 @@ Wall time: 4min 21s
 
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYgAAAEICAYAAABF82P+AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
-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
-QZiZWan/A7DGsnjW4TyFAAAAAElFTkSuQmCC
+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
 "
 >
 </div>
@@ -12153,6 +12168,7 @@ QZiZWan/A7DGsnjW4TyFAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="when"></a></p>
 <h1 id="When-should-I-use-CStore-tables-in-Data-Lab?">When should I use CStore tables in Data Lab?<a class="anchor-link" href="#When-should-I-use-CStore-tables-in-Data-Lab?">&#182;</a></h1><p>We recommend running your query against a cstore table when your query's WHERE clause is against unindexed columns.</p>
 
 <pre><code>SELECT &lt;...&gt;
