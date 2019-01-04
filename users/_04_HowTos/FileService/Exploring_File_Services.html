@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Exploring_FIle_Services</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Exploring_File_Services</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11799,24 +11799,19 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We will begin with the <strong>SDSS DR14</strong> public file service as an example.</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Standard DL imports, note we only need storeClient</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make matplotlib plot inline</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># Standard DL imports, note we only need storeClient</span>
 <span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span>
 
 <span class="c1"># 3rd Party Imports</span>
+<span class="kn">import</span> <span class="nn">io</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">p</span>
 <span class="kn">from</span> <span class="nn">astropy.io</span> <span class="k">import</span> <span class="n">fits</span>
@@ -11831,19 +11826,38 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Set-base-directory">Set base directory<a class="anchor-link" href="#Set-base-directory">&#182;</a></h3>
+<h3 id="Listing-another-user's-public-file-space">Listing another user's public file space<a class="anchor-link" href="#Listing-another-user's-public-file-space">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">base</span> <span class="o">=</span> <span class="s1">&#39;sdss_dr14://eboss/spectro/redux/v5_10_0/&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;geychaner://public&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>grzw1_3sn10_29M.jpg      grzw1_sn10_15M.jpg        
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -11852,19 +11866,47 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="List-all-available-plate/mjd/fiber-combinations-in-the-base-directory">List all available plate/mjd/fiber combinations in the base directory<a class="anchor-link" href="#List-all-available-plate/mjd/fiber-combinations-in-the-base-directory">&#182;</a></h3>
+<h3 id="An-example-using-the-SDSS-DR14-public-file-service.">An example using the <strong>SDSS DR14</strong> public file service.<a class="anchor-link" href="#An-example-using-the-SDSS-DR14-public-file-service.">&#182;</a></h3><h3 id="Set-base-directory-and-plate-number">Set base directory and plate number<a class="anchor-link" href="#Set-base-directory-and-plate-number">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set the base directory and plate number</span>
+<span class="c1"># These can be found by explring the SDSS DR14 space using &#39;sc.ls()&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;sdss_dr14://&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;sdss_dr14://eboss&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;sdss_dr14://eboss/spectro&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="s1">&#39;sdss_dr14://eboss/spectro/redux&#39;</span><span class="p">))</span>
+<span class="n">base</span> <span class="o">=</span> <span class="s1">&#39;sdss_dr14://eboss/spectro/redux/v5_10_0/&#39;</span>
+<span class="n">plate</span> <span class="o">=</span> <span class="s1">&#39;3615&#39;</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>apo,apogee,eboss,env,manga,marvels,sdss
+calib,elg,lss,lya,photo,photoObj,qso,resolve,spectro,spiders,sweeps,target
+data,firefly,redux
+images,platelist-mjdsort.html,platelist-mjdsort.txt,platelist.fits,platelist.html,platelist.txt,platequality-mjdsort.html,platequality-mjdsort.txt,platequality.html,platequality.txt,redmonster,v5_10_0
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -11873,22 +11915,65 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Pick-a-plate/mjd/fiber">Pick a plate/mjd/fiber<a class="anchor-link" href="#Pick-a-plate/mjd/fiber">&#182;</a></h3>
+<h3 id="List-all-available-FITS-plate-files-in-the-plate-directory">List all available FITS plate files in the plate directory<a class="anchor-link" href="#List-all-available-FITS-plate-files-in-the-plate-directory">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plate</span> <span class="o">=</span> <span class="s1">&#39;3615&#39;</span>
-<span class="n">mjd</span> <span class="o">=</span> <span class="s1">&#39;56544&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Construct the vospace path to the plate directory</span>
+<span class="n">spPlate</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="n">plate</span> <span class="o">+</span> <span class="s1">&#39;/spPlate-&#39;</span> <span class="o">+</span> <span class="n">plate</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">spPlate</span> <span class="o">+</span> <span class="s1">&#39;*.fits&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;short&#39;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>spPlate-3615-55179.fits  spPlate-3615-55208.fits  spPlate-3615-55445.fits
+spPlate-3615-55856.fits  spPlate-3615-56219.fits  spPlate-3615-56544.fits
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Pick-a-modified-Julian-date-and-fiber">Pick a modified Julian date and fiber<a class="anchor-link" href="#Pick-a-modified-Julian-date-and-fiber">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mjd</span> <span class="o">=</span> <span class="s1">&#39;56544&#39;</span>
 <span class="n">fiber</span> <span class="o">=</span> <span class="mi">39</span>
 
 <span class="c1"># Construct the vospace path to the plate file and verify</span>
-<span class="n">spfile</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="n">plate</span> <span class="o">+</span> <span class="s1">&#39;/spPlate-&#39;</span> <span class="o">+</span> <span class="n">plate</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="n">mjd</span> <span class="o">+</span> <span class="s1">&#39;.fits&#39;</span>
+<span class="n">spfile</span> <span class="o">=</span> <span class="n">spPlate</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="n">mjd</span> <span class="o">+</span> <span class="s1">&#39;.fits&#39;</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;File: &#39;</span> <span class="o">+</span> <span class="n">spfile</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">spfile</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -11906,6 +11991,7 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>File: sdss_dr14://eboss/spectro/redux/v5_10_0/3615/spPlate-3615-56544.fits
+spPlate-3615-56544.fits
 </pre>
 </div>
 </div>
@@ -11924,7 +12010,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -11938,9 +12024,28 @@ div#notebook {
 
 <span class="n">loglam</span> <span class="o">=</span> <span class="n">hdr</span><span class="p">[</span><span class="s1">&#39;COEFF0&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">hdr</span><span class="p">[</span><span class="s1">&#39;COEFF1&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">hdr</span><span class="p">[</span><span class="s1">&#39;NAXIS1&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">flux</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 <span class="n">wavelength</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">**</span><span class="n">loglam</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">flux</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">ivar</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">wavelength</span><span class="p">)))</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>4645 4645 4645
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -11949,13 +12054,13 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Make-a-toy-plot-of-the-spectrum">Make a toy plot of the spectrum<a class="anchor-link" href="#Make-a-toy-plot-of-the-spectrum">&#182;</a></h3>
+<h3 id="Make-a-plot-of-the-spectrum">Make a plot of the spectrum<a class="anchor-link" href="#Make-a-plot-of-the-spectrum">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">flux</span> <span class="o">*</span> <span class="p">(</span><span class="n">ivar</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
@@ -11973,7 +12078,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[5]:</div>
+<div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -12007,32 +12112,69 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="List-all-available-public-file-spaces">List all available public file spaces<a class="anchor-link" href="#List-all-available-public-file-spaces">&#182;</a></h3>
+<h3 id="List-all-available-public-file-spaces">List all available public file spaces<a class="anchor-link" href="#List-all-available-public-file-spaces">&#182;</a></h3><p>The '<em>sc.services()</em>' function allows a user to list all the available file services.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">services</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">services</span><span class="p">())</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="output_wrapper">
+<div class="output">
 
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+                    name   svc   description
+                --------   ----  --------
+                 chandra   vos   ???
+             cosmic_dawn   vos   Cosmic DAWN survey
+               deeprange   vos   Deeprange Survey
+           deep_ecliptic   vos   Depp Ecliptic Survey
+                     dls   vos   Deep Lens Survey
+                  flamex   vos   FLAMINGOS Extragalactic Survey
+                     fls   vos   First Look Survey
+                    fsvs   vos   Faint Sky Variability Survey
+               ir_bootes   vos   Infrared Bootes Imaging Survey
+                     lgs   vos   ???
+                     lmc   vos   ???
+                  ls_dr1   vos   DECam Legacy Survey DR1
+                  ls_dr2   vos   DECam Legacy Survey DR2
+                  ls_dr3   vos   DECam Legacy Survey DR3
+                  ls_dr4   vos   DECam Legacy Survey DR4
+                  ls_dr5   vos   DECam Legacy Survey DR5
+                  ls_dr6   vos   DECam Legacy Survey DR6
+                  ls_dr7   vos   DECam Legacy Survey DR7
+             m31_newfirm   vos   M31 NEWFIRM Survey
+                   ndwfs   vos   NOAO Deep-Wide Survey
+                     nfp   vos   NOAO Fundamental Plane Survey
+                    nmbs   vos   NEWFIRM Medium Band Survey
+                  nmbs_2   vos   NEWFIRM Medium Band Survey II
+               sdss_dr14   vos   SDSS DR14
+                   singg   vos   Survey for Ionization in Neutral-Gas Gal ...
+               smash_dr1   vos   SMASH DR1
+                     sze   vos   ???
+               w_project   vos   The w Project
+
+</pre>
 </div>
+</div>
+
 </div>
 </div>
 
