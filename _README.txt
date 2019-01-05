@@ -20,7 +20,7 @@
 
 
                        web: https://datalab.noao.edu
-                  github: https://github.com/noao-datalab
+                  github: https://github.com/noaodatalab
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -53,24 +53,7 @@ the Data Lab. It is a reference for scientific applications, though not as
 detailed as the specific science examples given below (item 4).
 
 
-3- HOW-TOS
-
-The "HowTos" folder contains sub-folders with notebooks that show how to use 
-Data Lab services with more detail than the brief examples included in the 
-Getting Started and Data Access Overview notebooks. The functionality is 
-shown for the full set of keywords and options for the following:
-
-- AuthClient: authenticating with the Data Lab
-- QueryClient: sending queries to the databases and retrieving results
-- RowVsCstore: using row-stored versus column-stored database tables
-- SIA service: obtaining cutouts using a Simple Image Access service
-- StoreClient: storing data in virtual storage (vospace or mydb)
-
-The How-To notebooks are located here: 
-   https://datalab.noao.edu/notebooks/web/HowTos/
-
-
-4- SCIENCE EXAMPLES
+3- SCIENCE EXAMPLES
 
 The "ScienceExamples" folder contains notebooks that showcase scientific 
 applications using the datasets hosted at Data Lab. Each science application 
@@ -89,56 +72,91 @@ with two or more surveys.
 - LargeScaleStructure: inspect large-scale structures using spectroscopic 
                        information from SDSS combined with photometric 
                        information from the DESI pre-imaging Legacy Survey (LS)
+		     
+- Pal5TidalTails: identify tidal tails of the globular cluster Palomar 5 in the 
+		  NSC DR1 catalog, as well as a jointly with Gaia DR2 to explore 
+		  the proper motion of the cluster and its tails	     
+
+- SpectralEnergyDistributions: use narrow-band filters to construct SEDs of
+                               objects from the S-PLUS DR1 dataset
 
 - StarGalQSOSeparation: use photometric properties (colors, morphology/shape 
                         parameters, etc.) to distinguish between stars, galaxies, 
-                        and QSOs in the DES DR1 and LS DR3 datasets
+                        and QSOs in the DES DR1 and LS DR7 datasets
 
 - TimeSeriesAnalysisRrLyraeStar: analyze time-series to measure the period of 
                                  RR Lyrae stars using photometry from SMASH
 
-- DECaPSBasicAccess: investigate Galactic structure by creating CMDs for 
-		     stellar populations within the Galactic bulge, star 
-		     clusters, and field.
-
 The ScienceExamples notebooks are located here: 
    https://datalab.noao.edu/notebooks/web/ScienceExamples/
+
+
+4- HOW-TOS
+
+The "HowTos" folder contains sub-folders with notebooks that show how to use 
+Data Lab services with more detail than the brief examples included in the 
+Getting Started and Data Access Overview notebooks. The functionality is 
+shown for the full set of keywords and options for the following:
+
+- AuthClient: authenticating with the Data Lab
+- CrossmatchTables: crossmatching a user-provided table against a table 
+                    hosted by Data Lab
+- FileService: using files rather than database tables, including spectra 
+	       from SDSS/BOSS
+- QueryClient: sending queries to the databases and retrieving results
+- RowVsCstore: using row-stored versus column-stored database tables
+- SIA service: obtaining cutouts using a Simple Image Access service [future]
+- StoreClient: storing data in virtual storage (vospace or mydb)
+
+The How-To notebooks are located here: 
+   https://datalab.noao.edu/notebooks/web/HowTos/
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 HOW TO UPDATE NOTEBOOKS?
 
-This README file as well as the notebooks listed herein are kept up-to-date 
-on this Data Lab webpage: https://datalab.noao.edu/notebooks/web/
+Data Lab never modifies the notebooks that were placed in your
+notebooks/ directory during account creation. Over time, as the
+default notebooks evolve, they will diverge from those in notebooks/.
 
-There will also be a copy on the Data Lab Github account (in progress): 
-https://github.com/noao-datalab
+To obtain a full copy of the newest default notebooks, click in the
+top-right corner of the Jupyter dashboard on "New", then on "Terminal",
+and use the `getlatest` function:
 
-The notebook naming convention typically includes the date in the filename, such 
-as "ScienceCaseSurvey_YYYYMMDD.ipynb". Users can compare the content of their 
-folders with the list of notebooks at either location above to determine whether 
-there are new notebooks. If there are updated or new notebooks of interest, the 
-current set-up requires that the users manually download them locally, and then 
-upload them in their user accounts. We are developing an automated service that 
-will allow users to check for updates and select notebooks, which will then be 
-automatically transferred over. This service will be released at a later time.
+# without argument: copies to a directory named with current date and time
+username@datalab>getlatest
+Copied /dlusers/username/notebooks-latest/ to notebooks_20180709_212650/
 
+# with target directory as argument
+username@datalab>getlatest mydir
+Copied /dlusers/username/notebooks-latest/ to mydir/
+
+Note also that some notebooks are named with the date as the version,
+such as "ScienceCaseSurvey_YYYYMMDD.ipynb". Users can compare the
+content of their folders with notebooks-latest/ to determine whether
+there are new notebooks, and then copy individual notebooks by hand in
+the Jupyter dashboard.
+
+Finally, copies of this README file as well as the latest notebooks
+are kept on:
+
+- the Data Lab website: https://datalab.noao.edu/notebooks/web/
+- the Data Lab Github account: https://github.com/noaodatalab/notebooks-latest
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 DOCUMENTATION & RESOURCES
 
 The User Manual includes a tutorial on using Jupyter Notebooks with the Data Lab:
-http://datalab.noao.edu/docs/manual/UsingTheNOAODataLab/JupyterNotebooks/JupyterNotebooks.html
+https://datalab.noao.edu/docs/manual/UsingTheNOAODataLab/JupyterNotebooks/JupyterNotebooks.html
 
 The User Manual also includes additional information on the Science Examples 
 featured in the notebooks:
-http://datalab.noao.edu/docs/manual/UsingTheNOAODataLab/ScienceExamples/index.html
+https://datalab.noao.edu/docs/manual/UsingTheNOAODataLab/ScienceExamples/
 
 Helpful advice on using SQL and writing queries can be found here: 
-http://datalab.noao.edu/docs/manual/UsingTheNOAODataLab/SQLGotchas/SQLGotchas.html
+https://datalab.noao.edu/docs/manual/UsingTheNOAODataLab/SQLGotchas/SQLGotchas.html
 
 Lastly, please visit the Helpdesk to see the FAQs or ask your questions: 
-http://datalab.noao.edu/help/
-
+https://datalab.noao.edu/help/
