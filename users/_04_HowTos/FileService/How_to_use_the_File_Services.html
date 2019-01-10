@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Exploring_File_Services</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>How_to_use_the_File_Services</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11777,7 +11777,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Mike Fitzpatrick &lt;fitz@noao.edu&gt;, Glenn Eychaner &lt;geychaner@noao.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20190103&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20190110&#39;</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sdss_dr14&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -11790,7 +11790,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Exploring-Public-File-Services">Exploring Public File Services<a class="anchor-link" href="#Exploring-Public-File-Services">&#182;</a></h3><p><em>Mike Fitzpatrick and Glenn Eychaner</em></p>
+<h1 id="How-to-Use-the-Data-Lab-Public-File-Services">How to Use the Data Lab Public File Services<a class="anchor-link" href="#How-to-Use-the-Data-Lab-Public-File-Services">&#182;</a></h1><p><em>Mike Fitzpatrick and Glenn Eychaner</em></p>
 <p><em>Revised:  Jan 03, 2019</em></p>
 <p>Files in the virtual storage are usually identified via the prefix "<em>vos://</em>". This shorthand identifier is resolved to a user's home directory of the storage space in the service.</p>
 <p>If the "<em>vos://</em>" prefix is instead the name of another user (e.g. "<em>geychaner://</em>", and the remainder of the path grants public or group read/write access, then the other user's spaces will be accessed. Most user spaces have a "<em>/public</em>" directory to facilitate file sharing (e.g. '<em>geychaner://public/foo.fits</em>' will access the '<em>foo.fits</em>' file from user '<em>geychaner</em>'). Users can make any file (or directory) public by moving it to (or creating a link in) their "/public" directory.</p>
@@ -12142,7 +12142,7 @@ spPlate-3615-56544.fits
 <pre>
                     name   svc   description
                 --------   ----  --------
-                 chandra   vos   ???
+                 chandra   vos   ChaMPlane: Measuring the Faint X-ray Bin ...
              cosmic_dawn   vos   Cosmic DAWN survey
                deeprange   vos   Deeprange Survey
            deep_ecliptic   vos   Depp Ecliptic Survey
@@ -12151,8 +12151,8 @@ spPlate-3615-56544.fits
                      fls   vos   First Look Survey
                     fsvs   vos   Faint Sky Variability Survey
                ir_bootes   vos   Infrared Bootes Imaging Survey
-                     lgs   vos   ???
-                     lmc   vos   ???
+                     lgs   vos   Local Group Survey
+                     lmc   vos   SuperMACHO Survey
                   ls_dr1   vos   DECam Legacy Survey DR1
                   ls_dr2   vos   DECam Legacy Survey DR2
                   ls_dr3   vos   DECam Legacy Survey DR3
@@ -12168,7 +12168,7 @@ spPlate-3615-56544.fits
                sdss_dr14   vos   SDSS DR14
                    singg   vos   Survey for Ionization in Neutral-Gas Gal ...
                smash_dr1   vos   SMASH DR1
-                     sze   vos   ???
+                     sze   vos   SZE+Optical Studies of the Cosmic Accele ...
                w_project   vos   The w Project
 
 </pre>
