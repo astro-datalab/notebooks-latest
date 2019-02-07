@@ -1,0 +1,125 @@
+Version of this file: 20190207
+
+HOW TO CONTRIBUTE NOTEBOOKS TO DATA LAB
+=======================================
+
+We very much welcome user-contributed notebooks to Data Lab.
+
+A few words about rules and intent
+----------------------------------
+
+- Your notebook should demonstrate or cover a case that is different
+  from those covered in other notebooks in the same repository.
+  
+- You agree that your contributed notebook moves into the public
+  domain, i.e. that anyone can propose to change it (via pull
+  requests).
+
+- You maintain your claim to fame by including your name and email in
+  the first cell of the notebook. Your name will never be
+  removed. Other names may be added when the notebook is changed.
+
+- Your notebook must roughly follow the template which we provide.
+
+- Any notebook you add must be in ready form, i.e. all cells must run
+  correctly, and the notebook must be 'cleaned'. ESPECIALLY: it must
+  not contain any passwords or tokens.
+
+The steps to contributing
+-------------------------
+
+You can develop your notebook either in the Data Lab notebook server
+or locally on your machine.
+
+In either case, when your notebook is ready to go, you will have to
+make a pull request on Github, so that the Data Lab team can review
+and accept your notebook.
+
+* If you want to develop on the Data Lab notebook server:
+
+  - Start your notebook server at https://datalab.noao.edu/devbooks
+  - Copy notebooks-latest/DataLabNotebookTemplate.ipynb to some other place and rename it
+  - Develop the notebook
+
+* If you want to develop on your own machine:
+
+  - Install the datalab client code
+
+      pip install --upgrade noaodatalab
+    
+    More detailed instructions: https://github.com/noaodatalab/datalab (the README.md file)
+
+  - Fork the 'notebooks-latest' repository on Github
+
+    Log in to Github, go to https://github.com/noaodatalab/notebooks-latest
+    
+    Click on "Fork" in the upper right corner.
+
+    The forked repository will be under https://github.com/youongithub/notebooks-latest.git
+    where 'youongithub' is your Github user name.
+
+  - Clone from your fork
+
+    On your local machine:
+
+      cd foo # some local directory
+      git clone https://github.com/youongithub/notebooks-latest.git
+
+  * Decide where under the '05_Contrib/' directory your notebook will live
+
+  For instance:
+
+    mkdir -p 05_Contrib/ExtraGalactic/InterestingScienceCase/
+    cd 05_Contrib/ExtraGalactic/InterestingScienceCase/
+    cp ../../DataLabNotebookTemplate.ipynb InterestingScienceCase.ipynb
+
+  Some advice:
+
+  - Use your judgment where to place you notebook under 05_Contrib/.
+
+  - If it does not fit under any existing rubric
+    (e.g. 'ExtraGalactic/', 'SolarSystem/', etc.), start a new one,
+    i.e. make the sub-directory and place your notebook there.
+
+  - Your notebook must be in a stand-alone sub(sub)directory of its own
+
+    E.g. 05_Contrib/ExtraGalactic/LensingEinsteinCross/
+    or   05_Contrib/ExtraGalactic/MicroLensing/
+    
+  - Place auxiliary files (if any) there as well, e.g. external data
+    tables used in your notebook, image files, etc. Make sure to keep
+    their size small.
+
+* Develop and test your notebook
+
+  Make sure that your notebook:
+
+    - follows the rough structure, and the instructions in the DL notebook template
+    - runs (all cells)
+    - is clean, and free of cruft
+    - has no passwords or tokens, or any other sensitive information
+
+* Add the notebook and any aux files to your git tracking
+
+  E.g.
+
+    git add 05_Contrib/ExtraGalactic/SuperScienceCase/SuperScienceCase.ipynb
+
+* Commit to your master
+
+    git commit -a -m "Add contributed science case notebook on XYZ science"
+
+* Push to your fork on Github
+
+   git push origin master
+
+* Make a pull request (PR) on Github:
+
+  - Go to your fork of notebooks-latest on Github
+  - Click on "New pull request", and follow the instructions
+
+  The DL team will review your notebook and either suggest some
+  changes or accept the PR. Once accepted, your notebook will become
+  part of the default set of notebooks delivered with DL.
+
+As always, please ask the DL team any questions you have at <datalab@noao.edu>
