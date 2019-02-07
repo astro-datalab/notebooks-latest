@@ -94,10 +94,12 @@ and accept your notebook.
 
   Make sure that your notebook:
 
-    - follows the rough structure, and the instructions in the DL notebook template
-    - runs (all cells)
-    - is clean, and free of cruft
-    - has no passwords or tokens, or any other sensitive information
+    - Follows the rough structure, and the instructions in the DL notebook template.
+    - Runs (all cells).
+    - Is clean, and free of cruft.
+    - Has no passwords or tokens, or any other sensitive information.
+    - Uses keywords from the list in ./keywords.txt
+      If you need new keywords, add them to the list.
 
 * Add the notebook and any aux files to your git tracking
 
