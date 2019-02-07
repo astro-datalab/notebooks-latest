@@ -16,7 +16,7 @@
 ........:::..:::::..:::::..:::::..:::::..:::::........::..:::::..::........:::
 
 
-           Welcome to the NOAO Data Lab Jupyter Notebook server!
+           Welcome to the NOAO Data Lab Jupyter Notebook repository
 
 
                        web: https://datalab.noao.edu
