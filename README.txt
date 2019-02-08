@@ -23,7 +23,7 @@
                     github: https://github.com/noaodatalab
 
 
-                        Version of this file: 20190207
+                        Version of this file: 20190208
                         
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -124,7 +124,7 @@ The How-To notebooks are located here:
 05- CONTRIB
 
 The "05_Contrib/" directory holds user-contributed notebooks to Data
-Lab. Please see 05_Contrib/CONTRIBUTE for detailed instructions.
+Lab. Please see ./CONTRIBUTE file for detailed instructions.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 

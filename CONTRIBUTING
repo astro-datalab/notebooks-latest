@@ -1,4 +1,4 @@
-Version of this file: 20190207
+Version of this file: 20190208
 
 HOW TO CONTRIBUTE NOTEBOOKS TO DATA LAB
 =======================================
@@ -65,7 +65,9 @@ and accept your notebook.
       cd foo # some local directory
       git clone https://github.com/youongithub/notebooks-latest.git
 
-  * Decide where under the '05_Contrib/' directory your notebook will live
+* Your contributed notebook goes inside the '05_Contrib/' directory
+
+  Decide where under '05_Contrib/' your notebook will live.
 
   For instance:
 
