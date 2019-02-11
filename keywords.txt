@@ -40,3 +40,5 @@ tutorial
 vospace
 vospace:copy
 WCS
+ANTARES
+transient
