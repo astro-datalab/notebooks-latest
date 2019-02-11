@@ -1,6 +1,7 @@
+ANTARES
 authentication
-crossmatch
 convolution
+crossmatch
 dwarf galaxies
 extragalactic
 galaxies
@@ -36,9 +37,8 @@ star clusters
 stars
 time series
 token
+transient
 tutorial
 vospace
 vospace:copy
 WCS
-ANTARES
-transient
