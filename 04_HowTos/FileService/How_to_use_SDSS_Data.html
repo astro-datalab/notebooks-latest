@@ -11777,8 +11777,8 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Benjamin Alan Weaver &lt;baweaver@lbl.gov&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20190109&#39;</span>
-<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sdss_dr13&#39;</span><span class="p">,</span> <span class="s1">&#39;sdss_dr14&#39;</span><span class="p">]</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20190418&#39;</span>
+<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sdss_dr14&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;extragalactic&#39;</span><span class="p">,</span> <span class="s1">&#39;spectroscopic redshift&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -11847,6 +11847,10 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">astropy.io.votable</span> <span class="k">import</span> <span class="n">parse_single_table</span>
 <span class="c1"># Data Lab</span>
 <span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">set_svc_url</span><span class="p">(</span><span class="s1">&#39;http://dltest.datalab.noao.edu/query&#39;</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">set_profile</span><span class="p">(</span><span class="s1">&#39;gp04&#39;</span><span class="p">)</span>
+<span class="n">release</span> <span class="o">=</span> <span class="mi">14</span>  <span class="c1"># DR14</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s1">&#39;sdss_dr</span><span class="si">{0:d}</span><span class="s1">_new&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">release</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">sdss_objid</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
@@ -12051,9 +12055,9 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="BOSS-Galaxies-in-the-SDSS-Photometric-Catalog">BOSS Galaxies in the SDSS Photometric Catalog<a class="anchor-link" href="#BOSS-Galaxies-in-the-SDSS-Photometric-Catalog">&#182;</a></h2><p>Currently, NOAO Data Lab has loaded a subset of the full SDSS photometric catalog that contains the most commonly used data columns from the full catalog.  This subset is actually provided by SDSS for convenience.  This subset is colloquially known as the "Sweep files".  The contents of these files is described in this <a href="https://data.sdss.org/datamodel/files/PHOTO_SWEEP/RERUN/calibObj.html">data model</a>.</p>
-<p>There are several types of flux measurements reported by SDSS.  See the <a href="http://www.sdss.org/dr13/algorithms/magnitudes/">SDSS Magnitudes page</a> for further details.  The "Sweep files" only contain <em>fluxes</em> not magnitudes, so we have to convert the fluxes to (asinh) magnitudes offline.</p>
-<p>We're going to select several measurements of flux, and choose objects marked as <code>SURVEY_PRIMARY</code> in the <a href="http://www.sdss.org/dr13/algorithms/bitmasks/#RESOLVE_STATUS">RESOLVE_STATUS bitmask</a> (see the <a href="http://www.sdss.org/dr13/algorithms/resolve/">resolve</a> documentation for further details.</p>
+<h2 id="BOSS-Galaxies-in-the-SDSS-Photometric-Catalog">BOSS Galaxies in the SDSS Photometric Catalog<a class="anchor-link" href="#BOSS-Galaxies-in-the-SDSS-Photometric-Catalog">&#182;</a></h2><p>Currently, NOAO Data Lab has loaded a subset of the full SDSS photometric catalog containing objects that have spectra in DR14.  All columns that would normally be found in the <a href="http://skyserver.sdss.org/dr15/en/help/browser/browser.aspx#&amp;&amp;history=description+PhotoObjAll+U">PhotoObjAll table</a> are loaded.</p>
+<p>There are several types of flux measurements reported by SDSS.  See the <a href="http://www.sdss.org/dr14/algorithms/magnitudes/">SDSS Magnitudes page</a> for further details.  Although the catalog contains fluxes and magnitudes, for practice, we will convert the fluxes to (asinh) magnitudes offline.</p>
+<p>We're going to select several measurements of flux, and choose objects marked as <code>SURVEY_PRIMARY</code> in the <a href="http://www.sdss.org/dr14/algorithms/bitmasks/#RESOLVE_STATUS">RESOLVE_STATUS bitmask</a> (see the <a href="http://www.sdss.org/dr14/algorithms/resolve/">resolve</a> documentation for further details.</p>
 <p>Note that bitwise operations that are normally part of the SQL standard are forbidden by <a href="http://www.ivoa.net/documents/latest/ADQL.html">ADQL</a> (even though the <code>&amp;</code> operator is part of the ADQL standard).</p>
 
 </div>
@@ -12064,20 +12068,18 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">release</span> <span class="o">=</span> <span class="mi">13</span>
-<span class="n">select_magnitudes</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">flux_</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">magtype</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select_magnitudes</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">flux_</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">magtype</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
                                           <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="s1">&#39;ugriz&#39;</span><span class="p">])</span>
                                <span class="k">for</span> <span class="n">magtype</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="s1">&#39;dev&#39;</span><span class="p">,</span> <span class="s1">&#39;exp&#39;</span><span class="p">,</span> <span class="s1">&#39;psf&#39;</span><span class="p">,</span> <span class="s1">&#39;fiber2&#39;</span><span class="p">)])</span>
 <span class="n">select_cmodel</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;((fracdev_</span><span class="si">{0}</span><span class="s1"> * devflux_</span><span class="si">{0}</span><span class="s1">) + (1.0 - fracdev_</span><span class="si">{0}</span><span class="s1">) * expflux_</span><span class="si">{0}</span><span class="s1">) AS cmodelflux_</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
                            <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="s1">&#39;ugriz&#39;</span><span class="p">])</span>
 <span class="n">select_other</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">_</span><span class="si">{1}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="s1">&#39;ugriz&#39;</span><span class="p">])</span>
-                          <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;fracdev&#39;</span><span class="p">,</span> <span class="s1">&#39;theta_dev&#39;</span><span class="p">,</span> <span class="s1">&#39;extinction&#39;</span><span class="p">)])</span>
-<span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;SELECT rerun, run, camcol, field, id, ra, dec, &quot;</span> <span class="o">+</span>
+                          <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;fracdev&#39;</span><span class="p">,</span> <span class="s1">&#39;devrad&#39;</span><span class="p">,</span> <span class="s1">&#39;extinction&#39;</span><span class="p">)])</span>
+<span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;SELECT rerun, run, camcol, field, objid, ra, dec, &quot;</span> <span class="o">+</span>
      <span class="n">select_magnitudes</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span>
      <span class="n">select_cmodel</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span>
      <span class="n">select_other</span> <span class="o">+</span>
-     <span class="s2">&quot; FROM sdss_dr</span><span class="si">{0:d}</span><span class="s2">.calibobj_gal WHERE (resolve_status &amp; 256) != 0 LIMIT 100000&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">release</span><span class="p">))</span>
-     <span class="c1"># &quot; FROM sdss_dr{0:d}.calibobj_gal LIMIT 10&quot;.format(release))</span>
+     <span class="s2">&quot; FROM </span><span class="si">{0}</span><span class="s2">.photoplate WHERE (resolvestatus &amp; 256) != 0 LIMIT 100000&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
 </pre></div>
 
@@ -12093,7 +12095,7 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
 try:
-    vot = qc.query(sql=q, fmt=&#39;votable&#39;, async=False)
+    vot = qc.query(sql=q, fmt=&#39;votable&#39;, async_=False)
 except Exception as e:
     print(e.message)
 else:
@@ -12111,12 +12113,13 @@ else:
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">parse_single_table</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">vot</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)))</span>
-<span class="n">objID</span> <span class="o">=</span> <span class="n">sdss_objid</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">array</span><span class="p">)</span>
+<span class="n">objID</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="s1">&#39;objid&#39;</span><span class="p">]</span>
+<span class="c1"># objID = sdss_objid(result.array)</span>
 <span class="n">psfmag</span> <span class="o">=</span> <span class="n">asinh_mag</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">magtype</span><span class="o">=</span><span class="s1">&#39;psf&#39;</span><span class="p">,</span> <span class="n">deredden</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">cmodelmag</span> <span class="o">=</span> <span class="n">asinh_mag</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">magtype</span><span class="o">=</span><span class="s1">&#39;cmodel&#39;</span><span class="p">,</span> <span class="n">deredden</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">modelmag</span> <span class="o">=</span> <span class="n">asinh_mag</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">magtype</span><span class="o">=</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="n">deredden</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">fib2mag</span> <span class="o">=</span> <span class="n">asinh_mag</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">magtype</span><span class="o">=</span><span class="s1">&#39;fiber2&#39;</span><span class="p">,</span> <span class="n">deredden</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">rdev_i</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="s1">&#39;theta_dev_i&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">0.396</span>  <span class="c1"># convert back to pixels</span>
+<span class="n">rdev_i</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="s1">&#39;devrad_i&#39;</span><span class="p">]</span><span class="o">/</span><span class="mf">0.396</span>  <span class="c1"># convert back to pixels</span>
 <span class="n">auxcolor</span> <span class="o">=</span> <span class="n">auxilliary_colors</span><span class="p">(</span><span class="n">modelmag</span><span class="p">)</span>
 </pre></div>
 
@@ -12181,7 +12184,7 @@ else:
 <span class="n">foo</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">24</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
 <span class="n">foo</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;g - r&#39;</span><span class="p">)</span>
 <span class="n">foo</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">foo</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Color-Magnitude of SDSS (DR13) Galaxies&#39;</span><span class="p">)</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Color-Magnitude of SDSS (DR</span><span class="si">{0:d}</span><span class="s1">) Galaxies&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">release</span><span class="p">))</span>
 <span class="n">l</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">numpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
@@ -12211,7 +12214,7 @@ else:
 <span class="n">foo</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 <span class="n">foo</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;g - r&#39;</span><span class="p">)</span>
 <span class="n">foo</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;r - i&#39;</span><span class="p">)</span>
-<span class="n">foo</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Colors of SDSS (DR13) Galaxies&#39;</span><span class="p">)</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Colors of SDSS (DR</span><span class="si">{0:d}</span><span class="s1">) Galaxies&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">release</span><span class="p">))</span>
 <span class="n">l</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">numpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
@@ -12235,7 +12238,7 @@ else:
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
-q = &quot;SELECT COUNT(*) AS nrows FROM sdss_dr{0:d}.specobj&quot;.format(release)
+q = &quot;SELECT COUNT(*) AS nrows FROM {0}.specobj&quot;.format(schema)
 result = qc.query(adql=q, fmt=&#39;csv&#39;)
 print(result)
 </pre></div>
@@ -12260,7 +12263,7 @@ print(result)
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
-q = (&quot;SELECT boss_target1 FROM sdss_dr{0:d}.specobj WHERE boss_target1 != 0 LIMIT 100000&quot;.format(release))
+q = (&quot;SELECT boss_target1 FROM {0}.specobj WHERE boss_target1 != 0 LIMIT 100000&quot;.format(schema))
 try:
     vot = qc.query(sql=q, fmt=&#39;votable&#39;)
 except Exception as e:
@@ -12296,16 +12299,20 @@ else:
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
-q_lowz = (&quot;SELECT specobjid, fluxobjid, bestobjid, plate, mjd, fiberid, z_noqso FROM sdss_dr{0:d}.specobj &quot; + 
-          &quot;WHERE (boss_target1 &amp; {1:d}) != 0 AND specprimary = 1 AND &quot; +
-          &quot;zwarning_noqso = 0 AND class_noqso = &#39;GALAXY&#39; LIMIT 100000&quot;).format(release, 1)
-# jobId = qc.query(sql=q, fmt=&#39;votable&#39;, async=True)
-result = parse_single_table(BytesIO(qc.query(sql=q_lowz, fmt=&#39;votable&#39;).encode(&#39;utf-8&#39;)))
-plate_lowz = result.array[&#39;plate&#39;]
-mjd_lowz = result.array[&#39;mjd&#39;]
-fiber_lowz = result.array[&#39;fiberid&#39;]
-redshift_lowz = result.array[&#39;z_noqso&#39;]
-print(len(redshift_lowz))
+q_lowz = (&quot;SELECT specobjid, fluxobjid, bestobjid, plate, mjd, fiberid, z_noqso FROM {0}.specobj &quot; + 
+          &quot;WHERE (boss_target1 &amp; {1:d}) != 0 AND scienceprimary = 1 AND &quot; +
+          &quot;zwarning_noqso = 0 AND class_noqso = &#39;GALAXY&#39; LIMIT 100000&quot;).format(schema, 1)
+try:
+    vot = qc.query(sql=q_lowz, fmt=&#39;votable&#39;)
+except Exception as e:
+    print(e.message)
+else:
+    result = parse_single_table(BytesIO(vot.encode(&#39;utf-8&#39;)))
+    plate_lowz = result.array[&#39;plate&#39;]
+    mjd_lowz = result.array[&#39;mjd&#39;]
+    fiber_lowz = result.array[&#39;fiberid&#39;]
+    redshift_lowz = result.array[&#39;z_noqso&#39;]
+    print(len(redshift_lowz))
 </pre></div>
 
 </div>
@@ -12319,15 +12326,20 @@ print(len(redshift_lowz))
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
-q_cmass = (&quot;SELECT specobjid, fluxobjid, bestobjid, plate, mjd, fiberid, z_noqso FROM sdss_dr{0:d}.specobj &quot; + 
-           &quot;WHERE (boss_target1 &amp; {1:d}) != 0 AND specprimary = 1 AND &quot; +
-           &quot;zwarning_noqso = 0 AND class_noqso = &#39;GALAXY&#39; LIMIT 100000&quot;).format(release, 2)
-result = parse_single_table(BytesIO(qc.query(sql=q_cmass, fmt=&#39;votable&#39;).encode(&#39;utf-8&#39;)))
-plate_cmass = result.array[&#39;plate&#39;]
-mjd_cmass = result.array[&#39;mjd&#39;]
-fiber_cmass = result.array[&#39;fiberid&#39;]
-redshift_cmass = result.array[&#39;z_noqso&#39;]
-print(len(redshift_cmass))
+q_cmass = (&quot;SELECT specobjid, fluxobjid, bestobjid, plate, mjd, fiberid, z_noqso FROM {0}.specobj &quot; + 
+           &quot;WHERE (boss_target1 &amp; {1:d}) != 0 AND scienceprimary = 1 AND &quot; +
+           &quot;zwarning_noqso = 0 AND class_noqso = &#39;GALAXY&#39; LIMIT 100000&quot;).format(schema, 2)
+try:
+    vot = qc.query(sql=q_cmass, fmt=&#39;votable&#39;)
+except Exception as e:
+    print(e.message)
+else:
+    result = parse_single_table(BytesIO(qc.query(sql=q_cmass, fmt=&#39;votable&#39;).encode(&#39;utf-8&#39;)))
+    plate_cmass = result.array[&#39;plate&#39;]
+    mjd_cmass = result.array[&#39;mjd&#39;]
+    fiber_cmass = result.array[&#39;fiberid&#39;]
+    redshift_cmass = result.array[&#39;z_noqso&#39;]
+    print(len(redshift_cmass))
 </pre></div>
 
 </div>
@@ -12382,7 +12394,7 @@ print(len(redshift_cmass))
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rerun</span> <span class="o">=</span> <span class="s1">&#39;v5_10_0&#39;</span>
 <span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
-<span class="n">negative_z</span> <span class="o">=</span> <span class="p">(</span><span class="n">redshift_cmass</span> <span class="o">&gt;</span> <span class="n">bins_cmass</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">redshift_cmass</span> <span class="o">&lt;</span> <span class="n">bins_cmass</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">negative_z</span> <span class="o">=</span> <span class="p">(</span><span class="n">redshift_cmass</span> <span class="o">&gt;=</span> <span class="n">bins_cmass</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">redshift_cmass</span> <span class="o">&lt;</span> <span class="n">bins_cmass</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;ul&gt;&#39;</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">plate_cmass</span><span class="p">[</span><span class="n">negative_z</span><span class="p">],</span> <span class="n">mjd_cmass</span><span class="p">[</span><span class="n">negative_z</span><span class="p">],</span> <span class="n">fiber_cmass</span><span class="p">[</span><span class="n">negative_z</span><span class="p">]):</span>
     <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;li&gt;&lt;a href=&quot;https://dr</span><span class="si">{0:d}</span><span class="s1">.sdss.org/optical/spectrum/view?run2d=</span><span class="si">{1}</span><span class="s1">&amp;plateid=</span><span class="si">{2}</span><span class="s1">&amp;mjd=</span><span class="si">{3}</span><span class="s1">&amp;fiberid=</span><span class="si">{4}</span><span class="s1">&quot;&gt;</span><span class="si">{2}</span><span class="s1">, </span><span class="si">{3}</span><span class="s1">, </span><span class="si">{4}</span><span class="s1">&lt;/a&gt;&lt;/li&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">release</span><span class="p">,</span> <span class="n">rerun</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">f</span><span class="p">)))</span>
@@ -12779,19 +12791,6 @@ print(len(redshift_cmass))
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
     </div>
   </div>
