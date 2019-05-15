@@ -11777,7 +11777,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Benjamin Alan Weaver &lt;baweaver@lbl.gov&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20190514&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20190515&#39;</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sdss_dr14&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;extragalactic&#39;</span><span class="p">,</span> <span class="s1">&#39;spectroscopic redshift&#39;</span><span class="p">]</span>
 </pre></div>
@@ -12003,7 +12003,7 @@ We're going to select several measurements of flux, and choose objects marked as
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
 try:
-    vot = qc.query(sql=q, fmt=&#39;votable&#39;, async_=False)
+    vot = qc.query(sql=q, fmt=&#39;votable&#39;, async_=False, timeout=300)
 except Exception as e:
     print(e.message)
 else:
@@ -12343,7 +12343,7 @@ else:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="What's-that?-Some-CMASS-Galaxies-have-negative-redshift?">What's that? Some CMASS Galaxies have negative redshift?<a class="anchor-link" href="#What's-that?-Some-CMASS-Galaxies-have-negative-redshift?">&#182;</a></h3><p>Let's actually take a look at these spectra.</p>
+<h3 id="What's-that?-Some-CMASS-Galaxies-have-negative-redshift?">What's that? Some CMASS Galaxies have negative redshift?<a class="anchor-link" href="#What's-that?-Some-CMASS-Galaxies-have-negative-redshift?">&#182;</a></h3><p>Let's actually take a look at these spectra.  The "SkyServer" link will show a simple spectrum along with an image of the targeted object.  The "SAS" link will show an interactive view of the spectrum with options to download the spectrum itself.</p>
 
 </div>
 </div>
@@ -12357,7 +12357,10 @@ else:
 <span class="n">negative_z</span> <span class="o">=</span> <span class="p">(</span><span class="n">redshift_cmass</span> <span class="o">&gt;=</span> <span class="n">bins_cmass</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">redshift_cmass</span> <span class="o">&lt;</span> <span class="n">bins_cmass</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;ul&gt;&#39;</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">plate_cmass</span><span class="p">[</span><span class="n">negative_z</span><span class="p">],</span> <span class="n">mjd_cmass</span><span class="p">[</span><span class="n">negative_z</span><span class="p">],</span> <span class="n">fiber_cmass</span><span class="p">[</span><span class="n">negative_z</span><span class="p">]):</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;li&gt;&lt;a href=&quot;https://dr</span><span class="si">{0:d}</span><span class="s1">.sdss.org/optical/spectrum/view?run2d=</span><span class="si">{1}</span><span class="s1">&amp;plateid=</span><span class="si">{2}</span><span class="s1">&amp;mjd=</span><span class="si">{3}</span><span class="s1">&amp;fiberid=</span><span class="si">{4}</span><span class="s1">&quot;&gt;</span><span class="si">{2}</span><span class="s1">, </span><span class="si">{3}</span><span class="s1">, </span><span class="si">{4}</span><span class="s1">&lt;/a&gt;&lt;/li&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">release</span><span class="p">,</span> <span class="n">rerun</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">f</span><span class="p">)))</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">((</span><span class="s1">&#39;&lt;li&gt;&#39;</span> <span class="o">+</span>
+                  <span class="s1">&#39;&lt;a href=&quot;https://skyserver.sdss.org/dr</span><span class="si">{0:d}</span><span class="s1">/en/tools/explore/summary.aspx?plate=</span><span class="si">{2}</span><span class="s1">&amp;mjd=</span><span class="si">{3}</span><span class="s1">&amp;fiber=</span><span class="si">{4}</span><span class="s1">&quot;&gt;SkyServer: </span><span class="si">{2}</span><span class="s1">, </span><span class="si">{3}</span><span class="s1">, </span><span class="si">{4}</span><span class="s1">&lt;/a&gt;&lt;/li&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">release</span><span class="p">,</span> <span class="n">rerun</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="o">+</span>
+                  <span class="s1">&#39;&lt;a href=&quot;https://dr</span><span class="si">{0:d}</span><span class="s1">.sdss.org/optical/spectrum/view?run2d=</span><span class="si">{1}</span><span class="s1">&amp;plateid=</span><span class="si">{2}</span><span class="s1">&amp;mjd=</span><span class="si">{3}</span><span class="s1">&amp;fiberid=</span><span class="si">{4}</span><span class="s1">&quot;&gt;SAS: </span><span class="si">{2}</span><span class="s1">, </span><span class="si">{3}</span><span class="s1">, </span><span class="si">{4}</span><span class="s1">&lt;/a&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">release</span><span class="p">,</span> <span class="n">rerun</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="o">+</span>
+                  <span class="s1">&#39;&lt;/li&gt;&#39;</span><span class="p">)))</span>
 <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;/ul&gt;&#39;</span><span class="p">))</span>
 </pre></div>
 
@@ -12370,7 +12373,7 @@ else:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>After looking at a few of these, you may notice that a number of them are point-like, red objects that are close to a brighter object.  A plausible hypothesis is that CMASS color selection doesn't work so great when a nearby, brighter object might be contaminating the photometry, thus making it harder to distinguish LRGs from M stars.</p>
+<p>After looking at a few of these, you may notice (from the "SkyServer" link) that a number of them are point-like, red objects that are close to a brighter object.  A plausible hypothesis is that CMASS color selection doesn't work so great when a nearby, brighter object might be contaminating the photometry, thus making it harder to distinguish LRGs from M stars.</p>
 
 </div>
 </div>
