@@ -11714,6 +11714,1510 @@ ul.typeahead-list > li > a {
 .ansi-bold { font-weight: bold; }
 
     </style>
+<style type="text/css">
+    /* JS9 allinone: v1.11, Mon Jan 23 20:51:06 EST 2017 */
+@charset "UTF-8";
+/*!
+ * jQuery contextMenu - Plugin for simple contextMenu handling
+ *
+ * Version: v2.2.1-dev
+ *
+ * Authors: Björn Brala (SWIS.nl), Rodney Rehm, Addy Osmani (patches for FF)
+ * Web: http://swisnl.github.io/jQuery-contextMenu/
+ *
+ * Copyright (c) 2011-2016 SWIS BV and contributors
+ *
+ * Licensed under
+ *   MIT License http://www.opensource.org/licenses/mit-license
+ *
+ * Date: 2016-06-17T13:49:48.330Z
+ */
+@font-face {
+  font-family: "context-menu-icons";
+  font-style: normal; 
+  font-weight: normal;
+
+  src: url("font/context-menu-icons.eot?1ugwy");
+  src: url("font/context-menu-icons.eot?1ugwy#iefix") format("embedded-opentype"), url("font/context-menu-icons.woff2?1ugwy") format("woff2"), url("font/context-menu-icons.woff?1ugwy") format("woff"), url("font/context-menu-icons.ttf?1ugwy") format("truetype");
+}
+
+.context-menu-icon-add:before {
+  content: "\EA01";
+}
+
+.context-menu-icon-copy:before {
+  content: "\EA02";
+}
+
+.context-menu-icon-cut:before {
+  content: "\EA03";
+}
+
+.context-menu-icon-delete:before {
+  content: "\EA04";
+}
+
+.context-menu-icon-edit:before {
+  content: "\EA05";
+}
+
+.context-menu-icon-paste:before {
+  content: "\EA06";
+}
+
+.context-menu-icon-quit:before {
+  content: "\EA07";
+}
+
+.context-menu-icon::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 2em; 
+  font-family: "context-menu-icons";
+  font-size: 1em;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  color: #2980b9;
+  text-align: center;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+       -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.context-menu-icon.context-menu-hover:before {
+  color: #fff;
+}
+
+.context-menu-icon.context-menu-disabled::before {
+  color: #bbb;
+}
+
+.context-menu-icon.context-menu-icon--fa {
+  display: list-item;
+}
+.context-menu-icon.context-menu-icon--fa::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 2em; 
+  font-family: FontAwesome;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  color: #2980b9;
+  text-align: center;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+       -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.context-menu-icon.context-menu-icon--fa.context-menu-hover:before {
+  color: #fff;
+}
+.context-menu-icon.context-menu-icon--fa.context-menu-disabled::before {
+  color: #bbb;
+}
+
+.context-menu-list {
+  position: absolute; 
+  display: inline-block;
+  min-width: 13em;
+  max-width: 26em;
+  padding: .25em 0;
+  margin: .3em;
+  font-family: inherit;
+  font-size: inherit;
+  list-style-type: none;
+  background: #fff;
+  border: 1px solid #bebebe;
+  border-radius: .2em;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+}
+
+.context-menu-item {
+  position: relative;
+  padding: .2em 2em;
+  color: #2f2f2f;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; 
+  background-color: #fff;
+}
+
+.context-menu-separator {
+  padding: 0; 
+  margin: .35em 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.context-menu-item > label > input,
+.context-menu-item > label > textarea {
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
+}
+
+.context-menu-item.context-menu-hover {
+  color: #fff;
+  cursor: pointer; 
+  background-color: #2980b9;
+}
+
+.context-menu-item.context-menu-disabled {
+  color: #bbb;
+  cursor: default; 
+  background-color: #fff;
+}
+
+.context-menu-input.context-menu-hover {
+  cursor: default;
+}
+
+.context-menu-submenu:after {
+  position: absolute;
+  top: 50%;
+  right: .5em;
+  z-index: 1; 
+  width: 0;
+  height: 0;
+  content: '';
+  border-color: transparent transparent transparent #2f2f2f;
+  border-style: solid;
+  border-width: .25em 0 .25em .25em;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+       -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+/**
+ * Inputs
+ */
+.context-menu-item.context-menu-input {
+  padding: .3em .6em;
+}
+
+/* vertically align inside labels */
+.context-menu-input > label > * {
+  vertical-align: top;
+}
+
+/* position checkboxes and radios as icons */
+.context-menu-input > label > input[type="checkbox"],
+.context-menu-input > label > input[type="radio"] {
+  position: relative;
+  top: .12em; 
+  margin-right: .4em;
+}
+
+.context-menu-input > label {
+  margin: 0;
+}
+
+.context-menu-input > label,
+.context-menu-input > label > input[type="text"],
+.context-menu-input > label > textarea,
+.context-menu-input > label > select {
+  display: block;
+  width: 100%; 
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.context-menu-input > label > textarea {
+  height: 7em;
+}
+
+.context-menu-item > .context-menu-list {
+  top: .3em; 
+  /* re-positioned by js */
+  right: -.3em;
+  display: none;
+}
+
+.context-menu-item.context-menu-visible > .context-menu-list {
+  display: block;
+}
+
+.context-menu-accesskey {
+  text-decoration: underline;
+}
+.dhtmlwindow{
+position: absolute;
+border: 2px solid black;
+visibility: hidden;
+background-color: white;
+}
+
+.drag-handle{ /*CSS for Drag Handle*/
+padding: 1px;
+text-indent: 3px;
+font: bold 14px Arial;
+background-color: #CA0000;
+color: white;
+cursor: move;
+overflow: hidden;
+width: auto;
+filter:progid:DXImageTransform.Microsoft.alpha(opacity=100);
+-moz-opacity: 1;
+opacity: 1;
+}
+
+.drag-handle .drag-controls{ /*CSS for controls (min, close etc) within Drag Handle*/
+position: absolute;
+right: 1px;
+top: 2px;
+cursor: hand;
+cursor: pointer;
+}
+
+* html .drag-handle{ /*IE6 and below CSS hack. Width must be set to 100% in order for opaque title bar to render*/
+width: 100%;
+}
+
+
+.drag-contentarea{ /*CSS for Content Display Area div*/
+border-top: 1px solid brown;
+background-color: white;
+color: black;
+height: 150px;
+padding: 2px;
+overflow: auto;
+}
+
+.drag-statusarea{ /*CSS for Status Bar div (includes resizearea)*/
+border-top: 1px solid gray;
+background-color: #F8F8F8;
+height: 13px; /*height of resize image*/
+}
+
+
+.drag-resizearea{ /*CSS for Resize Area itself*/
+float: right;
+width: 13px; /*width of resize image*/
+height: 13px; /*height of resize image*/
+cursor: nw-resize;
+font-size: 0;
+}
+
+.osxA {
+  text-decoration: none;
+}
+
+.osxSpan {
+  line-height: 8px;
+  vertical-align: 0%;
+}
+
+.osxButtons {
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  line-height: 0px;
+}
+
+.osxButtons:hover a {
+  visibility: visible;
+}
+
+.osxClose {
+  background: #ff5c5c;
+  font-family: HelveticaNeue, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+  font-size: 8pt;
+  width: 11px;
+  height: 11px;
+  border: 1px solid #e33e41;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.osxClose:active {
+  background: #c14645;
+  border: 1px solid #b03537;
+}
+
+.osxClose:active .osxClosebutton {
+  color: #4e0002;
+}
+
+.osxClosebutton {
+  color: #820005;
+  visibility: hidden;
+  cursor: default;
+}
+
+.osxMinimize {
+  background: #ffbd4c;
+  font-family: HelveticaNeue, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+  font-size: 8pt;
+  margin-left: 8px;
+  width: 11px;
+  height: 11px;
+  border: 1px solid #e09e3e;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.osxMinimize:active {
+  background: #c08e38;
+  border: 1px solid #af7c33;
+}
+
+.osxMinimize:active .osxMinimizebutton {
+  color: #5a2607;
+}
+
+.osxMinimizebutton {
+  color: #9a5518;
+  visibility: hidden;
+  cursor: default;
+}
+/* ######### CSS for Shade Tabs. Remove if not using ######### */
+
+.shadetabs{
+padding: 3px 0;
+margin-left: 0;
+margin-top: 1px;
+margin-bottom: 0;
+font: bold 12px Verdana;
+list-style-type: none;
+text-align: left; /*set to left, center, or right to align the menu as desired*/
+}
+
+.shadetabs li{
+display: inline;
+margin: 0;
+}
+
+.shadetabs li a{
+text-decoration: none;
+position: relative;
+z-index: 1;
+padding: 3px 7px;
+margin-right: 3px;
+border: 1px solid #778;
+color: #2d2b2b;
+background: white url(shade.gif) top left repeat-x;
+}
+
+.shadetabs li a:visited{
+color: #2d2b2b;
+}
+
+.shadetabs li a:hover{
+text-decoration: underline;
+color: #2d2b2b;
+}
+
+.shadetabs li a.selected{ /*selected main tab style */
+position: relative;
+top: 1px;
+}
+
+.shadetabs li a.selected{ /*selected main tab style */
+background-image: url(shadeactive.gif);
+border-bottom-color: white;
+}
+
+.shadetabs li a.selected:hover{ /*selected main tab style */
+text-decoration: none;
+}
+
+.tabcontent{
+display:none;
+}
+
+@media print {
+.tabcontent {
+display:block !important;
+}
+}
+
+/* ######### CSS for Inverted Modern Bricks II Tabs. Remove if not using ######### */
+
+.modernbricksmenu2{
+padding: 0;
+width: 362px;
+border-top: 5px solid #D25A0B; /*Brown color theme*/ 
+background: transparent;
+voice-family: "\"}\"";
+voice-family: inherit;
+}
+
+.modernbricksmenu2 ul{
+margin:0;
+margin-left: 10px; /*margin between first menu item and left browser edge*/
+padding: 0;
+list-style: none;
+}
+
+.modernbricksmenu2 li{
+display: inline;
+margin: 0 2px 0 0;
+padding: 0;
+text-transform:uppercase;
+}
+
+.modernbricksmenu2 a{
+float: left;
+display: block;
+font: bold 11px Arial;
+color: white;
+text-decoration: none;
+margin: 0 1px 0 0; /*Margin between each menu item*/
+padding: 5px 10px;
+background-color: black; /*Brown color theme*/ 
+border-top: 1px solid white;
+}
+
+.modernbricksmenu2 a:hover{
+background-color: #D25A0B; /*Brown color theme*/ 
+color: white;
+}
+
+.modernbricksmenu2 a.selected{ /*currently selected tab*/
+background-color: #D25A0B; /*Brown color theme*/ 
+color: white;
+border-color: #D25A0B; /*Brown color theme*/ 
+}
+
+.tabcontent{
+display:none;
+}
+
+@media print {
+.tabcontent {
+display:block !important;
+}
+}
+
+/* ######### CSS for Indented CSS Tabs. Remove if not using ######### */
+
+
+.indentmenu{
+font: bold 13px Arial;
+width: 100%; /*leave this value as is in most cases*/
+}
+
+.indentmenu ul{
+margin: 0;
+padding: 0;
+float: left;
+/* width: 80%; width of menu*/
+border-top: 1px solid navy; /*navy border*/
+background: black url(indentbg.gif) center center repeat-x;
+}
+
+.indentmenu ul li{
+display: inline;
+}
+
+.indentmenu ul li a{
+float: left;
+color: white; /*text color*/
+padding: 5px 11px;
+text-decoration: none;
+border-right: 1px solid navy; /*navy divider between menu items*/
+}
+
+.indentmenu ul li a:visited{
+color: white;
+}
+
+.indentmenu ul li a.selected{
+color: white !important;
+padding-top: 6px; /*shift text down 1px*/
+padding-bottom: 4px;
+background: black url(indentbg2.gif) center center repeat-x;
+}
+
+
+.tabcontentstyle{ /*style of tab content oontainer*/
+border: 1px solid gray;
+width: 450px;
+margin-bottom: 1em;
+padding: 10px;
+}
+
+.tabcontent{
+display:none;
+}
+
+@media print {
+.tabcontent {
+display:block !important;
+}
+}div.JS9BlendContainer {
+    padding: 2px;
+}
+
+div.JS9BlendImage {
+    margin: 5px;
+    background: #E9E9E9;
+    overflow: auto;
+}
+
+div.JS9BlendImageInactive {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+div.JS9BlendImageActive {
+    padding: 9px;
+    border: 2px solid #00F000;
+}
+
+div.JS9BlendHeader {
+    border: 0px solid black;
+    background: #E9E9E9;
+    padding: 0px;
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+}
+
+#blendModeSelect {
+    width: 110px;
+}
+
+#blendModeSelect option {
+    width: 110px;
+}
+
+#blendOpacitySelect {
+    width: 80px;
+}
+
+#blendOpacitySelect option {
+    width: 80px;
+}
+
+#blendFile {
+    float: right;
+}
+
+#blendNoFile {
+    margin-left: 15px;
+}
+
+div.JS9BlinkContainer {
+    padding: 2px;
+}
+
+div.JS9BlinkImage {
+    margin: 5px;
+    background: #E9E9E9;
+    overflow: auto;
+}
+
+div.JS9BlinkImageInactive {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+div.JS9BlinkImageActive {
+    padding: 9px;
+    border: 2px solid #00F000;
+}
+
+div.JS9BlinkHeader {
+    border: 0px solid black;
+    background: #E9E9E9;
+    padding: 0px;
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+}
+
+#blinkModeSelect {
+    width: 110px;
+}
+
+#blinkModeSelect option {
+    width: 110px;
+}
+
+#blinkOpacitySelect {
+    width: 80px;
+}
+
+#blinkOpacitySelect option {
+    width: 80px;
+}
+
+#blinkFile {
+    float: right;
+}
+
+#blinkNoFile {
+    margin-left: 15px;
+}
+
+canvas.JS9ColorbarCanvas {
+    border: 1px solid black;
+}
+
+canvas.JS9ColorbarTextCanvas {
+    background-color: white;
+}
+
+
+.JS9CubeContainer {
+    padding: 5px;
+}
+
+.JS9CubeLinegroup {
+    float: left;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 95%;
+    padding: 5px;
+    margin: 5px;
+}
+
+.JS9CubeRangeLine {
+  font-size: 9pt;
+}
+
+.JS9CubeRange {
+  vertical-align: middle;
+}
+
+.JS9CubeValue {
+  vertical-align: top;
+  text-align: center;
+}
+
+.JS9CubeOrder {
+  vertical-align: top;
+}
+
+div.JS9DivsContainer {
+    padding: 2px;
+}
+
+div.JS9DivsHeader {
+    border: 0px solid black;
+    background: #E9E9E9;
+    padding: 10px;
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+}
+
+div.JS9DivsDiv {
+    margin: 5px;
+    background: #E9E9E9;
+    overflow: auto;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+span.JS9DivsSpan {
+    float: right;
+    margin-right: 10px;
+}
+
+span.JS9NoDivs {
+    margin-left: 15px;
+}
+
+div.JS9ImarithLinegroup {
+    float: left;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 95%;
+    padding: 5px;
+    margin: 5px;
+}
+
+div.JS9ImarithContainer {
+    padding: 5px;
+}
+div.JS9KeyboardContainer {
+    padding: 0px;
+    margin:  0px;
+}
+
+div.JS9KeyboardActionContainer {
+    padding: 0px;
+    margin:  0px;
+}
+
+div.JS9KeyboardItem {
+    padding: 0px;
+    margin:  0px;
+}
+
+div.JS9KeyboardText {
+    margin: 0px;
+    padding: 1px 1px 1px 30px;
+    background: #E9E9E9;
+    overflow: auto;
+    border: 1px solid transparent;
+    display: inline-block;
+    width: 120px;
+}
+
+div.JS9KeyboardAction {
+    margin: 0px;
+    padding: 1px;
+    background: #E9E9E9;
+    overflow: auto;
+    border: 1px solid transparent;
+    display: inline-block;
+}
+
+div.JS9KeyboardHeader, div.JS9KeyboardFooter {
+    background: #E9E9E9;
+    text-align: left;
+    padding: 0px;
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+}
+div.JS9LayersContainer {
+    padding: 2px;
+}
+
+div.JS9LayersHeader {
+    border: 0px solid black;
+    background: #E9E9E9;
+    padding: 0px;
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+}
+
+div.JS9LayersLayer {
+    margin: 5px;
+    background: #E9E9E9;
+    overflow: auto;
+}
+
+div.JS9LayersLayerInactive {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+div.JS9LayersLayerActive {
+    padding: 9px;
+    border: 2px solid #00F000;
+}
+
+span.JS9LayersSpan {
+    float: right;
+    margin-right: 10px;
+}
+
+span.JS9NoLayers {
+    margin-left: 15px;
+}
+
+.JS9MefContainer {
+    padding: 10px;
+    overflow: auto;
+}
+
+.JS9MefExtension {
+    margin: 5px;
+    background: #E9E9E9;
+    overflow: auto;
+    font-size: 10pt;
+}
+
+.JS9MefHeader {
+    margin: 5px;
+    background: #E9E9E9;
+}
+
+.JS9MefInput {
+    margin: 5px;
+    background: #E9E9E9;
+}
+
+.JS9MefExtensionInactive {
+    padding: 0px;
+    border: 1px solid black;
+}
+
+.JS9MefExtensionActive {
+    padding: 0px;
+    border: 2px solid #00F000;
+}
+
+span.JS9MefStrike{
+    font-weight:bold; /*set line weight here*/
+    color:red;
+    text-decoration:line-through;
+}
+
+span.JS9MefStrike>span {
+    font-weight:normal;
+    color: black;
+}div.JS9MouseTouchContainer {
+    padding: 2px;
+}
+
+div.JS9MouseTouchText {
+    margin: 5px;
+    padding: 6px 6px 6px 10px;
+    background: #E9E9E9;
+    overflow: auto;
+    border: 1px solid transparent;
+}
+
+div.JS9MouseTouchAction {
+    margin: 5px;
+    padding: 6px;
+    background: #E9E9E9;
+    overflow: auto;
+    border: 1px solid black;
+}
+
+div.JS9MouseTouchHeader, div.JS9MouseTouchFooter {
+    background: #E9E9E9;
+    text-align: center;
+    padding: 0px;
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+}
+/*
+ *
+ * JS9 CSS specifications
+ *
+ */
+
+/* high-level divs used by Web designers */
+div.JS9 {
+    /* relative pos top/left for container, Flanagan's JavaScript, p 357 */
+    position: relative;
+    top:  0px;
+    left: 0px;
+    display: block;
+    padding: 0px;
+}
+
+/* plugin divs */
+div.JS9Panner, div.JS9Magnifier, div.JS9Menubar, div.JS9Console, div.JS9Info {
+    /* relative pos top/left for container, Flanagan's JavaScript, p 357 */
+    position: relative;
+    top:  0px;
+    left: 0px;
+    display: block;
+    padding: 0px;
+}
+
+/* containers used internally to place content inside high-level divs */
+div.JS9Container {
+    /* absolute pos top/left for positioning, Flanagan's JavaScript, p 357 */
+    position: absolute;
+    top:  0px;
+    left: 0px;
+    outline: none;
+    background-color: transparent;
+}
+
+/* containers used internally to wrap around div plugin content */
+div.JS9PluginContainer {
+    /* background: #E9E9E9; */
+    background: transparent;
+    position: relative;
+    display: inline-block;
+    outline: none;
+}
+
+/* this is the plugin div itself */
+div.JS9Plugin {
+    background: #E9E9E9;
+}
+
+/* tell plugin div to scroll on overflow */
+div.JS9PluginScrolling {
+    overflow: auto;
+}
+
+/* commands and buttons on top of plugins */
+div.JS9PluginToolbar-div {
+    /* absolute positioning places the toolbar on the dhtml title bar */
+    position:absolute;
+    display:inline-block;
+    top: 0px;
+    overflow: auto;
+    cursor: default;
+    text-align: center;
+    left: 10px;
+}
+
+div.JS9PluginToolbar-light {
+    /* absolute positioning places the toolbar on the dhtml title bar */
+    position:absolute;
+    display:inline-block;
+    top: 0px;
+    right: 48px;
+    overflow: auto;
+    text-align: center;
+}
+
+div.JS9MenubarContainer, div.JS9MenubarContainer-classic {
+    /* absolute pos top/left for positioning, Flanagan's JavaScript, p 357 */
+    /* why is this relative?? absolute positions the menu under the canvas!! */
+    position: relative;
+    /* sigh ... why does this make the menubar too short?? */
+    display: block;
+    top: 0px;
+    left: 0px;
+    /* height: 25px; */
+    text-align: left;
+    padding: 2px 6px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ebebeb, color-stop(1.0, #d5d5d5)));
+    background: -webkit-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: -moz-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: -ms-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: -o-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: linear-gradient(top, #ebebeb, #d5d5d5);
+    color: #4d494d;
+}
+
+div.JS9MenubarContainer-flat, div.JS9MenubarContainer-border {
+    /* absolute pos top/left for positioning, Flanagan's JavaScript, p 357 */
+    /* why is this relative?? absolute positions the menu under the canvas!! */
+    position: relative;
+    /* sigh ... why does this make the menubar too short?? */
+    display: block;
+    top: 0px;
+    left: 0px;
+    /* height: 25px; */
+    text-align: left;
+    padding: 2px 10px;
+    background-color: lightblue;
+}
+
+div.JS9ConsoleContainer {
+    /* absolute pos top/left for positioning, Flanagan's JavaScript, p 357 */
+    /* why is this relative?? absolute positions make it tiny!! */
+    position: relative;
+    display: block;
+    top: 0px;
+    left: 0px;
+    background: #E9E9E9;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+/* canvas elements */
+canvas.JS9Image, canvas.JS9Panner, canvas.JS9Magnifier, canvas.JS9Info {
+    /* absolute positioning of canvas is required to overlay/align with 
+       graphics canvas (which is positioned relative) */
+    position:absolute;
+    top:  0px;
+    left: 0px;
+    background: #E9E9E9;
+}
+
+/* canvas element for transparent layers */
+canvas.JS9Layer {
+    /* absolute positioning of canvas is required to overlay/align with 
+       graphics canvas (which is positioned relative) */
+    position:absolute;
+    top:  0px;
+    left: 0px;
+    background-color: transparent;
+}
+
+/* message display */
+div.JS9Message {
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-family: Helvetica, sans-serif;
+    font-size: 10pt;
+    font-weight: 300;
+}
+
+.JS9Button, .JS9Button-classic {
+    font: normal 12px Arial;
+    background: #F6F6F6;
+    border:  black 2px;
+    border-radius: 4px;
+    padding: 3px 6px 3px 6px;
+    margin: 6px 4px 6px 4px;
+    outline: none;
+}
+
+.JS9Button:hover, .JS9Button-classic:hover {
+    background-color: #C0C0C0;
+}
+
+/* prevent firefox from adding extra button padding */
+.JS9Button::-moz-focus-inner, .JS9Button-classic::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+.JS9Button-flat {
+  color: #fff;
+  background-color: #6496c8;
+  text-shadow: -1px 1px #417cb8;
+  border: none;
+  padding-top: 4px;
+  padding-right: 6px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  margin:  4px;
+  outline: none;
+}
+
+.JS9Button-flat:hover, .JS9Button-flat.hover {
+  background-color: #346392;
+  text-shadow: -1px 1px #27496d;
+}
+
+.JS9Button-flat:active, .JS9Button-flat.active {
+  background-color: #27496d;
+  text-shadow: -1px 1px #193047;
+}
+
+.JS9Button-flat::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+.JS9Button-border {
+  color: #6496c8;
+  background: #fff;
+  border: solid 3px #6496c8;
+  margin:  4px;
+  outline: none;
+}
+
+.JS9Button-border:hover, .JS9Button-border.hover {
+  border-color: #346392;
+  color: #346392;
+}
+
+.JS9Button-border:active, .JS9Button-border.active {
+  border-color: #27496d;
+  color: #27496d;
+}/* the commands inside a console */
+
+.JS9CmdForm {
+    border: 0px;
+    padding: 1px;
+    font-size: 12px;
+    font-family: monospace;
+    width:100%;
+}
+
+.JS9CmdTable {
+    vertical-align:top;
+    width:100%;
+}
+
+.JS9CmdTd  {
+    width:100%;
+}
+
+.JS9CmdIn, .JS9CmdOut {
+    border: 0px;
+    padding-top: 0px;
+    padding-left: 4px;
+    margin-left: 2px;
+    font-size: 12px;
+    font-family: monospace;
+    width:97%;
+    background: #E9E9E9;
+}
+
+/* get rid of blue border for input in Safari, Chrome */
+input:focus.JS9CmdIn {
+    outline: none;
+}
+
+.JS9CmdError {
+    border: 0px;
+    padding-top: 2px;
+    padding-left: 4px;
+    margin-left: 2px;
+    font-size: 12px;
+    font-family: monospace;
+    width:100%;
+    color: red;
+}
+
+.JS9CmdWarning {
+    border: 0px;
+    padding-top: 2px;
+    padding-left: 4px;
+    margin-left: 2px;
+    font-size: 12px;
+    font-family: monospace;
+    width:100%;
+    color: yellow;
+}
+
+.JS9CmdInfo {
+    border: 0px;
+    padding-top: 2px;
+    padding-left: 4px;
+    margin-left: 4px;
+    font-size: 12px;
+    font-family: monospace;
+    width:100%;
+    color: #3333FF;
+}
+
+.JS9CmdPrompt { 
+    color: #777;
+    font-size: 12px;
+    font-family: monospace;
+    white-space:nowrap;
+}
+
+.JS9AnalysisText {
+    padding-left: 10px;
+}
+
+.JS9Plot {
+    width:  800px;
+    height: 400px;
+    margin: 10px;
+}
+
+.JS9Tooltip{
+    position: relative;
+    z-index: 999;
+    background: #E9E9E9;
+    padding: 10px;
+    border: 0px;
+    font-family: Helvetica, sans-serif;
+    font-size: 10pt;
+    display: none;
+}
+
+/* context menu overrides */
+.context-menu-list  {
+    border: 1px solid black;
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
+    background-color: #E9E9E9;
+}
+
+/* jqueryContextMenu v2.2 */
+.context-menu-icon-sun:before {
+   content: url(images/sun.png);
+}
+
+.context-menu-item {
+    background-color: #E9E9E9;
+}
+
+.context-menu-item.context-menu-disabled {
+    color: #AAA;
+    cursor: default; 
+    background-color: #E9E9E9;
+}
+
+.context-menu-separator {
+    border-bottom: 1px solid #AAA;
+}
+
+.context-menu-input > label {
+   margin-left: 18px;
+}
+
+.context-menu-input > label > input[type="text"] {
+   width: 80%;
+   padding: 2px;
+}
+
+/* jqueryContextMenu pre-v2.2 */
+.pre-v2.2-context-menu-item.icon-sun {
+   background-image: url(images/sun.png);
+}
+
+/* jqueryContextMenu pre-v2.2 */
+.pre-v2.2-context-menu-input > label > span {
+    margin-left: 0px;
+}
+
+/* jqueryContextMenu pre-v2.2 */
+.pre-v2.2-context-menu-submenu:after {
+    content: "\2192";
+    color: black;
+    position: absolute;
+    right: 5px;
+}
+
+/* dhtml window overrides */
+.dhtmlwindow {
+    border: 1px solid grey;
+    padding: 0px;
+}
+
+.drag-controls {
+    padding: 2px;
+}
+
+.drag-handle {
+    /* height: 25px; */
+    height: 30px;
+    text-align: left;
+    color: black;
+    font-size: 14px;
+    font-weight: normal;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ebebeb, color-stop(1.0, #d5d5d5)));
+    background: -webkit-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: -moz-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: -ms-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: -o-linear-gradient(top, #ebebeb, #d5d5d5);
+    background: linear-gradient(top, #ebebeb, #d5d5d5);
+    color: #4d494d;
+}
+
+.drag-contentarea {
+    background: #E9E9E9;
+    border-width: 0px;
+    padding: 0px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12pt;
+}
+
+.indentmenu{
+    font: normal 11px Arial;
+    margin-left: 4px;
+}
+
+.indentmenu ul{
+    border-top: 0px;
+    background: #A9A9A9;
+}
+
+.indentmenu ul li a{
+    border-top: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 6px solid #E9E9E9;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.indentmenu ul li a:hover,
+.indentmenu ul li a.hover {
+    background-color: #808080;
+}
+
+.indentmenu ul li a.selected{
+    padding-top: 5px; /* don't shift text down 1px */
+    padding-bottom: 5px;
+    background: #696969;
+}
+
+/* 3d surface plot bug */
+canvas.surfacePlotCanvas {
+    position: absolute;
+}
+
+/* js9 info */
+.js9InfoTable {
+    border: 0px;
+    margin: 0px;
+    padding: 8px;
+    font-size: 12px;
+    font-family: monospace;
+    border-spacing: 4px;
+}
+
+.js9InfoTable input,  .js9InfoTable textarea{
+    font-size: 12px;
+    font-family: monospace;
+    overflow-x: hidden;
+}
+
+/* js9Analysis forms */
+.js9AnalysisForm {
+    border: solid grey 1px;
+    margin: 8px;
+    padding: 8px;
+    background: #E9E9E9;
+}
+
+.JS9Archive-form {
+    background: #E9E9E9;
+    padding: 8px;
+}
+
+.linegroup {
+    float: left;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 24px;
+    padding: 0;
+    margin: 0 0 1.25em 0;
+}
+
+.column_A {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+}
+
+.column_B {
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: 100px;
+}
+
+.text_B {
+    width: 100px;
+}
+
+.column_C {
+    position: absolute;
+    top: 0;
+    left: 450px;
+    width: 340px;
+}
+
+.column_R1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 140px;
+}
+
+.column_R2 {
+    position: absolute;
+    top: 0;
+    left: 150px;
+    width: 100px;
+}
+
+.column_R2l {
+    position: absolute;
+    top: 0;
+    left: 150px;
+    width: 250px;
+}
+
+.column_R2L {
+    position: absolute;
+    top: 0;
+    left: 150px;
+    width: 400px;
+}
+
+.column_R3 {
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: 100px;
+}
+
+.column_R3l {
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: 150px;
+}
+
+.column_R3L {
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: 300px;
+}
+
+.column_R4 {
+    position: absolute;
+    top: 0;
+    left: 450px;
+    width: 100px;
+}
+
+.column_R4l {
+    position: absolute;
+    top: 0;
+    left: 450px;
+    width: 250px;
+}
+
+.column_R5 {
+    position: absolute;
+    top: 0;
+    left: 600px;
+    width: 200px;
+}
+
+.text_R {
+    width: 100%;
+    font: normal 12px Arial
+}
+
+.nodisplay {
+  display: none;
+}
+
+.control {
+    border: transparent 1px;
+    padding: 2px;
+} 
+
+.js9HelpText {
+    border: solid grey 1px;
+    margin: 8px;
+    padding: 8px;
+    background: #E9E9E9;
+}
+
+.hline0 {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid black;
+    margin: 0;
+    padding: 0;
+}
+
+/* to make wait cursor override other element cursors (e.g. fabric.js canvas) */
+body.waiting, body.waiting * { 
+    cursor: wait !important;
+}
+.context-menu-icon-sun:before{content: url("data:image/png;base64,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");}
+
+    </style>
 
 
 <style type="text/css">
@@ -11775,14 +13279,14 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-to-use-the-Data-Lab-Store-Client-Service">How to use the Data Lab <em>Store Client</em> Service<a class="anchor-link" href="#How-to-use-the-Data-Lab-Store-Client-Service">&#182;</a></h2><p><em>Revised:  Jan 03, 2019</em></p>
+<h2 id="How-to-use-the-Data-Lab-Store-Client-Service">How to use the Data Lab <em>Store Client</em> Service<a class="anchor-link" href="#How-to-use-the-Data-Lab-Store-Client-Service">&#182;</a></h2><p><em>Revised:  Jul 24, 2019</em></p>
 <p>This notebook documents how to use the Data Lab virtual storage system via the store client service. This can be done either from a Python script (e.g. within this notebook) or from the command line using the <i>datalab</i> command.</p>
 <h3 id="The-storage-manager-service-interface">The storage manager service interface<a class="anchor-link" href="#The-storage-manager-service-interface">&#182;</a></h3><p>The store client service simplifies access to the Data Lab virtual storage system. This section describes the store client service interface in case we want to write our own code against that rather than using one of the provided tools. The store client service accepts an HTTP GET call to the appropriate endpoint for the particular operation:</p>
 <table>
 <thead><tr>
 <th>Endpoint</th>
 <th>Description</th>
-<th>Parameters</th>
+<th>Req'd Parameters</th>
 </tr>
 </thead>
 <tbody>
@@ -11797,6 +13301,11 @@ div#notebook {
 <td>name</td>
 </tr>
 <tr>
+<td>/load</td>
+<td>Load a file to vospace</td>
+<td>name, endpoint</td>
+</tr>
+<tr>
 <td>/cp</td>
 <td>Copy a file/directory</td>
 <td>from, to</td>
@@ -11805,6 +13314,11 @@ div#notebook {
 <td>/ln</td>
 <td>Link a file/directory</td>
 <td>from, to</td>
+</tr>
+<tr>
+<td>/lock</td>
+<td>Lock a node from write updates</td>
+<td>name</td>
 </tr>
 <tr>
 <td>/ls</td>
@@ -11819,7 +13333,7 @@ div#notebook {
 <tr>
 <td>/stat</td>
 <td>File status info</td>
-<td>path</td>
+<td>name,verbose</td>
 </tr>
 <tr>
 <td>/mkdir</td>
@@ -11867,7 +13381,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Standard notebook imports</span>
@@ -11882,7 +13396,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get the authentication token for the user</span>
@@ -11905,7 +13419,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Enter user name: (+ENTER) geychaner
+<pre>Enter user name: (+ENTER) fitz
 Enter password: (+ENTER) ········
 </pre>
 </div>
@@ -12159,6 +13673,49 @@ grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,tm
 
 </pre>
 </div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Loading-a-file-from-a-remote-URL">Loading a file from a remote URL<a class="anchor-link" href="#Loading-a-file-from-a-remote-URL">&#182;</a></h4><p>It is possible to load a file directly to virtual storage from a remote URL )e.g. an "accessURL" for an image cutout, a remote data file, etc) using the "storeClient.load()" method:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://datalab.noao.edu/svc/cutout?col=&amp;siaRef=c4d_161005_022804_ooi_g_v1.fits.fz&amp;extn=31&amp;POS=335.0,0.0&amp;SIZE=0.1&quot;</span>
+<span class="n">storeClient</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;vos://cutout.fits&#39;</span><span class="p">,</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;OK&#39;</pre>
+</div>
+
 </div>
 
 </div>
