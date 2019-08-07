@@ -14,7 +14,7 @@
 # AUTHOR ASSUMES NO LIABILITY IN CONNECTION WITH THIS COMPUTER CODE.
 #
 
-import numpy as N
+import numpy as np
 
 def xy_rotate(x, y, xcen, ycen, phi):
     """
@@ -38,9 +38,9 @@ def xy_rotate(x, y, xcen, ycen, phi):
 
     WRITTEN: Adam S. Bolton, U. of Utah, 2009
     """
-    phirad = N.deg2rad(phi)
-    xnew = (x - xcen) * N.cos(phirad) + (y - ycen) * N.sin(phirad)
-    ynew = (y - ycen) * N.cos(phirad) - (x - xcen) * N.sin(phirad)
+    phirad = np.deg2rad(phi)
+    xnew = (x - xcen) * np.cos(phirad) + (y - ycen) * np.sin(phirad)
+    ynew = (y - ycen) * np.cos(phirad) - (x - xcen) * np.sin(phirad)
     return (xnew,ynew)
 
 def gauss_2d(x, y, par):
@@ -69,8 +69,8 @@ def gauss_2d(x, y, par):
     WRITTEN: Adam S. Bolton, U. of Utah, 2009
     """
     (xnew,ynew) = xy_rotate(x, y, par[2], par[3], par[5])
-    r_ell_sq = ((xnew**2)*par[4] + (ynew**2)/par[4]) / N.abs(par[1])**2
-    return par[0] * N.exp(-0.5*r_ell_sq)
+    r_ell_sq = ((xnew**2)*par[4] + (ynew**2)/par[4]) / np.abs(par[1])**2
+    return par[0] * np.exp(-0.5*r_ell_sq)
 
 def sie_grad(x, y, par):
     """
@@ -104,10 +104,10 @@ def sie_grad(x, y, par):
     WRITTEN: Adam S. Bolton, U of Utah, 2009
     """
     # Set parameters:
-    b = N.abs(par[0]) # can't be negative!!!
+    b = np.abs(par[0]) # can't be negative!!!
     xzero = 0. if (len(par) < 2) else par[1]
     yzero = 0. if (len(par) < 3) else par[2]
-    q = 1. if (len(par) < 4) else N.abs(par[3])
+    q = 1. if (len(par) < 4) else np.abs(par[3])
     phiq = 0. if (len(par) < 5) else par[4]
     eps = 0.001 # for sqrt(1/q - q) < eps, a limit expression is used.
     # Handle q > 1 gracefully:
@@ -115,21 +115,21 @@ def sie_grad(x, y, par):
         q = 1.0 / q
         phiq = phiq + 90.0
     # Go into shifted coordinats of the potential:
-    phirad = N.deg2rad(phiq)
-    xsie = (x-xzero) * N.cos(phirad) + (y-yzero) * N.sin(phirad)
-    ysie = (y-yzero) * N.cos(phirad) - (x-xzero) * N.sin(phirad)
+    phirad = np.deg2rad(phiq)
+    xsie = (x-xzero) * np.cos(phirad) + (y-yzero) * np.sin(phirad)
+    ysie = (y-yzero) * np.cos(phirad) - (x-xzero) * np.sin(phirad)
     # Compute potential gradient in the transformed system:
-    r_ell = N.sqrt(q * xsie**2 + ysie**2 / q)
-    qfact = N.sqrt(1./q - q)
+    r_ell = np.sqrt(q * xsie**2 + ysie**2 / q)
+    qfact = np.sqrt(1./q - q)
     # (r_ell == 0) terms prevent divide-by-zero problems
     if (qfact >= eps):
-        xtg = (b/qfact) * N.arctan(qfact * xsie / (r_ell + (r_ell == 0)))
-        ytg = (b/qfact) * N.arctanh(qfact * ysie / (r_ell + (r_ell == 0)))
+        xtg = (b/qfact) * np.arctan(qfact * xsie / (r_ell + (r_ell == 0)))
+        ytg = (b/qfact) * np.arctanh(qfact * ysie / (r_ell + (r_ell == 0)))
     else:
         xtg = b * xsie / (r_ell + (r_ell == 0))
         ytg = b * ysie / (r_ell + (r_ell == 0))
     # Transform back to un-rotated system:
-    xg = xtg * N.cos(phirad) - ytg * N.sin(phirad)
-    yg = ytg * N.cos(phirad) + xtg * N.sin(phirad)
+    xg = xtg * np.cos(phirad) - ytg * np.sin(phirad)
+    yg = ytg * np.cos(phirad) + xtg * np.sin(phirad)
     # Return value:
     return (xg, yg)
