@@ -23,7 +23,7 @@
                     github: https://github.com/noaodatalab
 
 
-                        Version of this file: 20190208
+                        Version of this file: 20190809
                         
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -125,6 +125,14 @@ The How-To notebooks are located here:
 
 The "05_Contrib/" directory holds user-contributed notebooks to Data
 Lab. Please see ./CONTRIBUTING file for detailed instructions.
+
+06 - EPO
+
+The "06_EPO/" directory provides "Education and Public Outreach"
+notebooks, aimed at school students and teachers interested in
+astronomical research and in teaching astronomy. The notebooks were
+originally developed for the "Teen Astronomy Café" activities
+organized jointly by the LSST and NOAO EPO departments.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
