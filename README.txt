@@ -1,29 +1,29 @@
-::::::::::::::::::'##::: ##::'#######:::::'###:::::'#######:::::::::::::::::::
-:::::::::::::::::: ###:: ##:'##.... ##:::'## ##:::'##.... ##::::::::::::::::::
-:::::::::::::::::: ####: ##: ##:::: ##::'##:. ##:: ##:::: ##::::::::::::::::::
-:::::::::::::::::: ## ## ##: ##:::: ##:'##:::. ##: ##:::: ##::::::::::::::::::
-:::::::::::::::::: ##. ####: ##:::: ##: #########: ##:::: ##::::::::::::::::::
-:::::::::::::::::: ##:. ###: ##:::: ##: ##.... ##: ##:::: ##::::::::::::::::::
-:::::::::::::::::: ##::. ##:. #######:: ##:::: ##:. #######:: ::::::::::::::::
-..::::..:::.......:::..:::::..:::.......::::::::::::::::::::::::::::::::::::::
-'########:::::'###::::'########::::'###:::::::'##::::::::::'###::::'########::
- ##.... ##:::'## ##:::... ##..::::'## ##:::::: ##:::::::::'## ##::: ##.... ##:
- ##:::: ##::'##:. ##::::: ##:::::'##:. ##::::: ##::::::::'##:. ##:: ##:::: ##:
- ##:::: ##:'##:::. ##:::: ##::::'##:::. ##:::: ##:::::::'##:::. ##: ########::
- ##:::: ##: #########:::: ##:::: #########:::: ##::::::: #########: ##.... ##:
- ##:::: ##: ##.... ##:::: ##:::: ##.... ##:::: ##::::::: ##.... ##: ##:::: ##:
- ########:: ##:::: ##:::: ##:::: ##:::: ##:::: ########: ##:::: ##: ########::
-........:::..:::::..:::::..:::::..:::::..:::::........::..:::::..::........:::
+::::::::::::::::'###:::::'######::'########:'########:::'#######::::::::::::::::
+:::::::::::::::'## ##:::'##... ##:... ##..:: ##.... ##:'##.... ##:::::::::::::::
+::::::::::::::'##:. ##:: ##:::..::::: ##:::: ##:::: ##: ##:::: ##:::::::::::::::
+:::::::::::::'##:::. ##:. ######::::: ##:::: ########:: ##:::: ##:::::::::::::::
+::::::::::::: #########::..... ##:::: ##:::: ##.. ##::: ##:::: ##:::::::::::::::
+::::::::::::: ##.... ##:'##::: ##:::: ##:::: ##::. ##:: ##:::: ##:::::::::::::::
+::::::::::::: ##:::: ##:. ######::::: ##:::: ##:::. ##:. #######::::::::::::::::
+:::::::::::::..:::::..:::......::::::..:::::..:::::..:::.......:::::::::::::::::
+:'########:::::'###::::'########::::'###:::::::'##::::::::::'###::::'########:::
+: ##.... ##:::'## ##:::... ##..::::'## ##:::::: ##:::::::::'## ##::: ##.... ##::
+: ##:::: ##::'##:. ##::::: ##:::::'##:. ##::::: ##::::::::'##:. ##:: ##:::: ##::
+: ##:::: ##:'##:::. ##:::: ##::::'##:::. ##:::: ##:::::::'##:::. ##: ########:::
+: ##:::: ##: #########:::: ##:::: #########:::: ##::::::: #########: ##.... ##::
+: ##:::: ##: ##.... ##:::: ##:::: ##.... ##:::: ##::::::: ##.... ##: ##:::: ##::
+: ########:: ##:::: ##:::: ##:::: ##:::: ##:::: ########: ##:::: ##: ########:::
+:........:::..:::::..:::::..:::::..:::::..:::::........::..:::::..::........::::
 
 
-           Welcome to the NOAO Data Lab Jupyter Notebook repository
+           Welcome to the Astro Data Lab Jupyter Notebook repository
 
 
                        web: https://datalab.noao.edu
                     github: https://github.com/noaodatalab
 
 
-                        Version of this file: 20190809
+                        Version of this file: 20191204
                         
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -36,9 +36,9 @@ This file contains information on:
 
 You can follow the order below if you are just getting started.
 
-Generally, all notebooks should work with Python 3 (preferred) and
-Python 2 (we no longer develop for Python 2). Furthermore, an html
-version of the notebooks is included in order to show them fully
+Generally, all notebooks should work with Python 3 and some may still 
+work with Python 2 (we no longer develop for Python 2). Furthermore, an 
+html version of the notebooks is included in order to show them fully
 rendered.
 
 DEFAULT DATALAB NOTEBOOKS
@@ -87,8 +87,9 @@ instances, the same science case is featured with two or more surveys.
   5 in the NSC DR1 catalog, as well as a jointly with Gaia DR2 to
   explore the proper motion of the cluster and its tails
 
-- SpectralEnergyDistributions: use narrow-band filters to construct
-  SEDs of objects from the S-PLUS DR1 dataset
+- SpectralEnergyDistributions: (1) use narrow-band filters to construct
+  SEDs of objects from the S-PLUS DR1 dataset, and (2) compare the mid-
+  infrared photometry from unWISE DR1 and AllWISE (3.4 & 4.6 micron)
 
 - StarGalQSOSeparation: use photometric properties (colors,
   morphology/shape parameters, etc.) to distinguish between stars,
