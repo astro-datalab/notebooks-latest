@@ -1,4 +1,4 @@
-__version__ = '20200616'
+__version__ = '20200623'
 __author__ = 'Robert Nikutta <nikutta@noao.edu>'
 
 # imports
@@ -328,18 +328,25 @@ if __name__ == '__main__':
     start = time.time()
     
     cprint('Running testnotebooks.py',color='yellow',bar=5,newline=True)
-           
+
     # List all paths with notebooks to test.
     # Paths can be single notebooks, directories, or a mix.
-    # Paths must be comma-separated.
-#    paths = ('../04_HowTos/FileService/','../01_GettingStartedWithDataLab/')
-    paths = '../01_GettingStartedWithDataLab/'
-    #paths = '../'
+    # If single ipynb or single directory, paths can be a string.
+    # If multiple elements, make it a sequence of strings.
+    #
+    # Examples:
+    #
+    #paths = '../01_GettingStartedWithDataLab/'  # test ony notebooks in 01_GetttingStartedWithDataLab/ directory
+    #paths = ('../01_GettingStartedWithDataLab/','../02_DataAccessOverview/')  # test notebooks in these two directories
+    #paths = ('../01_GettingStartedWithDataLab/02_GettingStartedWithDataLab.ipynb','../02_DataAccessOverview/')  # test one NB in 01... dir, and all NBs in 02... dir
+    paths = '../' # test all notebooks that are not excluded below
 
     # List pattern of notebook names, and/or paths, to exclude from testing.
     # ** means "any number of intermediate directries"
     # * means "any number if intermediate characters in this directory"
-    exclude = ('**/*Bokeh.ipynb','**/*AuthClient.ipynb','**/Rowstore*.ipynb')
+    # A few default notebooks are explicitly excluded here b/c they absolutely require interactive execution.
+    # A few others are temporarily excluded until they will be fixed.
+    exclude = ('**/*Bokeh.ipynb','**/*AuthClient.ipynb','**/Rowstore*.ipynb','**/AntaresFilterDevKit.ipynb')
 
     # log in to Data Lab once
     cprint('Login to Data Lab',color='yellow',bar=0,pad='')
