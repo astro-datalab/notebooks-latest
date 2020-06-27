@@ -1,4 +1,4 @@
-__version__ = '20200623'
+__version__ = '20200626'
 __author__ = 'Robert Nikutta <nikutta@noao.edu>'
 
 # imports
