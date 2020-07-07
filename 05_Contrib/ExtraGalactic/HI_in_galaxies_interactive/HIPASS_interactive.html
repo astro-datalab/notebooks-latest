@@ -13080,7 +13080,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Robert Dzudzar &lt;robertdzudzar@gmail.com&gt;, &lt;rdzudzar@swin.edu.au&gt;; Robert Nikutta &lt;nikutta@noao.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20200618&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20200707&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;extragalactic&#39;</span><span class="p">,</span> <span class="s1">&#39;interactive plot&#39;</span><span class="p">,</span> <span class="s1">&#39;spectra&#39;</span><span class="p">,</span> <span class="s1">&#39;galaxies&#39;</span><span class="p">,</span><span class="s1">&#39;image cutout&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -13251,10 +13251,10 @@ div#notebook {
 
 
 
-<div id="8de621d9-aa5d-4d24-a1c1-a3f4bb12c705"></div>
+<div id="cb0c7695-7ec2-44b1-a1a7-0d4fbdcdf2e6"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#8de621d9-aa5d-4d24-a1c1-a3f4bb12c705');
+var element = $('#cb0c7695-7ec2-44b1-a1a7-0d4fbdcdf2e6');
 
 (function(root) {
   function now() {
@@ -13922,7 +13922,9 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Set-saving-folders">Set saving folders<a class="anchor-link" href="#Set-saving-folders">&#182;</a></h3>
+<h3 id="Set-saving-folders">Set saving folders<a class="anchor-link" href="#Set-saving-folders">&#182;</a></h3><p>If they don't exist yet, create on VOSpace the directories needed to save the HI spectra and optical images.
+The name of the directories will contain the <em>selected</em> dataset.</p>
+
 </div>
 </div>
 </div>
@@ -13931,31 +13933,14 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;vospace/HIPASS_images_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">selected</span><span class="p">))</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;vospace/HIPASS_spectra_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">selected</span><span class="p">))</span>
-<span class="n">spectra_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;vospace/HIPASS_spectra_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span><span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span>
-<span class="n">images_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;vospace/HIPASS_images_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span><span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span>
-</pre></div>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">spectra_path</span> <span class="o">=</span> <span class="s1">&#39;vos://HIPASS_spectra_</span><span class="si">%s</span><span class="s1">/&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span>
+<span class="n">images_path</span> <span class="o">=</span> <span class="s1">&#39;vos://HIPASS_images_</span><span class="si">%s</span><span class="s1">/&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span>
 
-    </div>
-</div>
-</div>
+<span class="k">if</span> <span class="n">sc</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">spectra_path</span><span class="p">)</span> <span class="o">==</span> <span class="p">{}:</span>
+    <span class="n">sc</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">spectra_path</span><span class="p">)</span>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check condition of which dataset was chosen and create respective path if they don&#39;t exist.</span>
-<span class="c1"># And then check needed directories and create them if they dont exist. In these directories HI spectra and optical images will be saved.</span>
-
-<span class="c1"># Create directories in VOSpace</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;vospace/HIPASS_images_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">selected</span><span class="p">))</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;vospace/HIPASS_spectra_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">selected</span><span class="p">))</span>
-
-<span class="n">spectra_path</span> <span class="o">=</span> <span class="s1">&#39;vos://HIPASS_spectra_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span><span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span>
-<span class="n">images_path</span> <span class="o">=</span> <span class="s1">&#39;vos://HIPASS_images_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span><span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span>
+<span class="k">if</span> <span class="n">sc</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">images_path</span><span class="p">)</span> <span class="o">==</span> <span class="p">{}:</span>
+    <span class="n">sc</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">images_path</span><span class="p">)</span>
 
 <span class="n">interactive</span> <span class="o">=</span> <span class="n">selected</span>
 </pre></div>
@@ -13974,7 +13959,7 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">H0</span> <span class="o">=</span> <span class="mi">70</span> <span class="c1"># Hubble constant</span>
@@ -14001,7 +13986,7 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display the sorted dataframe head to see partial content</span>
@@ -14018,7 +14003,7 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -14207,7 +14192,7 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Edit url for each galaxy in HIPASS: for making url-s we need: RA, DEC, and a number of the cube from where data was extracted</span>
@@ -14252,7 +14237,7 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████| 10/10 [00:00&lt;00:00, 4796.78it/s]
+<pre>100%|██████████| 10/10 [00:00&lt;00:00, 4494.06it/s]
 </pre>
 </div>
 </div>
@@ -14271,7 +14256,7 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Extract the HIPASS source names from the table; String manipulation is needed to strip certain characters from name </span>
@@ -14300,7 +14285,7 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We want to go to each url and extract only the spectra data</span>
@@ -14365,7 +14350,7 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>100%|██████████| 10/10 [00:16&lt;00:00,  1.66s/it]
+<pre>100%|██████████| 10/10 [00:16&lt;00:00,  1.64s/it]
 </pre>
 </div>
 </div>
@@ -14384,7 +14369,7 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the spectra of all sources and save files in a subdirectory - these will be used for interactive examination</span>
@@ -14472,7 +14457,7 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># To query Sky position (images) of sources, we need central position of each detection in HIPASS so we extract them using SkyCoord</span>
@@ -14497,7 +14482,7 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">TIMEOUT_SECONDS</span> <span class="o">=</span> <span class="mi">36000</span>
@@ -14599,7 +14584,7 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Path to the storred images. </span>
@@ -14634,7 +14619,7 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Add bokeh features</span>
@@ -14759,7 +14744,7 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 
 
 
-  <div class="bk-root" id="b0e3c7ff-3adc-4a5e-b9c4-21337d34d954" data-root-id="1004"></div>
+  <div class="bk-root" id="e2fc7bb4-440b-4051-b1ea-467ab7a850a0" data-root-id="1004"></div>
 
 </div>
 
@@ -14773,15 +14758,15 @@ max(Number_of_sources) for confused sources is 333; otherwise it is 4315</p>
 
 
 
-<div id="f6df1f1f-aed5-46f0-939d-e9d3becdb07d"></div>
+<div id="bd90950e-b0cd-48ce-a366-2c2f9e7e802f"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#f6df1f1f-aed5-46f0-939d-e9d3becdb07d');
+var element = $('#bd90950e-b0cd-48ce-a366-2c2f9e7e802f');
 (function(root) {
   function embed_document(root) {
     
-  var docs_json = {"eddbdf9b-b995-4d34-9aea-8fd845176183":{"roots":{"references":[{"attributes":{"below":[{"id":"1015","type":"LinearAxis"}],"center":[{"id":"1019","type":"Grid"},{"id":"1024","type":"Grid"}],"left":[{"id":"1020","type":"LinearAxis"}],"plot_height":700,"plot_width":700,"renderers":[{"id":"1039","type":"GlyphRenderer"}],"right":[{"id":"1041","type":"ColorBar"}],"title":{"id":"1005","type":"Title"},"toolbar":{"id":"1029","type":"Toolbar"},"toolbar_location":"above","x_range":{"id":"1007","type":"DataRange1d"},"x_scale":{"id":"1011","type":"LinearScale"},"y_range":{"id":"1009","type":"DataRange1d"},"y_scale":{"id":"1013","type":"LinearScale"}},"id":"1004","subtype":"Figure","type":"Plot"},{"attributes":{"callback":null},"id":"1007","type":"DataRange1d"},{"attributes":{"fill_alpha":{"value":0.7},"fill_color":{"field":"z","transform":{"id":"1035","type":"LinearColorMapper"}},"line_color":{"field":"z","transform":{"id":"1035","type":"LinearColorMapper"}},"size":{"units":"screen","value":14},"x":{"field":"x"},"y":{"field":"y"}},"id":"1037","type":"Scatter"},{"attributes":{},"id":"1051","type":"UnionRenderers"},{"attributes":{"dimension":1,"ticker":{"id":"1021","type":"BasicTicker"}},"id":"1024","type":"Grid"},{"attributes":{},"id":"1028","type":"ResetTool"},{"attributes":{"ticker":{"id":"1016","type":"BasicTicker"}},"id":"1019","type":"Grid"},{"attributes":{},"id":"1013","type":"LinearScale"},{"attributes":{},"id":"1043","type":"BasicTickFormatter"},{"attributes":{},"id":"1046","type":"BasicTicker"},{"attributes":{"high":703.2,"low":229.7,"palette":["#440154","#46317E","#365A8C","#277E8E","#1EA087","#49C16D","#9DD93A","#FDE724"]},"id":"1035","type":"LinearColorMapper"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":14},"x":{"field":"x"},"y":{"field":"y"}},"id":"1038","type":"Scatter"},{"attributes":{"axis_label":"Distance [Mpc]","axis_label_text_font_size":{"value":"15pt"},"formatter":{"id":"1047","type":"BasicTickFormatter"},"major_label_text_font_size":{"value":"15pt"},"major_tick_in":12,"major_tick_out":0,"minor_tick_in":6,"minor_tick_out":0,"ticker":{"id":"1016","type":"BasicTicker"}},"id":"1015","type":"LinearAxis"},{"attributes":{},"id":"1045","type":"BasicTickFormatter"},{"attributes":{},"id":"1011","type":"LinearScale"},{"attributes":{"callback":null,"data":{"confused":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==","dtype":"int32","shape":[10]},"dec_obj":{"__ndarray__":"JO8cylDRRcAbvK/KhcrzP5qZmZmZeULAIToEjgTkSMCG6BA4ErBFwEnb+BOVXSjAgH7fv3ltUcBB8s6hDNUUwPQ0YJD0CRjAUrXdBN+sP8A=","dtype":"float64","shape":[10]},"desc":["HIPASSJ0836-43","HIPASSJ1935+01","HIPASSJ0656-36","HIPASSJ1816-49","HIPASSJ2057-43","HIPASSJ1009-12","HIPASSJ2123-69","HIPASSJ1756-05","HIPASSJ1931-06","HIPASSJ1339-31"],"imgs":["../vospace/HIPASS_images_most_massive/hipass_0000.png","../vospace/HIPASS_images_most_massive/hipass_0001.png","../vospace/HIPASS_images_most_massive/hipass_0002.png","../vospace/HIPASS_images_most_massive/hipass_0003.png","../vospace/HIPASS_images_most_massive/hipass_0004.png","../vospace/HIPASS_images_most_massive/hipass_0005.png","../vospace/HIPASS_images_most_massive/hipass_0006.png","../vospace/HIPASS_images_most_massive/hipass_0007.png","../vospace/HIPASS_images_most_massive/hipass_0008.png","../vospace/HIPASS_images_most_massive/hipass_0009.png"],"ra_obj":{"__ndarray__":"M8UcBJ0lYEApJQSrqlxyQK5H4XoUAlpAzQNY5BchcUDXbOUlP6dzQIZZaOe0DWNAM2q+Sn4OdEDXbOUlv9JwQFyPwvUoT3JAZ9R8lfybaUA=","dtype":"float64","shape":[10]},"spectra":["../vospace/HIPASS_spectra_most_massive/hipass_0000.png","../vospace/HIPASS_spectra_most_massive/hipass_0001.png","../vospace/HIPASS_spectra_most_massive/hipass_0002.png","../vospace/HIPASS_spectra_most_massive/hipass_0003.png","../vospace/HIPASS_spectra_most_massive/hipass_0004.png","../vospace/HIPASS_spectra_most_massive/hipass_0005.png","../vospace/HIPASS_spectra_most_massive/hipass_0006.png","../vospace/HIPASS_spectra_most_massive/hipass_0007.png","../vospace/HIPASS_spectra_most_massive/hipass_0008.png","../vospace/HIPASS_spectra_most_massive/hipass_0009.png"],"x":{"__ndarray__":"i6/4iq8gY0AvIDaVhvRhQCb6O1kt92BA3hjBRH8nYkCm0pBzn31gQOXcZxcQy2NAOffZBcTuYkCr5Y0RTFxgQB+F61G4TmFAc59dQGyKZEA=","dtype":"float64","shape":[10]},"y":{"__ndarray__":"0Wmzt3ffJ0DkYFst26wnQEn1xSOLqydAdnl3fVyrJ0BuXe9++KknQDtFj/X1nidAaw72rhuXJ0DkRUcjI3MnQGOxwsBAbSdAwH9JhKpqJ0A=","dtype":"float64","shape":[10]},"z":{"__ndarray__":"mpmZmZlxhEBmZmZmZkZ5QJqZmZmZiXRAMzMzMzN7cECamZmZmfmFQAAAAAAAIHRAmpmZmZl5dkBmZmZmZjZ5QAAAAAAA+HdAZmZmZma2bEA=","dtype":"float64","shape":[10]}},"selected":{"id":"1050","type":"Selection"},"selection_policy":{"id":"1051","type":"UnionRenderers"}},"id":"1002","type":"ColumnDataSource"},{"attributes":{},"id":"1047","type":"BasicTickFormatter"},{"attributes":{"callback":null},"id":"1009","type":"DataRange1d"},{"attributes":{"color_mapper":{"id":"1035","type":"LinearColorMapper"},"formatter":{"id":"1045","type":"BasicTickFormatter"},"location":[-2,-1],"ticker":{"id":"1046","type":"BasicTicker"},"title":"W20max","width":18},"id":"1041","type":"ColorBar"},{"attributes":{},"id":"1016","type":"BasicTicker"},{"attributes":{},"id":"1050","type":"Selection"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1049","type":"BoxAnnotation"},{"attributes":{},"id":"1025","type":"PanTool"},{"attributes":{"source":{"id":"1002","type":"ColumnDataSource"}},"id":"1040","type":"CDSView"},{"attributes":{},"id":"1026","type":"WheelZoomTool"},{"attributes":{"callback":null,"tooltips":"\n    <div>\n        <div>\n        \n        </div>\n            <span style=\"font-size: 17px; font-weight: bold; color: #c51b8a; \">@desc</span>\n        </div>   \n        \n            <table>\n            <tr>\n            <td><img src=\"@imgs\" width=\"350\" /></td>\n            <td><img src=\"@spectra\" width=\"330\" />                \n            \n            <center>\n            </div>\n                <span style=\"font-size: 12px; font-weight: bold;\"> RA [deg] = @ra_obj</span>\n                <br>\n                <span style=\"font-size: 12px; font-weight: bold;\"> DEC [deg] = @dec_obj</span>\n            </div> \n            </center>\n            </td>\n            \n            </tr> \n            </table>\n            \n            <div>\n                <span style=\"font-size: 15px;\">Location</span>\n                <span style=\"font-size: 10px; font-weight: bold; color: #8856a7;\">($x, $y )</span>\n\n            <span style=\"font-size: 12px; font-weight: bold;\">Confused source if=1: @confused</span>\n\n    "},"id":"1003","type":"HoverTool"},{"attributes":{"data_source":{"id":"1002","type":"ColumnDataSource"},"glyph":{"id":"1037","type":"Scatter"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1038","type":"Scatter"},"selection_glyph":null,"view":{"id":"1040","type":"CDSView"}},"id":"1039","type":"GlyphRenderer"},{"attributes":{"overlay":{"id":"1049","type":"BoxAnnotation"}},"id":"1027","type":"BoxZoomTool"},{"attributes":{},"id":"1021","type":"BasicTicker"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1003","type":"HoverTool"},{"id":"1025","type":"PanTool"},{"id":"1026","type":"WheelZoomTool"},{"id":"1027","type":"BoxZoomTool"},{"id":"1028","type":"ResetTool"}]},"id":"1029","type":"Toolbar"},{"attributes":{"axis_label":"log HI Mass","axis_label_text_font_size":{"value":"15pt"},"formatter":{"id":"1043","type":"BasicTickFormatter"},"major_label_text_font_size":{"value":"15pt"},"major_tick_in":12,"major_tick_out":0,"minor_tick_in":6,"minor_tick_out":0,"ticker":{"id":"1021","type":"BasicTicker"}},"id":"1020","type":"LinearAxis"},{"attributes":{"text":"10 galaxies from HIPASS","text_font_size":{"value":"18pt"}},"id":"1005","type":"Title"}],"root_ids":["1004"]},"title":"Bokeh Application","version":"1.3.4"}};
-  var render_items = [{"docid":"eddbdf9b-b995-4d34-9aea-8fd845176183","roots":{"1004":"b0e3c7ff-3adc-4a5e-b9c4-21337d34d954"}}];
+  var docs_json = {"f52c5159-eb67-4d31-a832-94c08e70f884":{"roots":{"references":[{"attributes":{"below":[{"id":"1015","type":"LinearAxis"}],"center":[{"id":"1019","type":"Grid"},{"id":"1024","type":"Grid"}],"left":[{"id":"1020","type":"LinearAxis"}],"plot_height":700,"plot_width":700,"renderers":[{"id":"1039","type":"GlyphRenderer"}],"right":[{"id":"1041","type":"ColorBar"}],"title":{"id":"1005","type":"Title"},"toolbar":{"id":"1029","type":"Toolbar"},"toolbar_location":"above","x_range":{"id":"1007","type":"DataRange1d"},"x_scale":{"id":"1011","type":"LinearScale"},"y_range":{"id":"1009","type":"DataRange1d"},"y_scale":{"id":"1013","type":"LinearScale"}},"id":"1004","subtype":"Figure","type":"Plot"},{"attributes":{"source":{"id":"1002","type":"ColumnDataSource"}},"id":"1040","type":"CDSView"},{"attributes":{},"id":"1013","type":"LinearScale"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1003","type":"HoverTool"},{"id":"1025","type":"PanTool"},{"id":"1026","type":"WheelZoomTool"},{"id":"1027","type":"BoxZoomTool"},{"id":"1028","type":"ResetTool"}]},"id":"1029","type":"Toolbar"},{"attributes":{"axis_label":"Distance [Mpc]","axis_label_text_font_size":{"value":"15pt"},"formatter":{"id":"1045","type":"BasicTickFormatter"},"major_label_text_font_size":{"value":"15pt"},"major_tick_in":12,"major_tick_out":0,"minor_tick_in":6,"minor_tick_out":0,"ticker":{"id":"1016","type":"BasicTicker"}},"id":"1015","type":"LinearAxis"},{"attributes":{},"id":"1050","type":"Selection"},{"attributes":{"callback":null},"id":"1007","type":"DataRange1d"},{"attributes":{"high":703.2,"low":229.7,"palette":["#440154","#46317E","#365A8C","#277E8E","#1EA087","#49C16D","#9DD93A","#FDE724"]},"id":"1035","type":"LinearColorMapper"},{"attributes":{},"id":"1047","type":"BasicTickFormatter"},{"attributes":{},"id":"1026","type":"WheelZoomTool"},{"attributes":{"data_source":{"id":"1002","type":"ColumnDataSource"},"glyph":{"id":"1037","type":"Scatter"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1038","type":"Scatter"},"selection_glyph":null,"view":{"id":"1040","type":"CDSView"}},"id":"1039","type":"GlyphRenderer"},{"attributes":{"callback":null,"data":{"confused":{"__ndarray__":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==","dtype":"int32","shape":[10]},"dec_obj":{"__ndarray__":"JO8cylDRRcAbvK/KhcrzP5qZmZmZeULAIToEjgTkSMCG6BA4ErBFwEnb+BOVXSjAgH7fv3ltUcBB8s6hDNUUwPQ0YJD0CRjAUrXdBN+sP8A=","dtype":"float64","shape":[10]},"desc":["HIPASSJ0836-43","HIPASSJ1935+01","HIPASSJ0656-36","HIPASSJ1816-49","HIPASSJ2057-43","HIPASSJ1009-12","HIPASSJ2123-69","HIPASSJ1756-05","HIPASSJ1931-06","HIPASSJ1339-31"],"imgs":["../../../../../vospace/HIPASS_images_most_massive/hipass_0000.png","../../../../../vospace/HIPASS_images_most_massive/hipass_0001.png","../../../../../vospace/HIPASS_images_most_massive/hipass_0002.png","../../../../../vospace/HIPASS_images_most_massive/hipass_0003.png","../../../../../vospace/HIPASS_images_most_massive/hipass_0004.png","../../../../../vospace/HIPASS_images_most_massive/hipass_0005.png","../../../../../vospace/HIPASS_images_most_massive/hipass_0006.png","../../../../../vospace/HIPASS_images_most_massive/hipass_0007.png","../../../../../vospace/HIPASS_images_most_massive/hipass_0008.png","../../../../../vospace/HIPASS_images_most_massive/hipass_0009.png"],"ra_obj":{"__ndarray__":"M8UcBJ0lYEApJQSrqlxyQK5H4XoUAlpAzQNY5BchcUDXbOUlP6dzQIZZaOe0DWNAM2q+Sn4OdEDXbOUlv9JwQFyPwvUoT3JAZ9R8lfybaUA=","dtype":"float64","shape":[10]},"spectra":["../../../../../vospace/HIPASS_spectra_most_massive/hipass_0000.png","../../../../../vospace/HIPASS_spectra_most_massive/hipass_0001.png","../../../../../vospace/HIPASS_spectra_most_massive/hipass_0002.png","../../../../../vospace/HIPASS_spectra_most_massive/hipass_0003.png","../../../../../vospace/HIPASS_spectra_most_massive/hipass_0004.png","../../../../../vospace/HIPASS_spectra_most_massive/hipass_0005.png","../../../../../vospace/HIPASS_spectra_most_massive/hipass_0006.png","../../../../../vospace/HIPASS_spectra_most_massive/hipass_0007.png","../../../../../vospace/HIPASS_spectra_most_massive/hipass_0008.png","../../../../../vospace/HIPASS_spectra_most_massive/hipass_0009.png"],"x":{"__ndarray__":"i6/4iq8gY0AvIDaVhvRhQCb6O1kt92BA3hjBRH8nYkCm0pBzn31gQOXcZxcQy2NAOffZBcTuYkCr5Y0RTFxgQB+F61G4TmFAc59dQGyKZEA=","dtype":"float64","shape":[10]},"y":{"__ndarray__":"0Wmzt3ffJ0DkYFst26wnQEn1xSOLqydAdnl3fVyrJ0BuXe9++KknQDtFj/X1nidAaw72rhuXJ0DkRUcjI3MnQGOxwsBAbSdAwH9JhKpqJ0A=","dtype":"float64","shape":[10]},"z":{"__ndarray__":"mpmZmZlxhEBmZmZmZkZ5QJqZmZmZiXRAMzMzMzN7cECamZmZmfmFQAAAAAAAIHRAmpmZmZl5dkBmZmZmZjZ5QAAAAAAA+HdAZmZmZma2bEA=","dtype":"float64","shape":[10]}},"selected":{"id":"1050","type":"Selection"},"selection_policy":{"id":"1049","type":"UnionRenderers"}},"id":"1002","type":"ColumnDataSource"},{"attributes":{"callback":null},"id":"1009","type":"DataRange1d"},{"attributes":{"ticker":{"id":"1016","type":"BasicTicker"}},"id":"1019","type":"Grid"},{"attributes":{},"id":"1048","type":"BasicTicker"},{"attributes":{"fill_alpha":{"value":0.7},"fill_color":{"field":"z","transform":{"id":"1035","type":"LinearColorMapper"}},"line_color":{"field":"z","transform":{"id":"1035","type":"LinearColorMapper"}},"size":{"units":"screen","value":14},"x":{"field":"x"},"y":{"field":"y"}},"id":"1037","type":"Scatter"},{"attributes":{"color_mapper":{"id":"1035","type":"LinearColorMapper"},"formatter":{"id":"1047","type":"BasicTickFormatter"},"location":[-2,-1],"ticker":{"id":"1048","type":"BasicTicker"},"title":"W20max","width":18},"id":"1041","type":"ColorBar"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"size":{"units":"screen","value":14},"x":{"field":"x"},"y":{"field":"y"}},"id":"1038","type":"Scatter"},{"attributes":{},"id":"1016","type":"BasicTicker"},{"attributes":{"text":"10 galaxies from HIPASS","text_font_size":{"value":"18pt"}},"id":"1005","type":"Title"},{"attributes":{},"id":"1021","type":"BasicTicker"},{"attributes":{},"id":"1049","type":"UnionRenderers"},{"attributes":{"axis_label":"log HI Mass","axis_label_text_font_size":{"value":"15pt"},"formatter":{"id":"1043","type":"BasicTickFormatter"},"major_label_text_font_size":{"value":"15pt"},"major_tick_in":12,"major_tick_out":0,"minor_tick_in":6,"minor_tick_out":0,"ticker":{"id":"1021","type":"BasicTicker"}},"id":"1020","type":"LinearAxis"},{"attributes":{},"id":"1025","type":"PanTool"},{"attributes":{},"id":"1043","type":"BasicTickFormatter"},{"attributes":{},"id":"1011","type":"LinearScale"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1051","type":"BoxAnnotation"},{"attributes":{},"id":"1045","type":"BasicTickFormatter"},{"attributes":{"callback":null,"tooltips":"\n    <div>\n        <div>\n        \n        </div>\n            <span style=\"font-size: 17px; font-weight: bold; color: #c51b8a; \">@desc</span>\n        </div>   \n        \n            <table>\n            <tr>\n            <td><img src=\"@imgs\" width=\"350\" /></td>\n            <td><img src=\"@spectra\" width=\"330\" />                \n            \n            <center>\n            </div>\n                <span style=\"font-size: 12px; font-weight: bold;\"> RA [deg] = @ra_obj</span>\n                <br>\n                <span style=\"font-size: 12px; font-weight: bold;\"> DEC [deg] = @dec_obj</span>\n            </div> \n            </center>\n            </td>\n            \n            </tr> \n            </table>\n            \n            <div>\n                <span style=\"font-size: 15px;\">Location</span>\n                <span style=\"font-size: 10px; font-weight: bold; color: #8856a7;\">($x, $y )</span>\n\n            <span style=\"font-size: 12px; font-weight: bold;\">Confused source if=1: @confused</span>\n\n    "},"id":"1003","type":"HoverTool"},{"attributes":{"dimension":1,"ticker":{"id":"1021","type":"BasicTicker"}},"id":"1024","type":"Grid"},{"attributes":{"overlay":{"id":"1051","type":"BoxAnnotation"}},"id":"1027","type":"BoxZoomTool"},{"attributes":{},"id":"1028","type":"ResetTool"}],"root_ids":["1004"]},"title":"Bokeh Application","version":"1.3.4"}};
+  var render_items = [{"docid":"f52c5159-eb67-4d31-a832-94c08e70f884","roots":{"1004":"e2fc7bb4-440b-4051-b1ea-467ab7a850a0"}}];
   root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
 
   }
