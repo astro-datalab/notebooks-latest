@@ -1,4 +1,4 @@
-*Version:* 20200626 | *Author:* Robert Nikutta \<nikutta@noao.edu\>
+*Version:* 20200712 | *Author:* Robert Nikutta \<nikutta@noao.edu\>
 
 
 # Automatically test notebooks
@@ -12,7 +12,7 @@
 Run `testnotebooks.ipynb` to test a collection of other notebooks for runtime failures, e.g. the set of default Data Lab notebooks.
 
 ## Preview
-![Results](./view_run_results.png)
+![Results](./figures/view_run_results.png)
 
 
 ## Steps: On the Data Lab Jupyter notebook server
@@ -76,4 +76,4 @@ OR
   
   You will see something akin to this:
   
-  ![Terminal](./view_terminal.png)
+  ![Terminal](./figures/view_terminal.png)
