@@ -1,10 +1,11 @@
-__version__ = '20200626'
+__version__ = '20200712'
 __author__ = 'Robert Nikutta <nikutta@noao.edu>'
 
 # imports
 
 # stdlib
 import glob
+import json
 import os
 import re
 import time
@@ -237,6 +238,19 @@ def myglob(paths,include=('/**/*.ipynb',),exclude=None,exclude_default=\
     return sorted(files - files_exclude)  # set operation
 
 
+
+def get_kernel_name(nbpath,default='python3'):
+    with open(nbpath,'r') as f:
+        aux = json.load(f)
+
+    try:
+        kernel = aux['metadata']['kernelspec']['name']
+    except KeyError:
+        kernel = default
+
+    return kernel
+
+
 def run(paths,include=('/**/*.ipynb',),exclude=('/**/*_tested.ipynb',),plain=False):
 
     """Run *.ipynb files via nbconvert and report PASS/FAIL test matrix.
@@ -282,8 +296,9 @@ def run(paths,include=('/**/*.ipynb',),exclude=('/**/*_tested.ipynb',),plain=Fal
 
         print('================================================')
         print('TESTING NOTEBOOK %d/%d: %s' % (j+1,len(nbs),nbfile))
-        
-        nbpath, nb, errors = run_notebook(nbfile)
+
+        kernel = get_kernel_name(nbfile)
+        nbpath, nb, errors = run_notebook(nbfile,kernel=kernel)
             
         try:
             assert errors == []
