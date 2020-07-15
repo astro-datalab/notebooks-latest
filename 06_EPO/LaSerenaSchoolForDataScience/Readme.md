@@ -1,3 +1,5 @@
+*Version: * 20200714
+
 **Welcome to the La Serena School for Data Science!**
 
 The "La Serena School for Data Science: Applied tools for Data-driven sciences" is an international program that seeks to introduce advanced undergraduate and early graduate students in data-intensive careers to the computational and statistical tools required to work with large volumes of data. These careers include, but are not limited to, astronomy, physics, biology, medical informatics, computer science, statistics, among others.
