@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>How_to_use_the_Data_Lab_StoreClient</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+
+<title>How_to_use_the_Data_Lab_StoreClient</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
 
 <style type="text/css">
     /*!
@@ -199,7 +204,6 @@ th {
   *:before,
   *:after {
     background: transparent !important;
-    color: #000 !important;
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -6744,15 +6748,15 @@ button.close {
 *
 */
 /*!
- *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?v=4.2.0');
-  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'), url('../components/font-awesome/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'), url('../components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'), url('../components/font-awesome/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
+  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0');
+  src: url('../components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../components/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../components/font-awesome/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -6809,6 +6813,19 @@ button.close {
   border: solid 0.08em #eee;
   border-radius: .1em;
 }
+.fa-pull-left {
+  float: left;
+}
+.fa-pull-right {
+  float: right;
+}
+.fa.fa-pull-left {
+  margin-right: .3em;
+}
+.fa.fa-pull-right {
+  margin-left: .3em;
+}
+/* Deprecated as of 4.4.0 */
 .pull-right {
   float: right;
 }
@@ -6824,6 +6841,10 @@ button.close {
 .fa-spin {
   -webkit-animation: fa-spin 2s infinite linear;
   animation: fa-spin 2s infinite linear;
+}
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8);
 }
 @-webkit-keyframes fa-spin {
   0% {
@@ -6846,31 +6867,31 @@ button.close {
   }
 }
 .fa-rotate-90 {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
 .fa-rotate-180 {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 .fa-rotate-270 {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
   -webkit-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
   transform: rotate(270deg);
 }
 .fa-flip-horizontal {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
   -webkit-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
 .fa-flip-vertical {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
   -webkit-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
   transform: scale(1, -1);
@@ -7355,6 +7376,7 @@ button.close {
 .fa-twitter:before {
   content: "\f099";
 }
+.fa-facebook-f:before,
 .fa-facebook:before {
   content: "\f09a";
 }
@@ -7367,6 +7389,7 @@ button.close {
 .fa-credit-card:before {
   content: "\f09d";
 }
+.fa-feed:before,
 .fa-rss:before {
   content: "\f09e";
 }
@@ -8004,7 +8027,8 @@ button.close {
 .fa-male:before {
   content: "\f183";
 }
-.fa-gittip:before {
+.fa-gittip:before,
+.fa-gratipay:before {
   content: "\f184";
 }
 .fa-sun-o:before {
@@ -8108,7 +8132,7 @@ button.close {
 .fa-digg:before {
   content: "\f1a6";
 }
-.fa-pied-piper:before {
+.fa-pied-piper-pp:before {
   content: "\f1a7";
 }
 .fa-pied-piper-alt:before {
@@ -8234,6 +8258,7 @@ button.close {
   content: "\f1ce";
 }
 .fa-ra:before,
+.fa-resistance:before,
 .fa-rebel:before {
   content: "\f1d0";
 }
@@ -8247,6 +8272,8 @@ button.close {
 .fa-git:before {
   content: "\f1d3";
 }
+.fa-y-combinator-square:before,
+.fa-yc-square:before,
 .fa-hacker-news:before {
   content: "\f1d4";
 }
@@ -8414,6 +8441,657 @@ button.close {
 }
 .fa-meanpath:before {
   content: "\f20c";
+}
+.fa-buysellads:before {
+  content: "\f20d";
+}
+.fa-connectdevelop:before {
+  content: "\f20e";
+}
+.fa-dashcube:before {
+  content: "\f210";
+}
+.fa-forumbee:before {
+  content: "\f211";
+}
+.fa-leanpub:before {
+  content: "\f212";
+}
+.fa-sellsy:before {
+  content: "\f213";
+}
+.fa-shirtsinbulk:before {
+  content: "\f214";
+}
+.fa-simplybuilt:before {
+  content: "\f215";
+}
+.fa-skyatlas:before {
+  content: "\f216";
+}
+.fa-cart-plus:before {
+  content: "\f217";
+}
+.fa-cart-arrow-down:before {
+  content: "\f218";
+}
+.fa-diamond:before {
+  content: "\f219";
+}
+.fa-ship:before {
+  content: "\f21a";
+}
+.fa-user-secret:before {
+  content: "\f21b";
+}
+.fa-motorcycle:before {
+  content: "\f21c";
+}
+.fa-street-view:before {
+  content: "\f21d";
+}
+.fa-heartbeat:before {
+  content: "\f21e";
+}
+.fa-venus:before {
+  content: "\f221";
+}
+.fa-mars:before {
+  content: "\f222";
+}
+.fa-mercury:before {
+  content: "\f223";
+}
+.fa-intersex:before,
+.fa-transgender:before {
+  content: "\f224";
+}
+.fa-transgender-alt:before {
+  content: "\f225";
+}
+.fa-venus-double:before {
+  content: "\f226";
+}
+.fa-mars-double:before {
+  content: "\f227";
+}
+.fa-venus-mars:before {
+  content: "\f228";
+}
+.fa-mars-stroke:before {
+  content: "\f229";
+}
+.fa-mars-stroke-v:before {
+  content: "\f22a";
+}
+.fa-mars-stroke-h:before {
+  content: "\f22b";
+}
+.fa-neuter:before {
+  content: "\f22c";
+}
+.fa-genderless:before {
+  content: "\f22d";
+}
+.fa-facebook-official:before {
+  content: "\f230";
+}
+.fa-pinterest-p:before {
+  content: "\f231";
+}
+.fa-whatsapp:before {
+  content: "\f232";
+}
+.fa-server:before {
+  content: "\f233";
+}
+.fa-user-plus:before {
+  content: "\f234";
+}
+.fa-user-times:before {
+  content: "\f235";
+}
+.fa-hotel:before,
+.fa-bed:before {
+  content: "\f236";
+}
+.fa-viacoin:before {
+  content: "\f237";
+}
+.fa-train:before {
+  content: "\f238";
+}
+.fa-subway:before {
+  content: "\f239";
+}
+.fa-medium:before {
+  content: "\f23a";
+}
+.fa-yc:before,
+.fa-y-combinator:before {
+  content: "\f23b";
+}
+.fa-optin-monster:before {
+  content: "\f23c";
+}
+.fa-opencart:before {
+  content: "\f23d";
+}
+.fa-expeditedssl:before {
+  content: "\f23e";
+}
+.fa-battery-4:before,
+.fa-battery:before,
+.fa-battery-full:before {
+  content: "\f240";
+}
+.fa-battery-3:before,
+.fa-battery-three-quarters:before {
+  content: "\f241";
+}
+.fa-battery-2:before,
+.fa-battery-half:before {
+  content: "\f242";
+}
+.fa-battery-1:before,
+.fa-battery-quarter:before {
+  content: "\f243";
+}
+.fa-battery-0:before,
+.fa-battery-empty:before {
+  content: "\f244";
+}
+.fa-mouse-pointer:before {
+  content: "\f245";
+}
+.fa-i-cursor:before {
+  content: "\f246";
+}
+.fa-object-group:before {
+  content: "\f247";
+}
+.fa-object-ungroup:before {
+  content: "\f248";
+}
+.fa-sticky-note:before {
+  content: "\f249";
+}
+.fa-sticky-note-o:before {
+  content: "\f24a";
+}
+.fa-cc-jcb:before {
+  content: "\f24b";
+}
+.fa-cc-diners-club:before {
+  content: "\f24c";
+}
+.fa-clone:before {
+  content: "\f24d";
+}
+.fa-balance-scale:before {
+  content: "\f24e";
+}
+.fa-hourglass-o:before {
+  content: "\f250";
+}
+.fa-hourglass-1:before,
+.fa-hourglass-start:before {
+  content: "\f251";
+}
+.fa-hourglass-2:before,
+.fa-hourglass-half:before {
+  content: "\f252";
+}
+.fa-hourglass-3:before,
+.fa-hourglass-end:before {
+  content: "\f253";
+}
+.fa-hourglass:before {
+  content: "\f254";
+}
+.fa-hand-grab-o:before,
+.fa-hand-rock-o:before {
+  content: "\f255";
+}
+.fa-hand-stop-o:before,
+.fa-hand-paper-o:before {
+  content: "\f256";
+}
+.fa-hand-scissors-o:before {
+  content: "\f257";
+}
+.fa-hand-lizard-o:before {
+  content: "\f258";
+}
+.fa-hand-spock-o:before {
+  content: "\f259";
+}
+.fa-hand-pointer-o:before {
+  content: "\f25a";
+}
+.fa-hand-peace-o:before {
+  content: "\f25b";
+}
+.fa-trademark:before {
+  content: "\f25c";
+}
+.fa-registered:before {
+  content: "\f25d";
+}
+.fa-creative-commons:before {
+  content: "\f25e";
+}
+.fa-gg:before {
+  content: "\f260";
+}
+.fa-gg-circle:before {
+  content: "\f261";
+}
+.fa-tripadvisor:before {
+  content: "\f262";
+}
+.fa-odnoklassniki:before {
+  content: "\f263";
+}
+.fa-odnoklassniki-square:before {
+  content: "\f264";
+}
+.fa-get-pocket:before {
+  content: "\f265";
+}
+.fa-wikipedia-w:before {
+  content: "\f266";
+}
+.fa-safari:before {
+  content: "\f267";
+}
+.fa-chrome:before {
+  content: "\f268";
+}
+.fa-firefox:before {
+  content: "\f269";
+}
+.fa-opera:before {
+  content: "\f26a";
+}
+.fa-internet-explorer:before {
+  content: "\f26b";
+}
+.fa-tv:before,
+.fa-television:before {
+  content: "\f26c";
+}
+.fa-contao:before {
+  content: "\f26d";
+}
+.fa-500px:before {
+  content: "\f26e";
+}
+.fa-amazon:before {
+  content: "\f270";
+}
+.fa-calendar-plus-o:before {
+  content: "\f271";
+}
+.fa-calendar-minus-o:before {
+  content: "\f272";
+}
+.fa-calendar-times-o:before {
+  content: "\f273";
+}
+.fa-calendar-check-o:before {
+  content: "\f274";
+}
+.fa-industry:before {
+  content: "\f275";
+}
+.fa-map-pin:before {
+  content: "\f276";
+}
+.fa-map-signs:before {
+  content: "\f277";
+}
+.fa-map-o:before {
+  content: "\f278";
+}
+.fa-map:before {
+  content: "\f279";
+}
+.fa-commenting:before {
+  content: "\f27a";
+}
+.fa-commenting-o:before {
+  content: "\f27b";
+}
+.fa-houzz:before {
+  content: "\f27c";
+}
+.fa-vimeo:before {
+  content: "\f27d";
+}
+.fa-black-tie:before {
+  content: "\f27e";
+}
+.fa-fonticons:before {
+  content: "\f280";
+}
+.fa-reddit-alien:before {
+  content: "\f281";
+}
+.fa-edge:before {
+  content: "\f282";
+}
+.fa-credit-card-alt:before {
+  content: "\f283";
+}
+.fa-codiepie:before {
+  content: "\f284";
+}
+.fa-modx:before {
+  content: "\f285";
+}
+.fa-fort-awesome:before {
+  content: "\f286";
+}
+.fa-usb:before {
+  content: "\f287";
+}
+.fa-product-hunt:before {
+  content: "\f288";
+}
+.fa-mixcloud:before {
+  content: "\f289";
+}
+.fa-scribd:before {
+  content: "\f28a";
+}
+.fa-pause-circle:before {
+  content: "\f28b";
+}
+.fa-pause-circle-o:before {
+  content: "\f28c";
+}
+.fa-stop-circle:before {
+  content: "\f28d";
+}
+.fa-stop-circle-o:before {
+  content: "\f28e";
+}
+.fa-shopping-bag:before {
+  content: "\f290";
+}
+.fa-shopping-basket:before {
+  content: "\f291";
+}
+.fa-hashtag:before {
+  content: "\f292";
+}
+.fa-bluetooth:before {
+  content: "\f293";
+}
+.fa-bluetooth-b:before {
+  content: "\f294";
+}
+.fa-percent:before {
+  content: "\f295";
+}
+.fa-gitlab:before {
+  content: "\f296";
+}
+.fa-wpbeginner:before {
+  content: "\f297";
+}
+.fa-wpforms:before {
+  content: "\f298";
+}
+.fa-envira:before {
+  content: "\f299";
+}
+.fa-universal-access:before {
+  content: "\f29a";
+}
+.fa-wheelchair-alt:before {
+  content: "\f29b";
+}
+.fa-question-circle-o:before {
+  content: "\f29c";
+}
+.fa-blind:before {
+  content: "\f29d";
+}
+.fa-audio-description:before {
+  content: "\f29e";
+}
+.fa-volume-control-phone:before {
+  content: "\f2a0";
+}
+.fa-braille:before {
+  content: "\f2a1";
+}
+.fa-assistive-listening-systems:before {
+  content: "\f2a2";
+}
+.fa-asl-interpreting:before,
+.fa-american-sign-language-interpreting:before {
+  content: "\f2a3";
+}
+.fa-deafness:before,
+.fa-hard-of-hearing:before,
+.fa-deaf:before {
+  content: "\f2a4";
+}
+.fa-glide:before {
+  content: "\f2a5";
+}
+.fa-glide-g:before {
+  content: "\f2a6";
+}
+.fa-signing:before,
+.fa-sign-language:before {
+  content: "\f2a7";
+}
+.fa-low-vision:before {
+  content: "\f2a8";
+}
+.fa-viadeo:before {
+  content: "\f2a9";
+}
+.fa-viadeo-square:before {
+  content: "\f2aa";
+}
+.fa-snapchat:before {
+  content: "\f2ab";
+}
+.fa-snapchat-ghost:before {
+  content: "\f2ac";
+}
+.fa-snapchat-square:before {
+  content: "\f2ad";
+}
+.fa-pied-piper:before {
+  content: "\f2ae";
+}
+.fa-first-order:before {
+  content: "\f2b0";
+}
+.fa-yoast:before {
+  content: "\f2b1";
+}
+.fa-themeisle:before {
+  content: "\f2b2";
+}
+.fa-google-plus-circle:before,
+.fa-google-plus-official:before {
+  content: "\f2b3";
+}
+.fa-fa:before,
+.fa-font-awesome:before {
+  content: "\f2b4";
+}
+.fa-handshake-o:before {
+  content: "\f2b5";
+}
+.fa-envelope-open:before {
+  content: "\f2b6";
+}
+.fa-envelope-open-o:before {
+  content: "\f2b7";
+}
+.fa-linode:before {
+  content: "\f2b8";
+}
+.fa-address-book:before {
+  content: "\f2b9";
+}
+.fa-address-book-o:before {
+  content: "\f2ba";
+}
+.fa-vcard:before,
+.fa-address-card:before {
+  content: "\f2bb";
+}
+.fa-vcard-o:before,
+.fa-address-card-o:before {
+  content: "\f2bc";
+}
+.fa-user-circle:before {
+  content: "\f2bd";
+}
+.fa-user-circle-o:before {
+  content: "\f2be";
+}
+.fa-user-o:before {
+  content: "\f2c0";
+}
+.fa-id-badge:before {
+  content: "\f2c1";
+}
+.fa-drivers-license:before,
+.fa-id-card:before {
+  content: "\f2c2";
+}
+.fa-drivers-license-o:before,
+.fa-id-card-o:before {
+  content: "\f2c3";
+}
+.fa-quora:before {
+  content: "\f2c4";
+}
+.fa-free-code-camp:before {
+  content: "\f2c5";
+}
+.fa-telegram:before {
+  content: "\f2c6";
+}
+.fa-thermometer-4:before,
+.fa-thermometer:before,
+.fa-thermometer-full:before {
+  content: "\f2c7";
+}
+.fa-thermometer-3:before,
+.fa-thermometer-three-quarters:before {
+  content: "\f2c8";
+}
+.fa-thermometer-2:before,
+.fa-thermometer-half:before {
+  content: "\f2c9";
+}
+.fa-thermometer-1:before,
+.fa-thermometer-quarter:before {
+  content: "\f2ca";
+}
+.fa-thermometer-0:before,
+.fa-thermometer-empty:before {
+  content: "\f2cb";
+}
+.fa-shower:before {
+  content: "\f2cc";
+}
+.fa-bathtub:before,
+.fa-s15:before,
+.fa-bath:before {
+  content: "\f2cd";
+}
+.fa-podcast:before {
+  content: "\f2ce";
+}
+.fa-window-maximize:before {
+  content: "\f2d0";
+}
+.fa-window-minimize:before {
+  content: "\f2d1";
+}
+.fa-window-restore:before {
+  content: "\f2d2";
+}
+.fa-times-rectangle:before,
+.fa-window-close:before {
+  content: "\f2d3";
+}
+.fa-times-rectangle-o:before,
+.fa-window-close-o:before {
+  content: "\f2d4";
+}
+.fa-bandcamp:before {
+  content: "\f2d5";
+}
+.fa-grav:before {
+  content: "\f2d6";
+}
+.fa-etsy:before {
+  content: "\f2d7";
+}
+.fa-imdb:before {
+  content: "\f2d8";
+}
+.fa-ravelry:before {
+  content: "\f2d9";
+}
+.fa-eercast:before {
+  content: "\f2da";
+}
+.fa-microchip:before {
+  content: "\f2db";
+}
+.fa-snowflake-o:before {
+  content: "\f2dc";
+}
+.fa-superpowers:before {
+  content: "\f2dd";
+}
+.fa-wpexplorer:before {
+  content: "\f2de";
+}
+.fa-meetup:before {
+  content: "\f2e0";
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+}
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
 }
 /*!
 *
@@ -8694,6 +9372,10 @@ div.traceback-wrapper {
   max-width: 800px;
   margin: auto;
 }
+div.traceback-wrapper pre.traceback {
+  max-height: 600px;
+  overflow: auto;
+}
 /**
  * Primary styles
  *
@@ -8719,6 +9401,10 @@ body > #header {
   z-index: 100;
 }
 body > #header #header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
   padding-bottom: 5px;
   padding-top: 5px;
   box-sizing: border-box;
@@ -8750,13 +9436,16 @@ body > #header .header-bar {
   padding-top: 1px;
   padding-bottom: 1px;
 }
-@media (max-width: 991px) {
-  #ipython_notebook {
-    margin-left: 10px;
-  }
-}
 [dir="rtl"] #ipython_notebook {
+  margin-right: 10px;
+  margin-left: 0;
+}
+[dir="rtl"] #ipython_notebook.pull-left {
   float: right !important;
+  float: right;
+}
+.flex-spacer {
+  flex: 1;
 }
 #noscript {
   width: auto;
@@ -8791,8 +9480,14 @@ body > #header .header-bar {
 input.ui-button {
   padding: 0.3em 0.9em;
 }
+span#kernel_logo_widget {
+  margin: 0 10px;
+}
 span#login_widget {
   float: right;
+}
+[dir="rtl"] span#login_widget {
+  float: left;
 }
 span#login_widget > .button,
 #logout {
@@ -8908,6 +9603,9 @@ span#login_widget > .button .badge,
   overflow: auto;
   flex: 1;
 }
+.modal-header {
+  cursor: move;
+}
 @media (min-width: 768px) {
   .modal .modal-dialog {
     width: 700px;
@@ -8928,6 +9626,19 @@ span#login_widget > .button .badge,
   display: inline-block;
   margin-bottom: -4px;
 }
+[dir="rtl"] .center-nav form.pull-left {
+  float: right !important;
+  float: right;
+}
+[dir="rtl"] .center-nav .navbar-text {
+  float: right;
+}
+[dir="rtl"] .navbar-inner {
+  text-align: right;
+}
+[dir="rtl"] div.text-left {
+  text-align: right;
+}
 /*!
 *
 * IPython tree view
@@ -8944,34 +9655,42 @@ span#login_widget > .button .badge,
   margin: 0;
 }
 .alternate_upload input.fileinput {
-  text-align: center;
-  vertical-align: middle;
-  display: inline;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
   opacity: 0;
   z-index: 2;
-  width: 12ex;
-  margin-right: -12ex;
+}
+.alternate_upload .btn-xs > input.fileinput {
+  margin: -1px -5px;
 }
 .alternate_upload .btn-upload {
+  position: relative;
   height: 22px;
+}
+::-webkit-file-upload-button {
+  cursor: pointer;
 }
 /**
  * Primary styles
  *
  * Author: Jupyter Development Team
  */
-[dir="rtl"] #tabs li {
-  float: right;
-}
 ul#tabs {
   margin-bottom: 4px;
-}
-[dir="rtl"] ul#tabs {
-  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
   padding-bottom: 4px;
+}
+[dir="rtl"] ul#tabs.nav-tabs > li {
+  float: right;
+}
+[dir="rtl"] ul#tabs.nav.nav-tabs {
+  padding-right: 0;
 }
 ul.breadcrumb a:focus,
 ul.breadcrumb a:hover {
@@ -8991,15 +9710,13 @@ ul.breadcrumb span {
 .list_toolbar .tree-buttons {
   padding-top: 1px;
 }
-[dir="rtl"] .list_toolbar .tree-buttons {
+[dir="rtl"] .list_toolbar .tree-buttons .pull-right {
   float: left !important;
+  float: left;
 }
-[dir="rtl"] .list_toolbar .pull-right {
-  padding-top: 1px;
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-left {
-  float: right !important;
+[dir="rtl"] .list_toolbar .col-sm-4,
+[dir="rtl"] .list_toolbar .col-sm-8 {
+  float: right;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9055,7 +9772,7 @@ ul.breadcrumb span {
 .list_item > div input {
   margin-right: 7px;
   margin-left: 14px;
-  vertical-align: baseline;
+  vertical-align: text-bottom;
   line-height: 22px;
   position: relative;
   top: -1px;
@@ -9065,6 +9782,9 @@ ul.breadcrumb span {
   margin-left: -1px;
   vertical-align: baseline;
   line-height: 22px;
+}
+[dir="rtl"] .list_item > div input {
+  margin-right: 0;
 }
 .new-file input[type=checkbox] {
   visibility: hidden;
@@ -9080,6 +9800,14 @@ ul.breadcrumb span {
   margin-left: 7px;
   line-height: 22px;
   vertical-align: baseline;
+}
+.item_modified {
+  margin-right: 7px;
+  margin-left: 7px;
+}
+[dir="rtl"] .item_modified.pull-right {
+  float: left !important;
+  float: left;
 }
 .item_buttons {
   line-height: 1em;
@@ -9108,6 +9836,14 @@ ul.breadcrumb span {
   margin-right: 7px;
   float: left;
 }
+[dir="rtl"] .item_buttons.pull-right {
+  float: left !important;
+  float: left;
+}
+[dir="rtl"] .item_buttons .kernel-name {
+  margin-left: 7px;
+  float: right;
+}
 .toolbar_info {
   height: 24px;
   line-height: 24px;
@@ -9133,18 +9869,32 @@ ul.breadcrumb span {
   background-color: transparent;
   font-weight: bold;
 }
+.sort_button {
+  display: inline-block;
+  padding-left: 7px;
+}
+[dir="rtl"] .sort_button.pull-right {
+  float: left !important;
+  float: left;
+}
 #tree-selector {
   padding-right: 0px;
-}
-[dir="rtl"] #tree-selector a {
-  float: right;
 }
 #button-select-all {
   min-width: 50px;
 }
+[dir="rtl"] #button-select-all.btn {
+  float: right ;
+}
 #select-all {
   margin-left: 7px;
   margin-right: 2px;
+  margin-top: 2px;
+  height: 16px;
+}
+[dir="rtl"] #select-all.pull-left {
+  float: right !important;
+  float: right;
 }
 .menu_icon {
   margin-right: 2px;
@@ -9162,6 +9912,12 @@ ul.breadcrumb span {
   -moz-osx-font-smoothing: grayscale;
   content: "\f114";
 }
+.folder_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.folder_icon:before.fa-pull-right {
+  margin-left: .3em;
+}
 .folder_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -9178,6 +9934,12 @@ ul.breadcrumb span {
   content: "\f02d";
   position: relative;
   top: -1px;
+}
+.notebook_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.notebook_icon:before.fa-pull-right {
+  margin-left: .3em;
 }
 .notebook_icon:before.pull-left {
   margin-right: .3em;
@@ -9197,6 +9959,12 @@ ul.breadcrumb span {
   top: -1px;
   color: #5cb85c;
 }
+.running_notebook_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.running_notebook_icon:before.fa-pull-right {
+  margin-left: .3em;
+}
 .running_notebook_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -9214,6 +9982,12 @@ ul.breadcrumb span {
   position: relative;
   top: -2px;
 }
+.file_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.file_icon:before.fa-pull-right {
+  margin-left: .3em;
+}
 .file_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -9228,8 +10002,11 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
-[dir="rtl"] #new-menu {
-  text-align: right;
+#new-menu .dropdown-header {
+  font-size: 10px;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 0 0 3px;
+  margin: -3px 20px 0;
 }
 .kernel-menu-icon {
   padding-right: 12px;
@@ -9276,9 +10053,6 @@ ul#new-menu {
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
 }
-[dir="rtl"] #running .col-sm-8 {
-  float: right !important;
-}
 .delete-button {
   display: none;
 }
@@ -9286,6 +10060,12 @@ ul#new-menu {
   display: none;
 }
 .rename-button {
+  display: none;
+}
+.move-button {
+  display: none;
+}
+.download-button {
   display: none;
 }
 .shutdown-button {
@@ -9328,6 +10108,12 @@ ul#new-menu {
   -moz-osx-font-smoothing: grayscale;
   width: 20px;
 }
+.dirty-indicator.fa-pull-left {
+  margin-right: .3em;
+}
+.dirty-indicator.fa-pull-right {
+  margin-left: .3em;
+}
 .dirty-indicator.pull-left {
   margin-right: .3em;
 }
@@ -9342,6 +10128,12 @@ ul#new-menu {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 20px;
+}
+.dirty-indicator-dirty.fa-pull-left {
+  margin-right: .3em;
+}
+.dirty-indicator-dirty.fa-pull-right {
+  margin-left: .3em;
 }
 .dirty-indicator-dirty.pull-left {
   margin-right: .3em;
@@ -9358,6 +10150,12 @@ ul#new-menu {
   -moz-osx-font-smoothing: grayscale;
   width: 20px;
 }
+.dirty-indicator-clean.fa-pull-left {
+  margin-right: .3em;
+}
+.dirty-indicator-clean.fa-pull-right {
+  margin-left: .3em;
+}
 .dirty-indicator-clean.pull-left {
   margin-right: .3em;
 }
@@ -9372,6 +10170,12 @@ ul#new-menu {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "\f00c";
+}
+.dirty-indicator-clean:before.fa-pull-left {
+  margin-right: .3em;
+}
+.dirty-indicator-clean:before.fa-pull-right {
+  margin-left: .3em;
 }
 .dirty-indicator-clean:before.pull-left {
   margin-right: .3em;
@@ -9417,14 +10221,132 @@ ul#new-menu {
     box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
   }
 }
+.CodeMirror-dialog {
+  background-color: #fff;
+}
 /*!
 *
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI colors. */
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
 .ansibold {
   font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
 }
 /* use dark versions for foreground, to improve visibility */
 .ansiblack {
@@ -9503,12 +10425,20 @@ div.cell {
   /* This acts as a spacer between cells, that is outside the border */
   margin: 0px;
   outline: none;
-  border-left-width: 1px;
-  padding-left: 5px;
-  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
 }
 div.cell.jupyter-soft-selected {
-  border-left-color: #90CAF9;
   border-left-color: #E3F2FD;
   border-left-width: 1px;
   padding-left: 5px;
@@ -9521,27 +10451,39 @@ div.cell.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected {
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
   border-color: #ababab;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
 }
 @media print {
-  div.cell.selected {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected.jupyter-soft-selected {
-  border-left-width: 0;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
-}
 .edit_mode div.cell.selected {
   border-color: #66BB6A;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -9737,7 +10679,9 @@ div.input_area > div.highlight > pre {
 .CodeMirror-lines {
   /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
-  padding: 0.4em;
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
 }
 .CodeMirror-linenumber {
   padding: 0 8px 0 4px;
@@ -9747,11 +10691,24 @@ div.input_area > div.highlight > pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
-  /* .CodeMirror-lines */
-  padding: 0;
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
   border: 0;
   border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
 }
 /*
 
@@ -10005,6 +10962,9 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
+div.output_area .mglyph > img {
+  max-width: none;
+}
 /* This is needed to protect the pre formating from global settings such
    as that of bootstrap */
 .output {
@@ -10043,7 +11003,7 @@ div.output_area svg.unconfined {
 }
 div.output_area pre {
   margin: 0;
-  padding: 0;
+  padding: 1px 0 1px 0;
   border: 0;
   vertical-align: baseline;
   color: black;
@@ -10203,39 +11163,35 @@ div.output_unrecognized a:hover {
 .rendered_html h6:first-child {
   margin-top: 1em;
 }
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
 .rendered_html ul {
   list-style: disc;
-  margin: 0em 2em;
-  padding-left: 0px;
 }
 .rendered_html ul ul {
   list-style: square;
-  margin: 0em 2em;
+  margin-top: 0;
 }
 .rendered_html ul ul ul {
   list-style: circle;
-  margin: 0em 2em;
 }
 .rendered_html ol {
   list-style: decimal;
-  margin: 0em 2em;
-  padding-left: 0px;
 }
 .rendered_html ol ol {
   list-style: upper-alpha;
-  margin: 0em 2em;
+  margin-top: 0;
 }
 .rendered_html ol ol ol {
   list-style: lower-alpha;
-  margin: 0em 2em;
 }
 .rendered_html ol ol ol ol {
   list-style: lower-roman;
-  margin: 0em 2em;
 }
 .rendered_html ol ol ol ol ol {
   list-style: decimal;
-  margin: 0em 2em;
 }
 .rendered_html * + ul {
   margin-top: 1em;
@@ -10249,14 +11205,23 @@ div.output_unrecognized a:hover {
 }
 .rendered_html pre {
   margin: 1em 2em;
+  padding: 0px;
+  background-color: #fff;
+}
+.rendered_html code {
+  background-color: #eff0f1;
+}
+.rendered_html p code {
+  padding: 1px 5px;
+}
+.rendered_html pre code {
+  background-color: #fff;
 }
 .rendered_html pre,
 .rendered_html code {
   border: 0;
-  background-color: #fff;
   color: #000;
   font-size: 100%;
-  padding: 0px;
 }
 .rendered_html blockquote {
   margin: 1em 2em;
@@ -10264,24 +11229,36 @@ div.output_unrecognized a:hover {
 .rendered_html table {
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid black;
+  border: none;
   border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
 }
 .rendered_html tr,
 .rendered_html th,
 .rendered_html td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  margin: 1em 2em;
-}
-.rendered_html td,
-.rendered_html th {
-  text-align: left;
+  text-align: right;
   vertical-align: middle;
-  padding: 4px;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
 }
 .rendered_html th {
   font-weight: bold;
+}
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
 }
 .rendered_html * + table {
   margin-top: 1em;
@@ -10308,6 +11285,15 @@ div.output_unrecognized a:hover {
 .rendered_html img.unconfined,
 .rendered_html svg.unconfined {
   max-width: none;
+}
+.rendered_html .alert {
+  margin-bottom: initial;
+}
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] .rendered_html p {
+  text-align: right;
 }
 div.text_cell {
   /* Old browsers */
@@ -10362,8 +11348,17 @@ h6:hover .anchor-link {
   overflow-x: auto;
   overflow-y: hidden;
 }
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered .rendered_html td {
+  max-width: none;
+}
 .text_cell.unrendered .text_cell_render {
   display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
 }
 .cm-header-1,
 .cm-header-2,
@@ -10500,6 +11495,28 @@ kbd {
   padding-top: 1px;
   padding-bottom: 1px;
 }
+.jupyter-keybindings {
+  padding: 1px;
+  line-height: 24px;
+  border-bottom: 1px solid gray;
+}
+.jupyter-keybindings input {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.jupyter-keybindings i {
+  padding: 6px;
+}
+.well code {
+  background-color: #ffffff;
+  border-color: #ababab;
+  border-width: 1px;
+  border-style: solid;
+  padding: 2px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
 /* CSS for the cell toolbar */
 .celltoolbar {
   border: thin solid #CFCFCF;
@@ -10632,6 +11649,152 @@ select[multiple].celltoolbar select {
   margin-left: 5px;
   margin-right: 5px;
 }
+.tags_button_container {
+  width: 100%;
+  display: flex;
+}
+.tag-container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+}
+.tag-container > * {
+  margin: 0 4px;
+}
+.remove-tag-btn {
+  margin-left: 4px;
+}
+.tags-input {
+  display: flex;
+}
+.cell-tag:last-child:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 100%;
+  /* Fade to background color of cell toolbar */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), #EEE);
+}
+.tags-input > * {
+  margin-left: 4px;
+}
+.cell-tag,
+.tags-input input,
+.tags-input button {
+  display: block;
+  width: 100%;
+  height: 32px;
+  padding: 6px 12px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 1px;
+  box-shadow: none;
+  width: inherit;
+  font-size: inherit;
+  height: 22px;
+  line-height: 22px;
+  padding: 0px 4px;
+  display: inline-block;
+}
+.cell-tag:focus,
+.tags-input input:focus,
+.tags-input button:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.cell-tag::-moz-placeholder,
+.tags-input input::-moz-placeholder,
+.tags-input button::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.cell-tag:-ms-input-placeholder,
+.tags-input input:-ms-input-placeholder,
+.tags-input button:-ms-input-placeholder {
+  color: #999;
+}
+.cell-tag::-webkit-input-placeholder,
+.tags-input input::-webkit-input-placeholder,
+.tags-input button::-webkit-input-placeholder {
+  color: #999;
+}
+.cell-tag::-ms-expand,
+.tags-input input::-ms-expand,
+.tags-input button::-ms-expand {
+  border: 0;
+  background-color: transparent;
+}
+.cell-tag[disabled],
+.tags-input input[disabled],
+.tags-input button[disabled],
+.cell-tag[readonly],
+.tags-input input[readonly],
+.tags-input button[readonly],
+fieldset[disabled] .cell-tag,
+fieldset[disabled] .tags-input input,
+fieldset[disabled] .tags-input button {
+  background-color: #eeeeee;
+  opacity: 1;
+}
+.cell-tag[disabled],
+.tags-input input[disabled],
+.tags-input button[disabled],
+fieldset[disabled] .cell-tag,
+fieldset[disabled] .tags-input input,
+fieldset[disabled] .tags-input button {
+  cursor: not-allowed;
+}
+textarea.cell-tag,
+textarea.tags-input input,
+textarea.tags-input button {
+  height: auto;
+}
+select.cell-tag,
+select.tags-input input,
+select.tags-input button {
+  height: 30px;
+  line-height: 30px;
+}
+textarea.cell-tag,
+textarea.tags-input input,
+textarea.tags-input button,
+select[multiple].cell-tag,
+select[multiple].tags-input input,
+select[multiple].tags-input button {
+  height: auto;
+}
+.cell-tag,
+.tags-input button {
+  padding: 0px 4px;
+}
+.cell-tag {
+  background-color: #fff;
+  white-space: nowrap;
+}
+.tags-input input[type=text]:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #ccc;
+}
 .completions {
   position: absolute;
   z-index: 110;
@@ -10657,16 +11820,28 @@ select[multiple].celltoolbar select {
 .completions select option.context {
   color: #286090;
 }
-#kernel_logo_widget {
-  float: right !important;
-  float: right;
-}
 #kernel_logo_widget .current_kernel_logo {
   display: none;
   margin-top: -1px;
   margin-bottom: -1px;
   width: 32px;
   height: 32px;
+}
+[dir="rtl"] #kernel_logo_widget {
+  float: left !important;
+  float: left;
+}
+.modal .modal-body .move-path {
+  display: flex;
+  flex-direction: row;
+  justify-content: space;
+  align-items: center;
+}
+.modal .modal-body .move-path .server-root {
+  padding-right: 20px;
+}
+.modal .modal-body .move-path .path-input {
+  flex: 1;
 }
 #menubar {
   box-sizing: border-box;
@@ -10688,11 +11863,41 @@ select[multiple].celltoolbar select {
 #menubar .navbar-collapse {
   clear: left;
 }
+[dir="rtl"] #menubar .navbar-toggle {
+  float: right;
+}
+[dir="rtl"] #menubar .navbar-collapse {
+  clear: right;
+}
+[dir="rtl"] #menubar .navbar-nav {
+  float: right;
+}
+[dir="rtl"] #menubar .nav {
+  padding-right: 0px;
+}
+[dir="rtl"] #menubar .navbar-nav > li {
+  float: right;
+}
+[dir="rtl"] #menubar .navbar-right {
+  float: left !important;
+}
+[dir="rtl"] ul.dropdown-menu {
+  text-align: right;
+  left: auto;
+}
+[dir="rtl"] ul#new-menu.dropdown-menu {
+  right: auto;
+  left: 0;
+}
 .nav-wrapper {
   border-bottom: 1px solid #e7e7e7;
 }
 i.menu-icon {
   padding-top: 4px;
+}
+[dir="rtl"] i.menu-icon.pull-right {
+  float: left !important;
+  float: left;
 }
 ul#help_menu li a {
   overflow: hidden;
@@ -10700,6 +11905,17 @@ ul#help_menu li a {
 }
 ul#help_menu li a i {
   margin-right: -1.2em;
+}
+[dir="rtl"] ul#help_menu li a {
+  padding-left: 2.2em;
+}
+[dir="rtl"] ul#help_menu li a i {
+  margin-right: 0;
+  margin-left: -1.2em;
+}
+[dir="rtl"] ul#help_menu li a i.pull-right {
+  float: left !important;
+  float: left;
 }
 .dropdown-submenu {
   position: relative;
@@ -10709,6 +11925,10 @@ ul#help_menu li a i {
   left: 100%;
   margin-top: -6px;
   margin-left: -1px;
+}
+[dir="rtl"] .dropdown-submenu > .dropdown-menu {
+  right: 100%;
+  margin-right: -1px;
 }
 .dropdown-submenu:hover > .dropdown-menu {
   display: block;
@@ -10727,11 +11947,23 @@ ul#help_menu li a i {
   margin-top: 2px;
   margin-right: -10px;
 }
+.dropdown-submenu > a:after.fa-pull-left {
+  margin-right: .3em;
+}
+.dropdown-submenu > a:after.fa-pull-right {
+  margin-left: .3em;
+}
 .dropdown-submenu > a:after.pull-left {
   margin-right: .3em;
 }
 .dropdown-submenu > a:after.pull-right {
   margin-left: .3em;
+}
+[dir="rtl"] .dropdown-submenu > a:after {
+  float: left;
+  content: "\f0d9";
+  margin-right: 0;
+  margin-left: -10px;
 }
 .dropdown-submenu:hover > a:after {
   color: #262626;
@@ -10748,6 +11980,10 @@ ul#help_menu li a i {
   float: right;
   z-index: 10;
 }
+[dir="rtl"] #notification_area {
+  float: left !important;
+  float: left;
+}
 .indicator_area {
   float: right !important;
   float: right;
@@ -10758,6 +11994,10 @@ ul#help_menu li a i {
   z-index: 10;
   text-align: center;
   width: auto;
+}
+[dir="rtl"] .indicator_area {
+  float: left !important;
+  float: left;
 }
 #kernel_indicator {
   float: right !important;
@@ -10775,6 +12015,12 @@ ul#help_menu li a i {
   padding-left: 5px;
   padding-right: 5px;
 }
+[dir="rtl"] #kernel_indicator {
+  float: left !important;
+  float: left;
+  border-left: 0;
+  border-right: 1px solid;
+}
 #modal_indicator {
   float: right !important;
   float: right;
@@ -10785,6 +12031,10 @@ ul#help_menu li a i {
   z-index: 10;
   text-align: center;
   width: auto;
+}
+[dir="rtl"] #modal_indicator {
+  float: left !important;
+  float: left;
 }
 #readonly-indicator {
   float: right !important;
@@ -10815,6 +12065,12 @@ ul#help_menu li a i {
   -moz-osx-font-smoothing: grayscale;
   content: "\f040";
 }
+.edit_mode .modal_indicator:before.fa-pull-left {
+  margin-right: .3em;
+}
+.edit_mode .modal_indicator:before.fa-pull-right {
+  margin-left: .3em;
+}
 .edit_mode .modal_indicator:before.pull-left {
   margin-right: .3em;
 }
@@ -10829,6 +12085,12 @@ ul#help_menu li a i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: ' ';
+}
+.command_mode .modal_indicator:before.fa-pull-left {
+  margin-right: .3em;
+}
+.command_mode .modal_indicator:before.fa-pull-right {
+  margin-left: .3em;
 }
 .command_mode .modal_indicator:before.pull-left {
   margin-right: .3em;
@@ -10845,6 +12107,12 @@ ul#help_menu li a i {
   -moz-osx-font-smoothing: grayscale;
   content: "\f10c";
 }
+.kernel_idle_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.kernel_idle_icon:before.fa-pull-right {
+  margin-left: .3em;
+}
 .kernel_idle_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -10859,6 +12127,12 @@ ul#help_menu li a i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "\f111";
+}
+.kernel_busy_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.kernel_busy_icon:before.fa-pull-right {
+  margin-left: .3em;
 }
 .kernel_busy_icon:before.pull-left {
   margin-right: .3em;
@@ -10875,6 +12149,12 @@ ul#help_menu li a i {
   -moz-osx-font-smoothing: grayscale;
   content: "\f1e2";
 }
+.kernel_dead_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.kernel_dead_icon:before.fa-pull-right {
+  margin-left: .3em;
+}
 .kernel_dead_icon:before.pull-left {
   margin-right: .3em;
 }
@@ -10889,6 +12169,12 @@ ul#help_menu li a i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   content: "\f127";
+}
+.kernel_disconnected_icon:before.fa-pull-left {
+  margin-right: .3em;
+}
+.kernel_disconnected_icon:before.fa-pull-right {
+  margin-left: .3em;
 }
 .kernel_disconnected_icon:before.pull-left {
   margin-right: .3em;
@@ -11279,27 +12565,46 @@ div#pager .ui-resizable-handle::after {
   flex: 1;
 }
 span.save_widget {
-  margin-top: 6px;
+  height: 30px;
+  margin-top: 4px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  width: 50%;
+  flex: 1;
 }
 span.save_widget span.filename {
-  height: 1em;
+  height: 100%;
   line-height: 1em;
-  padding: 3px;
   margin-left: 16px;
   border: none;
   font-size: 146.5%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   border-radius: 2px;
 }
 span.save_widget span.filename:hover {
   background-color: #e6e6e6;
 }
+[dir="rtl"] span.save_widget.pull-left {
+  float: right !important;
+  float: right;
+}
+[dir="rtl"] span.save_widget span.filename {
+  margin-left: 0;
+  margin-right: 16px;
+}
 span.checkpoint_status,
 span.autosave_status {
   font-size: small;
+  white-space: nowrap;
+  padding: 0 5px;
 }
 @media (max-width: 767px) {
   span.save_widget {
     font-size: small;
+    padding: 0 0 0 5px;
   }
   span.checkpoint_status,
   span.autosave_status {
@@ -11343,6 +12648,9 @@ span.autosave_status {
   margin-top: 0px;
   margin-left: 5px;
 }
+.toolbar-btn-label {
+  margin-left: 6px;
+}
 #maintoolbar {
   margin-bottom: -3px;
   margin-top: -8px;
@@ -11362,6 +12670,10 @@ span.autosave_status {
 }
 .select-xs {
   height: 24px;
+}
+[dir="rtl"] .btn-group > .btn,
+.btn-group-vertical > .btn {
+  float: right;
 }
 .pulse,
 .dropdown-menu > li > a.pulse,
@@ -11512,6 +12824,10 @@ ul.typeahead-list i {
   margin-left: -10px;
   width: 18px;
 }
+[dir="rtl"] ul.typeahead-list i {
+  margin-left: 0;
+  margin-right: -10px;
+}
 ul.typeahead-list {
   max-height: 80vh;
   overflow: auto;
@@ -11520,6 +12836,13 @@ ul.typeahead-list > li > a {
   /** Firefox bug **/
   /* see https://github.com/jupyter/notebook/issues/559 */
   white-space: normal;
+}
+ul.typeahead-list  > li > a.pull-right {
+  float: left !important;
+  float: left;
+}
+[dir="rtl"] .typeahead-list {
+  text-align: right;
 }
 .cmd-palette .modal-body {
   padding: 7px;
@@ -11531,10 +12854,19 @@ ul.typeahead-list > li > a {
   outline: none;
 }
 .no-shortcut {
-  display: none;
+  min-width: 20px;
+  color: transparent;
+}
+[dir="rtl"] .no-shortcut.pull-right {
+  float: left !important;
+  float: left;
+}
+[dir="rtl"] .command-shortcut.pull-right {
+  float: left !important;
+  float: left;
 }
 .command-shortcut:before {
-  content: "(command)";
+  content: "(command mode)";
   padding-right: 3px;
   color: #777777;
 }
@@ -11543,6 +12875,10 @@ ul.typeahead-list > li > a {
   padding-right: 3px;
   color: #777777;
 }
+[dir="rtl"] .edit-shortcut.pull-right {
+  float: left !important;
+  float: left;
+}
 #find-and-replace #replace-preview .match,
 #find-and-replace #replace-preview .insert {
   background-color: #BBDEFB;
@@ -11550,6 +12886,12 @@ ul.typeahead-list > li > a {
   border-style: solid;
   border-width: 1px;
   border-radius: 0px;
+}
+[dir="ltr"] #find-and-replace .input-group-btn + .form-control {
+  border-left: none;
+}
+[dir="rtl"] #find-and-replace .input-group-btn + .form-control {
+  border-right: none;
 }
 #find-and-replace #replace-preview .replace .match {
   background-color: #FFCDD2;
@@ -11675,1549 +13017,6 @@ ul.typeahead-list > li > a {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
-<style type="text/css">
-    
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-
-    </style>
-<style type="text/css">
-    /* JS9 allinone: v1.11, Mon Jan 23 20:51:06 EST 2017 */
-@charset "UTF-8";
-/*!
- * jQuery contextMenu - Plugin for simple contextMenu handling
- *
- * Version: v2.2.1-dev
- *
- * Authors: Björn Brala (SWIS.nl), Rodney Rehm, Addy Osmani (patches for FF)
- * Web: http://swisnl.github.io/jQuery-contextMenu/
- *
- * Copyright (c) 2011-2016 SWIS BV and contributors
- *
- * Licensed under
- *   MIT License http://www.opensource.org/licenses/mit-license
- *
- * Date: 2016-06-17T13:49:48.330Z
- */
-@font-face {
-  font-family: "context-menu-icons";
-  font-style: normal; 
-  font-weight: normal;
-
-  src: url("font/context-menu-icons.eot?1ugwy");
-  src: url("font/context-menu-icons.eot?1ugwy#iefix") format("embedded-opentype"), url("font/context-menu-icons.woff2?1ugwy") format("woff2"), url("font/context-menu-icons.woff?1ugwy") format("woff"), url("font/context-menu-icons.ttf?1ugwy") format("truetype");
-}
-
-.context-menu-icon-add:before {
-  content: "\EA01";
-}
-
-.context-menu-icon-copy:before {
-  content: "\EA02";
-}
-
-.context-menu-icon-cut:before {
-  content: "\EA03";
-}
-
-.context-menu-icon-delete:before {
-  content: "\EA04";
-}
-
-.context-menu-icon-edit:before {
-  content: "\EA05";
-}
-
-.context-menu-icon-paste:before {
-  content: "\EA06";
-}
-
-.context-menu-icon-quit:before {
-  content: "\EA07";
-}
-
-.context-menu-icon::before {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 2em; 
-  font-family: "context-menu-icons";
-  font-size: 1em;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  color: #2980b9;
-  text-align: center;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-       -o-transform: translateY(-50%);
-          transform: translateY(-50%);
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.context-menu-icon.context-menu-hover:before {
-  color: #fff;
-}
-
-.context-menu-icon.context-menu-disabled::before {
-  color: #bbb;
-}
-
-.context-menu-icon.context-menu-icon--fa {
-  display: list-item;
-}
-.context-menu-icon.context-menu-icon--fa::before {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 2em; 
-  font-family: FontAwesome;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  color: #2980b9;
-  text-align: center;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-       -o-transform: translateY(-50%);
-          transform: translateY(-50%);
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.context-menu-icon.context-menu-icon--fa.context-menu-hover:before {
-  color: #fff;
-}
-.context-menu-icon.context-menu-icon--fa.context-menu-disabled::before {
-  color: #bbb;
-}
-
-.context-menu-list {
-  position: absolute; 
-  display: inline-block;
-  min-width: 13em;
-  max-width: 26em;
-  padding: .25em 0;
-  margin: .3em;
-  font-family: inherit;
-  font-size: inherit;
-  list-style-type: none;
-  background: #fff;
-  border: 1px solid #bebebe;
-  border-radius: .2em;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
-}
-
-.context-menu-item {
-  position: relative;
-  padding: .2em 2em;
-  color: #2f2f2f;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; 
-  background-color: #fff;
-}
-
-.context-menu-separator {
-  padding: 0; 
-  margin: .35em 0;
-  border-bottom: 1px solid #e6e6e6;
-}
-
-.context-menu-item > label > input,
-.context-menu-item > label > textarea {
-  -webkit-user-select: text;
-     -moz-user-select: text;
-      -ms-user-select: text;
-          user-select: text;
-}
-
-.context-menu-item.context-menu-hover {
-  color: #fff;
-  cursor: pointer; 
-  background-color: #2980b9;
-}
-
-.context-menu-item.context-menu-disabled {
-  color: #bbb;
-  cursor: default; 
-  background-color: #fff;
-}
-
-.context-menu-input.context-menu-hover {
-  cursor: default;
-}
-
-.context-menu-submenu:after {
-  position: absolute;
-  top: 50%;
-  right: .5em;
-  z-index: 1; 
-  width: 0;
-  height: 0;
-  content: '';
-  border-color: transparent transparent transparent #2f2f2f;
-  border-style: solid;
-  border-width: .25em 0 .25em .25em;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-       -o-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-/**
- * Inputs
- */
-.context-menu-item.context-menu-input {
-  padding: .3em .6em;
-}
-
-/* vertically align inside labels */
-.context-menu-input > label > * {
-  vertical-align: top;
-}
-
-/* position checkboxes and radios as icons */
-.context-menu-input > label > input[type="checkbox"],
-.context-menu-input > label > input[type="radio"] {
-  position: relative;
-  top: .12em; 
-  margin-right: .4em;
-}
-
-.context-menu-input > label {
-  margin: 0;
-}
-
-.context-menu-input > label,
-.context-menu-input > label > input[type="text"],
-.context-menu-input > label > textarea,
-.context-menu-input > label > select {
-  display: block;
-  width: 100%; 
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.context-menu-input > label > textarea {
-  height: 7em;
-}
-
-.context-menu-item > .context-menu-list {
-  top: .3em; 
-  /* re-positioned by js */
-  right: -.3em;
-  display: none;
-}
-
-.context-menu-item.context-menu-visible > .context-menu-list {
-  display: block;
-}
-
-.context-menu-accesskey {
-  text-decoration: underline;
-}
-.dhtmlwindow{
-position: absolute;
-border: 2px solid black;
-visibility: hidden;
-background-color: white;
-}
-
-.drag-handle{ /*CSS for Drag Handle*/
-padding: 1px;
-text-indent: 3px;
-font: bold 14px Arial;
-background-color: #CA0000;
-color: white;
-cursor: move;
-overflow: hidden;
-width: auto;
-filter:progid:DXImageTransform.Microsoft.alpha(opacity=100);
--moz-opacity: 1;
-opacity: 1;
-}
-
-.drag-handle .drag-controls{ /*CSS for controls (min, close etc) within Drag Handle*/
-position: absolute;
-right: 1px;
-top: 2px;
-cursor: hand;
-cursor: pointer;
-}
-
-* html .drag-handle{ /*IE6 and below CSS hack. Width must be set to 100% in order for opaque title bar to render*/
-width: 100%;
-}
-
-
-.drag-contentarea{ /*CSS for Content Display Area div*/
-border-top: 1px solid brown;
-background-color: white;
-color: black;
-height: 150px;
-padding: 2px;
-overflow: auto;
-}
-
-.drag-statusarea{ /*CSS for Status Bar div (includes resizearea)*/
-border-top: 1px solid gray;
-background-color: #F8F8F8;
-height: 13px; /*height of resize image*/
-}
-
-
-.drag-resizearea{ /*CSS for Resize Area itself*/
-float: right;
-width: 13px; /*width of resize image*/
-height: 13px; /*height of resize image*/
-cursor: nw-resize;
-font-size: 0;
-}
-
-.osxA {
-  text-decoration: none;
-}
-
-.osxSpan {
-  line-height: 8px;
-  vertical-align: 0%;
-}
-
-.osxButtons {
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 4px;
-  line-height: 0px;
-}
-
-.osxButtons:hover a {
-  visibility: visible;
-}
-
-.osxClose {
-  background: #ff5c5c;
-  font-family: HelveticaNeue, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
-  font-size: 8pt;
-  width: 11px;
-  height: 11px;
-  border: 1px solid #e33e41;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.osxClose:active {
-  background: #c14645;
-  border: 1px solid #b03537;
-}
-
-.osxClose:active .osxClosebutton {
-  color: #4e0002;
-}
-
-.osxClosebutton {
-  color: #820005;
-  visibility: hidden;
-  cursor: default;
-}
-
-.osxMinimize {
-  background: #ffbd4c;
-  font-family: HelveticaNeue, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
-  font-size: 8pt;
-  margin-left: 8px;
-  width: 11px;
-  height: 11px;
-  border: 1px solid #e09e3e;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.osxMinimize:active {
-  background: #c08e38;
-  border: 1px solid #af7c33;
-}
-
-.osxMinimize:active .osxMinimizebutton {
-  color: #5a2607;
-}
-
-.osxMinimizebutton {
-  color: #9a5518;
-  visibility: hidden;
-  cursor: default;
-}
-/* ######### CSS for Shade Tabs. Remove if not using ######### */
-
-.shadetabs{
-padding: 3px 0;
-margin-left: 0;
-margin-top: 1px;
-margin-bottom: 0;
-font: bold 12px Verdana;
-list-style-type: none;
-text-align: left; /*set to left, center, or right to align the menu as desired*/
-}
-
-.shadetabs li{
-display: inline;
-margin: 0;
-}
-
-.shadetabs li a{
-text-decoration: none;
-position: relative;
-z-index: 1;
-padding: 3px 7px;
-margin-right: 3px;
-border: 1px solid #778;
-color: #2d2b2b;
-background: white url(shade.gif) top left repeat-x;
-}
-
-.shadetabs li a:visited{
-color: #2d2b2b;
-}
-
-.shadetabs li a:hover{
-text-decoration: underline;
-color: #2d2b2b;
-}
-
-.shadetabs li a.selected{ /*selected main tab style */
-position: relative;
-top: 1px;
-}
-
-.shadetabs li a.selected{ /*selected main tab style */
-background-image: url(shadeactive.gif);
-border-bottom-color: white;
-}
-
-.shadetabs li a.selected:hover{ /*selected main tab style */
-text-decoration: none;
-}
-
-.tabcontent{
-display:none;
-}
-
-@media print {
-.tabcontent {
-display:block !important;
-}
-}
-
-/* ######### CSS for Inverted Modern Bricks II Tabs. Remove if not using ######### */
-
-.modernbricksmenu2{
-padding: 0;
-width: 362px;
-border-top: 5px solid #D25A0B; /*Brown color theme*/ 
-background: transparent;
-voice-family: "\"}\"";
-voice-family: inherit;
-}
-
-.modernbricksmenu2 ul{
-margin:0;
-margin-left: 10px; /*margin between first menu item and left browser edge*/
-padding: 0;
-list-style: none;
-}
-
-.modernbricksmenu2 li{
-display: inline;
-margin: 0 2px 0 0;
-padding: 0;
-text-transform:uppercase;
-}
-
-.modernbricksmenu2 a{
-float: left;
-display: block;
-font: bold 11px Arial;
-color: white;
-text-decoration: none;
-margin: 0 1px 0 0; /*Margin between each menu item*/
-padding: 5px 10px;
-background-color: black; /*Brown color theme*/ 
-border-top: 1px solid white;
-}
-
-.modernbricksmenu2 a:hover{
-background-color: #D25A0B; /*Brown color theme*/ 
-color: white;
-}
-
-.modernbricksmenu2 a.selected{ /*currently selected tab*/
-background-color: #D25A0B; /*Brown color theme*/ 
-color: white;
-border-color: #D25A0B; /*Brown color theme*/ 
-}
-
-.tabcontent{
-display:none;
-}
-
-@media print {
-.tabcontent {
-display:block !important;
-}
-}
-
-/* ######### CSS for Indented CSS Tabs. Remove if not using ######### */
-
-
-.indentmenu{
-font: bold 13px Arial;
-width: 100%; /*leave this value as is in most cases*/
-}
-
-.indentmenu ul{
-margin: 0;
-padding: 0;
-float: left;
-/* width: 80%; width of menu*/
-border-top: 1px solid navy; /*navy border*/
-background: black url(indentbg.gif) center center repeat-x;
-}
-
-.indentmenu ul li{
-display: inline;
-}
-
-.indentmenu ul li a{
-float: left;
-color: white; /*text color*/
-padding: 5px 11px;
-text-decoration: none;
-border-right: 1px solid navy; /*navy divider between menu items*/
-}
-
-.indentmenu ul li a:visited{
-color: white;
-}
-
-.indentmenu ul li a.selected{
-color: white !important;
-padding-top: 6px; /*shift text down 1px*/
-padding-bottom: 4px;
-background: black url(indentbg2.gif) center center repeat-x;
-}
-
-
-.tabcontentstyle{ /*style of tab content oontainer*/
-border: 1px solid gray;
-width: 450px;
-margin-bottom: 1em;
-padding: 10px;
-}
-
-.tabcontent{
-display:none;
-}
-
-@media print {
-.tabcontent {
-display:block !important;
-}
-}div.JS9BlendContainer {
-    padding: 2px;
-}
-
-div.JS9BlendImage {
-    margin: 5px;
-    background: #E9E9E9;
-    overflow: auto;
-}
-
-div.JS9BlendImageInactive {
-    padding: 10px;
-    border: 1px solid black;
-}
-
-div.JS9BlendImageActive {
-    padding: 9px;
-    border: 2px solid #00F000;
-}
-
-div.JS9BlendHeader {
-    border: 0px solid black;
-    background: #E9E9E9;
-    padding: 0px;
-    margin-left: 15px;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-bottom: 0px;
-}
-
-#blendModeSelect {
-    width: 110px;
-}
-
-#blendModeSelect option {
-    width: 110px;
-}
-
-#blendOpacitySelect {
-    width: 80px;
-}
-
-#blendOpacitySelect option {
-    width: 80px;
-}
-
-#blendFile {
-    float: right;
-}
-
-#blendNoFile {
-    margin-left: 15px;
-}
-
-div.JS9BlinkContainer {
-    padding: 2px;
-}
-
-div.JS9BlinkImage {
-    margin: 5px;
-    background: #E9E9E9;
-    overflow: auto;
-}
-
-div.JS9BlinkImageInactive {
-    padding: 10px;
-    border: 1px solid black;
-}
-
-div.JS9BlinkImageActive {
-    padding: 9px;
-    border: 2px solid #00F000;
-}
-
-div.JS9BlinkHeader {
-    border: 0px solid black;
-    background: #E9E9E9;
-    padding: 0px;
-    margin-left: 15px;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-bottom: 0px;
-}
-
-#blinkModeSelect {
-    width: 110px;
-}
-
-#blinkModeSelect option {
-    width: 110px;
-}
-
-#blinkOpacitySelect {
-    width: 80px;
-}
-
-#blinkOpacitySelect option {
-    width: 80px;
-}
-
-#blinkFile {
-    float: right;
-}
-
-#blinkNoFile {
-    margin-left: 15px;
-}
-
-canvas.JS9ColorbarCanvas {
-    border: 1px solid black;
-}
-
-canvas.JS9ColorbarTextCanvas {
-    background-color: white;
-}
-
-
-.JS9CubeContainer {
-    padding: 5px;
-}
-
-.JS9CubeLinegroup {
-    float: left;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    width: 95%;
-    padding: 5px;
-    margin: 5px;
-}
-
-.JS9CubeRangeLine {
-  font-size: 9pt;
-}
-
-.JS9CubeRange {
-  vertical-align: middle;
-}
-
-.JS9CubeValue {
-  vertical-align: top;
-  text-align: center;
-}
-
-.JS9CubeOrder {
-  vertical-align: top;
-}
-
-div.JS9DivsContainer {
-    padding: 2px;
-}
-
-div.JS9DivsHeader {
-    border: 0px solid black;
-    background: #E9E9E9;
-    padding: 10px;
-    margin-left: 15px;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-bottom: 0px;
-}
-
-div.JS9DivsDiv {
-    margin: 5px;
-    background: #E9E9E9;
-    overflow: auto;
-    padding: 10px;
-    border: 1px solid black;
-}
-
-span.JS9DivsSpan {
-    float: right;
-    margin-right: 10px;
-}
-
-span.JS9NoDivs {
-    margin-left: 15px;
-}
-
-div.JS9ImarithLinegroup {
-    float: left;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    width: 95%;
-    padding: 5px;
-    margin: 5px;
-}
-
-div.JS9ImarithContainer {
-    padding: 5px;
-}
-div.JS9KeyboardContainer {
-    padding: 0px;
-    margin:  0px;
-}
-
-div.JS9KeyboardActionContainer {
-    padding: 0px;
-    margin:  0px;
-}
-
-div.JS9KeyboardItem {
-    padding: 0px;
-    margin:  0px;
-}
-
-div.JS9KeyboardText {
-    margin: 0px;
-    padding: 1px 1px 1px 30px;
-    background: #E9E9E9;
-    overflow: auto;
-    border: 1px solid transparent;
-    display: inline-block;
-    width: 120px;
-}
-
-div.JS9KeyboardAction {
-    margin: 0px;
-    padding: 1px;
-    background: #E9E9E9;
-    overflow: auto;
-    border: 1px solid transparent;
-    display: inline-block;
-}
-
-div.JS9KeyboardHeader, div.JS9KeyboardFooter {
-    background: #E9E9E9;
-    text-align: left;
-    padding: 0px;
-    margin-left: 15px;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-bottom: 0px;
-    border: 1px solid transparent;
-}
-div.JS9LayersContainer {
-    padding: 2px;
-}
-
-div.JS9LayersHeader {
-    border: 0px solid black;
-    background: #E9E9E9;
-    padding: 0px;
-    margin-left: 15px;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-bottom: 0px;
-}
-
-div.JS9LayersLayer {
-    margin: 5px;
-    background: #E9E9E9;
-    overflow: auto;
-}
-
-div.JS9LayersLayerInactive {
-    padding: 10px;
-    border: 1px solid black;
-}
-
-div.JS9LayersLayerActive {
-    padding: 9px;
-    border: 2px solid #00F000;
-}
-
-span.JS9LayersSpan {
-    float: right;
-    margin-right: 10px;
-}
-
-span.JS9NoLayers {
-    margin-left: 15px;
-}
-
-.JS9MefContainer {
-    padding: 10px;
-    overflow: auto;
-}
-
-.JS9MefExtension {
-    margin: 5px;
-    background: #E9E9E9;
-    overflow: auto;
-    font-size: 10pt;
-}
-
-.JS9MefHeader {
-    margin: 5px;
-    background: #E9E9E9;
-}
-
-.JS9MefInput {
-    margin: 5px;
-    background: #E9E9E9;
-}
-
-.JS9MefExtensionInactive {
-    padding: 0px;
-    border: 1px solid black;
-}
-
-.JS9MefExtensionActive {
-    padding: 0px;
-    border: 2px solid #00F000;
-}
-
-span.JS9MefStrike{
-    font-weight:bold; /*set line weight here*/
-    color:red;
-    text-decoration:line-through;
-}
-
-span.JS9MefStrike>span {
-    font-weight:normal;
-    color: black;
-}div.JS9MouseTouchContainer {
-    padding: 2px;
-}
-
-div.JS9MouseTouchText {
-    margin: 5px;
-    padding: 6px 6px 6px 10px;
-    background: #E9E9E9;
-    overflow: auto;
-    border: 1px solid transparent;
-}
-
-div.JS9MouseTouchAction {
-    margin: 5px;
-    padding: 6px;
-    background: #E9E9E9;
-    overflow: auto;
-    border: 1px solid black;
-}
-
-div.JS9MouseTouchHeader, div.JS9MouseTouchFooter {
-    background: #E9E9E9;
-    text-align: center;
-    padding: 0px;
-    margin-left: 15px;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-bottom: 0px;
-    border: 1px solid transparent;
-}
-/*
- *
- * JS9 CSS specifications
- *
- */
-
-/* high-level divs used by Web designers */
-div.JS9 {
-    /* relative pos top/left for container, Flanagan's JavaScript, p 357 */
-    position: relative;
-    top:  0px;
-    left: 0px;
-    display: block;
-    padding: 0px;
-}
-
-/* plugin divs */
-div.JS9Panner, div.JS9Magnifier, div.JS9Menubar, div.JS9Console, div.JS9Info {
-    /* relative pos top/left for container, Flanagan's JavaScript, p 357 */
-    position: relative;
-    top:  0px;
-    left: 0px;
-    display: block;
-    padding: 0px;
-}
-
-/* containers used internally to place content inside high-level divs */
-div.JS9Container {
-    /* absolute pos top/left for positioning, Flanagan's JavaScript, p 357 */
-    position: absolute;
-    top:  0px;
-    left: 0px;
-    outline: none;
-    background-color: transparent;
-}
-
-/* containers used internally to wrap around div plugin content */
-div.JS9PluginContainer {
-    /* background: #E9E9E9; */
-    background: transparent;
-    position: relative;
-    display: inline-block;
-    outline: none;
-}
-
-/* this is the plugin div itself */
-div.JS9Plugin {
-    background: #E9E9E9;
-}
-
-/* tell plugin div to scroll on overflow */
-div.JS9PluginScrolling {
-    overflow: auto;
-}
-
-/* commands and buttons on top of plugins */
-div.JS9PluginToolbar-div {
-    /* absolute positioning places the toolbar on the dhtml title bar */
-    position:absolute;
-    display:inline-block;
-    top: 0px;
-    overflow: auto;
-    cursor: default;
-    text-align: center;
-    left: 10px;
-}
-
-div.JS9PluginToolbar-light {
-    /* absolute positioning places the toolbar on the dhtml title bar */
-    position:absolute;
-    display:inline-block;
-    top: 0px;
-    right: 48px;
-    overflow: auto;
-    text-align: center;
-}
-
-div.JS9MenubarContainer, div.JS9MenubarContainer-classic {
-    /* absolute pos top/left for positioning, Flanagan's JavaScript, p 357 */
-    /* why is this relative?? absolute positions the menu under the canvas!! */
-    position: relative;
-    /* sigh ... why does this make the menubar too short?? */
-    display: block;
-    top: 0px;
-    left: 0px;
-    /* height: 25px; */
-    text-align: left;
-    padding: 2px 6px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ebebeb, color-stop(1.0, #d5d5d5)));
-    background: -webkit-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: -moz-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: -ms-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: -o-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: linear-gradient(top, #ebebeb, #d5d5d5);
-    color: #4d494d;
-}
-
-div.JS9MenubarContainer-flat, div.JS9MenubarContainer-border {
-    /* absolute pos top/left for positioning, Flanagan's JavaScript, p 357 */
-    /* why is this relative?? absolute positions the menu under the canvas!! */
-    position: relative;
-    /* sigh ... why does this make the menubar too short?? */
-    display: block;
-    top: 0px;
-    left: 0px;
-    /* height: 25px; */
-    text-align: left;
-    padding: 2px 10px;
-    background-color: lightblue;
-}
-
-div.JS9ConsoleContainer {
-    /* absolute pos top/left for positioning, Flanagan's JavaScript, p 357 */
-    /* why is this relative?? absolute positions make it tiny!! */
-    position: relative;
-    display: block;
-    top: 0px;
-    left: 0px;
-    background: #E9E9E9;
-    text-align: left;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    overflow-x: hidden;
-}
-
-/* canvas elements */
-canvas.JS9Image, canvas.JS9Panner, canvas.JS9Magnifier, canvas.JS9Info {
-    /* absolute positioning of canvas is required to overlay/align with 
-       graphics canvas (which is positioned relative) */
-    position:absolute;
-    top:  0px;
-    left: 0px;
-    background: #E9E9E9;
-}
-
-/* canvas element for transparent layers */
-canvas.JS9Layer {
-    /* absolute positioning of canvas is required to overlay/align with 
-       graphics canvas (which is positioned relative) */
-    position:absolute;
-    top:  0px;
-    left: 0px;
-    background-color: transparent;
-}
-
-/* message display */
-div.JS9Message {
-    width: 100%;
-    padding-top: 10px;
-    padding-left: 10px;
-    font-family: Helvetica, sans-serif;
-    font-size: 10pt;
-    font-weight: 300;
-}
-
-.JS9Button, .JS9Button-classic {
-    font: normal 12px Arial;
-    background: #F6F6F6;
-    border:  black 2px;
-    border-radius: 4px;
-    padding: 3px 6px 3px 6px;
-    margin: 6px 4px 6px 4px;
-    outline: none;
-}
-
-.JS9Button:hover, .JS9Button-classic:hover {
-    background-color: #C0C0C0;
-}
-
-/* prevent firefox from adding extra button padding */
-.JS9Button::-moz-focus-inner, .JS9Button-classic::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-}
-
-.JS9Button-flat {
-  color: #fff;
-  background-color: #6496c8;
-  text-shadow: -1px 1px #417cb8;
-  border: none;
-  padding-top: 4px;
-  padding-right: 6px;
-  padding-bottom: 4px;
-  padding-left: 6px;
-  margin:  4px;
-  outline: none;
-}
-
-.JS9Button-flat:hover, .JS9Button-flat.hover {
-  background-color: #346392;
-  text-shadow: -1px 1px #27496d;
-}
-
-.JS9Button-flat:active, .JS9Button-flat.active {
-  background-color: #27496d;
-  text-shadow: -1px 1px #193047;
-}
-
-.JS9Button-flat::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-}
-
-.JS9Button-border {
-  color: #6496c8;
-  background: #fff;
-  border: solid 3px #6496c8;
-  margin:  4px;
-  outline: none;
-}
-
-.JS9Button-border:hover, .JS9Button-border.hover {
-  border-color: #346392;
-  color: #346392;
-}
-
-.JS9Button-border:active, .JS9Button-border.active {
-  border-color: #27496d;
-  color: #27496d;
-}/* the commands inside a console */
-
-.JS9CmdForm {
-    border: 0px;
-    padding: 1px;
-    font-size: 12px;
-    font-family: monospace;
-    width:100%;
-}
-
-.JS9CmdTable {
-    vertical-align:top;
-    width:100%;
-}
-
-.JS9CmdTd  {
-    width:100%;
-}
-
-.JS9CmdIn, .JS9CmdOut {
-    border: 0px;
-    padding-top: 0px;
-    padding-left: 4px;
-    margin-left: 2px;
-    font-size: 12px;
-    font-family: monospace;
-    width:97%;
-    background: #E9E9E9;
-}
-
-/* get rid of blue border for input in Safari, Chrome */
-input:focus.JS9CmdIn {
-    outline: none;
-}
-
-.JS9CmdError {
-    border: 0px;
-    padding-top: 2px;
-    padding-left: 4px;
-    margin-left: 2px;
-    font-size: 12px;
-    font-family: monospace;
-    width:100%;
-    color: red;
-}
-
-.JS9CmdWarning {
-    border: 0px;
-    padding-top: 2px;
-    padding-left: 4px;
-    margin-left: 2px;
-    font-size: 12px;
-    font-family: monospace;
-    width:100%;
-    color: yellow;
-}
-
-.JS9CmdInfo {
-    border: 0px;
-    padding-top: 2px;
-    padding-left: 4px;
-    margin-left: 4px;
-    font-size: 12px;
-    font-family: monospace;
-    width:100%;
-    color: #3333FF;
-}
-
-.JS9CmdPrompt { 
-    color: #777;
-    font-size: 12px;
-    font-family: monospace;
-    white-space:nowrap;
-}
-
-.JS9AnalysisText {
-    padding-left: 10px;
-}
-
-.JS9Plot {
-    width:  800px;
-    height: 400px;
-    margin: 10px;
-}
-
-.JS9Tooltip{
-    position: relative;
-    z-index: 999;
-    background: #E9E9E9;
-    padding: 10px;
-    border: 0px;
-    font-family: Helvetica, sans-serif;
-    font-size: 10pt;
-    display: none;
-}
-
-/* context menu overrides */
-.context-menu-list  {
-    border: 1px solid black;
-    font-family: Helvetica, sans-serif;
-    font-size: 12px;
-    background-color: #E9E9E9;
-}
-
-/* jqueryContextMenu v2.2 */
-.context-menu-icon-sun:before {
-   content: url(images/sun.png);
-}
-
-.context-menu-item {
-    background-color: #E9E9E9;
-}
-
-.context-menu-item.context-menu-disabled {
-    color: #AAA;
-    cursor: default; 
-    background-color: #E9E9E9;
-}
-
-.context-menu-separator {
-    border-bottom: 1px solid #AAA;
-}
-
-.context-menu-input > label {
-   margin-left: 18px;
-}
-
-.context-menu-input > label > input[type="text"] {
-   width: 80%;
-   padding: 2px;
-}
-
-/* jqueryContextMenu pre-v2.2 */
-.pre-v2.2-context-menu-item.icon-sun {
-   background-image: url(images/sun.png);
-}
-
-/* jqueryContextMenu pre-v2.2 */
-.pre-v2.2-context-menu-input > label > span {
-    margin-left: 0px;
-}
-
-/* jqueryContextMenu pre-v2.2 */
-.pre-v2.2-context-menu-submenu:after {
-    content: "\2192";
-    color: black;
-    position: absolute;
-    right: 5px;
-}
-
-/* dhtml window overrides */
-.dhtmlwindow {
-    border: 1px solid grey;
-    padding: 0px;
-}
-
-.drag-controls {
-    padding: 2px;
-}
-
-.drag-handle {
-    /* height: 25px; */
-    height: 30px;
-    text-align: left;
-    color: black;
-    font-size: 14px;
-    font-weight: normal;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #ebebeb, color-stop(1.0, #d5d5d5)));
-    background: -webkit-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: -moz-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: -ms-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: -o-linear-gradient(top, #ebebeb, #d5d5d5);
-    background: linear-gradient(top, #ebebeb, #d5d5d5);
-    color: #4d494d;
-}
-
-.drag-contentarea {
-    background: #E9E9E9;
-    border-width: 0px;
-    padding: 0px;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 12pt;
-}
-
-.indentmenu{
-    font: normal 11px Arial;
-    margin-left: 4px;
-}
-
-.indentmenu ul{
-    border-top: 0px;
-    background: #A9A9A9;
-}
-
-.indentmenu ul li a{
-    border-top: 0px;
-    border-bottom: 0px;
-    border-left: 0px;
-    border-right: 6px solid #E9E9E9;
-    padding-left: 8px;
-    padding-right: 8px;
-}
-
-.indentmenu ul li a:hover,
-.indentmenu ul li a.hover {
-    background-color: #808080;
-}
-
-.indentmenu ul li a.selected{
-    padding-top: 5px; /* don't shift text down 1px */
-    padding-bottom: 5px;
-    background: #696969;
-}
-
-/* 3d surface plot bug */
-canvas.surfacePlotCanvas {
-    position: absolute;
-}
-
-/* js9 info */
-.js9InfoTable {
-    border: 0px;
-    margin: 0px;
-    padding: 8px;
-    font-size: 12px;
-    font-family: monospace;
-    border-spacing: 4px;
-}
-
-.js9InfoTable input,  .js9InfoTable textarea{
-    font-size: 12px;
-    font-family: monospace;
-    overflow-x: hidden;
-}
-
-/* js9Analysis forms */
-.js9AnalysisForm {
-    border: solid grey 1px;
-    margin: 8px;
-    padding: 8px;
-    background: #E9E9E9;
-}
-
-.JS9Archive-form {
-    background: #E9E9E9;
-    padding: 8px;
-}
-
-.linegroup {
-    float: left;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 24px;
-    padding: 0;
-    margin: 0 0 1.25em 0;
-}
-
-.column_A {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 300px;
-}
-
-.column_B {
-    position: absolute;
-    top: 0;
-    left: 300px;
-    width: 100px;
-}
-
-.text_B {
-    width: 100px;
-}
-
-.column_C {
-    position: absolute;
-    top: 0;
-    left: 450px;
-    width: 340px;
-}
-
-.column_R1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 140px;
-}
-
-.column_R2 {
-    position: absolute;
-    top: 0;
-    left: 150px;
-    width: 100px;
-}
-
-.column_R2l {
-    position: absolute;
-    top: 0;
-    left: 150px;
-    width: 250px;
-}
-
-.column_R2L {
-    position: absolute;
-    top: 0;
-    left: 150px;
-    width: 400px;
-}
-
-.column_R3 {
-    position: absolute;
-    top: 0;
-    left: 300px;
-    width: 100px;
-}
-
-.column_R3l {
-    position: absolute;
-    top: 0;
-    left: 300px;
-    width: 150px;
-}
-
-.column_R3L {
-    position: absolute;
-    top: 0;
-    left: 300px;
-    width: 300px;
-}
-
-.column_R4 {
-    position: absolute;
-    top: 0;
-    left: 450px;
-    width: 100px;
-}
-
-.column_R4l {
-    position: absolute;
-    top: 0;
-    left: 450px;
-    width: 250px;
-}
-
-.column_R5 {
-    position: absolute;
-    top: 0;
-    left: 600px;
-    width: 200px;
-}
-
-.text_R {
-    width: 100%;
-    font: normal 12px Arial
-}
-
-.nodisplay {
-  display: none;
-}
-
-.control {
-    border: transparent 1px;
-    padding: 2px;
-} 
-
-.js9HelpText {
-    border: solid grey 1px;
-    margin: 8px;
-    padding: 8px;
-    background: #E9E9E9;
-}
-
-.hline0 {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid black;
-    margin: 0;
-    padding: 0;
-}
-
-/* to make wait cursor override other element cursors (e.g. fabric.js canvas) */
-body.waiting, body.waiting * { 
-    cursor: wait !important;
-}
-.context-menu-icon-sun:before{content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAD8GlDQ1BJQ0MgUHJvZmlsZQAAKJGNVd1v21QUP4lvXKQWP6Cxjg4Vi69VU1u5GxqtxgZJk6XpQhq5zdgqpMl1bhpT1za2021Vn/YCbwz4A4CyBx6QeEIaDMT2su0BtElTQRXVJKQ9dNpAaJP2gqpwrq9Tu13GuJGvfznndz7v0TVAx1ea45hJGWDe8l01n5GPn5iWO1YhCc9BJ/RAp6Z7TrpcLgIuxoVH1sNfIcHeNwfa6/9zdVappwMknkJsVz19HvFpgJSpO64PIN5G+fAp30Hc8TziHS4miFhheJbjLMMzHB8POFPqKGKWi6TXtSriJcT9MzH5bAzzHIK1I08t6hq6zHpRdu2aYdJYuk9Q/881bzZa8Xrx6fLmJo/iu4/VXnfH1BB/rmu5ScQvI77m+BkmfxXxvcZcJY14L0DymZp7pML5yTcW61PvIN6JuGr4halQvmjNlCa4bXJ5zj6qhpxrujeKPYMXEd+q00KR5yNAlWZzrF+Ie+uNsdC/MO4tTOZafhbroyXuR3Df08bLiHsQf+ja6gTPWVimZl7l/oUrjl8OcxDWLbNU5D6JRL2gxkDu16fGuC054OMhclsyXTOOFEL+kmMGs4i5kfNuQ62EnBuam8tzP+Q+tSqhz9SuqpZlvR1EfBiOJTSgYMMM7jpYsAEyqJCHDL4dcFFTAwNMlFDUUpQYiadhDmXteeWAw3HEmA2s15k1RmnP4RHuhBybdBOF7MfnICmSQ2SYjIBM3iRvkcMki9IRcnDTthyLz2Ld2fTzPjTQK+Mdg8y5nkZfFO+se9LQr3/09xZr+5GcaSufeAfAww60mAPx+q8u/bAr8rFCLrx7s+vqEkw8qb+p26n11Aruq6m1iJH6PbWGv1VIY25mkNE8PkaQhxfLIF7DZXx80HD/A3l2jLclYs061xNpWCfoB6WHJTjbH0mV35Q/lRXlC+W8cndbl9t2SfhU+Fb4UfhO+F74GWThknBZ+Em4InwjXIyd1ePnY/Psg3pb1TJNu15TMKWMtFt6ScpKL0ivSMXIn9QtDUlj0h7U7N48t3i8eC0GnMC91dX2sTivgloDTgUVeEGHLTizbf5Da9JLhkhh29QOs1luMcScmBXTIIt7xRFxSBxnuJWfuAd1I7jntkyd/pgKaIwVr3MgmDo2q8x6IdB5QH162mcX7ajtnHGN2bov71OU1+U0fqqoXLD0wX5ZM005UHmySz3qLtDqILDvIL+iH6jB9y2x83ok898GOPQX3lk3Itl0A+BrD6D7tUjWh3fis58BXDigN9yF8M5PJH4B8Gr79/F/XRm8m241mw/wvur4BGDj42bzn+Vmc+NL9L8GcMn8F1kAcXjEKMJAAAAACXBIWXMAAAsTAAALEwEAmpwYAAADO0lEQVQokW3T3W9TZQAH4N/7cU7pStuVlnZrq3SDyaSSjpHNMZWAZgS5g9htmCh6oRK40AsTbxCzEEnQqNfohR+Ji7Z+AYY5MIEBcaAsg2Rtl411hLK5rqxraWnPac95X6/0yj/guXyIlBIA0B8Hi0VhAsChcQTc5tzWfFVzNVlZebNvXeL1Nm8aAHYPXeaXPthlAACRUv4HT6Xh1DJjH7nF3MDIaodzsz2D2w83IsiXKxHncmzBNnj8ky5kSDzOZDRqsmQ4zGLRsDmcutg2mlwdO13y973n/mlNXVPkduuUGM/78UbzRbXCPB3fZZTXGsyZP355fu/d/nicESklPkti3beJ1MSbzZdDfy75ay/7r3EhDdqoFCAhoBDI05n99U7PXfVCvqcU8vdEPu7GPAUAUvz13QO++dDNbEB/u2VYfdw6Rbtcv2OT7TYizlFopkqObhhWU/mg/oPut/Py2IcAQM7kpH3k+oXEgHfkMYuoC0MKusP9PapGCJTUYQgLbPw+FrV2zDzqFCrV6VR1a+kr9laY3pxNbpos+YKHpwfBaJl0uc6iUm8FYEBICkZqqJp+uNQsVKKRqw865W/FbnuHfmcbz2mqt9eVIr1rJsGJgC484LQGIQkIJCQICAyY0gIbK5EtjrQo6XZyoxKy8rUKL0zmgiCagEIlNtpuQUgOwIQEQCBhSgVWvgBK2vDl4i5SVr1ot9Ma/ZyFZne75pejwVFssC7K1VoTrGwJEhwEgACHjWcxXXoBjKjycPAS8cgVLeBomKLFHchDUc8eW3wHJ9IHDV1aMFN+BpyUAZhgpIwHtSCsfBVf3Dtg5GgLdnrvXzv2dOssB4B7yr4TVW06OuhLOGMLL9W6G1OKha2QqulGoeaBQg15PrfT2N6YUk5m9qOvqeU4ALBkOMy+2RspFCuzf/34d8uAu0Gx9Kwdw/t3jopWS0FeL0Rkqy1NXl06yBgC2NO88sqp5544T+JxxhKxmOyPx9mnfS/OfZ0NnOtSJraMP+wIXTHa6XqroJP6U9TBJWlX6S1HY+TQyd4nfyZDQ1QeOSLI/60aupF+NlusbJurPrL5LA69SD0TZ/asvwIA/6YAgH8A+sdxmMb2E7oAAAAASUVORK5CYII=");}
-
-    </style>
 
 
 <style type="text/css">
@@ -13251,7 +13050,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13275,12 +13074,26 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;202004004&#39;</span>
+<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-to-use-the-Data-Lab-Store-Client-Service">How to use the Data Lab <em>Store Client</em> Service<a class="anchor-link" href="#How-to-use-the-Data-Lab-Store-Client-Service">&#182;</a></h2><p><em>Revised:  Jul 24, 2019</em></p>
-<p>This notebook documents how to use the Data Lab virtual storage system via the store client service. This can be done either from a Python script (e.g. within this notebook) or from the command line using the <i>datalab</i> command.</p>
+<h2 id="How-to-use-the-Data-Lab-Store-Client-Service">How to use the Data Lab <em>Store Client</em> Service<a class="anchor-link" href="#How-to-use-the-Data-Lab-Store-Client-Service">&#182;</a></h2><p>This notebook documents how to use the Data Lab virtual storage system via the store client service. This can be done either from a Python script (e.g. within this notebook) or from the command line using the <i>datalab</i> command.</p>
 <h3 id="The-storage-manager-service-interface">The storage manager service interface<a class="anchor-link" href="#The-storage-manager-service-interface">&#182;</a></h3><p>The store client service simplifies access to the Data Lab virtual storage system. This section describes the store client service interface in case we want to write our own code against that rather than using one of the provided tools. The store client service accepts an HTTP GET call to the appropriate endpoint for the particular operation:</p>
 <table>
 <thead><tr>
@@ -13370,8 +13183,7 @@ div#notebook {
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="From-Python-code">From Python code<a class="anchor-link" href="#From-Python-code">&#182;</a></h3><p>The store client service can be called from Python code using the <i>datalab</i> module. This provides methods to access the various functions in the <i>storeClient</i> subpackage.</p>
 <h4 id="Initialization">Initialization<a class="anchor-link" href="#Initialization">&#182;</a></h4><p>This is the setup that is required to use the store client. The first thing to do is import the relevant Python modules and also retrieve our DataLab security token.</p>
@@ -13385,53 +13197,41 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Standard notebook imports</span>
-<span class="kn">from</span> <span class="nn">getpass</span> <span class="k">import</span> <span class="n">getpass</span>
-<span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">authClient</span><span class="p">,</span> <span class="n">storeClient</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+<span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">authClient</span><span class="p">,</span> <span class="n">storeClient</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Comment out and run the cell below if you need to login to Data Lab:</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get the authentication token for the user</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">authClient</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter user name: (+ENTER) &quot;</span><span class="p">),</span><span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter password: (+ENTER) &quot;</span><span class="p">))</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">authClient</span><span class="o">.</span><span class="n">isValidToken</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
-    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Token is not valid. Please check your usename/password and execute this cell again.&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Get the authentication token for the user</span>
+<span class="c1">#token = authClient.login(input(&quot;Enter user name: (+ENTER) &quot;),getpass(&quot;Enter password: (+ENTER) &quot;))</span>
+<span class="c1">#if not authClient.isValidToken(token):</span>
+<span class="c1">#    raise Exception(&#39;Token is not valid. Please check your usename/password and execute this cell again.&#39;)</span>
 </pre></div>
 
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Enter user name: (+ENTER) fitz
-Enter password: (+ENTER) ········
-</pre>
-</div>
-</div>
-
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Listing-a-file/directory">Listing a file/directory<a class="anchor-link" href="#Listing-a-file/directory">&#182;</a></h4><p>We can see all the files that are in a specific directory or get a full listing for a specific file.  In this case, we'll list the default virtual storage directory to use as a basis for changes we'll make below.</p>
 
@@ -13440,14 +13240,14 @@ Enter password: (+ENTER) ········
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">listing</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://&#39;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">listing</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -13457,11 +13257,11 @@ Enter password: (+ENTER) ········
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,tmp
+<pre>CSS_J095648.1-082529.csv,HIPASS_images_least_massive,HIPASS_images_most_massive,HIPASS_spectra_most_massive,TESTOUTPUT3,Testoutput2,cheinhsiu1.csv,cutout.fits,cutouts001,cutouts002,cutouts003,cutouts004,cutouts005,file1,file2,foo.csv,foo123.txt,foodir,foodir01,fooimages,fooplot1.pdf,g17d325.018.h5,g17d325.018.hdf5,g17d325.018_B.h5,gavo_out.csv,images,images2,lc3.tgz,link2results,myfoo.tgz,newmags.csv,newmags002.csv,ps1.vot,ps1_copy.vot,ps1_copy2.vot,ps1_copy3.vot,ps1b.vot,public,queryra_ramin000_ramax005.csv,results,results2,resultsXYZ,simplename.csv,smash10,smash100,smash_sep19_001.csv,smashfoo1.csv,testoutput1,timeseries.csv,timeseries_00001.csv,timeseries_00002.csv,tmp,tmp2,xyz124.csv
 </pre>
 </div>
 </div>
@@ -13471,8 +13271,7 @@ Enter password: (+ENTER) ········
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The <em>public</em> directory shown here is visible to all Data Lab users and provides a means of sharing data without having to setup special access.  Similarly, the <em>tmp</em> directory is read-protected and provides a convenient temporary directory to be used in a workflow.</p>
 
@@ -13480,8 +13279,7 @@ Enter password: (+ENTER) ········
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="File-Existence-and-Info">File Existence and Info<a class="anchor-link" href="#File-Existence-and-Info">&#182;</a></h4><p>Aside from simply listing files, it's possible to test whether a named file already exists or to determine more information about it.</p>
 
@@ -13490,7 +13288,7 @@ Enter password: (+ENTER) ········
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A simple file existence test:</span>
@@ -13509,7 +13307,7 @@ Enter password: (+ENTER) ········
     <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;User &quot;tmp&quot; directory is not group/world writable&#39;</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -13519,14 +13317,14 @@ Enter password: (+ENTER) ········
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>User &#34;public&#34; directory exists
 User &#34;public&#34; directory is group/world writable
 User &#34;tmp&#34; directory exists
-User &#34;tmp&#34; directory is group/world writable
+User &#34;tmp&#34; directory is not group/world writable
 </pre>
 </div>
 </div>
@@ -13536,52 +13334,9 @@ User &#34;tmp&#34; directory is group/world writable
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Uploading-a-file">Uploading a file<a class="anchor-link" href="#Uploading-a-file">&#182;</a></h4><p>Now we want to upload a new data file from our local disk to the virtual storage:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">put</span> <span class="p">(</span><span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;./newmags.csv&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(1 / 1) ./newmags.csv -&gt; vos://newmags.csv
-grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,tmp
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Downloading-a-file">Downloading a file<a class="anchor-link" href="#Downloading-a-file">&#182;</a></h4><p>Let's say we want to download a file from our virtual storage space, in this case a query result that we saved to it in the "How to use the Data Lab query manager service" notebook:</p>
 
 </div>
 </div>
@@ -13591,10 +13346,11 @@ grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,tm
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;./mymags.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">put</span> <span class="p">(</span><span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;./newmags.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -13604,7 +13360,47 @@ grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,tm
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(1 / 1) ./newmags.csv -&gt; vos://newmags.csv
+CSS_J095648.1-082529.csv,HIPASS_images_least_massive,HIPASS_images_most_massive,HIPASS_spectra_most_massive,TESTOUTPUT3,Testoutput2,cheinhsiu1.csv,cutout.fits,cutouts001,cutouts002,cutouts003,cutouts004,cutouts005,file1,file2,foo.csv,foo123.txt,foodir,foodir01,fooimages,fooplot1.pdf,g17d325.018.h5,g17d325.018.hdf5,g17d325.018_B.h5,gavo_out.csv,images,images2,lc3.tgz,link2results,myfoo.tgz,newmags.csv,newmags002.csv,ps1.vot,ps1_copy.vot,ps1_copy2.vot,ps1_copy3.vot,ps1b.vot,public,queryra_ramin000_ramax005.csv,results,results2,resultsXYZ,simplename.csv,smash10,smash100,smash_sep19_001.csv,smashfoo1.csv,testoutput1,timeseries.csv,timeseries_00001.csv,timeseries_00002.csv,tmp,tmp2,xyz124.csv
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Downloading-a-file">Downloading a file<a class="anchor-link" href="#Downloading-a-file">&#182;</a></h4><p>Let's say we want to download a file from our virtual storage space, in this case a query result that we saved to it in the "How to use the Data Lab query manager service" notebook:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;./mymags.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -13615,7 +13411,7 @@ grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,tm
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[6]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -13631,8 +13427,7 @@ grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,tm
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>It is also possible to get the contents of a remote file directly into your notebook by specifying the location as an empty string:</p>
 
@@ -13641,14 +13436,14 @@ grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,tm
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">get</span> <span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -13658,7 +13453,7 @@ grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,tm
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -13680,95 +13475,9 @@ grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,tm
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Loading-a-file-from-a-remote-URL">Loading a file from a remote URL<a class="anchor-link" href="#Loading-a-file-from-a-remote-URL">&#182;</a></h4><p>It is possible to load a file directly to virtual storage from a remote URL )e.g. an "accessURL" for an image cutout, a remote data file, etc) using the "storeClient.load()" method:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://datalab.noao.edu/svc/cutout?col=&amp;siaRef=c4d_161005_022804_ooi_g_v1.fits.fz&amp;extn=31&amp;POS=335.0,0.0&amp;SIZE=0.1&quot;</span>
-<span class="n">storeClient</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;vos://cutout.fits&#39;</span><span class="p">,</span><span class="n">url</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[4]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;OK&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Creating-a-directory">Creating a directory<a class="anchor-link" href="#Creating-a-directory">&#182;</a></h4><p>We can create a directory on the remote storage to be used for saving data later:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mkdir</span> <span class="p">(</span><span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[8]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;OK&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Copying-a-file/directory">Copying a file/directory<a class="anchor-link" href="#Copying-a-file/directory">&#182;</a></h4><p>We want to put a copy of the file in a remote work directory:</p>
 
 </div>
 </div>
@@ -13778,13 +13487,11 @@ grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,tm
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mkdir</span> <span class="p">(</span><span class="s1">&#39;vos://temp&#39;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Before: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://temp/&#39;</span><span class="p">))</span>
-<span class="n">storeClient</span><span class="o">.</span><span class="n">cp</span> <span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;vos://temp/newmags.csv&#39;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;After: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://temp/&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://datalab.noao.edu/svc/cutout?col=&amp;siaRef=c4d_161005_022804_ooi_g_v1.fits.fz&amp;extn=31&amp;POS=335.0,0.0&amp;SIZE=0.1&quot;</span>
+<span class="n">storeClient</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;vos://cutout.fits&#39;</span><span class="p">,</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -13794,7 +13501,92 @@ grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,tm
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;OK&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Creating-a-directory">Creating a directory<a class="anchor-link" href="#Creating-a-directory">&#182;</a></h4><p>We can create a directory on the remote storage to be used for saving data later:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mkdir</span> <span class="p">(</span><span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;A Node already exists with the requested URI.&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Copying-a-file/directory">Copying a file/directory<a class="anchor-link" href="#Copying-a-file/directory">&#182;</a></h4><p>We want to put a copy of the file in a remote work directory:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mkdir</span> <span class="p">(</span><span class="s1">&#39;vos://temp&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Before: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://temp/&#39;</span><span class="p">))</span>
+<span class="n">storeClient</span><span class="o">.</span><span class="n">cp</span> <span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;vos://temp/newmags.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;After: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://temp/&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
@@ -13809,8 +13601,7 @@ After: newmags.csv
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Notice that in the <em>ls()</em> call we append the directory name with a trailing '/' to list the contents of the directory rather than the directory itself.</p>
 
@@ -13818,8 +13609,7 @@ After: newmags.csv
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Linking-to-a-file/directory">Linking to a file/directory<a class="anchor-link" href="#Linking-to-a-file/directory">&#182;</a></h4><p><strong>WARNING</strong>: Linking is currently <strong>not</strong> working in the Data Lab storage manager. This notebook will be updated when the problem has been resolved.</p>
 <p>Sometimes we want to create a link to a file or directory.  In this case, the link named by the <em>'fr'</em> parameter is created and points to the file/container named by the <em>'target'</em> parameter.</p>
@@ -13829,7 +13619,7 @@ After: newmags.csv
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">ln</span> <span class="p">(</span><span class="s1">&#39;vos://mags.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;vos://temp/newmags.csv&#39;</span><span class="p">)</span>
@@ -13837,7 +13627,7 @@ After: newmags.csv
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Temp dir: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://temp/&#39;</span><span class="p">))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -13847,11 +13637,11 @@ After: newmags.csv
 
 <div class="output_area">
 
-<div class="prompt"></div>
+    <div class="prompt"></div>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Root dir: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,temp,tmp
+<pre>Root dir: CSS_J095648.1-082529.csv,HIPASS_images_least_massive,HIPASS_images_most_massive,HIPASS_spectra_most_massive,TESTOUTPUT3,Testoutput2,cheinhsiu1.csv,cutout.fits,cutouts001,cutouts002,cutouts003,cutouts004,cutouts005,file1,file2,foo.csv,foo123.txt,foodir,foodir01,fooimages,fooplot1.pdf,g17d325.018.h5,g17d325.018.hdf5,g17d325.018_B.h5,gavo_out.csv,images,images2,lc3.tgz,link2results,myfoo.tgz,newmags.csv,newmags002.csv,ps1.vot,ps1_copy.vot,ps1_copy2.vot,ps1_copy3.vot,ps1b.vot,public,queryra_ramin000_ramax005.csv,results,results2,resultsXYZ,simplename.csv,smash10,smash100,smash_sep19_001.csv,smashfoo1.csv,temp,testoutput1,timeseries.csv,timeseries_00001.csv,timeseries_00002.csv,tmp,tmp2,xyz124.csv
 Temp dir: newmags.csv
 </pre>
 </div>
@@ -13862,94 +13652,9 @@ Temp dir: newmags.csv
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Moving/renaming-a-file/directory">Moving/renaming a file/directory<a class="anchor-link" href="#Moving/renaming-a-file/directory">&#182;</a></h4><p>We can move a file or directory:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://temp/newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Results dir: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://results/&#39;</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Results dir: 
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Deleting-a-file">Deleting a file<a class="anchor-link" href="#Deleting-a-file">&#182;</a></h4><p>We can delete a file:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Before: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
-<span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://mags.csv&#39;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;After: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Before: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,temp,tmp
-After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,results,temp,tmp
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Deleting-a-directory">Deleting a directory<a class="anchor-link" href="#Deleting-a-directory">&#182;</a></h4><p>We can also delete a directory, doing so also deletes the contents of that directory:</p>
 
 </div>
 </div>
@@ -13959,10 +13664,11 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://temp&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">mv</span><span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://temp/newmags.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Results dir: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://results/&#39;</span><span class="p">))</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -13972,7 +13678,88 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Results dir: newmags.csv
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Deleting-a-file">Deleting a file<a class="anchor-link" href="#Deleting-a-file">&#182;</a></h4><p>We can delete a file:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Before: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
+<span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://mags.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;After: &quot;</span> <span class="o">+</span> <span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Before: CSS_J095648.1-082529.csv,HIPASS_images_least_massive,HIPASS_images_most_massive,HIPASS_spectra_most_massive,TESTOUTPUT3,Testoutput2,cheinhsiu1.csv,cutout.fits,cutouts001,cutouts002,cutouts003,cutouts004,cutouts005,file1,file2,foo.csv,foo123.txt,foodir,foodir01,fooimages,fooplot1.pdf,g17d325.018.h5,g17d325.018.hdf5,g17d325.018_B.h5,gavo_out.csv,images,images2,lc3.tgz,link2results,myfoo.tgz,newmags.csv,newmags002.csv,ps1.vot,ps1_copy.vot,ps1_copy2.vot,ps1_copy3.vot,ps1b.vot,public,queryra_ramin000_ramax005.csv,results,results2,resultsXYZ,simplename.csv,smash10,smash100,smash_sep19_001.csv,smashfoo1.csv,temp,testoutput1,timeseries.csv,timeseries_00001.csv,timeseries_00002.csv,tmp,tmp2,xyz124.csv
+After: CSS_J095648.1-082529.csv,HIPASS_images_least_massive,HIPASS_images_most_massive,HIPASS_spectra_most_massive,TESTOUTPUT3,Testoutput2,cheinhsiu1.csv,cutout.fits,cutouts001,cutouts002,cutouts003,cutouts004,cutouts005,file1,file2,foo.csv,foo123.txt,foodir,foodir01,fooimages,fooplot1.pdf,g17d325.018.h5,g17d325.018.hdf5,g17d325.018_B.h5,gavo_out.csv,images,images2,lc3.tgz,link2results,myfoo.tgz,newmags.csv,newmags002.csv,ps1.vot,ps1_copy.vot,ps1_copy2.vot,ps1_copy3.vot,ps1b.vot,public,queryra_ramin000_ramax005.csv,results,results2,resultsXYZ,simplename.csv,smash10,smash100,smash_sep19_001.csv,smashfoo1.csv,temp,testoutput1,timeseries.csv,timeseries_00001.csv,timeseries_00002.csv,tmp,tmp2,xyz124.csv
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Deleting-a-directory">Deleting a directory<a class="anchor-link" href="#Deleting-a-directory">&#182;</a></h4><p>We can also delete a directory, doing so also deletes the contents of that directory:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://temp&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[15]:</div>
 
 
 
@@ -13988,8 +13775,7 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Tagging-a-file/directory">Tagging a file/directory<a class="anchor-link" href="#Tagging-a-file/directory">&#182;</a></h4><p><strong>Warning</strong>: Tagging is currently <strong>not</strong> working in the Data Lab storage manager. This notebook will be updated when the problem has been resolved.</p>
 <p>We can tag any file or directory with arbitrary metadata:</p>
@@ -13999,13 +13785,13 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="s1">&#39;vos://results&#39;</span><span class="p">,</span> <span class="s1">&#39;The results from my analysis&#39;</span><span class="p">)</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
@@ -14015,7 +13801,7 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[14]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -14031,95 +13817,9 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Cleanup-the-demo-directory-of-remaining-files">Cleanup the demo directory of remaining files<a class="anchor-link" href="#Cleanup-the-demo-directory-of-remaining-files">&#182;</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">)</span>
-<span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
-<span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://&#39;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[15]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmap.fits,public,tmp&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Using-the-datalab-command">Using the datalab command<a class="anchor-link" href="#Using-the-datalab-command">&#182;</a></h3><p>The <i>datalab</i> command provides an alternate command line way to work with the query manager through the <i>query</i> subcommands.</p>
-<h4 id="Initialization">Initialization<a class="anchor-link" href="#Initialization">&#182;</a></h4><p>We need to be logged into the DataLab to use the query manager.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab login <span class="nv">user</span><span class="o">=</span>geychaner <span class="nv">password</span><span class="o">=</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>User &#39;geychaner&#39; is already logged in to the Data Lab
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Downloading-a-file">Downloading a file<a class="anchor-link" href="#Downloading-a-file">&#182;</a></h4><p>Let's say we want to download a file from our virtual storage space:</p>
-
 </div>
 </div>
 </div>
@@ -14128,19 +13828,49 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab get <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://mags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;./mags.csv&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">)</span>
+<span class="n">storeClient</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://results&#39;</span><span class="p">)</span>
+<span class="n">storeClient</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;vos://&#39;</span><span class="p">)</span>
 </pre></div>
 
+    </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[17]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;CSS_J095648.1-082529.csv,HIPASS_images_least_massive,HIPASS_images_most_massive,HIPASS_spectra_most_massive,TESTOUTPUT3,Testoutput2,cheinhsiu1.csv,cutout.fits,cutouts001,cutouts002,cutouts003,cutouts004,cutouts005,file1,file2,foo.csv,foo123.txt,foodir,foodir01,fooimages,fooplot1.pdf,g17d325.018.h5,g17d325.018.hdf5,g17d325.018_B.h5,gavo_out.csv,images,images2,lc3.tgz,link2results,myfoo.tgz,newmags002.csv,ps1.vot,ps1_copy.vot,ps1_copy2.vot,ps1_copy3.vot,ps1b.vot,public,queryra_ramin000_ramax005.csv,results,results2,resultsXYZ,simplename.csv,smash10,smash100,smash_sep19_001.csv,smashfoo1.csv,testoutput1,timeseries.csv,timeseries_00001.csv,timeseries_00002.csv,tmp,tmp2,xyz124.csv&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Uploading-a-file">Uploading a file<a class="anchor-link" href="#Uploading-a-file">&#182;</a></h4><p>Now we want to upload a new data file from our local disk:</p>
+<h3 id="Using-the-datalab-command">Using the datalab command<a class="anchor-link" href="#Using-the-datalab-command">&#182;</a></h3><p>The <i>datalab</i> command provides an alternate command line way to work with the query manager through the <i>query</i> subcommands.</p>
+<h4 id="Initialization">Initialization<a class="anchor-link" href="#Initialization">&#182;</a></h4><p>We need to be logged into the DataLab to use the query manager.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Comment out and run this cell if you need to login to Data Lab:</p>
 
 </div>
 </div>
@@ -14150,19 +13880,18 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab put <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;./newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://newmags.csv&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="ch">#!datalab login user=demo00 password=</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Copying-a-file/directory">Copying a file/directory<a class="anchor-link" href="#Copying-a-file/directory">&#182;</a></h4><p>We want to put a copy of the file in a remote work directory:</p>
+<h4 id="Downloading-a-file">Downloading a file<a class="anchor-link" href="#Downloading-a-file">&#182;</a></h4><p>Let's say we want to download a file from our virtual storage space:</p>
 
 </div>
 </div>
@@ -14172,19 +13901,18 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab cp <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://temp/newmags.csv&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab get <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://mags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;./mags.csv&quot;</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Linking-to-a-file/directory">Linking to a file/directory<a class="anchor-link" href="#Linking-to-a-file/directory">&#182;</a></h4><p>Sometimes we want to create a link to a file or directory:</p>
+<h4 id="Uploading-a-file">Uploading a file<a class="anchor-link" href="#Uploading-a-file">&#182;</a></h4><p>Now we want to upload a new data file from our local disk:</p>
 
 </div>
 </div>
@@ -14194,19 +13922,18 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab ln <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://temp/mags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://mags.csv&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab put <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;./newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://newmags.csv&quot;</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Listing-a-file/directory">Listing a file/directory<a class="anchor-link" href="#Listing-a-file/directory">&#182;</a></h4><p>We can see all the files that are in a specific directory or get a full listing for a specific file:</p>
+<h4 id="Copying-a-file/directory">Copying a file/directory<a class="anchor-link" href="#Copying-a-file/directory">&#182;</a></h4><p>We want to put a copy of the file in a remote work directory:</p>
 
 </div>
 </div>
@@ -14216,37 +13943,18 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab ls <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://temp&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab cp <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://temp/newmags.csv&quot;</span>
 </pre></div>
 
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,tmp
-</pre>
-</div>
-</div>
-
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Creating-a-directory">Creating a directory<a class="anchor-link" href="#Creating-a-directory">&#182;</a></h4><p>We can create a directory:</p>
+<h4 id="Linking-to-a-file/directory">Linking to a file/directory<a class="anchor-link" href="#Linking-to-a-file/directory">&#182;</a></h4><p>Sometimes we want to create a link to a file or directory:</p>
 
 </div>
 </div>
@@ -14256,19 +13964,18 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab mkdir <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab ln <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://temp/mags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://mags.csv&quot;</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Moving/renaming-a-file/directory">Moving/renaming a file/directory<a class="anchor-link" href="#Moving/renaming-a-file/directory">&#182;</a></h4><p>We can move a file or directory:</p>
+<h4 id="Listing-a-file/directory">Listing a file/directory<a class="anchor-link" href="#Listing-a-file/directory">&#182;</a></h4><p>We can see all the files that are in a specific directory or get a full listing for a specific file:</p>
 
 </div>
 </div>
@@ -14278,19 +13985,36 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 <div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab mv <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://temp/newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab ls <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://temp&quot;</span>
 </pre></div>
 
+    </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>A Node does not exist with the requested URI.
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Deleting-a-file">Deleting a file<a class="anchor-link" href="#Deleting-a-file">&#182;</a></h4><p>We can delete a file:</p>
+<h4 id="Creating-a-directory">Creating a directory<a class="anchor-link" href="#Creating-a-directory">&#182;</a></h4><p>We can create a directory:</p>
 
 </div>
 </div>
@@ -14300,19 +14024,18 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 <div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab rm <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://temp/mags.csv&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab mkdir <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Deleting-a-directory">Deleting a directory<a class="anchor-link" href="#Deleting-a-directory">&#182;</a></h4><p>We can also delete a directory:</p>
+<h4 id="Moving/renaming-a-file/directory">Moving/renaming a file/directory<a class="anchor-link" href="#Moving/renaming-a-file/directory">&#182;</a></h4><p>We can move a file or directory:</p>
 
 </div>
 </div>
@@ -14322,19 +14045,18 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 <div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab rmdir <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://temp&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab mv <span class="nv">fr</span><span class="o">=</span><span class="s2">&quot;vos://temp/newmags.csv&quot;</span> <span class="nv">to</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Tagging-a-file/directory">Tagging a file/directory<a class="anchor-link" href="#Tagging-a-file/directory">&#182;</a></h4><p>We can tag any file or directory with arbitrary metadata:</p>
+<h4 id="Deleting-a-file">Deleting a file<a class="anchor-link" href="#Deleting-a-file">&#182;</a></h4><p>We can delete a file:</p>
 
 </div>
 </div>
@@ -14344,10 +14066,52 @@ After: grzw1_3sn10_29M.jpg,grzw1_sn10_15M.jpg,newmags.csv,newmap.fits,public,res
 <div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab rm <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://temp/mags.csv&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Deleting-a-directory">Deleting a directory<a class="anchor-link" href="#Deleting-a-directory">&#182;</a></h4><p>We can also delete a directory:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab rmdir <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://temp&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Tagging-a-file/directory">Tagging a file/directory<a class="anchor-link" href="#Tagging-a-file/directory">&#182;</a></h4><p>We can tag any file or directory with arbitrary metadata:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>datalab tag <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;vos://results&quot;</span> <span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;The results from my analysis&quot;</span>
 </pre></div>
 
-</div>
+    </div>
 </div>
 </div>
 
