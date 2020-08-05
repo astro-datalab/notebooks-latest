@@ -13080,7 +13080,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Mike Fitzpatrick, NOAO Data Lab Team&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20200430&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20200805&#39;</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">,</span><span class="s1">&#39;async&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -13178,10 +13178,10 @@ The query client service accepts an HTTP GET call to the <i>query</i> endpoint w
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Standard lib</span>
-<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="k">import</span> <span class="n">getpass</span>
 
 <span class="c1"># Data Lab</span>
-<span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span>
+<span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span>
 </pre></div>
 
     </div>
@@ -13304,16 +13304,16 @@ The query client service accepts an HTTP GET call to the <i>query</i> endpoint w
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>gmag,rmag,imag
-24.859207,24.14867,23.768522
-25.097267,24.357933,24.406269
-25.083416,24.611797,24.010031
-25.379248,99.989998,24.756306
-24.923378,24.037075,23.779806
-24.816929,24.496265,24.57375
-25.039248,99.989998,99.989998
-24.665981,24.336454,24.532278
-25.134247,99.989998,99.989998
-24.831894,24.246521,23.679804
+22.141075,99.989998,99.989998
+21.493074,99.989998,99.989998
+22.169075,99.989998,99.989998
+99.989998,99.989998,99.989998
+99.989998,99.989998,99.989998
+99.989998,99.989998,99.989998
+19.639074,99.989998,99.989998
+99.989998,99.989998,99.989998
+99.989998,99.989998,99.989998
+18.752075,99.989998,99.989998
 
 </pre>
 </div>
@@ -13408,7 +13408,7 @@ zxmags.csv
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;select * from usno.b1 limit 1000&quot;</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">adql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span><span class="n">out</span><span class="o">=</span><span class="s1">&#39;mydb://mags&#39;</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span><span class="n">out</span><span class="o">=</span><span class="s1">&#39;mydb://mags&#39;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="c1"># Handle any errors in the query.  By running this cell multiple times with the same</span>
     <span class="c1"># output file, or by using a bogus SQL statement, you can view various error messages.</span>
@@ -13434,7 +13434,7 @@ zxmags.csv
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Error: u&#39;&#34;mags&#34;&#39;
+<pre>OK
 </pre>
 </div>
 </div>
@@ -13478,26 +13478,59 @@ All the previous arguments can also be used to specify where and in what format 
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>EXECUTING
-Status = EXECUTING; elapsed time: 0, timeout in 300
+Status = EXECUTING; elapsed time: 15, timeout in 285
 EXECUTING
-Status = EXECUTING; elapsed time: 225, timeout in 75
+Status = EXECUTING; elapsed time: 30, timeout in 270
 EXECUTING
-Status = EXECUTING; elapsed time: 450, timeout in -150
+Status = EXECUTING; elapsed time: 45, timeout in 255
 EXECUTING
-Status = EXECUTING; elapsed time: 675, timeout in -375
+Status = EXECUTING; elapsed time: 60, timeout in 240
 EXECUTING
-Status = EXECUTING; elapsed time: 900, timeout in -600
+Status = EXECUTING; elapsed time: 75, timeout in 225
 EXECUTING
-Status = EXECUTING; elapsed time: 1125, timeout in -825
+Status = EXECUTING; elapsed time: 90, timeout in 210
 EXECUTING
-Status = EXECUTING; elapsed time: 1350, timeout in -1050
+Status = EXECUTING; elapsed time: 105, timeout in 195
 EXECUTING
-Status = EXECUTING; elapsed time: 1575, timeout in -1275
+Status = EXECUTING; elapsed time: 120, timeout in 180
 EXECUTING
-Status = EXECUTING; elapsed time: 1800, timeout in -1500
+Status = EXECUTING; elapsed time: 135, timeout in 165
 EXECUTING
-Status = COMPLETED; elapsed time: 2025, timeout in -1725
+Status = COMPLETED; elapsed time: 150, timeout in 150
 Retrieving results
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>COUNT
+1045175762
+
 </pre>
 </div>
 </div>
@@ -13517,7 +13550,7 @@ Retrieving results
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">profilelist</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">list_profiles</span><span class="p">()</span>
@@ -13565,7 +13598,7 @@ Retrieving results
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">set_profile</span><span class="p">(</span><span class="s1">&#39;GAVO&#39;</span><span class="p">)</span>
@@ -13608,7 +13641,7 @@ Retrieving results
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">list_profiles</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
@@ -13624,7 +13657,7 @@ Retrieving results
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -13633,7 +13666,6 @@ Retrieving results
 <pre>{&#39;mydb_user&#39;: &#39;datalab&#39;,
  &#39;description&#39;: &#39;db01&#39;,
  &#39;tempfilePath&#39;: &#39;/net/dl1/temp&#39;,
- &#39;mydb_password&#39;: &#39;datalab&#39;,
  &#39;mydb_database&#39;: &#39;mydb&#39;,
  &#39;accessURL&#39;: &#39;http://gp01.datalab.noao.edu:8080/ivoa-dal/tap&#39;,
  &#39;resultStorePath&#39;: &#39;/net/dl1/tap_data/resultStoreImpl&#39;,
@@ -13660,7 +13692,7 @@ Retrieving results
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;select table_catalog, table_schema, table_name from information_schema.tables&#39;</span>
@@ -13910,7 +13942,6 @@ tapdb,stripe82,des_dr1
 tapdb,stripe82,gaia_dr1
 tapdb,stripe82,gaia_dr2
 tapdb,stripe82,ls_dr3
-tapdb,stripe82,ls_dr4
 tapdb,stripe82,ls_dr5
 tapdb,stripe82,ls_dr6
 tapdb,stripe82,ls_dr7
@@ -13922,13 +13953,14 @@ tapdb,stripe82,twomass_psc
 tapdb,stripe82,twomass_xsc
 tapdb,stripe82,usno_a2
 tapdb,stripe82,usno_b1
-tapdb,neo_dr1,movds
-tapdb,neo_dr1,movexp
-tapdb,neo_dr1,movgrp
-tapdb,neo_dr1,movmpc
-tapdb,neo_dr1,movobs
-tapdb,ivoa_calibrated,all
 tapdb,ivoa_calibrated,calibrated_all
+tapdb,ivoa_calibrated,des_y1
+tapdb,ivoa_calibrated,des_y2
+tapdb,ivoa_calibrated,des_y3
+tapdb,ivoa_calibrated,des_y4
+tapdb,ivoa_calibrated,nsa
+tapdb,ivoa_calibrated,smash_dr1
+tapdb,ivoa_calibrated,smash_dr2
 tapdb,ivoa_decaps_dr1,exposure
 tapdb,ivoa_decaps_dr1,obscore
 tapdb,ivoa_decaps_dr1,siav1
@@ -13973,12 +14005,9 @@ tapdb,ivoa_ls_dr7,exposure
 tapdb,ivoa_ls_dr7,obscore
 tapdb,ivoa_ls_dr7,siav1
 tapdb,ivoa_ls_dr7,siav2
-tapdb,ivoa_raw,all
 tapdb,ivoa_raw,raw_all
-tapdb,ivoa_splus_dr1_bad,exposure
-tapdb,ivoa_splus_dr1_bad,obscore
-tapdb,ivoa_splus_dr1_bad,siav1
-tapdb,ivoa_splus_dr1_bad,siav2
+tapdb,ivoa_raw,smash_dr1
+tapdb,ivoa_raw,smash_dr2
 tapdb,ivoa_des_sva1,exposure
 tapdb,ivoa_des_sva1,obscore
 tapdb,ivoa_des_sva1,siav1
@@ -14042,25 +14071,41 @@ tapdb,ivoa_ls_dr8,exposure
 tapdb,ivoa_ls_dr8,obscore
 tapdb,ivoa_ls_dr8,siav1
 tapdb,ivoa_ls_dr8,siav2
+tapdb,mydb,1_rxs_2491
+tapdb,mydb,2mass1_2315
+tapdb,mydb,2mass_2315
 tapdb,mydb,80month_serendips_1616
+tapdb,mydb,DESI_BGS_2649
 tapdb,mydb,FIRST_2561
+tapdb,mydb,SDSSDR16_Firefly_2649
+tapdb,mydb,SDSS_EmLines_t1_2649
+tapdb,mydb,SDSS_EmLines_t3_2649
+tapdb,mydb,SDSS_EmLines_t4_2649
+tapdb,mydb,SDSS_EmLines_t5_2649
+tapdb,mydb,SDSS_EmLines_t6_2649
+tapdb,mydb,SDSS_EmLines_t8_2649
+tapdb,mydb,SDSS_EmissionLines_2649
 tapdb,mydb,SpecPhot_DR16_FireFly_DR14_r1_2649
 tapdb,mydb,SpecPhot_DR16_FireFly_DR14_r2_2649
-tapdb,mydb,coord_2589
+tapdb,mydb,asdf_2789
+tapdb,mydb,cruce_bajo_snr_unwise_2789
 tapdb,mydb,delme_1549
 tapdb,mydb,e835_2566
 tapdb,mydb,e861_decaps_2566
 tapdb,mydb,gaia_Ggt0_lt18_1007
-tapdb,mydb,gaia_test_1007
+tapdb,mydb,legacy_coords_2299
+tapdb,mydb,legacy_s_2299
+tapdb,mydb,mag-all_2480
 tapdb,mydb,mags-renamed_1722
+tapdb,mydb,objects1_1305
 tapdb,mydb,objects6a_2118
 tapdb,mydb,out_lsdr6_1191
+tapdb,mydb,robe_2315
+tapdb,mydb,sdss_new2_2299
 tapdb,mydb,sjw2_2731
 tapdb,mydb,test20m_1007
 tapdb,mydb,test30m_1007
 tapdb,mydb,test60m_1007
-tapdb,mydb,test_1553
-tapdb,mydb,twolens_2299
 tapdb,ls_dr3,apflux
 tapdb,ls_dr3,bricks
 tapdb,ls_dr3,bricks_dr3
@@ -14215,19 +14260,6 @@ tapdb,ls_dr7,tractor_primary
 tapdb,ls_dr7,tractor_secondary
 tapdb,ls_dr7,wise
 tapdb,ls_dr7,x_sdss_dr14_specobj_1p5
-tapdb,sdss_dr14,dr14q
-tapdb,sdss_dr14,dr14q_duplicates
-tapdb,sdss_dr14,photoplate
-tapdb,sdss_dr14,platex
-tapdb,sdss_dr14,sdssebossfirefly
-tapdb,sdss_dr14,segue1specobjall
-tapdb,sdss_dr14,segue2specobjall
-tapdb,sdss_dr14,seguespecobjall
-tapdb,sdss_dr14,specobj
-tapdb,sdss_dr14,specobjall
-tapdb,sdss_dr14,spiders_quasar
-tapdb,sdss_dr14,x_ls_dr8_n_1p5
-tapdb,sdss_dr14,x_ls_dr8_s_1p5
 tapdb,splus_dr1,allwise
 tapdb,splus_dr1,des_dr1
 tapdb,splus_dr1,gaia_dr2
@@ -14263,6 +14295,7 @@ tapdb,ivoa_coadd,ls_dr5
 tapdb,ivoa_coadd,ls_dr6
 tapdb,ivoa_coadd,ls_dr7
 tapdb,ivoa_coadd,ls_dr8
+tapdb,ivoa_coadd,smash_dr1
 tapdb,ivoa_coadd,smash_dr2
 tapdb,ivoa_coadd,splus_dr1
 tapdb,skymapper_dr1,master
@@ -14273,14 +14306,6 @@ tapdb,smash_dr2,field
 tapdb,smash_dr2,object
 tapdb,smash_dr2,source
 tapdb,smash_dr2,xmatch
-tapdb,sdss_dr16,photoplate
-tapdb,sdss_dr16,platex
-tapdb,sdss_dr16,sdssebossfirefly
-tapdb,sdss_dr16,segue1specobjall
-tapdb,sdss_dr16,segue2specobjall
-tapdb,sdss_dr16,seguespecobjall
-tapdb,sdss_dr16,specobj
-tapdb,sdss_dr16,specobjall
 tapdb,ivoa_smash_dr1,exposure
 tapdb,ivoa_smash_dr1,obscore
 tapdb,ivoa_smash_dr1,siav1
@@ -14383,14 +14408,6 @@ tapdb,ls_dr8,wise_n
 tapdb,ls_dr8,wise_s
 tapdb,ls_dr8,x_sdss_dr14_specobj_1p5_n
 tapdb,ls_dr8,x_sdss_dr14_specobj_1p5_s
-tapdb,smash_dr1,chip
-tapdb,smash_dr1,exposure
-tapdb,smash_dr1,field
-tapdb,smash_dr1,galaxies
-tapdb,smash_dr1,object
-tapdb,smash_dr1,source
-tapdb,smash_dr1,stars
-tapdb,smash_dr1,xmatch
 tapdb,des_dr1,des_allwise
 tapdb,des_dr1,des_gaia2
 tapdb,des_dr1,des_galex
@@ -14404,6 +14421,53 @@ tapdb,des_dr1,main
 tapdb,des_dr1,neighbors
 tapdb,des_dr1,tile_info
 tapdb,des_dr1,x_gaia_dr2_2p5
+tapdb,smash_dr1,chip
+tapdb,smash_dr1,exposure
+tapdb,smash_dr1,field
+tapdb,smash_dr1,galaxies
+tapdb,smash_dr1,object
+tapdb,smash_dr1,source
+tapdb,smash_dr1,stars
+tapdb,smash_dr1,xmatch
+tapdb,sdss_dr16,photoplate
+tapdb,sdss_dr16,platex
+tapdb,sdss_dr16,sdssebossfirefly
+tapdb,sdss_dr16,segue1specobjall
+tapdb,sdss_dr16,segue2specobjall
+tapdb,sdss_dr16,seguespecobjall
+tapdb,sdss_dr16,specobj
+tapdb,sdss_dr16,specobjall
+tapdb,sdss_dr12,dr12q
+tapdb,sdss_dr12,dr12q_duplicates
+tapdb,sdss_dr12,emissionlinesport
+tapdb,sdss_dr12,photoplate
+tapdb,sdss_dr12,platex
+tapdb,sdss_dr12,segue1specobjall
+tapdb,sdss_dr12,segue2specobjall
+tapdb,sdss_dr12,seguespecobjall
+tapdb,sdss_dr12,specobj
+tapdb,sdss_dr12,specobjall
+tapdb,sdss_dr14,dr14q
+tapdb,sdss_dr14,dr14q_duplicates
+tapdb,sdss_dr14,photoplate
+tapdb,sdss_dr14,platex
+tapdb,sdss_dr14,sdssebossfirefly
+tapdb,sdss_dr14,segue1specobjall
+tapdb,sdss_dr14,segue2specobjall
+tapdb,sdss_dr14,seguespecobjall
+tapdb,sdss_dr14,specobj
+tapdb,sdss_dr14,specobjall
+tapdb,sdss_dr14,spiders_quasar
+tapdb,sdss_dr14,x_ls_dr8_n_1p5
+tapdb,sdss_dr14,x_ls_dr8_s_1p5
+tapdb,ivoa_delve,exposure
+tapdb,ivoa_delve,obscore
+tapdb,ivoa_delve,siav1
+tapdb,ivoa_delve,siav2
+tapdb,ivoa,exposure
+tapdb,ivoa,obscore
+tapdb,ivoa,siav1
+tapdb,ivoa,siav2
 
 </pre>
 </div>
