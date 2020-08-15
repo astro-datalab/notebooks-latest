@@ -100,7 +100,7 @@ instances, the same science case is featured with two or more surveys.
 
 The ScienceExamples notebooks are located here:
 
-   https://datalab.noao.edu/notebooks/web/ScienceExamples/
+   https://github.com/noaodatalab/notebooks-latest/tree/master/03_ScienceExamples
 
 04- HOW-TOS
 
@@ -120,7 +120,7 @@ the following:
 
 The How-To notebooks are located here:
 
-   https://datalab.noao.edu/notebooks/web/HowTos/
+   https://github.com/noaodatalab/notebooks-latest/tree/master/04_HowTos
 
 05- CONTRIB
 
@@ -133,7 +133,9 @@ The "06_EPO/" directory provides "Education and Public Outreach"
 notebooks, aimed at school students and teachers interested in
 astronomical research and in teaching astronomy. The notebooks were
 originally developed for the "Teen Astronomy Café" activities
-organized jointly by the LSST and NOAO EPO departments.
+organized jointly by the LSST and NOAO EPO departments (middle/high school 
+or undergraduate astronomy), and for the La Serena School for Data Science 
+(undergraduate & graduate level).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -163,7 +165,6 @@ version of the given file.
 Finally, copies of this README.txt file as well as the latest
 notebooks are kept on:
 
-- the Data Lab website: https://datalab.noao.edu/notebooks/web/
 - the Data Lab Github account: https://github.com/noaodatalab/notebooks-latest
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
