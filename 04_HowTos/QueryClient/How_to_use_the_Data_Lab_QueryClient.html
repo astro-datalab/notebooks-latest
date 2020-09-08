@@ -13076,12 +13076,12 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Mike Fitzpatrick, NOAO Data Lab Team&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20200805&#39;</span>
-<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">,</span><span class="s1">&#39;async&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Mike Fitzpatrick &lt;mfitzpatrick@noao.edu&gt;, Alice Jacques &lt;alice.jacques@noao.edu&gt;, NOIRLab Astro Data Lab Team &lt;datalab@noao.edu&gt;&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20200908&#39;</span>
+<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">,</span><span class="s1">&#39;vospace&#39;</span><span class="p">,</span><span class="s1">&#39;mydb&#39;</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -13102,9 +13102,14 @@ div#notebook {
 <h3 id="Table-of-contents">Table of contents<a class="anchor-link" href="#Table-of-contents">&#182;</a></h3><ul>
 <li><a href="#summary">Summary</a></li>
 <li><a href="#attribution">Disclaimer &amp; attribution</a></li>
-<li><a href="#import">Imports &amp; setup</a></li>
-<li><a href="#query">Example Query</a></li>
-<li><a href="#save">Save to virtual storage</a></li>
+<li><a href="#imports">Imports &amp; setup</a></li>
+<li><a href="#review">Review: General template for a simple query in SQL</a></li>
+<li><a href="#query">Quick Example Query</a></li>
+<li><a href="#savevospace">Save to virtual storage VOSpace</a></li>
+<li><a href="#savemydb">Save to remote database MyDB</a></li>
+<li><a href="#importmydb">Import data into a MyDB table with QueryClient</a></li>
+<li><a href="#async">An asynchronous query example</a></li>
+<li><a href="#profiles">Using profiles</a></li>
 </ul>
 
 </div>
@@ -13115,50 +13120,77 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="summary"></a></p>
 <h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>This notebook documents how to query the Data Lab via the query client service. For full documentation see the <a href="https://datalab.noao.edu/docs/api/queryClient.html">API documentation</a>.</p>
-<h3 id="The-query-client-service-interface">The query client service interface<a class="anchor-link" href="#The-query-client-service-interface">&#182;</a></h3><p>The query client service simplifies access to the Data Lab databases. This section describes the query client service interface in case we want to write our own code against that rather than using one of the provided tools.
-The query client service accepts an HTTP GET call to the <i>query</i> endpoint with the following parameters:</p>
+<h3 id="The-queryClient-class">The <em>queryClient</em> class<a class="anchor-link" href="#The-queryClient-class">&#182;</a></h3><p>All queries are executed through the <em>queryClient.query()</em> method of the <em>queryClient</em> class. This takes as arguments:</p>
 <table>
 <thead><tr>
-<th>Name</th>
-<th>Function</th>
+<th>Argument</th>
+<th>Description</th>
 <th>Optional</th>
-<th>Supported values</th>
+<th>Default  value</th>
+<th>Supported Values</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>adql</td>
-<td>The query string to run against the db (ADQL format)</td>
+<td>The query to be submitted to the TAP service</td>
 <td>No</td>
+<td>None</td>
 <td>string</td>
 </tr>
 <tr>
-<td>out</td>
-<td>The location to save any results</td>
+<td>sql</td>
+<td>The query to be submitted to the DB directly</td>
 <td>Yes</td>
-<td>'vos://...', 'mydb://...'</td>
+<td>None</td>
+<td>string</td>
 </tr>
 <tr>
 <td>fmt</td>
-<td>The output format of any results</td>
+<td>The requested format (if any)</td>
 <td>Yes</td>
-<td>ascii, csv, fits, hdf5, votable</td>
+<td>ascii</td>
+<td>ascii,csv,fits,hdf5,votable</td>
+</tr>
+<tr>
+<td>out</td>
+<td>The saved location (if any)</td>
+<td>Yes</td>
+<td>None</td>
+<td>local filename, <em>vos://filename</em>, <em>mydb://tablename</em></td>
 </tr>
 <tr>
 <td>async_</td>
-<td>Run the query asynchronously</td>
+<td>Indicates if the query is asynchronous</td>
 <td>Yes</td>
-<td>true/false</td>
+<td>False</td>
+<td>True/False</td>
 </tr>
 </tbody>
 </table>
-<p>For example: /query?adql=<query>&amp;fmt=csv</p>
-<h4 id="Saving-results">Saving results<a class="anchor-link" href="#Saving-results">&#182;</a></h4><p>If no save location is specified (no <i>out</i> param) then the results are returned directly. A save location beginning with the 'vos://' identifier indicates a location in the user's virtual storage to save the result. A save location beginning with the 'mydb://' identifier indicates the results are to be saved to a table in the user's remote database (MyDB).</p>
-<h4 id="Output-formats">Output formats<a class="anchor-link" href="#Output-formats">&#182;</a></h4><p>The results can be returned as whitespace delimited (<i>ascii</i>), CSV (<i>csv</i>), FITS object (<i>fits</i>), HDF5 (<i>hdf5</i>, or in VOTable format (<i>votable</i>). Note that if the results are saved to the user's database then the output format is ignored.</p>
-<h4 id="Asynchronous-queries">Asynchronous queries<a class="anchor-link" href="#Asynchronous-queries">&#182;</a></h4><p>Long queries should be run asynchronously and the service may refuse any synchronous query attempted if the projected query time is too long. A query can be submitted asynchronously by setting the <i>async_</i> parameter to <i>True</i>. A job id will then be returned.</p>
-<p>The status of an asynchronous query can be checked by submitting an HTTP GET call to the query manager service <i>status</i> endpoint with the relevant job id as an argument: /status?jobid=<jobid>. A return value of 'COMPLETED' indicates the query has terminated. A return value of 'ERROR' indicates that there was a problem with the query.</p>
-<p>The results of an asynchronous query (assuming that they were not saved to either the user's virtual storage or remote database) can be retrieved once the query has completed with an HTTP GET call to the query manager service <i>results</i> endpoint with the relevant job id as argument: /results?jobid=<jobid></p>
-<h3 id="From-Python-code">From Python code<a class="anchor-link" href="#From-Python-code">&#182;</a></h3><p>The query client service can be called from Python code using the <i>datalab</i> module. This provides methods to access the various query manager functions in the <i>queryMgr</i> subpackage. See the information <a href="https://github.com/noaodatalab/datalab/blob/master/README.md">here</a>.</p>
+<p>All arguments are optional, except that one of <em>adql</em> or <em>sql</em> must be supplied.  The distinction between these two parameters is in how the <em>QueryClient</em> executes the query:  If <em>adql</em> is provided the query is sent to the TAP (Table Access Protocol) service, if <em>sql</em> is provided the query is sent directly to the database. The choice of execution depends on whether the query string contains ADQL-specific functions, or SQL constructs or DB extensions not understood by the TAP service.  For large queries there can also be a performance difference depending on the where/how the results are saved.</p>
+<h4 id="Output-formats">Output formats<a class="anchor-link" href="#Output-formats">&#182;</a></h4><p>The results can be returned as whitespace delimited (<em>ascii</em>), CSV (<em>csv</em>), FITS object (<em>fits</em>), HDF5 (<em>hdf5</em>), or in VOTable format (<em>votable</em>). Note that if the results are saved to the user's database then the output format is ignored.</p>
+<h4 id="Saving-results">Saving results<a class="anchor-link" href="#Saving-results">&#182;</a></h4><p>If no save location is specified (no <em>out</em> param) then the results are returned directly. A save location beginning with the 'vos://' identifier indicates a location in the user's virtual storage to save the result. A save location beginning with the 'mydb://' identifier indicates the results are to be saved to a table in the user's remote database (MyDB).</p>
+<h4 id="Asynchronous-queries">Asynchronous queries<a class="anchor-link" href="#Asynchronous-queries">&#182;</a></h4><p>Long queries should be run asynchronously and the service may refuse any synchronous query attempted if the projected query time is too long. A query can be submitted asynchronously by setting the <em>async_</em> parameter to <em>True</em>. A job id will then be returned.</p>
+<p>The status of an asynchronous query can be checked with <em>queryClient.status(jobid)</em>. A return value of 'COMPLETED' indicates the query has terminated. A return value of 'ERROR' indicates that there was a problem with the query.</p>
+<p>The results of an asynchronous query (assuming that they were not saved to either the user's virtual storage or remote database) can be retrieved once the query has completed with <em>result = qc.query(adql=query,async_=True,wait=True,poll=1,verbose=1)</em></p>
+<h3 id="From-Python-code">From Python code<a class="anchor-link" href="#From-Python-code">&#182;</a></h3><p>The query client service can be called from Python code using the <em>datalab</em> module. This provides methods to access the various query client functions in the <em>QueryClient</em> subpackage. See the information <a href="https://github.com/noaodatalab/datalab/blob/master/README.md">here</a>.</p>
+<p>Queries can be also run from the command line, e.g. on your local machine, using the datalab command line utility. Read about it in our GitHub repo <a href="https://github.com/noaodatalab/datalab">here</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="attribution"></a></p>
+<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h1><p>If you use this notebook for your published science, please acknowledge the following:</p>
+<ul>
+<li><p>Data Lab concept paper: Fitzpatrick et al., "The NOAO Data Laboratory: a conceptual overview", SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></p>
+</li>
+<li><p>Data Lab disclaimer: <a href="https://datalab.noao.edu/disclaimers.php">https://datalab.noao.edu/disclaimers.php</a></p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13167,14 +13199,14 @@ The query client service accepts an HTTP GET call to the <i>query</i> endpoint w
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="imports"></a></p>
-<h1 id="Imports-and-setup">Imports and setup<a class="anchor-link" href="#Imports-and-setup">&#182;</a></h1><p>This is the setup that is required to use the query client. The first thing to do is import the relevant Python modules. To save results to virtual storage, we need to retrieve our DataLab security token.</p>
+<h1 id="Imports-and-setup">Imports and setup<a class="anchor-link" href="#Imports-and-setup">&#182;</a></h1><p>This is the setup that is required to use the query client. The first thing to do is import the relevant Python modules.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Standard lib</span>
@@ -13182,6 +13214,7 @@ The query client service accepts an HTTP GET call to the <i>query</i> endpoint w
 
 <span class="c1"># Data Lab</span>
 <span class="kn">from</span> <span class="nn">dl</span> <span class="k">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span>
+<span class="kn">from</span> <span class="nn">dl.helpers.utils</span> <span class="k">import</span> <span class="n">convert</span>
 </pre></div>
 
     </div>
@@ -13192,28 +13225,19 @@ The query client service accepts an HTTP GET call to the <i>query</i> endpoint w
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Comment out and run the cell below if you need to log into Data Lab:</p>
+<h1 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">&#182;</a></h1><p>Much of the functionality of Data Lab can be accessed without explicitly logging in (the service then uses an anonymous login). But some capacities, for instance saving the results of your queries to your virtual storage space, require a login (i.e. you will need a registered user account).</p>
+<p>If you need to log in to Data Lab, issue this command, and respond according to the instructions:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Get your Data Lab security token</span>
-<span class="c1">#</span>
-<span class="c1">#token = ac.login(input(&quot;Enter user name: (+ENTER) &quot;),getpass(&quot;Enter password: (+ENTER) &quot;))</span>
-<span class="c1">#if not ac.isValidToken(token):</span>
-<span class="c1">#   raise Exception(&#39;Token is not valid. Please check your usename/password and execute this cell again.&#39;)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ac.login(input(&quot;Enter user name: (+ENTER) &quot;),getpass(&quot;Enter password: (+ENTER) &quot;))</span>
+<span class="n">ac</span><span class="o">.</span><span class="n">whoAmI</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13224,49 +13248,14 @@ The query client service accepts an HTTP GET call to the <i>query</i> endpoint w
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="The-queryClient-class">The <em>queryClient</em> class<a class="anchor-link" href="#The-queryClient-class">&#182;</a></h4><p>All queries are executed through the <i>query()</i> method of the <i>queryClient</i> class. This takes as arguments:</p>
-<table>
-<thead><tr>
-<th>Argument</th>
-<th>Description</th>
-<th>Default  value</th>
-<th>Allowed Values</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>adql</td>
-<td>The query to be submitted to the TAP service</td>
-<td>None</td>
-<td></td>
-</tr>
-<tr>
-<td>sql</td>
-<td>The query to be submitted to the DB directly</td>
-<td>None</td>
-<td></td>
-</tr>
-<tr>
-<td>fmt</td>
-<td>The requested format (if any)</td>
-<td>ascii</td>
-<td>ascii,csv,votable,fits</td>
-</tr>
-<tr>
-<td>out</td>
-<td>The saved location (if any)</td>
-<td>None</td>
-<td>local filename, <em>vos://filename</em>, <em>mydb://tablename</em></td>
-</tr>
-<tr>
-<td>async_</td>
-<td>Indicates if the query is asynchronous</td>
-<td>False</td>
-</tr>
-</tbody>
-</table>
-<p>All arguments are optional, except that one of <em>adql</em> or <em>sql</em> must be supplied.  The distinction between these two parameters is in how the <em>QueryClient</em> executes the query:  If <em>adql</em> is provided the query is sent to the TAP (Table Access Protocol) service, if <em>sql</em> is provided the query is sent directly to the database.  The choice of execution depends on whether the query string contains ADQL-specific functions, or SQL constructs or DB extensions not understood by the TAP service.  For large queries there can also be a performance difference depending on the where/how the results are saved.</p>
+<p><a class="anchor" id="review"></a></p>
+<h1 id="Review:-General-template-for-a-simple-query-in-SQL">Review: General template for a simple query in SQL<a class="anchor-link" href="#Review:-General-template-for-a-simple-query-in-SQL">&#182;</a></h1><h3 id="SQL-is-a-way-to-describe-to-a-database-what-you-want-from-it">SQL is a way to describe to a database what you want from it<a class="anchor-link" href="#SQL-is-a-way-to-describe-to-a-database-what-you-want-from-it">&#182;</a></h3><p>General template for a simple query written in SQL</p>
 
+<pre><code>SELECT something
+FROM database.table
+WHERE constraints
+LIMIT 100</code></pre>
+<h3 id="Please-see-our-intro-notebook-JupyterPythonSQL101-for-more-info-on-this.">Please see our intro notebook <a href="https://github.com/noaodatalab/notebooks-latest/blob/master/01_GettingStartedWithDataLab/01_JupyterPythonSQL101.ipynb">JupyterPythonSQL101</a> for more info on this.<a class="anchor-link" href="#Please-see-our-intro-notebook-JupyterPythonSQL101-for-more-info-on-this.">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13274,18 +13263,18 @@ The query client service accepts an HTTP GET call to the <i>query</i> endpoint w
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="query"></a></p>
-<h3 id="A-quick-query">A quick query<a class="anchor-link" href="#A-quick-query">&#182;</a></h3><p>Let's say we want to return the $gri$ magnitudes of the top 10 objects in the SMASH DR1 dataset and get it back as a CSV file:</p>
+<h1 id="A-quick-query">A quick query<a class="anchor-link" href="#A-quick-query">&#182;</a></h1><p>Let's say we want to fetch the g,r,i magnitudes from 10 objects in the SMASH DR1 data set, and retrieve the results as a CSV-formatted string:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;select gmag, rmag, imag from smash_dr1.object limit 10&#39;</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">adql</span> <span class="o">=</span> <span class="n">query</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;SELECT gmag, rmag, imag FROM smash_dr1.object WHERE gmag&lt;99 AND rmag&lt;99 AND imag&lt;99 LIMIT 10&#39;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span> <span class="o">=</span> <span class="n">query</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;csv&#39;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </pre></div>
 
@@ -13293,129 +13282,31 @@ The query client service accepts an HTTP GET call to the <i>query</i> endpoint w
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>gmag,rmag,imag
-22.141075,99.989998,99.989998
-21.493074,99.989998,99.989998
-22.169075,99.989998,99.989998
-99.989998,99.989998,99.989998
-99.989998,99.989998,99.989998
-99.989998,99.989998,99.989998
-19.639074,99.989998,99.989998
-99.989998,99.989998,99.989998
-99.989998,99.989998,99.989998
-18.752075,99.989998,99.989998
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a class="anchor" id="save"></a></p>
-<h3 id="Saving-results-to-virtual-storage">Saving results to virtual storage<a class="anchor-link" href="#Saving-results-to-virtual-storage">&#182;</a></h3><p>Now we want to save the results from the same query to our virtual storage space instead.  By putting the query in a try-block we are able to trap errors when executing the query.  Note that running this cell multiple times will trigger an error and we use the Storage Manager client to remove the file once we are done.</p>
+<p><a class="anchor" id="savevospace"></a></p>
+<h1 id="Saving-results-to-virtual-storage-VOSpace">Saving results to virtual storage VOSpace<a class="anchor-link" href="#Saving-results-to-virtual-storage-VOSpace">&#182;</a></h1><p>VOSpace is a convenient storage space for users to save their work. It can store any data or file type.</p>
+<p>Now we want to save the results from the same query to our virtual storage space instead.  By putting the query in a try-block we are able to trap errors when executing the query.  Note that running this cell multiple times will trigger an error and we use the Storage Manager Client to remove the file once we are done.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span> <span class="p">(</span><span class="n">adql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> 
-                                  <span class="n">out</span><span class="o">=</span><span class="s1">&#39;vos://zxmags.csv&#39;</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span> <span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;vos://examplemags.csv&#39;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="c1"># Handle any errors in the query.  By running this cell multiple times with the same</span>
     <span class="c1"># output file, or by using a bogus SQL statement, you can view various error messages.</span>
     <span class="nb">print</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> 
-        <span class="nb">print</span> <span class="p">(</span><span class="n">response</span><span class="p">)</span>           <span class="c1"># print the response</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
-
-<span class="c1"># Remove the file we just created, but list it first to show it exists</span>
-<span class="n">listing</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://zxmags.csv&#39;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">listing</span><span class="p">)</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://zxmags.csv&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>OK
-zxmags.csv
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[5]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;OK&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Saving-results-to-remote-database">Saving results to remote database<a class="anchor-link" href="#Saving-results-to-remote-database">&#182;</a></h3><p>Alternatively we may want to store the results in a table called <i>mags</i> in our remote database.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;select * from usno.b1 limit 1000&quot;</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span><span class="n">out</span><span class="o">=</span><span class="s1">&#39;mydb://mags&#39;</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="c1"># Handle any errors in the query.  By running this cell multiple times with the same</span>
-    <span class="c1"># output file, or by using a bogus SQL statement, you can view various error messages.</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> 
-        <span class="nb">print</span> <span class="p">(</span><span class="n">response</span><span class="p">)</span>           <span class="c1"># print the response</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="n">response</span><span class="p">)</span>        
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
 </pre></div>
@@ -13424,21 +13315,24 @@ zxmags.csv
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's ensure the file was created in VOSpace:</p>
 
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>OK
-</pre>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://examplemags.csv&#39;</span><span class="p">)</span>
+</pre></div>
 
+    </div>
 </div>
 </div>
 
@@ -13446,95 +13340,20 @@ zxmags.csv
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="An-asynchronous-query">An asynchronous query<a class="anchor-link" href="#An-asynchronous-query">&#182;</a></h3><p>We now want to run a longer query, say, counting the total number of objects in USNO-B1, and need to do it asynchronously.
-The first thing we do is submit the query as normal but with the <i>async</i> argument indicated - this will return the id of the asynchronous job.
-All the previous arguments can also be used to specify where and in what format we want the query results.</p>
-<p>However, we will use the conveniently built-in <code>wait</code> argument; it periodically checks for the job status; while the job status is <code>'EXECUTING'</code> the process waits 'poll' number of seconds before asking for the status again. Once it becomes <code>'COMPLETED'</code>, the query results are automatically donwloaded. Please see notebook <a href="../../01_GettingStartedWithDataLab/01_JupyterPythonSQL101.ipynb#async">01_JupyterPythonSQL101.ipynb</a> for more details:</p>
+<p>Now let's remove the file we just created:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;select count(*) from usno.b1&#39;</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">adql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span><span class="n">async_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">poll</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://examplemags.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>EXECUTING
-Status = EXECUTING; elapsed time: 15, timeout in 285
-EXECUTING
-Status = EXECUTING; elapsed time: 30, timeout in 270
-EXECUTING
-Status = EXECUTING; elapsed time: 45, timeout in 255
-EXECUTING
-Status = EXECUTING; elapsed time: 60, timeout in 240
-EXECUTING
-Status = EXECUTING; elapsed time: 75, timeout in 225
-EXECUTING
-Status = EXECUTING; elapsed time: 90, timeout in 210
-EXECUTING
-Status = EXECUTING; elapsed time: 105, timeout in 195
-EXECUTING
-Status = EXECUTING; elapsed time: 120, timeout in 180
-EXECUTING
-Status = EXECUTING; elapsed time: 135, timeout in 165
-EXECUTING
-Status = COMPLETED; elapsed time: 150, timeout in 150
-Retrieving results
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>COUNT
-1045175762
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13542,15 +13361,330 @@ Retrieving results
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Using-profiles">Using profiles<a class="anchor-link" href="#Using-profiles">&#182;</a></h4><p>Different datasets (or versions of the same dataset) may reside on different backend servers and a user may want to work explicitly with a (typically older) dataset. In some cases these servers will be used only by developers or those with restricted access.</p>
-<p>The first thing to do is see what profiles are available.</p>
+<p>Let's ensure the file was removed from VOSpace:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://examplemags.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="savemydb"></a></p>
+<h1 id="Saving-results-to-remote-database-MyDB">Saving results to remote database MyDB<a class="anchor-link" href="#Saving-results-to-remote-database-MyDB">&#182;</a></h1><p>MyDB is a useful OS remote per-user relational database that can store data tables. Furthermore, the results of queries can be directly saved to MyDB, as we show in the following example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span> <span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;mydb://examplemags&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># Handle any errors in the query.  By running this cell multiple times with the same</span>
+    <span class="c1"># output file, or by using a bogus SQL statement, you can view various error messages.</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> 
+        <span class="nb">print</span> <span class="p">(</span><span class="n">response</span><span class="p">)</span>         
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ensure the table has been saved to MyDB by calling the <em>mydb_list()</em> function:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">(),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now let's drop the table from our MyDB.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_drop</span><span class="p">(</span><span class="s1">&#39;examplemags&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ensure it has been removed by calling the <em>mydb_list()</em> function again:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">(),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="importmydb"></a></p>
+<h1 id="Import-data-into-a-MyDB-table-with-QueryClient">Import data into a MyDB table with QueryClient<a class="anchor-link" href="#Import-data-into-a-MyDB-table-with-QueryClient">&#182;</a></h1><p>Users can use the <em>mydb_import</em> function to import data saved on a local computer or import data from VOSpace into a MyDB data table. The data must be in the form of either a CSV file or Pandas Dataframe object in order to load it into MyDB.</p>
+<p>First let's query some data from the Data Lab database and save it locally as a CSV file:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;select * from gaia_dr1.gaia_source limit 10&quot;</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">query</span> <span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;./gaiaresult.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Next we will use the <em>mydb_import</em> function to import the locally stored CSV file into a MyDB table:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span><span class="p">(</span><span class="s1">&#39;testresult&#39;</span><span class="p">,</span><span class="s1">&#39;./gaiaresult.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's ensure it's there by calling the <em>mydb_list()</em> function:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">(),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Similarly, we can use the <em>mydb_import</em> function to import data from VOSpace into a MyDB table:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span><span class="p">(</span><span class="s1">&#39;testresult2&#39;</span><span class="p">,</span><span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">(),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Finally, for clean-up purposes, let's remove the two tables we just imported into MyDB by using the <em>mydb_drop</em> function:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_drop</span><span class="p">(</span><span class="s1">&#39;testresult&#39;</span><span class="p">)</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">mydb_drop</span><span class="p">(</span><span class="s1">&#39;testresult2&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And let's make sure the two tables were removed from MyDB by using the <em>mydb_list()</em> function:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">(),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="async"></a></p>
+<h1 id="An-asynchronous-query">An asynchronous query<a class="anchor-link" href="#An-asynchronous-query">&#182;</a></h1><p>We now want to run a longer query, say, counting the total number of objects in USNO-B1, and need to do it asynchronously. To do this we will submit the query as normal but with the <em>async_</em> argument indicated.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;SELECT count(*) FROM usno.b1&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span><span class="n">async_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">poll</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Please-see-our-JupyterPythonSQL101-notebook-for-more-information-on-getting-jobid,-checking-status-until-'COMPLETED',-and-retrieving-results-with-qc.results().">Please see our <a href="https://github.com/noaodatalab/notebooks-latest/blob/master/01_GettingStartedWithDataLab/01_JupyterPythonSQL101.ipynb">JupyterPythonSQL101</a> notebook for more information on getting jobid, checking status until 'COMPLETED', and retrieving results with qc.results().<a class="anchor-link" href="#Please-see-our-JupyterPythonSQL101-notebook-for-more-information-on-getting-jobid,-checking-status-until-'COMPLETED',-and-retrieving-results-with-qc.results().">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a class="anchor" id="profiles"></a></p>
+<h1 id="Using-profiles">Using profiles<a class="anchor-link" href="#Using-profiles">&#182;</a></h1><p>Sometimes, different datasets (or versions of the same dataset) may reside on different backend servers and a user may want to work explicitly with a (typically older) dataset. In some cases these servers will be used only by developers or those with restricted access. Also, external TAP services are accessible from within Data Lab. In both use cases, the <em>qc.profiles()</em> function comes in handy.</p>
+<p>The first thing to do is see what profiles are available:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">profilelist</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">list_profiles</span><span class="p">()</span>
@@ -13561,48 +13695,23 @@ Retrieving results
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>       GALEX-DR6   GALEX DR6 TAP service (29 Tables, TAP Only)
-            GAVO   GAVO Data Center TAP service (149 Tables, TAP Only)
-         HEASARC   HEASARC Xamin TAP Service (921 Tables, TAP Only)
-            IRSA   IRSA TAP Service (478 Tables, TAP Only)
-        SDSS-DR9   SDSS DR9 TAP service (92 Tables, TAP Only)
-          SIMBAD   SIMBAD TAP service (47 Tables, TAP Only)
-    STScI-RegTAP   STScI Registry TAP service (18 Tables, TAP Only)
-          Vizier   TAP Vizier query engine (34381 Tables, TAP Only)
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The thing to note in the output here are names such as '<em>GAVO</em>', '<em>SDSS-DR9</em>', etc;  These profiles refer to external TAP services that can be accessed using the Query Manager interface.  Only a few are configured at the moment as we work on ways to automatically discover the &gt;100 such services and provide useful listings of what they contain, but let's see how we can query one and save the result to our Virtual Storage:</p>
+<p>The thing to note in the output here are names such as '<em>GAVO</em>', '<em>SDSS-DR9</em>', etc;  <strong>These profiles refer to external TAP services that can be accessed using the Query Manager interface.</strong> Only a few are configured at the moment as we work on ways to automatically discover the &gt;100 such services and provide useful listings of what they contain.</p>
+<p>Let's see how we can query one and save the result to our Virtual Storage VOSpace:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">set_profile</span><span class="p">(</span><span class="s1">&#39;GAVO&#39;</span><span class="p">)</span>
-<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;select top 10 * from sdssdr7.sources&#39;</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;SELECT top 10 * FROM sdssdr7.sources&#39;</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">adql</span> <span class="o">=</span> <span class="n">query</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s2">&quot;vos://gavo_out.csv&quot;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">response</span><span class="p">)</span>
 </pre></div>
@@ -13611,73 +13720,56 @@ Retrieving results
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>OK
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In this case we queried an SDSS DR7 table at the TAP service run by GAVO in Heidelberg.</p>
-<p>We can get the details of a particular profile by including the name of the profile as an argument in the <i>list_profiles</i> method:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's ensure it has been saved to VOSpace:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">list_profiles</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">listing</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;long&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">listing</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[11]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;mydb_user&#39;: &#39;datalab&#39;,
- &#39;description&#39;: &#39;db01&#39;,
- &#39;tempfilePath&#39;: &#39;/net/dl1/temp&#39;,
- &#39;mydb_database&#39;: &#39;mydb&#39;,
- &#39;accessURL&#39;: &#39;http://gp01.datalab.noao.edu:8080/ivoa-dal/tap&#39;,
- &#39;resultStorePath&#39;: &#39;/net/dl1/tap_data/resultStoreImpl&#39;,
- &#39;database&#39;: &#39;tapdb&#39;,
- &#39;type&#39;: &#39;hidden&#39;,
- &#39;vosRoot&#39;: &#39;vos://datalab.noao!vospace&#39;,
- &#39;mydb_port&#39;: 5433,
- &#39;mydb_host&#39;: &#39;db02.datalab.noao.edu&#39;}</pre>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can load the data set and e.g. convert to a Pandas data frame, like this:</p>
 
 </div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://gavo_out.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
 
+    </div>
 </div>
 </div>
 
@@ -13685,17 +13777,38 @@ Retrieving results
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>So let's try a query against the default profile first - let's get a list of all tables in the default database.  Note that in this case we are accessing the <em>information_schema</em> table of the database, this table is not included in the TAP service and so we <b>must</b> use the <em>sql</em> argument to talk directly to the database.</p>
+<p>We can get the details of a particular profile by including the name of the profile as an argument in the <em>list_profiles</em> method:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;select table_catalog, table_schema, table_name from information_schema.tables&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">list_profiles</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So let's try a query against the default profile - let's get a list of all tables in the default database.  Note that in this case we are accessing the <em>information_schema</em> table of the database, this table is not included in the TAP service and so we <strong>must</strong> use the <em>sql</em> argument to talk directly to the database.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;SELECT table_catalog, table_schema, table_name FROM information_schema.tables&#39;</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">qc</span><span class="o">.</span><span class="n">set_profile</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
     <span class="n">default</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">sql</span><span class="p">)</span>
@@ -13706,773 +13819,6 @@ Retrieving results
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>table_catalog,table_schema,table_name
-tapdb,pg_catalog,pg_aggregate
-tapdb,pg_catalog,pg_am
-tapdb,pg_catalog,pg_amop
-tapdb,pg_catalog,pg_amproc
-tapdb,pg_catalog,pg_attrdef
-tapdb,pg_catalog,pg_attribute
-tapdb,pg_catalog,pg_auth_members
-tapdb,pg_catalog,pg_authid
-tapdb,pg_catalog,pg_available_extension_versions
-tapdb,pg_catalog,pg_available_extensions
-tapdb,pg_catalog,pg_cast
-tapdb,pg_catalog,pg_class
-tapdb,pg_catalog,pg_collation
-tapdb,pg_catalog,pg_config
-tapdb,pg_catalog,pg_constraint
-tapdb,pg_catalog,pg_conversion
-tapdb,pg_catalog,pg_cursors
-tapdb,pg_catalog,pg_database
-tapdb,pg_catalog,pg_db_role_setting
-tapdb,pg_catalog,pg_default_acl
-tapdb,pg_catalog,pg_depend
-tapdb,pg_catalog,pg_description
-tapdb,pg_catalog,pg_enum
-tapdb,pg_catalog,pg_event_trigger
-tapdb,pg_catalog,pg_extension
-tapdb,pg_catalog,pg_file_settings
-tapdb,pg_catalog,pg_foreign_data_wrapper
-tapdb,pg_catalog,pg_foreign_server
-tapdb,pg_catalog,pg_foreign_table
-tapdb,pg_catalog,pg_group
-tapdb,pg_catalog,pg_hba_file_rules
-tapdb,pg_catalog,pg_index
-tapdb,pg_catalog,pg_indexes
-tapdb,pg_catalog,pg_inherits
-tapdb,pg_catalog,pg_init_privs
-tapdb,pg_catalog,pg_language
-tapdb,pg_catalog,pg_largeobject
-tapdb,pg_catalog,pg_largeobject_metadata
-tapdb,pg_catalog,pg_locks
-tapdb,pg_catalog,pg_matviews
-tapdb,pg_catalog,pg_namespace
-tapdb,pg_catalog,pg_opclass
-tapdb,pg_catalog,pg_operator
-tapdb,pg_catalog,pg_opfamily
-tapdb,pg_catalog,pg_partitioned_table
-tapdb,pg_catalog,pg_pltemplate
-tapdb,pg_catalog,pg_policies
-tapdb,pg_catalog,pg_policy
-tapdb,pg_catalog,pg_prepared_statements
-tapdb,pg_catalog,pg_prepared_xacts
-tapdb,pg_catalog,pg_proc
-tapdb,pg_catalog,pg_publication
-tapdb,pg_catalog,pg_publication_rel
-tapdb,pg_catalog,pg_publication_tables
-tapdb,pg_catalog,pg_range
-tapdb,pg_catalog,pg_replication_origin
-tapdb,pg_catalog,pg_replication_origin_status
-tapdb,pg_catalog,pg_replication_slots
-tapdb,pg_catalog,pg_rewrite
-tapdb,pg_catalog,pg_roles
-tapdb,pg_catalog,pg_rules
-tapdb,pg_catalog,pg_seclabel
-tapdb,pg_catalog,pg_seclabels
-tapdb,pg_catalog,pg_sequence
-tapdb,pg_catalog,pg_sequences
-tapdb,pg_catalog,pg_settings
-tapdb,pg_catalog,pg_shadow
-tapdb,pg_catalog,pg_shdepend
-tapdb,pg_catalog,pg_shdescription
-tapdb,pg_catalog,pg_shseclabel
-tapdb,pg_catalog,pg_stat_activity
-tapdb,pg_catalog,pg_stat_all_indexes
-tapdb,pg_catalog,pg_stat_all_tables
-tapdb,pg_catalog,pg_stat_archiver
-tapdb,pg_catalog,pg_stat_bgwriter
-tapdb,pg_catalog,pg_stat_database
-tapdb,pg_catalog,pg_stat_database_conflicts
-tapdb,pg_catalog,pg_stat_progress_vacuum
-tapdb,pg_catalog,pg_stat_replication
-tapdb,pg_catalog,pg_stat_ssl
-tapdb,pg_catalog,pg_stat_subscription
-tapdb,pg_catalog,pg_stat_sys_indexes
-tapdb,pg_catalog,pg_stat_sys_tables
-tapdb,pg_catalog,pg_stat_user_functions
-tapdb,pg_catalog,pg_stat_user_indexes
-tapdb,pg_catalog,pg_stat_user_tables
-tapdb,pg_catalog,pg_stat_wal_receiver
-tapdb,pg_catalog,pg_stat_xact_all_tables
-tapdb,pg_catalog,pg_stat_xact_sys_tables
-tapdb,pg_catalog,pg_stat_xact_user_functions
-tapdb,pg_catalog,pg_stat_xact_user_tables
-tapdb,pg_catalog,pg_statio_all_indexes
-tapdb,pg_catalog,pg_statio_all_sequences
-tapdb,pg_catalog,pg_statio_all_tables
-tapdb,pg_catalog,pg_statio_sys_indexes
-tapdb,pg_catalog,pg_statio_sys_sequences
-tapdb,pg_catalog,pg_statio_sys_tables
-tapdb,pg_catalog,pg_statio_user_indexes
-tapdb,pg_catalog,pg_statio_user_sequences
-tapdb,pg_catalog,pg_statio_user_tables
-tapdb,pg_catalog,pg_statistic
-tapdb,pg_catalog,pg_statistic_ext
-tapdb,pg_catalog,pg_stats
-tapdb,pg_catalog,pg_subscription
-tapdb,pg_catalog,pg_subscription_rel
-tapdb,pg_catalog,pg_tables
-tapdb,pg_catalog,pg_tablespace
-tapdb,pg_catalog,pg_timezone_abbrevs
-tapdb,pg_catalog,pg_timezone_names
-tapdb,pg_catalog,pg_transform
-tapdb,pg_catalog,pg_trigger
-tapdb,pg_catalog,pg_ts_config
-tapdb,pg_catalog,pg_ts_config_map
-tapdb,pg_catalog,pg_ts_dict
-tapdb,pg_catalog,pg_ts_parser
-tapdb,pg_catalog,pg_ts_template
-tapdb,pg_catalog,pg_type
-tapdb,pg_catalog,pg_user
-tapdb,pg_catalog,pg_user_mapping
-tapdb,pg_catalog,pg_user_mappings
-tapdb,pg_catalog,pg_views
-tapdb,public,db02counts
-tapdb,public,dl_col_alerts
-tapdb,public,dl_metric_alerts
-tapdb,public,dl_schema_alerts
-tapdb,public,dl_stats
-tapdb,public,dl_stats_bak
-tapdb,public,dl_stats_golden
-tapdb,public,dl_stats_gp04
-tapdb,public,dl_table_alerts
-tapdb,public,dlservices
-tapdb,public,dual
-tapdb,public,tbl_stat
-tapdb,information_schema,_pg_foreign_data_wrappers
-tapdb,information_schema,_pg_foreign_servers
-tapdb,information_schema,_pg_foreign_table_columns
-tapdb,information_schema,_pg_foreign_tables
-tapdb,information_schema,_pg_user_mappings
-tapdb,information_schema,administrable_role_authorizations
-tapdb,information_schema,applicable_roles
-tapdb,information_schema,attributes
-tapdb,information_schema,character_sets
-tapdb,information_schema,check_constraint_routine_usage
-tapdb,information_schema,check_constraints
-tapdb,information_schema,collation_character_set_applicability
-tapdb,information_schema,collations
-tapdb,information_schema,column_domain_usage
-tapdb,information_schema,column_options
-tapdb,information_schema,column_privileges
-tapdb,information_schema,column_udt_usage
-tapdb,information_schema,columns
-tapdb,information_schema,constraint_column_usage
-tapdb,information_schema,constraint_table_usage
-tapdb,information_schema,data_type_privileges
-tapdb,information_schema,domain_constraints
-tapdb,information_schema,domain_udt_usage
-tapdb,information_schema,domains
-tapdb,information_schema,element_types
-tapdb,information_schema,enabled_roles
-tapdb,information_schema,foreign_data_wrapper_options
-tapdb,information_schema,foreign_data_wrappers
-tapdb,information_schema,foreign_server_options
-tapdb,information_schema,foreign_servers
-tapdb,information_schema,foreign_table_options
-tapdb,information_schema,foreign_tables
-tapdb,information_schema,information_schema_catalog_name
-tapdb,information_schema,key_column_usage
-tapdb,information_schema,parameters
-tapdb,information_schema,referential_constraints
-tapdb,information_schema,role_column_grants
-tapdb,information_schema,role_routine_grants
-tapdb,information_schema,role_table_grants
-tapdb,information_schema,role_udt_grants
-tapdb,information_schema,role_usage_grants
-tapdb,information_schema,routine_privileges
-tapdb,information_schema,routines
-tapdb,information_schema,schemata
-tapdb,information_schema,sequences
-tapdb,information_schema,sql_features
-tapdb,information_schema,sql_implementation_info
-tapdb,information_schema,sql_languages
-tapdb,information_schema,sql_packages
-tapdb,information_schema,sql_parts
-tapdb,information_schema,sql_sizing
-tapdb,information_schema,sql_sizing_profiles
-tapdb,information_schema,table_constraints
-tapdb,information_schema,table_privileges
-tapdb,information_schema,tables
-tapdb,information_schema,transforms
-tapdb,information_schema,triggered_update_columns
-tapdb,information_schema,triggers
-tapdb,information_schema,udt_privileges
-tapdb,information_schema,usage_privileges
-tapdb,information_schema,user_defined_types
-tapdb,information_schema,user_mapping_options
-tapdb,information_schema,user_mappings
-tapdb,information_schema,view_column_usage
-tapdb,information_schema,view_routine_usage
-tapdb,information_schema,view_table_usage
-tapdb,information_schema,views
-tapdb,unwise_dr1,object
-tapdb,phat_v2,phot_meas
-tapdb,phat_v2,phot_mod
-tapdb,phat_v2,phot_v2
-tapdb,phat_v2,star_v2
-tapdb,decaps_dr1,ccds
-tapdb,decaps_dr1,depth
-tapdb,decaps_dr1,imdb
-tapdb,decaps_dr1,object
-tapdb,decaps_dr1,zps
-tapdb,dad_dr1,movds
-tapdb,dad_dr1,movdup
-tapdb,dad_dr1,movexp
-tapdb,dad_dr1,movgrp
-tapdb,dad_dr1,movmpc
-tapdb,dad_dr1,movobs
-tapdb,dad_dr1,movrate
-tapdb,stripe82,allwise
-tapdb,stripe82,des_dr1
-tapdb,stripe82,gaia_dr1
-tapdb,stripe82,gaia_dr2
-tapdb,stripe82,ls_dr3
-tapdb,stripe82,ls_dr5
-tapdb,stripe82,ls_dr6
-tapdb,stripe82,ls_dr7
-tapdb,stripe82,nsc_dr1
-tapdb,stripe82,sdss13_specobj
-tapdb,stripe82,sdss14_specobj
-tapdb,stripe82,splus_dr1
-tapdb,stripe82,twomass_psc
-tapdb,stripe82,twomass_xsc
-tapdb,stripe82,usno_a2
-tapdb,stripe82,usno_b1
-tapdb,ivoa_calibrated,calibrated_all
-tapdb,ivoa_calibrated,des_y1
-tapdb,ivoa_calibrated,des_y2
-tapdb,ivoa_calibrated,des_y3
-tapdb,ivoa_calibrated,des_y4
-tapdb,ivoa_calibrated,nsa
-tapdb,ivoa_calibrated,smash_dr1
-tapdb,ivoa_calibrated,smash_dr2
-tapdb,ivoa_decaps_dr1,exposure
-tapdb,ivoa_decaps_dr1,obscore
-tapdb,ivoa_decaps_dr1,siav1
-tapdb,ivoa_decaps_dr1,siav2
-tapdb,ivoa_des_dr1,exposure
-tapdb,ivoa_des_dr1,obscore
-tapdb,ivoa_des_dr1,siav1
-tapdb,ivoa_des_dr1,siav2
-tapdb,ivoa_des_y1,exposure
-tapdb,ivoa_des_y1,obscore
-tapdb,ivoa_des_y1,siav1
-tapdb,ivoa_des_y1,siav2
-tapdb,ivoa_des_y2,exposure
-tapdb,ivoa_des_y2,obscore
-tapdb,ivoa_des_y2,siav1
-tapdb,ivoa_des_y2,siav2
-tapdb,ivoa_des_y3,exposure
-tapdb,ivoa_des_y3,obscore
-tapdb,ivoa_des_y3,siav1
-tapdb,ivoa_des_y3,siav2
-tapdb,ivoa_des_y4,exposure
-tapdb,ivoa_des_y4,obscore
-tapdb,ivoa_des_y4,siav1
-tapdb,ivoa_des_y4,siav2
-tapdb,ivoa_ls_dr3,exposure
-tapdb,ivoa_ls_dr3,obscore
-tapdb,ivoa_ls_dr3,siav1
-tapdb,ivoa_ls_dr3,siav2
-tapdb,ivoa_ls_dr4,exposure
-tapdb,ivoa_ls_dr4,obscore
-tapdb,ivoa_ls_dr4,siav1
-tapdb,ivoa_ls_dr4,siav2
-tapdb,ivoa_ls_dr5,exposure
-tapdb,ivoa_ls_dr5,obscore
-tapdb,ivoa_ls_dr5,siav1
-tapdb,ivoa_ls_dr5,siav2
-tapdb,ivoa_ls_dr6,exposure
-tapdb,ivoa_ls_dr6,obscore
-tapdb,ivoa_ls_dr6,siav1
-tapdb,ivoa_ls_dr6,siav2
-tapdb,ivoa_ls_dr7,exposure
-tapdb,ivoa_ls_dr7,obscore
-tapdb,ivoa_ls_dr7,siav1
-tapdb,ivoa_ls_dr7,siav2
-tapdb,ivoa_raw,raw_all
-tapdb,ivoa_raw,smash_dr1
-tapdb,ivoa_raw,smash_dr2
-tapdb,ivoa_des_sva1,exposure
-tapdb,ivoa_des_sva1,obscore
-tapdb,ivoa_des_sva1,siav1
-tapdb,ivoa_des_sva1,siav2
-tapdb,des_sva1,gold_annz2_pdf
-tapdb,des_sva1,gold_annz2_point
-tapdb,des_sva1,gold_bpz_pdf
-tapdb,des_sva1,gold_bpz_point
-tapdb,des_sva1,gold_catalog
-tapdb,des_sva1,gold_im3shape
-tapdb,des_sva1,gold_ngmix
-tapdb,des_sva1,gold_skynet_pdf
-tapdb,des_sva1,gold_skynet_point
-tapdb,des_sva1,gold_tpz_pdf
-tapdb,des_sva1,gold_tpz_point
-tapdb,des_sva1,gold_wlinfo
-tapdb,des_sva1,redmagic_bright
-tapdb,des_sva1,redmagic_faint
-tapdb,des_sva1,redmapper_exp_area
-tapdb,des_sva1,redmapper_exp_catalog
-tapdb,des_sva1,redmapper_exp_members
-tapdb,des_sva1,redmapper_exp_randoms
-tapdb,des_sva1,redmapper_exp_zmask
-tapdb,des_sva1,redmapper_pub_area
-tapdb,des_sva1,redmapper_pub_catalog
-tapdb,des_sva1,redmapper_pub_members
-tapdb,des_sva1,redmapper_pub_randoms
-tapdb,des_sva1,redmapper_pub_zmask
-tapdb,sdss_dr13,calibobj_gal
-tapdb,sdss_dr13,calibobj_star
-tapdb,sdss_dr13,dr12qso
-tapdb,sdss_dr13,emissionlinesport_dr12
-tapdb,sdss_dr13,galspecline_dr8
-tapdb,sdss_dr13,photoposplate
-tapdb,sdss_dr13,specobj
-tapdb,sdss_dr13,wisematch_gal
-tapdb,sdss_dr13,wisematch_star
-tapdb,nsc_dr1,chip
-tapdb,nsc_dr1,coverage
-tapdb,nsc_dr1,exposure
-tapdb,nsc_dr1,meas
-tapdb,nsc_dr1,nsc_allwise
-tapdb,nsc_dr1,nsc_des
-tapdb,nsc_dr1,nsc_lsdr4
-tapdb,nsc_dr1,nsc_lsdr5
-tapdb,nsc_dr1,object
-tapdb,usno,a2
-tapdb,usno,b1
-tapdb,twomass,psc
-tapdb,twomass,xsc
-tapdb,splus_edr,allwise
-tapdb,splus_edr,des_dr1
-tapdb,splus_edr,gaia_dr2
-tapdb,splus_edr,ls_dr5
-tapdb,splus_edr,ls_dr6
-tapdb,splus_edr,ls_dr7
-tapdb,splus_edr,nsc_dr1
-tapdb,splus_edr,sdss_dr14_specobj
-tapdb,splus_edr,stripe82
-tapdb,ivoa_ls_dr8,exposure
-tapdb,ivoa_ls_dr8,obscore
-tapdb,ivoa_ls_dr8,siav1
-tapdb,ivoa_ls_dr8,siav2
-tapdb,mydb,1_rxs_2491
-tapdb,mydb,2mass1_2315
-tapdb,mydb,2mass_2315
-tapdb,mydb,80month_serendips_1616
-tapdb,mydb,DESI_BGS_2649
-tapdb,mydb,FIRST_2561
-tapdb,mydb,SDSSDR16_Firefly_2649
-tapdb,mydb,SDSS_EmLines_t1_2649
-tapdb,mydb,SDSS_EmLines_t3_2649
-tapdb,mydb,SDSS_EmLines_t4_2649
-tapdb,mydb,SDSS_EmLines_t5_2649
-tapdb,mydb,SDSS_EmLines_t6_2649
-tapdb,mydb,SDSS_EmLines_t8_2649
-tapdb,mydb,SDSS_EmissionLines_2649
-tapdb,mydb,SpecPhot_DR16_FireFly_DR14_r1_2649
-tapdb,mydb,SpecPhot_DR16_FireFly_DR14_r2_2649
-tapdb,mydb,asdf_2789
-tapdb,mydb,cruce_bajo_snr_unwise_2789
-tapdb,mydb,delme_1549
-tapdb,mydb,e835_2566
-tapdb,mydb,e861_decaps_2566
-tapdb,mydb,gaia_Ggt0_lt18_1007
-tapdb,mydb,legacy_coords_2299
-tapdb,mydb,legacy_s_2299
-tapdb,mydb,mag-all_2480
-tapdb,mydb,mags-renamed_1722
-tapdb,mydb,objects1_1305
-tapdb,mydb,objects6a_2118
-tapdb,mydb,out_lsdr6_1191
-tapdb,mydb,robe_2315
-tapdb,mydb,sdss_new2_2299
-tapdb,mydb,sjw2_2731
-tapdb,mydb,test20m_1007
-tapdb,mydb,test30m_1007
-tapdb,mydb,test60m_1007
-tapdb,ls_dr3,apflux
-tapdb,ls_dr3,bricks
-tapdb,ls_dr3,bricks_dr3
-tapdb,ls_dr3,ccds_annotated
-tapdb,ls_dr3,depth
-tapdb,ls_dr3,depth_summary
-tapdb,ls_dr3,dr3_dr12q
-tapdb,ls_dr3,dr3_dr7q
-tapdb,ls_dr3,dr3_specobj_dr13
-tapdb,ls_dr3,dr3_superset_dr12q
-tapdb,ls_dr3,galaxy
-tapdb,ls_dr3,neighbors
-tapdb,ls_dr3,star
-tapdb,ls_dr3,survey_ccds
-tapdb,ls_dr3,tractor
-tapdb,ls_dr3,tractor_primary
-tapdb,ls_dr3,tractor_secondary
-tapdb,ls_dr3,wise
-tapdb,dad_dr2,addgrp
-tapdb,dad_dr2,addobs
-tapdb,dad_dr2,movds
-tapdb,dad_dr2,movdup
-tapdb,dad_dr2,movexp
-tapdb,dad_dr2,movgrp
-tapdb,dad_dr2,movmpc
-tapdb,dad_dr2,movobs
-tapdb,dad_dr2,movrate
-tapdb,ivoa_smash_dr2,exposure
-tapdb,ivoa_smash_dr2,obscore
-tapdb,ivoa_smash_dr2,siav1
-tapdb,ivoa_smash_dr2,siav2
-tapdb,allwise,source
-tapdb,gaia_dr2,allwise
-tapdb,gaia_dr2,cepheid
-tapdb,gaia_dr2,des_dr1
-tapdb,gaia_dr2,gaia_source
-tapdb,gaia_dr2,iers
-tapdb,gaia_dr2,light_curves
-tapdb,gaia_dr2,lpv
-tapdb,gaia_dr2,ls_dr5
-tapdb,gaia_dr2,ls_dr6
-tapdb,gaia_dr2,nsc_dr1
-tapdb,gaia_dr2,numtrans
-tapdb,gaia_dr2,rm
-tapdb,gaia_dr2,rmout
-tapdb,gaia_dr2,rmseg
-tapdb,gaia_dr2,rrlyrae
-tapdb,gaia_dr2,rvstdcat
-tapdb,gaia_dr2,rvstdmes
-tapdb,gaia_dr2,shortts
-tapdb,gaia_dr2,ssoobj
-tapdb,gaia_dr2,ssoobs
-tapdb,gaia_dr2,ssoorb
-tapdb,gaia_dr2,ssores
-tapdb,gaia_dr2,transit
-tapdb,gaia_dr2,tsstat
-tapdb,gaia_dr2,varres
-tapdb,ivoa_nsa,exposure
-tapdb,ivoa_nsa,obscore
-tapdb,ivoa_nsa,siav1
-tapdb,ivoa_nsa,siav2
-tapdb,ivoa_stripe82,calibrated
-tapdb,ivoa_stripe82,coadd
-tapdb,ivoa_stripe82,decaps_dr1
-tapdb,ivoa_stripe82,des_dr1
-tapdb,ivoa_stripe82,des_sva1
-tapdb,ivoa_stripe82,des_y1
-tapdb,ivoa_stripe82,des_y2
-tapdb,ivoa_stripe82,des_y3
-tapdb,ivoa_stripe82,des_y4
-tapdb,ivoa_stripe82,ls_dr3
-tapdb,ivoa_stripe82,ls_dr5
-tapdb,ivoa_stripe82,ls_dr6
-tapdb,ivoa_stripe82,ls_dr7
-tapdb,ivoa_stripe82,ls_dr8
-tapdb,ivoa_stripe82,nsa
-tapdb,ivoa_stripe82,raw
-tapdb,ivoa_stripe82,smash_dr1
-tapdb,ivoa_stripe82,smash_dr2
-tapdb,ivoa_stripe82,splus_dr1
-tapdb,ivoa_stripe82,splus_edr
-tapdb,ivoa_stripe82,stripe82_all
-tapdb,ls_dr4,apflux
-tapdb,ls_dr4,bricks
-tapdb,ls_dr4,bricks_dr4
-tapdb,ls_dr4,ccds_annotated
-tapdb,ls_dr4,depth
-tapdb,ls_dr4,depth_summary
-tapdb,ls_dr4,galaxy
-tapdb,ls_dr4,neighbors
-tapdb,ls_dr4,star
-tapdb,ls_dr4,survey_ccds
-tapdb,ls_dr4,tractor
-tapdb,ls_dr4,tractor_primary
-tapdb,ls_dr4,tractor_secondary
-tapdb,ls_dr4,wise
-tapdb,ls_dr5,apflux
-tapdb,ls_dr5,bricks
-tapdb,ls_dr5,bricks_dr5
-tapdb,ls_dr5,ccds_annotated
-tapdb,ls_dr5,depth
-tapdb,ls_dr5,depth_summary
-tapdb,ls_dr5,dr5_dr12q
-tapdb,ls_dr5,dr5_dr7q
-tapdb,ls_dr5,dr5_specobj_dr14
-tapdb,ls_dr5,dr5_superset_dr12q
-tapdb,ls_dr5,galaxy
-tapdb,ls_dr5,neighbors
-tapdb,ls_dr5,star
-tapdb,ls_dr5,survey_ccds
-tapdb,ls_dr5,tractor
-tapdb,ls_dr5,tractor_primary
-tapdb,ls_dr5,tractor_secondary
-tapdb,ls_dr5,wise
-tapdb,ls_dr6,apflux
-tapdb,ls_dr6,bricks
-tapdb,ls_dr6,bricks_dr6
-tapdb,ls_dr6,ccds_annotated
-tapdb,ls_dr6,depth
-tapdb,ls_dr6,depth_summary
-tapdb,ls_dr6,dr6_dr14q_v4_4
-tapdb,ls_dr6,dr6_dr7q
-tapdb,ls_dr6,dr6_specobj_dr14
-tapdb,ls_dr6,dr6_superset_dr12q
-tapdb,ls_dr6,galaxy
-tapdb,ls_dr6,star
-tapdb,ls_dr6,survey_ccds
-tapdb,ls_dr6,survey_ccds_kd
-tapdb,ls_dr6,tractor
-tapdb,ls_dr6,tractor_primary
-tapdb,ls_dr6,tractor_secondary
-tapdb,ls_dr6,wise
-tapdb,ls_dr7,apflux
-tapdb,ls_dr7,bricks
-tapdb,ls_dr7,bricks_dr7
-tapdb,ls_dr7,ccds_annotated
-tapdb,ls_dr7,depth
-tapdb,ls_dr7,depth_summary
-tapdb,ls_dr7,dr7_dr12q
-tapdb,ls_dr7,dr7_dr14q_v4_4
-tapdb,ls_dr7,dr7_dr7q
-tapdb,ls_dr7,dr7_specobj_dr14
-tapdb,ls_dr7,dr7_superset_dr12q
-tapdb,ls_dr7,galaxy
-tapdb,ls_dr7,neighbors
-tapdb,ls_dr7,randoms_dr7
-tapdb,ls_dr7,star
-tapdb,ls_dr7,survey_ccds
-tapdb,ls_dr7,survey_ccds_kd
-tapdb,ls_dr7,tractor
-tapdb,ls_dr7,tractor_primary
-tapdb,ls_dr7,tractor_secondary
-tapdb,ls_dr7,wise
-tapdb,ls_dr7,x_sdss_dr14_specobj_1p5
-tapdb,splus_dr1,allwise
-tapdb,splus_dr1,des_dr1
-tapdb,splus_dr1,gaia_dr2
-tapdb,splus_dr1,ls_dr5
-tapdb,splus_dr1,ls_dr6
-tapdb,splus_dr1,ls_dr7
-tapdb,splus_dr1,nsc_dr1
-tapdb,splus_dr1,sdss_dr14_specobj
-tapdb,splus_dr1,stripe82
-tapdb,hipparcos,main
-tapdb,hipparcos2,main
-tapdb,tycho2,main
-tapdb,oracle,dba_segments
-tapdb,oracle,product_component_version
-tapdb,oracle,user_cons_columns
-tapdb,oracle,user_constraints
-tapdb,oracle,user_ind_columns
-tapdb,oracle,user_objects
-tapdb,oracle,user_procedures
-tapdb,oracle,user_source
-tapdb,oracle,user_tab_columns
-tapdb,oracle,user_tables
-tapdb,oracle,user_views
-tapdb,dbms_pipe,db_pipes
-tapdb,utl_file,utl_file_dir
-tapdb,ivoa_coadd,coadd_all
-tapdb,ivoa_coadd,decaps_dr1
-tapdb,ivoa_coadd,des_dr1
-tapdb,ivoa_coadd,des_sva1
-tapdb,ivoa_coadd,ls_dr3
-tapdb,ivoa_coadd,ls_dr4
-tapdb,ivoa_coadd,ls_dr5
-tapdb,ivoa_coadd,ls_dr6
-tapdb,ivoa_coadd,ls_dr7
-tapdb,ivoa_coadd,ls_dr8
-tapdb,ivoa_coadd,smash_dr1
-tapdb,ivoa_coadd,smash_dr2
-tapdb,ivoa_coadd,splus_dr1
-tapdb,skymapper_dr1,master
-tapdb,smash_dr2,chip
-tapdb,smash_dr2,deep
-tapdb,smash_dr2,exposure
-tapdb,smash_dr2,field
-tapdb,smash_dr2,object
-tapdb,smash_dr2,source
-tapdb,smash_dr2,xmatch
-tapdb,ivoa_smash_dr1,exposure
-tapdb,ivoa_smash_dr1,obscore
-tapdb,ivoa_smash_dr1,siav1
-tapdb,ivoa_smash_dr1,siav2
-tapdb,ivoa_splus_edr,exposure
-tapdb,ivoa_splus_edr,obscore
-tapdb,ivoa_splus_edr,siav1
-tapdb,ivoa_splus_edr,siav2
-tapdb,bulge_dr1,exposure
-tapdb,bulge_dr1,meas
-tapdb,bulge_dr1,object
-tapdb,ls_dr9sv,apflux_n
-tapdb,ls_dr9sv,apflux_s
-tapdb,ls_dr9sv,neighbors_n
-tapdb,ls_dr9sv,neighbors_s
-tapdb,ls_dr9sv,tractor_n
-tapdb,ls_dr9sv,tractor_primary_n
-tapdb,ls_dr9sv,tractor_primary_s
-tapdb,ls_dr9sv,tractor_s
-tapdb,ls_dr9sv,tractor_secondary_n
-tapdb,ls_dr9sv,tractor_secondary_s
-tapdb,ls_dr9sv,wise_n
-tapdb,ls_dr9sv,wise_s
-tapdb,tap_schema,columns
-tapdb,tap_schema,columns_datalab
-tapdb,tap_schema,columns_mydb
-tapdb,tap_schema,foreign_tables
-tapdb,tap_schema,key_columns
-tapdb,tap_schema,key_columns_datalab
-tapdb,tap_schema,key_columns_mydb
-tapdb,tap_schema,keys
-tapdb,tap_schema,keys_datalab
-tapdb,tap_schema,keys_mydb
-tapdb,tap_schema,schemas
-tapdb,tap_schema,schemas_datalab
-tapdb,tap_schema,schemas_mydb
-tapdb,tap_schema,tables
-tapdb,tap_schema,tables_datalab
-tapdb,tap_schema,tables_mydb
-tapdb,dltest,object
-tapdb,ivoa_splus_dr1,exposure
-tapdb,ivoa_splus_dr1,obscore
-tapdb,ivoa_splus_dr1,siav1
-tapdb,ivoa_splus_dr1,siav2
-tapdb,gaia_dr1,cepheid
-tapdb,gaia_dr1,gaia_source
-tapdb,gaia_dr1,phot_variable_time_series_gfov
-tapdb,gaia_dr1,phot_variable_time_series_gfov_statistical_parameters
-tapdb,gaia_dr1,rrlyrae
-tapdb,gaia_dr1,tgas_source
-tapdb,gaia_dr1,variable_summary
-tapdb,ls_dr8,apflux
-tapdb,ls_dr8,apflux_n
-tapdb,ls_dr8,apflux_s
-tapdb,ls_dr8,bricks_n
-tapdb,ls_dr8,bricks_s
-tapdb,ls_dr8,ccds_annotated
-tapdb,ls_dr8,depth_n
-tapdb,ls_dr8,depth_s
-tapdb,ls_dr8,depth_summary_n
-tapdb,ls_dr8,depth_summary_s
-tapdb,ls_dr8,dr8_north_dr12q
-tapdb,ls_dr8,dr8_north_dr14q_v4_4
-tapdb,ls_dr8,dr8_north_dr7q
-tapdb,ls_dr8,dr8_north_specobj_dr14
-tapdb,ls_dr8,dr8_north_superset_dr12q
-tapdb,ls_dr8,dr8_south_dr12q
-tapdb,ls_dr8,dr8_south_dr14q_v4_4
-tapdb,ls_dr8,dr8_south_dr7q
-tapdb,ls_dr8,dr8_south_specobj_dr14
-tapdb,ls_dr8,dr8_south_superset_dr12q
-tapdb,ls_dr8,forced
-tapdb,ls_dr8,neighbors_s
-tapdb,ls_dr8,photo_z
-tapdb,ls_dr8,survey_ccds_kd_n
-tapdb,ls_dr8,survey_ccds_kd_s
-tapdb,ls_dr8,tractor
-tapdb,ls_dr8,tractor_n
-tapdb,ls_dr8,tractor_n_comp
-tapdb,ls_dr8,tractor_n_dev
-tapdb,ls_dr8,tractor_n_dup
-tapdb,ls_dr8,tractor_n_exp
-tapdb,ls_dr8,tractor_n_null
-tapdb,ls_dr8,tractor_n_psf
-tapdb,ls_dr8,tractor_n_rex
-tapdb,ls_dr8,tractor_primary_n
-tapdb,ls_dr8,tractor_primary_s
-tapdb,ls_dr8,tractor_s
-tapdb,ls_dr8,tractor_s_comp
-tapdb,ls_dr8,tractor_s_dev
-tapdb,ls_dr8,tractor_s_dup
-tapdb,ls_dr8,tractor_s_exp
-tapdb,ls_dr8,tractor_s_null
-tapdb,ls_dr8,tractor_s_psf
-tapdb,ls_dr8,tractor_s_rex
-tapdb,ls_dr8,tractor_secondary_n
-tapdb,ls_dr8,tractor_secondary_s
-tapdb,ls_dr8,wise
-tapdb,ls_dr8,wise_n
-tapdb,ls_dr8,wise_s
-tapdb,ls_dr8,x_sdss_dr14_specobj_1p5_n
-tapdb,ls_dr8,x_sdss_dr14_specobj_1p5_s
-tapdb,des_dr1,des_allwise
-tapdb,des_dr1,des_gaia2
-tapdb,des_dr1,des_galex
-tapdb,des_dr1,des_hsc2
-tapdb,des_dr1,des_nscdr1
-tapdb,des_dr1,des_simbad
-tapdb,des_dr1,flux
-tapdb,des_dr1,img2coadd
-tapdb,des_dr1,mag
-tapdb,des_dr1,main
-tapdb,des_dr1,neighbors
-tapdb,des_dr1,tile_info
-tapdb,des_dr1,x_gaia_dr2_2p5
-tapdb,smash_dr1,chip
-tapdb,smash_dr1,exposure
-tapdb,smash_dr1,field
-tapdb,smash_dr1,galaxies
-tapdb,smash_dr1,object
-tapdb,smash_dr1,source
-tapdb,smash_dr1,stars
-tapdb,smash_dr1,xmatch
-tapdb,sdss_dr16,photoplate
-tapdb,sdss_dr16,platex
-tapdb,sdss_dr16,sdssebossfirefly
-tapdb,sdss_dr16,segue1specobjall
-tapdb,sdss_dr16,segue2specobjall
-tapdb,sdss_dr16,seguespecobjall
-tapdb,sdss_dr16,specobj
-tapdb,sdss_dr16,specobjall
-tapdb,sdss_dr12,dr12q
-tapdb,sdss_dr12,dr12q_duplicates
-tapdb,sdss_dr12,emissionlinesport
-tapdb,sdss_dr12,photoplate
-tapdb,sdss_dr12,platex
-tapdb,sdss_dr12,segue1specobjall
-tapdb,sdss_dr12,segue2specobjall
-tapdb,sdss_dr12,seguespecobjall
-tapdb,sdss_dr12,specobj
-tapdb,sdss_dr12,specobjall
-tapdb,sdss_dr14,dr14q
-tapdb,sdss_dr14,dr14q_duplicates
-tapdb,sdss_dr14,photoplate
-tapdb,sdss_dr14,platex
-tapdb,sdss_dr14,sdssebossfirefly
-tapdb,sdss_dr14,segue1specobjall
-tapdb,sdss_dr14,segue2specobjall
-tapdb,sdss_dr14,seguespecobjall
-tapdb,sdss_dr14,specobj
-tapdb,sdss_dr14,specobjall
-tapdb,sdss_dr14,spiders_quasar
-tapdb,sdss_dr14,x_ls_dr8_n_1p5
-tapdb,sdss_dr14,x_ls_dr8_s_1p5
-tapdb,ivoa_delve,exposure
-tapdb,ivoa_delve,obscore
-tapdb,ivoa_delve,siav1
-tapdb,ivoa_delve,siav2
-tapdb,ivoa,exposure
-tapdb,ivoa,obscore
-tapdb,ivoa,siav1
-tapdb,ivoa,siav2
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
