@@ -6,7 +6,7 @@ from astropy.table import Table
 
 import ipywidgets as widgets
 from IPython.display import display, HTML
-
+#
 # Bokeh
 #
 from bokeh.plotting import figure, output_file
@@ -17,8 +17,67 @@ from bokeh.models.widgets import Div
 import bokeh.events
 import bokeh.palettes
 
-#from dl import authClient as ac, storeClient as sc
+# from dl import authClient as ac, storeClient as sc
 from dl import storeClient as sc
+
+#
+# The first bunched set are emission lines from the spZline files.
+# The second bunched set are absorption lines.
+# See $IDLSPEC2D_DIR/etc/emlines.par
+#
+# Note: Wavelengths are in air for lambda > 2000, vacuum for lambda < 2000.
+#
+lines = [
+    #
+    # Emission lines
+    #
+    {"name" : "Ly-α",           "lambda" : 1215.67,  "emission": True },
+    {"name" : "N V 1240",       "lambda" : 1240.81,  "emission": True },
+    {"name" : "C IV 1549",      "lambda" : 1549.48,  "emission": True },
+    {"name" : "He II 1640",     "lambda" : 1640.42,  "emission": True },
+    {"name" : "C III] 1908",    "lambda" : 1908.734, "emission": True },
+    {"name" : "Mg II 2799",     "lambda" : 2799.49,  "emission": True },
+    {"name" : "[O II] 3725",    "lambda" : 3726.032, "emission": True },
+    {"name" : "[O II] 3727",    "lambda" : 3728.815, "emission": True },
+    {"name" : "[Ne III] 3868",  "lambda" : 3868.76,  "emission": True },
+    {"name" : "Hζ",             "lambda" : 3889.049, "emission": True },
+    {"name" : "[Ne III] 3970",  "lambda" : 3970.00,  "emission": True },
+    {"name" : "Hδ",             "lambda" : 4101.734, "emission": True },
+    {"name" : "Hγ",             "lambda" : 4340.464, "emission": True },
+    {"name" : "[O III] 4363",   "lambda" : 4363.209, "emission": True },
+    {"name" : "He II 4685",     "lambda" : 4685.68,  "emission": True },
+    {"name" : "Hβ",             "lambda" : 4861.325, "emission": True },
+    {"name" : "[O III] 4959",   "lambda" : 4958.911, "emission": True },
+    {"name" : "[O III] 5007",   "lambda" : 5006.843, "emission": True },
+    {"name" : "He II 5411",     "lambda" : 5411.52,  "emission": True },
+    {"name" : "[O I] 5577",     "lambda" : 5577.339, "emission": True },
+    {"name" : "[N II] 5755",    "lambda" : 5754.59,  "emission": True },
+    {"name" : "He I 5876",      "lambda" : 5875.68,  "emission": True },
+    {"name" : "[O I] 6300",     "lambda" : 6300.304, "emission": True },
+    {"name" : "[S III] 6312",   "lambda" : 6312.06,  "emission": True },
+    {"name" : "[O I] 6363",     "lambda" : 6363.776, "emission": True },
+    {"name" : "[N II] 6548",    "lambda" : 6548.05,  "emission": True },
+    {"name" : "Hα",             "lambda" : 6562.801, "emission": True },
+    {"name" : "[N II] 6583",    "lambda" : 6583.45,  "emission": True },
+    {"name" : "[S II] 6716",    "lambda" : 6716.44,  "emission": True },
+    {"name" : "[S II] 6730",    "lambda" : 6730.82,  "emission": True },
+    {"name" : "[Ar III] 7135",  "lambda" : 7135.790, "emission": True },
+    #
+    # Absorption lines
+    #
+    {"name" : "Hζ",             "lambda" : 3889.049, "emission": False },
+    {"name" : "K (Ca II 3933)", "lambda" : 3933.7,   "emission": False },
+    {"name" : "H (Ca II 3968)", "lambda" : 3968.5,   "emission": False },
+    {"name" : "Hε",             "lambda" : 3970.072, "emission": False },
+    {"name" : "Hδ",             "lambda" : 4101.734, "emission": False },
+    {"name" : "G (Ca I 4307)",  "lambda" : 4307.74,  "emission": False },
+    {"name" : "Hγ",             "lambda" : 4340.464, "emission": False },
+    {"name" : "Hβ",             "lambda" : 4861.325, "emission": False },
+    {"name" : "Mg I 5175",      "lambda" : 5175.0,   "emission": False },
+    {"name" : "D2 (Na I 5889)", "lambda" : 5889.95,  "emission": False },
+    {"name" : "D1 (Na I 5895)", "lambda" : 5895.92,  "emission": False },
+    {"name" : "Hα",             "lambda" : 6562.801, "emission": False },
+    ]
 
 
 def _airtovac(w):
@@ -75,15 +134,15 @@ def resample_flux(xout, x, flux, ivar=None, extrapolate=False):
         - ivar: weights for flux; default is unweighted resampling
         - extrapolate: extrapolate using edge values of input array, default is False,
           in which case values outside of input array are set to zero.
-    
+
     Setting both ivar and extrapolate raises a ValueError because one cannot
-    assign an ivar outside of the input data range. 
+    assign an ivar outside of the input data range.
 
     Returns:
         if ivar is None, returns outflux
         if ivar is not None, returns outflux, outivar
     """
-    
+
     if ivar is None:
         return _unweighted_resample(xout, x, flux, extrapolate=extrapolate)
     else:
@@ -97,10 +156,10 @@ def resample_flux(xout, x, flux, ivar=None, extrapolate=False):
         dx = np.gradient(x)
         dxout = np.gradient(xout)
         outivar = _unweighted_resample(xout, x, ivar/dx)*dxout
-        
+
         return outflux, outivar
 
-    
+
 def _unweighted_resample(output_x,input_x,input_flux_density, extrapolate=False) :
     """Returns a flux conserving resampling of an input flux density.
     The total integrated flux is conserved.
@@ -112,7 +171,7 @@ def _unweighted_resample(output_x,input_x,input_flux_density, extrapolate=False)
 
     both must represent the same quantity with the same unit
     input_flux_density =  dflux/dx sampled at input_x
-    
+
     Options:
         extrapolate: extrapolate using edge values of input array, default is False,
                      in which case values outside of input array are set to zero
@@ -131,7 +190,7 @@ def _unweighted_resample(output_x,input_x,input_flux_density, extrapolate=False)
     bins[1:-1]=(ox[:-1]+ox[1:])/2.
     bins[0]=1.5*ox[0]-0.5*ox[1]     # = ox[0]-(ox[1]-ox[0])/2
     bins[-1]=1.5*ox[-1]-0.5*ox[-2]  # = ox[-1]+(ox[-1]-ox[-2])/2
-    
+
     # make a temporary node array including input nodes and output bin bounds
     # first the boundaries of output bins
     tx=bins.copy()
@@ -151,24 +210,24 @@ def _unweighted_resample(output_x,input_x,input_flux_density, extrapolate=False)
     # this sets values left and right of input range to first and/or last input values
     # first and last values are=0 if we are not extrapolating
     ty=np.interp(tx,ix,iy)
-    
+
     #  add input nodes which are inside the node array
     k=np.where((ix>=tx[0])&(ix<=tx[-1]))[0]
     if k.size :
         tx=np.append(tx,ix[k])
         ty=np.append(ty,iy[k])
-        
+
     # sort this node array
     p = tx.argsort()
     tx=tx[p]
     ty=ty[p]
-    
+
     # now we do a simple integration in each bin of the piece-wise
     # linear function of the temporary nodes
 
     # integral of individual trapezes
     trapeze_integrals=(ty[1:]+ty[:-1])*(tx[1:]-tx[:-1])/2.
-    
+
     # output flux
     # for each bin, we sum the trapeze_integrals that belong to that bin
     # and divide by the bin size
@@ -178,7 +237,7 @@ def _unweighted_resample(output_x,input_x,input_flux_density, extrapolate=False)
 
     if np.any(binsize<=0)  :
         raise ValueError("Zero or negative bin size")
-    
+
     return np.histogram(trapeze_centers, bins=bins, weights=trapeze_integrals)[0] / binsize
 
 
@@ -192,12 +251,12 @@ class SDSSSpectra(object):
         self.ivar = dict(c=ivar)
         self.extra = dict(c=sky)
         self.fibermap = plugmap
-    
+
     def wavelength_grid(self, band):
         if band not in self.bands:
             raise KeyError("{} is not a valid band".format(band))
         return self.wave[band]
-    
+
     def target_ids(self):
         return np.arange(self.num_spectra(), dtype=np.int32)
 
@@ -216,7 +275,7 @@ def _read_templates():
     pass
 
 
-def load_sdss_spectra(lines, spPlate, spZbest=None):
+def load_sdss_spectra(spPlate, spZbest=None):
     '''
     Load spectra and return an Inspector object
 
@@ -258,7 +317,7 @@ def load_sdss_spectra(lines, spPlate, spZbest=None):
     return Inspector(lines, spectra, zbest, zbest_model)
 
 
-class Inspector(object): 
+class Inspector(object):
     """An interface to plotting spectra with Bokeh in a Jupyter notebook"""
 
     def __init__(self, lines, spectra, zbest, templates=None):
@@ -289,7 +348,7 @@ class Inspector(object):
         self._absorption = False
         self.print_targets_info()
         self._plotted = False
-        
+
         #- dictionary for holding results of visual scan
         self.visual_scan = Table(dtype=[
             ('targetid', int),
@@ -304,7 +363,7 @@ class Inspector(object):
         for value, name in sorted(zip(scan_values, scan_names)):
             key = 'VSCAN{:02d}'.format(value)
             self.visual_scan.meta[key] = name
-        
+
         output_notebook()
 
     #- Property accessors for common target properties
