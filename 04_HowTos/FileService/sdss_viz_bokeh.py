@@ -704,6 +704,8 @@ class Inspector(object):
             sdss = True
         info.append('<tr><th>{0}</th><td>{1:d}</td></tr>'.format(label, targetid))
         if sdss:
+            plate = int(np.unique(self.zbest['PLATE'].data)[0])
+            mjd = int(np.unique(self.zbest['MJD'].data)[0])
             info.append('<tr><th>Plate</th><td>{0:d}</td></tr>'.format(plate))
             info.append('<tr><th>MJD</th><td>{0:d}</td></tr>'.format(mjd))
             info.append('<tr><th>Fiber Number</th><td>{0:d}</td></tr>'.format(self.ispec + 1))
