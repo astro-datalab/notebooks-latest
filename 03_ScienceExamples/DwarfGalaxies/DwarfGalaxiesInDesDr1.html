@@ -13080,7 +13080,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Knut Olsen &lt;kolsen@noao.edu&gt;, Robert Nikutta &lt;rnikutta@noao.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20200917&#39;</span> <span class="c1"># yyyymmdd;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20200922&#39;</span> <span class="c1"># yyyymmdd;</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;des_dr1&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dwarf galaxies&#39;</span><span class="p">,</span><span class="s1">&#39;convolution&#39;</span><span class="p">,</span><span class="s1">&#39;WCS&#39;</span><span class="p">,</span><span class="s1">&#39;SIA&#39;</span><span class="p">,</span><span class="s1">&#39;science example&#39;</span><span class="p">]</span>
 </pre></div>
@@ -13165,11 +13165,12 @@ We will convolve the spatial distribution of our dataset with a pair of Gaussian
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># standard lib</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="k">import</span> <span class="n">getpass</span>
 
 <span class="c1"># 3rd party</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -13205,11 +13206,11 @@ We will convolve the spatial distribution of our dataset with a pair of Gaussian
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ac.login(input(&quot;Enter user name: (+ENTER) &quot;),getpass(&quot;Enter password: (+ENTER) &quot;))</span>
-<span class="c1">#ac.whoAmI()</span>
+<span class="n">ac</span><span class="o">.</span><span class="n">whoAmI</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13222,13 +13223,13 @@ We will convolve the spatial distribution of our dataset with a pair of Gaussian
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;ajacques&#39;</pre>
+<pre>&#39;demo00&#39;</pre>
 </div>
 
 </div>
@@ -13248,7 +13249,7 @@ We will convolve the spatial distribution of our dataset with a pair of Gaussian
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Dwarf names from Bechtol et al. (2015)</span>
@@ -13278,7 +13279,7 @@ We will convolve the spatial distribution of our dataset with a pair of Gaussian
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="n">ra</span><span class="p">,</span><span class="n">dec</span><span class="p">,</span><span class="n">radius</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">):</span>
@@ -13325,7 +13326,7 @@ We will convolve the spatial distribution of our dataset with a pair of Gaussian
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dgs</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="n">name</span><span class="p">,</span><span class="nb">dict</span><span class="p">())</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">])</span> <span class="c1"># empty dictionary of dictionaries</span>
@@ -13382,7 +13383,7 @@ Done.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a proper WCS object</span>
@@ -13483,7 +13484,7 @@ Done.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span>  <span class="c1"># figure layout</span>
@@ -13581,7 +13582,7 @@ Done.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># download the deepest stacked images</span>
@@ -13634,7 +13635,7 @@ Done.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Ret II&#39;</span>
@@ -13680,7 +13681,7 @@ Downloaded 3 images.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%capture</span> --no-display
