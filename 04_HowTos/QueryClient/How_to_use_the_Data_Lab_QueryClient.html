@@ -13076,11 +13076,11 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Mike Fitzpatrick &lt;mfitzpatrick@noao.edu&gt;, Alice Jacques &lt;alice.jacques@noao.edu&gt;, NOIRLab Astro Data Lab Team &lt;datalab@noao.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20200908&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20200922&#39;</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">,</span><span class="s1">&#39;vospace&#39;</span><span class="p">,</span><span class="s1">&#39;mydb&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -13206,7 +13206,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Standard lib</span>
@@ -13233,7 +13233,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ac.login(input(&quot;Enter user name: (+ENTER) &quot;),getpass(&quot;Enter password: (+ENTER) &quot;))</span>
@@ -13241,6 +13241,26 @@ div#notebook {
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;demo00&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13270,7 +13290,7 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;SELECT gmag, rmag, imag FROM smash_dr1.object WHERE gmag&lt;99 AND rmag&lt;99 AND imag&lt;99 LIMIT 10&#39;</span>
@@ -13279,6 +13299,35 @@ LIMIT 100</code></pre>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>gmag,rmag,imag
+11.9154,11.7978,11.7892
+11.9376,11.5092,11.3253
+12.0699,11.6934,11.5577
+12.0747,16.5371,17.0187
+12.1244,11.8028,11.6169
+12.1355,11.7621,11.5469
+12.1841,11.8446,11.7191
+12.2102,12.189,12.318
+12.2275,11.7632,11.5062
+12.25,11.8397,11.7034
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13295,7 +13344,7 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -13315,6 +13364,24 @@ LIMIT 100</code></pre>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>OK
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13326,13 +13393,33 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://examplemags.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;examplemags.csv&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13347,13 +13434,33 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://examplemags.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;OK&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13368,13 +13475,33 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">rm</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://examplemags.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;A Node does not exist with the requested URI.&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13390,7 +13517,7 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -13410,6 +13537,24 @@ LIMIT 100</code></pre>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>OK
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13421,13 +13566,51 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">(),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>asv_string1,
+bsv_string1,
+csv_string1,
+csv_vizier,
+delme,
+examplemags,created:2020-09-22 12:24:23 MST
+foo2,
+galspec_ls,
+import1,
+mags,
+mags3,
+objects,
+pandas1,
+test1a,
+test2,
+test3,
+tsv_string1,
+usno_test,
+zxz,
+ 
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13442,13 +13625,33 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_drop</span><span class="p">(</span><span class="s1">&#39;examplemags&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;OK&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13463,13 +13666,50 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">(),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>asv_string1,
+bsv_string1,
+csv_string1,
+csv_vizier,
+delme,
+foo2,
+galspec_ls,
+import1,
+mags,
+mags3,
+objects,
+pandas1,
+test1a,
+test2,
+test3,
+tsv_string1,
+usno_test,
+zxz,
+ 
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13486,7 +13726,7 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;select * from gaia_dr1.gaia_source limit 10&quot;</span>
@@ -13494,6 +13734,26 @@ LIMIT 100</code></pre>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[13]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;OK&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13508,13 +13768,33 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span><span class="p">(</span><span class="s1">&#39;testresult&#39;</span><span class="p">,</span><span class="s1">&#39;./gaiaresult.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[14]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;OK&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13529,13 +13809,51 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">(),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>asv_string1,
+bsv_string1,
+csv_string1,
+csv_vizier,
+delme,
+foo2,
+galspec_ls,
+import1,
+mags,
+mags3,
+objects,
+pandas1,
+test1a,
+test2,
+test3,
+testresult,created:2020-09-22 12:24:24 MST
+tsv_string1,
+usno_test,
+zxz,
+ 
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13550,7 +13868,7 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span><span class="p">(</span><span class="s1">&#39;testresult2&#39;</span><span class="p">,</span><span class="s1">&#39;vos://newmags.csv&#39;</span><span class="p">)</span>
@@ -13560,16 +13878,75 @@ LIMIT 100</code></pre>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[16]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;OK&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">(),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>asv_string1,
+bsv_string1,
+csv_string1,
+csv_vizier,
+delme,
+foo2,
+galspec_ls,
+import1,
+mags,
+mags3,
+objects,
+pandas1,
+test1a,
+test2,
+test3,
+testresult,created:2020-09-22 12:24:24 MST
+testresult2,created:2020-09-22 12:24:25 MST
+tsv_string1,
+usno_test,
+zxz,
+ 
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13584,7 +13961,7 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_drop</span><span class="p">(</span><span class="s1">&#39;testresult&#39;</span><span class="p">)</span>
@@ -13592,6 +13969,26 @@ LIMIT 100</code></pre>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[18]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;OK&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13606,13 +14003,50 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">(),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>asv_string1,
+bsv_string1,
+csv_string1,
+csv_vizier,
+delme,
+foo2,
+galspec_ls,
+import1,
+mags,
+mags3,
+objects,
+pandas1,
+test1a,
+test2,
+test3,
+tsv_string1,
+usno_test,
+zxz,
+ 
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13628,7 +14062,7 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;SELECT count(*) FROM usno.b1&#39;</span>
@@ -13641,7 +14075,7 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span><span class="n">async_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">poll</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -13651,16 +14085,112 @@ LIMIT 100</code></pre>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>EXECUTING
+Status = EXECUTING; elapsed time: 5, timeout in 295
+EXECUTING
+Status = EXECUTING; elapsed time: 10, timeout in 290
+EXECUTING
+Status = EXECUTING; elapsed time: 15, timeout in 285
+EXECUTING
+Status = EXECUTING; elapsed time: 20, timeout in 280
+EXECUTING
+Status = EXECUTING; elapsed time: 25, timeout in 275
+EXECUTING
+Status = EXECUTING; elapsed time: 30, timeout in 270
+EXECUTING
+Status = EXECUTING; elapsed time: 35, timeout in 265
+EXECUTING
+Status = EXECUTING; elapsed time: 40, timeout in 260
+EXECUTING
+Status = EXECUTING; elapsed time: 45, timeout in 255
+EXECUTING
+Status = EXECUTING; elapsed time: 50, timeout in 250
+EXECUTING
+Status = EXECUTING; elapsed time: 55, timeout in 245
+EXECUTING
+Status = EXECUTING; elapsed time: 60, timeout in 240
+EXECUTING
+Status = EXECUTING; elapsed time: 65, timeout in 235
+EXECUTING
+Status = EXECUTING; elapsed time: 70, timeout in 230
+EXECUTING
+Status = EXECUTING; elapsed time: 75, timeout in 225
+EXECUTING
+Status = EXECUTING; elapsed time: 80, timeout in 220
+EXECUTING
+Status = EXECUTING; elapsed time: 85, timeout in 215
+EXECUTING
+Status = EXECUTING; elapsed time: 90, timeout in 210
+EXECUTING
+Status = EXECUTING; elapsed time: 95, timeout in 205
+EXECUTING
+Status = EXECUTING; elapsed time: 100, timeout in 200
+EXECUTING
+Status = EXECUTING; elapsed time: 105, timeout in 195
+EXECUTING
+Status = EXECUTING; elapsed time: 110, timeout in 190
+EXECUTING
+Status = EXECUTING; elapsed time: 115, timeout in 185
+EXECUTING
+Status = EXECUTING; elapsed time: 120, timeout in 180
+EXECUTING
+Status = EXECUTING; elapsed time: 125, timeout in 175
+EXECUTING
+Status = EXECUTING; elapsed time: 130, timeout in 170
+EXECUTING
+Status = EXECUTING; elapsed time: 135, timeout in 165
+EXECUTING
+Status = EXECUTING; elapsed time: 140, timeout in 160
+EXECUTING
+Status = COMPLETED; elapsed time: 145, timeout in 155
+Retrieving results
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>COUNT
+1045175762
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13684,7 +14214,7 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">profilelist</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">list_profiles</span><span class="p">()</span>
@@ -13692,6 +14222,32 @@ LIMIT 100</code></pre>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>       GALEX-DR6   GALEX DR6 TAP service (29 Tables, TAP Only)
+            GAVO   GAVO Data Center TAP service (149 Tables, TAP Only)
+         HEASARC   HEASARC Xamin TAP Service (921 Tables, TAP Only)
+            IRSA   IRSA TAP Service (478 Tables, TAP Only)
+        SDSS-DR9   SDSS DR9 TAP service (92 Tables, TAP Only)
+          SIMBAD   SIMBAD TAP service (47 Tables, TAP Only)
+    STScI-RegTAP   STScI Registry TAP service (18 Tables, TAP Only)
+          Vizier   TAP Vizier query engine (34381 Tables, TAP Only)
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13707,7 +14263,7 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">set_profile</span><span class="p">(</span><span class="s1">&#39;GAVO&#39;</span><span class="p">)</span>
@@ -13717,6 +14273,24 @@ LIMIT 100</code></pre>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>OK
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13739,7 +14313,7 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">listing</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">ls</span> <span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://&#39;</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;long&#39;</span><span class="p">)</span>
@@ -13747,6 +14321,51 @@ LIMIT 100</code></pre>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-rw-rw----  demo00       0  05 Sep 2018 10:56  a2_small.csv
+-rw-rw----  demo00     202  06 Jun 2019 10:57  canaryfiletwo.csv
+drw-rw----  demo00       0  04 Jun 2019 20:13  directory1
+-rw-rw----  demo00       0  28 Nov 2018 15:07  fooa.csv
+-rw-rw----  demo00       0  16 Feb 2018 23:24  gavo1.csv
+-rw-rw----  demo00       0  16 Feb 2018 23:24  gavo26.csv
+-rw-rw----  demo00       0  16 Feb 2018 23:24  gavo27.csv
+-rw-rw----  demo00       0  16 Feb 2018 23:24  gavo28.csv
+-rw-rw----  demo00       0  04 Jan 2019 11:49  gavo_out.csv
+-rw-rw----  demo00       0  16 Feb 2018 23:24  lsdr2.csv
+-rw-rw----  demo00    5888  05 Feb 2019 16:05  mags.csv
+-rw-rw----  demo00       0  14 Sep 2018 22:10  newmags.csv
+-rw-rw----  demo00       0  16 Feb 2018 23:24  newmags2.csv
+drw-rw----  demo00       0  08 Apr 2018 22:19  public
+drw-rw----  demo00       0  16 Feb 2018 23:24  results
+-rw-rw----  demo00       0  08 Mar 2018 13:43  smash_mags.csv
+-rw-rw----  demo00       0  16 Feb 2018 23:24  t2.dat
+-rw-rw----  demo00       0  16 Feb 2018 23:24  t3.dat
+drw-rw----  demo00       0  16 Feb 2018 23:24  tdir
+drw-rw----  demo00       0  06 Jun 2019 11:02  temp
+-rw-rw----  demo00       0  16 Feb 2018 23:24  test.dat
+drw-rw----  demo00       0  16 Feb 2018 23:24  tmp
+-rw-rw----  demo00       0  28 Sep 2018 12:17  xx.csv
+-rw-rw----  demo00       0  16 Feb 2018 23:24  zgavo28.csv
+-rw-rw----  demo00       0  16 Feb 2018 23:24  zmags.csv
+-rw-rw----  demo00       0  09 Feb 2019 18:16  zz3.fits
+-rw-rw----  demo00       0  28 Sep 2018 12:17  zzxx.csv
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13761,7 +14380,7 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="s1">&#39;vos://gavo_out.csv&#39;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
@@ -13770,6 +14389,310 @@ LIMIT 100</code></pre>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[26]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>objid</th>
+      <th>run</th>
+      <th>rerun</th>
+      <th>camcol</th>
+      <th>fieldid</th>
+      <th>obj</th>
+      <th>ra</th>
+      <th>dec</th>
+      <th>raerr</th>
+      <th>decerr</th>
+      <th>...</th>
+      <th>offsetra_i</th>
+      <th>offsetdec_i</th>
+      <th>i</th>
+      <th>err_i</th>
+      <th>epoch_i</th>
+      <th>offsetra_z</th>
+      <th>offsetdec_z</th>
+      <th>z</th>
+      <th>err_z</th>
+      <th>epoch_z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>758883089249337439</td>
+      <td>6182</td>
+      <td>648</td>
+      <td>1</td>
+      <td>758883089249337344</td>
+      <td>95</td>
+      <td>331.786804</td>
+      <td>41.387806</td>
+      <td>0.000117</td>
+      <td>0.000113</td>
+      <td>...</td>
+      <td>-0.000064</td>
+      <td>0.000065</td>
+      <td>19.9785</td>
+      <td>0.092936</td>
+      <td>2006.41</td>
+      <td>4.666670e-07</td>
+      <td>-2.388890e-07</td>
+      <td>22.8831</td>
+      <td>2.086310</td>
+      <td>2006.41</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>758883089249337433</td>
+      <td>6182</td>
+      <td>648</td>
+      <td>1</td>
+      <td>758883089249337344</td>
+      <td>89</td>
+      <td>331.780687</td>
+      <td>41.389283</td>
+      <td>0.000035</td>
+      <td>0.000030</td>
+      <td>...</td>
+      <td>-0.000111</td>
+      <td>-0.000117</td>
+      <td>20.7977</td>
+      <td>0.097531</td>
+      <td>2006.41</td>
+      <td>-1.363640e-04</td>
+      <td>3.201940e-05</td>
+      <td>20.1367</td>
+      <td>0.202043</td>
+      <td>2006.41</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>758883089249337434</td>
+      <td>6182</td>
+      <td>648</td>
+      <td>1</td>
+      <td>758883089249337344</td>
+      <td>90</td>
+      <td>331.784089</td>
+      <td>41.389143</td>
+      <td>0.000033</td>
+      <td>0.000039</td>
+      <td>...</td>
+      <td>-0.000402</td>
+      <td>0.000139</td>
+      <td>21.4730</td>
+      <td>0.153602</td>
+      <td>2006.41</td>
+      <td>-3.638890e-07</td>
+      <td>3.530560e-06</td>
+      <td>20.9629</td>
+      <td>0.351456</td>
+      <td>2006.41</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>758883089249337438</td>
+      <td>6182</td>
+      <td>648</td>
+      <td>1</td>
+      <td>758883089249337344</td>
+      <td>94</td>
+      <td>331.793057</td>
+      <td>41.390098</td>
+      <td>0.000036</td>
+      <td>0.000035</td>
+      <td>...</td>
+      <td>0.000087</td>
+      <td>0.000052</td>
+      <td>24.3450</td>
+      <td>1.940740</td>
+      <td>2006.41</td>
+      <td>8.762780e-05</td>
+      <td>5.144440e-05</td>
+      <td>22.5182</td>
+      <td>1.635630</td>
+      <td>2006.41</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>758883089249339591</td>
+      <td>6182</td>
+      <td>648</td>
+      <td>1</td>
+      <td>758883089249337344</td>
+      <td>2247</td>
+      <td>331.801543</td>
+      <td>41.390926</td>
+      <td>0.000016</td>
+      <td>0.000015</td>
+      <td>...</td>
+      <td>0.000001</td>
+      <td>0.000011</td>
+      <td>20.6834</td>
+      <td>0.059923</td>
+      <td>2006.41</td>
+      <td>-5.135830e-05</td>
+      <td>-6.525000e-06</td>
+      <td>20.2915</td>
+      <td>0.163408</td>
+      <td>2006.41</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>758883089249337441</td>
+      <td>6182</td>
+      <td>648</td>
+      <td>1</td>
+      <td>758883089249337344</td>
+      <td>97</td>
+      <td>331.797318</td>
+      <td>41.390873</td>
+      <td>0.000070</td>
+      <td>0.000068</td>
+      <td>...</td>
+      <td>-0.000085</td>
+      <td>-0.000045</td>
+      <td>20.5697</td>
+      <td>0.132147</td>
+      <td>2006.41</td>
+      <td>5.000000e-07</td>
+      <td>-1.944440e-07</td>
+      <td>24.7128</td>
+      <td>0.622408</td>
+      <td>2006.41</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>758883089249337437</td>
+      <td>6182</td>
+      <td>648</td>
+      <td>1</td>
+      <td>758883089249337344</td>
+      <td>93</td>
+      <td>331.798537</td>
+      <td>41.392072</td>
+      <td>0.000033</td>
+      <td>0.000032</td>
+      <td>...</td>
+      <td>0.000005</td>
+      <td>-0.000006</td>
+      <td>20.1749</td>
+      <td>0.120331</td>
+      <td>2006.41</td>
+      <td>-4.353060e-05</td>
+      <td>3.612140e-04</td>
+      <td>24.0276</td>
+      <td>1.432990</td>
+      <td>2006.41</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>758883089249337419</td>
+      <td>6182</td>
+      <td>648</td>
+      <td>1</td>
+      <td>758883089249337344</td>
+      <td>75</td>
+      <td>331.792733</td>
+      <td>41.392017</td>
+      <td>0.000014</td>
+      <td>0.000013</td>
+      <td>...</td>
+      <td>-0.000004</td>
+      <td>-0.000005</td>
+      <td>15.8837</td>
+      <td>0.003775</td>
+      <td>2006.41</td>
+      <td>-4.591670e-06</td>
+      <td>-1.697220e-06</td>
+      <td>15.5639</td>
+      <td>0.005426</td>
+      <td>2006.41</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>758883089249337423</td>
+      <td>6182</td>
+      <td>648</td>
+      <td>1</td>
+      <td>758883089249337344</td>
+      <td>79</td>
+      <td>331.796938</td>
+      <td>41.394596</td>
+      <td>0.000015</td>
+      <td>0.000014</td>
+      <td>...</td>
+      <td>-0.000003</td>
+      <td>-0.000026</td>
+      <td>19.8373</td>
+      <td>0.032767</td>
+      <td>2006.41</td>
+      <td>-6.108330e-05</td>
+      <td>-6.421390e-05</td>
+      <td>19.3057</td>
+      <td>0.074711</td>
+      <td>2006.41</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>758883089249339570</td>
+      <td>6182</td>
+      <td>648</td>
+      <td>1</td>
+      <td>758883089249337344</td>
+      <td>2226</td>
+      <td>331.775376</td>
+      <td>41.392066</td>
+      <td>0.000018</td>
+      <td>0.000018</td>
+      <td>...</td>
+      <td>0.000031</td>
+      <td>0.000014</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2006.41</td>
+      <td>-4.472220e-07</td>
+      <td>7.008330e-06</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2006.41</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 rows × 36 columns</p>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13784,13 +14707,43 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">list_profiles</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[27]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;mydb_user&#39;: &#39;datalab&#39;,
+ &#39;description&#39;: &#39;db01&#39;,
+ &#39;tempfilePath&#39;: &#39;/net/dl1/temp&#39;,
+ &#39;mydb_database&#39;: &#39;mydb&#39;,
+ &#39;accessURL&#39;: &#39;http://gp01.datalab.noao.edu:8080/ivoa-dal/tap&#39;,
+ &#39;resultStorePath&#39;: &#39;/net/dl1/tap_data/resultStoreImpl&#39;,
+ &#39;database&#39;: &#39;tapdb&#39;,
+ &#39;type&#39;: &#39;hidden&#39;,
+ &#39;vosRoot&#39;: &#39;vos://datalab.noao!vospace&#39;,
+ &#39;mydb_port&#39;: 5433,
+ &#39;mydb_host&#39;: &#39;db02.datalab.noao.edu&#39;}</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13805,7 +14758,7 @@ LIMIT 100</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;SELECT table_catalog, table_schema, table_name FROM information_schema.tables&#39;</span>
@@ -13819,6 +14772,825 @@ LIMIT 100</code></pre>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>table_catalog,table_schema,table_name
+tapdb,pg_catalog,pg_aggregate
+tapdb,pg_catalog,pg_am
+tapdb,pg_catalog,pg_amop
+tapdb,pg_catalog,pg_amproc
+tapdb,pg_catalog,pg_attrdef
+tapdb,pg_catalog,pg_attribute
+tapdb,pg_catalog,pg_auth_members
+tapdb,pg_catalog,pg_authid
+tapdb,pg_catalog,pg_available_extension_versions
+tapdb,pg_catalog,pg_available_extensions
+tapdb,pg_catalog,pg_cast
+tapdb,pg_catalog,pg_class
+tapdb,pg_catalog,pg_collation
+tapdb,pg_catalog,pg_config
+tapdb,pg_catalog,pg_constraint
+tapdb,pg_catalog,pg_conversion
+tapdb,pg_catalog,pg_cursors
+tapdb,pg_catalog,pg_database
+tapdb,pg_catalog,pg_db_role_setting
+tapdb,pg_catalog,pg_default_acl
+tapdb,pg_catalog,pg_depend
+tapdb,pg_catalog,pg_description
+tapdb,pg_catalog,pg_enum
+tapdb,pg_catalog,pg_event_trigger
+tapdb,pg_catalog,pg_extension
+tapdb,pg_catalog,pg_file_settings
+tapdb,pg_catalog,pg_foreign_data_wrapper
+tapdb,pg_catalog,pg_foreign_server
+tapdb,pg_catalog,pg_foreign_table
+tapdb,pg_catalog,pg_group
+tapdb,pg_catalog,pg_hba_file_rules
+tapdb,pg_catalog,pg_index
+tapdb,pg_catalog,pg_indexes
+tapdb,pg_catalog,pg_inherits
+tapdb,pg_catalog,pg_init_privs
+tapdb,pg_catalog,pg_language
+tapdb,pg_catalog,pg_largeobject
+tapdb,pg_catalog,pg_largeobject_metadata
+tapdb,pg_catalog,pg_locks
+tapdb,pg_catalog,pg_matviews
+tapdb,pg_catalog,pg_namespace
+tapdb,pg_catalog,pg_opclass
+tapdb,pg_catalog,pg_operator
+tapdb,pg_catalog,pg_opfamily
+tapdb,pg_catalog,pg_partitioned_table
+tapdb,pg_catalog,pg_pltemplate
+tapdb,pg_catalog,pg_policies
+tapdb,pg_catalog,pg_policy
+tapdb,pg_catalog,pg_prepared_statements
+tapdb,pg_catalog,pg_prepared_xacts
+tapdb,pg_catalog,pg_proc
+tapdb,pg_catalog,pg_publication
+tapdb,pg_catalog,pg_publication_rel
+tapdb,pg_catalog,pg_publication_tables
+tapdb,pg_catalog,pg_range
+tapdb,pg_catalog,pg_replication_origin
+tapdb,pg_catalog,pg_replication_origin_status
+tapdb,pg_catalog,pg_replication_slots
+tapdb,pg_catalog,pg_rewrite
+tapdb,pg_catalog,pg_roles
+tapdb,pg_catalog,pg_rules
+tapdb,pg_catalog,pg_seclabel
+tapdb,pg_catalog,pg_seclabels
+tapdb,pg_catalog,pg_sequence
+tapdb,pg_catalog,pg_sequences
+tapdb,pg_catalog,pg_settings
+tapdb,pg_catalog,pg_shadow
+tapdb,pg_catalog,pg_shdepend
+tapdb,pg_catalog,pg_shdescription
+tapdb,pg_catalog,pg_shseclabel
+tapdb,pg_catalog,pg_stat_activity
+tapdb,pg_catalog,pg_stat_all_indexes
+tapdb,pg_catalog,pg_stat_all_tables
+tapdb,pg_catalog,pg_stat_archiver
+tapdb,pg_catalog,pg_stat_bgwriter
+tapdb,pg_catalog,pg_stat_database
+tapdb,pg_catalog,pg_stat_database_conflicts
+tapdb,pg_catalog,pg_stat_progress_vacuum
+tapdb,pg_catalog,pg_stat_replication
+tapdb,pg_catalog,pg_stat_ssl
+tapdb,pg_catalog,pg_stat_subscription
+tapdb,pg_catalog,pg_stat_sys_indexes
+tapdb,pg_catalog,pg_stat_sys_tables
+tapdb,pg_catalog,pg_stat_user_functions
+tapdb,pg_catalog,pg_stat_user_indexes
+tapdb,pg_catalog,pg_stat_user_tables
+tapdb,pg_catalog,pg_stat_wal_receiver
+tapdb,pg_catalog,pg_stat_xact_all_tables
+tapdb,pg_catalog,pg_stat_xact_sys_tables
+tapdb,pg_catalog,pg_stat_xact_user_functions
+tapdb,pg_catalog,pg_stat_xact_user_tables
+tapdb,pg_catalog,pg_statio_all_indexes
+tapdb,pg_catalog,pg_statio_all_sequences
+tapdb,pg_catalog,pg_statio_all_tables
+tapdb,pg_catalog,pg_statio_sys_indexes
+tapdb,pg_catalog,pg_statio_sys_sequences
+tapdb,pg_catalog,pg_statio_sys_tables
+tapdb,pg_catalog,pg_statio_user_indexes
+tapdb,pg_catalog,pg_statio_user_sequences
+tapdb,pg_catalog,pg_statio_user_tables
+tapdb,pg_catalog,pg_statistic
+tapdb,pg_catalog,pg_statistic_ext
+tapdb,pg_catalog,pg_stats
+tapdb,pg_catalog,pg_subscription
+tapdb,pg_catalog,pg_subscription_rel
+tapdb,pg_catalog,pg_tables
+tapdb,pg_catalog,pg_tablespace
+tapdb,pg_catalog,pg_timezone_abbrevs
+tapdb,pg_catalog,pg_timezone_names
+tapdb,pg_catalog,pg_transform
+tapdb,pg_catalog,pg_trigger
+tapdb,pg_catalog,pg_ts_config
+tapdb,pg_catalog,pg_ts_config_map
+tapdb,pg_catalog,pg_ts_dict
+tapdb,pg_catalog,pg_ts_parser
+tapdb,pg_catalog,pg_ts_template
+tapdb,pg_catalog,pg_type
+tapdb,pg_catalog,pg_user
+tapdb,pg_catalog,pg_user_mapping
+tapdb,pg_catalog,pg_user_mappings
+tapdb,pg_catalog,pg_views
+tapdb,public,db02counts
+tapdb,public,delme
+tapdb,public,dl_col_alerts
+tapdb,public,dl_metric_alerts
+tapdb,public,dl_schema_alerts
+tapdb,public,dl_stats
+tapdb,public,dl_stats_bak
+tapdb,public,dl_stats_golden
+tapdb,public,dl_stats_gp04
+tapdb,public,dl_table_alerts
+tapdb,public,dlservices
+tapdb,public,dual
+tapdb,public,tbl_stat
+tapdb,information_schema,_pg_foreign_data_wrappers
+tapdb,information_schema,_pg_foreign_servers
+tapdb,information_schema,_pg_foreign_table_columns
+tapdb,information_schema,_pg_foreign_tables
+tapdb,information_schema,_pg_user_mappings
+tapdb,information_schema,administrable_role_authorizations
+tapdb,information_schema,applicable_roles
+tapdb,information_schema,attributes
+tapdb,information_schema,character_sets
+tapdb,information_schema,check_constraint_routine_usage
+tapdb,information_schema,check_constraints
+tapdb,information_schema,collation_character_set_applicability
+tapdb,information_schema,collations
+tapdb,information_schema,column_domain_usage
+tapdb,information_schema,column_options
+tapdb,information_schema,column_privileges
+tapdb,information_schema,column_udt_usage
+tapdb,information_schema,columns
+tapdb,information_schema,constraint_column_usage
+tapdb,information_schema,constraint_table_usage
+tapdb,information_schema,data_type_privileges
+tapdb,information_schema,domain_constraints
+tapdb,information_schema,domain_udt_usage
+tapdb,information_schema,domains
+tapdb,information_schema,element_types
+tapdb,information_schema,enabled_roles
+tapdb,information_schema,foreign_data_wrapper_options
+tapdb,information_schema,foreign_data_wrappers
+tapdb,information_schema,foreign_server_options
+tapdb,information_schema,foreign_servers
+tapdb,information_schema,foreign_table_options
+tapdb,information_schema,foreign_tables
+tapdb,information_schema,information_schema_catalog_name
+tapdb,information_schema,key_column_usage
+tapdb,information_schema,parameters
+tapdb,information_schema,referential_constraints
+tapdb,information_schema,role_column_grants
+tapdb,information_schema,role_routine_grants
+tapdb,information_schema,role_table_grants
+tapdb,information_schema,role_udt_grants
+tapdb,information_schema,role_usage_grants
+tapdb,information_schema,routine_privileges
+tapdb,information_schema,routines
+tapdb,information_schema,schemata
+tapdb,information_schema,sequences
+tapdb,information_schema,sql_features
+tapdb,information_schema,sql_implementation_info
+tapdb,information_schema,sql_languages
+tapdb,information_schema,sql_packages
+tapdb,information_schema,sql_parts
+tapdb,information_schema,sql_sizing
+tapdb,information_schema,sql_sizing_profiles
+tapdb,information_schema,table_constraints
+tapdb,information_schema,table_privileges
+tapdb,information_schema,tables
+tapdb,information_schema,transforms
+tapdb,information_schema,triggered_update_columns
+tapdb,information_schema,triggers
+tapdb,information_schema,udt_privileges
+tapdb,information_schema,usage_privileges
+tapdb,information_schema,user_defined_types
+tapdb,information_schema,user_mapping_options
+tapdb,information_schema,user_mappings
+tapdb,information_schema,view_column_usage
+tapdb,information_schema,view_routine_usage
+tapdb,information_schema,view_table_usage
+tapdb,information_schema,views
+tapdb,unwise_dr1,object
+tapdb,phat_v2,phot_meas
+tapdb,phat_v2,phot_mod
+tapdb,phat_v2,phot_v2
+tapdb,phat_v2,star_v2
+tapdb,decaps_dr1,ccds
+tapdb,decaps_dr1,depth
+tapdb,decaps_dr1,imdb
+tapdb,decaps_dr1,object
+tapdb,decaps_dr1,zps
+tapdb,dad_dr1,movds
+tapdb,dad_dr1,movdup
+tapdb,dad_dr1,movexp
+tapdb,dad_dr1,movgrp
+tapdb,dad_dr1,movmpc
+tapdb,dad_dr1,movobs
+tapdb,dad_dr1,movrate
+tapdb,stripe82,allwise
+tapdb,stripe82,des_dr1
+tapdb,stripe82,gaia_dr1
+tapdb,stripe82,gaia_dr2
+tapdb,stripe82,ls_dr3
+tapdb,stripe82,ls_dr5
+tapdb,stripe82,ls_dr6
+tapdb,stripe82,ls_dr7
+tapdb,stripe82,nsc_dr1
+tapdb,stripe82,sdss13_specobj
+tapdb,stripe82,sdss14_specobj
+tapdb,stripe82,splus_dr1
+tapdb,stripe82,twomass_psc
+tapdb,stripe82,twomass_xsc
+tapdb,stripe82,usno_a2
+tapdb,stripe82,usno_b1
+tapdb,ivoa_calibrated,calibrated_all
+tapdb,ivoa_calibrated,des_y1
+tapdb,ivoa_calibrated,des_y2
+tapdb,ivoa_calibrated,des_y3
+tapdb,ivoa_calibrated,des_y4
+tapdb,ivoa_calibrated,nsa
+tapdb,ivoa_calibrated,smash_dr1
+tapdb,ivoa_calibrated,smash_dr2
+tapdb,ivoa_decaps_dr1,exposure
+tapdb,ivoa_decaps_dr1,obscore
+tapdb,ivoa_decaps_dr1,siav1
+tapdb,ivoa_decaps_dr1,siav2
+tapdb,ivoa_des_dr1,exposure
+tapdb,ivoa_des_dr1,obscore
+tapdb,ivoa_des_dr1,siav1
+tapdb,ivoa_des_dr1,siav2
+tapdb,ivoa_des_y1,exposure
+tapdb,ivoa_des_y1,obscore
+tapdb,ivoa_des_y1,siav1
+tapdb,ivoa_des_y1,siav2
+tapdb,ivoa_des_y2,exposure
+tapdb,ivoa_des_y2,obscore
+tapdb,ivoa_des_y2,siav1
+tapdb,ivoa_des_y2,siav2
+tapdb,ivoa_des_y3,exposure
+tapdb,ivoa_des_y3,obscore
+tapdb,ivoa_des_y3,siav1
+tapdb,ivoa_des_y3,siav2
+tapdb,ivoa_des_y4,exposure
+tapdb,ivoa_des_y4,obscore
+tapdb,ivoa_des_y4,siav1
+tapdb,ivoa_des_y4,siav2
+tapdb,ivoa_ls_dr3,exposure
+tapdb,ivoa_ls_dr3,obscore
+tapdb,ivoa_ls_dr3,siav1
+tapdb,ivoa_ls_dr3,siav2
+tapdb,ivoa_ls_dr4,exposure
+tapdb,ivoa_ls_dr4,obscore
+tapdb,ivoa_ls_dr4,siav1
+tapdb,ivoa_ls_dr4,siav2
+tapdb,ivoa_ls_dr5,exposure
+tapdb,ivoa_ls_dr5,obscore
+tapdb,ivoa_ls_dr5,siav1
+tapdb,ivoa_ls_dr5,siav2
+tapdb,ivoa_ls_dr6,exposure
+tapdb,ivoa_ls_dr6,obscore
+tapdb,ivoa_ls_dr6,siav1
+tapdb,ivoa_ls_dr6,siav2
+tapdb,ivoa_ls_dr7,exposure
+tapdb,ivoa_ls_dr7,obscore
+tapdb,ivoa_ls_dr7,siav1
+tapdb,ivoa_ls_dr7,siav2
+tapdb,ivoa_raw,raw_all
+tapdb,ivoa_raw,smash_dr1
+tapdb,ivoa_raw,smash_dr2
+tapdb,ivoa_des_sva1,exposure
+tapdb,ivoa_des_sva1,obscore
+tapdb,ivoa_des_sva1,siav1
+tapdb,ivoa_des_sva1,siav2
+tapdb,des_sva1,gold_annz2_pdf
+tapdb,des_sva1,gold_annz2_point
+tapdb,des_sva1,gold_bpz_pdf
+tapdb,des_sva1,gold_bpz_point
+tapdb,des_sva1,gold_catalog
+tapdb,des_sva1,gold_im3shape
+tapdb,des_sva1,gold_ngmix
+tapdb,des_sva1,gold_skynet_pdf
+tapdb,des_sva1,gold_skynet_point
+tapdb,des_sva1,gold_tpz_pdf
+tapdb,des_sva1,gold_tpz_point
+tapdb,des_sva1,gold_wlinfo
+tapdb,des_sva1,redmagic_bright
+tapdb,des_sva1,redmagic_faint
+tapdb,des_sva1,redmapper_exp_area
+tapdb,des_sva1,redmapper_exp_catalog
+tapdb,des_sva1,redmapper_exp_members
+tapdb,des_sva1,redmapper_exp_randoms
+tapdb,des_sva1,redmapper_exp_zmask
+tapdb,des_sva1,redmapper_pub_area
+tapdb,des_sva1,redmapper_pub_catalog
+tapdb,des_sva1,redmapper_pub_members
+tapdb,des_sva1,redmapper_pub_randoms
+tapdb,des_sva1,redmapper_pub_zmask
+tapdb,sdss_dr13,calibobj_gal
+tapdb,sdss_dr13,calibobj_star
+tapdb,sdss_dr13,dr12qso
+tapdb,sdss_dr13,emissionlinesport_dr12
+tapdb,sdss_dr13,galspecline_dr8
+tapdb,sdss_dr13,photoposplate
+tapdb,sdss_dr13,specobj
+tapdb,sdss_dr13,wisematch_gal
+tapdb,sdss_dr13,wisematch_star
+tapdb,nsc_dr1,chip
+tapdb,nsc_dr1,coverage
+tapdb,nsc_dr1,exposure
+tapdb,nsc_dr1,meas
+tapdb,nsc_dr1,nsc_allwise
+tapdb,nsc_dr1,nsc_des
+tapdb,nsc_dr1,nsc_lsdr4
+tapdb,nsc_dr1,nsc_lsdr5
+tapdb,nsc_dr1,object
+tapdb,usno,a2
+tapdb,usno,b1
+tapdb,twomass,psc
+tapdb,twomass,xsc
+tapdb,splus_edr,allwise
+tapdb,splus_edr,des_dr1
+tapdb,splus_edr,gaia_dr2
+tapdb,splus_edr,ls_dr5
+tapdb,splus_edr,ls_dr6
+tapdb,splus_edr,ls_dr7
+tapdb,splus_edr,nsc_dr1
+tapdb,splus_edr,sdss_dr14_specobj
+tapdb,splus_edr,stripe82
+tapdb,ivoa_ls_dr8,exposure
+tapdb,ivoa_ls_dr8,obscore
+tapdb,ivoa_ls_dr8,siav1
+tapdb,ivoa_ls_dr8,siav2
+tapdb,mydb,1_rxs_2491
+tapdb,mydb,2mass1_2315
+tapdb,mydb,2mass_2315
+tapdb,mydb,80month_serendips_1616
+tapdb,mydb,ABC_test_1549
+tapdb,mydb,AB_test_1549
+tapdb,mydb,ABtest_1549
+tapdb,mydb,Atest_1549
+tapdb,mydb,Companion_2659
+tapdb,mydb,Ctest_1549
+tapdb,mydb,DESI_BGS_2649
+tapdb,mydb,FIRST_2561
+tapdb,mydb,GaiaDR2SDSS_WD2_1305
+tapdb,mydb,GaiaDR2SDSS_WD_1305
+tapdb,mydb,GaiaDR2_WD_1305
+tapdb,mydb,HADOT_LS_DR8_2861
+tapdb,mydb,Matched_zgt5_quasars_Decam_legacy_2843
+tapdb,mydb,NSCdr2wd_1305
+tapdb,mydb,SDSSDR16_Firefly_2649
+tapdb,mydb,SDSS_DR16_PhotSpec_r_2649
+tapdb,mydb,SDSS_EmLines_t1_2543
+tapdb,mydb,SDSS_EmLines_t1_2649
+tapdb,mydb,SDSS_EmLines_t3_2649
+tapdb,mydb,SDSS_EmLines_t4_2649
+tapdb,mydb,SDSS_EmLines_t5_2649
+tapdb,mydb,SDSS_EmLines_t6_2649
+tapdb,mydb,SDSS_EmLines_t8_2649
+tapdb,mydb,SDSS_EmissionLines_2649
+tapdb,mydb,SDSS_EmissionLines_EW_2649
+tapdb,mydb,SpecPhot_DR16_FireFly_DR14_r1_2649
+tapdb,mydb,SpecPhot_DR16_FireFly_DR14_r2_2649
+tapdb,mydb,a3827vel_2693
+tapdb,mydb,acbastal_1549
+tapdb,mydb,all_nsc_wds_1305
+tapdb,mydb,arjun_1007
+tapdb,mydb,asdf_2789
+tapdb,mydb,cruce_bajo_snr_unwise_2789
+tapdb,mydb,delme1164_2544
+tapdb,mydb,delme_1549
+tapdb,mydb,des_bds_1177
+tapdb,mydb,e835_2566
+tapdb,mydb,e861_decaps_2566
+tapdb,mydb,final_test_1005
+tapdb,mydb,gals_2730
+tapdb,mydb,legacy_coords_2299
+tapdb,mydb,legacy_s_2299
+tapdb,mydb,mag-all_2480
+tapdb,mydb,mags-renamed_1722
+tapdb,mydb,ngcc_2740
+tapdb,mydb,nsc2_214_1013
+tapdb,mydb,objects6a_2118
+tapdb,mydb,out_lsdr6_1191
+tapdb,mydb,p172sys2_1757
+tapdb,mydb,p172sys3_1757
+tapdb,mydb,p172sys_1757
+tapdb,mydb,p172system_1757
+tapdb,mydb,robe_2315
+tapdb,mydb,sdss_new2_2299
+tapdb,mydb,shellqs_2843
+tapdb,mydb,sjw2_2731
+tapdb,mydb,sn1_inf_dr2_blend_large_2789
+tapdb,mydb,spt_49_ifrs_2480
+tapdb,mydb,test1_2730
+tapdb,mydb,test255_1549
+tapdb,mydb,test2gaiaWD_1013
+tapdb,mydb,test_gaiaWD_1013
+tapdb,mydb,virgo_1005
+tapdb,ls_dr3,apflux
+tapdb,ls_dr3,bricks
+tapdb,ls_dr3,bricks_dr3
+tapdb,ls_dr3,ccds_annotated
+tapdb,ls_dr3,depth
+tapdb,ls_dr3,depth_summary
+tapdb,ls_dr3,dr3_dr12q
+tapdb,ls_dr3,dr3_dr7q
+tapdb,ls_dr3,dr3_specobj_dr13
+tapdb,ls_dr3,dr3_superset_dr12q
+tapdb,ls_dr3,galaxy
+tapdb,ls_dr3,neighbors
+tapdb,ls_dr3,star
+tapdb,ls_dr3,survey_ccds
+tapdb,ls_dr3,tractor
+tapdb,ls_dr3,tractor_primary
+tapdb,ls_dr3,tractor_secondary
+tapdb,ls_dr3,wise
+tapdb,dad_dr2,addgrp
+tapdb,dad_dr2,addobs
+tapdb,dad_dr2,movds
+tapdb,dad_dr2,movdup
+tapdb,dad_dr2,movexp
+tapdb,dad_dr2,movgrp
+tapdb,dad_dr2,movmpc
+tapdb,dad_dr2,movobs
+tapdb,dad_dr2,movrate
+tapdb,ivoa_smash_dr2,exposure
+tapdb,ivoa_smash_dr2,obscore
+tapdb,ivoa_smash_dr2,siav1
+tapdb,ivoa_smash_dr2,siav2
+tapdb,allwise,source
+tapdb,gaia_dr2,allwise
+tapdb,gaia_dr2,cepheid
+tapdb,gaia_dr2,des_dr1
+tapdb,gaia_dr2,gaia_source
+tapdb,gaia_dr2,iers
+tapdb,gaia_dr2,light_curves
+tapdb,gaia_dr2,lpv
+tapdb,gaia_dr2,ls_dr5
+tapdb,gaia_dr2,ls_dr6
+tapdb,gaia_dr2,nsc_dr1
+tapdb,gaia_dr2,numtrans
+tapdb,gaia_dr2,rm
+tapdb,gaia_dr2,rmout
+tapdb,gaia_dr2,rmseg
+tapdb,gaia_dr2,rrlyrae
+tapdb,gaia_dr2,rvstdcat
+tapdb,gaia_dr2,rvstdmes
+tapdb,gaia_dr2,shortts
+tapdb,gaia_dr2,ssoobj
+tapdb,gaia_dr2,ssoobs
+tapdb,gaia_dr2,ssoorb
+tapdb,gaia_dr2,ssores
+tapdb,gaia_dr2,transit
+tapdb,gaia_dr2,tsstat
+tapdb,gaia_dr2,varres
+tapdb,ivoa_nsa,exposure
+tapdb,ivoa_nsa,obscore
+tapdb,ivoa_nsa,siav1
+tapdb,ivoa_nsa,siav2
+tapdb,ivoa_stripe82,calibrated
+tapdb,ivoa_stripe82,coadd
+tapdb,ivoa_stripe82,decaps_dr1
+tapdb,ivoa_stripe82,des_dr1
+tapdb,ivoa_stripe82,des_sva1
+tapdb,ivoa_stripe82,des_y1
+tapdb,ivoa_stripe82,des_y2
+tapdb,ivoa_stripe82,des_y3
+tapdb,ivoa_stripe82,des_y4
+tapdb,ivoa_stripe82,ls_dr3
+tapdb,ivoa_stripe82,ls_dr5
+tapdb,ivoa_stripe82,ls_dr6
+tapdb,ivoa_stripe82,ls_dr7
+tapdb,ivoa_stripe82,ls_dr8
+tapdb,ivoa_stripe82,nsa
+tapdb,ivoa_stripe82,raw
+tapdb,ivoa_stripe82,smash_dr1
+tapdb,ivoa_stripe82,smash_dr2
+tapdb,ivoa_stripe82,splus_dr1
+tapdb,ivoa_stripe82,splus_edr
+tapdb,ivoa_stripe82,stripe82_all
+tapdb,ls_dr4,apflux
+tapdb,ls_dr4,bricks
+tapdb,ls_dr4,bricks_dr4
+tapdb,ls_dr4,ccds_annotated
+tapdb,ls_dr4,depth
+tapdb,ls_dr4,depth_summary
+tapdb,ls_dr4,galaxy
+tapdb,ls_dr4,neighbors
+tapdb,ls_dr4,star
+tapdb,ls_dr4,survey_ccds
+tapdb,ls_dr4,tractor
+tapdb,ls_dr4,tractor_primary
+tapdb,ls_dr4,tractor_secondary
+tapdb,ls_dr4,wise
+tapdb,ls_dr5,apflux
+tapdb,ls_dr5,bricks
+tapdb,ls_dr5,bricks_dr5
+tapdb,ls_dr5,ccds_annotated
+tapdb,ls_dr5,depth
+tapdb,ls_dr5,depth_summary
+tapdb,ls_dr5,dr5_dr12q
+tapdb,ls_dr5,dr5_dr7q
+tapdb,ls_dr5,dr5_specobj_dr14
+tapdb,ls_dr5,dr5_superset_dr12q
+tapdb,ls_dr5,galaxy
+tapdb,ls_dr5,neighbors
+tapdb,ls_dr5,star
+tapdb,ls_dr5,survey_ccds
+tapdb,ls_dr5,tractor
+tapdb,ls_dr5,tractor_primary
+tapdb,ls_dr5,tractor_secondary
+tapdb,ls_dr5,wise
+tapdb,ls_dr6,apflux
+tapdb,ls_dr6,bricks
+tapdb,ls_dr6,bricks_dr6
+tapdb,ls_dr6,ccds_annotated
+tapdb,ls_dr6,depth
+tapdb,ls_dr6,depth_summary
+tapdb,ls_dr6,dr6_dr14q_v4_4
+tapdb,ls_dr6,dr6_dr7q
+tapdb,ls_dr6,dr6_specobj_dr14
+tapdb,ls_dr6,dr6_superset_dr12q
+tapdb,ls_dr6,galaxy
+tapdb,ls_dr6,star
+tapdb,ls_dr6,survey_ccds
+tapdb,ls_dr6,survey_ccds_kd
+tapdb,ls_dr6,tractor
+tapdb,ls_dr6,tractor_primary
+tapdb,ls_dr6,tractor_secondary
+tapdb,ls_dr6,wise
+tapdb,ls_dr7,apflux
+tapdb,ls_dr7,bricks
+tapdb,ls_dr7,bricks_dr7
+tapdb,ls_dr7,ccds_annotated
+tapdb,ls_dr7,depth
+tapdb,ls_dr7,depth_summary
+tapdb,ls_dr7,dr7_dr12q
+tapdb,ls_dr7,dr7_dr14q_v4_4
+tapdb,ls_dr7,dr7_dr7q
+tapdb,ls_dr7,dr7_specobj_dr14
+tapdb,ls_dr7,dr7_superset_dr12q
+tapdb,ls_dr7,galaxy
+tapdb,ls_dr7,neighbors
+tapdb,ls_dr7,randoms_dr7
+tapdb,ls_dr7,star
+tapdb,ls_dr7,survey_ccds
+tapdb,ls_dr7,survey_ccds_kd
+tapdb,ls_dr7,tractor
+tapdb,ls_dr7,tractor_primary
+tapdb,ls_dr7,tractor_secondary
+tapdb,ls_dr7,wise
+tapdb,ls_dr7,x_sdss_dr14_specobj_1p5
+tapdb,splus_dr1,allwise
+tapdb,splus_dr1,des_dr1
+tapdb,splus_dr1,gaia_dr2
+tapdb,splus_dr1,ls_dr5
+tapdb,splus_dr1,ls_dr6
+tapdb,splus_dr1,ls_dr7
+tapdb,splus_dr1,nsc_dr1
+tapdb,splus_dr1,sdss_dr14_specobj
+tapdb,splus_dr1,stripe82
+tapdb,hipparcos,main
+tapdb,hipparcos2,main
+tapdb,tycho2,main
+tapdb,oracle,dba_segments
+tapdb,oracle,product_component_version
+tapdb,oracle,user_cons_columns
+tapdb,oracle,user_constraints
+tapdb,oracle,user_ind_columns
+tapdb,oracle,user_objects
+tapdb,oracle,user_procedures
+tapdb,oracle,user_source
+tapdb,oracle,user_tab_columns
+tapdb,oracle,user_tables
+tapdb,oracle,user_views
+tapdb,dbms_pipe,db_pipes
+tapdb,utl_file,utl_file_dir
+tapdb,ivoa_coadd,coadd_all
+tapdb,ivoa_coadd,decaps_dr1
+tapdb,ivoa_coadd,des_dr1
+tapdb,ivoa_coadd,des_sva1
+tapdb,ivoa_coadd,ls_dr3
+tapdb,ivoa_coadd,ls_dr4
+tapdb,ivoa_coadd,ls_dr5
+tapdb,ivoa_coadd,ls_dr6
+tapdb,ivoa_coadd,ls_dr7
+tapdb,ivoa_coadd,ls_dr8
+tapdb,ivoa_coadd,smash_dr1
+tapdb,ivoa_coadd,smash_dr2
+tapdb,ivoa_coadd,splus_dr1
+tapdb,skymapper_dr1,master
+tapdb,smash_dr2,chip
+tapdb,smash_dr2,deep
+tapdb,smash_dr2,exposure
+tapdb,smash_dr2,field
+tapdb,smash_dr2,object
+tapdb,smash_dr2,source
+tapdb,smash_dr2,xmatch
+tapdb,ivoa_smash_dr1,exposure
+tapdb,ivoa_smash_dr1,obscore
+tapdb,ivoa_smash_dr1,siav1
+tapdb,ivoa_smash_dr1,siav2
+tapdb,ivoa_splus_edr,exposure
+tapdb,ivoa_splus_edr,obscore
+tapdb,ivoa_splus_edr,siav1
+tapdb,ivoa_splus_edr,siav2
+tapdb,bulge_dr1,exposure
+tapdb,bulge_dr1,meas
+tapdb,bulge_dr1,object
+tapdb,ls_dr9sv,apflux_n
+tapdb,ls_dr9sv,apflux_s
+tapdb,ls_dr9sv,neighbors_n
+tapdb,ls_dr9sv,neighbors_s
+tapdb,ls_dr9sv,tractor_n
+tapdb,ls_dr9sv,tractor_primary_n
+tapdb,ls_dr9sv,tractor_primary_s
+tapdb,ls_dr9sv,tractor_s
+tapdb,ls_dr9sv,tractor_secondary_n
+tapdb,ls_dr9sv,tractor_secondary_s
+tapdb,ls_dr9sv,wise_n
+tapdb,ls_dr9sv,wise_s
+tapdb,tap_schema,columns
+tapdb,tap_schema,columns_datalab
+tapdb,tap_schema,columns_mydb
+tapdb,tap_schema,foreign_tables
+tapdb,tap_schema,key_columns
+tapdb,tap_schema,key_columns_datalab
+tapdb,tap_schema,key_columns_mydb
+tapdb,tap_schema,keys
+tapdb,tap_schema,keys_datalab
+tapdb,tap_schema,keys_mydb
+tapdb,tap_schema,schemas
+tapdb,tap_schema,schemas_datalab
+tapdb,tap_schema,schemas_mydb
+tapdb,tap_schema,tables
+tapdb,tap_schema,tables_datalab
+tapdb,tap_schema,tables_mydb
+tapdb,dltest,object
+tapdb,ivoa_splus_dr1,exposure
+tapdb,ivoa_splus_dr1,obscore
+tapdb,ivoa_splus_dr1,siav1
+tapdb,ivoa_splus_dr1,siav2
+tapdb,gaia_dr1,cepheid
+tapdb,gaia_dr1,gaia_source
+tapdb,gaia_dr1,phot_variable_time_series_gfov
+tapdb,gaia_dr1,phot_variable_time_series_gfov_statistical_parameters
+tapdb,gaia_dr1,rrlyrae
+tapdb,gaia_dr1,tgas_source
+tapdb,gaia_dr1,variable_summary
+tapdb,ls_dr8,apflux
+tapdb,ls_dr8,apflux_n
+tapdb,ls_dr8,apflux_s
+tapdb,ls_dr8,bricks_n
+tapdb,ls_dr8,bricks_s
+tapdb,ls_dr8,ccds_annotated
+tapdb,ls_dr8,depth_n
+tapdb,ls_dr8,depth_s
+tapdb,ls_dr8,depth_summary_n
+tapdb,ls_dr8,depth_summary_s
+tapdb,ls_dr8,dr8_north_dr12q
+tapdb,ls_dr8,dr8_north_dr14q_v4_4
+tapdb,ls_dr8,dr8_north_dr7q
+tapdb,ls_dr8,dr8_north_specobj_dr14
+tapdb,ls_dr8,dr8_north_superset_dr12q
+tapdb,ls_dr8,dr8_south_dr12q
+tapdb,ls_dr8,dr8_south_dr14q_v4_4
+tapdb,ls_dr8,dr8_south_dr7q
+tapdb,ls_dr8,dr8_south_specobj_dr14
+tapdb,ls_dr8,dr8_south_superset_dr12q
+tapdb,ls_dr8,forced
+tapdb,ls_dr8,neighbors_s
+tapdb,ls_dr8,photo_z
+tapdb,ls_dr8,survey_ccds_kd_n
+tapdb,ls_dr8,survey_ccds_kd_s
+tapdb,ls_dr8,tractor
+tapdb,ls_dr8,tractor_n
+tapdb,ls_dr8,tractor_n_comp
+tapdb,ls_dr8,tractor_n_dev
+tapdb,ls_dr8,tractor_n_dup
+tapdb,ls_dr8,tractor_n_exp
+tapdb,ls_dr8,tractor_n_null
+tapdb,ls_dr8,tractor_n_psf
+tapdb,ls_dr8,tractor_n_rex
+tapdb,ls_dr8,tractor_primary_n
+tapdb,ls_dr8,tractor_primary_s
+tapdb,ls_dr8,tractor_s
+tapdb,ls_dr8,tractor_s_comp
+tapdb,ls_dr8,tractor_s_dev
+tapdb,ls_dr8,tractor_s_dup
+tapdb,ls_dr8,tractor_s_exp
+tapdb,ls_dr8,tractor_s_null
+tapdb,ls_dr8,tractor_s_psf
+tapdb,ls_dr8,tractor_s_rex
+tapdb,ls_dr8,tractor_secondary_n
+tapdb,ls_dr8,tractor_secondary_s
+tapdb,ls_dr8,wise
+tapdb,ls_dr8,wise_n
+tapdb,ls_dr8,wise_s
+tapdb,ls_dr8,x_sdss_dr14_specobj_1p5_n
+tapdb,ls_dr8,x_sdss_dr14_specobj_1p5_s
+tapdb,smash_dr1_delme,chip
+tapdb,smash_dr1_delme,exposure
+tapdb,smash_dr1_delme,field
+tapdb,smash_dr1_delme,galaxies
+tapdb,smash_dr1_delme,object
+tapdb,smash_dr1_delme,source
+tapdb,smash_dr1_delme,stars
+tapdb,smash_dr1_delme,xmatch
+tapdb,sdss_dr16,photoplate
+tapdb,sdss_dr16,platex
+tapdb,sdss_dr16,sdssebossfirefly
+tapdb,sdss_dr16,segue1specobjall
+tapdb,sdss_dr16,segue2specobjall
+tapdb,sdss_dr16,seguespecobjall
+tapdb,sdss_dr16,specobj
+tapdb,sdss_dr16,specobjall
+tapdb,sdss_dr12,dr12q
+tapdb,sdss_dr12,dr12q_duplicates
+tapdb,sdss_dr12,emissionlinesport
+tapdb,sdss_dr12,photoplate
+tapdb,sdss_dr12,platex
+tapdb,sdss_dr12,segue1specobjall
+tapdb,sdss_dr12,segue2specobjall
+tapdb,sdss_dr12,seguespecobjall
+tapdb,sdss_dr12,specobj
+tapdb,sdss_dr12,specobjall
+tapdb,sdss_dr14,dr14q
+tapdb,sdss_dr14,dr14q_duplicates
+tapdb,sdss_dr14,photoplate
+tapdb,sdss_dr14,platex
+tapdb,sdss_dr14,sdssebossfirefly
+tapdb,sdss_dr14,segue1specobjall
+tapdb,sdss_dr14,segue2specobjall
+tapdb,sdss_dr14,seguespecobjall
+tapdb,sdss_dr14,specobj
+tapdb,sdss_dr14,specobjall
+tapdb,sdss_dr14,spiders_quasar
+tapdb,sdss_dr14,x_ls_dr8_n_1p5
+tapdb,sdss_dr14,x_ls_dr8_s_1p5
+tapdb,ivoa_delve,exposure
+tapdb,ivoa_delve,obscore
+tapdb,ivoa_delve,siav1
+tapdb,ivoa_delve,siav2
+tapdb,ivoa,exposure
+tapdb,ivoa,obscore
+tapdb,ivoa,siav1
+tapdb,ivoa,siav2
+tapdb,gogreen_dr1,clusters
+tapdb,gogreen_dr1,photo
+tapdb,gogreen_dr1,redshift
+tapdb,ivoa_gogreen_dr1,exposure
+tapdb,ivoa_gogreen_dr1,obscore
+tapdb,ivoa_gogreen_dr1,siav1
+tapdb,ivoa_gogreen_dr1,siav2
+tapdb,smash_dr1,chip
+tapdb,smash_dr1,exposure
+tapdb,smash_dr1,field
+tapdb,smash_dr1,galaxies
+tapdb,smash_dr1,object
+tapdb,smash_dr1,source
+tapdb,smash_dr1,stars
+tapdb,smash_dr1,xmatch
+tapdb,des_dr1,des_allwise
+tapdb,des_dr1,des_gaia2
+tapdb,des_dr1,des_galex
+tapdb,des_dr1,des_hsc2
+tapdb,des_dr1,des_nscdr1
+tapdb,des_dr1,des_simbad
+tapdb,des_dr1,flux
+tapdb,des_dr1,img2coadd
+tapdb,des_dr1,mag
+tapdb,des_dr1,main
+tapdb,des_dr1,neighbors
+tapdb,des_dr1,tile_info
+tapdb,des_dr1,x_gaia_dr2_2p5
+tapdb,ivoa_sdss_dr9,exposure
+tapdb,ivoa_sdss_dr9,obscore
+tapdb,ivoa_sdss_dr9,siav1
+tapdb,ivoa_sdss_dr9,siav2
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
