@@ -14,7 +14,7 @@ plt.rcParams.update({'font.size': 18,'figure.figsize': (10,8)})
 
 t = np.linspace(-1,1,100) ## time
 
-repoURL = 'https://raw.githubusercontent.com/DavidVargasMora/TACTests/master/'
+repoURL = 'https://raw.githubusercontent.com/noaodatalab/notebooks-latest/master/06_EPO/e-TeenAstronomyCafe/'
 
 def initial_lightcurve(radius=0.1):
     params = batman.TransitParams()

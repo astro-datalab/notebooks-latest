@@ -10,7 +10,7 @@ import numpy as np
 # Import the transit modeling package
 import batman
 
-repoURL = 'https://raw.githubusercontent.com/DavidVargasMora/TACTests/master/'
+repoURL = 'https://raw.githubusercontent.com/noaodatalab/notebooks-latest/master/06_EPO/e-TeenAstronomyCafe/'
 
 def example_transit_plot(Time,time_1,flux_1):
     # Makes a new figure
