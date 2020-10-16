@@ -40,19 +40,19 @@ def initial_imports():
 	r = requests.get(url +'/transmission_spec_functions.js', allow_redirects=True, stream=True)
 	open('transmission_spec_functions.js', 'wb').write(r.content)
 
-	r = requests.get(url +'/data/mystery_lc_1.fits', allow_redirects=True, stream=True)
+	r = requests.get(url +'/Data/mystery_lc_1.fits', allow_redirects=True, stream=True)
 	open('mystery_lc_1.fits', 'wb').write(r.content)
 
-	r = requests.get(url +'/data/mystery_lc_2.fits', allow_redirects=True, stream=True)
+	r = requests.get(url +'/Data/mystery_lc_2.fits', allow_redirects=True, stream=True)
 	open('mystery_lc_2.fits', 'wb').write(r.content)
 
-	r = requests.get(url +'/data/mystery_lc_3.fits', allow_redirects=True, stream=True)
+	r = requests.get(url +'/Data/mystery_lc_3.fits', allow_redirects=True, stream=True)
 	open('mystery_lc_3.fits', 'wb').write(r.content)
 
-	r = requests.get(url +'/data/mystery_lc_4.fits', allow_redirects=True, stream=True)
+	r = requests.get(url +'/Data/mystery_lc_4.fits', allow_redirects=True, stream=True)
 	open('mystery_lc_4.fits', 'wb').write(r.content)
 
-	r = requests.get(url +'/data/opacity_breakdown_gto_f_hd189733b.fits', allow_redirects=True, stream=True)
+	r = requests.get(url +'/Data/opacity_breakdown_gto_f_hd189733b.fits', allow_redirects=True, stream=True)
 	open('opacity_breakdown_gto_f_hd189733b.fits', 'wb').write(r.content)
 
 	return "All files downloaded successfully."
