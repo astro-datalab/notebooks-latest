@@ -29,7 +29,7 @@ from IPython.core.display import display, HTML
 def initial_imports():
 	
 	#Next, we download the files needed for the activity.
-	url = 'https://raw.githubusercontent.com/noaodatalab/notebooks-latest/master/06_EPO/e-TeenAstronomyCafe/09_Exoplanet_Spectra_Updated'
+	url = 'https://raw.githubusercontent.com/noaodatalab/notebooks-latest/master/06_EPO/e-TeenAstronomyCafe/09_Exoplanet_Spectra'
 
 	r = requests.get(url +'/lc_functions.js', allow_redirects=True, stream=True)
 	open('lc_functions.js', 'wb').write(r.content)
@@ -40,19 +40,19 @@ def initial_imports():
 	r = requests.get(url +'/transmission_spec_functions.js', allow_redirects=True, stream=True)
 	open('transmission_spec_functions.js', 'wb').write(r.content)
 
-	r = requests.get(url +'/data/mystery_lc_1.fits', allow_redirects=True, stream=True)
+	r = requests.get(url +'/Data/mystery_lc_1.fits', allow_redirects=True, stream=True)
 	open('mystery_lc_1.fits', 'wb').write(r.content)
 
-	r = requests.get(url +'/data/mystery_lc_2.fits', allow_redirects=True, stream=True)
+	r = requests.get(url +'/Data/mystery_lc_2.fits', allow_redirects=True, stream=True)
 	open('mystery_lc_2.fits', 'wb').write(r.content)
 
-	r = requests.get(url +'/data/mystery_lc_3.fits', allow_redirects=True, stream=True)
+	r = requests.get(url +'/Data/mystery_lc_3.fits', allow_redirects=True, stream=True)
 	open('mystery_lc_3.fits', 'wb').write(r.content)
 
-	r = requests.get(url +'/data/mystery_lc_4.fits', allow_redirects=True, stream=True)
+	r = requests.get(url +'/Data/mystery_lc_4.fits', allow_redirects=True, stream=True)
 	open('mystery_lc_4.fits', 'wb').write(r.content)
 
-	r = requests.get(url +'/data/opacity_breakdown_gto_f_hd189733b.fits', allow_redirects=True, stream=True)
+	r = requests.get(url +'/Data/opacity_breakdown_gto_f_hd189733b.fits', allow_redirects=True, stream=True)
 	open('opacity_breakdown_gto_f_hd189733b.fits', 'wb').write(r.content)
 
 	return "All files downloaded successfully."
