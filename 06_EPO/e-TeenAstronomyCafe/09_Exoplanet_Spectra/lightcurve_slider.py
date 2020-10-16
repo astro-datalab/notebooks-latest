@@ -29,7 +29,7 @@ from IPython.core.display import display, HTML
 def initial_imports():
 	
 	#Next, we download the files needed for the activity.
-	url = 'https://raw.githubusercontent.com/noaodatalab/notebooks-latest/master/06_EPO/e-TeenAstronomyCafe/09_Exoplanet_Spectra'
+	url = 'https://raw.githubusercontent.com/davidvargasmora/notebooks-latest/Colab-Badges/06_EPO/e-TeenAstronomyCafe/09_Exoplanet_Spectra'
 
 	r = requests.get(url +'/lc_functions.js', allow_redirects=True, stream=True)
 	open('lc_functions.js', 'wb').write(r.content)
