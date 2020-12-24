@@ -14585,7 +14585,7 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Mike Fitzpatrick &lt;fitz@noao.edu&gt;&#39;</span> <span class="c1"># single string; emails in &lt;&gt;</span>
 <span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20201212&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
-<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>  <span class="c1"># enter used datasets by hand</span>
+<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sdss_dr8&#39;</span><span class="p">,</span><span class="s1">&#39;sdss_dr9&#39;</span><span class="p">,</span><span class="s1">&#39;sdss_dr10&#39;</span><span class="p">,</span><span class="s1">&#39;sdss_dr11&#39;</span><span class="p">,</span><span class="s1">&#39;sdss_dr12&#39;</span><span class="p">,</span> <span class="s1">&#39;sdss_dr13&#39;</span><span class="p">,</span><span class="s1">&#39;sdss_dr14&#39;</span><span class="p">,</span><span class="s1">&#39;sdss_dr15&#39;</span><span class="p">,</span><span class="s1">&#39;sdss_dr16&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tutorial&#39;</span><span class="p">,</span><span class="s1">&#39;spectra&#39;</span><span class="p">,</span><span class="s1">&#39;data access&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -14597,7 +14597,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Getting-Started-with-Spectral-Data">Getting Started with Spectral Data<a class="anchor-link" href="#Getting-Started-with-Spectral-Data">&#182;</a></h1><p><em>Mike Fitzpatrick, NOAO Data Lab Team</em></p>
+<h1 id="Getting-Started-with-Spectral-Data">Getting Started with Spectral Data<a class="anchor-link" href="#Getting-Started-with-Spectral-Data">&#182;</a></h1><p><em>Mike Fitzpatrick, Astro Data Lab Team</em></p>
 
 </div>
 </div>
@@ -14612,17 +14612,11 @@ div#notebook {
 <li><a href="#import">Imports &amp; setup</a></li>
 <li><a href="#auth">Authentication</a></li>
 <li><a href="#find">Finding available spectral datasets</a></li>
-<li><a href="#query">Querying for spectra</a></li>
+<li><a href="#qspec">Querying for spectra</a></li>
 <li><a href="#retrieve">Retrieving data</a></li>
 <li><a href="#plot">Plotting spectra</a></li>
+<li><a href="#refs">References and Resources</a></li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="goals"></a></p>
 <h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><p>Learn how to:</p>
 <ul>
@@ -14632,28 +14626,14 @@ div#notebook {
 <li>Retrieve one or more spectra</li>
 <li>Plot spectra in a notebook</li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="summary"></a></p>
 <h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>This notebook aims to provide you with a very quick overview of how to find, retrieve and utilize spectral data available within Data Lab.  A more detailed explanation of the <em>specClient</em> interface can be found in the associated <em>HowTo</em> notebook, a complete science example using this service is also available in this directory tree.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="attribution"></a></p>
 <h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h1><p>If you use this notebook for your published science, please acknowledge the following:</p>
 <ul>
 <li><p>Data Lab concept paper: Fitzpatrick et al., "The NOAO Data Laboratory: a conceptual overview", SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></p>
 </li>
-<li><p>Data Lab disclaimer: <a href="http://datalab.noao.edu/disclaimers1.php">http://datalab.noao.edu/disclaimers1.php</a></p>
+<li><p>Data Lab disclaimer: <a href="http://datalab.noao.edu/disclaimers.php">http://datalab.noao.edu/disclaimers.php</a></p>
 </li>
 </ul>
 
@@ -14680,24 +14660,24 @@ div#notebook {
 
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                        <span class="c1"># for manipulating arrays</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">specutils</span> <span class="kn">import</span> <span class="n">Spectrum1D</span>          <span class="c1"># spectrum data model</span>
+<span class="kn">import</span> <span class="nn">json</span>                               <span class="c1"># to pretty-print dicts</span>
 
 <span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>            <span class="c1"># astropy utilities</span>
 <span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="n">SkyCoord</span>
 <span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Table</span>
 
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>      <span class="c1"># visualization libs</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="c1"># Data Lab imports</span>
-<span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">specClient</span> <span class="k">as</span> <span class="n">spec</span>         <span class="c1"># primary spectral data client interface</span>
+<span class="c1">#from dl import specClient as spec         # primary spectral data client interface</span>
+<span class="kn">import</span> <span class="nn">specClient</span> <span class="k">as</span> <span class="nn">spec</span>         <span class="c1"># primary spectral data client interface</span>
+
 <span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">storeClient</span>                <span class="c1"># needed to use virtual storage</span>
 <span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">queryClient</span>                <span class="c1"># needed to query Data Lab catalogs</span>
 <span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">authClient</span>                 <span class="c1"># needed for login authentication</span>
-<span class="kn">from</span> <span class="nn">dl.helpers.utils</span> <span class="kn">import</span> <span class="n">convert</span>      <span class="c1"># useful format conversion routines</span>
 </pre></div>
 
     </div>
@@ -14756,7 +14736,7 @@ div#notebook {
 <p><a class="anchor" id="find"></a></p>
 <h1 id="Finding-available-spectral-datasets">Finding available spectral datasets<a class="anchor-link" href="#Finding-available-spectral-datasets">&#182;</a></h1><h2 id="Contexts-and-Catalogs">Contexts and Catalogs<a class="anchor-link" href="#Contexts-and-Catalogs">&#182;</a></h2><p>Similar to the database <em>schema</em> used for catalogs, the spectral data are divided into <em>contexts</em> that define aspects of a particular survey or data release, e.g. rest vs observed wavelengths, flux units, etc.  In the backend service this context name is used to locate and read the data which may be stored in different ways depending on the survey or release.</p>
 <p>Within each <em>context</em> there may be one or more <em>catalogs</em> that are suitable for use in locating spectra, e.g. they provide a unique object identifier that can later be used to retrieve data.  These catalogs typically live in the available Data Lab catalog services but can equally be a user's <em>MyDB</em> table provided the identifiers are appropriate for the context.</p>
-<h2 id="What-datasets-are-available?">What datasets are available?<a class="anchor-link" href="#What-datasets-are-available?">&#182;</a></h2><p>The <em>specClient</em> has a <tt>list_contexts()</tt> method to give you information about available dataset contexts and a <tt>catalogs()<tt> method to list catalogs within each context.  If we call <tt>specClient.list_contexts()</tt> with no argument, we'll get information on the contexts and a one-line description for most of them.</p>
+<h2 id="What-datasets-are-available?">What datasets are available?<a class="anchor-link" href="#What-datasets-are-available?">&#182;</a></h2><p>The <em>specClient</em> has a <tt>list_contexts()</tt> method to give you information about available dataset contexts and a <tt>catalogs()</tt> method to list catalogs within each context.  If we call <tt>specClient.list_contexts()</tt> with no argument, we'll get information on the contexts and a one-line description for most of them.</p>
 
 </div>
 </div>
@@ -14815,7 +14795,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">spec</span><span class="o">.</span><span class="n">list_contexts</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">spec</span><span class="o">.</span><span class="n">list_contexts</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">),</span><span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -14832,7 +14812,22 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;description&#39;: &#39;Default data context (default: sdss_dr16)&#39;, &#39;type&#39;: &#39;public&#39;, &#39;catalog&#39;: &#39;sdss_dr16.specobj&#39;, &#39;id_main&#39;: &#39;specobjid&#39;, &#39;z&#39;: &#39;z&#39;, &#39;rest_frame&#39;: &#39;false&#39;, &#39;catalogs&#39;: {&#39;sdss_dr16.specobj&#39;: &#39;SDSS primary spectra (cleaned table) [DEFAULT]&#39;, &#39;sdss_dr16.specobjall&#39;: &#39;SDSS primary spectra (may contain duplicates&#39;, &#39;sdss_dr16.segue1specobjall&#39;: &#39;SDSS DR14 spectra - Segue-1 survey&#39;, &#39;sdss_dr16.segue2specobjall&#39;: &#39;SDSS primary spectra - Segue-2 survey&#39;, &#39;sdss_dr16.seguespecobjall&#39;: &#39;SDSS primary spectra - All Segue survey&#39;, &#39;sdss_dr16.sdssebossfirefly&#39;: &#39;eBOSS Firefly Value-added Catalog&#39;}}
+<pre>{
+    &#34;description&#34;: &#34;Default data context (default: sdss_dr16)&#34;,
+    &#34;type&#34;: &#34;public&#34;,
+    &#34;catalog&#34;: &#34;sdss_dr16.specobj&#34;,
+    &#34;id_main&#34;: &#34;specobjid&#34;,
+    &#34;redshift&#34;: &#34;z&#34;,
+    &#34;rest_frame&#34;: &#34;false&#34;,
+    &#34;catalogs&#34;: {
+        &#34;sdss_dr16.specobj&#34;: &#34;SDSS primary spectra (cleaned table) [DEFAULT]&#34;,
+        &#34;sdss_dr16.specobjall&#34;: &#34;SDSS primary spectra (may contain duplicates&#34;,
+        &#34;sdss_dr16.segue1specobjall&#34;: &#34;SDSS primary spectra - SEGUE-1 survey&#34;,
+        &#34;sdss_dr16.segue2specobjall&#34;: &#34;SDSS primary spectra - SEGUE-2 survey&#34;,
+        &#34;sdss_dr16.seguespecobjall&#34;: &#34;SDSS primary spectra - All SEGUE survey&#34;,
+        &#34;sdss_dr16.sdssebossfirefly&#34;: &#34;eBOSS Firefly Value-added Catalog&#34;
+    }
+}
 </pre>
 </div>
 </div>
@@ -14917,9 +14912,9 @@ sdss_dr16
 
              sdss_dr16.specobj   SDSS primary spectra (cleaned table) [DEFAULT]
           sdss_dr16.specobjall   SDSS primary spectra (may contain duplicates)
-    sdss_dr16.segue1specobjall   SDSS DR14 spectra - Segue-1 survey
-    sdss_dr16.segue2specobjall   SDSS primary spectra - Segue-2 survey
-     sdss_dr16.seguespecobjall   SDSS primary spectra - All Segue survey
+    sdss_dr16.segue1specobjall   SDSS primary spectra - SEGUE-1 survey
+    sdss_dr16.segue2specobjall   SDSS primary spectra - SEGUE-2 survey
+     sdss_dr16.seguespecobjall   SDSS primary spectra - All SEGUE survey
     sdss_dr16.sdssebossfirefly   eBOSS Firefly Value-added Catalog
 
 </pre>
@@ -14941,8 +14936,8 @@ sdss_dr16
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a class="anchor" id="query"></a></p>
-<h1 id="Querying-for-spectra">Querying for spectra<a class="anchor-link" href="#Querying-for-spectra">&#182;</a></h1><p>Once we have identified the dataset we wish to use, we need to generate a list of identifiers that will later be used to retrieve the spectra.  The exact form of an 'identifier' depends somewhat on the dataset, e.g. for SDSS there is a 64-bit unsigned integer <em>specobjid</em> field in the catalogs, but spectra may also be referred to as an '(<em>plate, mjd, fiber</em>)' tuple for a specific data release and reduction version (i.e. the <em>run2d</em>).  When retrieving data you may use a single identifier or an array of ientifiers to retrieve multiple spectra.</p>
+<p><a class="anchor" id="qspec"></a></p>
+<h1 id="Querying-for-spectra">Querying for spectra<a class="anchor-link" href="#Querying-for-spectra">&#182;</a></h1><p>Once we have identified the dataset we wish to use, we need to generate a list of identifiers that will later be used to retrieve the spectra.  The exact form of an 'identifier' depends somewhat on the dataset, e.g. for SDSS there is a 64-bit unsigned integer <em>specobjid</em> field in the catalogs, but spectra may also be referred to as an '(<em>plate, mjd, fiber</em>)' tuple for a specific data release and reduction version (i.e. the <em>run2d</em>).  When retrieving data you may use a single identifier or an array of idkkjentifiers to retrieve multiple spectra.</p>
 <p>The interface provides a <tt>specClient.query()</tt> method to find spectra using various position-based queries, however the identifier list can just as easily be created by any other query of Data Lab tables. See the <em>How to Use the Spectral Data Client</em> notebook for detailed options available in the <em>query()</em> method.</p>
 <p>The <em>query()</em> may be called as:</p>
 
@@ -15289,19 +15284,19 @@ sdss_dr16
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <i>Table length=10</i>
-<table id="table139823899020944" class="table-striped table-bordered table-condensed">
+<table id="table139825791216848" class="table-striped table-bordered table-condensed">
 <thead><tr><th>specobjid</th><th>z</th><th>zerr</th></tr></thead>
 <thead><tr><th>int64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>2676399110575201280</td><td>0.514419</td><td>0.707528</td></tr>
-<tr><td>2676376020831017984</td><td>0.536907</td><td>1.44516</td></tr>
-<tr><td>2676420276174035968</td><td>0.567209</td><td>4.73782e-06</td></tr>
-<tr><td>3384465643041482752</td><td>0.503334</td><td>5.27498</td></tr>
-<tr><td>2887948177086900224</td><td>0.555673</td><td>0.000186353</td></tr>
-<tr><td>2876676532561012736</td><td>0.558302</td><td>0.000117889</td></tr>
-<tr><td>2887946527819458560</td><td>0.555906</td><td>0.000182176</td></tr>
-<tr><td>2887956698302015488</td><td>0.555918</td><td>0.000307983</td></tr>
-<tr><td>2887956973179922432</td><td>0.563307</td><td>0.000137069</td></tr>
-<tr><td>2887949276598528000</td><td>0.556766</td><td>0.000175756</td></tr>
+<tr><td>2887956423424108544</td><td>0.556135</td><td>0.000255107</td></tr>
+<tr><td>2887955873668294656</td><td>0.552192</td><td>0.000234394</td></tr>
+<tr><td>2887957522935736320</td><td>0.556515</td><td>9.30667e-05</td></tr>
+<tr><td>2887948451964807168</td><td>0.550663</td><td>0.000171044</td></tr>
+<tr><td>2887957797813643264</td><td>0.556518</td><td>0.000190587</td></tr>
+<tr><td>2887944603674109952</td><td>0.556119</td><td>0.000181073</td></tr>
+<tr><td>2887958897325271040</td><td>0.557462</td><td>0.000254112</td></tr>
+<tr><td>2887948726842714112</td><td>0.539359</td><td>0.000415408</td></tr>
+<tr><td>2887960546592712704</td><td>0.556839</td><td>0.000243797</td></tr>
+<tr><td>2887959172203177984</td><td>0.556621</td><td>0.000375376</td></tr>
 </table>
 </div>
 
@@ -15459,8 +15454,8 @@ Format: tables
  Type: &lt;class &#39;astropy.table.table.Table&#39;&gt;
   Len: 3816
 -----------
-CPU times: user 79 ms, sys: 20.2 ms, total: 99.2 ms
-Wall time: 178 ms
+CPU times: user 107 ms, sys: 12.3 ms, total: 119 ms
+Wall time: 234 ms
 </pre>
 </div>
 </div>
@@ -15508,8 +15503,8 @@ Wall time: 178 ms
 Shape: (4, 3846)
 Element Type: &lt;class &#39;numpy.ndarray&#39;&gt;
 -----------
-CPU times: user 11.8 ms, sys: 6.14 ms, total: 17.9 ms
-Wall time: 52.1 ms
+CPU times: user 15.6 ms, sys: 3.95 ms, total: 19.6 ms
+Wall time: 50.4 ms
 </pre>
 </div>
 </div>
@@ -15631,8 +15626,8 @@ Wall time: 52.1 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 35 ms, sys: 5 ms, total: 40 ms
-Wall time: 43.9 ms
+<pre>CPU times: user 29.5 ms, sys: 4.93 ms, total: 34.4 ms
+Wall time: 105 ms
 </pre>
 </div>
 </div>
@@ -15645,7 +15640,7 @@ Wall time: 43.9 ms
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f2b4859fc10&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7f2bb9989c50&gt;</pre>
 </div>
 
 </div>
@@ -15717,8 +15712,8 @@ Wall time: 43.9 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 72.5 ms, sys: 5.95 ms, total: 78.5 ms
-Wall time: 159 ms
+<pre>CPU times: user 83.4 ms, sys: 9.05 ms, total: 92.5 ms
+Wall time: 307 ms
 </pre>
 </div>
 </div>
@@ -15727,18 +15722,17 @@ Wall time: 159 ms
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><a class="anchor" id="refs"></a></p>
+<h1 id="References-and-Resources">References and Resources<a class="anchor-link" href="#References-and-Resources">&#182;</a></h1><ul>
+<li><a href="https://github.com/noaodatalab/specserver/blob/master/doc/How_to_use_the_Spectral_Data_Client.ipynb">How To Use the Spectral Data Client</a></li>
+</ul>
 
-    </div>
 </div>
 </div>
-
 </div>
     </div>
   </div>
