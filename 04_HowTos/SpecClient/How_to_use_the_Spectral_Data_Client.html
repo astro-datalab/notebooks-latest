@@ -15079,7 +15079,7 @@ Current context: sdss_dr16
                 for context='sdss_dr16':
                     fields:
                         specobjid           # or 'bestobjid', etc             (Default)
-                        tuple               # a plate/mjd/fiber/run2d tuple   (Not Yet Implemented)
+                        tuple               # a plate/mjd/fiber/run2d tuple
                     primary:
                         True                # query sdss_dr16.specobj
                         False               # query sdss_dr16.specobjall
@@ -15423,7 +15423,7 @@ Current context: sdss_dr16
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <i>Table length=10</i>
-<table id="table140395359666896" class="table-striped table-bordered table-condensed">
+<table id="table139842058131920" class="table-striped table-bordered table-condensed">
 <thead><tr><th>specobjid</th><th>z</th><th>zerr</th></tr></thead>
 <thead><tr><th>int64</th><th>float64</th><th>float64</th></tr></thead>
 <tr><td>2887956423424108544</td><td>0.556135</td><td>0.000255107</td></tr>
@@ -15729,8 +15729,8 @@ ivar        The inverse variance array
 Shape: (618, 3858)
 Element Type: &lt;class &#39;numpy.ndarray&#39;&gt;
 -----------
-CPU times: user 102 ms, sys: 229 ms, total: 331 ms
-Wall time: 50.1 s
+CPU times: user 92.3 ms, sys: 225 ms, total: 317 ms
+Wall time: 51.1 s
 </pre>
 </div>
 </div>
@@ -15810,8 +15810,8 @@ Format: tables
  Type: &lt;class &#39;astropy.table.table.Table&#39;&gt;
   Len: 3816
 -----------
-CPU times: user 77.7 ms, sys: 19.8 ms, total: 97.4 ms
-Wall time: 175 ms
+CPU times: user 93.2 ms, sys: 27.1 ms, total: 120 ms
+Wall time: 196 ms
 </pre>
 </div>
 </div>
@@ -15864,8 +15864,8 @@ Element Type: &lt;class &#39;numpy.int64&#39;&gt;
 -----------
 No. of Spectra: 100
 
-CPU times: user 16 ms, sys: 6.23 ms, total: 22.2 ms
-Wall time: 623 ms
+CPU times: user 16.1 ms, sys: 4.61 ms, total: 20.7 ms
+Wall time: 848 ms
 </pre>
 </div>
 </div>
@@ -15914,8 +15914,8 @@ Wall time: 623 ms
 Shape: (100, 3866)
 Element Type: &lt;class &#39;numpy.ndarray&#39;&gt;
 -----------
-CPU times: user 26.4 ms, sys: 29.2 ms, total: 55.6 ms
-Wall time: 407 ms
+CPU times: user 33.7 ms, sys: 29.2 ms, total: 63 ms
+Wall time: 327 ms
 </pre>
 </div>
 </div>
@@ -15966,8 +15966,8 @@ Wall time: 407 ms
 Shape: (100, 4655)
 Element Type: &lt;class &#39;numpy.ndarray&#39;&gt;
 -----------
-CPU times: user 39.1 ms, sys: 28.5 ms, total: 67.7 ms
-Wall time: 675 ms
+CPU times: user 38.9 ms, sys: 32.3 ms, total: 71.1 ms
+Wall time: 673 ms
 </pre>
 </div>
 </div>
@@ -16242,7 +16242,7 @@ Wall time: 675 ms
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Details of other plotting options can be found in the API documentation [link needed here]</p>
+<p>Details of other plotting options can be found in the API documentation.</p>
 
 </div>
 </div>
@@ -16312,8 +16312,8 @@ object of type &#39;PngImageFile&#39; has no len()
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 57.6 ms, sys: 1.18 ms, total: 58.8 ms
-Wall time: 60.9 ms
+<pre>CPU times: user 75.1 ms, sys: 5.08 ms, total: 80.1 ms
+Wall time: 82.7 ms
 </pre>
 </div>
 </div>
@@ -16384,8 +16384,8 @@ Wall time: 60.9 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 113 ms, sys: 3.88 ms, total: 117 ms
-Wall time: 195 ms
+<pre>CPU times: user 119 ms, sys: 10 ms, total: 129 ms
+Wall time: 208 ms
 </pre>
 </div>
 </div>
@@ -16460,8 +16460,8 @@ class="unconfined"
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 11.5 ms, sys: 2.94 ms, total: 14.5 ms
-Wall time: 93 ms
+<pre>CPU times: user 14.7 ms, sys: 4.16 ms, total: 18.8 ms
+Wall time: 98.4 ms
 </pre>
 </div>
 </div>
@@ -16474,7 +16474,7 @@ Wall time: 93 ms
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a class="anchor" id="stacked_image"></a></p>
-<h2 id="Stacked-Image-Plot">Stacked Image Plot<a class="anchor-link" href="#Stacked-Image-Plot">&#182;</a></h2><p>A stacked image can be creating by assembling the flux vectors of each spectrum as rows in a 2-D image.  The data will automatically be aligned to a common wavelength grid and padded, meaning that spectral features within an identifier list will line up in the image.  The image is created in the same order as the identifier list allowing a list sorted by e.g. redshift to be displayed using that same sorting method.  The 'scale' parameter can be used to adjust the image size and any matplotlib colormap can be added.</p>
+<h2 id="Stacked-Image-Plot">Stacked Image Plot<a class="anchor-link" href="#Stacked-Image-Plot">&#182;</a></h2><p>A stacked image can be creating by assembling the flux vectors of each spectrum as rows in a 2-D image.  The data will automatically be aligned to a common wavelength grid and padded (in the 'observed' or 'rest' frame appropriate for the dataset), meaning that spectral features within an identifier list will line up in the image.  The image is created in the same order as the identifier list allowing a list sorted by e.g. redshift to be displayed using that same sorting method.  The 'scale' parameter can be used to adjust the image size and any matplotlib colormap can be added.</p>
 
 </div>
 </div>
@@ -16519,8 +16519,8 @@ Wall time: 93 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 239 ms, sys: 11.2 ms, total: 250 ms
-Wall time: 1.2 s
+<pre>CPU times: user 235 ms, sys: 7.94 ms, total: 243 ms
+Wall time: 695 ms
 </pre>
 </div>
 </div>
@@ -16580,8 +16580,8 @@ class="unconfined"
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 7.99 ms, sys: 3.47 ms, total: 11.5 ms
-Wall time: 244 ms
+<pre>CPU times: user 8.59 ms, sys: 2.87 ms, total: 11.5 ms
+Wall time: 252 ms
 </pre>
 </div>
 </div>
@@ -16641,7 +16641,7 @@ Wall time: 244 ms
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Convert-to-Pandas-DataFrame">Convert to Pandas DataFrame<a class="anchor-link" href="#Convert-to-Pandas-DataFrame">&#182;</a></h3><p>Given a Numpy spectrum array, convert it to a Pandas DataFrame object:</p>
+<p>When given an array of numpy spectra, the <code>to_Spectrum1d()</code> method will pack all spectra into a single Spectrum1D object:</p>
 
 </div>
 </div>
@@ -16649,6 +16649,50 @@ Wall time: 244 ms
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">spec1d</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">to_Spectrum1D</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Input numpy array shape: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of spectra: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">spec1d</span><span class="o">.</span><span class="n">flux</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Length of each spectrum: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">spec1d</span><span class="o">.</span><span class="n">spectral_axis</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Input numpy array shape: (100, 4655)
+Number of spectra: 100
+Length of each spectrum: 4655
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Convert-to-Pandas-DataFrame">Convert to Pandas DataFrame<a class="anchor-link" href="#Convert-to-Pandas-DataFrame">&#182;</a></h3><p>Given a Numpy spectrum array, convert it to a Pandas DataFrame object:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
@@ -16684,6 +16728,7 @@ Shape: (4655, 8)
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>The <code>to_pandas()</code> cannot convert an array of multiple spectra and requires that each spectrum be converted individually.</p>
 <h3 id="Convert-to-Astropy-Table">Convert to Astropy Table<a class="anchor-link" href="#Convert-to-Astropy-Table">&#182;</a></h3><p>Given a Numpy spectrum array, convert it to an Astropy Table object:</p>
 
 </div>
@@ -16691,7 +16736,7 @@ Shape: (4655, 8)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tab</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">to_Table</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
@@ -16726,6 +16771,68 @@ Shape: (4655, 8)
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>When given an array of numpy spectra, the <code>to_Table()</code> method will write each spectrum as a row in the Astropy Table:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tab</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">to_Table</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Input numpy array shape: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">tab</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Input numpy array shape: (5, 4655)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[38]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<i>Table length=5</i>
+<table id="table139841188595024" class="table-striped table-bordered table-condensed">
+<thead><tr><th>flux [4655]</th><th>loglam [4655]</th><th>ivar [4655]</th><th>and_mask [4655]</th><th>or_mask [4655]</th><th>wdisp [4655]</th><th>sky [4655]</th><th>model [4655]</th></tr></thead>
+<thead><tr><th>float32</th><th>float32</th><th>float32</th><th>int32</th><th>int32</th><th>float32</th><th>float32</th><th>float32</th></tr></thead>
+<tr><td>0.0 .. 0.0</td><td>3.5514 .. 4.0168</td><td>0.0 .. 0.0</td><td>0 .. 0</td><td>0 .. 0</td><td>0.0 .. 0.0</td><td>0.0 .. 0.0</td><td>0.0 .. 0.0</td></tr>
+<tr><td>0.0 .. 0.0</td><td>3.5514 .. 4.0168</td><td>0.0 .. 0.0</td><td>0 .. 0</td><td>0 .. 0</td><td>0.0 .. 0.0</td><td>0.0 .. 0.0</td><td>0.0 .. 0.0</td></tr>
+<tr><td>0.0 .. 0.0</td><td>3.5514 .. 4.0168</td><td>0.0 .. 0.0</td><td>0 .. 0</td><td>0 .. 0</td><td>0.0 .. 0.0</td><td>0.0 .. 0.0</td><td>0.0 .. 0.0</td></tr>
+<tr><td>0.0 .. 0.0</td><td>3.5514 .. 4.0168</td><td>0.0 .. 0.0</td><td>0 .. 0</td><td>0 .. 0</td><td>0.0 .. 0.0</td><td>0.0 .. 0.0</td><td>0.0 .. 0.0</td></tr>
+<tr><td>0.0 .. 0.0</td><td>3.5514 .. 4.0168</td><td>0.0 .. 0.0</td><td>0 .. 0</td><td>0 .. 0</td><td>0.0 .. 0.0</td><td>0.0 .. 0.0</td><td>0.0 .. 0.0</td></tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <p><a class="anchor" id="refs"></a></p>
 <h1 id="References-and-Resources">References and Resources<a class="anchor-link" href="#References-and-Resources">&#182;</a></h1><ul>
@@ -16745,7 +16852,7 @@ Shape: (4655, 8)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
@@ -16766,7 +16873,7 @@ Shape: (4655, 8)
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Notebook run time: 65.3 sec
+<pre>Notebook run time: 67.6 sec
 </pre>
 </div>
 </div>
