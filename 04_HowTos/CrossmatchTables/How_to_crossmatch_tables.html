@@ -12947,8 +12947,13 @@ ul.typeahead-list  > li > a.pull-right {
 /*# sourceMappingURL=style.min.css.map */
     </style>
 <style type="text/css">
-    .highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+    pre { line-height: 125%; margin: 0; }
+td.linenos pre { color: #000000; background-color: #f0f0f0; padding: 0 5px 0 5px; }
+span.linenos { color: #000000; background-color: #f0f0f0; padding: 0 5px 0 5px; }
+td.linenos pre.special { color: #000000; background-color: #ffffc0; padding: 0 5px 0 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding: 0 5px 0 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -13080,7 +13085,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Knut Olsen &lt;kolsen@noao.edu&gt;, Mike Fitzpatrick &lt;mfitzpatrick@noao.edu&gt;, Adam Scott &lt;ascott@noao.edu&gt;&#39;</span> <span class="c1"># single string; emails in &lt;&gt;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20181227&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20200109&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;usno.a2&#39;</span><span class="p">,</span><span class="s1">&#39;gaia_dr2&#39;</span><span class="p">]</span>  <span class="c1"># datasets used in this notebook; for available datasets, see cell &quot;Available datasets in Data Lab&quot; further below</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;crossmatch&#39;</span><span class="p">,</span><span class="s1">&#39;mydb&#39;</span><span class="p">,</span><span class="s1">&#39;query&#39;</span><span class="p">,</span><span class="s1">&#39;tutorial&#39;</span><span class="p">,</span><span class="s1">&#39;vospace&#39;</span><span class="p">],</span> <span class="c1"># keywords relevant to this notebook, e.g. [&#39;science case&#39;,&#39;dwarf galaxies&#39;] Use only keywords from the master list: https://github.com/noaodatalab/notebooks_private/blob/master/internal/keywords.txt </span>
 </pre></div>
@@ -13255,28 +13260,36 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Listing mydb tables:
-foo2
-foo2b
-ls8_100
-lsdr7_001
-lsdr8_0001
-mags
-mags1
-minghao
-myfoo
-newmags
-res1
-sdss_ebossfirefly_dr14
-sdss_ebossfirefly_dr14_test
-smash10
-smash100
-smash100_allwise2
-test_minghao_20191119
-tycho2_100
-usno_objects
-usno_test
-usno_test2
-usno_test3
+TAB2,
+Tab1,
+gaia1e5,created:2020-08-24 11:24:40 MST
+gaia_sample,created:2021-01-06 18:02:39 MST
+gaia_sample_xmatch,created:2021-01-06 18:05:52 MST
+gaiatab001,created:2020-08-21 13:42:10 MST
+gals,created:2021-01-06 18:35:20 MST
+mags-renamed,
+mags2_copy,
+mags4,created:2020-09-04 14:56:04 MST
+mags5,created:2020-09-04 14:56:40 MST
+mags6,created:2020-09-04 14:56:52 MST
+newmags,
+smash100,
+tAb--5 foo,
+taB3,
+tab 4,
+tab a,
+test_minghao_20191119,
+usno_objects,
+virgo01,created:2020-08-30 17:29:55 MST
+virgo2,created:2020-08-30 17:36:39 MST
+virgo3,created:2020-08-30 17:38:20 MST
+virgo4,created:2020-08-30 17:49:18 MST
+virgo5,created:2020-08-30 17:50:22 MST
+virgodf2,created:2020-08-30 18:01:44 MST
+virgotable,created:2020-08-30 18:06:02 MST
+virgotable3,created:2020-08-30 18:07:55 MST
+virgotable3b,created:2020-08-30 18:15:51 MST
+vtab2,created:2020-08-30 22:59:28 MST
 
 </pre>
 </div>
@@ -13322,31 +13335,38 @@ usno_test3
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Error: relation &#34;usno_objects&#34; already exists
-
+<pre>Error: Table name already exists. It can be dropped with queryClient.mydb_drop() or add drop=True to your current request
 Listing mydb tables:
-foo2
-foo2b
-ls8_100
-lsdr7_001
-lsdr8_0001
-mags
-mags1
-minghao
-myfoo
-newmags
-res1
-sdss_ebossfirefly_dr14
-sdss_ebossfirefly_dr14_test
-smash10
-smash100
-smash100_allwise2
-test_minghao_20191119
-tycho2_100
-usno_objects
-usno_test
-usno_test2
-usno_test3
+TAB2,
+Tab1,
+gaia1e5,created:2020-08-24 11:24:40 MST
+gaia_sample,created:2021-01-06 18:02:39 MST
+gaia_sample_xmatch,created:2021-01-06 18:05:52 MST
+gaiatab001,created:2020-08-21 13:42:10 MST
+gals,created:2021-01-06 18:35:20 MST
+mags-renamed,
+mags2_copy,
+mags4,created:2020-09-04 14:56:04 MST
+mags5,created:2020-09-04 14:56:40 MST
+mags6,created:2020-09-04 14:56:52 MST
+newmags,
+smash100,
+tAb--5 foo,
+taB3,
+tab 4,
+tab a,
+test_minghao_20191119,
+usno_objects,
+virgo01,created:2020-08-30 17:29:55 MST
+virgo2,created:2020-08-30 17:36:39 MST
+virgo3,created:2020-08-30 17:38:20 MST
+virgo4,created:2020-08-30 17:49:18 MST
+virgo5,created:2020-08-30 17:50:22 MST
+virgodf2,created:2020-08-30 18:01:44 MST
+virgotable,created:2020-08-30 18:06:02 MST
+virgotable3,created:2020-08-30 18:07:55 MST
+virgotable3b,created:2020-08-30 18:15:51 MST
+vtab2,created:2020-08-30 22:59:28 MST
 
 </pre>
 </div>
@@ -13409,7 +13429,7 @@ usno_test3
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>(1 / 1) objects.csv -&gt; vos://objects.csv
--rw-rw----  robertdemo     529  30 Jan 2020 22:10  objects.csv
+-rw-rw-r-x  robertdemo     528  09 Jan 2021 20:25  objects.csv
 
 </pre>
 </div>
@@ -13451,8 +13471,8 @@ usno_test3
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>-rw-rw----  robertdemo     529  30 Jan 2020 22:10  objects.csv
--rw-rw----  robertdemo    2270  30 Jan 2020 22:10  objects.vot
+<pre>-rw-rw-r-x  robertdemo     528  09 Jan 2021 20:25  objects.csv
+-rw-rw-r-x  robertdemo    2262  09 Jan 2021 20:25  objects.vot
 
 </pre>
 </div>
@@ -13550,7 +13570,9 @@ usno_test3
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>VOS file result: OK
+<pre>15 row(s) imported to mydb_1722.&#34;objects2&#34;
+
+VOS file result: OK
 </pre>
 </div>
 </div>
@@ -13671,8 +13693,12 @@ usno_test3
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Num rows in objects5: count
+<pre>15 row(s) imported to mydb_1722.&#34;objects5&#34;
+
+Num rows in objects5: count
 15
+
+15 row(s) imported to mydb_1722.&#34;objects5&#34;
 
 Num rows in objects5: count
 15
@@ -13764,7 +13790,9 @@ http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=PS1V3OBJECTS&amp;RA=0.0
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>import res: OK
+<pre>253 row(s) imported to mydb_1722.&#34;objects6a&#34;
+
+import res: OK
 Num rows in objects6a: count
 253
 
@@ -13799,7 +13827,9 @@ Num rows in objects6a: count
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Num rows in objects6b: count
+<pre>253 row(s) imported to mydb_1722.&#34;objects6b&#34;
+
+Num rows in objects6b: count
 253
 
 </pre>
@@ -13833,7 +13863,9 @@ Num rows in objects6a: count
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Num rows in objects6c: count
+<pre>253 row(s) imported to mydb_1722.&#34;objects6c&#34;
+
+Num rows in objects6c: count
 253
 
 </pre>
@@ -14257,93 +14289,93 @@ Loading from string: OK
   <tbody>
     <tr>
       <th>0</th>
-      <td>1275-15164627</td>
-      <td>319.001559</td>
-      <td>41.903514</td>
+      <td>1200-16738677</td>
+      <td>314.998300</td>
+      <td>35.267575</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1275-15165392</td>
-      <td>319.005331</td>
-      <td>41.905081</td>
+      <td>1200-16737889</td>
+      <td>314.994803</td>
+      <td>35.267942</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1275-15167684</td>
-      <td>319.016687</td>
-      <td>41.903228</td>
+      <td>1200-16740156</td>
+      <td>315.005123</td>
+      <td>35.270559</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1275-15168954</td>
-      <td>319.022850</td>
-      <td>41.906684</td>
+      <td>1200-16737180</td>
+      <td>314.991714</td>
+      <td>35.269028</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1275-15169540</td>
-      <td>319.025725</td>
-      <td>41.912673</td>
+      <td>1200-16736554</td>
+      <td>314.988739</td>
+      <td>35.270420</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>1275-15165410</td>
-      <td>319.005470</td>
-      <td>41.911184</td>
+      <td>1200-16737350</td>
+      <td>314.992450</td>
+      <td>35.271870</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>1275-15167788</td>
-      <td>319.017220</td>
-      <td>41.910481</td>
+      <td>1200-16739707</td>
+      <td>315.003048</td>
+      <td>35.273520</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>1275-15152838</td>
-      <td>318.942045</td>
-      <td>41.891242</td>
+      <td>1200-16742178</td>
+      <td>315.014253</td>
+      <td>35.272075</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>1275-15155159</td>
-      <td>318.953764</td>
-      <td>41.890934</td>
+      <td>1200-16742894</td>
+      <td>315.017528</td>
+      <td>35.274592</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>1275-15154348</td>
-      <td>318.949800</td>
-      <td>41.893334</td>
+      <td>1200-16743776</td>
+      <td>315.021645</td>
+      <td>35.275409</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>1275-15154971</td>
-      <td>318.952862</td>
-      <td>41.896034</td>
+      <td>1200-16743453</td>
+      <td>315.020131</td>
+      <td>35.276256</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>1275-15151924</td>
-      <td>318.937450</td>
-      <td>41.893239</td>
+      <td>1200-16740549</td>
+      <td>315.006939</td>
+      <td>35.274864</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>1275-15156816</td>
-      <td>318.961828</td>
-      <td>41.901225</td>
+      <td>1200-16740499</td>
+      <td>315.006750</td>
+      <td>35.279698</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>1275-15155653</td>
-      <td>318.956203</td>
-      <td>41.902275</td>
+      <td>1200-16742673</td>
+      <td>315.016534</td>
+      <td>35.280123</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>1275-15156139</td>
-      <td>318.958706</td>
-      <td>41.907895</td>
+      <td>1200-16735740</td>
+      <td>314.985175</td>
+      <td>35.276403</td>
     </tr>
   </tbody>
 </table>
@@ -14405,8 +14437,8 @@ Loading from string: OK
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 41.2 ms, sys: 4.16 ms, total: 45.4 ms
-Wall time: 487 ms
+<pre>CPU times: user 47.4 ms, sys: 727 µs, total: 48.1 ms
+Wall time: 543 ms
 </pre>
 </div>
 </div>
@@ -14579,7 +14611,7 @@ Wall time: 487 ms
 <span class="s1">                    ORDER BY</span>
 <span class="s1">                        q3c_dist(o.ramean,o.decmean,g.ra,g.dec)</span>
 <span class="s1">                    ASC LIMIT 1</span>
-<span class="s1">               ) as gg ON true;&#39;&#39;&#39;</span>
+<span class="s1">               ) as gg ON true&#39;&#39;&#39;</span>
 
 <span class="n">df3</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">sql</span><span class="p">))</span>
 </pre></div>
@@ -14598,8 +14630,8 @@ Wall time: 487 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 34.7 ms, sys: 7.85 ms, total: 42.6 ms
-Wall time: 501 ms
+<pre>CPU times: user 47.9 ms, sys: 346 µs, total: 48.2 ms
+Wall time: 535 ms
 </pre>
 </div>
 </div>
@@ -14764,7 +14796,7 @@ Wall time: 501 ms
 <span class="s1">                    ORDER BY</span>
 <span class="s1">                        q3c_dist(o.ramean,o.decmean,g.ra,g.dec)</span>
 <span class="s1">                    ASC LIMIT 1</span>
-<span class="s1">               ) as gg ON true;&#39;&#39;&#39;</span>
+<span class="s1">               ) as gg ON true&#39;&#39;&#39;</span>
 
 <span class="n">df4</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">sql</span><span class="p">))</span>
 </pre></div>
@@ -14783,8 +14815,8 @@ Wall time: 501 ms
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 51.9 ms, sys: 3.41 ms, total: 55.3 ms
-Wall time: 462 ms
+<pre>CPU times: user 55.1 ms, sys: 0 ns, total: 55.1 ms
+Wall time: 553 ms
 </pre>
 </div>
 </div>
@@ -14979,28 +15011,36 @@ Dropping table &#39;objects6a&#39; ... 	OK
 Dropping table &#39;objects6b&#39; ... 	OK
 Dropping table &#39;objects6c&#39; ... 	OK
 Listing mydb tables:
-foo2
-foo2b
-ls8_100
-lsdr7_001
-lsdr8_0001
-mags
-mags1
-minghao
-myfoo
-newmags
-res1
-sdss_ebossfirefly_dr14
-sdss_ebossfirefly_dr14_test
-smash10
-smash100
-smash100_allwise2
-test_minghao_20191119
-tycho2_100
-usno_objects
-usno_test
-usno_test2
-usno_test3
+TAB2,
+Tab1,
+gaia1e5,created:2020-08-24 11:24:40 MST
+gaia_sample,created:2021-01-06 18:02:39 MST
+gaia_sample_xmatch,created:2021-01-06 18:05:52 MST
+gaiatab001,created:2020-08-21 13:42:10 MST
+gals,created:2021-01-06 18:35:20 MST
+mags-renamed,
+mags2_copy,
+mags4,created:2020-09-04 14:56:04 MST
+mags5,created:2020-09-04 14:56:40 MST
+mags6,created:2020-09-04 14:56:52 MST
+newmags,
+smash100,
+tAb--5 foo,
+taB3,
+tab 4,
+tab a,
+test_minghao_20191119,
+usno_objects,
+virgo01,created:2020-08-30 17:29:55 MST
+virgo2,created:2020-08-30 17:36:39 MST
+virgo3,created:2020-08-30 17:38:20 MST
+virgo4,created:2020-08-30 17:49:18 MST
+virgo5,created:2020-08-30 17:50:22 MST
+virgodf2,created:2020-08-30 18:01:44 MST
+virgotable,created:2020-08-30 18:06:02 MST
+virgotable3,created:2020-08-30 18:07:55 MST
+virgotable3b,created:2020-08-30 18:15:51 MST
+vtab2,created:2020-08-30 22:59:28 MST
 
 removing objects.csv
 removing objects.vot
@@ -15022,10 +15062,10 @@ removing objects.vot
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="kc">False</span><span class="p">:</span>      <span class="c1"># Change this to True to remove all tables</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="kc">False</span><span class="p">:</span>      <span class="c1"># CAUTION! Change this to &#39;if True&#39; to remove all tables</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Initial listing of mydb tables:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">())</span>
     <span class="n">table_list</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">list</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>    <span class="c1"># convert string return to array</span>
     <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">table_list</span><span class="p">:</span>
