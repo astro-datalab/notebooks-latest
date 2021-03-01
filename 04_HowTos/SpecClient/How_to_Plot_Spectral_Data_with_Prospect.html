@@ -13080,7 +13080,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Benjamin Weaver &lt;benjamin.weaver@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20210125&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;202100301&#39;</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sdss_dr16&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HowTo&#39;</span><span class="p">,</span><span class="s1">&#39;spectra&#39;</span><span class="p">,</span><span class="s1">&#39;query&#39;</span><span class="p">,</span><span class="s1">&#39;visualization&#39;</span><span class="p">,</span><span class="s1">&#39;SDSS&#39;</span><span class="p">]</span>
 </pre></div>
@@ -13093,7 +13093,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="How-to-Plot-Spectral-Data-with-Prospect,-Specutils-and-the-Data-Lab-Spectrum-Service">How to Plot Spectral Data with Prospect, Specutils and the Data Lab Spectrum Service<a class="anchor-link" href="#How-to-Plot-Spectral-Data-with-Prospect,-Specutils-and-the-Data-Lab-Spectrum-Service">&#182;</a></h1><h2 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h2><ul>
+<h1 id="How-to-Plot-Spectral-Data-with-Prospect,-Specutils-and-the-Astro-Data-Lab-Spectrum-Service">How to Plot Spectral Data with Prospect, Specutils and the Astro Data Lab Spectrum Service<a class="anchor-link" href="#How-to-Plot-Spectral-Data-with-Prospect,-Specutils-and-the-Astro-Data-Lab-Spectrum-Service">&#182;</a></h1><h2 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h2><ul>
 <li><a href="#Goals">Goals</a></li>
 <li><a href="#Summary">Summary</a></li>
 <li><a href="#Disclaimer-&amp;-Attribution">Disclaimer &amp; Attribution</a></li>
@@ -13103,21 +13103,28 @@ div#notebook {
 <li><a href="#Find-Plate-2955-in-the-Spectrum-Service">Find Plate 2955 in the Spectrum Service</a></li>
 <li><a href="#Spectrum-Identifiers">Spectrum Identifiers</a></li>
 <li><a href="#Spectrum-Service:-Flux-versus-Wavelength">Spectrum Service: Flux versus Wavelength</a></li>
-<li><a href="#Redshift-and-other-Metadata">Redshift and other Metadata</a></li>
+<li><a href="#Redshift-and-other-Metadata">Redshift and other Metadata</a><ul>
+<li><a href="#Redshift-Catalog">Redshift Catalog</a></li>
+<li><a href="#Target-Catalog">Target Catalog</a></li>
 </ul>
 </li>
-<li><a href="#Launch-the-Visualization">Launch the Visualization</a></li>
+</ul>
+</li>
+<li><a href="#Launch-the-Visualization">Launch the Visualization</a><ul>
+<li><a href="#Interface-Visualization-Details">Interface Visualization Details</a></li>
+</ul>
+</li>
 <li><a href="#SDSS-Spectra-and-Redshifts-from-Files">SDSS Spectra and Redshifts from Files</a></li>
 <li><a href="#References-&amp;-Resources">References &amp; Resources</a></li>
 </ul>
-<h2 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h2><p>Obtain SDSS spectra using the Data Lab spectrum service, convert data to <a href="https://github.com/astropy/specutils">specutils</a> objects as needed, and use <a href="https://github.com/desihub/prospect">Prospect</a> to display the data.</p>
+<h2 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h2><p>Obtain SDSS spectra using the Astro Data Lab spectrum service, convert data to <a href="https://github.com/astropy/specutils">specutils</a> objects as needed, and use <a href="https://github.com/desihub/prospect">Prospect</a> to display the data.</p>
 <h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>Prospect is an <em>interactive</em> spectrum visualization service that is being actively used by the <a href="https://www.desi.lbl.gov/">DESI</a> project for visual inspection of commissioning and survey validation spectra right now.  Rather than just a simple <em>flux</em> versus <em>wavelength</em> plot, the interactive spectrum display provides pan, zoom, known spectral lines, targeting and other catalog information, metadata, <em>etc.</em>  The <a href="https://bokeh.org">Bokeh</a> library handles the low-level interactivity.</p>
 <p>We can leverage the generic spectrum container objects provided by <a href="https://github.com/astropy/specutils">specutils</a> to allow Prospect to plot data from other surveys.  In this example, we are using <a href="https://www.sdss.org/dr16/">SDSS DR16</a>.</p>
-<p>In the future we will extend this functionality to additional instruments.  For example, we are excited by the possibility of using Prospect and the Data Lab spectrum service for Gemini spectra.  And, of course, once DESI data become public, both the spectrum service and this tool will be ready.</p>
+<p>In the future we will extend this functionality to additional instruments.  For example, we are excited by the possibility of using Prospect and the Astro Data Lab spectrum service for Gemini spectra.  And, of course, once DESI data become public, both the spectrum service and this tool will be ready.</p>
 <h2 id="Disclaimer-&amp;-Attribution">Disclaimer &amp; Attribution<a class="anchor-link" href="#Disclaimer-&amp;-Attribution">&#182;</a></h2><p>If you use this notebook for your published science, please acknowledge the following:</p>
 <ul>
-<li>Data Lab concept paper: Fitzpatrick et al., "The NOAO Data Laboratory: a conceptual overview", SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></li>
-<li>Data Lab disclaimer: <a href="https://datalab.noirlab.edu/disclaimers.php">https://datalab.noirlab.edu/disclaimers.php</a></li>
+<li>Astro Data Lab concept paper: Fitzpatrick et al., "The NOAO Data Laboratory: a conceptual overview", SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></li>
+<li>Astro Data Lab disclaimer: <a href="https://datalab.noirlab.edu/disclaimers.php">https://datalab.noirlab.edu/disclaimers.php</a></li>
 </ul>
 
 </div>
@@ -13127,7 +13134,6 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Imports-&amp;-Setup">Imports &amp; Setup<a class="anchor-link" href="#Imports-&amp;-Setup">&#182;</a></h2><p>This cell performs all necessary imports for this notebook.</p>
-<p><strong>TODO</strong>: final clean-up needed when prospect is installed on the production server.</p>
 
 </div>
 </div>
@@ -13140,10 +13146,7 @@ div#notebook {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">time</span>
-<span class="c1">#</span>
-<span class="c1"># Manually install prospect for now.</span>
-<span class="c1">#</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;HOME&#39;</span><span class="p">],</span> <span class="s1">&#39;Documents&#39;</span><span class="p">,</span> <span class="s1">&#39;Code&#39;</span><span class="p">,</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;desihub&#39;</span><span class="p">,</span> <span class="s1">&#39;prospect&#39;</span><span class="p">,</span> <span class="s1">&#39;py&#39;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
 <span class="c1">#</span>
 <span class="c1"># Numpy, astropy, etc.</span>
 <span class="c1">#</span>
@@ -13156,13 +13159,13 @@ div#notebook {
 <span class="c1"># Prospect imports</span>
 <span class="c1">#</span>
 <span class="kn">from</span> <span class="nn">prospect.specutils</span> <span class="kn">import</span> <span class="n">read_spPlate</span><span class="p">,</span> <span class="n">read_spZbest</span>
-<span class="kn">from</span> <span class="nn">prospect.plotspecutils</span> <span class="kn">import</span> <span class="n">plotspectra</span>
+<span class="kn">from</span> <span class="nn">prospect.viewer</span> <span class="kn">import</span> <span class="n">plotspectra</span>
 <span class="c1">#</span>
-<span class="c1"># Data Lab imports</span>
+<span class="c1"># Astro Data Lab imports</span>
 <span class="c1">#</span>
 <span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">specClient</span> <span class="k">as</span> <span class="n">spec</span>  <span class="c1"># primary spectral data client interface</span>
 <span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span>   <span class="c1"># needed to use virtual storage</span>
-<span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span>   <span class="c1"># needed to query Data Lab catalogs</span>
+<span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span>   <span class="c1"># needed to query Astro Data Lab catalogs</span>
 <span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span>    <span class="c1"># needed for login authentication</span>
 
 <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># save start time of notebook run</span>
@@ -13176,8 +13179,8 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">&#182;</a></h2><p>Much of the functionality of spectrum services can be accessed without explicitly logging into Data Lab (the service then uses an anonymous login). But some capabilities, for instance saving the results of your queries to your virtual storage space, require a login (<em>i.e.</em> you will need a <a href="https://datalab.noao.edu/help/register.php?qa=register">registered user account</a>.</p>
-<p>If you need to log in to Data Lab, uncomment the <code>ac.login()</code> command and respond according to the prompts.  If you have previously logged into Data Lab, this cell will simply print your active user name.</p>
+<h2 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">&#182;</a></h2><p>Much of the functionality of spectrum services can be accessed without explicitly logging into Astro Data Lab (the service then uses an anonymous login). But some capabilities, for instance saving the results of your queries to your virtual storage space, require a login (<em>i.e.</em> you will need a <a href="https://datalab.noao.edu/help/register.php?qa=register">registered user account</a>).</p>
+<p>If you need to log in to Astro Data Lab, uncomment the <code>ac.login()</code> command and respond according to the prompts.  If you have previously logged into Astro Data Lab, this cell will simply print your active user name.</p>
 
 </div>
 </div>
@@ -13199,7 +13202,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="SDSS/eBOSS-spPlate-file">SDSS/eBOSS spPlate file<a class="anchor-link" href="#SDSS/eBOSS-spPlate-file">&#182;</a></h2><p>SDSS spectra are stored per-plate in spPlate files.  These contain 640 spectra for the original SDSS spectrograph or 1000 spectra for the BOSS/eBOSS spectrograph.  All spPlate files have a common wavelength solution, so a spPlate file can be represented by a <a href="https://specutils.readthedocs.io/en/stable/api/specutils.Spectrum1D.html#specutils.Spectrum1D">Spectrum1D</a> object.  This object is an input to the visualization system, so we need to get outputs from the spectrum service that match the inputs to the visualization.</p>
+<h2 id="SDSS/eBOSS-spPlate-file">SDSS/eBOSS spPlate file<a class="anchor-link" href="#SDSS/eBOSS-spPlate-file">&#182;</a></h2><p>SDSS spectra are stored per-plate in spPlate files.  These contain 640 spectra for the original SDSS spectrograph or 1000 spectra for the BOSS/eBOSS spectrograph.  All spectra in an individual spPlate file have a common wavelength solution, so a single spPlate file can be represented by a <a href="https://specutils.readthedocs.io/en/stable/api/specutils.Spectrum1D.html#specutils.Spectrum1D">Spectrum1D</a> object.  The Prospect visualization package can then take this Spectrum1D object as input data.</p>
 
 </div>
 </div>
@@ -13207,7 +13210,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Find-Plate-2955-in-the-Spectrum-Service">Find Plate 2955 in the Spectrum Service<a class="anchor-link" href="#Find-Plate-2955-in-the-Spectrum-Service">&#182;</a></h3><p>Here we find spectra corresponding to SDSS plate 2955, but using the spectrum service instead of reading the spectra from a file.</p>
+<h3 id="Find-Plate-2955-in-the-Spectrum-Service">Find Plate 2955 in the Spectrum Service<a class="anchor-link" href="#Find-Plate-2955-in-the-Spectrum-Service">&#182;</a></h3><p>In the cells below, we will find spectra corresponding to SDSS plate 2955, but using the spectrum service instead of reading the spectra from a file.  This starts by finding the coordinates of the plate center.</p>
 
 </div>
 </div>
@@ -13218,9 +13221,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plate</span> <span class="o">=</span> <span class="mi">2955</span>
-<span class="c1"># What the heck? Can&#39;t use a semicolon any longer?</span>
-<span class="c1"># q = &quot;SELECT ra, dec FROM sdss_dr16.platex WHERE plate = %d;&quot; % plate</span>
-<span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;SELECT ra, dec FROM sdss_dr16.platex WHERE plate = </span><span class="si">{0:d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">plate</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT ra, dec FROM sdss_dr16.platex WHERE plate = </span><span class="si">{plate}</span><span class="s2">&quot;</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;array&#39;</span><span class="p">)</span>
 <span class="n">r</span>
 </pre></div>
@@ -13233,7 +13234,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Spectrum-Identifiers">Spectrum Identifiers<a class="anchor-link" href="#Spectrum-Identifiers">&#182;</a></h3><p>SDSS plates are circular, so we'll do a cone search around the nominal plate center.  This gets us the spectrum identifiers we need to retrieve the spectra themselves.</p>
+<h3 id="Spectrum-Identifiers">Spectrum Identifiers<a class="anchor-link" href="#Spectrum-Identifiers">&#182;</a></h3><p>SDSS plates are circular, so we'll do a cone search around the plate center found above.  This gets us the spectrum identifiers we need to retrieve the spectra themselves.</p>
 
 </div>
 </div>
@@ -13243,7 +13244,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sdss_ids</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">constraint</span><span class="o">=</span><span class="s1">&#39;plate=2955 ORDER BY specobjid LIMIT 50&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sdss_ids</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">constraint</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;plate = </span><span class="si">{plate}</span><span class="s1"> ORDER BY specobjid LIMIT 50&#39;</span><span class="p">)</span>
 <span class="n">sdss_ids</span>
 </pre></div>
 
@@ -13255,7 +13256,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Spectrum-Service:-Flux-versus-Wavelength">Spectrum Service: Flux versus Wavelength<a class="anchor-link" href="#Spectrum-Service:-Flux-versus-Wavelength">&#182;</a></h3><p>Now we fetch the spectra.  The returned data will be compacted into a single <code>Spectrum1D</code> object.</p>
+<h3 id="Spectrum-Service:-Flux-versus-Wavelength">Spectrum Service: Flux versus Wavelength<a class="anchor-link" href="#Spectrum-Service:-Flux-versus-Wavelength">&#182;</a></h3><p>Now we fetch the spectra.  The option <code>align=True</code> directes the service to return all spectra as a single <code>Spectrum1D</code> object with a common wavelength axis for all spectra.  Since all spectra on a single SDSS plate have a common wavelength axis anyway, this is a simple operation.</p>
 
 </div>
 </div>
@@ -13278,7 +13279,13 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Redshift-and-other-Metadata">Redshift and other Metadata<a class="anchor-link" href="#Redshift-and-other-Metadata">&#182;</a></h3><p>We also need target and redshift information, which is stored in the SpecObj catalog.  Although all information is extractable from the database, we need to reformat it to match the expectations of Prospect.</p>
+<h3 id="Redshift-and-other-Metadata">Redshift and other Metadata<a class="anchor-link" href="#Redshift-and-other-Metadata">&#182;</a></h3><p>The Prospect viewer requires certain spectral metadata that are normally provided with SDSS spectra--<em>i.e.</em>, these metadata are stored alongside the flux <em>versus</em> wavelength data.  There are two categories of metadata:</p>
+<ol>
+<li>Redshift catalog: this contains the redshift (how far away it is) and classification (what type of object it is) for each spectrum, as identified by the SDSS pipeline.</li>
+<li>Target catalog: this contains the information needed for taking a spectrum of the object in the first place.  This includes information about the object as identified in SDSS <em>imaging</em> (RA, Dec, optical magnitude), as well as the rationale for taking a spectrum of the object.</li>
+</ol>
+<p>In the cells below, we will extract the necessary metadata from the <code>specobj</code> and <code>photoplate</code> tables and reformat them slightly to match the appearance of these data as they would be extracted from SDSS files.</p>
+<h4 id="Redshift-Catalog">Redshift Catalog<a class="anchor-link" href="#Redshift-Catalog">&#182;</a></h4><p>This query extracts the redshift and classification information from the <code>specobj</code> table.</p>
 
 </div>
 </div>
@@ -13302,6 +13309,14 @@ div#notebook {
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Target-Catalog">Target Catalog<a class="anchor-link" href="#Target-Catalog">&#182;</a></h4><p>This query extracts photometric targeting information from the <code>photoplate</code> table.  The data obtained needs to be reformatted to match the <a href="https://data.sdss.org/datamodel/files/BOSS_SPECTRO_REDUX/RUN2D/PLATE4/spPlate.html#hdu5head">"plugmap" metadata</a> that is stored with SDSS spectrum files, including spPlate files.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -13348,7 +13363,14 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Launch-the-Visualization">Launch the Visualization<a class="anchor-link" href="#Launch-the-Visualization">&#182;</a></h2><p>Once all the spectral data are assembled, the visualization is launched with a single <code>plotspectra()</code> function.</p>
+<h2 id="Launch-the-Visualization">Launch the Visualization<a class="anchor-link" href="#Launch-the-Visualization">&#182;</a></h2><p>Once all the spectral data are assembled, the visualization is launched with a single <code>plotspectra()</code> function in the cell below.  The primary input is the Spectrum1D object created above.  Prospect expects a certain scaling on the input flux, so <code>sdss.new_flux_unit()</code> handles that (this changes the numerical scale factor on the flux unit, not the flux unit itself).  Other inputs:</p>
+<ul>
+<li><code>zcatalog</code>: the <a href="#Redshift-Catalog">redshift table</a> created above.</li>
+<li><code>model</code>: the model spectrum used by the SDSS pipeline to obtain the redshift and classification.</li>
+<li><code>notebook</code>: instructs Prospect to use notebook display mode (as opposed to standalone HTML).</li>
+<li><code>title</code>, <code>model_from_zcat</code>, etc.: these options control certain display options that are not directly related to the input data or that need to be switched off for SDSS data.  A <a href="https://desi-prospect.readthedocs.io/en/stable/api.html#prospect.viewer.plotspectra">full description is available</a>.</li>
+</ul>
+<p>Once the cell is run, it will take several seconds for the data to load and render.  Then you will be able to pan and zoom on the primary flux <em>versus</em> wavelength display, page through different spectra, show known emission or absorption lines, etc.  <a href="#Visualization-Interface-Details">More details are below the display.</a></p>
 
 </div>
 </div>
@@ -13358,9 +13380,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plotspectra</span><span class="p">(</span><span class="n">sdss</span><span class="o">.</span><span class="n">new_flux_unit</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;1e-17 erg/(cm**2 s Angstrom)&#39;</span><span class="p">)),</span> <span class="n">zcatalog</span><span class="o">=</span><span class="n">sdss_z</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="p">(</span><span class="n">sdss</span><span class="o">.</span><span class="n">spectral_axis</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">sdss</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]),</span>
-            <span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="s1">&#39;SDSS Plate </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">plate</span><span class="p">),</span>
-            <span class="n">model_from_zcat</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">with_coaddcam</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mask_type</span><span class="o">=</span><span class="s1">&#39;PRIMTARGET&#39;</span><span class="p">,</span> <span class="n">with_thumb_tab</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">with_vi_widgets</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plotspectra</span><span class="p">(</span><span class="n">sdss</span><span class="o">.</span><span class="n">new_flux_unit</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;1e-17 erg/(cm**2 s Angstrom)&#39;</span><span class="p">)),</span>
+            <span class="n">zcatalog</span><span class="o">=</span><span class="n">sdss_z</span><span class="p">,</span>
+            <span class="n">model</span><span class="o">=</span><span class="p">(</span><span class="n">sdss</span><span class="o">.</span><span class="n">spectral_axis</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">sdss</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;1e-17 erg/(cm**2 s Angstrom)&#39;</span><span class="p">))),</span>
+            <span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="s1">&#39;SDSS Plate </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">plate</span><span class="p">),</span> <span class="n">model_from_zcat</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">with_coaddcam</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mask_type</span><span class="o">=</span><span class="s1">&#39;PRIMTARGET&#39;</span><span class="p">,</span> <span class="n">with_thumb_tab</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">with_vi_widgets</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13371,7 +13394,53 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="SDSS-Spectra-and-Redshifts-from-Files">SDSS Spectra and Redshifts from Files<a class="anchor-link" href="#SDSS-Spectra-and-Redshifts-from-Files">&#182;</a></h2><p>For reference, and to compare timing, below is how one would fetch spectra and redshift metadata from file-based storage.</p>
+<h3 id="Visualization-Interface-Details">Visualization Interface Details<a class="anchor-link" href="#Visualization-Interface-Details">&#182;</a></h3><ul>
+<li>The primary visualization area consists of three plots:<ul>
+<li>The flux versus wavelength in the large area on the left.<ul>
+<li>Pan and zoom functions can be adjusted by clicking on the icons on the upper right.</li>
+<li>Display of values can be toggled by clicking on the names in the legend in the upper right.  For example, to hide the noise spectrum, click on 'noise' in the legend.</li>
+</ul>
+</li>
+<li>The zoom display on the lower right.  This plot is automatically updated when the mouse is hovered or moved over the large spectrum display on the left.</li>
+<li>The targeting image on the upper right.  This shows the image corresponding to the object.  The images are provided by the <a href="https://www.legacysurvey.org/">Legacy Survey</a>, and are actually deeper than SDSS images.  Click on the image to take you to the Legacy Survey Viewer.</li>
+</ul>
+</li>
+<li>Target information table: this table displays information related to the <em>photometric object</em> associated with the spectrum.<ul>
+<li><code>TARGETID</code>: For SDSS data, this tuple of numbers corresponds to the photometric imaging run, photometric processing version, camera column ("camcol"), imaging field (within the run), and object ID within the field.</li>
+<li>Target class: This contains information about why the photometric object was selected for spectroscopic observation.  For SDSS data this is currently a dummy value, but will change in future versions of Prospect.</li>
+<li><code>mag_u</code>, ...: These are the photometric magnitudes in SDSS <em>u</em>, <em>g</em>, <em>r</em>, <em>i</em>, <em>z</em> filters.</li>
+</ul>
+</li>
+<li>Reset X-Y range button: reset the display to the default pan and zoom values.</li>
+<li>OII-zoom button / Undo: pan and zoom the display to the position of the [OII] emission line.  This is not necessarily relevant for SDSS data.  "Undo" restores the previous pan/zoom values.</li>
+<li>Spectrum slider (&lt; / &gt;): Use these buttons or the slider to page through the loaded spectra.</li>
+<li>Pipeline fit (table): Displayes the classification and redshift obtained by the SDSS processing pipeline.<ul>
+<li><code>SPECTYPE</code>: The type of object, typically 'GALAXY', 'QSO', 'STAR'.</li>
+<li><code>SUBTYPE</code>: A more specific classification of <code>SPECTYPE</code>, for example a 'STAR' may be 'K5' or a 'GALAXY' may be 'STARFORMING'.</li>
+<li><code>Z</code>: The redshift.</li>
+<li><code>ZERR</code>: The uncertainty on <code>Z</code>.</li>
+<li><code>ZWARN</code>: If the processing pipeline produced errors, this value will be non-zero.</li>
+<li>$\Delta\chi^2$: the goodness of fit of the fitted model relative to the second-best model.</li>
+</ul>
+</li>
+<li>Redshift box (orange): Use this box to adjust the redshift of the <em>model</em> on the display.<ul>
+<li>Rough and fine tuning adjust the displayed redshift in units of hundredths and ten-thousandths, respectively.</li>
+<li>Reset to z_pipe: restore the displayed redshift to the redshift value obtained from the SDSS pipeline.</li>
+<li>Copy z to VI: this button is disabled.</li>
+</ul>
+</li>
+<li>Gaussian Sigma: SDSS spectra are inherently faint and noisy.  Smoothing will reduce the "jaggedness" caused by noise.  This is especially useful when comparing to the fitted model or investigating spectra lines.</li>
+<li>Emission lines / Absorption lines: Toggle the display of known spectral lines.  If "Show only major lines" is checked, only the spectral lines most likely to be visible are displayed.</li>
+<li>Obs / Rest: Display flux as a function of observed wavelength or rest wavelength, respectively.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="SDSS-Spectra-and-Redshifts-from-Files">SDSS Spectra and Redshifts from Files<a class="anchor-link" href="#SDSS-Spectra-and-Redshifts-from-Files">&#182;</a></h2><p>For reference, and to compare timing, below is how one would fetch spectra and redshift metadata from file-based storage.  First, obtain the path to the files in the Astro Data Lab file service.</p>
 
 </div>
 </div>
@@ -13381,12 +13450,12 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;SPECTRO_REDUX&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sdss_dr16://&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;sdss&#39;</span><span class="p">,</span> <span class="s1">&#39;spectro&#39;</span><span class="p">,</span> <span class="s1">&#39;redux&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">spectro_redux</span> <span class="o">=</span> <span class="s1">&#39;sdss_dr16://&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;sdss&#39;</span><span class="p">,</span> <span class="s1">&#39;spectro&#39;</span><span class="p">,</span> <span class="s1">&#39;redux&#39;</span><span class="p">)</span>
 <span class="n">run2d</span> <span class="o">=</span> <span class="s1">&#39;26&#39;</span>
 <span class="n">plate</span> <span class="o">=</span> <span class="mi">2955</span>
 <span class="n">mjd</span> <span class="o">=</span> <span class="s1">&#39;54562&#39;</span>
-<span class="n">sdss_spectra</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;SPECTRO_REDUX&#39;</span><span class="p">],</span> <span class="n">run2d</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">plate</span><span class="p">),</span> <span class="sa">f</span><span class="s1">&#39;spPlate-</span><span class="si">{plate:d}</span><span class="s1">-</span><span class="si">{mjd}</span><span class="s1">.fits&#39;</span><span class="p">)</span>
-<span class="n">sdss_redshifts</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;SPECTRO_REDUX&#39;</span><span class="p">],</span> <span class="n">run2d</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">plate</span><span class="p">),</span> <span class="sa">f</span><span class="s1">&#39;spZbest-</span><span class="si">{plate:d}</span><span class="s1">-</span><span class="si">{mjd}</span><span class="s1">.fits&#39;</span><span class="p">)</span>
+<span class="n">sdss_spectra</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">spectro_redux</span><span class="p">,</span> <span class="n">run2d</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">plate</span><span class="p">),</span> <span class="sa">f</span><span class="s1">&#39;spPlate-</span><span class="si">{plate:d}</span><span class="s1">-</span><span class="si">{mjd}</span><span class="s1">.fits&#39;</span><span class="p">)</span>
+<span class="n">sdss_redshifts</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">spectro_redux</span><span class="p">,</span> <span class="n">run2d</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">plate</span><span class="p">),</span> <span class="sa">f</span><span class="s1">&#39;spZbest-</span><span class="si">{plate:d}</span><span class="s1">-</span><span class="si">{mjd}</span><span class="s1">.fits&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sdss_redshifts</span><span class="p">)</span>
 </pre></div>
@@ -13395,6 +13464,14 @@ div#notebook {
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Next, read the spPlate file.  This automatically loads the <a href="#Target-Catalog">targeting metadata</a>.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -13411,6 +13488,14 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Read the spZbest file, which contains the <a href="#Redshift-Catalog">redshift catalog</a>.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
@@ -13424,14 +13509,23 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Launch the visualization.  Reading from files produces slightly different scaling on the flux values, but otherwise the options are the same as the example above.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plotspectra</span><span class="p">(</span><span class="n">sdss_file</span><span class="p">,</span> <span class="n">zcatalog</span><span class="o">=</span><span class="n">sdss_z_file</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="p">(</span><span class="n">sdss_model_file</span><span class="o">.</span><span class="n">spectral_axis</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">sdss_model_file</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">value</span><span class="p">,),</span>
-            <span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="s1">&#39;SDSS Plate </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">plate</span><span class="p">),</span>
-            <span class="n">model_from_zcat</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">with_coaddcam</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mask_type</span><span class="o">=</span><span class="s1">&#39;PRIMTARGET&#39;</span><span class="p">,</span> <span class="n">with_thumb_tab</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">with_vi_widgets</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plotspectra</span><span class="p">(</span><span class="n">sdss_file</span><span class="p">,</span>
+            <span class="n">zcatalog</span><span class="o">=</span><span class="n">sdss_z_file</span><span class="p">,</span>
+            <span class="n">model</span><span class="o">=</span><span class="p">(</span><span class="n">sdss_model_file</span><span class="o">.</span><span class="n">spectral_axis</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">sdss_model_file</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">value</span><span class="p">,),</span>
+            <span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="s1">&#39;SDSS Plate </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">plate</span><span class="p">),</span> <span class="n">model_from_zcat</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">with_coaddcam</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mask_type</span><span class="o">=</span><span class="s1">&#39;PRIMTARGET&#39;</span><span class="p">,</span> <span class="n">with_thumb_tab</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">with_vi_widgets</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13456,6 +13550,19 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Notebook run time: </span><span class="si">%.3g</span><span class="s1"> sec&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
