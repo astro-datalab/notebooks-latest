@@ -13080,7 +13080,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Benjamin Weaver &lt;benjamin.weaver@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;202100301&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;202100302&#39;</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sdss_dr16&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;HowTo&#39;</span><span class="p">,</span><span class="s1">&#39;spectra&#39;</span><span class="p">,</span><span class="s1">&#39;query&#39;</span><span class="p">,</span><span class="s1">&#39;visualization&#39;</span><span class="p">,</span><span class="s1">&#39;SDSS&#39;</span><span class="p">]</span>
 </pre></div>
@@ -13140,7 +13140,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -13217,7 +13217,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plate</span> <span class="o">=</span> <span class="mi">2955</span>
@@ -13227,6 +13227,26 @@ div#notebook {
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([235.4204  ,   1.644156])</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13241,7 +13261,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sdss_ids</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;array&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">constraint</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;plate = </span><span class="si">{plate}</span><span class="s1"> ORDER BY specobjid LIMIT 50&#39;</span><span class="p">)</span>
@@ -13249,6 +13269,42 @@ div#notebook {
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([3327035125891360768, 3327036500280895488, 3327037050036709376,
+       3327038424426244096, 3327038974182057984, 3327040073693685760,
+       3327040348571592704, 3327040623449499648, 3327040898327406592,
+       3327041173205313536, 3327041722961127424, 3327041997839034368,
+       3327042822472755200, 3327043097350662144, 3327043372228569088,
+       3327043921984382976, 3327044196862289920, 3327045021496010752,
+       3327045296373917696, 3327046121007638528, 3327046670763452416,
+       3327047495397173248, 3327048045152987136, 3327048320030894080,
+       3327048594908801024, 3327048869786707968, 3327049144664614912,
+       3327049419542521856, 3327049694420428800, 3327050244176242688,
+       3327051068809963520, 3327051343687870464, 3327052443199498240,
+       3327052992955312128, 3327053267833219072, 3327053817589032960,
+       3327054092466939904, 3327054642222753792, 3327054917100660736,
+       3327055191978567680, 3327055466856474624, 3327056016612288512,
+       3327056566368102400, 3327056841246009344, 3327057116123916288,
+       3327057391001823232, 3327057665879730176, 3327057940757637120,
+       3327058215635544064, 3327058490513451008])</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13263,7 +13319,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13272,6 +13328,50 @@ div#notebook {
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 83.1 ms, sys: 48.7 ms, total: 132 ms
+Wall time: 588 ms
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Spectrum1D(flux=&lt;Quantity [[0., 0., 0., ..., 0., 0., 0.],
+           [0., 0., 0., ..., 0., 0., 0.],
+           [0., 0., 0., ..., 0., 0., 0.],
+           ...,
+           [0., 0., 0., ..., 0., 0., 0.],
+           [0., 0., 0., ..., 0., 0., 0.],
+           [0., 0., 0., ..., 0., 0., 0.]] erg / (Angstrom cm2 s)&gt;, spectral_axis=&lt;SpectralAxis [3802.77  , 3803.6448, 3804.522 , ..., 9217.223 , 9219.344 , 9221.464 ] Angstrom&gt;, uncertainty=InverseVariance([[0., 0., 0., ..., 0., 0., 0.],
+                 [0., 0., 0., ..., 0., 0., 0.],
+                 [0., 0., 0., ..., 0., 0., 0.],
+                 ...,
+                 [0., 0., 0., ..., 0., 0., 0.],
+                 [0., 0., 0., ..., 0., 0., 0.],
+                 [0., 0., 0., ..., 0., 0., 0.]]))&gt;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13292,7 +13392,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;SELECT specobjid, class, subclass, z, zerr, rchi2diff, zwarning FROM sdss_dr16.specobj WHERE specobjid IN (</span><span class="si">{0}</span><span class="s2">) ORDER BY specobjid&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">sdss_ids</span><span class="o">.</span><span class="n">tolist</span><span class="p">())))</span>
@@ -13309,6 +13409,50 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<i>Table length=50</i>
+<table id="table139843910020496" class="table-striped table-bordered table-condensed">
+<thead><tr><th>SPECOBJID</th><th>CLASS</th><th>SUBCLASS</th><th>Z</th><th>Z_ERR</th><th>RCHI2DIFF</th><th>ZWARNING</th></tr></thead>
+<thead><tr><th>int64</th><th>str6</th><th>str11</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th></tr></thead>
+<tr><td>3327035125891360768</td><td>GALAXY</td><td>--</td><td>0.262199</td><td>6.42647e-05</td><td>0.161533</td><td>0</td></tr>
+<tr><td>3327036500280895488</td><td>GALAXY</td><td>--</td><td>0.21097</td><td>5.79199e-05</td><td>0.139213</td><td>0</td></tr>
+<tr><td>3327037050036709376</td><td>STAR</td><td>K5</td><td>-2.34944e-06</td><td>1.43502e-05</td><td>0.496992</td><td>0</td></tr>
+<tr><td>3327038424426244096</td><td>GALAXY</td><td>--</td><td>0.260543</td><td>6.22988e-05</td><td>0.225588</td><td>0</td></tr>
+<tr><td>3327038974182057984</td><td>GALAXY</td><td>--</td><td>0.112768</td><td>1.59947e-05</td><td>0.510905</td><td>0</td></tr>
+<tr><td>3327040073693685760</td><td>GALAXY</td><td>--</td><td>0.0636493</td><td>2.83125e-05</td><td>0.424366</td><td>0</td></tr>
+<tr><td>3327040348571592704</td><td>GALAXY</td><td>--</td><td>0.208361</td><td>4.18928e-05</td><td>1.17941</td><td>0</td></tr>
+<tr><td>3327040623449499648</td><td>GALAXY</td><td>--</td><td>0.0</td><td>0.0</td><td>0.0</td><td>134</td></tr>
+<tr><td>3327040898327406592</td><td>GALAXY</td><td>--</td><td>0.207845</td><td>4.12366e-05</td><td>0.619729</td><td>0</td></tr>
+<tr><td>3327041173205313536</td><td>QSO</td><td>--</td><td>0.0482522</td><td>0.000146161</td><td>0.000188351</td><td>4</td></tr>
+<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>3327055466856474624</td><td>GALAXY</td><td>--</td><td>0.16716</td><td>3.36683e-05</td><td>0.512133</td><td>0</td></tr>
+<tr><td>3327056016612288512</td><td>GALAXY</td><td>STARFORMING</td><td>0.0714023</td><td>1.37115e-05</td><td>0.611904</td><td>0</td></tr>
+<tr><td>3327056566368102400</td><td>GALAXY</td><td>--</td><td>0.0615529</td><td>1.59517e-05</td><td>1.04021</td><td>0</td></tr>
+<tr><td>3327056841246009344</td><td>QSO</td><td>--</td><td>1.13738</td><td>0.000636449</td><td>0.0662829</td><td>0</td></tr>
+<tr><td>3327057116123916288</td><td>STAR</td><td>F9</td><td>-0.000179363</td><td>1.31928e-05</td><td>0.833838</td><td>0</td></tr>
+<tr><td>3327057391001823232</td><td>STAR</td><td>A0</td><td>-0.000557598</td><td>3.88684e-05</td><td>0.199589</td><td>0</td></tr>
+<tr><td>3327057665879730176</td><td>STAR</td><td>M3</td><td>9.90423e-05</td><td>7.07054e-05</td><td>0.0925191</td><td>0</td></tr>
+<tr><td>3327057940757637120</td><td>GALAXY</td><td>--</td><td>0.412684</td><td>1.40111</td><td>0.00287706</td><td>5</td></tr>
+<tr><td>3327058215635544064</td><td>GALAXY</td><td>STARFORMING</td><td>0.0609967</td><td>8.68608e-06</td><td>1.60692</td><td>0</td></tr>
+<tr><td>3327058490513451008</td><td>QSO</td><td>BROADLINE</td><td>0.826127</td><td>0.00022075</td><td>0.276842</td><td>0</td></tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13320,7 +13464,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT s.specobjid, s.targetobjid, s.ra, s.dec,</span>
@@ -13356,6 +13500,50 @@ div#notebook {
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<i>Table length=50</i>
+<table id="table139843910119376" class="table-striped table-bordered table-condensed">
+<thead><tr><th>specobjid</th><th>targetobjid</th><th>RA</th><th>DEC</th><th>PRIMTARGET</th><th>SECTARGET</th><th>BOSS_TARGET1</th><th>ANCILLARY_TARGET1</th><th>ANCILLARY_TARGET2</th><th>EBOSS_TARGET0</th><th>EBOSS_TARGET1</th><th>EBOSS_TARGET2</th><th>u</th><th>g</th><th>r</th><th>i</th><th>z</th><th>OBJID [5]</th><th>MAG [5]</th></tr></thead>
+<thead><tr><th>int64</th><th>int64</th><th>float64</th><th>float64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th></tr></thead>
+<tr><td>3327035125891360768</td><td>11268994537292320</td><td>236.58816</td><td>0.91476191</td><td>96</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>21.3034</td><td>19.1014</td><td>17.512</td><td>16.9372</td><td>16.5634</td><td>2327 .. 544</td><td>21.3034 .. 16.5634</td></tr>
+<tr><td>3327036500280895488</td><td>11268994537161253</td><td>236.31498</td><td>0.83142165</td><td>64</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>20.5745</td><td>19.0677</td><td>17.9301</td><td>17.3995</td><td>16.9857</td><td>2327 .. 549</td><td>20.5745 .. 16.9857</td></tr>
+<tr><td>3327037050036709376</td><td>11268994537095484</td><td>236.17657</td><td>0.91950364</td><td>64</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>19.8611</td><td>18.5047</td><td>17.7639</td><td>17.4456</td><td>17.246</td><td>2327 .. 316</td><td>19.8611 .. 17.246</td></tr>
+<tr><td>3327038424426244096</td><td>11268994537292314</td><td>236.57992</td><td>0.84114607</td><td>32</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>21.9935</td><td>19.606</td><td>18.0296</td><td>17.4561</td><td>17.0533</td><td>2327 .. 538</td><td>21.9935 .. 17.0533</td></tr>
+<tr><td>3327038974182057984</td><td>11268994537292219</td><td>236.63067</td><td>0.85355411</td><td>64</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>19.6481</td><td>18.0843</td><td>17.2542</td><td>16.8369</td><td>16.5255</td><td>2327 .. 443</td><td>19.6481 .. 16.5255</td></tr>
+<tr><td>3327040073693685760</td><td>11265262790246829</td><td>236.57247</td><td>1.3802039</td><td>64</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>20.0069</td><td>18.0379</td><td>17.1379</td><td>16.7259</td><td>16.3942</td><td>1458 .. 429</td><td>20.0069 .. 16.3942</td></tr>
+<tr><td>3327040348571592704</td><td>11265262790312240</td><td>236.66305</td><td>1.4061234</td><td>96</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>20.1158</td><td>17.9848</td><td>16.4976</td><td>15.9314</td><td>15.5032</td><td>1458 .. 304</td><td>20.1158 .. 15.5032</td></tr>
+<tr><td>3327040623449499648</td><td>11265262252261744</td><td>234.00554</td><td>1.1758617</td><td>64</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>1458 .. 368</td><td>0.0 .. 0.0</td></tr>
+<tr><td>3327040898327406592</td><td>11268995074162967</td><td>236.57875</td><td>1.3024246</td><td>64</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>21.2316</td><td>18.8937</td><td>17.5176</td><td>16.9796</td><td>16.5934</td><td>2327 .. 279</td><td>21.2316 .. 16.5934</td></tr>
+<tr><td>3327041173205313536</td><td>11265262790246975</td><td>236.60779</td><td>1.4217924</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>24.2818</td><td>21.3414</td><td>20.427</td><td>20.001</td><td>20.202</td><td>1458 .. 575</td><td>24.2818 .. 20.202</td></tr>
+<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>3327055466856474624</td><td>11265262790181186</td><td>236.35198</td><td>1.4705854</td><td>64</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>20.8962</td><td>18.9886</td><td>17.8426</td><td>17.311</td><td>16.9327</td><td>1458 .. 322</td><td>20.8962 .. 16.9327</td></tr>
+<tr><td>3327056016612288512</td><td>11265262790181282</td><td>236.43226</td><td>1.3820505</td><td>64</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>19.0154</td><td>17.4515</td><td>16.7012</td><td>16.2932</td><td>15.9995</td><td>1458 .. 418</td><td>19.0154 .. 15.9995</td></tr>
+<tr><td>3327056566368102400</td><td>11268994536767942</td><td>235.44215</td><td>0.87831515</td><td>64</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>20.0363</td><td>18.1093</td><td>17.0675</td><td>16.5035</td><td>16.0569</td><td>2327 .. 454</td><td>20.0363 .. 16.0569</td></tr>
+<tr><td>3327056841246009344</td><td>11268994536702418</td><td>235.30366</td><td>0.84224156</td><td>1048578</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>20.4995</td><td>20.0805</td><td>19.3639</td><td>18.9983</td><td>18.8024</td><td>2327 .. 466</td><td>20.4995 .. 18.8024</td></tr>
+<tr><td>3327057116123916288</td><td>284707516645555</td><td>235.31638</td><td>0.59804179</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>19.5035</td><td>18.1938</td><td>17.6475</td><td>17.4158</td><td>17.2983</td><td>752 .. 179</td><td>19.5035 .. 17.2983</td></tr>
+<tr><td>3327057391001823232</td><td>284707516645557</td><td>235.31813</td><td>0.43006452</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>19.2308</td><td>18.2738</td><td>17.9693</td><td>17.8646</td><td>17.8117</td><td>752 .. 181</td><td>19.2308 .. 17.8117</td></tr>
+<tr><td>3327057665879730176</td><td>11268994536768101</td><td>235.41088</td><td>0.90478873</td><td>536877056</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>23.7947</td><td>22.399</td><td>21.0487</td><td>20.0036</td><td>19.4506</td><td>2327 .. 613</td><td>23.7947 .. 19.4506</td></tr>
+<tr><td>3327057940757637120</td><td>11268994536703488</td><td>235.24978</td><td>0.85021657</td><td>0</td><td>16</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>2327 .. 1536</td><td>0.0 .. 0.0</td></tr>
+<tr><td>3327058215635544064</td><td>11268994536767935</td><td>235.43123</td><td>0.86691538</td><td>64</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>19.0573</td><td>17.9207</td><td>17.44</td><td>17.0802</td><td>16.9397</td><td>2327 .. 447</td><td>19.0573 .. 16.9397</td></tr>
+<tr><td>3327058490513451008</td><td>11268994536767618</td><td>235.36244</td><td>0.8715034</td><td>1048578</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>19.4175</td><td>19.0309</td><td>18.8887</td><td>18.9394</td><td>18.7425</td><td>2327 .. 130</td><td>19.4175 .. 18.7425</td></tr>
+</table>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13447,7 +13635,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">spectro_redux</span> <span class="o">=</span> <span class="s1">&#39;sdss_dr16://&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;sdss&#39;</span><span class="p">,</span> <span class="s1">&#39;spectro&#39;</span><span class="p">,</span> <span class="s1">&#39;redux&#39;</span><span class="p">)</span>
@@ -13464,6 +13652,25 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>sdss_dr16://sdss/spectro/redux/26/2955/spPlate-2955-54562.fits
+sdss_dr16://sdss/spectro/redux/26/2955/spZbest-2955-54562.fits
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13475,7 +13682,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -13484,6 +13691,57 @@ div#notebook {
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 347 ms, sys: 145 ms, total: 493 ms
+Wall time: 1.82 s
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;Spectrum1D(flux=&lt;Quantity [[11.0880165 , 11.084556  , 11.081101  , ..., 11.787075  ,
+            11.787052  , 11.787028  ],
+           [ 4.371129  ,  4.36966   ,  4.3681927 , ...,  2.2523484 ,
+             2.2523346 ,  2.2523208 ],
+           [ 0.85558206,  0.8553027 ,  0.8550237 , ...,  8.030891  ,
+             8.030855  ,  8.03082   ],
+           ...,
+           [12.411868  , 12.408562  , 12.405259  , ..., 25.452364  ,
+            25.452513  , 25.45266   ],
+           [-1.97795   , -1.9774021 , -1.976855  , ..., 15.674774  ,
+            15.674834  , 15.674895  ],
+           [ 0.6398605 ,  0.63967246,  0.63948476, ..., -0.11592854,
+            -0.11592867, -0.1159288 ]] 1e-17 erg / (Angstrom cm2 s)&gt;, spectral_axis=&lt;SpectralAxis [3802.76948244, 3803.64520329, 3804.5211258 , ..., 9217.22098659,
+   9219.34357452, 9221.46665124] Angstrom&gt;, uncertainty=InverseVariance([[0., 0., 0., ..., 0., 0., 0.],
+                 [0., 0., 0., ..., 0., 0., 0.],
+                 [0., 0., 0., ..., 0., 0., 0.],
+                 ...,
+                 [0., 0., 0., ..., 0., 0., 0.],
+                 [0., 0., 0., ..., 0., 0., 0.],
+                 [0., 0., 0., ..., 0., 0., 0.]]))&gt;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13498,7 +13756,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sdss_z_file</span><span class="p">,</span> <span class="n">sdss_model_file</span> <span class="o">=</span> <span class="n">read_spZbest</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sdss_redshifts</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;fileobj&#39;</span><span class="p">),</span> <span class="n">limit</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
@@ -13545,7 +13803,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
@@ -13553,6 +13811,24 @@ div#notebook {
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Notebook run time: 85.1 sec
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
