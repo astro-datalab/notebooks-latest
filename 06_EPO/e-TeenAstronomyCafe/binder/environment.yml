@@ -1,0 +1,18 @@
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - matplotlib
+  - astroml
+  - ipywidgets
+  - pandas
+  - ipympl
+  - rebound
+  - tqdm
+  - gatspy
+  - batman
+  - pip
+  - pillow
+  - bokeh
+  - pip:
+    - httpimport

@@ -361,7 +361,7 @@ if __name__ == '__main__':
     # * means "any number if intermediate characters in this directory"
     # A few default notebooks are explicitly excluded here b/c they absolutely require interactive execution.
     # A few others are temporarily excluded until they will be fixed.
-    exclude = ('**/*Bokeh.ipynb','**/*AuthClient.ipynb','**/Rowstore*.ipynb','**/AntaresFilterDevKit.ipynb')
+    exclude = ('**/*AuthClient.ipynb','**/Rowstore*.ipynb')
 
     # log in to Data Lab once
     cprint('Login to Data Lab',color='yellow',bar=0,pad='')
