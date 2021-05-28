@@ -1,5 +1,5 @@
-__version__ = '20200712'
-__author__ = 'Robert Nikutta <nikutta@noao.edu>'
+__version__ = '20210527'
+__author__ = 'Robert Nikutta <robert.nikutta@noirlab.edu>'
 
 # imports
 
@@ -120,10 +120,25 @@ errors.
     
     nbname, _ = os.path.splitext(os.path.basename(nbpath))
     dirname = os.path.dirname(nbpath)
-
+    
+    # check if any code needs to be injected as the first cell in a notebook
+    if os.path.isfile('prerun.py'):
+        with open('prerun.py','r') as prerun:
+            lines = prerun.readlines() # read on all lines
+            lines = [line for line in lines if not line[0] in ('#','\n')] # remove comments and empty lines
+            if len(lines) > 0:
+                lines.insert(0,"# Code cell inserted from prerun.py file. Comment out in prerun.py if you don't wish to run it.\n")
+                lines[-1] = lines[-1].strip() # strip line break from very last line
+    else:
+        lines = []
+    
     with open(nbpath) as f:
         nb = nbformat.read(f, as_version=4)
- 
+        
+        # inject a code cell as first cell, if there is code in prerun.py
+        if len(lines) > 0:
+            nb.cells.insert(0,nbformat.v4.new_code_cell(''.join(lines)))
+        
     proc = ExecutePreprocessor(timeout=6000, kernel_name=kernel)
     proc.allow_errors = True
  
@@ -361,8 +376,8 @@ if __name__ == '__main__':
     # * means "any number if intermediate characters in this directory"
     # A few default notebooks are explicitly excluded here b/c they absolutely require interactive execution.
     # A few others are temporarily excluded until they will be fixed.
-    exclude = ('**/*AuthClient.ipynb','**/Rowstore*.ipynb')
-
+    exclude = ('**/*AuthClient.ipynb','**/Rowstore*.ipynb','**/e-Teen*/**/*ipynb')
+    
     # log in to Data Lab once
     cprint('Login to Data Lab',color='yellow',bar=0,pad='')
     token = login(input('Username: '),getpass('Password: '))
