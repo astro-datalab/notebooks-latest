@@ -291,7 +291,7 @@ def scattering_slider(savePlot=False,plots=['planet','spectrum','lightcurve']):
     plot2.yaxis.axis_label = "Radius (Earth Radii)"
     plot2.xaxis.axis_label_text_font_size = axes_font_size
     plot2.yaxis.axis_label_text_font_size = axes_font_size
-    plot2.scatter('w','rad',source=source,line_width=None,fill_color='colors',size=12)
+    plot2.scatter('w','rad',source=source,line_width=3,fill_color='colors',size=12)
     plot2.title.text = 'Spectrum Plot'
     
     
@@ -424,7 +424,7 @@ def transmission_spec_slider(mysteryNum=1,savePlot=False):
     plot2.yaxis.axis_label = "Radius (Earth Radii)"
     plot2.xaxis.axis_label_text_font_size = axes_font_size
     plot2.yaxis.axis_label_text_font_size = axes_font_size
-    plot2.square('w','rad',source=source,line_width=None,fill_color='colors',size=16)
+    plot2.square('w','rad',source=source,line_width=3,fill_color='colors',size=16)
     plot2.title.text = 'Spectrum Plot'
     
     slider_list = []
