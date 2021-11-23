@@ -14262,8 +14262,8 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Robert Nikutta &lt;nikutta@noao.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20210330&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Robert Nikutta &lt;robert.nikutta@noirlab.edu&gt;&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20211122&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gogreen_dr1&#39;</span><span class="p">]</span>  <span class="c1"># datasets used in this notebook</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;image cutout&#39;</span><span class="p">,</span><span class="s1">&#39;SIA&#39;</span><span class="p">]</span> <span class="c1"># keywords relevant to this notebook</span>
 </pre></div>
@@ -14276,7 +14276,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="GOGREEN-DR1-at-Data-Lab---Simple-Image-Access-(SIA)">GOGREEN DR1 at Data Lab - Simple Image Access (SIA)<a class="anchor-link" href="#GOGREEN-DR1-at-Data-Lab---Simple-Image-Access-(SIA)">&#182;</a></h1><p><em>Author:</em> Robert Nikutta \<a href="mailto:nikutta@noao.edu\">nikutta@noao.edu\</a></p>
+<h1 id="GOGREEN-DR1-at-Data-Lab---Simple-Image-Access-(SIA)">GOGREEN DR1 at Data Lab - Simple Image Access (SIA)<a class="anchor-link" href="#GOGREEN-DR1-at-Data-Lab---Simple-Image-Access-(SIA)">&#182;</a></h1><p><em>Author:</em> Robert Nikutta \<a href="mailto:robert.nikutta@noirlab.edu\">robert.nikutta@noirlab.edu\</a></p>
 <p>This notebook demonstrates how the GOGREEN DR1 images can be queried for at Data Lab using the SIA service, and how cutouts around positions on the sky can be retrieved.</p>
 
 </div>
@@ -14304,7 +14304,7 @@ a.anchor-link {
 
 <span class="kn">from</span> <span class="nn">pyvo.dal</span> <span class="kn">import</span> <span class="n">sia</span>
 <span class="c1"># this URL tells the SIA service where to find images and image metadata</span>
-<span class="n">DEF_ACCESS_URL</span> <span class="o">=</span> <span class="s2">&quot;https://datalab.noao.edu/sia/gogreen_dr1&quot;</span>
+<span class="n">DEF_ACCESS_URL</span> <span class="o">=</span> <span class="s2">&quot;https://datalab.noirlab.edu/sia/gogreen_dr1&quot;</span>
 <span class="n">svc</span> <span class="o">=</span> <span class="n">sia</span><span class="o">.</span><span class="n">SIAService</span><span class="p">(</span><span class="n">DEF_ACCESS_URL</span><span class="p">)</span>
 
 <span class="c1"># Data Lab</span>
@@ -14426,9 +14426,9 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>COSMOS-125</td>
       <td>COSMOS-125</td>
       <td>14</td>
-      <td>150.6210</td>
+      <td>150.6208</td>
       <td>2.1675</td>
-      <td>150.6270</td>
+      <td>150.62720</td>
       <td>2.159200</td>
       <td>270.0</td>
       <td>1.40400</td>
@@ -14443,7 +14443,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>NaN</td>
       <td>NaN</td>
       <td>GMICOSMOS-125_pseudo</td>
-      <td>82.2359</td>
+      <td>82.235855</td>
     </tr>
     <tr>
       <th>1</th>
@@ -14452,7 +14452,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>14</td>
       <td>150.5620</td>
       <td>2.5031</td>
-      <td>150.5700</td>
+      <td>150.57020</td>
       <td>2.498600</td>
       <td>90.0</td>
       <td>1.19600</td>
@@ -14467,16 +14467,16 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>NaN</td>
       <td>NaN</td>
       <td>GMICOSMOS-221_pseudo</td>
-      <td>16.2240</td>
+      <td>16.224028</td>
     </tr>
     <tr>
       <th>2</th>
       <td>COSMOS-28</td>
       <td>COSMOS-28</td>
       <td>14</td>
-      <td>149.4690</td>
+      <td>149.4692</td>
       <td>1.6685</td>
-      <td>149.4590</td>
+      <td>149.45930</td>
       <td>1.675030</td>
       <td>78.0</td>
       <td>1.31600</td>
@@ -14491,7 +14491,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>NaN</td>
       <td>NaN</td>
       <td>GMICOSMOS-28_pseud</td>
-      <td>14.7089</td>
+      <td>14.708872</td>
     </tr>
     <tr>
       <th>3</th>
@@ -14500,7 +14500,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>14</td>
       <td>150.3590</td>
       <td>1.9352</td>
-      <td>150.3610</td>
+      <td>150.36147</td>
       <td>1.928342</td>
       <td>165.0</td>
       <td>1.17220</td>
@@ -14515,7 +14515,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>NaN</td>
       <td>NaN</td>
       <td>GMICOSMOS-63_pseudo</td>
-      <td>10.7376</td>
+      <td>10.737590</td>
     </tr>
     <tr>
       <th>4</th>
@@ -14524,7 +14524,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>1</td>
       <td>31.4510</td>
       <td>-58.4803</td>
-      <td>31.4390</td>
+      <td>31.43896</td>
       <td>-58.482900</td>
       <td>90.0</td>
       <td>1.32270</td>
@@ -14539,7 +14539,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>mos_FOURSTARKs_3</td>
       <td>mos_IRAC1_3</td>
       <td>mfrgS20140928S0161_add</td>
-      <td>73.8785</td>
+      <td>73.878470</td>
     </tr>
     <tr>
       <th>5</th>
@@ -14548,7 +14548,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>2</td>
       <td>86.6403</td>
       <td>-53.7610</td>
-      <td>86.6562</td>
+      <td>86.65620</td>
       <td>-53.758000</td>
       <td>0.0</td>
       <td>1.06690</td>
@@ -14563,16 +14563,16 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>mos_FOURSTARKs_3</td>
       <td>mos_IRAC1_3</td>
       <td>mfrgS20141001S0139_add</td>
-      <td>60.7860</td>
+      <td>60.786003</td>
     </tr>
     <tr>
       <th>6</th>
       <td>SPT2106</td>
       <td>SPT-CL J2106-5844</td>
       <td>3</td>
-      <td>316.5190</td>
+      <td>316.5191</td>
       <td>-58.7411</td>
-      <td>316.5190</td>
+      <td>316.51913</td>
       <td>-58.741100</td>
       <td>100.0</td>
       <td>1.13066</td>
@@ -14587,7 +14587,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>mos_FOURSTARKs_3</td>
       <td>mos_IRAC1_3</td>
       <td>mfrgS20150411S0405_add</td>
-      <td>56.5668</td>
+      <td>56.566788</td>
     </tr>
     <tr>
       <th>7</th>
@@ -14596,7 +14596,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>13</td>
       <td>34.4996</td>
       <td>-5.0649</td>
-      <td>34.5371</td>
+      <td>34.53706</td>
       <td>-5.069708</td>
       <td>73.0</td>
       <td>1.09100</td>
@@ -14611,7 +14611,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>NaN</td>
       <td>NaN</td>
       <td>GMISXDF49_pseudo</td>
-      <td>69.2879</td>
+      <td>69.287910</td>
     </tr>
     <tr>
       <th>8</th>
@@ -14620,7 +14620,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>13</td>
       <td>34.3319</td>
       <td>-5.2067</td>
-      <td>34.3237</td>
+      <td>34.32375</td>
       <td>-5.171400</td>
       <td>180.0</td>
       <td>0.91600</td>
@@ -14635,7 +14635,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>NaN</td>
       <td>NaN</td>
       <td>GMISXDF64_pseudo</td>
-      <td>54.4982</td>
+      <td>54.498220</td>
     </tr>
     <tr>
       <th>9</th>
@@ -14644,7 +14644,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>13</td>
       <td>34.7461</td>
       <td>-5.3041</td>
-      <td>34.7361</td>
+      <td>34.73612</td>
       <td>-5.321800</td>
       <td>350.0</td>
       <td>1.45900</td>
@@ -14659,7 +14659,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>NaN</td>
       <td>NaN</td>
       <td>GMISXDF76_pseudo</td>
-      <td>37.4741</td>
+      <td>37.474052</td>
     </tr>
   </tbody>
 </table>
@@ -14786,7 +14786,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>gogreen_dr1</td>
       <td>https://datalab.noao.edu/svc/cutout?col=gogree...</td>
       <td>image/fits</td>
-      <td>111924</td>
+      <td>111931</td>
       <td></td>
       <td></td>
       <td>3</td>
@@ -14810,7 +14810,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>gogreen_dr1</td>
       <td>https://datalab.noao.edu/svc/cutout?col=gogree...</td>
       <td>image/fits</td>
-      <td>111924</td>
+      <td>111931</td>
       <td></td>
       <td></td>
       <td>3</td>
@@ -14935,7 +14935,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>gogreen_dr1</td>
       <td>https://datalab.noao.edu/svc/cutout?col=gogree...</td>
       <td>image/fits</td>
-      <td>111924</td>
+      <td>111931</td>
       <td></td>
       <td></td>
       <td>3</td>
@@ -15149,7 +15149,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>2144799</td>
       <td>427618</td>
       <td>72458635</td>
-      <td>6.78683</td>
+      <td>6.786832</td>
     </tr>
     <tr>
       <th>1</th>
@@ -15173,7 +15173,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>2144799</td>
       <td>427618</td>
       <td>72458656</td>
-      <td>80.78640</td>
+      <td>80.786390</td>
     </tr>
     <tr>
       <th>2</th>
@@ -15197,7 +15197,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>2144799</td>
       <td>427618</td>
       <td>72458638</td>
-      <td>35.52290</td>
+      <td>35.522877</td>
     </tr>
     <tr>
       <th>3</th>
@@ -15221,7 +15221,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>2144799</td>
       <td>427618</td>
       <td>72458636</td>
-      <td>35.79580</td>
+      <td>35.795780</td>
     </tr>
     <tr>
       <th>4</th>
@@ -15245,7 +15245,7 @@ Columns: Index([&#39;cluster&#39;, &#39;fullname&#39;, &#39;cluster_id&#39;, &#3
       <td>2144799</td>
       <td>427618</td>
       <td>72458637</td>
-      <td>85.95370</td>
+      <td>85.953700</td>
     </tr>
   </tbody>
 </table>
