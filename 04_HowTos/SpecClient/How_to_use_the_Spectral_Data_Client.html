@@ -10,9 +10,9 @@
 
 <style type="text/css">
     pre { line-height: 125%; }
-td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .highlight .hll { background-color: var(--jp-cell-editor-active-background) }
 .highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
@@ -14386,8 +14386,8 @@ UTILITY METHODS:
 <p>Note these names are specific to the <code>specCLient</code> interface and may map to different names in the dataset itself. Additional information may be present depending on the dataset being queried.</p>
 <h4 id="Saving-Results">Saving Results<a class="anchor-link" href="#Saving-Results">&#182;</a></h4><p>If no save location is specified (no <em>out</em> param) then the results are returned directly. A save location beginning with the 'vos://' identifier indicates a location in the user's virtual storage to save the result.</p>
 <h3 id="From-Python-code">From Python code<a class="anchor-link" href="#From-Python-code">&#182;</a></h3><p>[NOTE: Not Yet Implemented as of this writing]</p>
-<p>The spectrum client service can be called from Python code using the <em>datalab</em> module. This provides methods to access the various query client functions in the <em>specClient</em> subpackage. See the information <a href="https://github.com/noaodatalab/datalab/blob/master/README.md">here</a>.</p>
-<p>Spectrum commands can be also run from the command line, e.g. on your local machine, using the datalab command line utility. Read about it in our GitHub repo <a href="https://github.com/noaodatalab/datalab">here</a>.</p>
+<p>The spectrum client service can be called from Python code using the <em>datalab</em> module. This provides methods to access the various query client functions in the <em>specClient</em> subpackage. See the information <a href="https://github.com/astro-datalab/datalab/blob/master/README.md">here</a>.</p>
+<p>Spectrum commands can be also run from the command line, e.g. on your local machine, using the datalab command line utility. Read about it in our GitHub repo <a href="https://github.com/astro-datalab/datalab">here</a>.</p>
 <p><a class="anchor" id="attribution"></a></p>
 <h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h1><p>If you use this notebook for your published science, please acknowledge the following:</p>
 <ul>
@@ -16600,7 +16600,7 @@ Shape: (4655, 8)
 <hr>
 <p><a class="anchor" id="refs"></a></p>
 <h1 id="References-and-Resources">References and Resources<a class="anchor-link" href="#References-and-Resources">&#182;</a></h1><ul>
-<li><a href="https://github.com/noaodatalab/specserver/blob/master/doc/03_GettingStartedWithSpectra.ipynb">Getting Started with Spectral Data</a></li>
+<li><a href="https://github.com/astro-datalab/specserver/blob/master/doc/03_GettingStartedWithSpectra.ipynb">Getting Started with Spectral Data</a></li>
 </ul>
 
 </div>
