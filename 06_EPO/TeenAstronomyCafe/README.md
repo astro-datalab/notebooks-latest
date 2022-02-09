@@ -10,4 +10,4 @@ Browse the folders to choose an activity to run.
 Each folder contains one notebook file (ends with .ipynb). Click on it and it will launch in a new Tab.
 
 GET IN TOUCH:
- If you have suggestions to make the notebooks better, or if you encounter problems, please get in touch with the NOAO Data Lab team: datalab@noao.edu
+ If you have suggestions to make the notebooks better, or if you encounter problems, please get in touch with the Astro Data Lab team: datalab@noirlab.edu
