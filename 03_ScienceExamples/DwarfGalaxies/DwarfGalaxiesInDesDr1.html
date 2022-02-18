@@ -10,9 +10,9 @@
 
 <style type="text/css">
     pre { line-height: 125%; }
-td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .highlight .hll { background-color: var(--jp-cell-editor-active-background) }
 .highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
@@ -14551,7 +14551,7 @@ Done.
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="dwarffilter"></a></p>
-<h1 id="Filtering-and-plotting-the-dwarfs">Filtering and plotting the dwarfs<a class="anchor-link" href="#Filtering-and-plotting-the-dwarfs">&#182;</a></h1><p>We filter the photometry to include objects without SE flags, with S/N&gt;10, that are point-like (using <code>SPREAD_MODEL</code>, <code>CLASS_STAR</code>, and <code>KRON_RADIUS</code>--see the notebook <a href="https://github.com/noaodatalab/notebooks-latest/blob/master/03_ScienceExamples/StarGalQSOSeparation/StarGalQsoDESDR1.ipynb">StarGalQsoDESDR1</a> for details), and that are relatively blue (<em>g-i</em> &lt; 1.0).  We convolve the result with the spatial filter (defined below).</p>
+<h1 id="Filtering-and-plotting-the-dwarfs">Filtering and plotting the dwarfs<a class="anchor-link" href="#Filtering-and-plotting-the-dwarfs">&#182;</a></h1><p>We filter the photometry to include objects without SE flags, with S/N&gt;10, that are point-like (using <code>SPREAD_MODEL</code>, <code>CLASS_STAR</code>, and <code>KRON_RADIUS</code>--see the notebook <a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/StarGalQSOSeparation/StarGalQsoDESDR1.ipynb">StarGalQsoDESDR1</a> for details), and that are relatively blue (<em>g-i</em> &lt; 1.0).  We convolve the result with the spatial filter (defined below).</p>
 <p>Some helper functions first:</p>
 
 </div>

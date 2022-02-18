@@ -10,9 +10,9 @@
 
 <style type="text/css">
     pre { line-height: 125%; }
-td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
-td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .highlight .hll { background-color: var(--jp-cell-editor-active-background) }
 .highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
@@ -14353,8 +14353,8 @@ a.anchor-link {
 <h4 id="Asynchronous-queries">Asynchronous queries<a class="anchor-link" href="#Asynchronous-queries">&#182;</a></h4><p>Long queries should be run asynchronously and the service may refuse any synchronous query attempted if the projected query time is too long. A query can be submitted asynchronously by setting the <em>async_</em> parameter to <em>True</em>. A job id will then be returned.</p>
 <p>The status of an asynchronous query can be checked with <em>queryClient.status(jobid)</em>. A return value of 'COMPLETED' indicates the query has terminated. A return value of 'ERROR' indicates that there was a problem with the query.</p>
 <p>The results of an asynchronous query (assuming that they were not saved to either the user's virtual storage or remote database) can be retrieved once the query has completed with <em>result = qc.query(adql=query,async_=True,wait=True,poll=1,verbose=1)</em></p>
-<h3 id="From-Python-code">From Python code<a class="anchor-link" href="#From-Python-code">&#182;</a></h3><p>The query client service can be called from Python code using the <em>datalab</em> module. This provides methods to access the various query client functions in the <em>QueryClient</em> subpackage. See the information <a href="https://github.com/noaodatalab/datalab/blob/master/README.md">here</a>.</p>
-<p>Queries can be also run from the command line, e.g. on your local machine, using the datalab command line utility. Read about it in our GitHub repo <a href="https://github.com/noaodatalab/datalab">here</a>.</p>
+<h3 id="From-Python-code">From Python code<a class="anchor-link" href="#From-Python-code">&#182;</a></h3><p>The query client service can be called from Python code using the <em>datalab</em> module. This provides methods to access the various query client functions in the <em>QueryClient</em> subpackage. See the information <a href="https://github.com/astro-datalab/datalab/blob/master/README.md">here</a>.</p>
+<p>Queries can be also run from the command line, e.g. on your local machine, using the datalab command line utility. Read about it in our GitHub repo <a href="https://github.com/astro-datalab/datalab">here</a>.</p>
 
 </div>
 </div>
@@ -14451,7 +14451,7 @@ a.anchor-link {
 FROM database.table
 WHERE constraints
 LIMIT 100</code></pre>
-<h3 id="Please-see-our-intro-notebook-JupyterPythonSQL101-for-more-info-on-this.">Please see our intro notebook <a href="https://github.com/noaodatalab/notebooks-latest/blob/master/01_GettingStartedWithDataLab/01_JupyterPythonSQL101.ipynb">JupyterPythonSQL101</a> for more info on this.<a class="anchor-link" href="#Please-see-our-intro-notebook-JupyterPythonSQL101-for-more-info-on-this.">&#182;</a></h3>
+<h3 id="Please-see-our-intro-notebook-JupyterPythonSQL101-for-more-info-on-this.">Please see our intro notebook <a href="https://github.com/astro-datalab/notebooks-latest/blob/master/01_GettingStartedWithDataLab/01_JupyterPythonSQL101.ipynb">JupyterPythonSQL101</a> for more info on this.<a class="anchor-link" href="#Please-see-our-intro-notebook-JupyterPythonSQL101-for-more-info-on-this.">&#182;</a></h3>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -15347,7 +15347,7 @@ Retrieving results
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Please-see-our-JupyterPythonSQL101-notebook-for-more-information-on-getting-jobid,-checking-status-until-'COMPLETED',-and-retrieving-results-with-qc.results().">Please see our <a href="https://github.com/noaodatalab/notebooks-latest/blob/master/01_GettingStartedWithDataLab/01_JupyterPythonSQL101.ipynb">JupyterPythonSQL101</a> notebook for more information on getting jobid, checking status until 'COMPLETED', and retrieving results with qc.results().<a class="anchor-link" href="#Please-see-our-JupyterPythonSQL101-notebook-for-more-information-on-getting-jobid,-checking-status-until-'COMPLETED',-and-retrieving-results-with-qc.results().">&#182;</a></h3>
+<h3 id="Please-see-our-JupyterPythonSQL101-notebook-for-more-information-on-getting-jobid,-checking-status-until-'COMPLETED',-and-retrieving-results-with-qc.results().">Please see our <a href="https://github.com/astro-datalab/notebooks-latest/blob/master/01_GettingStartedWithDataLab/01_JupyterPythonSQL101.ipynb">JupyterPythonSQL101</a> notebook for more information on getting jobid, checking status until 'COMPLETED', and retrieving results with qc.results().<a class="anchor-link" href="#Please-see-our-JupyterPythonSQL101-notebook-for-more-information-on-getting-jobid,-checking-status-until-'COMPLETED',-and-retrieving-results-with-qc.results().">&#182;</a></h3>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
