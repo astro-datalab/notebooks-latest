@@ -20,10 +20,10 @@
 
 
                        web: https://datalab.noirlab.edu
-                    github: https://github.com/noaodatalab
+                    github: https://github.com/astro-datalab
 
 
-                        Version of this file: 20211118
+                        Version of this file: 20220218
                         
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -108,7 +108,7 @@ instances, the same science case is featured with two or more surveys.
 
 The ScienceExamples notebooks are located here:
 
-   https://github.com/noaodatalab/notebooks-latest/tree/master/03_ScienceExamples/
+   https://github.com/astro-datalab/notebooks-latest/tree/master/03_ScienceExamples/
 
 04- HOW-TOS
 
@@ -128,7 +128,7 @@ the following:
 
 The How-To notebooks are located here:
 
-   https://github.com/noaodatalab/notebooks-latest/tree/master/04_HowTos/
+   https://github.com/astro-datalab/notebooks-latest/tree/master/04_HowTos/
 
 05- CONTRIB
 
@@ -182,7 +182,7 @@ version of the given file.
 
 Finally, copies of this README.txt file as well as the latest
 notebooks are kept at the Data Lab GitHub account:
-https://github.com/noaodatalab/notebooks-latest/ from where you can
+https://github.com/astro-datalab/notebooks-latest/ from where you can
 freely clone them.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
