@@ -1,4 +1,4 @@
-Version of this file: 20211118
+Version of this file: 20220218
 
 HOW TO CONTRIBUTE NOTEBOOKS TO ASTRO DATA LAB
 =============================================
@@ -45,13 +45,13 @@ and accept your notebook.
 
   - Install the datalab client code
 
-      pip install --upgrade noaodatalab
+      pip install --upgrade astro-datalab
     
-    More detailed instructions: https://github.com/noaodatalab/datalab (the README.md file)
+    More detailed instructions: https://github.com/astro-datalab/datalab (the README.md file)
 
   - Fork the 'notebooks-latest' repository on GitHub
 
-    Log in to GitHub, go to https://github.com/noaodatalab/notebooks-latest
+    Log in to GitHub, go to https://github.com/astro-datalab/notebooks-latest
     
     Click on "Fork" in the upper right corner.
 
