@@ -14387,7 +14387,10 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">228</span><span class="p">,</span> <span class="mi">229</span><span class="p">,</span> <span class="mi">230</span><span class="p">]:</span>  
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">astropy</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">228</span><span class="p">,</span> <span class="mi">229</span><span class="p">,</span> <span class="mi">230</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Iteration: &quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;ra&quot;</span><span class="p">,</span><span class="n">ra</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s2">&quot;dec&quot;</span><span class="p">,</span><span class="n">dec</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="n">query</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -14414,7 +14417,14 @@ a.anchor-link {
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="k">for</span> <span class="n">locus</span> <span class="ow">in</span> <span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
-        <span class="n">df</span> <span class="o">=</span> <span class="n">locus</span><span class="o">.</span><span class="n">timeseries</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+            <span class="c1"># The cast of locus.timeseries: astropy.table.Table to a pandas</span>
+            <span class="c1"># dataframe results in the conversion of some integer-valued</span>
+            <span class="c1"># columns to floating point represntation. This can result in a</span>
+            <span class="c1"># number of noisy warning so we will catch &amp; ignore them for the</span>
+            <span class="c1"># next couple of lines.</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">astropy</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">TableReplaceWarning</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">locus</span><span class="o">.</span><span class="n">timeseries</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;ant_mjd&#39;</span><span class="p">,</span> <span class="s1">&#39;ztf_fid&#39;</span><span class="p">,</span> <span class="s1">&#39;ztf_magpsf&#39;</span><span class="p">,</span> <span class="s1">&#39;ztf_sigmapsf&#39;</span><span class="p">]]</span>
         <span class="n">dn</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
         <span class="k">if</span> <span class="nb">max</span><span class="p">(</span><span class="n">dn</span><span class="p">[</span><span class="s1">&#39;ztf_magpsf&#39;</span><span class="p">][</span><span class="n">dn</span><span class="p">[</span><span class="s1">&#39;ztf_fid&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">dn</span><span class="p">[</span><span class="s1">&#39;ztf_magpsf&#39;</span><span class="p">][</span><span class="n">dn</span><span class="p">[</span><span class="s1">&#39;ztf_fid&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
@@ -14442,78 +14452,11 @@ a.anchor-link {
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Iteration:  228 ra 275.832794 dec -14.109205
 Iteration:  229 ra 283.318207 dec -27.231319
-</pre>
-</div>
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_candid&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_field&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_nbad&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_ncovhist&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_ndethist&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_nframesref&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_nid&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_nmatches&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_nmtchps&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_nneg&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_objectidps1&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_objectidps2&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_objectidps3&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_rcid&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_rfid&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_tblid&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_tooflag&#39; from integer to float
-</pre>
-</div>
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Got a hit on locus_id:  ANT2020emqbg  in g-band
+Got a hit on locus_id:  ANT2020emqbg  in g-band
 Got a hit on locus_id:  ANT2020emqbg  in r-band
 Iteration:  230 ra 280.692779 dec -12.904075
 Got a hit on locus_id:  ANT2018c7igm  in g-band
 Got a hit on locus_id:  ANT2018c7igm  in r-band
-</pre>
-</div>
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_candid&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_field&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_nbad&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_ncovhist&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_ndethist&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_nframesref&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_nid&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_nmatches&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_nmtchps&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_nneg&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_objectidps1&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_objectidps2&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_objectidps3&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_rcid&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_rfid&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_tblid&#39; from integer to float
-/data0/sw/antares-kernel-0.4/lib/python3.7/site-packages/ipykernel_launcher.py:28: TableReplaceWarning: converted column &#39;ztf_tooflag&#39; from integer to float
 </pre>
 </div>
 </div>
