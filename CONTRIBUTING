@@ -1,7 +1,7 @@
-Version of this file: 20190208
+Version of this file: 20220218
 
-HOW TO CONTRIBUTE NOTEBOOKS TO DATA LAB
-=======================================
+HOW TO CONTRIBUTE NOTEBOOKS TO ASTRO DATA LAB
+=============================================
 
 We very much welcome user-contributed notebooks to Data Lab.
 
@@ -28,16 +28,16 @@ A few words about rules and intent
 The steps to contributing
 -------------------------
 
-You can develop your notebook either in the Data Lab notebook server
-or locally on your machine.
+You can develop your notebook either in the Astro Data Lab notebook
+server or locally on your machine.
 
 In either case, when your notebook is ready to go, you will have to
-make a pull request on Github, so that the Data Lab team can review
+make a pull request on GitHub, so that the Data Lab team can review
 and accept your notebook.
 
 * If you want to develop on the Data Lab notebook server:
 
-  - Start your notebook server at https://datalab.noao.edu/devbooks
+  - Start your notebook server at https://datalab.noirlab.edu/devbooks
   - Copy notebooks-latest/DataLabNotebookTemplate.ipynb to some other place and rename it
   - Develop the notebook
 
@@ -45,18 +45,18 @@ and accept your notebook.
 
   - Install the datalab client code
 
-      pip install --upgrade noaodatalab
+      pip install --upgrade astro-datalab
     
-    More detailed instructions: https://github.com/noaodatalab/datalab (the README.md file)
+    More detailed instructions: https://github.com/astro-datalab/datalab (the README.md file)
 
-  - Fork the 'notebooks-latest' repository on Github
+  - Fork the 'notebooks-latest' repository on GitHub
 
-    Log in to Github, go to https://github.com/noaodatalab/notebooks-latest
+    Log in to GitHub, go to https://github.com/astro-datalab/notebooks-latest
     
     Click on "Fork" in the upper right corner.
 
     The forked repository will be under https://github.com/youongithub/notebooks-latest.git
-    where 'youongithub' is your Github user name.
+    where 'youongithub' is your GitHub user name.
 
   - Clone from your fork
 
@@ -113,17 +113,17 @@ and accept your notebook.
 
     git commit -a -m "Add contributed science case notebook on XYZ science"
 
-* Push to your fork on Github
+* Push to your fork on GitHub
 
    git push origin master
 
-* Make a pull request (PR) on Github:
+* Make a pull request (PR) on GitHub:
 
-  - Go to your fork of notebooks-latest on Github
+  - Go to your fork of notebooks-latest on GitHub
   - Click on "New pull request", and follow the instructions
 
   The DL team will review your notebook and either suggest some
   changes or accept the PR. Once accepted, your notebook will become
   part of the default set of notebooks delivered with DL.
 
-As always, please ask the DL team any questions you have at <datalab@noao.edu>
+As always, please ask the DL team any questions you have at <datalab@noirlab.edu>

@@ -14262,8 +14262,8 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;David Nidever &lt;dnidever@noao.edu&gt;, Knut Olsen &lt;kolsen@noao.edu&gt;, Robert Nikutta &lt;rnikutta@noao.edu&gt;, Stephanie Juneau &lt;sjuneau@noao.edu&gt;&#39;</span> <span class="c1"># single string; emails in &lt;&gt;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20210230&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;David Nidever &lt;david.nidever@noirlab.edu&gt;, Knut Olsen &lt;knut.olsen@noirlab.edu&gt;, Robert Nikutta &lt;robert.nikutta@noirlab.edu&gt;, Stephanie Juneau &lt;stephanie.juneau@noirlab.edu&gt;&#39;</span> <span class="c1"># single string; emails in &lt;&gt;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20211122&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nsc_dr2&#39;</span><span class="p">]</span>  <span class="c1"># enter used datasets by hand</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;science example&#39;</span><span class="p">,</span><span class="s1">&#39;dwarf galaxies&#39;</span><span class="p">],</span> <span class="c1"># keywords relevant to this notebook, e.g. [&#39;science case&#39;,&#39;dwarf galaxies&#39;] </span>
 </pre></div>
@@ -14276,7 +14276,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Detecting-dwarf-galaxies-in-NSC-DR2">Detecting dwarf galaxies in NSC DR2<a class="anchor-link" href="#Detecting-dwarf-galaxies-in-NSC-DR2">&#182;</a></h1><p><em>David Nidever, Knut Olsen, Robert Nikutta, Stéphanie Juneau &amp; NOAO Data Lab Team</em></p>
+<h1 id="Detecting-dwarf-galaxies-in-NSC-DR2">Detecting dwarf galaxies in NSC DR2<a class="anchor-link" href="#Detecting-dwarf-galaxies-in-NSC-DR2">&#182;</a></h1><p><em>David Nidever, Knut Olsen, Robert Nikutta, Stéphanie Juneau &amp; Astro Data Lab Team</em></p>
 
 </div>
 </div>
@@ -14321,7 +14321,7 @@ We will convolve the spatial distribution of our dataset with a pair of Gaussian
 <ul>
 <li><p>Data Lab concept paper: Fitzpatrick et al., "The NOAO Data Laboratory: a conceptual overview", SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></p>
 </li>
-<li><p>Data Lab disclaimer: <a href="http://datalab.noao.edu/disclaimers.php">http://datalab.noao.edu/disclaimers.php</a></p>
+<li><p>Data Lab disclaimer: <a href="http://datalab.noirlab.edu/disclaimers.php">http://datalab.noirlab.edu/disclaimers.php</a></p>
 </li>
 </ul>
 
@@ -14358,7 +14358,7 @@ We will convolve the spatial distribution of our dataset with a pair of Gaussian
 
 <span class="c1">#Simple Image Access (SIA) service</span>
 <span class="kn">from</span> <span class="nn">pyvo.dal</span> <span class="kn">import</span> <span class="n">sia</span>
-<span class="n">DEF_ACCESS_URL</span> <span class="o">=</span> <span class="s2">&quot;https://datalab.noao.edu/sia&quot;</span>
+<span class="n">DEF_ACCESS_URL</span> <span class="o">=</span> <span class="s2">&quot;https://datalab.noirlab.edu/sia&quot;</span>
 <span class="n">svc</span> <span class="o">=</span> <span class="n">sia</span><span class="o">.</span><span class="n">SIAService</span><span class="p">(</span><span class="n">DEF_ACCESS_URL</span><span class="p">)</span>
 
 <span class="c1"># Quiet the Astropy warnings</span>
@@ -14419,7 +14419,42 @@ Schema: nsc_dr2
         exposure   Exposures contributing to the catalog
             meas   Primary measurements table
           object   Primary object table
+x1p5__object__allwise__source   nsc_dr2.object and allwise.source crossmatch (1.5 arcsec)
+x1p5__object__decaps_dr1__object   nsc_dr2.object and decaps_dr1.object crossmatch (1.5 arcsec)
+x1p5__object__delve_dr1__objects   nsc_dr2.object and delve_dr1.objects crossmatch (1.5 arcsec)
+x1p5__object__des_dr1__main   nsc_dr2.object and des_dr1.main crossmatch (1.5 arcsec)
 x1p5__object__des_dr2__main   nsc_dr2.object and des_dr2.main crossmatch (1.5 arcsec)
+x1p5__object__gaia_dr1__gaia_source   nsc_dr2.object and gaia_dr1.gaia_source crossmatch (1.5 arcsec)
+x1p5__object__gaia_dr2__gaia_source   nsc_dr2.object and gaia_dr2.gaia_source crossmatch (1.5 arcsec)
+x1p5__object__gaia_edr3__gaia_source   xmatch_std.nsc_dr2__object and xmatch_std.gaia_edr3__gaia_
+                   source crossmatch (1.5 arcsec)
+x1p5__object__gogreen_dr1__photo   nsc_dr2.object and gogreen_dr1.photo crossmatch (1.5 arcsec)
+x1p5__object__gogreen_dr1__redshift   nsc_dr2.object and gogreen_dr1.redshift crossmatch (1.5 arcsec)
+x1p5__object__ls_dr5__tractor_primary   nsc_dr2.object and ls_dr5.tractor_primary crossmatch (1.5 
+                   arcsec)
+x1p5__object__ls_dr7__tractor_primary   nsc_dr2.object and ls_dr7.tractor_primary crossmatch (1.5 
+                   arcsec)
+x1p5__object__ls_dr9__tractor   xmatch_std.nsc_dr2__object and xmatch_std.ls_dr9__tractor 
+                   crossmatch (1.5 arcsec)
+x1p5__object__sdss_dr12__specobj   nsc_dr2.object and sdss_dr12.specobj crossmatch (1.5 arcsec)
+x1p5__object__sdss_dr13__specobj   nsc_dr2.object and sdss_dr13.specobj crossmatch (1.5 arcsec)
+x1p5__object__sdss_dr14__specobj   nsc_dr2.object and sdss_dr14.specobj crossmatch (1.5 arcsec)
+x1p5__object__sdss_dr16__specobj   nsc_dr2.object and sdss_dr16.specobj crossmatch (1.5 arcsec)
+x1p5__object__skymapper_dr1__master   nsc_dr2.object and skymapper_dr1.master crossmatch (1.5 arcsec)
+x1p5__object__skymapper_dr2__master   xmatch_std.nsc_dr2__object and skymapper_dr2.master crossm
+                   atch (1.5 arcsec)
+x1p5__object__smash_dr1__object   nsc_dr2.object and smash_dr1.object crossmatch (1.5 arcsec)
+x1p5__object__smash_dr2__object   nsc_dr2.object and smash_dr2.object crossmatch (1.5 arcsec)
+x1p5__object__splus_dr1__stripe82   nsc_dr2.object and splus_dr1.stripe82 crossmatch (1.5 arcsec)
+x1p5__object__splus_dr2__main   xmatch_std.nsc_dr2__object and splus_dr2.main crossmatch (
+                   1.5 arcsec)
+x1p5__object__splus_edr__stripe82   nsc_dr2.object and splus_edr.stripe82 crossmatch (1.5 arcsec)
+x1p5__object__twomass__psc   nsc_dr2.object and twomass.psc crossmatch (1.5 arcsec)
+x1p5__object__twomass__xsc   nsc_dr2.object and twomass.xsc crossmatch (1.5 arcsec)
+x1p5__object__unwise_dr1__object   nsc_dr2.object and unwise_dr1.object crossmatch (1.5 arcsec)
+x1p5__object__usno__a2   nsc_dr2.object and usno.a2 crossmatch (1.5 arcsec)
+x1p5__object__usno__b1   nsc_dr2.object and usno.b1 crossmatch (1.5 arcsec)
+x1p5__object__vhs_dr5__vhs_cat_v3   nsc_dr2.object and vhs_dr5.vhs_cat_v3 crossmatch (1.5 arcsec)
 
 </pre>
 </div>
@@ -14699,8 +14734,8 @@ Eri II
 SELECT ra,dec,gmag,gerr,imag,rmag,zmag,class_star,fwhm FROM nsc_dr2.object
        WHERE q3c_radial_query(ra,dec,56.087800,-43.533200,0.850000)
 162625 objects found
-CPU times: user 4.08 s, sys: 1.06 s, total: 5.14 s
-Wall time: 32.1 s
+CPU times: user 3.45 s, sys: 1.11 s, total: 4.56 s
+Wall time: 29.1 s
 </pre>
 </div>
 </div>

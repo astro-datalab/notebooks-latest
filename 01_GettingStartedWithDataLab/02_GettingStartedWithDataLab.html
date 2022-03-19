@@ -14262,8 +14262,8 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Knut Olsen &lt;kolsen@noao.edu&gt;&#39;</span> <span class="c1"># single string; emails in &lt;&gt;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20210402&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Knut Olsen &lt;knut.olsen@noirlab.edu&gt;&#39;</span> <span class="c1"># single string; emails in &lt;&gt;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20211122&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;smash_dr1&#39;</span><span class="p">,</span><span class="s1">&#39;des_dr1&#39;</span><span class="p">]</span>  <span class="c1"># enter used datasets by hand</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tutorial&#39;</span><span class="p">,</span><span class="s1">&#39;query&#39;</span><span class="p">,</span><span class="s1">&#39;image cutout&#39;</span><span class="p">]</span>
 </pre></div>
@@ -14276,7 +14276,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Welcome-to-the-NOAO-Data-Lab">Welcome to the NOAO Data Lab<a class="anchor-link" href="#Welcome-to-the-NOAO-Data-Lab">&#182;</a></h1><p><em>Knut Olsen, NOAO Data Lab Team</em></p>
+<h1 id="Welcome-to-Astro-Data-Lab">Welcome to Astro Data Lab<a class="anchor-link" href="#Welcome-to-Astro-Data-Lab">&#182;</a></h1><p><em>Knut Olsen, Astro Data Lab Team</em></p>
 
 </div>
 </div>
@@ -14325,7 +14325,7 @@ a.anchor-link {
 <ul>
 <li><p>Data Lab concept paper: Fitzpatrick et al., "The NOAO Data Laboratory: a conceptual overview", SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></p>
 </li>
-<li><p>Data Lab disclaimer: <a href="http://datalab.noao.edu/disclaimers.php">http://datalab.noao.edu/disclaimers.php</a></p>
+<li><p>Data Lab disclaimer: <a href="http://datalab.noirlab.edu/disclaimers.php">http://datalab.noirlab.edu/disclaimers.php</a></p>
 </li>
 </ul>
 
@@ -14336,8 +14336,8 @@ a.anchor-link {
 <p><a class="anchor" id="import"></a></p>
 <h1 id="Imports-and-setup">Imports and setup<a class="anchor-link" href="#Imports-and-setup">&#182;</a></h1><p>To use the Data Lab, you'll generally want to import common packages such as NumPy and matplotlib.  From the datalab package, you'll at minimum need the authClient module to get an authorization token (even if using Data Lab anonymously) and the queryClient module to issue a query against the catalog database.</p>
 <p>For storing results in virtual storage and myDB, you'll need the storeClient module <em>and</em> log in as an authenticated user.</p>
-<p>The helpers module has many convience functions.  See the <a href="http://datalab.noao.edu/docs/manual/UsingTheNOAODataLab/ClientInterfaces/Helpers/Helpers.html">online documentation</a> for a summary.</p>
-<p>Use of the image cutout service (SIA) requires the external PyVO package, and the URL of the SIA service that you will use.  Data Lab has a general SIA service containing all available images from NOAO Science Archive, as well as a number of survey-specific services.  See the SIA service HowTo for examples.</p>
+<p>The helpers module has many convience functions.  See the <a href="http://datalab.noirlab.edu/docs/manual/UsingAstroDataLab/ClientInterfaces/Helpers/Helpers.html">online documentation</a> for a summary.</p>
+<p>Use of the image cutout service (SIA) requires the external PyVO package, and the URL of the SIA service that you will use.  Data Lab has a general SIA service containing all available images from Astro Data Archive, as well as a number of survey-specific services.  See the SIA service HowTo for examples.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14366,7 +14366,7 @@ a.anchor-link {
 <span class="c1"># To get image cutouts, you&#39;ll need the VO-based SIA package, and define which SIA service</span>
 <span class="c1"># to use</span>
 <span class="kn">from</span> <span class="nn">pyvo.dal</span> <span class="kn">import</span> <span class="n">sia</span>
-<span class="n">DEF_ACCESS_URL</span> <span class="o">=</span> <span class="s2">&quot;https://datalab.noao.edu/sia/des_dr1&quot;</span> <span class="c1"># DES SIA service URL</span>
+<span class="n">DEF_ACCESS_URL</span> <span class="o">=</span> <span class="s2">&quot;https://datalab.noirlab.edu/sia/des_dr1&quot;</span> <span class="c1"># DES SIA service URL</span>
 <span class="n">svc</span> <span class="o">=</span> <span class="n">sia</span><span class="o">.</span><span class="n">SIAService</span><span class="p">(</span><span class="n">DEF_ACCESS_URL</span><span class="p">)</span>
 </pre></div>
 
@@ -14415,7 +14415,7 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;robertdemo&#39;</pre>
+<pre>&#39;demo00&#39;</pre>
 </div>
 
 </div>
@@ -14483,10 +14483,9 @@ a.anchor-link {
                    for nearly all stars brighter than magnitude Hp=8 to be b
                    etter, by up to a factor 4, than in the original catalogue
                    . ftp://cdsarc.u-strasbg.fr/pub/cats/I/311/ReadMe
- ivoa_calibrated   IVOA SIA/ObsCore Tables for calibrated images
-      ivoa_coadd   IVOA SIA/ObsCore Tables for coadded images
+ ivoa_calibrated   
+      ivoa_coadd   
  ivoa_decaps_dr1   IVOA SIA/ObsCore Tables for ivoa_decaps_dr1 images
-  ivoa_delve_dr1   IVOA SIA/ObsCore Tables for DELVE Survey DR1 images
     ivoa_des_dr1   IVOA SIA/ObsCore Tables for Dark Energy Survey DR1 images
     ivoa_des_dr2   IVOA SIA/ObsCore Tables for ivoa_des_dr2 images
  ivoa_des_dr2_se   IVOA SIA/ObsCore Tables for ivoa_des_dr2_se images
@@ -14502,37 +14501,41 @@ ivoa_gogreen_dr1   IVOA SIA/ObsCore Tables for gogreen_dr1 images
      ivoa_ls_dr6   IVOA SIA/ObsCore Tables for Legacy Survey DR6 images
      ivoa_ls_dr7   IVOA SIA/ObsCore Tables for Legacy Survey DR7 images
      ivoa_ls_dr8   IVOA SIA/ObsCore Tables for ls_dr8 images
+     ivoa_ls_dr9   IVOA SIA/ObsCore Tables for ls_dr9 images
         ivoa_nsa   IVOA SIA/ObsCore Tables for NOAO Science Archive images
     ivoa_nsc_dr2   IVOA SIA/ObsCore Tables for ivoa_nsc_dr2 images
-        ivoa_raw   IVOA SIA/ObsCore Tables for raw images
+        ivoa_raw   
    ivoa_sdss_dr9   IVOA SIA/ObsCore Tables for sdss_dr9 images
   ivoa_smash_dr1   IVOA SIA/ObsCore Tables for SMASH DR1 images
   ivoa_smash_dr2   IVOA SIA/ObsCore Tables for ivoa_smash_dr2 images
   ivoa_splus_dr1   IVOA SIA/ObsCore Tables for ivoa_splus_dr1 images
   ivoa_splus_edr   IVOA SIA/ObsCore Tables for ivoa_splus_edr images
-   ivoa_stripe82   IVOA SIA/ObsCore Tables for images in Stripe 82
+   ivoa_stripe82   
           ls_dr3   The DECam Legacy Survey Data Release 3
           ls_dr4   The DECam Legacy Survey Data Release 4
           ls_dr5   The DECam Legacy Survey Data Release 5
-          ls_dr6   The DECam Legacy Survey Data Release 5
+          ls_dr6   The DECam Legacy Survey Data Release 6
           ls_dr7   ls_dr7
           ls_dr8   Legacy Survey Data Release 8
+          ls_dr9   Legacy Survey (LS) Data Release 9
         ls_dr9sv   
         lsst_sim   lsst_sim
             mydb   MyDB table schema
          nsc_dr1   NOIRLab Source Catalog Data Release 1
          nsc_dr2   NOIRLab Source Catalog Data Release 2
          phat_v2   Panchromatic Hubble Andromeda Treasury Version 2
-          public   
        sdss_dr12   Sloan Digital Sky Survey Data Release 12
        sdss_dr13   Sloan Digital Sky Survey Data Relase 13
        sdss_dr14   Sloan Digital Sky Survey Data Release 14
        sdss_dr16   Sloan Digital Sky Survey Data Release 16
    skymapper_dr1   http://skymapper.anu.edu.au/data-release/
+   skymapper_dr2   https://skymapper.anu.edu.au/data-release/
        smash_dr1   SMASH Data Release 1
        smash_dr2   SMASH Data Release 2
        splus_dr1   The Southern Photometric Local Universe Survey (S-PLUS) --
                    Data Release 1
+       splus_dr2   The Southern Photometric Local Universe Survey (S-PLUS) --
+                   Data Release 2
        splus_edr   The Southern Photometric Local Universe Survey (S-PLUS) --
                    Data Release 1
         stripe82   Primary object catalogs in Stripe 82 footprint
@@ -14549,6 +14552,8 @@ ivoa_gogreen_dr1   IVOA SIA/ObsCore Tables for gogreen_dr1 images
                    d precision.
       unwise_dr1   unWISE DR1 band-merged catalog
             usno   USNO Astrometry Catalogs
+         vhs_dr5   VISTA Hemisphere Survey (VHS) band-merged multi-waveband c
+                   atalogues Data Release 5
 
 </pre>
 </div>
@@ -14602,10 +14607,9 @@ Schema: smash_dr1
           object   Average photometry of each unique object
           source   All of the individual source measurements
            stars   View of object table to select for stars
-x1p5__object__allwise__source   smash_dr1.object and allwise.source crossmatch (1.5 arcsec)
 x1p5__object__gaia_dr2__gaia_source   smash_dr1.object and gaia_dr2.gaia_source crossmatch (1.5 
                    arcsec)
-x1p5__object__nsc_dr1__object   smash_dr1.object and nsc_dr1.object crossmatch (1.5 arcsec)
+x1p5__object__nsc_dr2__object   smash_dr1.object and nsc_dr2.object crossmatch (1.5 arcsec)
 x1p5__object__unwise_dr1__object   smash_dr1.object and unwise_dr1.object crossmatch (1.5 arcsec)
           xmatch   Crossmatch of object against GAIA DR1 and WISE
 
@@ -14764,8 +14768,8 @@ Schema: smash_dr1
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 14 ms, sys: 8.27 ms, total: 22.2 ms
-Wall time: 378 ms
+<pre>CPU times: user 38.3 ms, sys: 0 ns, total: 38.3 ms
+Wall time: 1.99 s
 </pre>
 </div>
 </div>
@@ -14801,7 +14805,7 @@ Wall time: 378 ms
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>schema,tbl_name,nrows,ncols,nindex,table_size,indexes_size,total_size
-smash_dr1,object,101425208,45,23,22 GB,45 GB,67 GB
+smash_dr1,object,101425240,45,23,22 GB,31 GB,53 GB
 
 </pre>
 </div>
@@ -14846,8 +14850,8 @@ smash_dr1,object,101425208,45,23,22 GB,45 GB,67 GB
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 6 µs, sys: 1 µs, total: 7 µs
-Wall time: 13.1 µs
+<pre>CPU times: user 7 µs, sys: 1 µs, total: 8 µs
+Wall time: 12.9 µs
 </pre>
 </div>
 </div>
@@ -14977,64 +14981,64 @@ ra,dec,glon,glat,elon,elat,htm9,ring256,nest4096,random_id,raerr,decerr,umag,uer
   <tbody>
     <tr>
       <th>0</th>
-      <td>103.068355</td>
-      <td>-37.973539</td>
-      <td>247.782969</td>
-      <td>-16.141355</td>
-      <td>111.190624</td>
-      <td>-60.455055</td>
-      <td>2590841</td>
-      <td>634661</td>
-      <td>162297226</td>
-      <td>90.1110</td>
+      <td>103.616646</td>
+      <td>-37.822511</td>
+      <td>247.808124</td>
+      <td>-15.683733</td>
+      <td>111.993182</td>
+      <td>-60.226388</td>
+      <td>2590804</td>
+      <td>634662</td>
+      <td>162335445</td>
+      <td>92.580480</td>
       <td>...</td>
-      <td>1</td>
-      <td>1</td>
+      <td>9</td>
+      <td>2</td>
       <td>0</td>
       <td>1</td>
+      <td>3</td>
+      <td>3</td>
+      <td>2</td>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>-1</td>
       <td>153</td>
-      <td>153.163302</td>
+      <td>153.410153</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>103.071774</td>
-      <td>-37.973599</td>
-      <td>247.784083</td>
-      <td>-16.138880</td>
-      <td>111.196021</td>
-      <td>-60.454623</td>
-      <td>2590841</td>
-      <td>634661</td>
-      <td>162297224</td>
-      <td>92.7880</td>
+      <td>103.616163</td>
+      <td>-37.822486</td>
+      <td>247.807949</td>
+      <td>-15.684076</td>
+      <td>111.992417</td>
+      <td>-60.226436</td>
+      <td>2590804</td>
+      <td>634662</td>
+      <td>162335445</td>
+      <td>34.264570</td>
       <td>...</td>
       <td>1</td>
       <td>1</td>
-      <td>0</td>
       <td>1</td>
+      <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>-1</td>
       <td>153</td>
-      <td>153.163302</td>
+      <td>153.154644</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>103.071598</td>
-      <td>-37.972329</td>
-      <td>247.782804</td>
-      <td>-16.138531</td>
-      <td>111.195274</td>
-      <td>-60.453399</td>
-      <td>2590841</td>
-      <td>634661</td>
-      <td>162297224</td>
-      <td>22.9187</td>
+      <td>103.614209</td>
+      <td>-37.821254</td>
+      <td>247.806154</td>
+      <td>-15.685032</td>
+      <td>111.988897</td>
+      <td>-60.225517</td>
+      <td>2590804</td>
+      <td>634662</td>
+      <td>162335445</td>
+      <td>37.099964</td>
       <td>...</td>
       <td>1</td>
       <td>1</td>
@@ -15045,20 +15049,20 @@ ra,dec,glon,glat,elon,elat,htm9,ring256,nest4096,random_id,raerr,decerr,umag,uer
       <td>0</td>
       <td>-1</td>
       <td>153</td>
-      <td>153.163299</td>
+      <td>153.802516</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>103.082522</td>
-      <td>-37.972303</td>
-      <td>247.786153</td>
-      <td>-16.130543</td>
-      <td>111.212433</td>
-      <td>-60.451802</td>
-      <td>2590841</td>
-      <td>634661</td>
-      <td>162297225</td>
-      <td>62.1867</td>
+      <td>103.615689</td>
+      <td>-37.820984</td>
+      <td>247.806359</td>
+      <td>-15.683849</td>
+      <td>111.991107</td>
+      <td>-60.225032</td>
+      <td>2590804</td>
+      <td>634662</td>
+      <td>162335445</td>
+      <td>39.546013</td>
       <td>...</td>
       <td>1</td>
       <td>1</td>
@@ -15069,20 +15073,20 @@ ra,dec,glon,glat,elon,elat,htm9,ring256,nest4096,random_id,raerr,decerr,umag,uer
       <td>0</td>
       <td>-1</td>
       <td>153</td>
-      <td>153.175147</td>
+      <td>153.154639</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>103.083560</td>
-      <td>-37.972606</td>
-      <td>247.786766</td>
-      <td>-16.129898</td>
-      <td>111.214178</td>
-      <td>-60.451950</td>
-      <td>2590841</td>
-      <td>634661</td>
-      <td>162297225</td>
-      <td>83.9291</td>
+      <td>103.617927</td>
+      <td>-37.821062</td>
+      <td>247.807134</td>
+      <td>-15.682245</td>
+      <td>111.994632</td>
+      <td>-60.224775</td>
+      <td>2590920</td>
+      <td>633639</td>
+      <td>162335616</td>
+      <td>31.651989</td>
       <td>...</td>
       <td>1</td>
       <td>1</td>
@@ -15093,7 +15097,7 @@ ra,dec,glon,glat,elon,elat,htm9,ring256,nest4096,random_id,raerr,decerr,umag,uer
       <td>0</td>
       <td>-1</td>
       <td>153</td>
-      <td>153.175148</td>
+      <td>153.154640</td>
     </tr>
   </tbody>
 </table>
@@ -15184,7 +15188,7 @@ ra,dec,glon,glat,elon,elat,htm9,ring256,nest4096,random_id,raerr,decerr,umag,uer
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <i>Table length=18</i>
-<table id="table140243037969328" class="table-striped table-bordered table-condensed">
+<table id="table140392570931520" class="table-striped table-bordered table-condensed">
 <thead><tr><th>assoc_id</th><th>access_url</th><th>access_format</th><th>access_estsize</th><th>dataproduct_type</th><th>dataproduct_subtype</th><th>calib_level</th><th>dataset_length</th><th>im_nsubarrays</th><th>im_naxes</th><th>im_naxis</th><th>im_pixtype</th><th>im_wcsaxes</th><th>im_scale</th><th>obs_title</th><th>obs_id</th><th>obs_creator_name</th><th>obs_collection</th><th>obs_creation_type</th><th>obs_creation_date</th><th>facility_name</th><th>instrument_name</th><th>obs_bandpass</th><th>obs_datasource</th><th>proposal_id</th><th>obs_publisher_did</th><th>obs_release_date</th><th>preview</th><th>target_name</th><th>target_class</th><th>s_ra</th><th>s_dec</th><th>s_fov</th><th>s_region</th><th>s_calib_status</th><th>s_resolution</th><th>em_min</th><th>em_max</th><th>em_resolution</th><th>em_res_power</th><th>t_min</th><th>t_max</th><th>t_exptime</th><th>t_resolution</th><th>o_ucd</th><th>o_unit</th><th>pol_states</th><th>object</th><th>airmass</th><th>project_code</th><th>magzero</th><th>prodtype</th><th>seeing</th><th>fwhm</th><th>fileset_id</th><th>exptime</th><th>photflag</th><th>proctype</th><th>date_obs</th><th>mjd_obs</th><th>elliptic</th></tr></thead>
 <thead><tr><th></th><th></th><th></th><th>bytes</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th>deg</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th></th><th>arcsec</th><th>m</th><th>m</th><th>m</th><th></th><th>d</th><th>d</th><th>s</th><th>s</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead>
 <thead><tr><th>object</th><th>object</th><th>object</th><th>int32</th><th>object</th><th>object</th><th>int64</th><th>int64</th><th>int32</th><th>int32</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>float64</th><th>float64</th><th>float64</th><th>object</th><th>object</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th></tr></thead>
@@ -15252,7 +15256,7 @@ ra,dec,glon,glat,elon,elat,htm9,ring256,nest4096,random_id,raerr,decerr,umag,uer
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <i>Table length=1</i>
-<table id="table140243034531632" class="table-striped table-bordered table-condensed">
+<table id="table140392567736928" class="table-striped table-bordered table-condensed">
 <thead><tr><th>assoc_id</th><th>access_url</th><th>access_format</th><th>access_estsize</th><th>dataproduct_type</th><th>dataproduct_subtype</th><th>calib_level</th><th>dataset_length</th><th>im_nsubarrays</th><th>im_naxes</th><th>im_naxis</th><th>im_pixtype</th><th>im_wcsaxes</th><th>im_scale</th><th>obs_title</th><th>obs_id</th><th>obs_creator_name</th><th>obs_collection</th><th>obs_creation_type</th><th>obs_creation_date</th><th>facility_name</th><th>instrument_name</th><th>obs_bandpass</th><th>obs_datasource</th><th>proposal_id</th><th>obs_publisher_did</th><th>obs_release_date</th><th>preview</th><th>target_name</th><th>target_class</th><th>s_ra</th><th>s_dec</th><th>s_fov</th><th>s_region</th><th>s_calib_status</th><th>s_resolution</th><th>em_min</th><th>em_max</th><th>em_resolution</th><th>em_res_power</th><th>t_min</th><th>t_max</th><th>t_exptime</th><th>t_resolution</th><th>o_ucd</th><th>o_unit</th><th>pol_states</th><th>object</th><th>airmass</th><th>project_code</th><th>magzero</th><th>prodtype</th><th>seeing</th><th>fwhm</th><th>fileset_id</th><th>exptime</th><th>photflag</th><th>proctype</th><th>date_obs</th><th>mjd_obs</th><th>elliptic</th></tr></thead>
 <thead><tr><th></th><th></th><th></th><th>bytes</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th>deg</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th></th><th>arcsec</th><th>m</th><th>m</th><th>m</th><th></th><th>d</th><th>d</th><th>s</th><th>s</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead>
 <thead><tr><th>object</th><th>object</th><th>object</th><th>int32</th><th>object</th><th>object</th><th>int64</th><th>int64</th><th>int32</th><th>int32</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>float64</th><th>float64</th><th>float64</th><th>object</th><th>object</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th></tr></thead>
@@ -15357,7 +15361,7 @@ ra,dec,glon,glat,elon,elat,htm9,ring256,nest4096,random_id,raerr,decerr,umag,uer
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f8ce0306c70&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7fafb1102eb0&gt;</pre>
 </div>
 
 </div>
@@ -15492,7 +15496,7 @@ https://datalab.noao.edu/svc/cutout?col=des_dr1&amp;siaRef=DES0218-5205_r2577p01
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f8cde9e73d0&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7fafab79a160&gt;</pre>
 </div>
 
 </div>
