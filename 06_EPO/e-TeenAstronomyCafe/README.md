@@ -8,10 +8,8 @@ This folder includes interactive Jupyter Notebooks that go along with the Cafes,
 
 Browse the folders to choose an activity to run.  
 
-If you want to test the notebooks you can: 
+If you want to test the notebooks you can:
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/astro-datalab/notebooks-latest)
 
 GET IN TOUCH: If you have suggestions to make the notebooks better, or if you encounter problems, please get in touch with the NOAO Data Lab team at datalab@noao.edu
-
-
