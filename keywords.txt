@@ -1,25 +1,38 @@
 ANTARES
 authentication
+catalogues
+cluster
 convolution
 crossmatch
 dwarf galaxies
+Exploratory Analysis
 extragalactic
+file service
 galaxies
+gemini llp
 Healpix map
 histogram
+HowTo
 image cutout
+images
+interactive plot
+Introduction to Machine Learning
 joint query
 Jupyter
+La Serena School for Data Science
 lightcurve
+LMC
 login
 Lomb-Scargle
 M31
 Milky Way
+movingobject
 mydb
 object classification
 Pal5
 parallax
 period
+photometry
 plot:animation
 plot:cmd
 plot:color-color
@@ -27,18 +40,30 @@ plot:histogram
 plot:quiver
 proper motions
 Python
+quasars
 query
+redshift
 RRLyrae
+science example
+sdss
+SDSS
+sdss spectra
 SIA
+SMC
+spectra
+spectra stacking
 spectroscopic redshift
 spectroscopy
 SQL
 star clusters
 stars
+Supervised Machine Learning
+tap
 time series
 token
 transient
 tutorial
+variable
 vospace
 vospace:copy
 WCS
