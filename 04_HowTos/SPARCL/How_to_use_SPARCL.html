@@ -14698,7 +14698,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># SPARCL imports</span>
-<span class="kn">import</span> <span class="nn">sparcl.client</span>
+<span class="kn">from</span> <span class="nn">sparcl.client</span> <span class="kn">import</span> <span class="n">SparclClient</span>
 
 <span class="c1"># 3rd party imports</span>
 <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>
@@ -14801,7 +14801,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">sparcl</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">SparclClient</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">SparclClient</span><span class="p">()</span>
 <span class="n">client</span>
 </pre></div>
 
@@ -14843,7 +14843,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">sparcl</span><span class="o">.</span><span class="n">client</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">SparclClient</span><span class="p">())</span>
 </pre></div>
 
      </div>
@@ -14865,288 +14865,260 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Help on module sparcl.client in sparcl:
+<pre>Help on SparclClient in module sparcl.client object:
 
-NAME
-    sparcl.client
-
-DESCRIPTION
-    Client module for SPARCL.
-    This module interfaces to the SPARC-Server to get spectra data.
-
-CLASSES
-    builtins.object
-        SparclClient
-    
-    class SparclClient(builtins.object)
-     |  SparclClient(*, url=&#39;https://astrosparcl.datalab.noirlab.edu&#39;, verbose=False, connect_timeout=1.1, read_timeout=5400)
-     |  
-     |  Provides interface to SPARCL Server.
-     |  When using this to report a bug, set verbose to True. Also print
-     |  your instance of this.  The results will include important info
-     |  about the Client and Server that is usefule to Developers.
-     |  
-     |  Args:
-     |      url (:obj:`str`, optional): Base URL of SPARC Server. Defaults
-     |          to &#39;https://astrosparcl.datalab.noirlab.edu&#39;.
-     |  
-     |      verbose (:obj:`bool`, optional): Default verbosity is set to
-     |          False for all client methods.
-     |  
-     |      connect_timeout (:obj:`float`, optional): Number of seconds to
-     |          wait to establish connection with server. Defaults to
-     |          1.1.
-     |  
-     |      read_timeout (:obj:`float`, optional): Number of seconds to
-     |          wait for server to send a response. Generally time to
-     |          wait for first byte. Defaults to 5400.
-     |  
-     |  Example:
-     |      &gt;&gt;&gt; client = sparcl.client.SparclClient()
-     |  
-     |  Raises:
-     |      Exception: Object creation compares the version from the
-     |          Server against the one expected by the Client. Throws an
-     |          error if the Client is a major version or more behind.
-     |  
-     |  Methods defined here:
-     |  
-     |  __init__(self, *, url=&#39;https://astrosparcl.datalab.noirlab.edu&#39;, verbose=False, connect_timeout=1.1, read_timeout=5400)
-     |      Create client instance.
-     |  
-     |  __repr__(self)
-     |      Return repr(self).
-     |  
-     |  find(self, outfields=None, *, constraints={}, dataset_list=None, limit=500, sort=None)
-     |      Find records in the SPARC database.
-     |      
-     |      Args:
-     |          outfields (:obj:`list`, optional): List of fields to return.
-     |              Only CORE fields may be passed to this parameter.
-     |              Defaults to None, which will return only the id and _dr
-     |              fields.
-     |      
-     |          constraints (:obj:`dict`, optional): Key-Value pairs of
-     |              constraints to place on the record selection. The Key
-     |              part of the Key-Value pair is the field name and the
-     |              Value part of the Key-Value pair is a list of values.
-     |              Defaults to no constraints. This will return all records in the
-     |              database subject to restrictions imposed by the ``limit``
-     |              parameter.
-     |      
-     |          dataset_list (:obj:`list`, optional): List of data sets from
-     |              which to find records. Defaults to None, which
-     |              will find records in all data sets hosted on the SPARC
-     |              database.
-     |      
-     |          limit (:obj:`int`, optional): Maximum number of records to
-     |              return. Defaults to 500.
-     |      
-     |          sort (:obj:`list`, optional): Comma separated list of fields
-     |              to sort by. Defaults to None. (no sorting)
-     |      
-     |      Returns:
-     |          :class:`~sparcl.Results.Found`: Contains header and records.
-     |      
-     |      Example:
-     |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
-     |          &gt;&gt;&gt; outs = [&#39;id&#39;, &#39;ra&#39;, &#39;dec&#39;]
-     |          &gt;&gt;&gt; cons = {&#39;spectype&#39;: [&#39;GALAXY&#39;], &#39;redshift&#39;: [0.5, 0.9]}
-     |          &gt;&gt;&gt; found = client.find(outfields=outs, constraints=cons)
-     |          &gt;&gt;&gt; found.records
-     |  
-     |  get_all_fields(self, *, dataset_list=None)
-     |      Get fields tagged as &#39;all&#39; that are in DATASET_LIST.
-     |      These are the fields used for the ALL value of the include parameter
-     |      of client.retrieve().
-     |      
-     |      Args:
-     |          dataset_list (:obj:`list`, optional): List of data sets from
-     |              which to get all fields. Defaults to None, which
-     |              will return the intersection of all fields in all
-     |              data sets hosted on the SPARC database.
-     |      
-     |      Returns:
-     |          List of fields tagged as &#39;all&#39; from DATASET_LIST.
-     |      
-     |      Example:
-     |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
-     |          &gt;&gt;&gt; client.get_all_fields()
-     |  
-     |  get_available_fields(self, *, dataset_list=None)
-     |      Get subset of fields that are in all (or selected) DATASET_LIST.
-     |      This may be a bigger list than will be used with the ALL keyword to
-     |      client.retreive().
-     |      
-     |      Args:
-     |          dataset_list (:obj:`list`, optional): List of data sets from
-     |              which to get available fields. Defaults to None, which
-     |              will return the intersection of all available fields in
-     |              all data sets hosted on the SPARC database.
-     |      
-     |      Returns:
-     |          Set of fields available from data sets in DATASET_LIST.
-     |      
-     |      Example:
-     |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
-     |          &gt;&gt;&gt; client.get_available_fields()
-     |  
-     |  get_default_fields(self, *, dataset_list=None)
-     |      Get fields tagged as &#39;default&#39; that are in DATASET_LIST.
-     |      These are the fields used for the DEFAULT value of the include
-     |      parameter of client.retrieve().
-     |      
-     |      Args:
-     |          dataset_list (:obj:`list`, optional): List of data sets from
-     |              which to get the default fields. Defaults to None, which
-     |              will return the intersection of default fields in all
-     |              data sets hosted on the SPARC database.
-     |      
-     |      Returns:
-     |          List of fields tagged as &#39;default&#39; from DATASET_LIST.
-     |      
-     |      Example:
-     |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
-     |          &gt;&gt;&gt; client.get_default_fields()
-     |  
-     |  missing(self, uuid_list, *, dataset_list=None, countOnly=False, verbose=False)
-     |      Return the subset of ids in the given uuid_list that are NOT stored
-     |      in the SPARC database.
-     |      
-     |      Args:
-     |          uuid_list (:obj:`list`): List of ids.
-     |      
-     |          dataset_list (:obj:`list`, optional): List of data sets from
-     |              which to find missing ids. Defaults to None, meaning all
-     |              data sets hosted on the SPARC database.
-     |      
-     |          countOnly (:obj:`bool`, optional): Set to True to return only
-     |              a count of the missing ids from the uuid_list. Defaults to
-     |              False.
-     |      
-     |          verbose (:obj:`bool`, optional): Set to True for in-depth return
-     |              statement. Defaults to False.
-     |      
-     |      Returns:
-     |          A list of the subset of ids in the given uuid_list that are NOT
-     |          stored in the SPARC database.
-     |      
-     |      Example:
-     |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
-     |          &gt;&gt;&gt; ids = [&#39;ddbb57ee-8e90-4a0d-823b-0f5d97028076&#39;,]
-     |          &gt;&gt;&gt; client.missing(ids)
-     |  
-     |  retrieve(self, uuid_list, *, svc=&#39;spectras&#39;, format=&#39;pkl&#39;, include=&#39;DEFAULT&#39;, dataset_list=None, limit=500, chunk=500, verbose=None)
-     |      Retrieve spectra records from the SPARC database by list of ids.
-     |      
-     |      Args:
-     |          uuid_list (:obj:`list`): List of ids.
-     |      
-     |          svc (:obj:`str`, optional): Defaults to &#39;spectras&#39;.
-     |      
-     |          format (:obj:`str`, optional): Defaults to &#39;pkl&#39;.
-     |      
-     |          include (:obj:`list`, optional): List of field names to include
-     |              in each record. Defaults to &#39;DEFAULT&#39;, which will return
-     |              the fields tagged as &#39;default&#39;.
-     |      
-     |          dataset_list (:obj:`list`, optional): List of data sets from
-     |              which to retrieve spectra data. Defaults to None, meaning all
-     |              data sets hosted on the SPARC database.
-     |      
-     |          limit (:obj:`int`, optional): Maximum number of records to
-     |              return. Defaults to 500.
-     |      
-     |          chunk (:obj:`int`, optional): Size of chunks to break list into.
-     |              Defaults to 500.
-     |      
-     |          verbose (:obj:`bool`, optional): Set to True for in-depth return
-     |              statement. Defaults to False.
-     |      
-     |      Returns:
-     |          :class:`~sparcl.Results.Retrieved`: Contains header and records.
-     |      
-     |      Example:
-     |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
-     |          &gt;&gt;&gt; ids = [&#39;000017b6-56a2-4f87-8828-3a3409ba1083&#39;,]
-     |          &gt;&gt;&gt; inc = [&#39;id&#39;, &#39;flux&#39;, &#39;wavelength&#39;, &#39;model&#39;]
-     |          &gt;&gt;&gt; ret = client.retrieve(uuid_list=ids, include=inc)
-     |          &gt;&gt;&gt; ret.records
-     |  
-     |  retrieve_by_specid(self, specid_list, *, include=&#39;DEFAULT&#39;, dataset_list=None, verbose=False)
-     |      Retrieve spectra records from the SPARC database by list of specids.
-     |      
-     |      Args:
-     |          specid_list (:obj:`list`): List of specids.
-     |      
-     |          include (:obj:`list`, optional): List of field names to include
-     |              in each record. Defaults to &#39;DEFAULT&#39;, which will return
-     |              the fields tagged as &#39;default&#39;.
-     |      
-     |          dataset_list (:obj:`list`, optional): List of data sets from
-     |              which to retrieve spectra data. Defaults to None, meaning all
-     |              data sets hosted on the SPARC database.
-     |      
-     |          verbose (:obj:`bool`, optional): Set to True for in-depth return
-     |              statement. Defaults to False.
-     |      
-     |      Returns:
-     |          :class:`~sparcl.Results.Retrieved`: Contains header and records.
-     |      
-     |      Example:
-     |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
-     |          &gt;&gt;&gt; sids = [5840097619402313728, -8985592895187431424]
-     |          &gt;&gt;&gt; inc = [&#39;specid&#39;, &#39;flux&#39;, &#39;wavelength&#39;, &#39;model&#39;]
-     |          &gt;&gt;&gt; ret = client.retrieve_by_specid(specid_list=sids, include=inc)
-     |          &gt;&gt;&gt; ret.records
-     |  
-     |  ----------------------------------------------------------------------
-     |  Readonly properties defined here:
-     |  
-     |  all_datasets
-     |  
-     |  version
-     |      Return version of Server Rest API used by this client.
-     |      If the Rest API changes such that the Major version increases,
-     |      a new version of this module will likely need to be used.
-     |      
-     |      Returns:
-     |          API version (:obj:`float`).
-     |      
-     |      Example:
-     |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
-     |          &gt;&gt;&gt; client.version()
-     |  
-     |  ----------------------------------------------------------------------
-     |  Data descriptors defined here:
-     |  
-     |  __dict__
-     |      dictionary for instance variables (if defined)
-     |  
-     |  __weakref__
-     |      list of weak references to the object (if defined)
-     |  
-     |  ----------------------------------------------------------------------
-     |  Data and other attributes defined here:
-     |  
-     |  KNOWN_GOOD_API_VERSION = 8.0
-
-FUNCTIONS
-    warn(message, category=None, stacklevel=1, source=None)
-        Issue a warning, or maybe ignore it or raise an exception.
-
-DATA
-    ALL = &#39;ALL&#39;
-    DEFAULT = &#39;DEFAULT&#39;
-    RESERVED = {&#39;ALL&#39;, &#39;DEFAULT&#39;}
-    client_version = &#39;1.0.0&#39;
-
-VERSION
-    1.0.0
-
-FILE
-    /home/jail/dlusers/ajacques/.local/lib/python3.8/site-packages/sparcl/client.py
-
+class SparclClient(builtins.object)
+ |  SparclClient(*, url=&#39;https://astrosparcl.datalab.noirlab.edu&#39;, verbose=False, connect_timeout=1.1, read_timeout=5400)
+ |  
+ |  Provides interface to SPARCL Server.
+ |  When using this to report a bug, set verbose to True. Also print
+ |  your instance of this.  The results will include important info
+ |  about the Client and Server that is usefule to Developers.
+ |  
+ |  Args:
+ |      url (:obj:`str`, optional): Base URL of SPARC Server. Defaults
+ |          to &#39;https://astrosparcl.datalab.noirlab.edu&#39;.
+ |  
+ |      verbose (:obj:`bool`, optional): Default verbosity is set to
+ |          False for all client methods.
+ |  
+ |      connect_timeout (:obj:`float`, optional): Number of seconds to
+ |          wait to establish connection with server. Defaults to
+ |          1.1.
+ |  
+ |      read_timeout (:obj:`float`, optional): Number of seconds to
+ |          wait for server to send a response. Generally time to
+ |          wait for first byte. Defaults to 5400.
+ |  
+ |  Example:
+ |      &gt;&gt;&gt; client = sparcl.client.SparclClient()
+ |  
+ |  Raises:
+ |      Exception: Object creation compares the version from the
+ |          Server against the one expected by the Client. Throws an
+ |          error if the Client is a major version or more behind.
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self, *, url=&#39;https://astrosparcl.datalab.noirlab.edu&#39;, verbose=False, connect_timeout=1.1, read_timeout=5400)
+ |      Create client instance.
+ |  
+ |  __repr__(self)
+ |      Return repr(self).
+ |  
+ |  find(self, outfields=None, *, constraints={}, dataset_list=None, limit=500, sort=None)
+ |      Find records in the SPARC database.
+ |      
+ |      Args:
+ |          outfields (:obj:`list`, optional): List of fields to return.
+ |              Only CORE fields may be passed to this parameter.
+ |              Defaults to None, which will return only the id and _dr
+ |              fields.
+ |      
+ |          constraints (:obj:`dict`, optional): Key-Value pairs of
+ |              constraints to place on the record selection. The Key
+ |              part of the Key-Value pair is the field name and the
+ |              Value part of the Key-Value pair is a list of values.
+ |              Defaults to no constraints. This will return all records in the
+ |              database subject to restrictions imposed by the ``limit``
+ |              parameter.
+ |      
+ |          dataset_list (:obj:`list`, optional): List of data sets from
+ |              which to find records. Defaults to None, which
+ |              will find records in all data sets hosted on the SPARC
+ |              database.
+ |      
+ |          limit (:obj:`int`, optional): Maximum number of records to
+ |              return. Defaults to 500.
+ |      
+ |          sort (:obj:`list`, optional): Comma separated list of fields
+ |              to sort by. Defaults to None. (no sorting)
+ |      
+ |      Returns:
+ |          :class:`~sparcl.Results.Found`: Contains header and records.
+ |      
+ |      Example:
+ |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
+ |          &gt;&gt;&gt; outs = [&#39;id&#39;, &#39;ra&#39;, &#39;dec&#39;]
+ |          &gt;&gt;&gt; cons = {&#39;spectype&#39;: [&#39;GALAXY&#39;], &#39;redshift&#39;: [0.5, 0.9]}
+ |          &gt;&gt;&gt; found = client.find(outfields=outs, constraints=cons)
+ |          &gt;&gt;&gt; found.records
+ |  
+ |  get_all_fields(self, *, dataset_list=None)
+ |      Get fields tagged as &#39;all&#39; that are in DATASET_LIST.
+ |      These are the fields used for the ALL value of the include parameter
+ |      of client.retrieve().
+ |      
+ |      Args:
+ |          dataset_list (:obj:`list`, optional): List of data sets from
+ |              which to get all fields. Defaults to None, which
+ |              will return the intersection of all fields in all
+ |              data sets hosted on the SPARC database.
+ |      
+ |      Returns:
+ |          List of fields tagged as &#39;all&#39; from DATASET_LIST.
+ |      
+ |      Example:
+ |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
+ |          &gt;&gt;&gt; client.get_all_fields()
+ |  
+ |  get_available_fields(self, *, dataset_list=None)
+ |      Get subset of fields that are in all (or selected) DATASET_LIST.
+ |      This may be a bigger list than will be used with the ALL keyword to
+ |      client.retreive().
+ |      
+ |      Args:
+ |          dataset_list (:obj:`list`, optional): List of data sets from
+ |              which to get available fields. Defaults to None, which
+ |              will return the intersection of all available fields in
+ |              all data sets hosted on the SPARC database.
+ |      
+ |      Returns:
+ |          Set of fields available from data sets in DATASET_LIST.
+ |      
+ |      Example:
+ |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
+ |          &gt;&gt;&gt; client.get_available_fields()
+ |  
+ |  get_default_fields(self, *, dataset_list=None)
+ |      Get fields tagged as &#39;default&#39; that are in DATASET_LIST.
+ |      These are the fields used for the DEFAULT value of the include
+ |      parameter of client.retrieve().
+ |      
+ |      Args:
+ |          dataset_list (:obj:`list`, optional): List of data sets from
+ |              which to get the default fields. Defaults to None, which
+ |              will return the intersection of default fields in all
+ |              data sets hosted on the SPARC database.
+ |      
+ |      Returns:
+ |          List of fields tagged as &#39;default&#39; from DATASET_LIST.
+ |      
+ |      Example:
+ |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
+ |          &gt;&gt;&gt; client.get_default_fields()
+ |  
+ |  missing(self, uuid_list, *, dataset_list=None, countOnly=False, verbose=False)
+ |      Return the subset of ids in the given uuid_list that are NOT stored
+ |      in the SPARC database.
+ |      
+ |      Args:
+ |          uuid_list (:obj:`list`): List of ids.
+ |      
+ |          dataset_list (:obj:`list`, optional): List of data sets from
+ |              which to find missing ids. Defaults to None, meaning all
+ |              data sets hosted on the SPARC database.
+ |      
+ |          countOnly (:obj:`bool`, optional): Set to True to return only
+ |              a count of the missing ids from the uuid_list. Defaults to
+ |              False.
+ |      
+ |          verbose (:obj:`bool`, optional): Set to True for in-depth return
+ |              statement. Defaults to False.
+ |      
+ |      Returns:
+ |          A list of the subset of ids in the given uuid_list that are NOT
+ |          stored in the SPARC database.
+ |      
+ |      Example:
+ |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
+ |          &gt;&gt;&gt; ids = [&#39;ddbb57ee-8e90-4a0d-823b-0f5d97028076&#39;,]
+ |          &gt;&gt;&gt; client.missing(ids)
+ |  
+ |  retrieve(self, uuid_list, *, svc=&#39;spectras&#39;, format=&#39;pkl&#39;, include=&#39;DEFAULT&#39;, dataset_list=None, limit=500, chunk=500, verbose=None)
+ |      Retrieve spectra records from the SPARC database by list of ids.
+ |      
+ |      Args:
+ |          uuid_list (:obj:`list`): List of ids.
+ |      
+ |          svc (:obj:`str`, optional): Defaults to &#39;spectras&#39;.
+ |      
+ |          format (:obj:`str`, optional): Defaults to &#39;pkl&#39;.
+ |      
+ |          include (:obj:`list`, optional): List of field names to include
+ |              in each record. Defaults to &#39;DEFAULT&#39;, which will return
+ |              the fields tagged as &#39;default&#39;.
+ |      
+ |          dataset_list (:obj:`list`, optional): List of data sets from
+ |              which to retrieve spectra data. Defaults to None, meaning all
+ |              data sets hosted on the SPARC database.
+ |      
+ |          limit (:obj:`int`, optional): Maximum number of records to
+ |              return. Defaults to 500.
+ |      
+ |          chunk (:obj:`int`, optional): Size of chunks to break list into.
+ |              Defaults to 500.
+ |      
+ |          verbose (:obj:`bool`, optional): Set to True for in-depth return
+ |              statement. Defaults to False.
+ |      
+ |      Returns:
+ |          :class:`~sparcl.Results.Retrieved`: Contains header and records.
+ |      
+ |      Example:
+ |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
+ |          &gt;&gt;&gt; ids = [&#39;000017b6-56a2-4f87-8828-3a3409ba1083&#39;,]
+ |          &gt;&gt;&gt; inc = [&#39;id&#39;, &#39;flux&#39;, &#39;wavelength&#39;, &#39;model&#39;]
+ |          &gt;&gt;&gt; ret = client.retrieve(uuid_list=ids, include=inc)
+ |          &gt;&gt;&gt; ret.records
+ |  
+ |  retrieve_by_specid(self, specid_list, *, include=&#39;DEFAULT&#39;, dataset_list=None, verbose=False)
+ |      Retrieve spectra records from the SPARC database by list of specids.
+ |      
+ |      Args:
+ |          specid_list (:obj:`list`): List of specids.
+ |      
+ |          include (:obj:`list`, optional): List of field names to include
+ |              in each record. Defaults to &#39;DEFAULT&#39;, which will return
+ |              the fields tagged as &#39;default&#39;.
+ |      
+ |          dataset_list (:obj:`list`, optional): List of data sets from
+ |              which to retrieve spectra data. Defaults to None, meaning all
+ |              data sets hosted on the SPARC database.
+ |      
+ |          verbose (:obj:`bool`, optional): Set to True for in-depth return
+ |              statement. Defaults to False.
+ |      
+ |      Returns:
+ |          :class:`~sparcl.Results.Retrieved`: Contains header and records.
+ |      
+ |      Example:
+ |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
+ |          &gt;&gt;&gt; sids = [5840097619402313728, -8985592895187431424]
+ |          &gt;&gt;&gt; inc = [&#39;specid&#39;, &#39;flux&#39;, &#39;wavelength&#39;, &#39;model&#39;]
+ |          &gt;&gt;&gt; ret = client.retrieve_by_specid(specid_list=sids, include=inc)
+ |          &gt;&gt;&gt; ret.records
+ |  
+ |  ----------------------------------------------------------------------
+ |  Readonly properties defined here:
+ |  
+ |  all_datasets
+ |  
+ |  version
+ |      Return version of Server Rest API used by this client.
+ |      If the Rest API changes such that the Major version increases,
+ |      a new version of this module will likely need to be used.
+ |      
+ |      Returns:
+ |          API version (:obj:`float`).
+ |      
+ |      Example:
+ |          &gt;&gt;&gt; client = sparcl.client.SparclClient()
+ |          &gt;&gt;&gt; client.version()
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes defined here:
+ |  
+ |  KNOWN_GOOD_API_VERSION = 8.0
 
 </pre>
 </div>
@@ -16307,8 +16279,8 @@ Example:
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 44.3 ms, sys: 29.9 ms, total: 74.2 ms
-Wall time: 974 ms
+<pre>CPU times: user 38.4 ms, sys: 14.8 ms, total: 53.2 ms
+Wall time: 996 ms
 </pre>
 </div>
 </div>
@@ -16380,8 +16352,8 @@ Wall time: 974 ms
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 43.3 ms, sys: 13.8 ms, total: 57.1 ms
-Wall time: 973 ms
+<pre>CPU times: user 43.7 ms, sys: 23.5 ms, total: 67.2 ms
+Wall time: 1.04 s
 </pre>
 </div>
 </div>
