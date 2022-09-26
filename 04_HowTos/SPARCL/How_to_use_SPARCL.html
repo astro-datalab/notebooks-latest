@@ -14598,7 +14598,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="How-to-Use-SPARCL">How to Use SPARCL<a class="anchor-link" href="#How-to-Use-SPARCL">&#182;</a></h1><p>MVP release of SPectra Analysis and Retrievable Catalog Lab (SPARCL)</p>
+<h1 id="How-to-use-SPARCL">How to use SPARCL<a class="anchor-link" href="#How-to-use-SPARCL">&#182;</a></h1><p>MVP release of SPectra Analysis and Retrievable Catalog Lab (SPARCL)</p>
 
 </div>
 </div>
@@ -14614,11 +14614,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li><a href="#goals">Goals &amp; Summary</a></li>
 <li><a href="#install">If necessary, install the most recent version of the SPARCL Client</a></li>
 <li><a href="#imports">Imports and setup</a></li>
+<li><a href="#auth">Authentication</a></li>
 <li><a href="#datasets">Data sets available in SPARCL</a></li>
-<li><a href="#defaultfieldnames">Get the Default field names of a data set</a></li>
-<li><a href="#allfieldnames">Get All field names of a data set</a></li>
-<li><a href="#datadiscoveryI">Data Discovery I: using SPARCL's <tt>client.find()</tt> method</a></li>
-<li><a href="#datadiscoveryII">Data Discovery II: using Data Lab's <tt>sparcl.main</tt> table</a></li>
+<li><a href="#defaultfieldnames">Get the Default field names</a></li>
+<li><a href="#allfieldnames">Get All field names</a></li>
+<li><a href="#datadiscoveryI">Data discovery I: using SPARCL's <tt>client.find()</tt> method</a></li>
+<li><a href="#datadiscoveryII">Data discovery II: using Data Lab's <tt>sparcl.main</tt> table</a></li>
 <li><a href="#retrieve">Retrieve records using <tt>client.retrieve()</tt></a></li>
 <li><a href="#join">Join between IDs and spectrum records</a></li>
 <li><a href="#access">Access fields in records</a></li>
@@ -14640,7 +14641,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <p><a class="anchor" id="goals"></a></p>
 <h2 id="Goals-&amp;-Summary">Goals &amp; Summary<a class="anchor-link" href="#Goals-&amp;-Summary">&#182;</a></h2><p>SPARCL (SPectral Analysis and Retrievable Catalog Lab) is an online service for discovery and retrieval of one-dimensional optical-infrared spectra. SPARCL is designed to work for large survey datasets containing many millions of spectra, and to provide access to multiple different data sets through common methods. For more information, see the <a href="https://astrosparcl.datalab.noirlab.edu/SPARCLUserManual">SPARCL User Guide</a>.</p>
 <p>This notebook provides a basic introduction to using the SPARCL client (or sparclclient) to find and retrieve spectroscopic data within a Python notebook context. The sparclclient connects to the SPARCL server at <a href="https://noirlab.edu/public/">NSF's NOIRLab</a> and provides access to the contents of the SPARCL database.</p>
-<p>To see the current data sets and number of spectra available in the SPARCL database, please visit the <a href="http://astrosparcl.datalab.noirlab.edu/sparc/">SPARCL summary page</a>.</p>
+<p>To see the current data sets and number of spectra available in the SPARCL database, please visit the <a href="https://astrosparcl.datalab.noirlab.edu/sparc/">SPARCL summary page</a>.</p>
 <p>To get the latest sparclclient documentation, visit the <a href="https://sparclclient.readthedocs.io/en/latest/">sparclclient readthedocs site</a>.</p>
 <p>Feedback on SPARCL (questions, comments, science use cases, feature requests, bug reports, confusing error messages, etc.) can be submitted to datalab-spectro@noirlab.edu. For bug reports and confusing error messages, it's helpful if you include: a log of <em>what you did</em>, <em>the result you got</em>, and <em>the result you expected</em>.</p>
 
@@ -14712,6 +14713,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 <span class="c1"># Data Lab imports</span>
 <span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span>
+<span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
 
 <span class="c1"># plots default setup</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14</span>
@@ -14730,7 +14733,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="We-now-create-a-SPARCL-client-and-print-out-version-information:">We now create a SPARCL client and print out version information:<a class="anchor-link" href="#We-now-create-a-SPARCL-client-and-print-out-version-information:">&#182;</a></h4>
+<p><a class="anchor" id="auth"></a></p>
+<h1 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">&#182;</a></h1><p>Much of the functionality of Data Lab can be accessed without explicitly logging in (the service then uses an anonymous login). But some capacities, for instance saving the results of your queries to your virtual storage space, require a login (i.e. you will need a registered user account).</p>
+<p>If you need to log in to Data Lab, issue this command, and respond according to the instructions:</p>
+
 </div>
 </div>
 </div>
@@ -14742,8 +14748,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">sparcl</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">SparclClient</span><span class="p">()</span>
-<span class="n">client</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ac.login(input(&quot;Enter user name: (+ENTER) &quot;),getpass(&quot;Enter password: (+ENTER) &quot;))</span>
+<span class="n">ac</span><span class="o">.</span><span class="n">whoAmI</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14767,6 +14773,59 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;demo00&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="We-now-create-a-SPARCL-client-and-print-out-version-information:">We now create a SPARCL client and print out version information:<a class="anchor-link" href="#We-now-create-a-SPARCL-client-and-print-out-version-information:">&#182;</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">sparcl</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">SparclClient</span><span class="p">()</span>
+<span class="n">client</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>(sparclclient:1.0.0, api:8.0, https://astrosparcl.datalab.noirlab.edu/sparc, verbose=False, connect_timeout=1.1, read_timeout=5400.0)</pre>
 </div>
 
@@ -14781,7 +14840,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">sparcl</span><span class="o">.</span><span class="n">client</span><span class="p">)</span>
@@ -15115,7 +15174,7 @@ FILE
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">all_datasets</span>
@@ -15136,7 +15195,7 @@ FILE
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
 
 
@@ -15159,7 +15218,7 @@ FILE
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="defaultfieldnames"></a></p>
-<h2 id="Get-Default-field-names-of-a-data-set">Get Default field names of a data set<a class="anchor-link" href="#Get-Default-field-names-of-a-data-set">&#182;</a></h2><p>Gets fields tagged as 'default' that are common to all data sets in the <code>dataset_list</code> passed to the function. If <code>dataset_list</code> is None (the default), the function returns the intersection of 'default' fields across all datasets currently available in the SPARC database. The following example of this function produces the same output as it would with no <code>dataset_list</code> argument because we currently only have SDSS-DR16 and BOSS-DR16 records in the SPARC database.</p>
+<h2 id="Get-Default-field-names">Get Default field names<a class="anchor-link" href="#Get-Default-field-names">&#182;</a></h2><p>Gets fields tagged as 'default' that are common to all data sets in the <code>dataset_list</code> passed to the function. If <code>dataset_list</code> is None (the default), the function returns the intersection of 'default' fields across all datasets currently available in the SPARC database. The following example of this function produces the same output as it would with no <code>dataset_list</code> argument because we currently only have SDSS-DR16 and BOSS-DR16 records in the SPARC database.</p>
 
 </div>
 </div>
@@ -15169,7 +15228,7 @@ FILE
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span>client.get_default_fields<span class="o">?</span>
@@ -15230,7 +15289,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">get_default_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SDSS-DR16&#39;</span><span class="p">,</span> <span class="s1">&#39;BOSS-DR16&#39;</span><span class="p">])</span>
@@ -15251,7 +15310,7 @@ Example:
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 
 
 
@@ -15274,7 +15333,7 @@ Example:
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="allfieldnames"></a></p>
-<h2 id="Get-All-field-names-of-a-data-set">Get All field names of a data set<a class="anchor-link" href="#Get-All-field-names-of-a-data-set">&#182;</a></h2><p>Gets fields tagged as 'all' that are common to all data sets in the <code>dataset_list</code> passed to the function. If <code>dataset_list</code> is None (the default), the function returns the intersection of 'all' fields across all datasets currently available in the SPARC database.  The following example of this function produces the same output as it would with no <code>dataset_list</code> argument because we currently only have SDSS-DR16 and BOSS-DR16 records in the SPARC database.</p>
+<h2 id="Get-All-field-names">Get All field names<a class="anchor-link" href="#Get-All-field-names">&#182;</a></h2><p>Gets fields tagged as 'all' that are common to all data sets in the <code>dataset_list</code> passed to the function. If <code>dataset_list</code> is None (the default), the function returns the intersection of 'all' fields across all datasets currently available in the SPARC database.  The following example of this function produces the same output as it would with no <code>dataset_list</code> argument because we currently only have SDSS-DR16 and BOSS-DR16 records in the SPARC database.</p>
 
 </div>
 </div>
@@ -15284,7 +15343,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span>client.get_all_fields<span class="o">?</span>
@@ -15345,7 +15404,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SDSS-DR16&#39;</span><span class="p">,</span> <span class="s1">&#39;BOSS-DR16&#39;</span><span class="p">])))</span>
@@ -15387,114 +15446,114 @@ Example:
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="datadiscoveryI"></a></p>
-<h2 id="Data-Discovery-I:-using-SPARCL's-client.find()-method">Data Discovery I: using SPARCL's <code>client.find()</code> method<a class="anchor-link" href="#Data-Discovery-I:-using-SPARCL's-client.find()-method">&#182;</a></h2><p>The first way you can discover your data is by using SPARCL's <code>client.find()</code> method, which allows you to find records in the SPARCL database based on certain parameters passed to the function. Only Core fields may be in the <code>outfields</code> and <code>constraints</code> parameters. The descriptions for all fields, including Core fields, is located <a href="https://astrosparcl.datalab.noirlab.edu/sparc/sfc/">here</a>. The SPARCL Core fields constraint types are:</p>
+<h2 id="Data-discovery-I:-using-SPARCL's-client.find()-method">Data discovery I: using SPARCL's <code>client.find()</code> method<a class="anchor-link" href="#Data-discovery-I:-using-SPARCL's-client.find()-method">&#182;</a></h2><p>The first way you can discover your data is by using SPARCL's <code>client.find()</code> method, which allows you to find records in the SPARCL database based on certain parameters passed to the function. Only Core fields may be in the <code>outfields</code> and <code>constraints</code> parameters. The descriptions for all fields, including Core fields, is located <a href="https://astrosparcl.datalab.noirlab.edu/sparc/sfc/">here</a>. The SPARCL Core fields constraint types are:</p>
 <table>
 <thead><tr>
-<th style="text-align:center">Field name</th>
-<th style="text-align:center">Constraint type</th>
-<th style="text-align:center">Example</th>
+<th style="text-align:left">Field name</th>
+<th style="text-align:left">Constraint type</th>
+<th style="text-align:left">Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">id</td>
-<td style="text-align:center">List of values (but not<br>intended for data discovery)</td>
-<td style="text-align:center">['00001658-460c-4da1-987d-e493d8c9b89b',<br>'000017b6-56a2-4f87-8828-3a3409ba1083']</td>
+<td style="text-align:left">id</td>
+<td style="text-align:left">List of values (but not<br>intended for data discovery)</td>
+<td style="text-align:left">['00001658-460c-4da1-987d-e493d8c9b89b',<br>'000017b6-56a2-4f87-8828-3a3409ba1083']</td>
 </tr>
 <tr>
-<td style="text-align:center">specid</td>
-<td style="text-align:center">List of values</td>
-<td style="text-align:center">[6988698046080241664, 6971782884823945216]</td>
+<td style="text-align:left">specid</td>
+<td style="text-align:left">List of values</td>
+<td style="text-align:left">[6988698046080241664, 6971782884823945216]</td>
 </tr>
 <tr>
-<td style="text-align:center">targetid</td>
-<td style="text-align:center">List of values</td>
-<td style="text-align:center">[1237679502171374316, 1237678619584692841]</td>
+<td style="text-align:left">targetid</td>
+<td style="text-align:left">List of values</td>
+<td style="text-align:left">[1237679502171374316, 1237678619584692841]</td>
 </tr>
 <tr>
-<td style="text-align:center">data_release</td>
-<td style="text-align:center">List of allowed values<br>from <a href="http://astrosparcl.datalab.noirlab.edu/sparc/cats/">SPARCL Categoricals</a></td>
-<td style="text-align:center">['BOSS-DR16', 'SDSS-DR16']</td>
+<td style="text-align:left">data_release</td>
+<td style="text-align:left">List of allowed values<br>from <a href="https://astrosparcl.datalab.noirlab.edu/sparc/cats/">SPARCL Categoricals</a></td>
+<td style="text-align:left">['BOSS-DR16', 'SDSS-DR16']</td>
 </tr>
 <tr>
-<td style="text-align:center">datasetgroup</td>
-<td style="text-align:center">List of allowed values<br>from <a href="http://astrosparcl.datalab.noirlab.edu/sparc/cats/">SPARCL Categoricals</a></td>
-<td style="text-align:center">['SDSS_BOSS']</td>
+<td style="text-align:left">datasetgroup</td>
+<td style="text-align:left">List of allowed values<br>from <a href="https://astrosparcl.datalab.noirlab.edu/sparc/cats/">SPARCL Categoricals</a></td>
+<td style="text-align:left">['SDSS_BOSS']</td>
 </tr>
 <tr>
-<td style="text-align:center">ra</td>
-<td style="text-align:center">Range of values (may not<br>"wrap" around RA=0)</td>
-<td style="text-align:center">[44.53, 47.96]</td>
+<td style="text-align:left">ra</td>
+<td style="text-align:left">Range of values (may not<br>"wrap" around RA=0)</td>
+<td style="text-align:left">[44.53, 47.96]</td>
 </tr>
 <tr>
-<td style="text-align:center">dec</td>
-<td style="text-align:center">Range of values</td>
-<td style="text-align:center">[2.03, 7.76]</td>
+<td style="text-align:left">dec</td>
+<td style="text-align:left">Range of values</td>
+<td style="text-align:left">[2.03, 7.76]</td>
 </tr>
 <tr>
-<td style="text-align:center">redshift</td>
-<td style="text-align:center">Range of values</td>
-<td style="text-align:center">[0.5, 0.9]</td>
+<td style="text-align:left">redshift</td>
+<td style="text-align:left">Range of values</td>
+<td style="text-align:left">[0.5, 0.9]</td>
 </tr>
 <tr>
-<td style="text-align:center">redshift_err</td>
-<td style="text-align:center">Range of values</td>
-<td style="text-align:center">[0.000225, 0.000516]</td>
+<td style="text-align:left">redshift_err</td>
+<td style="text-align:left">Range of values</td>
+<td style="text-align:left">[0.000225, 0.000516]</td>
 </tr>
 <tr>
-<td style="text-align:center">redshift_warning</td>
-<td style="text-align:center">List of values</td>
-<td style="text-align:center">[0, 3, 5]</td>
+<td style="text-align:left">redshift_warning</td>
+<td style="text-align:left">List of values</td>
+<td style="text-align:left">[0, 3, 5]</td>
 </tr>
 <tr>
-<td style="text-align:center">spectype</td>
-<td style="text-align:center">List of allowed values<br>from <a href="http://astrosparcl.datalab.noirlab.edu/sparc/cats/">SPARCL Categoricals</a></td>
-<td style="text-align:center">['GALAXY', 'STAR']</td>
+<td style="text-align:left">spectype</td>
+<td style="text-align:left">List of allowed values<br>from <a href="https://astrosparcl.datalab.noirlab.edu/sparc/cats/">SPARCL Categoricals</a></td>
+<td style="text-align:left">['GALAXY', 'STAR']</td>
 </tr>
 <tr>
-<td style="text-align:center">instrument</td>
-<td style="text-align:center">List of allowed values<br>from <a href="http://astrosparcl.datalab.noirlab.edu/sparc/cats/">SPARCL Categoricals</a></td>
-<td style="text-align:center">['SDSS', 'BOSS']</td>
+<td style="text-align:left">instrument</td>
+<td style="text-align:left">List of allowed values<br>from <a href="https://astrosparcl.datalab.noirlab.edu/sparc/cats/">SPARCL Categoricals</a></td>
+<td style="text-align:left">['SDSS', 'BOSS']</td>
 </tr>
 <tr>
-<td style="text-align:center">telescope</td>
-<td style="text-align:center">List of allowed values<br>from <a href="http://astrosparcl.datalab.noirlab.edu/sparc/cats/">SPARCL Categoricals</a></td>
-<td style="text-align:center">['sloan25m']</td>
+<td style="text-align:left">telescope</td>
+<td style="text-align:left">List of allowed values<br>from <a href="https://astrosparcl.datalab.noirlab.edu/sparc/cats/">SPARCL Categoricals</a></td>
+<td style="text-align:left">['sloan25m']</td>
 </tr>
 <tr>
-<td style="text-align:center">site</td>
-<td style="text-align:center">List of allowed values<br>from <a href="http://astrosparcl.datalab.noirlab.edu/sparc/cats/">SPARCL Categoricals</a></td>
-<td style="text-align:center">['apo']</td>
+<td style="text-align:left">site</td>
+<td style="text-align:left">List of allowed values<br>from <a href="https://astrosparcl.datalab.noirlab.edu/sparc/cats/">SPARCL Categoricals</a></td>
+<td style="text-align:left">['apo']</td>
 </tr>
 <tr>
-<td style="text-align:center">specprimary</td>
-<td style="text-align:center">List of values (but typically<br>would only include 1 if<br>being used for data<br>discovery constraints)</td>
-<td style="text-align:center">[1]</td>
+<td style="text-align:left">specprimary</td>
+<td style="text-align:left">List of values (but typically<br>would only include 1 if<br>being used for data<br>discovery constraints)</td>
+<td style="text-align:left">[1]</td>
 </tr>
 <tr>
-<td style="text-align:center">wavemin</td>
-<td style="text-align:center">Range of values</td>
-<td style="text-align:center">[3607, 3608]</td>
+<td style="text-align:left">wavemin</td>
+<td style="text-align:left">Range of values</td>
+<td style="text-align:left">[3607, 3608]</td>
 </tr>
 <tr>
-<td style="text-align:center">wavemax</td>
-<td style="text-align:center">Range of values</td>
-<td style="text-align:center">[10363, 10364]</td>
+<td style="text-align:left">wavemax</td>
+<td style="text-align:left">Range of values</td>
+<td style="text-align:left">[10363, 10364]</td>
 </tr>
 <tr>
-<td style="text-align:center">dateobs_center</td>
-<td style="text-align:center">Range of values</td>
-<td style="text-align:center">['2013-03-14T10:16:17Z',<br>'2014-05-24T12:10:00Z']</td>
+<td style="text-align:left">dateobs_center</td>
+<td style="text-align:left">Range of values</td>
+<td style="text-align:left">['2013-03-14T10:16:17Z',<br>'2014-05-24T12:10:00Z']</td>
 </tr>
 <tr>
-<td style="text-align:center">exptime</td>
-<td style="text-align:center">Range of values</td>
-<td style="text-align:center">[3603.46, 3810.12]</td>
+<td style="text-align:left">exptime</td>
+<td style="text-align:left">Range of values</td>
+<td style="text-align:left">[3603.46, 3810.12]</td>
 </tr>
 <tr>
-<td style="text-align:center">updated</td>
-<td style="text-align:center">Range of values</td>
-<td style="text-align:center">['2022-08-20T21:37:50.636363Z',<br>'2022-09-20T20:00:00.000000Z']</td>
+<td style="text-align:left">updated</td>
+<td style="text-align:left">Range of values</td>
+<td style="text-align:left">['2022-08-20T21:37:50.636363Z',<br>'2022-09-20T20:00:00.000000Z']</td>
 </tr>
 </tbody>
 </table>
@@ -15507,7 +15566,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span>client.find<span class="o">?</span>
@@ -15607,7 +15666,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;ra&#39;</span><span class="p">,</span> <span class="s1">&#39;dec&#39;</span><span class="p">,</span> <span class="s1">&#39;redshift&#39;</span><span class="p">,</span> <span class="s1">&#39;spectype&#39;</span><span class="p">,</span> <span class="s1">&#39;data_release&#39;</span><span class="p">,</span> <span class="s1">&#39;redshift_err&#39;</span><span class="p">]</span>
@@ -15638,7 +15697,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">found_I</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">outfields</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="n">cons</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
@@ -15660,7 +15719,7 @@ Example:
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
 
 
@@ -15702,7 +15761,7 @@ Example:
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="datadiscoveryII"></a></p>
-<h2 id="Data-Discovery-II:-using-Data-Lab's-sparcl.main-table">Data Discovery II: using Data Lab's <code>sparcl.main</code> table<a class="anchor-link" href="#Data-Discovery-II:-using-Data-Lab's-sparcl.main-table">&#182;</a></h2><p>The second way you can discover your data is by querying the <code>sparcl.main</code> table hosted at Data Lab. This table contains the following columns:</p>
+<h2 id="Data-discovery-II:-using-Data-Lab's-sparcl.main-table">Data discovery II: using Data Lab's <code>sparcl.main</code> table<a class="anchor-link" href="#Data-discovery-II:-using-Data-Lab's-sparcl.main-table">&#182;</a></h2><p>The second way you can discover your data is by querying the <code>sparcl.main</code> table hosted at Data Lab. This table contains the following columns:</p>
 
 </div>
 </div>
@@ -15712,7 +15771,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">schema</span><span class="p">(</span><span class="s1">&#39;sparcl.main&#39;</span><span class="p">))</span>
@@ -15798,7 +15857,7 @@ redshift_warning   Bitmask with warning on redshift result
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT </span>
@@ -15831,7 +15890,7 @@ redshift_warning   Bitmask with warning on redshift result
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 
 
 
@@ -16098,7 +16157,7 @@ include : List of field names to include in each record (default: 'DEFAULT').</c
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span>client.retrieve<span class="o">?</span>
@@ -16201,7 +16260,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define the fields to include in the retrieve function</span>
@@ -16218,7 +16277,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -16248,8 +16307,8 @@ Example:
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 45.2 ms, sys: 13.8 ms, total: 59 ms
-Wall time: 1.37 s
+<pre>CPU times: user 44.3 ms, sys: 29.9 ms, total: 74.2 ms
+Wall time: 974 ms
 </pre>
 </div>
 </div>
@@ -16257,7 +16316,7 @@ Wall time: 1.37 s
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 
 
 
@@ -16291,7 +16350,7 @@ Wall time: 1.37 s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -16321,8 +16380,8 @@ Wall time: 1.37 s
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 37.4 ms, sys: 16 ms, total: 53.4 ms
-Wall time: 976 ms
+<pre>CPU times: user 43.3 ms, sys: 13.8 ms, total: 57.1 ms
+Wall time: 973 ms
 </pre>
 </div>
 </div>
@@ -16330,7 +16389,7 @@ Wall time: 976 ms
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 
 
 
@@ -16366,7 +16425,7 @@ Wall time: 976 ms
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">spec_ids_I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">this_rec</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">this_rec</span> <span class="ow">in</span> <span class="n">results_I</span><span class="o">.</span><span class="n">records</span><span class="p">])</span>
@@ -16391,7 +16450,7 @@ Wall time: 976 ms
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 
 
 
@@ -16454,7 +16513,7 @@ Wall time: 976 ms
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">records_I</span> <span class="o">=</span> <span class="n">results_I</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -16503,7 +16562,7 @@ Wall time: 976 ms
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="n">r</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">redshift</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">flux</span><span class="p">,]</span>
@@ -16527,7 +16586,7 @@ Wall time: 976 ms
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 
 
 
@@ -16725,7 +16784,7 @@ Wall time: 976 ms
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">[</span><span class="n">Spectrum1D</span><span class="p">(</span><span class="n">spectral_axis</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">wavelength</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">AA</span><span class="p">,</span>
@@ -16752,7 +16811,7 @@ Wall time: 976 ms
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 
 
 
@@ -16779,7 +16838,7 @@ Wall time: 976 ms
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot a couple</span>
@@ -16841,7 +16900,7 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_spec</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
@@ -16886,7 +16945,7 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plot_spec</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">results</span><span class="o">=</span><span class="n">results_I</span><span class="p">)</span>
@@ -16944,7 +17003,7 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span>client.missing<span class="o">?</span>
@@ -17032,7 +17091,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ids_test</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;00001658-460c-4da1-987d-e493d8c9b89b&#39;</span><span class="p">,</span>
@@ -17063,7 +17122,7 @@ Example:
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>&lt;ipython-input-28-27416088222f&gt;:7: UserWarning: Some UUIDs were not found. 2 out of the 5 requested uuids have no records available in the SPARC database associated with DataSets [&#39;SDSS-DR16&#39;, &#39;BOSS-DR16&#39;].Use &#34;client.missing()&#34; to get a list of the 2 unavailable uuids.
+<pre>&lt;ipython-input-29-27416088222f&gt;:7: UserWarning: Some UUIDs were not found. 2 out of the 5 requested uuids have no records available in the SPARC database associated with DataSets [&#39;SDSS-DR16&#39;, &#39;BOSS-DR16&#39;].Use &#34;client.missing()&#34; to get a list of the 2 unavailable uuids.
   res_test = client.retrieve(uuid_list=ids_test)
 </pre>
 </div>
@@ -17089,7 +17148,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">missing</span><span class="p">(</span><span class="n">uuid_list</span><span class="o">=</span><span class="n">ids_test</span><span class="p">)</span>
@@ -17110,14 +17169,14 @@ Example:
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[&#39;ddbb57ee-8e90-4a0d-823b-0f5d97028076&#39;,
- &#39;c7436b52-f7a5-442b-a9e0-f37a3e23b5f9&#39;]</pre>
+<pre>[&#39;c7436b52-f7a5-442b-a9e0-f37a3e23b5f9&#39;,
+ &#39;ddbb57ee-8e90-4a0d-823b-0f5d97028076&#39;]</pre>
 </div>
 
 </div>
