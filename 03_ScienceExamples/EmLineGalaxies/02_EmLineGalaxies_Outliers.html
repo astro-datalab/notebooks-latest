@@ -14581,7 +14581,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Ragadeepika Pucha &lt;rpucha@arizona.edu&gt;, Stephanie Juneau &lt;stephanie.juneau@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20221007&#39;</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20221021&#39;</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sdss_dr12&#39;</span><span class="p">]</span>  <span class="c1"># datasets used in this notebook</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sdss&#39;</span><span class="p">,</span> <span class="s1">&#39;spectra&#39;</span><span class="p">,</span> <span class="s1">&#39;images&#39;</span><span class="p">],</span> <span class="c1"># keywords relevant to this notebook from the master list: https://github.com/astro-datalab/notebooks-latest/blob/master/internal/keywords.txt</span>
 </pre></div>
@@ -14612,11 +14612,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Table-of-contents">Table of contents<a class="anchor-link" href="#Table-of-contents">&#182;</a></h3><ul>
 <li><a href="#goals">Goals &amp; Summary</a></li>
-<li><a href="#attribution">Disclaimer &amp; Attribution</a></li>
+<li><a href="#attribution">Disclaimer &amp; attribution</a></li>
 <li><a href="#import">Imports &amp; setup</a></li>
 <li><a href="#functions">Functions</a></li>
-<li><a href="#port">Emission Lines Catalog from Portsmouth Group</a></li>
-<li><a href="#plot">Image Cutouts and Spectra</a></li>
+<li><a href="#port">Emission lines catalog from Portsmouth group</a></li>
+<li><a href="#plot">Image cutouts and spectra</a></li>
 <li><a href="#resources">Resources and references</a></li>
 </ul>
 
@@ -14631,7 +14631,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="goals"></a></p>
-<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><p>In this notebook, we show how to access and plot multiwavelength image cutouts and SDSS spectra of emission-line galaxies. We investigate outliers that have extreme [NII]/H$\alpha$ emission line ratios and compare with the results from an alternative emission line fitting routine (GELATO; Hviding et al. (in prep)).</p>
+<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><p>In this notebook, we show how to access and plot multiwavelength image cutouts and SDSS spectra of emission-line galaxies. We investigate outliers that have extreme [NII]/H$\alpha$ emission line ratios and compare with the results from an alternative emission line fitting routine (GELATO; <a href="https://ui.adsabs.harvard.edu/abs/2022AJ....163..224H/abstract">Hviding et al. 2022</a>).</p>
 
 </div>
 </div>
@@ -14648,7 +14648,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <p>In particular:</p>
 <ul>
 <li>We will focus on outliers from the traditional BPT diagram (<a href="https://ui.adsabs.harvard.edu/abs/1981PASP...93....5B/abstract">Baldwin et al., 1981</a>). </li>
-<li>We will compare the emission line flux measurements to values obtained with an alternative spectral fitting method (<a href="https://github.com/TheSkyentist/GELATO">GELATO</a>; Hviding et al. (in prep)).</li>
+<li>We will compare the emission line flux measurements to values obtained with an alternative spectral fitting method (<a href="https://github.com/TheSkyentist/GELATO">GELATO</a>; <a href="https://ui.adsabs.harvard.edu/abs/2022AJ....163..224H/abstract">Hviding et al. 2022</a>).</li>
 </ul>
 
 </div>
@@ -14720,7 +14720,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span>
 <span class="c1">#from dl import specClient as spec</span>
 
-<span class="kn">import</span> <span class="nn">sparcl.client</span>
+<span class="kn">from</span> <span class="nn">sparcl.client</span> <span class="kn">import</span> <span class="n">SparclClient</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -14826,8 +14826,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## SPARCL Client</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="n">sparcl</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">SparclClient</span><span class="p">()</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">SparclClient</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -15158,7 +15157,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id = "port"></a></p>
-<h1 id="Emission-Lines-Catalog-from-Portsmouth-Group">Emission Lines Catalog from Portsmouth Group<a class="anchor-link" href="#Emission-Lines-Catalog-from-Portsmouth-Group">&#182;</a></h1><p>A value added catalog (VAC) from the Portsmouth group provides information about the stellar kinematics and emission line fluxes for SDSS DR12 galaxies (<code>sdss_dr12.emissionlinesport</code>). More information about this VAC can be found <a href="https://www.sdss.org/dr16/spectro/galaxy_portsmouth/#kinematics">here</a>.</p>
+<h1 id="Emission-lines-catalog-from-Portsmouth-group">Emission lines catalog from Portsmouth group<a class="anchor-link" href="#Emission-lines-catalog-from-Portsmouth-group">&#182;</a></h1><p>A value added catalog (VAC) from the Portsmouth group provides information about the stellar kinematics and emission line fluxes for SDSS DR12 galaxies (<code>sdss_dr12.emissionlinesport</code>). More information about this VAC can be found <a href="https://www.sdss.org/dr16/spectro/galaxy_portsmouth/#kinematics">here</a>.</p>
 <p>In this notebook, we select galaxies that have extreme line ratio [NII]/H$\alpha$ from the traditional BPT diagram (<a href="https://ui.adsabs.harvard.edu/abs/1981PASP...93....5B/abstract">Baldwin et. al., 1981</a>) and visually inspect their image cutouts and spectra. We define extreme as the sources that are outside the typical locus of points on the diagram. We need four emission lines - H$\alpha$$\lambda$6562, H$\beta$$\lambda$4861, [OIII]$\lambda$5006 and [NII]$\lambda$6583 - for plotting this BPT diagram. We will query these lines here along with the coordinates and redshift of the sources.</p>
 <p>The <code>emissionlinesport</code> table contains information from the spectra of all the sources, including repeated spectra from multiple nights of observation (different MJD). In order to keep primary spectra, we JOIN this table with the <code>specobj</code> table which contains only primary spectra objects.</p>
 
@@ -15313,8 +15312,8 @@ WHERE (E.z &gt; 0.02) AND (E.z &lt; 0.2) AND
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 1.13 s, sys: 382 ms, total: 1.51 s
-Wall time: 8.07 s
+<pre>CPU times: user 1.06 s, sys: 403 ms, total: 1.46 s
+Wall time: 11 s
 </pre>
 </div>
 </div>
@@ -15486,7 +15485,7 @@ jp-needs-light-background
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="plot"></a></p>
-<h1 id="Image-Cutouts-and-Spectra">Image Cutouts and Spectra<a class="anchor-link" href="#Image-Cutouts-and-Spectra">&#182;</a></h1>
+<h1 id="Image-cutouts-and-spectra">Image cutouts and spectra<a class="anchor-link" href="#Image-cutouts-and-spectra">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -15526,7 +15525,7 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>51
+<pre>52
 </pre>
 </div>
 </div>
