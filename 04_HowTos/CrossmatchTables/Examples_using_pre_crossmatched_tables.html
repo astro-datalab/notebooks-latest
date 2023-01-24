@@ -14581,8 +14581,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Alice Jacques &lt;alice.jacques@noirlab.edu&gt;, Astro Data Lab Team &lt;datalab@noirlab.edu&gt;&#39;</span> 
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20220713&#39;</span> <span class="c1">#yyyymmdd </span>
-<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ls_dr9&#39;</span><span class="p">,</span><span class="s1">&#39;sdss_dr16&#39;</span><span class="p">,</span><span class="s1">&#39;gaia_dr3&#39;</span><span class="p">,</span><span class="s1">&#39;des_dr2&#39;</span><span class="p">]</span> 
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230124&#39;</span> <span class="c1">#yyyymmdd </span>
+<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ls_dr9&#39;</span><span class="p">,</span><span class="s1">&#39;sdss_dr17&#39;</span><span class="p">,</span><span class="s1">&#39;gaia_dr3&#39;</span><span class="p">,</span><span class="s1">&#39;des_dr2&#39;</span><span class="p">]</span> 
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;crossmatch&#39;</span><span class="p">,</span><span class="s1">&#39;joint query&#39;</span><span class="p">,</span><span class="s1">&#39;mydb&#39;</span><span class="p">,</span><span class="s1">&#39;vospace&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -14811,17 +14811,17 @@ NOTE: the default JOIN is an <code>INNER JOIN</code>.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="lssdss"></a></p>
-<h1 id="Examples-of-using-a-JOIN-statement-in-a-query-with-LS-and-SDSS-catalogs">Examples of using a JOIN statement in a query with LS and SDSS catalogs<a class="anchor-link" href="#Examples-of-using-a-JOIN-statement-in-a-query-with-LS-and-SDSS-catalogs">&#182;</a></h1><h2 id="Example-1:-A-Single-JOIN">Example 1: A Single JOIN<a class="anchor-link" href="#Example-1:-A-Single-JOIN">&#182;</a></h2><p>First we will examine the spectroscopic redshift of objects that are found in both the SDSS DR16 catalog and the LS DR9 catalog by writing a query with a single JOIN statement between their pre-crossmatched table and the SDSS DR16 table. The two crossmatch tables related to these two catalogs are:</p>
-<p><code>ls_dr9.x1p5__tractor__sdss_dr16__specobj</code><br>
-<code>sdss_dr16.x1p5__specobj__ls_dr9__tractor</code></p>
-<p>The choice of which of these two crossmatch tables to use should be based on the science question being posed. For instance, the question <em>'how does a galaxy's structure change with redshift?'</em> is dependent on the redshift values obtained from SDSS DR16, so we should use the crossmatch table that has SDSS DR16 as the first table. So, the relevant information we want to select from our two tables of interest for this example are:</p>
+<h1 id="Examples-of-using-a-JOIN-statement-in-a-query-with-LS-and-SDSS-catalogs">Examples of using a JOIN statement in a query with LS and SDSS catalogs<a class="anchor-link" href="#Examples-of-using-a-JOIN-statement-in-a-query-with-LS-and-SDSS-catalogs">&#182;</a></h1><h2 id="Example-1:-A-Single-JOIN">Example 1: A Single JOIN<a class="anchor-link" href="#Example-1:-A-Single-JOIN">&#182;</a></h2><p>First we will examine the spectroscopic redshift of objects that are found in both the SDSS DR17 catalog and the LS DR9 catalog by writing a query with a single JOIN statement between their pre-crossmatched table and the SDSS DR17 table. The two crossmatch tables related to these two catalogs are:</p>
+<p><code>ls_dr9.x1p5__tractor__sdss_dr17__specobj</code><br>
+<code>sdss_dr17.x1p5__specobj__ls_dr9__tractor</code></p>
+<p>The choice of which of these two crossmatch tables to use should be based on the science question being posed. For instance, the question <em>'how does a galaxy's structure change with redshift?'</em> is dependent on the redshift values obtained from SDSS DR17, so we should use the crossmatch table that has SDSS DR17 as the first table. So, the relevant information we want to select from our two tables of interest for this example are:</p>
 <ol>
-<li>"X" = <code>sdss_dr16.x1p5__specobj__ls_dr9__tractor</code><ul>
+<li>"X" = <code>sdss_dr17.x1p5__specobj__ls_dr9__tractor</code><ul>
 <li><strong>ra1</strong> (RA of SDSS object)</li>
 <li><strong>dec1</strong> (Dec of SDSS object)</li>
 </ul>
 </li>
-<li>"S" = <code>sdss_dr16.specobj</code><ul>
+<li>"S" = <code>sdss_dr17.specobj</code><ul>
 <li><strong>z</strong> (redshift)</li>
 </ul>
 </li>
@@ -14837,7 +14837,7 @@ NOTE: the default JOIN is an <code>INNER JOIN</code>.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Write-the-single-JOIN-statement-query">Write the single JOIN statement query<a class="anchor-link" href="#Write-the-single-JOIN-statement-query">&#182;</a></h3><p>Now that we know what we want and where we want it from, let's write the query and then print the results on screen. Here we use one JOIN statement: it will search in the SDSS DR16 <code>specobj</code> table for rows that have the same SDSS id value (<code>specobjid</code>) as in the pre-crossmatched table (<code>id1</code>) and retrieve the desired columns from the SDSS DR16 <code>specobj</code> table within the specified RA and Dec region.</p>
+<h3 id="Write-the-single-JOIN-statement-query">Write the single JOIN statement query<a class="anchor-link" href="#Write-the-single-JOIN-statement-query">&#182;</a></h3><p>Now that we know what we want and where we want it from, let's write the query and then print the results on screen. Here we use one JOIN statement: it will search in the SDSS DR17 <code>specobj</code> table for rows that have the same SDSS id value (<code>specobjid</code>) as in the pre-crossmatched table (<code>id1</code>) and retrieve the desired columns from the SDSS DR17 <code>specobj</code> table within the specified RA and Dec region.</p>
 
 </div>
 </div>
@@ -14855,9 +14855,9 @@ NOTE: the default JOIN is an <code>INNER JOIN</code>.</p>
 <span class="s2">    X.ra1 AS ra_sdss, X.dec1 AS dec_sdss,</span>
 <span class="s2">    S.z</span>
 <span class="s2">FROM</span>
-<span class="s2">    sdss_dr16.x1p5__specobj__ls_dr9__tractor AS X </span>
+<span class="s2">    sdss_dr17.x1p5__specobj__ls_dr9__tractor AS X </span>
 <span class="s2">JOIN</span>
-<span class="s2">    sdss_dr16.specobj AS S ON X.id1 = S.specobjid </span>
+<span class="s2">    sdss_dr17.specobj AS S ON X.id1 = S.specobjid </span>
 <span class="s2">WHERE</span>
 <span class="s2">    X.ra1 BETWEEN </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span><span class="s2"> and X.dec1 BETWEEN </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span><span class="s2"></span>
 <span class="s2">LIMIT 10000</span>
@@ -14890,9 +14890,9 @@ SELECT
     X.ra1 AS ra_sdss, X.dec1 AS dec_sdss,
     S.z
 FROM
-    sdss_dr16.x1p5__specobj__ls_dr9__tractor AS X 
+    sdss_dr17.x1p5__specobj__ls_dr9__tractor AS X 
 JOIN
-    sdss_dr16.specobj AS S ON X.id1 = S.specobjid 
+    sdss_dr17.specobj AS S ON X.id1 = S.specobjid 
 WHERE
     X.ra1 BETWEEN 110 and 200 and X.dec1 BETWEEN 7.0 and 40.0
 LIMIT 10000
@@ -14948,8 +14948,8 @@ LIMIT 10000
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 42.8 ms, sys: 8.39 ms, total: 51.2 ms
-Wall time: 230 ms
+<pre>CPU times: user 36.8 ms, sys: 10.7 ms, total: 47.5 ms
+Wall time: 256 ms
 </pre>
 </div>
 </div>
@@ -15012,9 +15012,9 @@ Wall time: 230 ms
     </tr>
     <tr>
       <th>4</th>
-      <td>110.00192</td>
-      <td>39.751928</td>
-      <td>0.000305</td>
+      <td>110.70470</td>
+      <td>36.963974</td>
+      <td>0.000046</td>
     </tr>
     <tr>
       <th>...</th>
@@ -15024,33 +15024,33 @@ Wall time: 230 ms
     </tr>
     <tr>
       <th>9995</th>
-      <td>113.28545</td>
-      <td>39.046797</td>
-      <td>0.217406</td>
+      <td>113.19078</td>
+      <td>36.542547</td>
+      <td>0.328183</td>
     </tr>
     <tr>
       <th>9996</th>
-      <td>113.28586</td>
-      <td>33.386140</td>
-      <td>0.731382</td>
+      <td>113.19078</td>
+      <td>39.498064</td>
+      <td>0.693652</td>
     </tr>
     <tr>
       <th>9997</th>
-      <td>113.28597</td>
-      <td>32.749380</td>
-      <td>0.951027</td>
+      <td>113.28532</td>
+      <td>24.537772</td>
+      <td>1.648059</td>
     </tr>
     <tr>
       <th>9998</th>
-      <td>113.28601</td>
-      <td>33.420892</td>
-      <td>5.299447</td>
+      <td>113.19086</td>
+      <td>31.552450</td>
+      <td>0.170207</td>
     </tr>
     <tr>
       <th>9999</th>
-      <td>113.28619</td>
-      <td>32.606597</td>
-      <td>0.950040</td>
+      <td>113.28534</td>
+      <td>32.544773</td>
+      <td>0.000248</td>
     </tr>
   </tbody>
 </table>
@@ -15071,14 +15071,14 @@ Wall time: 230 ms
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Example-2:-A-Double-JOIN">Example 2: A Double JOIN<a class="anchor-link" href="#Example-2:-A-Double-JOIN">&#182;</a></h2><p>Now we will examine both the spectroscopic redshifts from SDSS DR16 and the photometry from LS DR9 by writing a query with two JOIN statements. The relevant information we want to select from our three tables of interest for this example are:</p>
+<h2 id="Example-2:-A-Double-JOIN">Example 2: A Double JOIN<a class="anchor-link" href="#Example-2:-A-Double-JOIN">&#182;</a></h2><p>Now we will examine both the spectroscopic redshifts from SDSS DR17 and the photometry from LS DR9 by writing a query with two JOIN statements. The relevant information we want to select from our three tables of interest for this example are:</p>
 <ol>
-<li>"X" = <code>sdss_dr16.x1p5__specobj__ls_dr9__tractor</code><ul>
+<li>"X" = <code>sdss_dr17.x1p5__specobj__ls_dr9__tractor</code><ul>
 <li><strong>ra1</strong> (RA of SDSS object)</li>
 <li><strong>dec1</strong> (Dec of SDSS object)</li>
 </ul>
 </li>
-<li>"S" = <code>sdss_dr16.specobj</code><ul>
+<li>"S" = <code>sdss_dr17.specobj</code><ul>
 <li><strong>z</strong> (redshift)</li>
 </ul>
 </li>
@@ -15099,7 +15099,7 @@ Wall time: 230 ms
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Write-the-double-JOIN-statement-query">Write the double JOIN statement query<a class="anchor-link" href="#Write-the-double-JOIN-statement-query">&#182;</a></h3><p>In this example we use two JOIN statements: the first will search in the SDSS DR16 <code>specobj</code> table for rows that have the same SDSS id value (<code>specobjid</code>) as in the pre-crossmatched table (<code>id1</code>) and retrieve the desired columns from the SDSS DR16 <code>specobj</code> table. The second will search in the LS DR9 <code>tractor</code> table for rows that have the same LS id value (<code>ls_id</code>) as in the pre-crossmatched table (<code>id2</code>) and retrieve the desired columns from the LS DR9 <code>tractor</code> table within the specified RA and Dec region.</p>
+<h3 id="Write-the-double-JOIN-statement-query">Write the double JOIN statement query<a class="anchor-link" href="#Write-the-double-JOIN-statement-query">&#182;</a></h3><p>In this example we use two JOIN statements: the first will search in the SDSS DR17 <code>specobj</code> table for rows that have the same SDSS id value (<code>specobjid</code>) as in the pre-crossmatched table (<code>id1</code>) and retrieve the desired columns from the SDSS DR17 <code>specobj</code> table. The second will search in the LS DR9 <code>tractor</code> table for rows that have the same LS id value (<code>ls_id</code>) as in the pre-crossmatched table (<code>id2</code>) and retrieve the desired columns from the LS DR9 <code>tractor</code> table within the specified RA and Dec region.</p>
 
 </div>
 </div>
@@ -15118,9 +15118,9 @@ Wall time: 230 ms
 <span class="s2">    S.z,</span>
 <span class="s2">    L.mag_g, L.mag_r</span>
 <span class="s2">FROM</span>
-<span class="s2">    sdss_dr16.x1p5__specobj__ls_dr9__tractor AS X </span>
+<span class="s2">    sdss_dr17.x1p5__specobj__ls_dr9__tractor AS X </span>
 <span class="s2">JOIN</span>
-<span class="s2">    sdss_dr16.specobj AS S ON X.id1 = S.specobjid </span>
+<span class="s2">    sdss_dr17.specobj AS S ON X.id1 = S.specobjid </span>
 <span class="s2">JOIN</span>
 <span class="s2">    ls_dr9.tractor AS L ON X.id2 = L.ls_id</span>
 <span class="s2">WHERE</span>
@@ -15156,9 +15156,9 @@ SELECT
     S.z,
     L.mag_g, L.mag_r
 FROM
-    sdss_dr16.x1p5__specobj__ls_dr9__tractor AS X 
+    sdss_dr17.x1p5__specobj__ls_dr9__tractor AS X 
 JOIN
-    sdss_dr16.specobj AS S ON X.id1 = S.specobjid 
+    sdss_dr17.specobj AS S ON X.id1 = S.specobjid 
 JOIN
     ls_dr9.tractor AS L ON X.id2 = L.ls_id
 WHERE
@@ -15216,8 +15216,8 @@ LIMIT 10000
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 37.3 ms, sys: 7.13 ms, total: 44.5 ms
-Wall time: 949 ms
+<pre>CPU times: user 45.4 ms, sys: 11.1 ms, total: 56.6 ms
+Wall time: 925 ms
 </pre>
 </div>
 </div>
@@ -15258,6 +15258,22 @@ Wall time: 949 ms
   <tbody>
     <tr>
       <th>0</th>
+      <td>123.12650</td>
+      <td>39.993317</td>
+      <td>0.124905</td>
+      <td>18.130915</td>
+      <td>16.995148</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>123.36125</td>
+      <td>39.996015</td>
+      <td>-0.000117</td>
+      <td>21.921595</td>
+      <td>20.344702</td>
+    </tr>
+    <tr>
+      <th>2</th>
       <td>124.93368</td>
       <td>39.862601</td>
       <td>0.174130</td>
@@ -15265,36 +15281,20 @@ Wall time: 949 ms
       <td>17.707087</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>124.91581</td>
-      <td>39.849342</td>
-      <td>1.784543</td>
-      <td>21.515312</td>
-      <td>21.335560</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>124.88087</td>
-      <td>39.829225</td>
-      <td>0.362639</td>
-      <td>20.689663</td>
-      <td>18.882698</td>
-    </tr>
-    <tr>
       <th>3</th>
-      <td>124.52069</td>
-      <td>39.986561</td>
-      <td>0.031352</td>
-      <td>18.176840</td>
-      <td>17.582064</td>
+      <td>123.73187</td>
+      <td>39.973827</td>
+      <td>1.764000</td>
+      <td>21.709936</td>
+      <td>20.956276</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>124.50651</td>
-      <td>39.977437</td>
-      <td>0.000255</td>
-      <td>17.876215</td>
-      <td>17.854273</td>
+      <td>123.83651</td>
+      <td>39.987596</td>
+      <td>0.463355</td>
+      <td>20.612232</td>
+      <td>18.626604</td>
     </tr>
     <tr>
       <th>...</th>
@@ -15306,43 +15306,43 @@ Wall time: 949 ms
     </tr>
     <tr>
       <th>9995</th>
-      <td>138.39385</td>
-      <td>39.620674</td>
-      <td>0.122326</td>
-      <td>17.721390</td>
-      <td>16.696081</td>
+      <td>141.17950</td>
+      <td>39.849704</td>
+      <td>1.112722</td>
+      <td>20.199490</td>
+      <td>19.831783</td>
     </tr>
     <tr>
       <th>9996</th>
-      <td>140.39495</td>
-      <td>39.445870</td>
-      <td>0.224668</td>
-      <td>18.444952</td>
-      <td>17.616922</td>
+      <td>138.24043</td>
+      <td>39.549354</td>
+      <td>1.303211</td>
+      <td>20.552681</td>
+      <td>20.535364</td>
     </tr>
     <tr>
       <th>9997</th>
-      <td>140.98451</td>
-      <td>39.800896</td>
-      <td>0.095002</td>
-      <td>17.533873</td>
-      <td>16.555084</td>
+      <td>140.28782</td>
+      <td>39.528155</td>
+      <td>0.183059</td>
+      <td>18.847853</td>
+      <td>18.380463</td>
     </tr>
     <tr>
       <th>9998</th>
-      <td>140.45823</td>
-      <td>39.444055</td>
-      <td>0.589554</td>
-      <td>21.350521</td>
-      <td>20.022564</td>
+      <td>141.04811</td>
+      <td>39.841038</td>
+      <td>0.000163</td>
+      <td>20.892084</td>
+      <td>20.232218</td>
     </tr>
     <tr>
       <th>9999</th>
-      <td>139.89338</td>
-      <td>39.830488</td>
-      <td>0.149572</td>
-      <td>18.264605</td>
-      <td>17.086712</td>
+      <td>140.28669</td>
+      <td>39.492603</td>
+      <td>2.064560</td>
+      <td>19.492790</td>
+      <td>19.353115</td>
     </tr>
   </tbody>
 </table>
@@ -15364,7 +15364,7 @@ Wall time: 949 ms
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="savetovospace"></a></p>
-<h1 id="Saving-results-to-VOSpace">Saving results to VOSpace<a class="anchor-link" href="#Saving-results-to-VOSpace">&#182;</a></h1><p>VOSpace is a convenient storage space for users to save their work. It can store any data or file type. We can save the results from a query to our virtual storage space. First, a basic query extracting a few thousand rows of the specobjid, ra, and dec columns from the SDSS DR16 specobj table:</p>
+<h1 id="Saving-results-to-VOSpace">Saving results to VOSpace<a class="anchor-link" href="#Saving-results-to-VOSpace">&#182;</a></h1><p>VOSpace is a convenient storage space for users to save their work. It can store any data or file type. We can save the results from a query to our virtual storage space. First, a basic query extracting a few thousand rows of the specobjid, ra, and dec columns from the SDSS DR17 specobj table:</p>
 
 </div>
 </div>
@@ -15377,7 +15377,7 @@ Wall time: 949 ms
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">basic_query</span> <span class="o">=</span> <span class="s2">&quot;SELECT specobjid, ra, dec FROM sdss_dr16.specobj LIMIT 10000&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">basic_query</span> <span class="o">=</span> <span class="s2">&quot;SELECT specobjid, ra, dec FROM sdss_dr17.specobj LIMIT 10000&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">basic_query</span><span class="p">)</span>
 </pre></div>
 
@@ -15400,7 +15400,7 @@ Wall time: 949 ms
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>SELECT specobjid, ra, dec FROM sdss_dr16.specobj LIMIT 10000
+<pre>SELECT specobjid, ra, dec FROM sdss_dr17.specobj LIMIT 10000
 </pre>
 </div>
 </div>
@@ -15451,8 +15451,8 @@ Wall time: 949 ms
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 22.4 ms, sys: 1.84 ms, total: 24.2 ms
-Wall time: 2.04 s
+<pre>CPU times: user 24.9 ms, sys: 2.67 ms, total: 27.6 ms
+Wall time: 1.51 s
 </pre>
 </div>
 </div>
@@ -15661,8 +15661,8 @@ Wall time: 2.04 s
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 24.6 ms, sys: 1.4 ms, total: 26 ms
-Wall time: 295 ms
+<pre>CPU times: user 19.3 ms, sys: 1.34 ms, total: 20.7 ms
+Wall time: 320 ms
 </pre>
 </div>
 </div>
@@ -15712,21 +15712,24 @@ Wall time: 295 ms
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>basic_result,created:2022-07-13 13:01:12 MST
-bgsfaint_dlnotebook,created:2021-08-03 16:40:27 MST
-desi_tile,created:2021-08-10 14:31:49 MST
-df_xmatch,created:2021-12-27 14:04:08 MST
-fastspec_everest_z_lt_0p6,created:2021-09-14 12:41:40 MST
-gaia_sample,created:2021-11-12 12:34:07 MST
-gaia_sample_xmatch,created:2021-11-12 12:34:08 MST
-gals,created:2021-12-27 14:05:56 MST
-lowmassagn_dlnotebook,created:2021-08-03 16:40:22 MST
-secondary_dark_subset,created:2021-08-11 12:08:30 MST
-sv1targets_bright_secondary,created:2021-08-10 14:08:01 MST
-sv1targets_dark_secondary,created:2021-08-10 14:41:39 MST
-test1,created:2021-11-22 17:32:45 MST
-twomasspsc,created:2021-11-23 11:47:37 MST
-usno_objects,created:2021-11-22 12:35:32 MST
+<pre>basic_result
+bgsfaint_dlnotebook
+desi_tile
+df_xmatch
+fastspec_everest_z_lt_0p6
+gaia_sample
+gaia_sample_xmatch
+gals
+lowmassagn_dlnotebook
+secondary_dark_subset
+sv1targets_bright_secondary
+sv1targets_dark_secondary
+tbl_stat,
+testcm
+testingx
+testx2
+twomasspsc
+usno_objects
  
 
 </pre>
@@ -15875,8 +15878,8 @@ LEFT JOIN LATERAL (
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 24.1 ms, sys: 3.19 ms, total: 27.3 ms
-Wall time: 1.12 s
+<pre>CPU times: user 24 ms, sys: 1.27 ms, total: 25.3 ms
+Wall time: 7.62 s
 </pre>
 </div>
 </div>
@@ -15955,33 +15958,33 @@ Wall time: 1.12 s
   <tbody>
     <tr>
       <th>0</th>
-      <td>407606586140289024</td>
-      <td>1.417758e+18</td>
-      <td>0.059682</td>
+      <td>2889072702671316992</td>
+      <td>1.962451e+18</td>
+      <td>0.122596</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>407739077291436032</td>
-      <td>1.417761e+18</td>
-      <td>0.109204</td>
+      <td>2877815347283519488</td>
+      <td>1.962452e+18</td>
+      <td>0.135446</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>407738802413529088</td>
-      <td>1.417774e+18</td>
-      <td>0.038132</td>
+      <td>2877824143376541696</td>
+      <td>1.961010e+18</td>
+      <td>0.193541</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>405488373919148032</td>
-      <td>1.417965e+18</td>
-      <td>0.112825</td>
+      <td>2877823318742820864</td>
+      <td>1.960965e+18</td>
+      <td>0.133224</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>407728631930972160</td>
-      <td>1.417941e+18</td>
-      <td>0.166325</td>
+      <td>2889071878037596160</td>
+      <td>1.960965e+18</td>
+      <td>11.562321</td>
     </tr>
     <tr>
       <th>...</th>
@@ -15991,33 +15994,33 @@ Wall time: 1.12 s
     </tr>
     <tr>
       <th>9995</th>
-      <td>7114652879051575296</td>
-      <td>1.407530e+18</td>
-      <td>30.430855</td>
+      <td>2857534859855816704</td>
+      <td>2.272961e+18</td>
+      <td>0.049671</td>
     </tr>
     <tr>
       <th>9996</th>
-      <td>-8832658246329937920</td>
-      <td>1.407531e+18</td>
-      <td>33.463994</td>
+      <td>2866543439439226880</td>
+      <td>2.272962e+18</td>
+      <td>0.060718</td>
     </tr>
     <tr>
       <th>9997</th>
-      <td>7114652329295761408</td>
-      <td>1.407532e+18</td>
-      <td>35.740673</td>
+      <td>2857536234245351424</td>
+      <td>2.272973e+18</td>
+      <td>0.080895</td>
     </tr>
     <tr>
       <th>9998</th>
-      <td>-8832657971452030976</td>
-      <td>1.407530e+18</td>
-      <td>15.182376</td>
+      <td>2866556633578760192</td>
+      <td>2.272977e+18</td>
+      <td>0.043344</td>
     </tr>
     <tr>
       <th>9999</th>
-      <td>-8832659070963658752</td>
-      <td>1.407530e+18</td>
-      <td>24.887223</td>
+      <td>2857539257902327808</td>
+      <td>2.272975e+18</td>
+      <td>0.213171</td>
     </tr>
   </tbody>
 </table>
@@ -16091,8 +16094,8 @@ FROM
 JOIN
     mydb://df_xmatch AS df_xmatch ON gxl.id1 = df_xmatch.gaia_id
 
-CPU times: user 117 µs, sys: 0 ns, total: 117 µs
-Wall time: 108 µs
+CPU times: user 101 µs, sys: 84 µs, total: 185 µs
+Wall time: 142 µs
 </pre>
 </div>
 </div>
@@ -16144,8 +16147,8 @@ Wall time: 108 µs
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 49.2 ms, sys: 8.81 ms, total: 58 ms
-Wall time: 494 ms
+<pre>CPU times: user 33.5 ms, sys: 2.69 ms, total: 36.1 ms
+Wall time: 326 ms
 </pre>
 </div>
 </div>
@@ -16186,43 +16189,43 @@ Wall time: 494 ms
   <tbody>
     <tr>
       <th>0</th>
-      <td>9907738631015714</td>
-      <td>265.585571</td>
-      <td>54.518153</td>
-      <td>1417757713589461120</td>
-      <td>407606586140289024</td>
+      <td>9907737095837650</td>
+      <td>287.228165</td>
+      <td>48.064735</td>
+      <td>2131102058617608064</td>
+      <td>3384465917919389696</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>9907738631015095</td>
-      <td>265.533827</td>
-      <td>54.562355</td>
-      <td>1417760943404869760</td>
-      <td>407739077291436032</td>
+      <td>9907737159009377</td>
+      <td>287.448870</td>
+      <td>48.229697</td>
+      <td>2131098455144685056</td>
+      <td>3384466192797296640</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>9907738685800625</td>
-      <td>265.479042</td>
-      <td>54.688460</td>
-      <td>1417773759587719552</td>
-      <td>407738802413529088</td>
+      <td>9907737158950166</td>
+      <td>287.387517</td>
+      <td>48.168933</td>
+      <td>2131097218194075904</td>
+      <td>3384462344506599424</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>9907738685737398</td>
-      <td>265.266888</td>
-      <td>54.727856</td>
-      <td>1417965383848150784</td>
-      <td>405488373919148032</td>
+      <td>9907737221862367</td>
+      <td>287.697861</td>
+      <td>48.382752</td>
+      <td>2131196930154414592</td>
+      <td>3384463718896134144</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>9907738685735446</td>
-      <td>265.085212</td>
-      <td>54.658224</td>
-      <td>1417941228952064128</td>
-      <td>407728631930972160</td>
+      <td>9907737221859120</td>
+      <td>287.547174</td>
+      <td>48.407548</td>
+      <td>2131195006009050240</td>
+      <td>3384465093285668864</td>
     </tr>
     <tr>
       <th>...</th>
@@ -16233,48 +16236,48 @@ Wall time: 494 ms
       <td>...</td>
     </tr>
     <tr>
-      <th>9374</th>
-      <td>9907736639441127</td>
-      <td>253.623459</td>
-      <td>46.181360</td>
-      <td>1407529571095903360</td>
-      <td>7114652879051575296</td>
+      <th>840</th>
+      <td>9907740343599562</td>
+      <td>276.670899</td>
+      <td>63.135065</td>
+      <td>2160347319866203008</td>
+      <td>2873374430422132736</td>
     </tr>
     <tr>
-      <th>9375</th>
-      <td>9907736639440624</td>
-      <td>253.581190</td>
-      <td>46.196592</td>
-      <td>1407530503104597888</td>
-      <td>-8832658246329937920</td>
+      <th>841</th>
+      <td>9907740343599573</td>
+      <td>276.671625</td>
+      <td>63.208500</td>
+      <td>2160347899685623680</td>
+      <td>2873378278712829952</td>
     </tr>
     <tr>
-      <th>9376</th>
-      <td>9907736639441313</td>
-      <td>253.636990</td>
-      <td>46.245412</td>
-      <td>1407532182436417280</td>
-      <td>7114652329295761408</td>
+      <th>842</th>
+      <td>9907740343599244</td>
+      <td>276.634148</td>
+      <td>63.135310</td>
+      <td>2160347972701229440</td>
+      <td>2873379103346550784</td>
     </tr>
     <tr>
-      <th>9377</th>
-      <td>9907736639440201</td>
-      <td>253.543293</td>
-      <td>46.217305</td>
-      <td>1407530430089747200</td>
-      <td>-8832657971452030976</td>
+      <th>843</th>
+      <td>9907740343535831</td>
+      <td>276.356517</td>
+      <td>63.279633</td>
+      <td>2160352916207452416</td>
+      <td>2873378828468643840</td>
     </tr>
     <tr>
-      <th>9378</th>
-      <td>9907736639440400</td>
-      <td>253.561734</td>
-      <td>46.169876</td>
-      <td>1407529708534852480</td>
-      <td>-8832659070963658752</td>
+      <th>844</th>
+      <td>9907740343535595</td>
+      <td>276.327702</td>
+      <td>63.257707</td>
+      <td>2160352473826955520</td>
+      <td>2873373880666318848</td>
     </tr>
   </tbody>
 </table>
-<p>9379 rows × 5 columns</p>
+<p>845 rows × 5 columns</p>
 </div>
 </div>
 
