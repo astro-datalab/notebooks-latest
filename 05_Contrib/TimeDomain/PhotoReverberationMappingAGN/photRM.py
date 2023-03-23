@@ -2,6 +2,8 @@
 Module name: photRM
 
 Authors: Isidora Jankov & Dr. Andjelka Kovačević
+
+Contact: ijankov@proton.me
 ------------------------------------------------
 
 Description:
