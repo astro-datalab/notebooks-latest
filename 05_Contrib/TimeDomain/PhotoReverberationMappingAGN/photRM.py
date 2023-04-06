@@ -76,7 +76,7 @@ from add_asym import add_asym
       #              improvements by Isidora Jankov)                   #
       #----------------------------------------------------------------#
 
-def lc_conti(T, osc=True, A=0.14, noise=0.00005, z=0, method='default', 
+def lc_conti(T, osc=True, A=0.14, noise=0.00005, z=0, method='Kelly1', 
              lag='random', lum='random'):
     """ 
     Generate one artificial light curve using a stochastic model based on the 
@@ -106,8 +106,8 @@ def lc_conti(T, osc=True, A=0.14, noise=0.00005, z=0, method='default',
         Amount of noise to include in the light curve simulation.
     z: float, default=0
         Redshift.
-    method: {'default', 'Kelly'}, default='default'
-        Method for calculating DRW model parameters.
+    method: {'Kelly1', 'Kelly2'}, default='Kelly1'
+        Method for calculating DRW model parameters (Kelly et al. 2009).
     lag: int, float or 'random', default='random'
         Time-lag in days. If set to 'random', it is infered from randomly 
         generated bolometric luminosity (in range 42.2 - 45.5). You can also 
@@ -138,10 +138,14 @@ def lc_conti(T, osc=True, A=0.14, noise=0.00005, z=0, method='default',
       (https://iopscience.iop.org/article/10.3847/1538-4357/ab042c)
     * Kelly, B.C., Bechtold, J., & Siemiginowska, A. 2009, ApJ, 698, 895 
       (https://iopscience.iop.org/article/10.1088/0004-637X/698/1/895)
-    * Kovačević, A., et al. 2021, submitted to MNRAS 
-      (https://github.com/LSST-sersag/white_paper/blob/main/data/paper.pdf)
+    * Kovačević, A., et al. 2021, 505, 5012-5028
+      (https://academic.oup.com/mnras/article-abstract/505/4/5012/6292266?redirectedFrom=PDF)
     * Kozłowski, S. 2017, A&A, 597, A128 
       (https://www.aanda.org/articles/aa/full_html/2017/01/aa29890-16/aa29890-16.html)
+    * Shankar, F., Weinberg, D. H. & Miralda-Escude, J. 2009, ApJ, 690, 20
+      (https://iopscience.iop.org/article/10.1088/0004-637X/690/1/20/pdf)
+    * Woo, J. H., & Urry, C. M. 2002, ApJ, 579, 530
+      (https://iopscience.iop.org/article/10.1086/342878/fulltext/)
     """
     
     # Constants
@@ -161,7 +165,7 @@ def lc_conti(T, osc=True, A=0.14, noise=0.00005, z=0, method='default',
         lumbol = np.power(10,loglumbol)
     
     # Case 2: infer luminosity from user-defined lag
-    elif (lag != 'random') and (lum=='random'):
+    elif (lag != 'random') and (lum == 'random'):
         # check user input
         try:
             lag = float(lag)
@@ -199,28 +203,36 @@ def lc_conti(T, osc=True, A=0.14, noise=0.00005, z=0, method='default',
             
         print("Something is wrong with keywords 'lag' or 'lum': invalid input.")
      
-        
-    print("log (L_bol) = {:.2f}".format(np.log10(float(lumbol))))
+    print("Properties of the simulated AGN object:")
+    print(39*'-')
+    print("log(L) = {:.2f}".format(np.log10(float(lumbol))))
 
-    # Calculate supermassive black hole mass
+    # Calculate supermassive black hole mass using L, 
+    # Eddington ratio (eq. 18, Shankar+2009) and 
+    # Eddington luminosity (Woo & Urry 2002)
     msmbh=np.power((lumbol*const2/const1),2/3.)
-    print("M_bh = {:2e}".format(float(msmbh)))
+    print("MBH = {:.2e} M_sun".format(float(msmbh)))
     
-    # Calculate DRW model parameters: 
+    # Calculate DRW model parameters (Kelly et al. 2009): 
     # damping time scale (tau) & amplitude of correlation decay (sig)
-    if method == 'default':
-        tau = 80.4*np.power(lumbol/1e45,-0.42)*np.power(msmbh/1e08,1.03)
+    if method == 'Kelly1':
+        # tau = f(L,Mbh)
+        tau = 80.4*np.power(lumbol/1e45,-0.42)*np.power(msmbh/1e08,1.03) # Eq 31
         tau = tau*(1+z)
-        logsig2 = -3.83-0.09*np.log(lumbol/1e45)-0.25*np.log(msmbh/1e08)
+        logsig2 = -3.83-0.09*np.log(lumbol/1e45)-0.25*np.log(msmbh/1e08) # Eq 30
         sig = np.sqrt(np.power(10,logsig2))/np.sqrt(1+z)
         
-    elif method == 'Kelly':
-        logtau = -8.13+0.24*np.log10(lumbol)+0.34*np.log10(1+z) # Eq 22, Kelly et al. 2009
-        tau = np.power(10,logtau)*(1+z)                         # Eq 17, Kelly et al. 2009
-        logsig2 = 8-0.27*np.log10(lumbol)+0.47*np.log10(1+z)    # Eq 25, Kelly et al. 2009
-        sig = np.sqrt(np.power(10,logsig2))/np.sqrt(1+z)        # Eq 18, Kelly et al. 2009
+    elif method == 'Kelly2':
+         # tau = f(L,z)
+        logtau = -8.13+0.24*np.log10(lumbol)+0.34*np.log10(1+z) # Eq 22
+        tau = np.power(10,logtau)*(1+z)                         # Eq 17
+        logsig2 = 8-0.27*np.log10(lumbol)+0.47*np.log10(1+z)    # Eq 25
+        sig = np.sqrt(np.power(10,logsig2))/np.sqrt(1+z)        # Eq 18
+        
+    print("tau_DRW = {:.2f} days".format(float(tau)))
+    print("sigma_DRW = {:.2f} mag^2/day".format(float(sig)))
     
-    # Calculate the broad line region radius
+    # Calculate the broad line region radius (Bentz et al. 2013)
     logrblr = 1.527 + 0.533*np.log10(lumbol/1e44)
     rblr = np.power(10,logrblr)
     rblr=rblr.item()
@@ -264,7 +276,7 @@ def lc_conti(T, osc=True, A=0.14, noise=0.00005, z=0, method='default',
     
     return tt, yy, err, rblr
 
-def lc_response(tc, fxc, rblr, norm=True):
+def lc_response(tc, fxc, rblr, norm=True, plot_kernel=False):
     """
     Model the response light curve representing the isolated line emission 
     lagging behind the continuum. The response is obtained by performing 
@@ -286,6 +298,9 @@ def lc_response(tc, fxc, rblr, norm=True):
         Radius of the broad line region (days).
     norm : bool, default=True
         If True, norm the input continuum flux. Otherwise, leave it as is.
+    plot_kernel : bool, default=False
+        If True, plot the Gaussian kernel used in convolution with the 
+        continuum flux (X-band) to obtain the emission line response function.
 
     Returns
     -------
@@ -306,11 +321,12 @@ def lc_response(tc, fxc, rblr, norm=True):
     
     transfer_l = lambda t: 23*np.exp(-np.power(t - mu, 2.) / (np.power(std, 2.)))
     
-    # Plot the Gaussian kernel
-    plt.plot(transfer_l(np.arange(150)), label=r'$\psi \ (Y_l)$')
-    plt.legend(fontsize=15)
-    plt.title("Gaussian kernel")
-    plt.xlabel("Time (days)")
+    if plot_kernel:
+        # Plot the Gaussian kernel
+        plt.plot(transfer_l(np.arange(150)), label=r'$\psi \ (Y_l)$')
+        plt.legend(fontsize=15)
+        plt.title("Gaussian kernel")
+        plt.xlabel("Time (days)")
     
     y_norm = np.convolve(np.ones_like(fxc_norm), transfer_l(tc), mode='full')
     valid_indices = (y_norm > 0.)
@@ -363,8 +379,8 @@ def lc_merged(tc, fxc, response, wl=0.2, wc=0.8, norm=True):
     
     return merged
 
-def lc_two_bands(T, osc=True, A=0.14, noise=0.00005, z=0, method='default',
-                 lag='random', lum='random', wl=0.2, wc=0.8):
+def lc_two_bands(T, osc=True, A=0.14, noise=0.00005, z=0, method='Kelly1',
+                 lag='random', lum='random', wl=0.2, wc=0.8, plot_kernel=False):
     """
     Generate two artificial light curves: 
         
@@ -393,8 +409,8 @@ def lc_two_bands(T, osc=True, A=0.14, noise=0.00005, z=0, method='default',
         Amount of noise to include in the light curve simulation.
     z: float, default=0
         Redshift.
-    method: {'default', 'Kelly'}, default='default'
-        Method for calculating DRW model parameters.
+    method: {'Kelly1', 'Kelly2'}, default='Kelly1'
+        Method for calculating DRW model parameters (Kelly et al. 2009).
     lag: int, float or 'random', default='random'
         Time-lag in days. If set to 'random', it is infered from randomly 
         generated bolometric luminosity (in range 42.2 - 45.5). You can also 
@@ -411,6 +427,9 @@ def lc_two_bands(T, osc=True, A=0.14, noise=0.00005, z=0, method='default',
         Weight of the emission line response in the total flux.
     wc : float, default=0.8
         Weight of the continuum in the total flux.
+    plot_kernel : bool, default=False
+        If True, plot the Gaussian kernel used in convolution with the 
+        continuum flux (X-band) to obtain the emission line response function.
 
     Returns
     -------
@@ -430,7 +449,7 @@ def lc_two_bands(T, osc=True, A=0.14, noise=0.00005, z=0, method='default',
                                     method=method, lag=lag, lum=lum)
     
     # Calculate the response function of the emission line
-    response = lc_response(tc, fxc, rblr)
+    response = lc_response(tc, fxc, rblr, plot_kernel=plot_kernel)
     
     # Generate the light curve covering both continuum and the lagged emission
     # line (Y band).
@@ -659,7 +678,7 @@ def plot_ccf_acf(delta, ccf, acf, locator=10, save=False, peak=False, tau=0, err
     if peak==True:
         ax2.text(0.72,0.05, r'$\tau$ = {:.1f} ({:.1f},+{:.1f}) d'.format(tau,err_low,err_high), transform=ax2.transAxes, size=12.5)
     
-    fig.text(0.03, 0.5, "Correlation (A.U.)", va='center', rotation='vertical',fontsize=18)
+    fig.text(0.03, 0.5, "Correlation (arbit. units)", va='center', rotation='vertical',fontsize=18)
     if save==True:
         plt.savefig('ccf-acf.pdf',dpi=800)
     plt.show()
