@@ -4,12 +4,15 @@ catalogues
 cluster
 convolution
 crossmatch
+data reduction
 dwarf galaxies
 Exploratory Analysis
 extragalactic
 file service
 galaxies
+Gemini
 gemini llp
+GMOS
 Healpix map
 histogram
 HowTo
@@ -17,6 +20,7 @@ image cutout
 images
 interactive plot
 Introduction to Machine Learning
+IRAF
 joint query
 Jupyter
 La Serena School for Data Science
