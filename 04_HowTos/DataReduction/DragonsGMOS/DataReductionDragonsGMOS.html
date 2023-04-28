@@ -15111,7 +15111,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Susan Ridgway &lt;susan.ridgway@noirlab.edu&gt;, Vinicius Placco &lt;vinicius.placco@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230427&#39;</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230428&#39;</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;GS-2018A-Q-207&#39;</span><span class="p">]</span> <span class="c1"># Data comes from the Gemini archive, GS-2018A-Q-207</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DRAGONS&#39;</span><span class="p">,</span><span class="s1">&#39;Gemini&#39;</span><span class="p">,</span><span class="s1">&#39;GMOS&#39;</span><span class="p">,</span><span class="s1">&#39;data reduction&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15568,7 +15568,7 @@ wget --no-check-certificate -N -q -i gmos.list
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="Clean-up"></a></p>
-<h1 id="Clean-up-(optional)">Clean-up (optional)<a class="anchor-link" href="#Clean-up-(optional)">&#182;</a></h1><p>Erase all fits files, lists, logs, and calibrations created during the reduction. For that, uncomment the line below and execute.</p>
+<h1 id="Clean-up-(optional)">Clean-up (optional)<a class="anchor-link" href="#Clean-up-(optional)">&#182;</a></h1><p>Erase all fits files, lists, logs, and calibrations created during the reduction. For that, uncomment all lines in the cell below and execute.</p>
 
 </div>
 </div>
@@ -15581,8 +15581,10 @@ wget --no-check-certificate -N -q -i gmos.list
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="ch">#!rm -f *S2018*.fits gmos.list reduce.log # remove files</span>
-<span class="c1">#!rm -rf calibrations/ # remove directories</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#%%bash</span>
+<span class="c1">#</span>
+<span class="c1">#rm -f *S2018*.fits gmos.list reduce.log # remove files</span>
+<span class="c1">#rm -rf calibrations/ # remove directories</span>
 </pre></div>
 
      </div>
