@@ -15106,7 +15106,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Alice Jacques &lt;alice.jacques@noirlab.edu&gt;, Steve Pothier &lt;steve.pothier@noirlab.edu&gt;, Adam Bolton &lt;adam.bolton@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230608&#39;</span> <span class="c1"># yyyymmdd; </span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230610&#39;</span> <span class="c1"># yyyymmdd; </span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sdss_dr16&#39;</span><span class="p">,</span><span class="s1">&#39;boss_dr16&#39;</span><span class="p">,</span><span class="s1">&#39;desi_edr&#39;</span><span class="p">]</span>  
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spectroscopy&#39;</span><span class="p">,</span> <span class="s1">&#39;HowTo&#39;</span><span class="p">,</span> <span class="s1">&#39;sdss spectra&#39;</span><span class="p">,</span> <span class="s1">&#39;desi spectra&#39;</span><span class="p">,</span> <span class="s1">&#39;tutorial&#39;</span><span class="p">]</span>
 </pre></div>
@@ -17088,7 +17088,7 @@ Wall time: 2.47 s
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="reorder"></a></p>
-<h2 id="Reorder-spectrum-records">Reorder spectrum records<a class="anchor-link" href="#Reorder-spectrum-records">&#182;</a></h2><p>The ordering of the results of <code>client.retrieve()</code> and <code>client.retrieve_by_specid()</code> are not necessarily sorted to match the order of the IDs in the argument passed to the method. The <code>reorder()</code> method will reorder the retrieved results to be in the same order as the original list of IDs passed to <code>client.retrieve()</code> or <code>client.retrieve_by_specid()</code>.</p>
+<h2 id="Reorder-spectrum-records">Reorder spectrum records<a class="anchor-link" href="#Reorder-spectrum-records">&#182;</a></h2><p>The ordering of the results of <code>client.retrieve()</code> is not necessarily sorted to match the order of the IDs in the argument passed to the method. The <code>reorder()</code> method will reorder the retrieved results to be in the same order as the original list of IDs passed to <code>client.retrieve()</code>.</p>
 <h5 id="Reorder-SPARCL-IDs:">Reorder SPARCL IDs:<a class="anchor-link" href="#Reorder-SPARCL-IDs:">&#182;</a></h5>
 </div>
 </div>
@@ -17138,70 +17138,6 @@ Order of SPARCL IDs after passing to retrieve():
 
 Use reorder() to obtain original order of SPARCL IDs:
 [&#39;243dadcf-45f0-4a51-a14d-26e87e7f3d44&#39;, &#39;0ead266b-9035-45b2-9e2b-65602d3dbcbb&#39;, &#39;ca44ef96-3c85-44f7-ad57-8f492ee9f9dc&#39;]
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div id="cell-id=a0d53e93-ac0a-45bd-8eeb-fe718148283c" class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h5 id="Reorder-specIDs:">Reorder specIDs:<a class="anchor-link" href="#Reorder-specIDs:">&#182;</a></h5>
-</div>
-</div>
-</div>
-</div><div id="cell-id=cc16b5f2-c2a2-4509-ad04-e7c84c02e7a4" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">specids_II</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">found_II</span><span class="o">.</span><span class="n">specid</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Order of specIDs originally:</span><span class="se">\n</span><span class="si">{</span><span class="n">specids_II</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">res</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">retrieve_by_specid</span><span class="p">(</span><span class="n">specid_list</span><span class="o">=</span><span class="n">specids_II</span><span class="p">)</span>
-<span class="n">res_specids</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">specid</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">records</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Order of specIDs after passing to retrieve_by_specid():</span><span class="se">\n</span><span class="si">{</span><span class="n">res_specids</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">res_reordered</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">reorder</span><span class="p">(</span><span class="n">specids_II</span><span class="p">)</span>
-<span class="n">res_reordered_specids</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">specid</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">res_reordered</span><span class="o">.</span><span class="n">records</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use reorder() to obtain original order of specIDs:</span><span class="se">\n</span><span class="si">{</span><span class="n">res_reordered_specids</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Order of specIDs originally:
-[7212677912033775616, 39633336225762466, 4359676944125808640]
-
-Order of specIDs after passing to retrieve_by_specid():
-[39633336225762466, 7212677912033775616, 4359676944125808640]
-
-Use reorder() to obtain original order of specIDs:
-[7212677912033775616, 39633336225762466, 4359676944125808640]
 </pre>
 </div>
 </div>
