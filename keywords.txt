@@ -5,7 +5,6 @@ cluster
 convolution
 crossmatch
 data reduction
-desi spectra
 DRAGONS
 dwarf galaxies
 Exploratory Analysis
