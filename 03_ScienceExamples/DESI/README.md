@@ -4,15 +4,15 @@ The Astro Data Lab includes a collection of notebooks showcasing the DESI data. 
 
 ## This folder: `03_ScienceExamples/DESI/`
 
-- `01_Intro_to_DESI_EDR` shows how to access the redshift catalog from the Astro Data Lab database, how to separate objects based on the DESI targeting information, how to access all the available spectra for a given object using [SPARCL (SPectra Analysis and Retrievable Catalog Lab)](https://astrosparcl.datalab.noirlab.edu), and finally how to plot the "best" spectrum.
+- `01_Intro_to_DESI_EDR.ipynb` shows how to access the redshift catalog from the Astro Data Lab database, how to separate objects based on the DESI targeting information, how to access all the available spectra for a given object using [SPARCL (SPectra Analysis and Retrievable Catalog Lab)](https://astrosparcl.datalab.noirlab.edu), and finally how to plot the "best" spectrum.
 
-- `02_DESI_EDR_SDSS_Comparison` shows how to use SPARCL data discovery to find available SDSS DR16 and DESI EDR spectra of sources in a specific region of the sky with redshift and spectype constraints, how to retrieve and compare spectra for the same galaxy observed with both SDSS and DESI.
+- `02_DESI_EDR_SDSS_Comparison.ipynb` shows how to use SPARCL data discovery to find available SDSS DR16 and DESI EDR spectra of sources in a specific region of the sky with redshift and spectype constraints, how to retrieve and compare spectra for the same galaxy observed with both SDSS and DESI.
 
 ## How-to folder: `04_HowTos/`
 
-- `QueryClient/How_to_query_DESI_EDR_Data` demonstrates a variety of queries to the Astro Data Lab `desi_edr` database.
+- `QueryClient/How_to_query_DESI_EDR_Data.ipynb` demonstrates a variety of queries to the Astro Data Lab `desi_edr` database.
 
-- `SPARCL/How_to_use_SPARCL` provides a basic introduction to using the SPARCL client (or sparclclient) to find and retrieve spectroscopic data within a Python notebook context. [(SPARCL = SPectra Analysis and Retrievable Catalog Lab)](https://astrosparcl.datalab.noirlab.edu)
+- `SPARCL/How_to_use_SPARCL.ipynb` provides a basic introduction to using the SPARCL client (or sparclclient) to find and retrieve spectroscopic data within a Python notebook context. [(SPARCL = SPectra Analysis and Retrievable Catalog Lab)](https://astrosparcl.datalab.noirlab.edu)
 
 
 ## Other useful references
