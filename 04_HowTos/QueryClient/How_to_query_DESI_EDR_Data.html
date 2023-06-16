@@ -15112,7 +15112,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Benjamin Weaver &lt;benjamin.weaver@noirlab.edu&gt;, Alice Jacques &lt;alice.jacques@noirlab.edu&gt;, Astro Data Lab Team &lt;datalab@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230614&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230616&#39;</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;desi_edr&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="s1">&#39;DESI&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15156,12 +15156,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#</span>
@@ -15176,7 +15176,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="c1"># DESI software</span>
 <span class="c1">#</span>
 <span class="kn">from</span> <span class="nn">desitarget</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">desitarget_version</span>
-<span class="kn">from</span> <span class="nn">desitarget.targetmask</span> <span class="kn">import</span> <span class="p">(</span><span class="n">desi_mask</span><span class="p">,</span> <span class="n">mws_mask</span><span class="p">,</span> <span class="n">bgs_mask</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">desitarget.targetmask</span> <span class="kn">import</span> <span class="n">desi_mask</span>
 <span class="c1">#</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;desitarget==</span><span class="si">{</span><span class="n">desitarget_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -15184,6 +15184,27 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>desitarget==2.6.0
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15298,11 +15319,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ac.login(input(&quot;Enter user name: (+ENTER) &quot;), getpass(&quot;Enter password: (+ENTER) &quot;))</span>
-<span class="n">ac</span><span class="o">.</span><span class="n">whoAmI</span><span class="p">()</span>
+<span class="c1"># ac.whoAmI()</span>
 </pre></div>
 
      </div>
@@ -15336,12 +15357,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="s1">&#39;SELECT COUNT(tileid) FROM desi_edr.tile;&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
@@ -15351,6 +15372,56 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>732</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15366,12 +15437,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="s1">&#39;SELECT night, expid FROM desi_edr.exposure WHERE tileid = 100;&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
@@ -15381,6 +15452,63 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>night</th>
+      <th>expid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20210504</td>
+      <td>87236</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20210505</td>
+      <td>87361</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15396,12 +15524,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="s1">&#39;SELECT tileid, survey, program FROM desi_edr.exposure WHERE night = 20210115;&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
@@ -15411,6 +15539,264 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tileid</th>
+      <th>survey</th>
+      <th>program</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>80655</td>
+      <td>sv1</td>
+      <td>bright</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>80680</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>80680</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>80660</td>
+      <td>sv1</td>
+      <td>bright</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>80660</td>
+      <td>sv1</td>
+      <td>bright</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>80715</td>
+      <td>sv1</td>
+      <td>other</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>80715</td>
+      <td>sv1</td>
+      <td>other</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>80715</td>
+      <td>sv1</td>
+      <td>other</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>80674</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>80674</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>80674</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>80683</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>80683</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>80678</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>80678</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>80688</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>80688</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>80685</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>80685</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>80662</td>
+      <td>sv1</td>
+      <td>bright</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>80662</td>
+      <td>sv1</td>
+      <td>bright</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>80663</td>
+      <td>sv1</td>
+      <td>bright</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>80663</td>
+      <td>sv1</td>
+      <td>bright</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>80690</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>80690</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>80653</td>
+      <td>sv1</td>
+      <td>bright</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>80653</td>
+      <td>sv1</td>
+      <td>bright</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>80700</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>80700</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>80699</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>80699</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>80665</td>
+      <td>sv1</td>
+      <td>bright</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>80665</td>
+      <td>sv1</td>
+      <td>bright</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>80707</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>80707</td>
+      <td>sv1</td>
+      <td>dark</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15427,12 +15813,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM desi_edr.target WHERE (desi_target &amp; </span><span class="si">{</span><span class="n">desi_mask</span><span class="o">.</span><span class="n">ELG</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">) != 0 LIMIT 10;&quot;</span>
@@ -15443,6 +15829,313 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>subpriority</th>
+      <th>targetid</th>
+      <th>obsconditions</th>
+      <th>priority_init</th>
+      <th>numobs_init</th>
+      <th>hpxpixel</th>
+      <th>cmx_target</th>
+      <th>desi_target</th>
+      <th>bgs_target</th>
+      <th>...</th>
+      <th>sv3_mws_target</th>
+      <th>scnd_target</th>
+      <th>sv1_scnd_target</th>
+      <th>sv2_scnd_target</th>
+      <th>sv3_scnd_target</th>
+      <th>random_id</th>
+      <th>tileid</th>
+      <th>photsys</th>
+      <th>program</th>
+      <th>survey</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>158457821059512681299414356074</td>
+      <td>0.114412</td>
+      <td>39628267690397802</td>
+      <td>1</td>
+      <td>3200</td>
+      <td>2</td>
+      <td>27991</td>
+      <td>0</td>
+      <td>655458</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>90.878240</td>
+      <td>81100</td>
+      <td>S</td>
+      <td>dark</td>
+      <td>special</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>158457821059512681299414355923</td>
+      <td>0.528283</td>
+      <td>39628267690397651</td>
+      <td>1</td>
+      <td>3100</td>
+      <td>2</td>
+      <td>27991</td>
+      <td>0</td>
+      <td>655394</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>15.062133</td>
+      <td>81100</td>
+      <td>S</td>
+      <td>dark</td>
+      <td>special</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>158457821059512681305047305049</td>
+      <td>0.830456</td>
+      <td>39628273323346777</td>
+      <td>1</td>
+      <td>3200</td>
+      <td>2</td>
+      <td>27998</td>
+      <td>0</td>
+      <td>720931</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>83.891140</td>
+      <td>81100</td>
+      <td>S</td>
+      <td>dark</td>
+      <td>special</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>158457821059512681305047305350</td>
+      <td>0.105351</td>
+      <td>39628273323347078</td>
+      <td>1</td>
+      <td>3100</td>
+      <td>2</td>
+      <td>27998</td>
+      <td>0</td>
+      <td>655394</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13.898089</td>
+      <td>81100</td>
+      <td>S</td>
+      <td>dark</td>
+      <td>special</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>158457821059512681299422744039</td>
+      <td>0.834181</td>
+      <td>39628267698785767</td>
+      <td>1</td>
+      <td>3100</td>
+      <td>2</td>
+      <td>27991</td>
+      <td>0</td>
+      <td>655394</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>33.033150</td>
+      <td>81100</td>
+      <td>S</td>
+      <td>dark</td>
+      <td>special</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>158457821059512681305047302452</td>
+      <td>0.842228</td>
+      <td>39628273323344180</td>
+      <td>1</td>
+      <td>3100</td>
+      <td>2</td>
+      <td>27995</td>
+      <td>0</td>
+      <td>655394</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.432514</td>
+      <td>81100</td>
+      <td>S</td>
+      <td>dark</td>
+      <td>special</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>158457821059512681299401769082</td>
+      <td>0.542252</td>
+      <td>39628267677810810</td>
+      <td>1</td>
+      <td>3100</td>
+      <td>2</td>
+      <td>27996</td>
+      <td>0</td>
+      <td>655394</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>52.833660</td>
+      <td>81100</td>
+      <td>S</td>
+      <td>dark</td>
+      <td>special</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>158457821059512681299405964738</td>
+      <td>0.737797</td>
+      <td>39628267682006466</td>
+      <td>1</td>
+      <td>3100</td>
+      <td>2</td>
+      <td>27996</td>
+      <td>0</td>
+      <td>655394</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>69.306915</td>
+      <td>81100</td>
+      <td>S</td>
+      <td>dark</td>
+      <td>special</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>158457821059512681299405964706</td>
+      <td>0.776134</td>
+      <td>39628267682006434</td>
+      <td>1</td>
+      <td>3100</td>
+      <td>2</td>
+      <td>27997</td>
+      <td>0</td>
+      <td>655394</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>16.220716</td>
+      <td>81100</td>
+      <td>S</td>
+      <td>dark</td>
+      <td>special</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>158457821059512681299405964512</td>
+      <td>0.458798</td>
+      <td>39628267682006240</td>
+      <td>1</td>
+      <td>3100</td>
+      <td>2</td>
+      <td>27996</td>
+      <td>0</td>
+      <td>655394</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>53.209180</td>
+      <td>81100</td>
+      <td>S</td>
+      <td>dark</td>
+      <td>special</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 rows × 29 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15473,12 +16166,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="s2">&quot;SELECT spectype, subtype, z FROM desi_edr.zpix WHERE spectype = &#39;STAR&#39; AND subtype != &#39;&#39; LIMIT 20;&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
@@ -15488,6 +16181,174 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>spectype</th>
+      <th>subtype</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>STAR</td>
+      <td>K</td>
+      <td>0.000025</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>STAR</td>
+      <td>K</td>
+      <td>-0.000087</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>STAR</td>
+      <td>K</td>
+      <td>-0.000402</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>STAR</td>
+      <td>K</td>
+      <td>-0.000093</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>STAR</td>
+      <td>K</td>
+      <td>-0.000187</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>STAR</td>
+      <td>G</td>
+      <td>-0.000132</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>STAR</td>
+      <td>K</td>
+      <td>-0.000074</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>STAR</td>
+      <td>G</td>
+      <td>-0.000237</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>STAR</td>
+      <td>G</td>
+      <td>-0.000164</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>STAR</td>
+      <td>M</td>
+      <td>-0.000067</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>STAR</td>
+      <td>K</td>
+      <td>-0.000311</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>STAR</td>
+      <td>F</td>
+      <td>0.000167</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>STAR</td>
+      <td>WD</td>
+      <td>0.000224</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>STAR</td>
+      <td>G</td>
+      <td>-0.000046</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>STAR</td>
+      <td>K</td>
+      <td>-0.000221</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>STAR</td>
+      <td>F</td>
+      <td>-0.000521</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>STAR</td>
+      <td>K</td>
+      <td>-0.000072</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>STAR</td>
+      <td>K</td>
+      <td>0.000249</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>STAR</td>
+      <td>G</td>
+      <td>-0.000373</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>STAR</td>
+      <td>M</td>
+      <td>-0.000089</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15504,12 +16365,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT f.tileid, e.expid, e.night</span>
@@ -15523,6 +16384,96 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tileid</th>
+      <th>expid</th>
+      <th>night</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>278</td>
+      <td>85086</td>
+      <td>20210416</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>279</td>
+      <td>85209</td>
+      <td>20210417</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>279</td>
+      <td>85207</td>
+      <td>20210417</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>279</td>
+      <td>85206</td>
+      <td>20210417</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>279</td>
+      <td>85208</td>
+      <td>20210417</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>280</td>
+      <td>86981</td>
+      <td>20210502</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>280</td>
+      <td>86980</td>
+      <td>20210502</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15539,12 +16490,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT p.*, z.*</span>
@@ -15560,12 +16511,1279 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ra</th>
+      <th>dec</th>
+      <th>elon</th>
+      <th>elat</th>
+      <th>glon</th>
+      <th>glat</th>
+      <th>ls_id</th>
+      <th>ref_id</th>
+      <th>targetid</th>
+      <th>ra_ivar</th>
+      <th>...</th>
+      <th>coadd_numnight</th>
+      <th>coadd_numtile</th>
+      <th>sv_nspec</th>
+      <th>main_nspec</th>
+      <th>zcat_nspec</th>
+      <th>spgrp</th>
+      <th>subtype</th>
+      <th>program</th>
+      <th>spectype</th>
+      <th>survey</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>242.669697</td>
+      <td>55.553265</td>
+      <td>207.119848</td>
+      <td>73.035716</td>
+      <td>85.645425</td>
+      <td>44.498546</td>
+      <td>0</td>
+      <td>0</td>
+      <td>222434603040803</td>
+      <td>0.000000e+00</td>
+      <td>...</td>
+      <td>5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>other</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>224.447662</td>
+      <td>52.087582</td>
+      <td>190.455221</td>
+      <td>63.508803</td>
+      <td>88.154778</td>
+      <td>55.647563</td>
+      <td>0</td>
+      <td>0</td>
+      <td>103636998815828</td>
+      <td>0.000000e+00</td>
+      <td>...</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>other</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>165.134033</td>
+      <td>51.221375</td>
+      <td>142.918060</td>
+      <td>40.641631</td>
+      <td>156.385340</td>
+      <td>58.090624</td>
+      <td>0</td>
+      <td>0</td>
+      <td>103625095381015</td>
+      <td>0.000000e+00</td>
+      <td>...</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>other</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>149.240285</td>
+      <td>2.478937</td>
+      <td>150.486017</td>
+      <td>-9.413900</td>
+      <td>235.843639</td>
+      <td>41.561073</td>
+      <td>9906622400041930</td>
+      <td>0</td>
+      <td>234545026695170</td>
+      <td>4.202756e+09</td>
+      <td>...</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>other</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>192.238997</td>
+      <td>29.758244</td>
+      <td>178.070262</td>
+      <td>31.910169</td>
+      <td>134.504809</td>
+      <td>87.314033</td>
+      <td>9906632213006951</td>
+      <td>0</td>
+      <td>39628475656571495</td>
+      <td>3.065923e+09</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>special</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>220.429917</td>
+      <td>-1.018725</td>
+      <td>218.342491</td>
+      <td>13.981739</td>
+      <td>350.707977</td>
+      <td>51.323935</td>
+      <td>9906621097513700</td>
+      <td>0</td>
+      <td>39627764264866532</td>
+      <td>1.043706e+10</td>
+      <td>...</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>210.890279</td>
+      <td>4.739193</td>
+      <td>207.042597</td>
+      <td>16.219714</td>
+      <td>343.636056</td>
+      <td>61.770632</td>
+      <td>9906623264523405</td>
+      <td>0</td>
+      <td>39627902953718925</td>
+      <td>1.030241e+10</td>
+      <td>...</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>251.791031</td>
+      <td>35.433424</td>
+      <td>242.032555</td>
+      <td>57.118047</td>
+      <td>57.851161</td>
+      <td>39.686266</td>
+      <td>9907733568555419</td>
+      <td>0</td>
+      <td>39632991714019739</td>
+      <td>8.444424e+09</td>
+      <td>...</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>188.194869</td>
+      <td>57.133013</td>
+      <td>153.901093</td>
+      <td>53.263362</td>
+      <td>127.967207</td>
+      <td>59.812453</td>
+      <td>9907739203996548</td>
+      <td>0</td>
+      <td>39633352382221188</td>
+      <td>9.182881e+09</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv2</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>235.187267</td>
+      <td>42.490985</td>
+      <td>214.262582</td>
+      <td>59.378746</td>
+      <td>68.310172</td>
+      <td>52.483996</td>
+      <td>9907735621861878</td>
+      <td>0</td>
+      <td>39633123125756406</td>
+      <td>1.108334e+10</td>
+      <td>...</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>291.135566</td>
+      <td>64.353635</td>
+      <td>355.676760</td>
+      <td>80.995728</td>
+      <td>95.656817</td>
+      <td>20.831108</td>
+      <td>9907740512815440</td>
+      <td>0</td>
+      <td>39633436146665808</td>
+      <td>1.246599e+10</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>special</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>217.723024</td>
+      <td>52.940779</td>
+      <td>182.506319</td>
+      <td>61.501786</td>
+      <td>94.131507</td>
+      <td>58.267284</td>
+      <td>9907738287669768</td>
+      <td>0</td>
+      <td>39633293737460232</td>
+      <td>1.555659e+08</td>
+      <td>...</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>106.931604</td>
+      <td>55.903843</td>
+      <td>101.241030</td>
+      <td>33.123359</td>
+      <td>160.810200</td>
+      <td>24.395200</td>
+      <td>9907738931363894</td>
+      <td>0</td>
+      <td>39633334933913654</td>
+      <td>8.178246e+11</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>bright</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>266.211975</td>
+      <td>65.826185</td>
+      <td>203.917417</td>
+      <td>88.304055</td>
+      <td>95.579604</td>
+      <td>31.359599</td>
+      <td>9907740750253059</td>
+      <td>1633224437440789120</td>
+      <td>39633451342629891</td>
+      <td>2.715552e+12</td>
+      <td>...</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>160.260183</td>
+      <td>80.163416</td>
+      <td>109.872586</td>
+      <td>61.768331</td>
+      <td>129.404577</td>
+      <td>35.265884</td>
+      <td>9907742350509265</td>
+      <td>1133148059292132480</td>
+      <td>39633553759143121</td>
+      <td>7.332401e+14</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>backup</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>218.429597</td>
+      <td>34.585219</td>
+      <td>200.699671</td>
+      <td>46.413936</td>
+      <td>58.044519</td>
+      <td>66.893818</td>
+      <td>9907733251620998</td>
+      <td>0</td>
+      <td>39632971430363270</td>
+      <td>1.380656e+09</td>
+      <td>...</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>244.796848</td>
+      <td>43.825732</td>
+      <td>226.475329</td>
+      <td>63.506284</td>
+      <td>68.983197</td>
+      <td>45.366175</td>
+      <td>9907735968812855</td>
+      <td>0</td>
+      <td>39633145330405175</td>
+      <td>2.261602e+09</td>
+      <td>...</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>226.733535</td>
+      <td>31.088508</td>
+      <td>211.997614</td>
+      <td>46.203387</td>
+      <td>48.762835</td>
+      <td>60.255544</td>
+      <td>9906632628635819</td>
+      <td>0</td>
+      <td>39628502256847019</td>
+      <td>9.872799e+08</td>
+      <td>...</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>241.923639</td>
+      <td>43.068188</td>
+      <td>222.922304</td>
+      <td>61.996086</td>
+      <td>68.143876</td>
+      <td>47.508635</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1071060283817992</td>
+      <td>0.000000e+00</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>bright</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>150.651376</td>
+      <td>1.135336</td>
+      <td>152.303450</td>
+      <td>-10.180060</td>
+      <td>238.408966</td>
+      <td>41.922761</td>
+      <td>9906621928574322</td>
+      <td>0</td>
+      <td>234514852872219</td>
+      <td>2.902350e+09</td>
+      <td>...</td>
+      <td>6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>other</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>119.674845</td>
+      <td>33.438297</td>
+      <td>115.038838</td>
+      <td>12.542568</td>
+      <td>187.470897</td>
+      <td>27.782255</td>
+      <td>9907732916339613</td>
+      <td>0</td>
+      <td>39632949972304797</td>
+      <td>2.893129e+10</td>
+      <td>...</td>
+      <td>7</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>192.604570</td>
+      <td>28.451548</td>
+      <td>179.100270</td>
+      <td>30.892030</td>
+      <td>132.543798</td>
+      <td>88.657628</td>
+      <td>9906631800261014</td>
+      <td>0</td>
+      <td>39628449240844694</td>
+      <td>2.555958e+09</td>
+      <td>...</td>
+      <td>5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>171.620449</td>
+      <td>51.176091</td>
+      <td>147.592872</td>
+      <td>42.722387</td>
+      <td>150.944018</td>
+      <td>61.081378</td>
+      <td>9907737873092672</td>
+      <td>838451661415583616</td>
+      <td>39633267204296768</td>
+      <td>1.090935e+14</td>
+      <td>...</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>bright</td>
+      <td>GALAXY</td>
+      <td>sv2</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>225.383961</td>
+      <td>-8.075607</td>
+      <td>225.291284</td>
+      <td>8.711203</td>
+      <td>349.402480</td>
+      <td>42.758220</td>
+      <td>9906618463944901</td>
+      <td>0</td>
+      <td>39627595716755653</td>
+      <td>5.781382e+10</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>special</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>176.490403</td>
+      <td>52.494678</td>
+      <td>150.077969</td>
+      <td>45.480371</td>
+      <td>144.250968</td>
+      <td>61.838771</td>
+      <td>9907738166363654</td>
+      <td>0</td>
+      <td>39633285973804550</td>
+      <td>7.595545e+09</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv2</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>219.773085</td>
+      <td>-1.349236</td>
+      <td>217.807072</td>
+      <td>13.462182</td>
+      <td>349.564579</td>
+      <td>51.502626</td>
+      <td>9906621003006592</td>
+      <td>0</td>
+      <td>39627758216675968</td>
+      <td>4.243512e+09</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>241.365035</td>
+      <td>15.076393</td>
+      <td>235.531903</td>
+      <td>35.152288</td>
+      <td>28.172180</td>
+      <td>43.469440</td>
+      <td>9906627082782263</td>
+      <td>0</td>
+      <td>39628147322258999</td>
+      <td>1.341083e+09</td>
+      <td>...</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>234.715627</td>
+      <td>44.571853</td>
+      <td>211.721909</td>
+      <td>61.068800</td>
+      <td>71.766616</td>
+      <td>52.394353</td>
+      <td>9907736170661871</td>
+      <td>0</td>
+      <td>39633158248859631</td>
+      <td>3.427829e+09</td>
+      <td>...</td>
+      <td>4</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>216.833905</td>
+      <td>2.765890</td>
+      <td>213.552393</td>
+      <td>16.407189</td>
+      <td>350.331195</td>
+      <td>56.539097</td>
+      <td>9906622512170635</td>
+      <td>0</td>
+      <td>39627854803109515</td>
+      <td>6.445237e+09</td>
+      <td>...</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>272.983166</td>
+      <td>62.047701</td>
+      <td>287.345470</td>
+      <td>85.306612</td>
+      <td>91.293437</td>
+      <td>28.316490</td>
+      <td>9907740125367345</td>
+      <td>0</td>
+      <td>39633411349941297</td>
+      <td>1.079642e+10</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>266.340719</td>
+      <td>65.867636</td>
+      <td>203.472931</td>
+      <td>88.369834</td>
+      <td>95.624801</td>
+      <td>31.304801</td>
+      <td>9907740750253944</td>
+      <td>0</td>
+      <td>39633451342630776</td>
+      <td>5.188420e+09</td>
+      <td>...</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>210.498679</td>
+      <td>4.646226</td>
+      <td>206.697431</td>
+      <td>15.993887</td>
+      <td>342.847072</td>
+      <td>61.920213</td>
+      <td>9906623264394560</td>
+      <td>0</td>
+      <td>39627902945332544</td>
+      <td>4.701723e+09</td>
+      <td>...</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>245.950505</td>
+      <td>42.334075</td>
+      <td>229.399317</td>
+      <td>62.424822</td>
+      <td>66.814806</td>
+      <td>44.602659</td>
+      <td>9907735554097265</td>
+      <td>0</td>
+      <td>39633118788845681</td>
+      <td>1.755003e+09</td>
+      <td>...</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>246.389592</td>
+      <td>42.535821</td>
+      <td>229.905864</td>
+      <td>62.726965</td>
+      <td>67.083070</td>
+      <td>44.272462</td>
+      <td>9907735624024967</td>
+      <td>0</td>
+      <td>39633123264168839</td>
+      <td>1.944502e+09</td>
+      <td>...</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>236.671450</td>
+      <td>43.822509</td>
+      <td>215.007766</td>
+      <td>61.054466</td>
+      <td>70.111679</td>
+      <td>51.177901</td>
+      <td>9907735967303103</td>
+      <td>0</td>
+      <td>39633145233933759</td>
+      <td>1.773469e+09</td>
+      <td>...</td>
+      <td>4</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>105.172707</td>
+      <td>37.469276</td>
+      <td>102.400286</td>
+      <td>14.680855</td>
+      <td>179.336210</td>
+      <td>17.812439</td>
+      <td>9907734145930083</td>
+      <td>0</td>
+      <td>39633028665840483</td>
+      <td>6.863519e+08</td>
+      <td>...</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>35.063665</td>
+      <td>31.741978</td>
+      <td>43.367672</td>
+      <td>16.758918</td>
+      <td>144.163051</td>
+      <td>-27.442035</td>
+      <td>9908831851187516</td>
+      <td>0</td>
+      <td>39628515011726652</td>
+      <td>4.114833e+09</td>
+      <td>...</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>bright</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>223.809845</td>
+      <td>51.450974</td>
+      <td>190.668573</td>
+      <td>62.766000</td>
+      <td>87.612654</td>
+      <td>56.332478</td>
+      <td>0</td>
+      <td>0</td>
+      <td>103629495205925</td>
+      <td>0.000000e+00</td>
+      <td>...</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>other</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>215.596982</td>
+      <td>-0.314552</td>
+      <td>213.403469</td>
+      <td>13.090971</td>
+      <td>345.187348</td>
+      <td>54.915696</td>
+      <td>9906621379381907</td>
+      <td>0</td>
+      <td>39627782304565907</td>
+      <td>5.539507e+09</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>252.094742</td>
+      <td>35.808901</td>
+      <td>242.318942</td>
+      <td>57.539988</td>
+      <td>58.377286</td>
+      <td>39.492497</td>
+      <td>9907733645495526</td>
+      <td>0</td>
+      <td>39632996638133478</td>
+      <td>2.333773e+10</td>
+      <td>...</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>37.671985</td>
+      <td>-5.204702</td>
+      <td>33.529156</td>
+      <td>-18.985210</td>
+      <td>174.514278</td>
+      <td>-57.764533</td>
+      <td>9906619446987408</td>
+      <td>0</td>
+      <td>39627658631318160</td>
+      <td>1.099502e+10</td>
+      <td>...</td>
+      <td>5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>290.809628</td>
+      <td>65.435088</td>
+      <td>2.030837</td>
+      <td>81.501439</td>
+      <td>96.702393</td>
+      <td>21.317720</td>
+      <td>9907740713813442</td>
+      <td>0</td>
+      <td>39633449010595266</td>
+      <td>1.048126e+11</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>special</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>250.656808</td>
+      <td>29.817542</td>
+      <td>242.553090</td>
+      <td>51.429713</td>
+      <td>50.448312</td>
+      <td>39.660133</td>
+      <td>9906632226311540</td>
+      <td>1311464449903517696</td>
+      <td>39628476508015988</td>
+      <td>1.093836e+13</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>special</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>251.681733</td>
+      <td>33.806207</td>
+      <td>242.534269</td>
+      <td>55.512266</td>
+      <td>55.744883</td>
+      <td>39.534641</td>
+      <td>9907733023952884</td>
+      <td>0</td>
+      <td>39632956859355124</td>
+      <td>4.726711e+09</td>
+      <td>...</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>148.396837</td>
+      <td>31.611834</td>
+      <td>139.570119</td>
+      <td>17.661359</td>
+      <td>195.321164</td>
+      <td>51.255982</td>
+      <td>9906632772747393</td>
+      <td>0</td>
+      <td>39628511480119425</td>
+      <td>1.512640e+10</td>
+      <td>...</td>
+      <td>5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>215.101362</td>
+      <td>0.136263</td>
+      <td>212.769126</td>
+      <td>13.350835</td>
+      <td>344.962235</td>
+      <td>55.573270</td>
+      <td>9906621567994343</td>
+      <td>0</td>
+      <td>39627794375772647</td>
+      <td>7.878714e+10</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>214.032743</td>
+      <td>52.679870</td>
+      <td>179.426677</td>
+      <td>59.837767</td>
+      <td>96.982909</td>
+      <td>59.970968</td>
+      <td>9907738229869861</td>
+      <td>0</td>
+      <td>39633290038086949</td>
+      <td>1.258192e+10</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>223.642991</td>
+      <td>-6.723889</td>
+      <td>223.223205</td>
+      <td>9.509989</td>
+      <td>348.791524</td>
+      <td>44.906136</td>
+      <td>9906618931941929</td>
+      <td>0</td>
+      <td>39627625668284969</td>
+      <td>3.695843e+10</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>special</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>160.824032</td>
+      <td>80.030582</td>
+      <td>110.220128</td>
+      <td>61.764254</td>
+      <td>129.403009</td>
+      <td>35.430341</td>
+      <td>9907742334059957</td>
+      <td>1133095866849521536</td>
+      <td>39633552706373045</td>
+      <td>4.210843e+14</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>backup</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>149.126092</td>
+      <td>2.692112</td>
+      <td>150.302767</td>
+      <td>-9.253401</td>
+      <td>235.522588</td>
+      <td>41.588881</td>
+      <td>0</td>
+      <td>0</td>
+      <td>243347159515183</td>
+      <td>0.000000e+00</td>
+      <td>...</td>
+      <td>5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>other</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+  </tbody>
+</table>
+<p>50 rows × 211 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Avoid warnings about invalid values in np.log10().</span>
@@ -15585,6 +17803,34 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,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
+"
+class="
+jp-needs-light-background
+"
+>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15618,12 +17864,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT t.nexp, f.tileid, q1.targetid, q1.n_assign</span>
@@ -15640,6 +17886,133 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nexp</th>
+      <th>tileid</th>
+      <th>targetid</th>
+      <th>n_assign</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7</td>
+      <td>80856</td>
+      <td>6432023904256</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>7</td>
+      <td>80856</td>
+      <td>6448025174016</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>80875</td>
+      <td>6515536691200</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>80876</td>
+      <td>6515536691200</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>80889</td>
+      <td>6521555517440</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>3</td>
+      <td>80715</td>
+      <td>28684329156667</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>3</td>
+      <td>80715</td>
+      <td>28684333350912</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>3</td>
+      <td>80715</td>
+      <td>28684333350916</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>3</td>
+      <td>80715</td>
+      <td>28684333350917</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>3</td>
+      <td>80715</td>
+      <td>28684333350925</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15654,12 +18027,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q3</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT z.* FROM desi_edr.zpix AS z</span>
@@ -15672,6 +18045,289 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>elon</th>
+      <th>elat</th>
+      <th>glon</th>
+      <th>glat</th>
+      <th>z</th>
+      <th>zerr</th>
+      <th>chi2</th>
+      <th>coeff_0</th>
+      <th>coeff_1</th>
+      <th>...</th>
+      <th>coadd_numnight</th>
+      <th>coadd_numtile</th>
+      <th>sv_nspec</th>
+      <th>main_nspec</th>
+      <th>zcat_nspec</th>
+      <th>spgrp</th>
+      <th>subtype</th>
+      <th>program</th>
+      <th>spectype</th>
+      <th>survey</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>237684487598133251433784410112</td>
+      <td>167.730104</td>
+      <td>25.008653</td>
+      <td>207.210127</td>
+      <td>78.086246</td>
+      <td>-0.001996</td>
+      <td>4.131149e-48</td>
+      <td>9.000000e+99</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>CV</td>
+      <td>dark</td>
+      <td>STAR</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>237684487598133251449785679872</td>
+      <td>167.111587</td>
+      <td>25.566486</td>
+      <td>203.657986</td>
+      <td>77.813752</td>
+      <td>0.022191</td>
+      <td>9.449554e-06</td>
+      <td>8.750537e+03</td>
+      <td>-50.889806</td>
+      <td>-75.544294</td>
+      <td>...</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>237684487598133251517297197056</td>
+      <td>134.942701</td>
+      <td>16.270087</td>
+      <td>194.248493</td>
+      <td>46.670288</td>
+      <td>0.536407</td>
+      <td>9.685293e-05</td>
+      <td>8.898141e+03</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>237684487598133251523316023296</td>
+      <td>187.929756</td>
+      <td>38.738369</td>
+      <td>62.348442</td>
+      <td>78.947916</td>
+      <td>0.010018</td>
+      <td>1.945738e-05</td>
+      <td>8.524950e+03</td>
+      <td>147.422851</td>
+      <td>448.971083</td>
+      <td>...</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>237684487598133251538398740480</td>
+      <td>171.051217</td>
+      <td>32.285289</td>
+      <td>166.261505</td>
+      <td>81.928293</td>
+      <td>0.076412</td>
+      <td>9.202725e-06</td>
+      <td>8.079056e+03</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>237684487598133251547793981440</td>
+      <td>125.943924</td>
+      <td>14.897709</td>
+      <td>190.679506</td>
+      <td>38.296622</td>
+      <td>1.040803</td>
+      <td>1.445926e-04</td>
+      <td>9.177329e+03</td>
+      <td>152.471145</td>
+      <td>81.142716</td>
+      <td>...</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>316912650112397611279616835587</td>
+      <td>26.481537</td>
+      <td>33.672771</td>
+      <td>119.915621</td>
+      <td>-21.765709</td>
+      <td>-0.000515</td>
+      <td>3.859789e-06</td>
+      <td>9.021039e+03</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>G</td>
+      <td>other</td>
+      <td>STAR</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>316912650112397611279616835588</td>
+      <td>26.320239</td>
+      <td>33.653706</td>
+      <td>119.792606</td>
+      <td>-21.838792</td>
+      <td>0.188360</td>
+      <td>2.404085e-05</td>
+      <td>9.444794e+03</td>
+      <td>74.557410</td>
+      <td>-8.310338</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>other</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>316912650112397611279621029889</td>
+      <td>26.651447</td>
+      <td>33.535369</td>
+      <td>120.115906</td>
+      <td>-21.831460</td>
+      <td>0.080796</td>
+      <td>1.011449e-05</td>
+      <td>1.105564e+04</td>
+      <td>0.000017</td>
+      <td>0.000117</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>other</td>
+      <td>GALAXY</td>
+      <td>sv1</td>
+    </tr>
+  </tbody>
+</table>
+<p>9 rows × 108 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15710,12 +18366,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT z.targetid, z.spgrp, z.spgrpval, z.tileid, z.z, z.zwarn, z.spectype,</span>
@@ -15732,6 +18388,864 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>targetid</th>
+      <th>spgrp</th>
+      <th>spgrpval</th>
+      <th>tileid</th>
+      <th>z</th>
+      <th>zwarn</th>
+      <th>spectype</th>
+      <th>sv1_desi_target</th>
+      <th>sv1_bgs_target</th>
+      <th>sv1_mws_target</th>
+      <th>sv1_scnd_target</th>
+      <th>ra</th>
+      <th>dec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>39628473198708395</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>-0.001996</td>
+      <td>1570</td>
+      <td>STAR</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.661968</td>
+      <td>29.847589</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>39628473198709499</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.797663</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.711764</td>
+      <td>29.843727</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>39628473198710139</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>1.331505</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.742629</td>
+      <td>29.874941</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>39628473198710603</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.804206</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.764862</td>
+      <td>29.832379</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>39628473198711006</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>-0.000066</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.786493</td>
+      <td>29.866736</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>39628473198711342</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>-0.001996</td>
+      <td>1570</td>
+      <td>STAR</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.802207</td>
+      <td>29.832150</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>39628473198711925</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.390724</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.832176</td>
+      <td>29.858176</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>39628473202901028</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.665800</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.866668</td>
+      <td>29.816397</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>39628473202901626</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.328420</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.898508</td>
+      <td>29.849485</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>39628473202901945</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.354993</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.915474</td>
+      <td>29.800489</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>39628473202902554</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.446136</td>
+      <td>4</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.945875</td>
+      <td>29.828361</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>39628473202902855</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.426333</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.962939</td>
+      <td>29.856571</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>39628473202903445</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>1.072484</td>
+      <td>4</td>
+      <td>QSO</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.992034</td>
+      <td>29.781983</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>39628473202903539</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>-0.001996</td>
+      <td>1570</td>
+      <td>STAR</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.997646</td>
+      <td>29.829829</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>39628473202904338</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.803378</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.035952</td>
+      <td>29.777246</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>39628473202904408</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.180412</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.040105</td>
+      <td>29.813363</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>39628473202904812</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.366612</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.060433</td>
+      <td>29.856296</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>39628473202905021</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>2.628380</td>
+      <td>0</td>
+      <td>QSO</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.072085</td>
+      <td>29.810925</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>39628473202905859</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>1.461291</td>
+      <td>0</td>
+      <td>QSO</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.120100</td>
+      <td>29.841204</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>39628473202905921</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.637402</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.123803</td>
+      <td>29.810711</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>39628473207095521</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>-0.001996</td>
+      <td>1570</td>
+      <td>STAR</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.163411</td>
+      <td>29.792167</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>39628473207095768</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>1.201631</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.177294</td>
+      <td>29.866013</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>39628473207096174</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.276563</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.203172</td>
+      <td>29.814261</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>39628473207096679</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.124111</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.231458</td>
+      <td>29.851010</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>39628473207096966</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.791638</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.243954</td>
+      <td>29.810004</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>39628473207097483</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>-0.000154</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.273445</td>
+      <td>29.841347</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>39628473207098289</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>1.537758</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.315650</td>
+      <td>29.831419</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>39628473207099458</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.923646</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.380316</td>
+      <td>29.825229</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>39628473207099813</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>2.750655</td>
+      <td>0</td>
+      <td>QSO</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.400542</td>
+      <td>29.866827</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>39628473211289672</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>-0.000031</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.442995</td>
+      <td>29.862519</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>39628473211290703</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.278455</td>
+      <td>4</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.499172</td>
+      <td>29.845274</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>39628473211291893</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>1.281645</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24.564532</td>
+      <td>29.866708</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>39628478437395957</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.710001</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>22.919147</td>
+      <td>30.112157</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>39628478437396548</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.911259</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>22.947846</td>
+      <td>30.086878</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>39628478437396964</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>1.557446</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>22.967058</td>
+      <td>30.122160</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>39628478437397782</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>-0.001996</td>
+      <td>1570</td>
+      <td>STAR</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.004779</td>
+      <td>30.119407</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>39628478437397787</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.637945</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.005128</td>
+      <td>30.076079</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>39628478437398199</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>1.092081</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.022884</td>
+      <td>30.057827</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>39628478441586967</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>1.263782</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.049828</td>
+      <td>30.085662</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>39628478441587286</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>1.148019</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.063902</td>
+      <td>30.013538</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>39628478441587305</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>1.478491</td>
+      <td>4</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.064515</td>
+      <td>30.059540</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>39628478441587925</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.807636</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.096124</td>
+      <td>30.029930</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>39628478441588210</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.810335</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.112757</td>
+      <td>30.075054</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>39628478441588700</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>-0.000208</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.140743</td>
+      <td>30.111072</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>39628478441588796</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>-0.001996</td>
+      <td>1570</td>
+      <td>STAR</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.145983</td>
+      <td>30.000356</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>39628478441589092</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>0.710342</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.163069</td>
+      <td>30.039423</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>39628478441589318</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>-0.001996</td>
+      <td>1570</td>
+      <td>STAR</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.175503</td>
+      <td>29.981248</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>39628478441589462</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>1.133404</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.183903</td>
+      <td>30.017811</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>39628478441589730</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>1.624260</td>
+      <td>0</td>
+      <td>QSO</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.198635</td>
+      <td>30.038921</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>39628478441589944</td>
+      <td>cumulative</td>
+      <td>20201216</td>
+      <td>80615</td>
+      <td>-0.000594</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23.210320</td>
+      <td>29.989624</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15754,12 +19268,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT z.targetid, z.survey, z.program, z.healpix, z.z, z.zwarn, z.spectype,</span>
@@ -15777,6 +19291,864 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>targetid</th>
+      <th>survey</th>
+      <th>program</th>
+      <th>healpix</th>
+      <th>z</th>
+      <th>zwarn</th>
+      <th>spectype</th>
+      <th>sv1_desi_target</th>
+      <th>sv1_bgs_target</th>
+      <th>sv1_mws_target</th>
+      <th>sv1_scnd_target</th>
+      <th>ra</th>
+      <th>dec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6432023904256</td>
+      <td>sv1</td>
+      <td>dark</td>
+      <td>28473</td>
+      <td>-0.001996</td>
+      <td>1570</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>179.444160</td>
+      <td>27.658900</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6448025174016</td>
+      <td>sv1</td>
+      <td>dark</td>
+      <td>28478</td>
+      <td>0.022191</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>179.156570</td>
+      <td>28.423480</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6515536691200</td>
+      <td>sv1</td>
+      <td>dark</td>
+      <td>4958</td>
+      <td>0.536407</td>
+      <td>4</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>142.948110</td>
+      <td>31.824780</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6521555517440</td>
+      <td>sv1</td>
+      <td>dark</td>
+      <td>10436</td>
+      <td>0.010018</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>204.227490</td>
+      <td>32.094930</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6536638234624</td>
+      <td>sv1</td>
+      <td>dark</td>
+      <td>28534</td>
+      <td>0.076412</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>186.274119</td>
+      <td>32.845030</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6546033475584</td>
+      <td>sv1</td>
+      <td>dark</td>
+      <td>5066</td>
+      <td>1.040803</td>
+      <td>4</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>132.662110</td>
+      <td>33.167730</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>28684312379395</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2708</td>
+      <td>-0.000515</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.145797</td>
+      <td>41.019015</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>28684312379396</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2707</td>
+      <td>0.188360</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.000947</td>
+      <td>40.938849</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>28684316573697</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2708</td>
+      <td>0.080796</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.396960</td>
+      <td>40.964540</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>28688884170754</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2710</td>
+      <td>0.190204</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.132197</td>
+      <td>41.194937</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>28688892559361</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2708</td>
+      <td>-0.001996</td>
+      <td>1570</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.737247</td>
+      <td>41.174557</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>28697985810432</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2710</td>
+      <td>-0.000661</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.701920</td>
+      <td>41.660400</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>28697985810433</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2710</td>
+      <td>-0.000736</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.754500</td>
+      <td>41.853100</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>28697985810435</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2708</td>
+      <td>-0.000632</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.746464</td>
+      <td>41.674257</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>28697985810436</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2710</td>
+      <td>-0.000212</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.746618</td>
+      <td>41.732929</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>28697990004742</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2709</td>
+      <td>-0.000809</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>10.108960</td>
+      <td>41.701179</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>28697990004751</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2709</td>
+      <td>0.327933</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>10.214068</td>
+      <td>41.713087</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>28702494687232</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2710</td>
+      <td>-0.000707</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.020731</td>
+      <td>42.035921</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>28702498881536</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2710</td>
+      <td>0.177985</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.130960</td>
+      <td>42.106829</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>28702498881537</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2710</td>
+      <td>-0.000012</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.370577</td>
+      <td>41.917418</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>28702503075840</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2710</td>
+      <td>-0.000696</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.410235</td>
+      <td>41.999801</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>28702503075842</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2711</td>
+      <td>-0.000192</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.505639</td>
+      <td>42.068479</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>28702503075844</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2711</td>
+      <td>0.186443</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.503327</td>
+      <td>42.049299</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>28702503075846</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2711</td>
+      <td>0.209550</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.681377</td>
+      <td>41.977418</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>28702507270145</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2711</td>
+      <td>-0.000084</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.849339</td>
+      <td>42.027037</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>28706999369728</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2710</td>
+      <td>-0.001025</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>8.961420</td>
+      <td>42.351200</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>28707011952640</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2711</td>
+      <td>1.644458</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>9.905868</td>
+      <td>42.165637</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>28707016146946</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2709</td>
+      <td>-0.000955</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>64</td>
+      <td>10.201985</td>
+      <td>42.203071</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>33073160781824</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2707</td>
+      <td>1.475723</td>
+      <td>0</td>
+      <td>QSO</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>8.525918</td>
+      <td>40.538198</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>33077761933314</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2707</td>
+      <td>1.282019</td>
+      <td>0</td>
+      <td>QSO</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>8.483345</td>
+      <td>40.828592</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>33077766127617</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2707</td>
+      <td>1.849891</td>
+      <td>0</td>
+      <td>QSO</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>8.777863</td>
+      <td>40.667628</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>33082350501888</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2707</td>
+      <td>0.776289</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>8.349929</td>
+      <td>40.979377</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>33082358890497</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2705</td>
+      <td>0.999894</td>
+      <td>0</td>
+      <td>QSO</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>9.210283</td>
+      <td>40.914323</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>33086922293248</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2707</td>
+      <td>0.829465</td>
+      <td>0</td>
+      <td>QSO</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>8.388505</td>
+      <td>41.304471</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>33096028127234</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2710</td>
+      <td>1.807016</td>
+      <td>0</td>
+      <td>QSO</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>9.668727</td>
+      <td>41.779170</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>33096036515840</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2709</td>
+      <td>-0.001996</td>
+      <td>1570</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>10.159119</td>
+      <td>41.683173</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>33100549586944</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2710</td>
+      <td>-0.001996</td>
+      <td>1570</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>9.394604</td>
+      <td>42.083013</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>33100549586946</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2710</td>
+      <td>-0.001996</td>
+      <td>1570</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>9.465091</td>
+      <td>41.910208</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>33100553781249</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2711</td>
+      <td>1.486478</td>
+      <td>0</td>
+      <td>QSO</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>9.723905</td>
+      <td>41.888867</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>33100557975552</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2709</td>
+      <td>0.727178</td>
+      <td>0</td>
+      <td>QSO</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>10.078311</td>
+      <td>41.920681</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>33105050075137</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2711</td>
+      <td>1.003158</td>
+      <td>0</td>
+      <td>QSO</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>9.387771</td>
+      <td>42.273495</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>33105054269440</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2711</td>
+      <td>-0.001996</td>
+      <td>1570</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>9.468135</td>
+      <td>42.266941</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>33105054269442</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2711</td>
+      <td>1.008682</td>
+      <td>0</td>
+      <td>QSO</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>9.669034</td>
+      <td>42.296304</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>33109546369024</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2711</td>
+      <td>-0.001996</td>
+      <td>1570</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>9.882490</td>
+      <td>42.528083</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>33109550563330</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2752</td>
+      <td>-0.000073</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>10.315925</td>
+      <td>42.544309</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>33109550563331</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2752</td>
+      <td>0.940640</td>
+      <td>0</td>
+      <td>QSO</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>10.375951</td>
+      <td>42.603140</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>33113996525568</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2711</td>
+      <td>-0.001996</td>
+      <td>1570</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>9.105334</td>
+      <td>42.675480</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>33118459265026</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2752</td>
+      <td>-0.000388</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>128</td>
+      <td>10.550720</td>
+      <td>42.927480</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>37471203098625</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2707</td>
+      <td>0.329982</td>
+      <td>0</td>
+      <td>GALAXY</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>256</td>
+      <td>8.345726</td>
+      <td>40.548579</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>37471203098627</td>
+      <td>sv1</td>
+      <td>other</td>
+      <td>2707</td>
+      <td>-0.000545</td>
+      <td>0</td>
+      <td>STAR</td>
+      <td>4611686018427387904</td>
+      <td>0</td>
+      <td>0</td>
+      <td>256</td>
+      <td>8.334226</td>
+      <td>40.592965</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15791,12 +20163,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;SELECT e.night, COUNT(e.expid) AS n_exp FROM desi_edr.exposure AS e GROUP BY e.night ORDER BY e.night;&quot;</span>
@@ -15807,6 +20179,109 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>night</th>
+      <th>n_exp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20201214</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>20201215</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>20201216</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20201217</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20201218</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>20210517</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>20210518</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>20210521</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>20210529</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>20210610</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>108 rows × 2 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15823,12 +20298,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;SELECT e.expid, e.mjd, e.date_obs FROM desi_edr.exposure AS e WHERE e.night = 20210428 ORDER BY e.expid;&quot;</span>
@@ -15839,6 +20314,138 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>expid</th>
+      <th>mjd</th>
+      <th>date_obs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>86493</td>
+      <td>59333.216755</td>
+      <td>2021-04-28 22:12:07.607808-07</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>86494</td>
+      <td>59333.223580</td>
+      <td>2021-04-28 22:21:57.3336-07</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>86495</td>
+      <td>59333.231531</td>
+      <td>2021-04-28 22:33:24.31296-07</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>86503</td>
+      <td>59333.309867</td>
+      <td>2021-04-29 00:26:12.514848-07</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>86504</td>
+      <td>59333.327059</td>
+      <td>2021-04-29 00:50:57.902784-07</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>86505</td>
+      <td>59333.331919</td>
+      <td>2021-04-29 00:57:57.783456-07</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>86507</td>
+      <td>59333.379902</td>
+      <td>2021-04-29 02:07:03.564768-07</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>86508</td>
+      <td>59333.386287</td>
+      <td>2021-04-29 02:16:15.176064-07</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>86509</td>
+      <td>59333.392383</td>
+      <td>2021-04-29 02:25:01.863552-07</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>86511</td>
+      <td>59333.402576</td>
+      <td>2021-04-29 02:39:42.52752-07</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>86513</td>
+      <td>59333.429092</td>
+      <td>2021-04-29 03:17:53.590272-07</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>86514</td>
+      <td>59333.442688</td>
+      <td>2021-04-29 03:37:28.246656-07</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>86515</td>
+      <td>59333.453164</td>
+      <td>2021-04-29 03:52:33.34368-07</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>86518</td>
+      <td>59333.464026</td>
+      <td>2021-04-29 04:08:11.809248-07</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15855,12 +20462,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;SELECT COUNT(*) AS n_targets FROM desi_edr.target;&quot;</span>
@@ -15871,6 +20478,56 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>n_targets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>16460561</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15890,12 +20547,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -15928,6 +20585,28 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>CPU times: user 7.65 s, sys: 5.16 s, total: 12.8 s
+Wall time: 1min 50s
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15945,7 +20624,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ii</span> <span class="o">=</span> <span class="n">unique_expid</span><span class="o">.</span><span class="n">argsort</span><span class="p">()</span>
@@ -15970,12 +20649,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">min_mjd</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mjd</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">//</span><span class="mi">10</span><span class="p">)</span>
@@ -15984,7 +20663,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="n">foo</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MJD - </span><span class="si">{</span><span class="n">min_mjd</span><span class="si">:</span><span class="s1">d</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">foo</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction completed&#39;</span><span class="p">)</span>
 <span class="n">foo</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">foo</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">night_exposures</span><span class="p">[</span><span class="s1">&#39;night&#39;</span><span class="p">],</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span> <span class="n">night_exposures</span><span class="p">[</span><span class="s1">&#39;n_exp&#39;</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>   
+<span class="n">foo</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">night_exposures</span><span class="p">[</span><span class="s1">&#39;night&#39;</span><span class="p">],</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span> <span class="n">night_exposures</span><span class="p">[</span><span class="s1">&#39;n_exp&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>   
 <span class="n">foo</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
 <span class="n">foo</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Exposures&#39;</span><span class="p">)</span>
 </pre></div>
@@ -15992,6 +20671,34 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output ">
+<img src="data:image/png;base64,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
+"
+class="
+jp-needs-light-background
+"
+>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -16024,12 +20731,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT p.*, z.*, q3c_dist(p.ra, p.dec, 180.0, 0.0) AS radial_distance</span>
@@ -16042,6 +20749,265 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ra</th>
+      <th>dec</th>
+      <th>elon</th>
+      <th>elat</th>
+      <th>glon</th>
+      <th>glat</th>
+      <th>ls_id</th>
+      <th>ref_id</th>
+      <th>targetid</th>
+      <th>ra_ivar</th>
+      <th>...</th>
+      <th>coadd_numtile</th>
+      <th>sv_nspec</th>
+      <th>main_nspec</th>
+      <th>zcat_nspec</th>
+      <th>spgrp</th>
+      <th>subtype</th>
+      <th>program</th>
+      <th>spectype</th>
+      <th>survey</th>
+      <th>radial_distance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>179.995221</td>
+      <td>-0.014803</td>
+      <td>180.001510</td>
+      <td>-0.015482</td>
+      <td>276.340328</td>
+      <td>60.173070</td>
+      <td>9906621464385242</td>
+      <td>3602879637472757504</td>
+      <td>39627787744581338</td>
+      <td>6.673339e+11</td>
+      <td>...</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>QSO</td>
+      <td>sv1</td>
+      <td>0.015555</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>179.995221</td>
+      <td>-0.014803</td>
+      <td>180.001510</td>
+      <td>-0.015482</td>
+      <td>276.340328</td>
+      <td>60.173070</td>
+      <td>9906621464385242</td>
+      <td>3602879637472757504</td>
+      <td>39627787744581338</td>
+      <td>6.673339e+11</td>
+      <td>...</td>
+      <td>4</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>QSO</td>
+      <td>sv3</td>
+      <td>0.015555</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>179.998583</td>
+      <td>-0.016184</td>
+      <td>180.005144</td>
+      <td>-0.015412</td>
+      <td>276.347634</td>
+      <td>60.173143</td>
+      <td>9906621464385323</td>
+      <td>0</td>
+      <td>39627787744581419</td>
+      <td>2.511551e+12</td>
+      <td>...</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>bright</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+      <td>0.016246</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>179.985112</td>
+      <td>-0.004522</td>
+      <td>179.988146</td>
+      <td>-0.010071</td>
+      <td>276.313447</td>
+      <td>60.178470</td>
+      <td>9906621464384989</td>
+      <td>3795033274544636416</td>
+      <td>2305843037487501690</td>
+      <td>3.458816e+14</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>K</td>
+      <td>backup</td>
+      <td>STAR</td>
+      <td>sv3</td>
+      <td>0.015560</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>179.983454</td>
+      <td>-0.001613</td>
+      <td>179.985468</td>
+      <td>-0.008061</td>
+      <td>276.308058</td>
+      <td>60.180477</td>
+      <td>9906621464384944</td>
+      <td>0</td>
+      <td>39627787744581040</td>
+      <td>2.029722e+12</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>bright</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+      <td>0.016624</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>179.984545</td>
+      <td>-0.001041</td>
+      <td>179.986241</td>
+      <td>-0.007102</td>
+      <td>276.309610</td>
+      <td>60.181437</td>
+      <td>9906621464384972</td>
+      <td>3795033278840733568</td>
+      <td>39627787744581068</td>
+      <td>2.056779e+15</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>CV</td>
+      <td>bright</td>
+      <td>STAR</td>
+      <td>sv3</td>
+      <td>0.015490</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>179.998280</td>
+      <td>-0.002114</td>
+      <td>179.999270</td>
+      <td>-0.002624</td>
+      <td>276.335805</td>
+      <td>60.185927</td>
+      <td>9906621464385312</td>
+      <td>0</td>
+      <td>39627787744581408</td>
+      <td>6.774052e+11</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>bright</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+      <td>0.002726</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>180.005827</td>
+      <td>0.001174</td>
+      <td>180.004886</td>
+      <td>0.003395</td>
+      <td>276.347093</td>
+      <td>60.191950</td>
+      <td>9906621464445095</td>
+      <td>0</td>
+      <td>39627787748769959</td>
+      <td>4.643853e+09</td>
+      <td>...</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>healpix</td>
+      <td>NaN</td>
+      <td>dark</td>
+      <td>GALAXY</td>
+      <td>sv3</td>
+      <td>0.005944</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 212 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -16074,22 +21040,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 </body>
 
