@@ -1,4 +1,4 @@
-__version__ = '20210527'
+__version__ = '20230619'
 __author__ = 'Robert Nikutta <robert.nikutta@noirlab.edu>'
 
 # imports
@@ -17,6 +17,8 @@ pprint = pp.pprint
 # third party
 import nbformat
 from nbconvert.preprocessors import ExecutePreprocessor
+from nbclient.exceptions import DeadKernelError
+from jupyter_client.kernelspec import NoSuchKernel
 import pandas as pd
 pd.set_option('max_colwidth', 800)
 
@@ -313,24 +315,33 @@ def run(paths,include=('/**/*.ipynb',),exclude=('/**/*_tested.ipynb',),plain=Fal
         print('TESTING NOTEBOOK %d/%d: %s' % (j+1,len(nbs),nbfile))
 
         kernel = get_kernel_name(nbfile)
-        nbpath, nb, errors = run_notebook(nbfile,kernel=kernel)
-            
+        
+        # run NB; trap when the kernel died (likely due to RAM exhaustion), or if kernel is not present
         try:
-            assert errors == []
-        except:
-            for e in errors:
-                traceback = e.pop('traceback')
-                for _ in traceback:
-                    if plain is True:
-                        _ = ansi_escape.sub('', _)
-                    print(_)
-                print()
-
-            cprint('TEST FAILURES ENCOUNTERED IN NOTEBOOK EXECUTION','red')
+            nbpath, nb, errors = run_notebook(nbfile,kernel=kernel)
+        except DeadKernelError:
+            cprint('KERNEL DIED (LIKELY RAM EXHAUSTED)','red')
+            test = 'FAIL'
+        except NoSuchKernel:
+            cprint('REQUIRED KERNEL NOT PRESENT','red')
             test = 'FAIL'
         else:
-            cprint('NOTEBOOK EXECUTED WITHOUT ERRORS','green')
-            test = 'PASS'
+            try:
+                assert errors == []
+            except:
+                for e in errors:
+                    traceback = e.pop('traceback')
+                    for _ in traceback:
+                        if plain is True:
+                            _ = ansi_escape.sub('', _)
+                        print(_)
+                    print()
+
+                cprint('TEST FAILURES ENCOUNTERED IN NOTEBOOK EXECUTION','red')
+                test = 'FAIL'
+            else:
+                cprint('NOTEBOOK EXECUTED WITHOUT ERRORS','green')
+                test = 'PASS'
         
         stop = time.time()
         duration = stop-start
