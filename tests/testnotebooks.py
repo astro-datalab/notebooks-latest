@@ -325,6 +325,9 @@ def run(paths,include=('/**/*.ipynb',),exclude=('/**/*_tested.ipynb',),plain=Fal
         except NoSuchKernel:
             cprint('REQUIRED KERNEL NOT PRESENT','red')
             test = 'FAIL'
+        except Exception as e:
+            cprint('AN EXCEPTION OCCURRED: %e' % e,'red')
+            test = 'FAIL'
         else:
             try:
                 assert errors == []
