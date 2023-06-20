@@ -1,4 +1,4 @@
-__version__ = '20230619'
+__version__ = '20230620'
 __author__ = 'Robert Nikutta <robert.nikutta@noirlab.edu>'
 
 # imports
@@ -326,7 +326,7 @@ def run(paths,include=('/**/*.ipynb',),exclude=('/**/*_tested.ipynb',),plain=Fal
             cprint('REQUIRED KERNEL NOT PRESENT','red')
             test = 'FAIL'
         except Exception as e:
-            cprint('AN EXCEPTION OCCURRED: %e' % e,'red')
+            cprint('AN EXCEPTION OCCURRED: %s' % e,'red')
             test = 'FAIL'
         else:
             try:
