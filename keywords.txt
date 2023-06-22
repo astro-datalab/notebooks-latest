@@ -55,6 +55,7 @@ SDSS
 sdss spectra
 SIA
 SMC
+sparcl
 spectra
 spectra stacking
 spectroscopic redshift
