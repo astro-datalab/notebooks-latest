@@ -132,13 +132,18 @@ functionality is shown for the full set of keywords and options for
 the following:
 
 - AuthClient: authenticating with the Data Lab
-- CrossmatchTables: crossmatching a user-provided table against a table hosted by Data Lab, and using pre-crossmatched tables
-- DataReduction: showing how to perform GMOS imaging data reduction and GMOS longslit spectroscopy data reduction using the Gemini DRAGONS and Gemini Pyraf packages
-- FileService: using files rather than database tables, including spectra from SDSS/BOSS
-- QueryClient: sending queries to the databases and retrieving results
-- SPARCL: discovering, retrieving, analyzing, and plotting spectra (SDSS, BOSS, DESI) using the SPARCL service
-- SiaService: obtaining cutouts using a Simple Image Access service
-- StoreClient: storing data in virtual storage (VOSpace or MyDB)
+- CrossmatchTables: crossmatching a user-provided table against a table
+		    hosted by Data Lab, and using pre-crossmatched tables.
+- DataReduction: showing how to perform GMOS imaging data reduction and GMOS
+		 longslit spectroscopy data reduction using the Gemini DRAGONS
+		 and Gemini Pyraf packages.
+- FileService: using files rather than database tables, including spectra from
+	       SDSS/BOSS.
+- QueryClient: sending queries to the databases and retrieving results.
+- SPARCL: discovering, retrieving, analyzing, and plotting spectra (SDSS, BOSS,
+	  DESI) using the SPARCL service.
+- SiaService: obtaining cutouts using a Simple Image Access service.
+- StoreClient: storing data in virtual storage (VOSpace or MyDB).
 
 The How-To notebooks are located here:
 
@@ -154,7 +159,8 @@ Data Lab, including ANTARES example notebooks. Please see
 
 The "06_EPO/" directory provides "Education and Public Outreach"
 notebooks, aimed at school students and teachers interested in
-astronomical research and in teaching astronomy. The currently three sub-directories contain:
+astronomical research and in teaching astronomy. The currently three
+sub-directories contain:
 
 - TeenAstronomyCafe: notebooks originally developed for the
   "TeenAstronomy Café" activities organized jointly by the LSST and
