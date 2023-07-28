@@ -15111,7 +15111,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Knut Olsen &lt;knut.olsen@noirlab.edu&gt;, Robert Nikutta &lt;robert.nikutta@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230710&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230726&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;smash_dr1&#39;</span><span class="p">,</span> <span class="s1">&#39;des_dr1&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tutorial&#39;</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="s1">&#39;image cutout&#39;</span><span class="p">,</span> <span class="s1">&#39;globular cluster&#39;</span><span class="p">,</span> <span class="s1">&#39;SIA&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15165,8 +15165,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <p><a class="anchor" id="goals"></a></p>
 <h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><p>Learn how to:</p>
 <ul>
-<li>Import standard Astro Data Lab modules</li>
-<li>Set up the Simple Image Access (SIA) service to let you create image cutouts</li>
+<li>Import standard Data Lab modules</li>
+<li>Set up the Simple Image Access (SIA) Service to let you create image cutouts</li>
 <li>Discover the datasets available in the database</li>
 <li>Issue a simple query to the database</li>
 <li>Retrieve image cutouts</li>
@@ -15184,7 +15184,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="summary"></a></p>
-<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>If you've gotten this far, you're planning to use the Astro Data Lab Jupyter notebook environment to access, explore, and analyze datasets available in the Astro Data Lab. This notebook aims to provide you with a very quick overview of how to use some common Astro Data Lab services. For more detailed explanations of data access, the full range of services, or for complete science examples, check out the other notebooks in this directory tree.</p>
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>If you've gotten this far, you're planning to use the Data Lab Jupyter notebook environment to access, explore, and analyze datasets available in the Data Lab.  This notebook aims to provide you with a very quick overview of how to use some common Data Lab services.  For more detailed explanations of data access, the full range of services, or for complete science examples, check out the other notebooks in this directory tree.</p>
 
 </div>
 </div>
@@ -15216,10 +15216,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="import"></a></p>
-<h1 id="Imports-and-setup">Imports and setup<a class="anchor-link" href="#Imports-and-setup">&#182;</a></h1><p>To use the Astro Data Lab, you'll generally want to import common packages such as NumPy and matplotlib. From the <code>datalab</code> package, you'll at minimum need the authClient module to get an authorization token (even if using Astro Data Lab anonymously) and the queryClient module to issue a query against the catalog database.</p>
-<p>For storing results in virtual storage and MyDB, you'll need the storeClient module <em>and</em> log in as an authenticated user.</p>
-<p>The helpers module has many convience functions.  See the <a href="https://datalab.noirlab.edu/docs/manual/UsingAstroDataLab/ClientInterfaces/Helpers/Helpers.html">online documentation</a> for a summary.</p>
-<p>Use of the Simple Image Access (SIA) cutout service requires the external PyVO package, and the URL of the SIA service that you will use. Astro Data Lab has a general SIA service containing all available images from <a href="https://astroarchive.noirlab.edu/">Astro Data Archive</a>, as well as a number of survey-specific services. See the <a href="https://github.com/astro-datalab/notebooks-latest/blob/master/04_HowTos/SiaService/How_to_use_the_Simple_Image_Access_service.ipynb">SIA service HowTo notebook</a> for examples.</p>
+<h1 id="Imports-and-setup">Imports and setup<a class="anchor-link" href="#Imports-and-setup">&#182;</a></h1><p>To use the Astro Data Lab, you'll generally want to import common packages such as NumPy and matplotlib.  From the datalab package, you'll at minimum need the authClient module to get an authorization token (even if using Data Lab anonymously) and the queryClient module to issue a query against the catalog database.</p>
+<p>For storing results in virtual storage and myDB, you'll need the storeClient module <em>and</em> log in as an authenticated user.</p>
+<p>The helpers module has many convience functions.  See the <a href="http://datalab.noirlab.edu/docs/manual/UsingAstroDataLab/ClientInterfaces/Helpers/Helpers.html">online documentation</a> for a summary.</p>
+<p>Use of the image cutout service (SIA) requires the external PyVO package, and the URL of the SIA service that you will use.  Data Lab has a general SIA service containing all available images from <a href="https://astroarchive.noirlab.edu/">Astro Data Archive</a>, as well as a number of survey-specific services.  See the <a href="https://github.com/astro-datalab/notebooks-latest/blob/master/04_HowTos/SiaService/How_to_use_the_Simple_Image_Access_service.ipynb">SIA service HowTo notebook</a> for examples.</p>
 
 </div>
 </div>
@@ -15273,7 +15273,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="auth"></a></p>
-<h1 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">&#182;</a></h1><p>For the purposes of this notebook, there is no need to log in with your username and password inside the notebook. As an anonymous user, you can issue queries to the database or retrieve image cutouts, but not store your results in virtual storage or myDB.  If you need these things, you would use the <em>authClient</em> module to log in.  You only need to do this once (unless you log out through authClient), as the authentication token is stored on the server and automatically detected.</p>
+<h1 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">&#182;</a></h1><p>For the purposes of this notebook, there is no need to log in with your username and password inside the notebook. As an anonymous user, you can issue queries to the database or retrieve image cutouts, but not store your results in virtual storage or myDB. If you need these things, you would use the authClient module to log in. You only need to do this once (unless you log out through authClient), as the authentication token is stored on the server and automatically detected.</p>
 <p>If you need to log in to Data Lab, un-comment the cell below and execute it:</p>
 
 </div>
@@ -15287,8 +15287,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ac.login(input(&quot;Enter user name: (+ENTER) &quot;),getpass(&quot;Enter password: (+ENTER) &quot;))</span>
-<span class="c1">#ac.whoAmI()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#token = ac.login(input(&quot;Enter user name: (+ENTER) &quot;),getpass(&quot;Enter password: (+ENTER) &quot;))</span>
+<span class="n">ac</span><span class="o">.</span><span class="n">whoAmI</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -15466,7 +15466,7 @@ ivoa_gogreen_dr1   IVOA SIA/ObsCore Tables for gogreen_dr1 images
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Get-list-of-tables">Get list of tables<a class="anchor-link" href="#Get-list-of-tables">&#182;</a></h3><p>If we call <code>qc.schema()</code> with a specific dataset name, we'll see what tables are available for that dataset. Here's what's available for SMASH DR1:</p>
+<h3 id="Get-list-of-tables">Get list of tables<a class="anchor-link" href="#Get-list-of-tables">&#182;</a></h3><p>If we call <code>qc.schema()</code> with a specific dataset name, we'll see what tables are available for that dataset.  Here's what's available for SMASH DR1:</p>
 
 </div>
 </div>
@@ -15532,7 +15532,7 @@ x1p5__object__unwise_dr1__object   smash_dr1.object and unwise_dr1.object crossm
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Get-list-of-columns">Get list of columns<a class="anchor-link" href="#Get-list-of-columns">&#182;</a></h3><p>We can also use <code>qc.schema()</code> to get column names and descriptions for a specific table. Here's what's available for the SMASH DR1 object table:</p>
+<h3 id="Get-list-of-columns">Get list of columns<a class="anchor-link" href="#Get-list-of-columns">&#182;</a></h3><p>We can also use <code>qc.schema()</code> to get column names and descriptions for a specific table.  Here's what's available for the SMASH DR1 object table.  (Note that not all datasets have column descriptions for every column).</p>
 
 </div>
 </div>
@@ -15690,8 +15690,8 @@ Schema: smash_dr1
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 20.5 ms, sys: 1.49 ms, total: 22 ms
-Wall time: 84.6 ms
+<pre>CPU times: user 21.7 ms, sys: 2.62 ms, total: 24.4 ms
+Wall time: 65.2 ms
 </pre>
 </div>
 </div>
@@ -15762,7 +15762,7 @@ smash_dr1,object,101425208,45,27,23745896448,41469509632,65215406080
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
 <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM smash_dr1.object LIMIT 10&quot;</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">)</span> <span class="c1"># by default the result is a CSV formatted string</span>
 </pre></div>
 
      </div>
@@ -15782,8 +15782,8 @@ smash_dr1,object,101425208,45,27,23745896448,41469509632,65215406080
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 22.1 ms, sys: 1.08 ms, total: 23.1 ms
-Wall time: 85.5 ms
+<pre>CPU times: user 25 ms, sys: 1.58 ms, total: 26.5 ms
+Wall time: 66.4 ms
 </pre>
 </div>
 </div>
@@ -15865,7 +15865,7 @@ ra,dec,glon,glat,elon,elat,htm9,ring256,nest4096,random_id,raerr,decerr,umag,uer
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">result</span><span class="p">,</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -16083,7 +16083,7 @@ ra,dec,glon,glat,elon,elat,htm9,ring256,nest4096,random_id,raerr,decerr,umag,uer
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
 <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM smash_dr1.object LIMIT 10&quot;</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -16104,8 +16104,8 @@ ra,dec,glon,glat,elon,elat,htm9,ring256,nest4096,random_id,raerr,decerr,umag,uer
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 29.4 ms, sys: 2.5 ms, total: 31.9 ms
-Wall time: 99.8 ms
+<pre>CPU times: user 29.5 ms, sys: 2.42 ms, total: 32 ms
+Wall time: 278 ms
 </pre>
 </div>
 </div>
@@ -16297,7 +16297,7 @@ Wall time: 99.8 ms
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The results of a query like this can be stored to your VOSpace (remote user file storage) or to MyDB (remote user database), if you logged in as an authenticated user. See some of the Astro Data Lab <a href="https://github.com/astro-datalab/notebooks-latest/tree/058d6a71dbdd7f4f19a38f5ec6f78cd9b107113c/04_HowTos">How-To notebooks</a> for examples of this.</p>
+<p>The results of a query like this can be stored to your VOSpace (remote user file storage) or to MyDB (remote user database), if you logged in as an authenticated user. See some of the Data Lab <a href="https://github.com/astro-datalab/notebooks-latest/tree/058d6a71dbdd7f4f19a38f5ec6f78cd9b107113c/04_HowTos">How-To notebooks</a> for for examples of this.</p>
 
 </div>
 </div>
@@ -16310,7 +16310,7 @@ Wall time: 99.8 ms
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="image"></a></p>
-<h1 id="Find-and-download-an-image-cutout">Find and download an image cutout<a class="anchor-link" href="#Find-and-download-an-image-cutout">&#182;</a></h1><p>Using the image cutout service is a two-step process. First, we specify a position (RA and Dec), and the size of the image that we want to retrieve. Second, we search the SIA service for all images that overlap that point on the sky:</p>
+<h1 id="Find-and-download-an-image-cutout">Find and download an image cutout<a class="anchor-link" href="#Find-and-download-an-image-cutout">&#182;</a></h1><p>Using the image cutout service is a two-step process. First, we specify a position (RA and Dec), and the size of the image that we want to retrieve. Second, we then search the SIA service for all images that overlap that point on the sky:</p>
 
 </div>
 </div>
@@ -16329,8 +16329,7 @@ Wall time: 99.8 ms
 
 <span class="n">fov</span> <span class="o">=</span> <span class="mi">13</span><span class="o">/</span><span class="mi">60</span>  <span class="c1"># image cutout field of view (in degrees; here 13 arminutes = 0.22 degrees)</span>
 
-<span class="n">imgTable</span> <span class="o">=</span> <span class="n">svc</span><span class="o">.</span><span class="n">search</span><span class="p">((</span><span class="n">ra</span><span class="p">,</span><span class="n">dec</span><span class="p">),</span> <span class="p">(</span><span class="n">fov</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">dec</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">),</span> <span class="n">fov</span><span class="p">),</span>
-                      <span class="n">verbosity</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_table</span><span class="p">()</span>  <span class="c1"># uses declination correction</span>
+<span class="n">imgTable</span> <span class="o">=</span> <span class="n">svc</span><span class="o">.</span><span class="n">search</span><span class="p">((</span><span class="n">ra</span><span class="p">,</span><span class="n">dec</span><span class="p">),</span> <span class="p">(</span><span class="n">fov</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">dec</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">),</span> <span class="n">fov</span><span class="p">),</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_table</span><span class="p">()</span>  <span class="c1"># uses declination correction</span>
 </pre></div>
 
      </div>
@@ -16391,7 +16390,7 @@ Wall time: 99.8 ms
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <div><i>Table length=18</i>
-<table id="table140082111663936" class="table-striped table-bordered table-condensed">
+<table id="table140187966811008" class="table-striped table-bordered table-condensed">
 <thead><tr><th>assoc_id</th><th>access_url</th><th>access_format</th><th>access_estsize</th><th>dataproduct_type</th><th>dataproduct_subtype</th><th>calib_level</th><th>dataset_length</th><th>im_nsubarrays</th><th>im_naxes</th><th>im_naxis</th><th>im_pixtype</th><th>im_wcsaxes</th><th>im_scale</th><th>obs_title</th><th>obs_id</th><th>obs_creator_name</th><th>obs_collection</th><th>obs_creation_type</th><th>obs_creation_date</th><th>facility_name</th><th>instrument_name</th><th>obs_bandpass</th><th>obs_datasource</th><th>proposal_id</th><th>obs_publisher_did</th><th>obs_release_date</th><th>preview</th><th>target_name</th><th>target_class</th><th>s_ra</th><th>s_dec</th><th>s_fov</th><th>s_region</th><th>s_calib_status</th><th>s_resolution</th><th>em_min</th><th>em_max</th><th>em_resolution</th><th>em_res_power</th><th>t_min</th><th>t_max</th><th>t_exptime</th><th>t_resolution</th><th>o_ucd</th><th>o_unit</th><th>pol_states</th><th>object</th><th>airmass</th><th>project_code</th><th>magzero</th><th>prodtype</th><th>seeing</th><th>fwhm</th><th>fileset_id</th><th>exptime</th><th>photflag</th><th>proctype</th><th>date_obs</th><th>mjd_obs</th><th>elliptic</th></tr></thead>
 <thead><tr><th></th><th></th><th></th><th>bytes</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th>deg</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th></th><th>arcsec</th><th>m</th><th>m</th><th>m</th><th></th><th>d</th><th>d</th><th>s</th><th>s</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead>
 <thead><tr><th>object</th><th>object</th><th>object</th><th>int32</th><th>object</th><th>object</th><th>int64</th><th>int64</th><th>int32</th><th>int32</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>float64</th><th>float64</th><th>float64</th><th>object</th><th>object</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th></tr></thead>
@@ -16472,7 +16471,7 @@ Wall time: 99.8 ms
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <div><i>Table length=1</i>
-<table id="table140082107742048" class="table-striped table-bordered table-condensed">
+<table id="table140187962886704" class="table-striped table-bordered table-condensed">
 <thead><tr><th>assoc_id</th><th>access_url</th><th>access_format</th><th>access_estsize</th><th>dataproduct_type</th><th>dataproduct_subtype</th><th>calib_level</th><th>dataset_length</th><th>im_nsubarrays</th><th>im_naxes</th><th>im_naxis</th><th>im_pixtype</th><th>im_wcsaxes</th><th>im_scale</th><th>obs_title</th><th>obs_id</th><th>obs_creator_name</th><th>obs_collection</th><th>obs_creation_type</th><th>obs_creation_date</th><th>facility_name</th><th>instrument_name</th><th>obs_bandpass</th><th>obs_datasource</th><th>proposal_id</th><th>obs_publisher_did</th><th>obs_release_date</th><th>preview</th><th>target_name</th><th>target_class</th><th>s_ra</th><th>s_dec</th><th>s_fov</th><th>s_region</th><th>s_calib_status</th><th>s_resolution</th><th>em_min</th><th>em_max</th><th>em_resolution</th><th>em_res_power</th><th>t_min</th><th>t_max</th><th>t_exptime</th><th>t_resolution</th><th>o_ucd</th><th>o_unit</th><th>pol_states</th><th>object</th><th>airmass</th><th>project_code</th><th>magzero</th><th>prodtype</th><th>seeing</th><th>fwhm</th><th>fileset_id</th><th>exptime</th><th>photflag</th><th>proctype</th><th>date_obs</th><th>mjd_obs</th><th>elliptic</th></tr></thead>
 <thead><tr><th></th><th></th><th></th><th>bytes</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th>deg</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th></th><th>arcsec</th><th>m</th><th>m</th><th>m</th><th></th><th>d</th><th>d</th><th>s</th><th>s</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead>
 <thead><tr><th>object</th><th>object</th><th>object</th><th>int32</th><th>object</th><th>object</th><th>int64</th><th>int64</th><th>int32</th><th>int32</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>str1</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>float64</th><th>float64</th><th>float64</th><th>object</th><th>object</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th><th>object</th></tr></thead>
@@ -16575,7 +16574,7 @@ Wall time: 99.8 ms
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arcsinh</span><span class="p">(</span><span class="n">gimage</span><span class="p">),</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span><span class="n">norm</span><span class="o">=</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">);</span>
 </pre></div>
 
      </div>
@@ -16589,18 +16588,6 @@ Wall time: 99.8 ms
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(-0.5, 2970.5, 2962.5, -0.5)</pre>
-</div>
-
-</div>
 <div class="jp-OutputArea-child">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
