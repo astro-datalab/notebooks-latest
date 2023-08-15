@@ -36,7 +36,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
-.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -15108,11 +15107,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Benjamin Weaver &lt;benjamin.weaver@noirlab.edu&gt;, Alice Jacques &lt;alice.jacques@noirlab.edu&gt;, Astro Data Lab Team &lt;datalab@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230616&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230726&#39;</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;desi_edr&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="s1">&#39;DESI&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15161,23 +15160,19 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#</span>
-<span class="c1"># Imports</span>
-<span class="c1">#</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">matplotlib.font_manager</span> <span class="kn">import</span> <span class="n">fontManager</span><span class="p">,</span> <span class="n">FontProperties</span>
 <span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span>
-<span class="c1">#</span>
+
 <span class="c1"># DESI software</span>
-<span class="c1">#</span>
 <span class="kn">from</span> <span class="nn">desitarget</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">desitarget_version</span>
 <span class="kn">from</span> <span class="nn">desitarget.targetmask</span> <span class="kn">import</span> <span class="n">desi_mask</span>
-<span class="c1">#</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;desitarget==</span><span class="si">{</span><span class="n">desitarget_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -15308,27 +15303,50 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">&#182;</a></h2><p>Much of the functionality of Data Lab can be accessed without explicitly logging in (the service then uses an anonymous login). But some capacities, for instance saving the results of your queries to your virtual storage space, require a login (<em>i.e.</em> you will need a registered user account).</p>
-<p>If you need to log in to Data Lab, issue this command, and respond according to the instructions:</p>
+<h2 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">&#182;</a></h2><p>Much of the functionality of Data Lab can be accessed without explicitly logging in (the service then uses an anonymous login). But some capacities, for instance saving the results of your queries to your virtual storage space, require a login (i.e. you will need a registered user account).</p>
+<p>If you need to log in to Data Lab, un-comment the cell below and execute it:</p>
 
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ac.login(input(&quot;Enter user name: (+ENTER) &quot;), getpass(&quot;Enter password: (+ENTER) &quot;))</span>
-<span class="c1"># ac.whoAmI()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#token = ac.login(input(&quot;Enter user name: (+ENTER) &quot;),getpass(&quot;Enter password: (+ENTER) &quot;))</span>
+<span class="n">ac</span><span class="o">.</span><span class="n">whoAmI</span><span class="p">()</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;demo00&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15351,7 +15369,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Exposures,-Nights,-Tiles">Exposures, Nights, Tiles<a class="anchor-link" href="#Exposures,-Nights,-Tiles">&#182;</a></h3><p>Here are some simple queries that demonstrate simple connections between nights, exposures and tiles.</p>
-<h4 id="How-many-tiles-are-there?">How many tiles are there?<a class="anchor-link" href="#How-many-tiles-are-there?">&#182;</a></h4><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">tileid</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">tile</span><span class="p">;</span>
+<h4 id="How-many-tiles-are-there?">How many tiles are there?<a class="anchor-link" href="#How-many-tiles-are-there?">&#182;</a></h4><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">tileid</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">tile</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -15362,7 +15380,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="s1">&#39;SELECT COUNT(tileid) FROM desi_edr.tile;&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
@@ -15382,7 +15400,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
 
 
@@ -15431,7 +15449,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="On-which-nights-were-a-particular-tile-observed?">On which nights were a particular tile observed?<a class="anchor-link" href="#On-which-nights-were-a-particular-tile-observed?">&#182;</a></h4><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">night</span><span class="p">,</span><span class="w"> </span><span class="n">expid</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">exposure</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">tileid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<h4 id="On-which-nights-were-a-particular-tile-observed?">On which nights were a particular tile observed?<a class="anchor-link" href="#On-which-nights-were-a-particular-tile-observed?">&#182;</a></h4><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">night</span><span class="p">,</span> <span class="n">expid</span> <span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">exposure</span> <span class="k">WHERE</span> <span class="n">tileid</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -15442,7 +15460,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="s1">&#39;SELECT night, expid FROM desi_edr.exposure WHERE tileid = 100;&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
@@ -15462,7 +15480,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 
 
 
@@ -15518,7 +15536,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="Which-tiles-were-observed-on-a-night?">Which tiles were observed on a night?<a class="anchor-link" href="#Which-tiles-were-observed-on-a-night?">&#182;</a></h4><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">tileid</span><span class="p">,</span><span class="w"> </span><span class="n">survey</span><span class="p">,</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">exposure</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">night</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20210115</span><span class="p">;</span>
+<h4 id="Which-tiles-were-observed-on-a-night?">Which tiles were observed on a night?<a class="anchor-link" href="#Which-tiles-were-observed-on-a-night?">&#182;</a></h4><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">tileid</span><span class="p">,</span> <span class="n">survey</span><span class="p">,</span> <span class="n">program</span> <span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">exposure</span> <span class="k">WHERE</span> <span class="n">night</span> <span class="o">=</span> <span class="mi">20210115</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -15529,7 +15547,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="s1">&#39;SELECT tileid, survey, program FROM desi_edr.exposure WHERE night = 20210115;&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
@@ -15549,7 +15567,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
 
 
@@ -15807,7 +15825,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Select-ELG-Targets">Select ELG Targets<a class="anchor-link" href="#Select-ELG-Targets">&#182;</a></h3><p>Here's a simple demonstration of finding specific targets using the target bitmask values. In this case <code>desi_mask.ELG == 2**1</code>.</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">target</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="n">desi_target</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">from</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">target</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">desi_target</span> <span class="o">&amp;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -15818,7 +15836,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM desi_edr.target WHERE (desi_target &amp; </span><span class="si">{</span><span class="n">desi_mask</span><span class="o">.</span><span class="n">ELG</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">) != 0 LIMIT 10;&quot;</span>
@@ -15839,7 +15857,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
 
 
@@ -16160,7 +16178,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Redshift-and-Classification">Redshift and Classification<a class="anchor-link" href="#Redshift-and-Classification">&#182;</a></h3><p>Simple query filtering on string values. There are a lot of stars, so this query has a <code>LIMIT 20</code>.</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">spectype</span><span class="p">,</span><span class="w"> </span><span class="n">subtype</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">zpix</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">spectype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;STAR&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">subtype</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">spectype</span><span class="p">,</span> <span class="n">subtype</span><span class="p">,</span> <span class="n">z</span> <span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">zpix</span> <span class="k">WHERE</span> <span class="n">spectype</span> <span class="o">=</span> <span class="s1">&#39;STAR&#39;</span> <span class="k">AND</span> <span class="n">subtype</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="k">LIMIT</span> <span class="mi">20</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -16171,7 +16189,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="s2">&quot;SELECT spectype, subtype, z FROM desi_edr.zpix WHERE spectype = &#39;STAR&#39; AND subtype != &#39;&#39; LIMIT 20;&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
@@ -16191,7 +16209,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 
 
 
@@ -16359,7 +16377,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Joining-Tables">Joining Tables<a class="anchor-link" href="#Joining-Tables">&#182;</a></h2><h3 id="A-Simple-Join">A Simple Join<a class="anchor-link" href="#A-Simple-Join">&#182;</a></h3><p>Let's look at the nights and exposures on which a particular <code>TARGETID</code> was observed.</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">tileid</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">expid</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">night</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">fiberassign</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">exposure</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">tileid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">tileid</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">targetid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">933811403620352</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">f</span><span class="p">.</span><span class="n">tileid</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">expid</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">night</span> <span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">fiberassign</span> <span class="k">AS</span> <span class="n">f</span> <span class="k">JOIN</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">exposure</span> <span class="k">AS</span> <span class="n">e</span> <span class="k">ON</span> <span class="n">f</span><span class="p">.</span><span class="n">tileid</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="n">tileid</span> <span class="k">WHERE</span> <span class="n">f</span><span class="p">.</span><span class="n">targetid</span> <span class="o">=</span> <span class="mi">933811403620352</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -16370,7 +16388,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT f.tileid, e.expid, e.night</span>
@@ -16394,7 +16412,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 
 
 
@@ -16484,7 +16502,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Another-Simple-Join">Another Simple Join<a class="anchor-link" href="#Another-Simple-Join">&#182;</a></h3><p>In this case, we'll look at photometric flux and measured redshift. We'll <code>ORDER</code>(<code>BY</code>) the results and <code>LIMIT</code> the query to keep the numbers manageable.</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">photometry</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">zpix</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">targetid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">targetid</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">flux_g</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">p</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">photometry</span> <span class="k">AS</span> <span class="n">p</span> <span class="k">JOIN</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">zpix</span> <span class="k">AS</span> <span class="n">z</span> <span class="k">ON</span> <span class="n">p</span><span class="p">.</span><span class="n">targetid</span> <span class="o">=</span> <span class="n">z</span><span class="p">.</span><span class="n">targetid</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">z</span><span class="p">.</span><span class="n">z</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">flux_g</span> <span class="k">LIMIT</span> <span class="mi">50</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -16495,7 +16513,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT p.*, z.*</span>
@@ -16519,7 +16537,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
 
 
@@ -17783,7 +17801,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Avoid warnings about invalid values in np.log10().</span>
@@ -17856,9 +17874,9 @@ jp-needs-light-background
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="A-More-Complicated-Join">A More Complicated Join<a class="anchor-link" href="#A-More-Complicated-Join">&#182;</a></h3><p>Let's look at objects that appear on more than one tile. For each of those tiles, how many exposures where there?</p>
 <p>In this example, we're using a subquery that itself is a multi-table join.</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">nexp</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">tileid</span><span class="p">,</span><span class="w"> </span><span class="n">q1</span><span class="p">.</span><span class="n">targetid</span><span class="p">,</span><span class="w"> </span><span class="n">q1</span><span class="p">.</span><span class="n">n_assign</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">fiberassign</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">f</span>
-<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">ff</span><span class="p">.</span><span class="n">targetid</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">n_assign</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">fiberassign</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ff</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">ff</span><span class="p">.</span><span class="n">targetid</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">q1</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">targetid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q1</span><span class="p">.</span><span class="n">targetid</span>
-<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">tile</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">tileid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">tileid</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">t</span><span class="p">.</span><span class="n">nexp</span><span class="p">,</span> <span class="n">f</span><span class="p">.</span><span class="n">tileid</span><span class="p">,</span> <span class="n">q1</span><span class="p">.</span><span class="n">targetid</span><span class="p">,</span> <span class="n">q1</span><span class="p">.</span><span class="n">n_assign</span> <span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">fiberassign</span> <span class="k">AS</span> <span class="n">f</span>
+    <span class="k">JOIN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">ff</span><span class="p">.</span><span class="n">targetid</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="n">n_assign</span> <span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">fiberassign</span> <span class="k">AS</span> <span class="n">ff</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">ff</span><span class="p">.</span><span class="n">targetid</span><span class="p">)</span> <span class="k">AS</span> <span class="n">q1</span> <span class="k">ON</span> <span class="n">f</span><span class="p">.</span><span class="n">targetid</span> <span class="o">=</span> <span class="n">q1</span><span class="p">.</span><span class="n">targetid</span>
+    <span class="k">JOIN</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">tile</span> <span class="k">AS</span> <span class="n">t</span> <span class="k">ON</span> <span class="n">f</span><span class="p">.</span><span class="n">tileid</span> <span class="o">=</span> <span class="n">t</span><span class="p">.</span><span class="n">tileid</span> <span class="k">LIMIT</span> <span class="mi">100</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -17869,7 +17887,7 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT t.nexp, f.tileid, q1.targetid, q1.n_assign</span>
@@ -17894,7 +17912,7 @@ jp-needs-light-background
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
 
 
@@ -18021,7 +18039,7 @@ jp-needs-light-background
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Now let's see what the redshift table thinks are the number of exposures for these objects.</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">zpix</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">targetid</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="mi">6432023904256</span><span class="p">,</span><span class="w"> </span><span class="mi">6448025174016</span><span class="p">[,</span><span class="w"> </span><span class="p">...]);</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">z</span><span class="p">.</span><span class="o">*</span> <span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">zpix</span> <span class="k">AS</span> <span class="n">z</span> <span class="k">WHERE</span> <span class="n">z</span><span class="p">.</span><span class="n">targetid</span> <span class="k">IN</span> <span class="p">(</span><span class="mi">6432023904256</span><span class="p">,</span> <span class="mi">6448025174016</span><span class="p">[,</span> <span class="p">...]);</span>
 </pre></div>
 
 </div>
@@ -18032,7 +18050,7 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q3</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT z.* FROM desi_edr.zpix AS z</span>
@@ -18055,7 +18073,7 @@ jp-needs-light-background
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 
 
 
@@ -18353,13 +18371,13 @@ jp-needs-light-background
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Matching-Redshift-Tables-to-Targeting-Data">Matching Redshift Tables to Targeting Data<a class="anchor-link" href="#Matching-Redshift-Tables-to-Targeting-Data">&#182;</a></h2><p>Matching redshift results back to targeting is an important task for many DESI science projects. Below we briefly describe the fundamentals of this matching using the database.</p>
 <h3 id="Tile-based">Tile-based<a class="anchor-link" href="#Tile-based">&#182;</a></h3><p>The <code>ztile</code> table contains a foreign key pointing to the primary key of the <code>target</code> table. This means that for any row of <code>ztile</code>, there is a pre-matched entry in the <code>target</code> table, and it can be accessed with a simple join, such as:</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">targetid</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">spgrp</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">spgrpval</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">tileid</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">zwarn</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">spectype</span><span class="p">,</span>
-<span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="n">sv1_desi_target</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">sv1_bgs_target</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">sv1_mws_target</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">sv1_scnd_target</span><span class="p">,</span>
-<span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="n">ra</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="nb">dec</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">ztile</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">z</span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">target</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">targetphotid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">id</span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">photometry</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">targetid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">targetid</span>
-<span class="k">LIMIT</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">z</span><span class="p">.</span><span class="n">targetid</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="n">spgrp</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="n">spgrpval</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="n">tileid</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="n">zwarn</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="n">spectype</span><span class="p">,</span>
+    <span class="n">t</span><span class="p">.</span><span class="n">sv1_desi_target</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">sv1_bgs_target</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">sv1_mws_target</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="n">sv1_scnd_target</span><span class="p">,</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">ra</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="nb">dec</span>
+<span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">ztile</span> <span class="k">AS</span> <span class="n">z</span>
+<span class="k">JOIN</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">target</span> <span class="k">AS</span> <span class="n">t</span> <span class="k">ON</span> <span class="n">z</span><span class="p">.</span><span class="n">targetphotid</span> <span class="o">=</span> <span class="n">t</span><span class="p">.</span><span class="n">id</span>
+<span class="k">JOIN</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">photometry</span> <span class="k">AS</span> <span class="n">p</span> <span class="k">ON</span> <span class="n">z</span><span class="p">.</span><span class="n">targetid</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">targetid</span>
+<span class="k">LIMIT</span> <span class="mi">50</span><span class="p">;</span>
 </pre></div>
 <p>Note the <code>z.targetphotid = t.id</code>. This query also demonstrates a JOIN with the <code>photometry</code> table, where <code>targetid</code> is unique.</p>
 
@@ -18371,7 +18389,7 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT z.targetid, z.spgrp, z.spgrpval, z.tileid, z.z, z.zwarn, z.spectype,</span>
@@ -18398,7 +18416,7 @@ jp-needs-light-background
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
 
 
@@ -19256,12 +19274,12 @@ jp-needs-light-background
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="HEALPixel-based">HEALPixel-based<a class="anchor-link" href="#HEALPixel-based">&#182;</a></h3><p>The redshift results from HEALPixel-based coadds in the <code>zpix</code> table may be made up of several tiles, so it is not as simple to match these with targeting data. In the majority of cases, the targeting information is the same for a <code>targetid</code> across multiple tiles, as long as the tiles are part of the same survey (<em>e.g.</em> <code>sv1</code>). However it is not <em>always</em> the case, so we have instead collected the best values of the targeting information and placed those values directly in the <code>zpix</code> table. Here is the analogous query to the query above:</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">targetid</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">survey</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">program</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">healpix</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">zwarn</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">spectype</span><span class="p">,</span>
-<span class="w">    </span><span class="n">z</span><span class="p">.</span><span class="n">sv1_desi_target</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">sv1_bgs_target</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">sv1_mws_target</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">sv1_scnd_target</span><span class="p">,</span>
-<span class="w">    </span><span class="n">p</span><span class="p">.</span><span class="n">ra</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="nb">dec</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">zpix</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">z</span>
-<span class="k">JOIN</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">photometry</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">targetid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">targetid</span>
-<span class="k">LIMIT</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">z</span><span class="p">.</span><span class="n">targetid</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="n">survey</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="n">program</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="n">healpix</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="n">zwarn</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="n">spectype</span><span class="p">,</span>
+    <span class="n">z</span><span class="p">.</span><span class="n">sv1_desi_target</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="n">sv1_bgs_target</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="n">sv1_mws_target</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="n">sv1_scnd_target</span><span class="p">,</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">ra</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="nb">dec</span>
+<span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">zpix</span> <span class="k">AS</span> <span class="n">z</span>
+<span class="k">JOIN</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">photometry</span> <span class="k">AS</span> <span class="n">p</span> <span class="k">ON</span> <span class="n">z</span><span class="p">.</span><span class="n">targetid</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">targetid</span>
+<span class="k">LIMIT</span> <span class="mi">50</span><span class="p">;</span>
 </pre></div>
 <p>If you wish to explore this issue in more detail, there is an <a href="https://github.com/desihub/specprod-db/blob/main/doc/nb/finding-edge-cases.ipynb">example notebook</a> (<em>note</em>: this example notebook is intended for use at <a href="https://www.nersc.gov">NERSC</a>).</p>
 
@@ -19273,7 +19291,7 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT z.targetid, z.survey, z.program, z.healpix, z.z, z.zwarn, z.spectype,</span>
@@ -19299,7 +19317,7 @@ jp-needs-light-background
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 
 
 
@@ -20157,7 +20175,7 @@ jp-needs-light-background
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Survey-Progress">Survey Progress<a class="anchor-link" href="#Survey-Progress">&#182;</a></h2><p>Let's see which nights have data, and count the number of exposures per night.</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">night</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">expid</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">n_exp</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">exposure</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">night</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">night</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">e</span><span class="p">.</span><span class="n">night</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">expid</span><span class="p">)</span> <span class="k">AS</span> <span class="n">n_exp</span> <span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">exposure</span> <span class="k">AS</span> <span class="n">e</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">e</span><span class="p">.</span><span class="n">night</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">e</span><span class="p">.</span><span class="n">night</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -20168,7 +20186,7 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;SELECT e.night, COUNT(e.expid) AS n_exp FROM desi_edr.exposure AS e GROUP BY e.night ORDER BY e.night;&quot;</span>
@@ -20189,7 +20207,7 @@ jp-needs-light-background
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 
 
 
@@ -20292,7 +20310,7 @@ jp-needs-light-background
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Observation timestamp for a given night.  Note how we have both MJD and a corresponding <code>datetime.datetime</code> object in the database.</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">expid</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">mjd</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">date_obs</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">exposure</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">night</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20210428</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">expid</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">e</span><span class="p">.</span><span class="n">expid</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">mjd</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">date_obs</span> <span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">exposure</span> <span class="k">AS</span> <span class="n">e</span> <span class="k">WHERE</span> <span class="n">e</span><span class="p">.</span><span class="n">night</span> <span class="o">=</span> <span class="mi">20210428</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">e</span><span class="p">.</span><span class="n">expid</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -20303,7 +20321,7 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;SELECT e.expid, e.mjd, e.date_obs FROM desi_edr.exposure AS e WHERE e.night = 20210428 ORDER BY e.expid;&quot;</span>
@@ -20324,7 +20342,7 @@ jp-needs-light-background
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 
 
 
@@ -20456,7 +20474,7 @@ jp-needs-light-background
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>So, for a given target in the <code>target</code> table, when was the observation completed?  In other words, if a target has multiple observations, we want the date of the <em>last</em> observation.  First, how many targets are there?</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">n_targets</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">target</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">AS</span> <span class="n">n_targets</span> <span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">target</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -20467,7 +20485,7 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;SELECT COUNT(*) AS n_targets FROM desi_edr.target;&quot;</span>
@@ -20488,7 +20506,7 @@ jp-needs-light-background
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
 
 
@@ -20538,10 +20556,10 @@ jp-needs-light-background
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Now we look for targets that have observations and find the MJD of the observation.</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">targetid</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">expid</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">mjd</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">fiberassign</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">f</span>
-<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">tt</span><span class="p">.</span><span class="n">targetid</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">target</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">tt</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">fiberassign</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ff</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">tt</span><span class="p">.</span><span class="n">targetid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ff</span><span class="p">.</span><span class="n">targetid</span>
-<span class="w">              </span><span class="k">JOIN</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">exposure</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ee</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">ff</span><span class="p">.</span><span class="n">tileid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ee</span><span class="p">.</span><span class="n">tileid</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">tt</span><span class="p">.</span><span class="n">targetid</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">q1</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">targetid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q1</span><span class="p">.</span><span class="n">targetid</span>
-<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">exposure</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">tileid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">tileid</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">q1</span><span class="p">.</span><span class="n">targetid</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">expid</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">f</span><span class="p">.</span><span class="n">targetid</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">expid</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">mjd</span> <span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">fiberassign</span> <span class="k">AS</span> <span class="n">f</span>
+    <span class="k">JOIN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">tt</span><span class="p">.</span><span class="n">targetid</span> <span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">target</span> <span class="k">AS</span> <span class="n">tt</span> <span class="k">JOIN</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">fiberassign</span> <span class="k">AS</span> <span class="n">ff</span> <span class="k">ON</span> <span class="n">tt</span><span class="p">.</span><span class="n">targetid</span> <span class="o">=</span> <span class="n">ff</span><span class="p">.</span><span class="n">targetid</span>
+              <span class="k">JOIN</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">exposure</span> <span class="k">AS</span> <span class="n">ee</span> <span class="k">ON</span> <span class="n">ff</span><span class="p">.</span><span class="n">tileid</span> <span class="o">=</span> <span class="n">ee</span><span class="p">.</span><span class="n">tileid</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">tt</span><span class="p">.</span><span class="n">targetid</span><span class="p">)</span> <span class="k">AS</span> <span class="n">q1</span> <span class="k">ON</span> <span class="n">f</span><span class="p">.</span><span class="n">targetid</span> <span class="o">=</span> <span class="n">q1</span><span class="p">.</span><span class="n">targetid</span>
+    <span class="k">JOIN</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">exposure</span> <span class="k">AS</span> <span class="n">e</span> <span class="k">ON</span> <span class="n">f</span><span class="p">.</span><span class="n">tileid</span> <span class="o">=</span> <span class="n">e</span><span class="p">.</span><span class="n">tileid</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">q1</span><span class="p">.</span><span class="n">targetid</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">expid</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -20552,7 +20570,7 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
@@ -20597,8 +20615,8 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 7.65 s, sys: 5.16 s, total: 12.8 s
-Wall time: 1min 50s
+<pre>CPU times: user 8.24 s, sys: 4.92 s, total: 13.2 s
+Wall time: 1min 21s
 </pre>
 </div>
 </div>
@@ -20624,7 +20642,7 @@ Wall time: 1min 50s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ii</span> <span class="o">=</span> <span class="n">unique_expid</span><span class="o">.</span><span class="n">argsort</span><span class="p">()</span>
@@ -20654,7 +20672,7 @@ Wall time: 1min 50s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">min_mjd</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">mjd</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">//</span><span class="mi">10</span><span class="p">)</span>
@@ -20723,9 +20741,9 @@ jp-needs-light-background
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Using-q3c">Using q3c<a class="anchor-link" href="#Using-q3c">&#182;</a></h2><p><a href="https://github.com/segasai/q3c">q3c</a> (<a href="https://ui.adsabs.harvard.edu/abs/2006ASPC..351..735K/abstract">Koposov &amp; Bartunov 2006</a>) is a popular library that provides spatial indexing and searching in astronomical databases. Here we'll demonstrate how to access this functionality. This is a radial (&quot;cone&quot;) search on an arbitrary point in the DESI footprint:</p>
-<div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">q3c_dist</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">ra</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="nb">dec</span><span class="p">,</span><span class="w"> </span><span class="mi">180</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">radial_distance</span>
-<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">photometry</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">desi_edr</span><span class="p">.</span><span class="n">zpix</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">targetid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="p">.</span><span class="n">targetid</span>
-<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">q3c_radial_query</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">ra</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="nb">dec</span><span class="p">,</span><span class="w"> </span><span class="mi">180</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">60</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c1">-- 1 arcmin</span>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">p</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">z</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">q3c_dist</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">ra</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="nb">dec</span><span class="p">,</span> <span class="mi">180</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="n">radial_distance</span>
+    <span class="k">FROM</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">photometry</span> <span class="k">AS</span> <span class="n">p</span> <span class="k">JOIN</span> <span class="n">desi_edr</span><span class="p">.</span><span class="n">zpix</span> <span class="k">AS</span> <span class="n">z</span> <span class="k">ON</span> <span class="n">p</span><span class="p">.</span><span class="n">targetid</span> <span class="o">=</span> <span class="n">z</span><span class="p">.</span><span class="n">targetid</span>
+    <span class="k">WHERE</span> <span class="n">q3c_radial_query</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">ra</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="nb">dec</span><span class="p">,</span> <span class="mi">180</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">60</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span> <span class="c1">-- 1 arcmin</span>
 </pre></div>
 
 </div>
@@ -20736,7 +20754,7 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT p.*, z.*, q3c_dist(p.ra, p.dec, 180.0, 0.0) AS radial_distance</span>
@@ -20759,7 +20777,7 @@ jp-needs-light-background
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 
 
 

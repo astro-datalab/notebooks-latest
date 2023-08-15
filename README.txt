@@ -23,7 +23,7 @@
                     github: https://github.com/astro-datalab
 
 
-                        Version of this file: 20220218
+                        Version of this file: 20230728
                         
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -49,8 +49,7 @@ to Python, Jupyter and SQL, and show, for Data Lab, some basic steps
 such as loading modules, authenticating, making a list of available
 datasets, an example query, and an example image cutout. It also shows
 how to obtain the statistics of catalog tables in order to determine
-approximate row and column counts. Another notebooks shows how to
-access and plot spectroscopic data from the Data Lab spectro service.
+approximate row and column counts.
 
 02- DATA ACCESS OVERVIEW
 
@@ -68,8 +67,11 @@ science application contains at least one notebook, and each
 survey/dataset is featured in at least one notebook. In some
 instances, the same science case is featured with two or more surveys.
 
+- DESI: introduction to the DESI EDR dataset at Data Lab and a comparison
+  between SDSS and DESI spectra.
+
 - DwarfGalaxies: discover dwarf galaxies as stellar overdensities in
-  the DES DR1, NSC DR1 and DR2, SMASH, and DELVE DR1 datasets.
+  the DELVE DR1 and DR2, DES DR1, NSC DR1 and DR2, and SMASH datasets.
 
 - EmLineGalaxies: two notebooks highlight how to obtain and stack
   spectra using the Data Lab spectro service, and how to detect
@@ -77,34 +79,45 @@ instances, the same science case is featured with two or more surveys.
 
 - ExploringM31: explore the M31 galaxy with the PHAT dataset.
 
-- GalacticStructure: probe stellar populations in different parts of
-  the Galactic Plane using the DECaPS dataset, and in the SMASH DR
-  fields. Another notebook explores star clusters in Gaia DR,
-  including animated visualizations.
+- GNIRS_DQS_SpectralInventory: show how to access the Gemini Near Infrared
+  Spectrograph - Distant Quasar Survey (GNIRS-DQS) at Data Lab and
+  example spectra plots.
 
 - GOGREEN_GalaxiesInRichEnvironments: two notebooks showcase data
   access and image cutout services with the GOGREEN and GCLASS first
   data release, the first Gemini Large and Long program whose
   high-level science products are hosted at Data Lab.
 
+- GalacticStructure: probe stellar populations in different parts of
+  the Galactic Plane using the DECaPS dataset, and in the SMASH
+  fields. Another notebook explores star clusters in Gaia,
+  including animated visualizations.
+
 - LargeScaleStructure: inspect large-scale structures using
   spectroscopic information from SDSS combined with photometric
-  information from the DESI pre-imaging Legacy Survey (LS)
+  information from the DESI pre-imaging Legacy Surveys (LS).
+
+- MagellanicClouds: examine the stellar substructures that surround
+  the Magellanic Clouds using the VHS and Gaia datasets.
 		     
 - Pal5TidalTails: identify tidal tails of the globular cluster Palomar
-  5 in the NSC DR1 catalog, as well as a jointly with Gaia DR2 to
-  explore the proper motion of the cluster and its tails
+  5 in the NSC catalog, as well as a jointly with Gaia to
+  explore the proper motion of the cluster and its tails.
 
 - SpectralEnergyDistributions: (1) use narrow-band filters to construct
-  SEDs of objects from the S-PLUS DR1 dataset, and (2) compare the mid-
-  infrared photometry from unWISE DR1 and AllWISE (3.4 & 4.6 micron)
+  SEDs of objects from the S-PLUS dataset, and (2) compare the mid-
+  infrared photometry from unWISE and AllWISE (3.4 & 4.6 micron).
 
 - StarGalQSOSeparation: use photometric properties (colors,
   morphology/shape parameters, etc.) to distinguish between stars,
-  galaxies, and QSOs in the DES DR1 and LS DR9 datasets
+  galaxies, and QSOs in the DES and LS datasets.
 
 - TimeSeriesAnalysisRrLyraeStar: analyze time-series to measure the
-  period of RR Lyrae stars using photometry from SMASH
+  period of RR Lyrae stars using photometry from SMASH.
+
+- WhiteDwarfs: search for and analyze white dwarfs and other peculiar
+  objects possibly ejected from the Galactic disk at very high velocities
+  (> 400 km/s).
 
 The ScienceExamples notebooks are located here:
 
@@ -119,12 +132,18 @@ functionality is shown for the full set of keywords and options for
 the following:
 
 - AuthClient: authenticating with the Data Lab
-- CrossmatchTables: crossmatching a user-provided table against a table hosted by Data Lab, and using pre-crossmatched tables
-- FileService: using files rather than database tables, including spectra from SDSS/BOSS
-- QueryClient: sending queries to the databases and retrieving results
-- SiaService: obtaining cutouts using a Simple Image Access service
-- SpecClient: retrieve, analyze and plot spectra (e.g. SDSS, BOSS) from the Data Lab spectroscopic service
-- StoreClient: storing data in virtual storage (vospace or mydb)
+- CrossmatchTables: crossmatching a user-provided table against a table
+		    hosted by Data Lab, and using pre-crossmatched tables.
+- DataReduction: showing how to perform GMOS imaging data reduction and GMOS
+		 longslit spectroscopy data reduction using the Gemini DRAGONS
+		 and Gemini Pyraf packages.
+- FileService: using files rather than database tables, including spectra from
+	       SDSS/BOSS.
+- QueryClient: sending queries to the databases and retrieving results.
+- SPARCL: discovering, retrieving, analyzing, and plotting spectra (SDSS, BOSS,
+	  DESI) using the SPARCL service.
+- SiaService: obtaining cutouts using a Simple Image Access service.
+- StoreClient: storing data in virtual storage (VOSpace or MyDB).
 
 The How-To notebooks are located here:
 
@@ -140,7 +159,8 @@ Data Lab, including ANTARES example notebooks. Please see
 
 The "06_EPO/" directory provides "Education and Public Outreach"
 notebooks, aimed at school students and teachers interested in
-astronomical research and in teaching astronomy. The currently three sub-directories contain:
+astronomical research and in teaching astronomy. The currently three
+sub-directories contain:
 
 - TeenAstronomyCafe: notebooks originally developed for the
   "TeenAstronomy Café" activities organized jointly by the LSST and
@@ -191,14 +211,14 @@ DOCUMENTATION & RESOURCES
 =========================
 
 The User Manual includes a tutorial on using Jupyter Notebooks with the Data Lab:
-https://datalab.noirlab.edu/docs/manual/UsingTheNOAODataLab/JupyterNotebooks/JupyterNotebooks.html
+https://datalab.noirlab.edu/docs/manual/UsingAstroDataLab/JupyterNotebooks/JupyterNotebooks.html
 
 The User Manual also includes additional information on the Science Examples 
 featured in the notebooks:
-https://datalab.noirlab.edu/docs/manual/UsingTheNOAODataLab/ScienceExamples/
+https://datalab.noirlab.edu/docs/manual/UsingAstroDataLab/ScienceExamples/index.html
 
 Helpful advice on using SQL and writing queries can be found here: 
-https://datalab.noirlab.edu/docs/manual/UsingTheNOAODataLab/SQLGotchas/SQLGotchas.html
+https://datalab.noirlab.edu/docs/manual/UsingAstroDataLab/SQLGotchas/SQLGotchas/SQLGotchas.html
 
 Lastly, please visit the Helpdesk to see the FAQs or ask your questions: 
 https://datalab.noirlab.edu/help/
