@@ -15111,7 +15111,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Ragadeepika Pucha &lt;rpucha@arizona.edu&gt;, Stephanie Juneau &lt;stephanie.juneau@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230612&#39;</span> 
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230818&#39;</span> 
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;desi_edr&#39;</span><span class="p">]</span> 
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sparcl&#39;</span><span class="p">,</span> <span class="s1">&#39;spectra&#39;</span><span class="p">,</span> <span class="s1">&#39;database&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15708,8 +15708,8 @@ FROM desi_edr.zpix AS zp
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 7.6 s, sys: 2.87 s, total: 10.5 s
-Wall time: 31.1 s
+<pre>CPU times: user 7.2 s, sys: 3.05 s, total: 10.3 s
+Wall time: 31.8 s
 </pre>
 </div>
 </div>
@@ -15759,7 +15759,7 @@ Wall time: 31.1 s
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <div><i>Table length=5</i>
-<table id="table140479557351984" class="table-striped table-bordered table-condensed">
+<table id="table140387392320896" class="table-striped table-bordered table-condensed">
 <thead><tr><th>targetid</th><th>survey</th><th>program</th><th>healpix</th><th>z</th><th>zwarn</th><th>coadd_fiberstatus</th><th>spectype</th><th>mean_fiber_ra</th><th>mean_fiber_dec</th><th>zcat_nspec</th><th>zcat_primary</th><th>desi_target</th><th>sv1_desi_target</th><th>sv2_desi_target</th><th>sv3_desi_target</th></tr></thead>
 <thead><tr><th>int64</th><th>str7</th><th>str6</th><th>int64</th><th>float64</th><th>int64</th><th>int64</th><th>str6</th><th>float64</th><th>float64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th></tr></thead>
 <tr><td>39633414185291967</td><td>sv3</td><td>dark</td><td>15341</td><td>0.6555981990098714</td><td>0</td><td>0</td><td>GALAXY</td><td>273.42926</td><td>62.27449</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>8457</td></tr>
@@ -16013,7 +16013,7 @@ Apart from these main classes, there are targets that are part of secondary-fibe
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Targeting information about the DESI targetting is stored in the different desi_target columns</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Targeting information about the DESI targeting is stored in the different desi_target columns</span>
 <span class="c1"># sv1_targetmask.desi_mask corresponds to SV1_DESI_TARGET</span>
 <span class="c1"># sv2_targetmask.desi_mask corresponds to SV2_DESI_TARGET</span>
 <span class="c1"># sv3_targetmask.desi_mask corresponds to SV3_DESI_TARGET</span>
@@ -16464,7 +16464,7 @@ We also overplot the <code>Milky Way Survey</code> targets in this region.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.legend.Legend at 0x7fc3eee77640&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x7fae790ced90&gt;</pre>
 </div>
 
 </div>
@@ -16500,7 +16500,7 @@ jp-needs-light-background
 <p><a class="anchor" id="spectra_access"></a></p>
 <h1 id="Accessing-and-Plotting-the-Spectra-of-a-Given-Object">Accessing and Plotting the Spectra of a Given Object<a class="anchor-link" href="#Accessing-and-Plotting-the-Spectra-of-a-Given-Object">&#182;</a></h1><p>Finally, we show how to access all the available healpix-coadded spectra of a given object. We also show how to select the &quot;best&quot; spectrum. <br/>
 We use SPARCL, which is a fast spectral access service at Data Lab. <br/>
-Detailed ways to using SPARCL is available in this <a href="https://github.com/astro-datalab/notebooks-latest/blob/master/04_HowTos/SPARCL/How_to_use_SPARCL.ipynb">notebook</a>.</p>
+Detailed ways to using SPARCL are available in this <a href="https://github.com/astro-datalab/notebooks-latest/blob/master/04_HowTos/SPARCL/How_to_use_SPARCL.ipynb">notebook</a>.</p>
 
 </div>
 </div>
@@ -16944,7 +16944,7 @@ Coadd Fiberstatus of the SV1 Bright observation:  512
 </ul>
 </li>
 <li>Information about DESI bitmasks: <a href="https://desidatamodel.readthedocs.io/en/latest/bitmasks.html">https://desidatamodel.readthedocs.io/en/latest/bitmasks.html</a></li>
-<li><a href="https://ui.adsabs.harvard.edu/abs/2023AJ....165...50M/abstract">Myers et al. 2023</a></li>
+<li>DESI Target Selection pipeline paper: <a href="https://ui.adsabs.harvard.edu/abs/2023AJ....165...50M/abstract">Myers et al. 2023</a></li>
 <li>Introduction to SPARCL notebook: <a href="https://github.com/astro-datalab/notebooks-latest/blob/master/04_HowTos/SPARCL/How_to_use_SPARCL.ipynb">https://github.com/astro-datalab/notebooks-latest/blob/master/04_HowTos/SPARCL/How_to_use_SPARCL.ipynb</a></li>
 </ul>
 <h1 id="Acknowledgments">Acknowledgments<a class="anchor-link" href="#Acknowledgments">&#182;</a></h1><ul>
