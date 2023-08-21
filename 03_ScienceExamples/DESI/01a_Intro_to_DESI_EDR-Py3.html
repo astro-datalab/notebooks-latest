@@ -15111,7 +15111,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Ragadeepika Pucha &lt;rpucha@arizona.edu&gt;, Stephanie Juneau &lt;stephanie.juneau@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230818&#39;</span> 
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230820&#39;</span> 
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;desi_edr&#39;</span><span class="p">]</span>  
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sparcl&#39;</span><span class="p">,</span> <span class="s1">&#39;spectra&#39;</span><span class="p">,</span> <span class="s1">&#39;database&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15165,10 +15165,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="goals"></a></p>
-<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><p>In this notebook, we will explore the DESI Early Data Release (DESI EDR) at Astro Data Lab. Information about the release can be found <a href="https://data.desi.lbl.gov/doc/">here</a>. <br/>
-The notebook shows how to access the redshift catalog from the Data Lab database, how to separate sources based on the DESI targeting information, how to access all the available spectra for a given object using <a href="https://astrosparcl.datalab.noirlab.edu/sparc/">SPARCL</a> (SPectra Analysis and Retrievable Catalog Lab), and finally how to plot the &quot;best&quot; spectrum.</p>
-<p>This notebook is similar to the DESI EDR tutorial <a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/DESI/01_Intro_to_DESI_EDR.ipynb">notebook</a>, but it has been modified such that installing the DESI software (<code>desispec</code>) is not necessary to run this notebook. As a result, it can be run using a Python 3 kernel with only the Data Lab and SPARCL dependencies.</p>
-<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>The Dark Energy Spectroscopic Instrument (DESI) is a 5000-fiber multi-object spectrograph built by the DOE. It is installed on the 4-meter Mayall telescope on Kitt Peak, Arizona is used to conduct a survey spanning ~14,000 $deg^2$ over 5 years. The DESI Early Data Release (EDR) consists of some of the commissioning data and all the survey validation (SV) data. The latter include three phases of survey validation: SV1, SV2, and SV3 (the One-Percent survey). The DESI EDR catalogs are loaded as tables in the <code>desi_edr</code> database. More details about DESI EDR at Astro Data Lab are available <a href="https://datalab.noirlab.edu/desi/">here</a>. In this notebook, we show how to access the different tables associated with this database to get targeting and redshift information regarding the targets and then use the SPARCL spectral database to retrieve the spectra.</p>
+<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><p>In this notebook, we will explore the DESI Early Data Release (DESI EDR) at Astro Data Lab. Information about the release can be found <a href="https://data.desi.lbl.gov/doc/">here</a>.</p>
+<p>The notebook shows how to access the redshift catalog from the Data Lab database, how to separate sources based on the DESI targeting information, how to access all the available spectra for a given object using <a href="https://astrosparcl.datalab.noirlab.edu/sparc/">SPARCL</a> (SPectra Analysis and Retrievable Catalog Lab), and finally how to plot the &quot;best&quot; spectrum.</p>
+<p>This notebook is similar to the DESI EDR tutorial <a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/DESI/01_Intro_to_DESI_EDR.ipynb">notebook</a>, but it has been modified such that installing the DESI software (<code>desispec</code>) is not necessary to run it. As a result, it can be run using a Python 3 kernel with only the Data Lab and SPARCL dependencies (which are installed at Data Lab).</p>
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>The Dark Energy Spectroscopic Instrument (DESI) is a 5000-fiber multi-object spectrograph funded by the DOE. It is installed on the 4-meter Mayall telescope on Kitt Peak (I'oligam Du'ag), Arizona, and is being used to conduct a survey spanning ~14,000 $\rm deg^2$ over 5 years. The DESI Early Data Release (EDR) consists of some of the commissioning data and all the survey validation (SV) data. The latter include three phases of survey validation: SV1, SV2, and SV3 (the One-Percent survey). The DESI EDR catalogs are loaded as tables in the <code>desi_edr</code> database. More details about DESI EDR at Astro Data Lab are available <a href="https://datalab.noirlab.edu/desi/">here</a>. In this notebook, we show how to access the tables associated with this database to get targeting and redshift information regarding the targets and then use the SPARCL spectral database to retrieve the spectra.</p>
 
 </div>
 </div>
@@ -15212,7 +15212,7 @@ The notebook shows how to access the redshift catalog from the Data Lab database
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import some helpful python packages </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## import some helpful python packages </span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Table</span>
@@ -15226,6 +15226,31 @@ The notebook shows how to access the redshift catalog from the Data Lab database
 <span class="c1">## Data Lab related modules</span>
 <span class="kn">from</span> <span class="nn">sparcl.client</span> <span class="kn">import</span> <span class="n">SparclClient</span>
 <span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span>
+<span class="kn">from</span> <span class="nn">getpass</span> <span class="kn">import</span> <span class="n">getpass</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div id="cell-id=a17bcbb9-f690-4d98-ae50-721eb92d2484" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Authentication</span>
+<span class="c1"># Much of the functionality of spectrum services can be accessed without explicitly logging into Data Lab (the services then uses an anonymous login). </span>
+<span class="c1"># But some capabilities, for instance saving the results of your queries to your virtual storage space, require a login (i.e., you will need a registered user account).</span>
+
+<span class="c1"># If you need to log in to Data Lab, uncomment the &#39;ac.login()&#39; command and respond according to your prompts. </span>
+<span class="c1"># If you have previously logged into Data Lab, this cell will simply print your active user name.</span>
+
+<span class="c1">#ac.login(input(&quot;Enter user name: (+ENTER) &quot;), getpass(&quot;Enter password: (+ENTER) &quot;))</span>
+<span class="c1">#ac.whoAmI()</span>
 </pre></div>
 
      </div>
@@ -15238,7 +15263,7 @@ The notebook shows how to access the redshift catalog from the Data Lab database
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Making the matplotlib plots look nicer</span>
@@ -15274,10 +15299,10 @@ The notebook shows how to access the redshift catalog from the Data Lab database
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Load SPARCLClient</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Instantiate SPARCLClient</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">SparclClient</span><span class="p">()</span>
 </pre></div>
 
@@ -15304,7 +15329,7 @@ The notebook shows how to access the redshift catalog from the Data Lab database
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">schema</span><span class="p">(</span><span class="s1">&#39;desi_edr&#39;</span><span class="p">))</span>
@@ -15373,9 +15398,8 @@ x1p5__zpix__unwise_dr1__object   desi_edr.zpix and xmatch_std.unwise_dr1__object
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We focus on the <code>zpix</code> table in this notebook, which is the main redshift catalog from the DESI survey. It contains the redshift information from the coadded-spectra, based on the healpix of the objects.
-2. <code>target</code>: This table contains targeting information of the different sources.</p>
-<p>We look at the available columns in this tables below.</p>
+<p>We focus on the <code>zpix</code> table in this notebook, which is the main redshift catalog from the DESI survey. It contains the redshift information from the coadded-spectra, based on the healpix of the objects.</p>
+<p>We look at the available columns in this table.</p>
 
 </div>
 </div>
@@ -15385,7 +15409,7 @@ x1p5__zpix__unwise_dr1__object   desi_edr.zpix and xmatch_std.unwise_dr1__object
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Columns in the zpix table</span>
@@ -15571,9 +15595,9 @@ coadd_fiberstatus   Bitwise AND of the FIBERSTATUS values of the spectra used
 <ul>
 <li><strong>targetid</strong>: unique identifier for a given target</li>
 <li><strong>survey</strong>: SURVEY that the target was observed in. This can be <em>cmx</em>, <em>special</em>, <em>sv1</em>, <em>sv2</em>, or <em>sv3</em>.</li>
-<li><strong>program</strong>: FIBER ASSIGNMENT PROGRAM. This is the planned observing conditions for the target. It can be <em>dark</em> or <em>bright</em> or <em>backup</em>. In case of cmx and sv1, there is <em>other</em> as well.</li>
+<li><strong>program</strong>: FIBER ASSIGNMENT PROGRAM. This is the planned observing conditions for the target. It can be <em>dark</em> or <em>bright</em> or <em>backup</em>. In case of <em>cmx</em> and <em>sv1</em>, there is <em>other</em> as well.</li>
 </ul>
-<p>The different spectra observations of individual targets are coadded within each survey and program. Therefore, some targets may have multiple coadded spectra and each one is associated with a given <code>targetid</code>, <code>survey</code>, and <code>program</code>. The &quot;best&quot; spectrum for a given object is given by the <code>zcat_primary</code> column. More information about the data model of the redshift catalogs is available <a href="https://desidatamodel.readthedocs.io/en/latest/DESI_SPECTRO_REDUX/SPECPROD/zcatalog/zpix-SURVEY-PROGRAM.html#">here</a>.</p>
+<p>The different spectra of individual targets are coadded within each survey and program. Therefore, some targets may have multiple coadded spectra and each one is associated with a given <code>targetid</code>, <code>survey</code>, and <code>program</code>. The &quot;best&quot; spectrum for a given object is given by the <code>zcat_primary</code> column. More information about the data model of the redshift catalogs is available <a href="https://desidatamodel.readthedocs.io/en/latest/DESI_SPECTRO_REDUX/SPECPROD/zcatalog/zpix-SURVEY-PROGRAM.html#">here</a>.</p>
 
 </div>
 </div>
@@ -15583,14 +15607,14 @@ coadd_fiberstatus   Bitwise AND of the FIBERSTATUS values of the spectra used
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT zp.targetid, zp.survey, zp.program, zp.healpix,  </span>
 <span class="s2">       zp.z, zp.zwarn, zp.coadd_fiberstatus, zp.spectype, </span>
 <span class="s2">       zp.mean_fiber_ra, zp.mean_fiber_dec, zp.zcat_nspec, </span>
-<span class="s2">       CAST(zp.zcat_primary AS INT), zp.desi_target,</span>
+<span class="s2">       CAST(zp.zcat_primary as int), zp.desi_target,</span>
 <span class="s2">       zp.sv1_desi_target, zp.sv2_desi_target, zp.sv3_desi_target</span>
 <span class="s2">FROM desi_edr.zpix AS zp</span>
 <span class="s2">&quot;&quot;&quot;</span> 
@@ -15605,9 +15629,9 @@ coadd_fiberstatus   Bitwise AND of the FIBERSTATUS values of the spectra used
 <span class="c1">## spectype -- Spectral type of the target: STAR | GALAXY | QSO</span>
 <span class="c1">## mean_fiber_ra, mean_fiber_dec -- Mean R.A. and Dec. of the fiber position from all the observations of the target</span>
 <span class="c1">## zcat_nspec -- Number of coadded spectra that are available for a given target</span>
-<span class="c1">## zcat_primary -- Whether or not a given coadded spectra is the primary spectra. ZCAT_PRIMARY = True for the &quot;best&quot; spectrum.</span>
-<span class="c1">## CASTing this column as an INT: ZCAT_PRIMARY = 1 for the &quot;best&quot; spectrum.</span>
-<span class="c1">## desi_target -- encodeds main survey&#39;s desi targeting information - explained in detail below</span>
+<span class="c1">## zcat_primary -- Whether or not a given coadded spectrum is the primary spectrum. zcat_primary = True for the &quot;best&quot; spectrum.</span>
+<span class="c1">## CASTing this column as an INT: zcat_primary = 1 for the &quot;best&quot; spectrum.</span>
+<span class="c1">## desi_target -- encodes main survey&#39;s DESI targeting information - explained in detail below</span>
 <span class="c1">## sv1_desi_target -- encodes sv1 desi targeting information</span>
 <span class="c1">## sv2_desi_target -- encodes sv2 desi targeting information</span>
 <span class="c1">## sv3_desi_target -- encodes sv3 desi targeting information</span>
@@ -15623,7 +15647,7 @@ coadd_fiberstatus   Bitwise AND of the FIBERSTATUS values of the spectra used
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
@@ -15650,7 +15674,7 @@ coadd_fiberstatus   Bitwise AND of the FIBERSTATUS values of the spectra used
 SELECT zp.targetid, zp.survey, zp.program, zp.healpix,  
        zp.z, zp.zwarn, zp.coadd_fiberstatus, zp.spectype, 
        zp.mean_fiber_ra, zp.mean_fiber_dec, zp.zcat_nspec, 
-       CAST(zp.zcat_primary AS INT), zp.desi_target,
+       CAST(zp.zcat_primary as int), zp.desi_target,
        zp.sv1_desi_target, zp.sv2_desi_target, zp.sv3_desi_target
 FROM desi_edr.zpix AS zp
 
@@ -15662,16 +15686,15 @@ FROM desi_edr.zpix AS zp
 
 </div>
 
-</div><div id="cell-id=23b75a55" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=23b75a55" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">zpix</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span> <span class="o">=</span> <span class="n">query</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;table&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zpix</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span> <span class="o">=</span> <span class="n">query</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;table&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15679,34 +15702,12 @@ FROM desi_edr.zpix AS zp
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 7.69 s, sys: 3.06 s, total: 10.7 s
-Wall time: 31.9 s
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div><div id="cell-id=2e923d7b" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The resulting table has </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">zpix</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows&quot;</span><span class="p">)</span>
@@ -15736,13 +15737,13 @@ Wall time: 31.9 s
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <div><i>Table length=5</i>
-<table id="table139775958873136" class="table-striped table-bordered table-condensed">
+<table id="table139916806738224" class="table-striped table-bordered table-condensed">
 <thead><tr><th>targetid</th><th>survey</th><th>program</th><th>healpix</th><th>z</th><th>zwarn</th><th>coadd_fiberstatus</th><th>spectype</th><th>mean_fiber_ra</th><th>mean_fiber_dec</th><th>zcat_nspec</th><th>zcat_primary</th><th>desi_target</th><th>sv1_desi_target</th><th>sv2_desi_target</th><th>sv3_desi_target</th></tr></thead>
 <thead><tr><th>int64</th><th>str7</th><th>str6</th><th>int64</th><th>float64</th><th>int64</th><th>int64</th><th>str6</th><th>float64</th><th>float64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th></tr></thead>
 <tr><td>39633414185291967</td><td>sv3</td><td>dark</td><td>15341</td><td>0.6555981990098714</td><td>0</td><td>0</td><td>GALAXY</td><td>273.42926</td><td>62.27449</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>8457</td></tr>
@@ -15764,14 +15765,14 @@ Wall time: 31.9 s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check how many rows have unique TARGETIDs before/after applying the ZCAT_PRIMARY flag</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total N(rows) : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">zpix</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;N(rows) with unique TARGETIDs : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">zpix</span><span class="p">[</span><span class="s1">&#39;targetid&#39;</span><span class="p">]))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="n">is_primary</span> <span class="o">=</span> <span class="n">zpix</span><span class="p">[</span><span class="s1">&#39;zcat_primary&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span>
+<span class="n">is_primary</span> <span class="o">=</span> <span class="p">(</span><span class="n">zpix</span><span class="p">[</span><span class="s1">&#39;zcat_primary&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;N(rows) with ZCAT_PRIMARY=True : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">zpix</span><span class="p">[</span><span class="n">is_primary</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -15809,7 +15810,7 @@ N(rows) with ZCAT_PRIMARY=True : 1979269
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Selecting only unique objects</span>
@@ -15837,27 +15838,50 @@ N(rows) with ZCAT_PRIMARY=True : 1979269
 <li>ELG: Emission Line Galaxies</li>
 <li>QSO: Quasars</li>
 </ul>
-<p><a href="https://ui.adsabs.harvard.edu/abs/2023AJ....165...50M/abstract">Myers et al. 2023</a> describes the target selection and information in more detail. Apart from these main classes, there are also secondary fiber targets, that are based on different secondary programs in DESI (SCND targets).</p>
-<p>The <code>*DESI_TARGET</code> columns encode the information related to which class the target belongs to. Note that some sources can be part of different classes. <br/>
-In this section, we show how to select sources based on their targeting information.</p>
-<p>The information about different target bits are available <a href="https://desidatamodel.readthedocs.io/en/latest/bitmasks.html#target-masks">here</a>. By using the target bits directly, we avoid the usage of targetmasks that come from DESI software.</p>
+<p><a href="https://ui.adsabs.harvard.edu/abs/2023AJ....165...50M/abstract">Myers et al. 2023</a> describe the target selection and information in more detail. Apart from these main classes, there are also secondary fiber targets that are based on different secondary programs in DESI (SCND targets).</p>
+<p>The <code>*DESI_TARGET</code> columns encode the information related to which class the target belongs to. Note that some sources can be part of different classes.</p>
+<p>In this section, we show how to select sources based on their targeting information.</p>
+<p>The information about different target bits is available <a href="https://desidatamodel.readthedocs.io/en/latest/bitmasks.html#target-masks">here</a>. By using the target bits directly, we avoid the usage of targetmasks that come from DESI software.</p>
 
 </div>
 </div>
 </div>
-</div><div id="cell-id=6fd861a5" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div id="cell-id=d64e460d-6de8-4d02-8ba0-1d9e6f547819" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Targeting information about the DESI targeting is stored in the different desi_target columns</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Function to check the bits</span>
 
-<span class="n">sv1_desi_tgt</span> <span class="o">=</span> <span class="n">zpix_cat</span><span class="p">[</span><span class="s1">&#39;sv1_desi_target&#39;</span><span class="p">]</span>
-<span class="n">sv2_desi_tgt</span> <span class="o">=</span> <span class="n">zpix_cat</span><span class="p">[</span><span class="s1">&#39;sv2_desi_target&#39;</span><span class="p">]</span>
-<span class="n">sv3_desi_tgt</span> <span class="o">=</span> <span class="n">zpix_cat</span><span class="p">[</span><span class="s1">&#39;sv3_desi_target&#39;</span><span class="p">]</span>
+<span class="k">def</span> <span class="nf">check_bits</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">bit</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to check the bits corresponding to the main target classes.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    table : astropy table</span>
+<span class="sd">        Table of DESI targets with required sv*desi_target columns</span>
+<span class="sd">        </span>
+<span class="sd">    bit : int</span>
+<span class="sd">        Target bit from DESI</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    res : numpy array</span>
+<span class="sd">        Boolean array corresponding to the bit</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Targeting information about the DESI targeting is stored in the different desi_target columns</span>
+    <span class="n">sv1_desi_tgt</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;sv1_desi_target&#39;</span><span class="p">]</span>
+    <span class="n">sv2_desi_tgt</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;sv2_desi_target&#39;</span><span class="p">]</span>
+    <span class="n">sv3_desi_tgt</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;sv3_desi_target&#39;</span><span class="p">]</span>
+        
+    <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">bit</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">sv1_desi_tgt</span> <span class="o">&amp;</span> <span class="n">val</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">sv2_desi_tgt</span> <span class="o">&amp;</span> <span class="n">val</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">sv3_desi_tgt</span> <span class="o">&amp;</span> <span class="n">val</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">res</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15870,7 +15894,7 @@ In this section, we show how to select sources based on their targeting informat
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Selecting candidates - </span>
@@ -15882,13 +15906,12 @@ In this section, we show how to select sources based on their targeting informat
 <span class="c1">## 5. MWS: bit 61</span>
 <span class="c1">## 6. Secondary Targets: bit 62</span>
 
-<span class="c1">## Manually check for the bit corresponding to the target classes</span>
-<span class="n">is_bgs</span> <span class="o">=</span> <span class="p">(</span><span class="n">sv1_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">60</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">sv2_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">60</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">sv3_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">60</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">is_lrg</span> <span class="o">=</span> <span class="p">(</span><span class="n">sv1_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">0</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">sv2_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">0</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">sv3_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">0</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">is_elg</span> <span class="o">=</span> <span class="p">(</span><span class="n">sv1_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">sv2_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">sv3_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">is_qso</span> <span class="o">=</span> <span class="p">(</span><span class="n">sv1_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">sv2_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">sv3_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">is_mws</span> <span class="o">=</span> <span class="p">(</span><span class="n">sv1_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">61</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">sv2_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">61</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">sv3_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">61</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">is_scnd</span> <span class="o">=</span> <span class="p">(</span><span class="n">sv1_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">62</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">sv2_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">62</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">sv3_desi_tgt</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">62</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">is_bgs</span> <span class="o">=</span> <span class="n">check_bits</span><span class="p">(</span><span class="n">zpix_cat</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">is_lrg</span> <span class="o">=</span> <span class="n">check_bits</span><span class="p">(</span><span class="n">zpix_cat</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">is_elg</span> <span class="o">=</span> <span class="n">check_bits</span><span class="p">(</span><span class="n">zpix_cat</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">is_qso</span> <span class="o">=</span> <span class="n">check_bits</span><span class="p">(</span><span class="n">zpix_cat</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">is_mws</span> <span class="o">=</span> <span class="n">check_bits</span><span class="p">(</span><span class="n">zpix_cat</span><span class="p">,</span> <span class="mi">61</span><span class="p">)</span>
+<span class="n">is_scnd</span> <span class="o">=</span> <span class="n">check_bits</span><span class="p">(</span><span class="n">zpix_cat</span><span class="p">,</span> <span class="mi">62</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15901,7 +15924,7 @@ In this section, we show how to select sources based on their targeting informat
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Number of sources of each target type</span>
@@ -15923,7 +15946,7 @@ In this section, we show how to select sources based on their targeting informat
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Let us look at the numbers visually - </span>
@@ -15976,7 +15999,7 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Now let us look at the distribution of redshifts -</span>
@@ -16012,7 +16035,7 @@ jp-needs-light-background
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
 
 
@@ -16062,7 +16085,7 @@ jp-needs-light-background
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The <code>SV*_DESI_TARGET</code> column consists of the uppermost level targeting information in DESI. However, there are sub-classes of targets. <br/>
+<p>The <code>SV*_DESI_TARGET</code> columns consists of the uppermost level targeting information in DESI. However, there are sub-classes of targets. <br/>
 For example, BGS have different target masks depending on the selection criterion. Each of the different secondary target proposals have their own masks. They can be selected in a similar way as above, but with the respective columns (like <code>SV1_BGS_TARGET</code> or <code>SV1_SCND_TARGET</code> in the <code>target</code> table. More information about Bitmasks in DESI is available <a href="https://desidatamodel.readthedocs.io/en/latest/bitmasks.html">here</a>.</p>
 
 </div>
@@ -16076,8 +16099,8 @@ For example, BGS have different target masks depending on the selection criterio
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="hpx_sel"></a></p>
-<h2 id="Selecting-Sources-in-a-Region-of-the-Sky">Selecting Sources in a Region of the Sky<a class="anchor-link" href="#Selecting-Sources-in-a-Region-of-the-Sky">&#182;</a></h2><p>Here, we show how to query unique targets from DESI EDR in a given region of the sky. <br/>
-We also select and overplot the <code>Milky Way Survey</code> targets in this region.</p>
+<h2 id="Selecting-Sources-in-a-Region-of-the-Sky">Selecting Sources in a Region of the Sky<a class="anchor-link" href="#Selecting-Sources-in-a-Region-of-the-Sky">&#182;</a></h2><p>Here, we show how to query unique targets from DESI EDR in a given region of the sky.</p>
+<p>We also select and overplot the <code>Milky Way Survey</code> targets in this region.</p>
 
 </div>
 </div>
@@ -16087,7 +16110,7 @@ We also select and overplot the <code>Milky Way Survey</code> targets in this re
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -16114,7 +16137,7 @@ We also select and overplot the <code>Milky Way Survey</code> targets in this re
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
@@ -16155,46 +16178,7 @@ AND (zp.zcat_primary = &#39;t&#39;)
 
 </div>
 
-</div><div id="cell-id=cfc8d99a-3b2c-4a28-9a84-4a417c8471fe" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">tsel</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span> <span class="o">=</span> <span class="n">query</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;table&#39;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 34.9 ms, sys: 4.2 ms, total: 39.1 ms
-Wall time: 133 ms
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div id="cell-id=fc4576f0" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div id="cell-id=cfc8d99a-3b2c-4a28-9a84-4a417c8471fe" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -16202,8 +16186,24 @@ Wall time: 133 ms
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tsel</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span> <span class="o">=</span> <span class="n">query</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;table&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div id="cell-id=fc4576f0" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## MWS bit - 61</span>
-<span class="n">is_mws</span> <span class="o">=</span> <span class="p">(</span><span class="n">tsel</span><span class="p">[</span><span class="s1">&#39;sv1_desi_target&#39;</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">61</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">tsel</span><span class="p">[</span><span class="s1">&#39;sv2_desi_target&#39;</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">61</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">tsel</span><span class="p">[</span><span class="s1">&#39;sv3_desi_target&#39;</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">61</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">is_mws</span> <span class="o">=</span> <span class="n">check_bits</span><span class="p">(</span><span class="n">tsel</span><span class="p">,</span> <span class="mi">61</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16216,7 +16216,7 @@ Wall time: 133 ms
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
@@ -16242,13 +16242,13 @@ Wall time: 133 ms
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.legend.Legend at 0x7f201d37bd60&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x7f40e868b130&gt;</pre>
 </div>
 
 </div>
@@ -16294,11 +16294,11 @@ Detailed ways to using SPARCL are available in this <a href="https://github.com/
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Select STAR with nspec &gt; 3</span>
-<span class="n">jj</span> <span class="o">=</span> <span class="p">(</span><span class="n">zpix_cat</span><span class="p">[</span><span class="s1">&#39;zcat_nspec&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">zpix_cat</span><span class="p">[</span><span class="s1">&#39;spectype&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;STAR&#39;</span><span class="p">)</span>
+<span class="n">jj</span> <span class="o">=</span> <span class="p">(</span><span class="n">zpix_cat</span><span class="p">[</span><span class="s1">&#39;zcat_nspec&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">zpix_cat</span><span class="p">[</span><span class="s1">&#39;spectype&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;STAR&#39;</span><span class="p">)</span>
 <span class="n">tsel</span> <span class="o">=</span> <span class="n">zpix_cat</span><span class="p">[</span><span class="n">jj</span><span class="p">]</span>
 </pre></div>
 
@@ -16312,7 +16312,7 @@ Detailed ways to using SPARCL are available in this <a href="https://github.com/
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">tsel</span><span class="p">)</span>
@@ -16331,7 +16331,7 @@ Detailed ways to using SPARCL are available in this <a href="https://github.com/
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 
 
 
@@ -16351,13 +16351,14 @@ Detailed ways to using SPARCL are available in this <a href="https://github.com/
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Randomly select an object</span>
+<span class="c1">## You can test any object with ii = 0 to 307</span>
 
 <span class="n">ii</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">targetid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tsel</span><span class="p">[</span><span class="s1">&#39;targetid&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>   <span class="c1">## SPARCL accepts only python integers</span>
+<span class="n">targetid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tsel</span><span class="p">[</span><span class="s1">&#39;targetid&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>   <span class="c1">## SPARCL accepts only python integers in specid_list</span>
 </pre></div>
 
      </div>
@@ -16370,7 +16371,7 @@ Detailed ways to using SPARCL are available in this <a href="https://github.com/
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Retrieve Spectra</span>
@@ -16391,7 +16392,7 @@ Detailed ways to using SPARCL are available in this <a href="https://github.com/
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Checking that all the different spectra are retrieved</span>
@@ -16432,7 +16433,7 @@ Number of retrieved records:  4
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span>
@@ -16451,7 +16452,7 @@ Number of retrieved records:  4
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
 
 
 
@@ -16471,7 +16472,7 @@ Number of retrieved records:  4
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">records</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">records</span>
@@ -16492,7 +16493,7 @@ Number of retrieved records:  4
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lam_primary</span> <span class="o">=</span> <span class="n">records</span><span class="p">[</span><span class="n">primary_ii</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span>
@@ -16509,16 +16510,16 @@ Number of retrieved records:  4
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plotting this spectra -</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Plotting this spectrum -</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="c1"># Plot the spectrum from each arm (B,R,Z) in blue, green, red</span>
+<span class="c1">## Plot the spectrum from each arm (B,R,Z) in blue, green, red</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lam_primary</span><span class="p">,</span> <span class="n">flam_primary</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;maroon&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="c1"># Over-plotting smoothed spectra in black </span>
+<span class="c1">## Over-plotting smoothed spectrum in black </span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lam_primary</span><span class="p">,</span> <span class="n">convolve</span><span class="p">(</span><span class="n">flam_primary</span><span class="p">,</span> <span class="n">Gaussian1DKernel</span><span class="p">(</span><span class="mi">5</span><span class="p">)),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$\lambda$ [$\AA$]&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$F_{\lambda}$ [$10^{-17} erg\ s^{-1}\ cm^{-2}\ \AA^{-1}$]&#39;</span><span class="p">)</span>
@@ -16565,8 +16566,8 @@ jp-needs-light-background
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Let us now plot all the available spectra available for this object. <br/>
-In each case, the <code>survey</code>, <code>program</code> and the <code>primary</code> flag is mentioned with the spectra.</p>
+<p>Let us now plot all the available spectra for this object.</p>
+<p>In each case, the <code>survey</code>, <code>program</code> and the <code>primary</code> flag is mentioned with the spectra.</p>
 
 </div>
 </div>
@@ -16576,7 +16577,7 @@ In each case, the <code>survey</code>, <code>program</code> and the <code>primar
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Number of spectra </span>
@@ -16657,7 +16658,7 @@ We see that the two SV1 records of this object show no spectra. Let us check the
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Coadd Fiberstatus of the SV1 Dark observation: &#39;</span><span class="p">,</span> <span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coadd_fiberstatus</span><span class="p">)</span>
