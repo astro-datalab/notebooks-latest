@@ -36,6 +36,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14464,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14477,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14523,6 +14537,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 /* Hiding the collapser by default */
 .jp-Collapser {
   display: none;
+}
+
+@page {
+    margin: 0.5in; /* Margin for each printed piece of paper */
 }
 
 @media print {
@@ -14633,7 +14651,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="goals"></a></p>
-<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><p>To reproduce Figures 3, 4, and 10 from <a href="https://arxiv.org/abs/2104.08054">El Youssoufi et al. (2021)</a> "Stellar substructures in the periphery of the Magellanic Clouds with the VISTA Hemisphere Survey from the red clump and other tracers". These figures focus on detailing the morphological features in the outskirts of the Magellanic Clouds. In particular, this notebook will help confirm the substructures noted in Figure 10 of the paper.</p>
+<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><p>To reproduce Figures 3, 4, and 10 from <a href="https://arxiv.org/abs/2104.08054">El Youssoufi et al. (2021)</a> &quot;Stellar substructures in the periphery of the Magellanic Clouds with the VISTA Hemisphere Survey from the red clump and other tracers&quot;. These figures focus on detailing the morphological features in the outskirts of the Magellanic Clouds. In particular, this notebook will help confirm the substructures noted in Figure 10 of the paper.</p>
 
 </div>
 </div>
@@ -14661,7 +14679,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <p><a class="anchor" id="attribution"></a></p>
 <h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h1><p>If you use this notebook for your published science, please acknowledge the following:</p>
 <ul>
-<li><p>Data Lab concept paper: Fitzpatrick et al., "The NOAO Data Laboratory: a conceptual overview", SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></p>
+<li><p>Data Lab concept paper: Fitzpatrick et al., &quot;The NOAO Data Laboratory: a conceptual overview&quot;, SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></p>
 </li>
 <li><p>Data Lab disclaimer: <a href="https://datalab.noirlab.edu/disclaimers.php">https://datalab.noirlab.edu/disclaimers.php</a></p>
 </li>
@@ -14785,9 +14803,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14819,9 +14835,7 @@ WHERE
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="c1"># this query will run for about 3 minutes</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14835,9 +14849,7 @@ WHERE
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14873,7 +14885,7 @@ Wall time: 2min 56s
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compute_nbins</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">binsize</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Compute the needed number of x and y bins.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the needed number of x and y bins.</span>
 <span class="sd">    </span>
 <span class="sd">    From the x and y data, and the desired binsize (identical for x and y),</span>
 <span class="sd">    computes the number of needed x and y bins. If &#39;extent&#39; is given, trim</span>
@@ -14938,7 +14950,7 @@ Wall time: 2min 56s
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_cmd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">title</span><span class="p">,</span><span class="n">extent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">binsize</span><span class="o">=</span><span class="mf">0.02</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Plot a color-magnitude diagram from color (x) and magnitude (y) sequences.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot a color-magnitude diagram from color (x) and magnitude (y) sequences.&quot;&quot;&quot;</span>
  
     <span class="c1"># get number of x and y bins, given a target bin size (magnitude bins for a CMD)</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">nxbins</span><span class="p">,</span> <span class="n">nybins</span> <span class="o">=</span> <span class="n">compute_nbins</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">binsize</span><span class="p">,</span><span class="n">extent</span><span class="p">)</span>
@@ -15000,9 +15012,7 @@ Wall time: 2min 56s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15040,7 +15050,7 @@ jp-needs-light-background
 <p><strong>Region O:</strong></p>
 <ul>
 <li>Populated by old stars, including the red giant branch, asymptotic giant branch, and RC stars.</li>
-<li>Contains regions D, E, J, K, and M from <a href="https://arxiv.org/abs/1908.08545">El Youssoufi et al. (2019)</a>. </li>
+<li>Contains regions D, E, J, K, and M from <a href="https://arxiv.org/abs/1908.08545">El Youssoufi et al. (2019)</a>.</li>
 </ul>
 <p><strong>Both regions Y and O:</strong></p>
 <ul>
@@ -15119,9 +15129,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15166,9 +15174,7 @@ WHERE
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="c1"># this query will run for about 1m30s</span>
-<span class="n">res_xmatch</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query_xmatch</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">res_xmatch</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query_xmatch</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
 <span class="n">res_xmatch</span>
 </pre></div>
 
@@ -15183,9 +15189,7 @@ WHERE
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15196,9 +15200,7 @@ Wall time: 1min 15s
 </pre>
 </div>
 </div>
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
@@ -15388,9 +15390,7 @@ Wall time: 1min 15s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15446,7 +15446,7 @@ jp-needs-light-background
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_spatial_selection_mask</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">polygon</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;For a list of x and y coordinates determine whether they are within polygon.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;For a list of x and y coordinates determine whether they are within polygon.</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -15492,8 +15492,7 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">xcol</span><span class="p">,</span> <span class="n">ycol</span> <span class="o">=</span> <span class="s1">&#39;jmkspnt&#39;</span><span class="p">,</span> <span class="s1">&#39;ksapermag3&#39;</span>  <span class="c1"># column names to use</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xcol</span><span class="p">,</span> <span class="n">ycol</span> <span class="o">=</span> <span class="s1">&#39;jmkspnt&#39;</span><span class="p">,</span> <span class="s1">&#39;ksapermag3&#39;</span>  <span class="c1"># column names to use</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">res_xmatch</span><span class="p">[</span><span class="n">xcol</span><span class="p">]</span>  <span class="c1"># the actual data from these columns</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">res_xmatch</span><span class="p">[</span><span class="n">ycol</span><span class="p">]</span>
 <span class="n">sel_Y</span> <span class="o">=</span> <span class="n">get_spatial_selection_mask</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">polygon_Y</span><span class="p">)</span>  <span class="c1"># returns a 1D boolean selection array</span>
@@ -15511,9 +15510,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15615,9 +15612,7 @@ Wall time: 1min 27s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15670,8 +15665,7 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">sel_pm_SMC</span> <span class="o">=</span> <span class="n">get_spatial_selection_mask</span><span class="p">(</span><span class="n">res_xmatch</span><span class="p">[</span><span class="s1">&#39;pmra&#39;</span><span class="p">],</span><span class="n">res_xmatch</span><span class="p">[</span><span class="s1">&#39;pmdec&#39;</span><span class="p">],</span><span class="n">SMC_ellipse</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sel_pm_SMC</span> <span class="o">=</span> <span class="n">get_spatial_selection_mask</span><span class="p">(</span><span class="n">res_xmatch</span><span class="p">[</span><span class="s1">&#39;pmra&#39;</span><span class="p">],</span><span class="n">res_xmatch</span><span class="p">[</span><span class="s1">&#39;pmdec&#39;</span><span class="p">],</span><span class="n">SMC_ellipse</span><span class="p">)</span>
 <span class="n">sel_pm_LMC</span> <span class="o">=</span> <span class="n">get_spatial_selection_mask</span><span class="p">(</span><span class="n">res_xmatch</span><span class="p">[</span><span class="s1">&#39;pmra&#39;</span><span class="p">],</span><span class="n">res_xmatch</span><span class="p">[</span><span class="s1">&#39;pmdec&#39;</span><span class="p">],</span><span class="n">LMC_ellipse</span><span class="p">)</span>
 </pre></div>
 
@@ -15686,9 +15680,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15727,7 +15719,7 @@ First, perform the transformation of coordinates from angular to Cartesian via a
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">zenithal_equidistant_projection</span><span class="p">(</span><span class="n">ra</span><span class="p">,</span><span class="n">dec</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Performs the transformation of coordinates from angular to Cartesian</span>
 <span class="sd">    via a zenithal equidistant projection given a particular point to be</span>
 <span class="sd">    the origin of analysis (ra0, dec0).</span>
@@ -15838,7 +15830,7 @@ First, perform the transformation of coordinates from angular to Cartesian via a
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_spatialdensity</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">x3</span><span class="p">,</span><span class="n">y3</span><span class="p">,</span><span class="n">mc</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Given the x and y (RA and Dec) coordinates of three different</span>
 <span class="sd">    regions and the name of the MC (either SMC or LMC, or empty</span>
 <span class="sd">    string), plot three spatial density morphology maps.</span>
@@ -15936,9 +15928,7 @@ First, perform the transformation of coordinates from angular to Cartesian via a
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15955,9 +15945,7 @@ jp-needs-light-background
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15974,9 +15962,7 @@ jp-needs-light-background
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16036,6 +16022,7 @@ jp-needs-light-background
 <img src="gaiadr2_x_vhsdr5.png", width=100%>
 </center>
 </figure>
+
 </div>
 </div>
 </div>
@@ -16046,12 +16033,12 @@ jp-needs-light-background
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Resources-&amp;-references">Resources &amp; references<a class="anchor-link" href="#Resources-&amp;-references">&#182;</a></h1><p>Interpolations for imshow: <a href="https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html">https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html</a><br>
-Shapely: <a href="https://shapely.readthedocs.io/en/stable/manual.html">https://shapely.readthedocs.io/en/stable/manual.html</a><br>
+<h1 id="Resources-&amp;-references">Resources &amp; references<a class="anchor-link" href="#Resources-&amp;-references">&#182;</a></h1><p>Interpolations for imshow: <a href="https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html">https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html</a><br />
+Shapely: <a href="https://shapely.readthedocs.io/en/stable/manual.html">https://shapely.readthedocs.io/en/stable/manual.html</a><br />
 Azimuthal Equidistant Projection: <a href="https://mathworld.wolfram.com/AzimuthalEquidistantProjection.html">https://mathworld.wolfram.com/AzimuthalEquidistantProjection.html</a></p>
-<p>Cioni et al. (2014): <a href="https://arxiv.org/abs/1306.4336">https://arxiv.org/abs/1306.4336</a><br>
-Cioni et al. (2016): <a href="https://arxiv.org/abs/1510.07647">https://arxiv.org/abs/1510.07647</a><br>
-El Youssoufi et al. (2019): <a href="https://arxiv.org/abs/1908.08545">https://arxiv.org/abs/1908.08545</a><br>
+<p>Cioni et al. (2014): <a href="https://arxiv.org/abs/1306.4336">https://arxiv.org/abs/1306.4336</a><br />
+Cioni et al. (2016): <a href="https://arxiv.org/abs/1510.07647">https://arxiv.org/abs/1510.07647</a><br />
+El Youssoufi et al. (2019): <a href="https://arxiv.org/abs/1908.08545">https://arxiv.org/abs/1908.08545</a><br />
 El Youssoufi et al. (2021): <a href="https://arxiv.org/abs/2104.08054">https://arxiv.org/abs/2104.08054</a></p>
 
 </div>
