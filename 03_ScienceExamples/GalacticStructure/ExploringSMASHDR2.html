@@ -15111,7 +15111,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Knut Olsen &lt;knut.olsen@noirlab.edu&gt; Astro Data Lab Team &lt;datalab@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230828&#39;</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230901&#39;</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;smash_dr2&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;LMC&#39;</span><span class="p">,</span> <span class="s1">&#39;Healpix map&#39;</span><span class="p">,</span> <span class="s1">&#39;plot:cmd&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15919,7 +15919,7 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span> <span class="c1"># should take &lt;1 sec</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">df1</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span> <span class="c1"># by default the result is a CSV formatted string</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
@@ -16370,7 +16370,7 @@ Index([&#39;ra&#39;, &#39;dec&#39;, &#39;glon&#39;, &#39;glat&#39;, &#39;elon&#3
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="s1">&#39;SELECT COUNT(ra) FROM smash_dr2.object WHERE rerr&lt;0.2&#39;</span><span class="p">))</span> <span class="c1"># should take ~1 min</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="s1">&#39;SELECT COUNT(ra) FROM smash_dr2.object WHERE rerr&lt;0.2&#39;</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -16441,8 +16441,7 @@ Index([&#39;ra&#39;, &#39;dec&#39;, &#39;glon&#39;, &#39;glat&#39;, &#39;elon&#3
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># This query should take about 40 sec</span>
-<span class="k">try</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">df_density</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span> <span class="c1"># by default the result is a CSV formatted string</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
@@ -16829,8 +16828,7 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Query will take ~1m20s seconds</span>
-<span class="k">try</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">df_map</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span> <span class="c1"># by default the result is a CSV formatted string</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
@@ -17207,7 +17205,7 @@ jp-needs-light-background
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">df_cmd</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span> <span class="c1"># will take about a minute</span>
+    <span class="n">df_cmd</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
 </pre></div>
@@ -17290,54 +17288,6 @@ jp-needs-light-background
   <tbody>
     <tr>
       <th>0</th>
-      <td>5.925116</td>
-      <td>-73.381282</td>
-      <td>305.664885</td>
-      <td>-43.599478</td>
-      <td>308.779393</td>
-      <td>-62.986791</td>
-      <td>0.007111</td>
-      <td>0.007111</td>
-      <td>0.009197</td>
-      <td>0.018413</td>
-      <td>...</td>
-      <td>39.437542</td>
-      <td>22</td>
-      <td>3</td>
-      <td>3</td>
-      <td>5</td>
-      <td>6</td>
-      <td>5</td>
-      <td>3</td>
-      <td>2</td>
-      <td>48049.302936</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>5.934808</td>
-      <td>-73.381186</td>
-      <td>305.661119</td>
-      <td>-43.599984</td>
-      <td>308.782574</td>
-      <td>-62.989159</td>
-      <td>0.089011</td>
-      <td>0.089011</td>
-      <td>0.002718</td>
-      <td>0.009336</td>
-      <td>...</td>
-      <td>21.448526</td>
-      <td>14</td>
-      <td>2</td>
-      <td>2</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>2</td>
-      <td>48049.298951</td>
-    </tr>
-    <tr>
-      <th>2</th>
       <td>5.945385</td>
       <td>-73.381760</td>
       <td>305.656870</td>
@@ -17361,19 +17311,91 @@ jp-needs-light-background
       <td>48049.282788</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>5.950396</td>
-      <td>-73.381579</td>
-      <td>305.654950</td>
-      <td>-43.600255</td>
-      <td>308.786640</td>
-      <td>-62.993236</td>
-      <td>0.019274</td>
-      <td>0.019274</td>
-      <td>0.002996</td>
-      <td>0.009104</td>
+      <th>1</th>
+      <td>5.972684</td>
+      <td>-73.380365</td>
+      <td>305.646491</td>
+      <td>-43.602396</td>
+      <td>308.795858</td>
+      <td>-62.998195</td>
+      <td>0.029433</td>
+      <td>0.029433</td>
+      <td>0.003584</td>
+      <td>0.009202</td>
       <td>...</td>
-      <td>45.793713</td>
+      <td>36.628780</td>
+      <td>14</td>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>2</td>
+      <td>48049.312039</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5.971478</td>
+      <td>-73.379969</td>
+      <td>305.647043</td>
+      <td>-43.602738</td>
+      <td>308.796246</td>
+      <td>-62.997700</td>
+      <td>0.032854</td>
+      <td>0.032854</td>
+      <td>0.003459</td>
+      <td>0.009002</td>
+      <td>...</td>
+      <td>48.578705</td>
+      <td>15</td>
+      <td>2</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>2</td>
+      <td>48049.308946</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.973715</td>
+      <td>-73.379993</td>
+      <td>305.646164</td>
+      <td>-43.602808</td>
+      <td>308.796890</td>
+      <td>-62.998269</td>
+      <td>0.006610</td>
+      <td>0.006610</td>
+      <td>0.022368</td>
+      <td>0.047076</td>
+      <td>...</td>
+      <td>72.100960</td>
+      <td>25</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>5</td>
+      <td>5</td>
+      <td>2</td>
+      <td>48049.310887</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.977618</td>
+      <td>-73.382257</td>
+      <td>305.644179</td>
+      <td>-43.600733</td>
+      <td>308.793752</td>
+      <td>-63.000352</td>
+      <td>0.059983</td>
+      <td>0.059983</td>
+      <td>0.003660</td>
+      <td>0.009141</td>
+      <td>...</td>
+      <td>2.340137</td>
       <td>15</td>
       <td>2</td>
       <td>3</td>
@@ -17382,31 +17404,7 @@ jp-needs-light-background
       <td>3</td>
       <td>3</td>
       <td>0</td>
-      <td>48049.293919</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5.948900</td>
-      <td>-73.381081</td>
-      <td>305.655636</td>
-      <td>-43.600684</td>
-      <td>308.787132</td>
-      <td>-62.992619</td>
-      <td>0.104071</td>
-      <td>0.104071</td>
-      <td>0.034301</td>
-      <td>0.010045</td>
-      <td>...</td>
-      <td>45.796430</td>
-      <td>15</td>
-      <td>3</td>
-      <td>2</td>
-      <td>4</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>2</td>
-      <td>48049.302787</td>
+      <td>48049.270619</td>
     </tr>
     <tr>
       <th>...</th>
@@ -17434,123 +17432,123 @@ jp-needs-light-background
     </tr>
     <tr>
       <th>1922784</th>
-      <td>8.116262</td>
-      <td>-71.572245</td>
-      <td>305.068294</td>
-      <td>-45.477225</td>
-      <td>312.928183</td>
-      <td>-62.646510</td>
-      <td>0.023371</td>
-      <td>0.023371</td>
-      <td>0.101752</td>
-      <td>0.073410</td>
+      <td>8.783841</td>
+      <td>-72.858007</td>
+      <td>304.606840</td>
+      <td>-44.217189</td>
+      <td>310.686363</td>
+      <td>-63.460753</td>
+      <td>0.008230</td>
+      <td>0.008230</td>
+      <td>0.030743</td>
+      <td>0.020827</td>
       <td>...</td>
-      <td>18.775333</td>
-      <td>18</td>
+      <td>12.351542</td>
+      <td>44</td>
       <td>3</td>
-      <td>3</td>
-      <td>4</td>
-      <td>4</td>
-      <td>4</td>
-      <td>3</td>
+      <td>6</td>
+      <td>10</td>
+      <td>10</td>
+      <td>9</td>
+      <td>9</td>
       <td>2</td>
-      <td>47854.310690</td>
+      <td>47954.407192</td>
     </tr>
     <tr>
       <th>1922785</th>
-      <td>8.112057</td>
-      <td>-71.571529</td>
-      <td>305.070287</td>
-      <td>-45.477797</td>
-      <td>312.928027</td>
-      <td>-62.645002</td>
-      <td>0.099718</td>
-      <td>0.099718</td>
-      <td>0.018596</td>
-      <td>0.019881</td>
+      <td>8.783286</td>
+      <td>-72.857678</td>
+      <td>304.607108</td>
+      <td>-44.217502</td>
+      <td>310.686837</td>
+      <td>-63.460453</td>
+      <td>0.003475</td>
+      <td>0.003475</td>
+      <td>0.015799</td>
+      <td>0.024491</td>
       <td>...</td>
-      <td>0.571520</td>
-      <td>25</td>
+      <td>37.156790</td>
+      <td>69</td>
+      <td>3</td>
+      <td>10</td>
+      <td>17</td>
+      <td>16</td>
+      <td>13</td>
+      <td>13</td>
       <td>2</td>
-      <td>2</td>
-      <td>6</td>
-      <td>6</td>
-      <td>6</td>
-      <td>5</td>
-      <td>0</td>
-      <td>47854.193710</td>
+      <td>47954.400891</td>
     </tr>
     <tr>
       <th>1922786</th>
-      <td>8.089613</td>
-      <td>-71.568166</td>
-      <td>305.080855</td>
-      <td>-45.480394</td>
-      <td>312.926340</td>
-      <td>-62.637188</td>
-      <td>0.031197</td>
-      <td>0.031197</td>
-      <td>0.036864</td>
-      <td>0.030148</td>
+      <td>8.778554</td>
+      <td>-72.856771</td>
+      <td>304.609159</td>
+      <td>-44.218283</td>
+      <td>310.687140</td>
+      <td>-63.458794</td>
+      <td>0.018741</td>
+      <td>0.018741</td>
+      <td>0.037225</td>
+      <td>0.033368</td>
       <td>...</td>
-      <td>26.746720</td>
-      <td>19</td>
-      <td>3</td>
-      <td>3</td>
+      <td>90.813050</td>
+      <td>47</td>
       <td>3</td>
       <td>6</td>
-      <td>4</td>
-      <td>3</td>
+      <td>14</td>
+      <td>13</td>
+      <td>7</td>
+      <td>7</td>
       <td>2</td>
-      <td>47854.300541</td>
+      <td>47954.382914</td>
     </tr>
     <tr>
       <th>1922787</th>
-      <td>8.089704</td>
-      <td>-71.567329</td>
-      <td>305.080940</td>
-      <td>-45.481230</td>
-      <td>312.927932</td>
-      <td>-62.636781</td>
-      <td>0.007237</td>
-      <td>0.007237</td>
-      <td>0.026941</td>
-      <td>0.029180</td>
+      <td>8.778178</td>
+      <td>-72.856106</td>
+      <td>304.609395</td>
+      <td>-44.218935</td>
+      <td>310.688329</td>
+      <td>-63.458381</td>
+      <td>0.062369</td>
+      <td>0.062369</td>
+      <td>0.011123</td>
+      <td>0.014394</td>
       <td>...</td>
-      <td>45.699493</td>
-      <td>27</td>
-      <td>3</td>
-      <td>3</td>
-      <td>6</td>
-      <td>7</td>
-      <td>6</td>
-      <td>5</td>
+      <td>2.583977</td>
+      <td>21</td>
       <td>2</td>
-      <td>47854.276042</td>
+      <td>2</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>4</td>
+      <td>2</td>
+      <td>47954.480908</td>
     </tr>
     <tr>
       <th>1922788</th>
-      <td>8.094830</td>
-      <td>-71.567744</td>
-      <td>305.078579</td>
-      <td>-45.480988</td>
-      <td>312.928977</td>
-      <td>-62.638384</td>
-      <td>0.042052</td>
-      <td>0.042052</td>
-      <td>0.029951</td>
-      <td>0.039952</td>
+      <td>8.786183</td>
+      <td>-72.857023</td>
+      <td>304.606002</td>
+      <td>-44.218230</td>
+      <td>310.689035</td>
+      <td>-63.460893</td>
+      <td>0.008731</td>
+      <td>0.008731</td>
+      <td>0.036576</td>
+      <td>0.039538</td>
       <td>...</td>
-      <td>17.695724</td>
-      <td>18</td>
+      <td>2.531567</td>
+      <td>47</td>
       <td>3</td>
-      <td>3</td>
-      <td>5</td>
-      <td>4</td>
-      <td>3</td>
-      <td>3</td>
-      <td>0</td>
-      <td>47854.494258</td>
+      <td>6</td>
+      <td>15</td>
+      <td>12</td>
+      <td>8</td>
+      <td>6</td>
+      <td>2</td>
+      <td>47954.410285</td>
     </tr>
   </tbody>
 </table>
@@ -17606,7 +17604,7 @@ jp-needs-light-background
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Color-magnitude (Hess) diagram&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span><span class="mi">16</span><span class="p">);</span>
 </pre></div>
 
      </div>
@@ -17620,18 +17618,6 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[36]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(26.0, 16.0)</pre>
-</div>
-
-</div>
 <div class="jp-OutputArea-child">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
@@ -17727,7 +17713,7 @@ jp-needs-light-background
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">df_cmd2</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span> <span class="c1"># will take about a minute</span>
+    <span class="n">df_cmd2</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
 </pre></div>
@@ -17797,28 +17783,6 @@ jp-needs-light-background
   <tbody>
     <tr>
       <th>0</th>
-      <td>48049.302936</td>
-      <td>5.925116</td>
-      <td>-73.381282</td>
-      <td>21.883265</td>
-      <td>21.590117</td>
-      <td>21.502829</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>48049.298951</td>
-      <td>5.934808</td>
-      <td>-73.381186</td>
-      <td>24.068338</td>
-      <td>23.907747</td>
-      <td>24.155930</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
       <td>48049.282788</td>
       <td>5.945385</td>
       <td>-73.381760</td>
@@ -17829,7 +17793,7 @@ jp-needs-light-background
       <td>NaN</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>1</th>
       <td>48049.293919</td>
       <td>5.950396</td>
       <td>-73.381579</td>
@@ -17840,13 +17804,35 @@ jp-needs-light-background
       <td>NaN</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>2</th>
       <td>48049.302787</td>
       <td>5.948900</td>
       <td>-73.381081</td>
       <td>23.981620</td>
       <td>23.616570</td>
       <td>23.461880</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>48049.293910</td>
+      <td>5.965799</td>
+      <td>-73.382138</td>
+      <td>24.045282</td>
+      <td>23.802475</td>
+      <td>23.696380</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>48049.302954</td>
+      <td>5.994084</td>
+      <td>-73.382193</td>
+      <td>24.439140</td>
+      <td>24.055557</td>
+      <td>24.247890</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -17863,56 +17849,56 @@ jp-needs-light-background
     </tr>
     <tr>
       <th>1922784</th>
-      <td>47854.310690</td>
-      <td>8.116262</td>
-      <td>-71.572245</td>
-      <td>22.958931</td>
-      <td>22.319963</td>
-      <td>21.994617</td>
+      <td>47854.161120</td>
+      <td>8.128327</td>
+      <td>-71.575075</td>
+      <td>24.776999</td>
+      <td>24.392899</td>
+      <td>24.278177</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>1922785</th>
-      <td>47854.193710</td>
-      <td>8.112057</td>
-      <td>-71.571529</td>
-      <td>25.112135</td>
-      <td>24.564966</td>
-      <td>24.201607</td>
+      <td>47853.133599</td>
+      <td>5.441976</td>
+      <td>-71.755585</td>
+      <td>21.431180</td>
+      <td>21.155775</td>
+      <td>21.081540</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>1922786</th>
-      <td>47854.300541</td>
-      <td>8.089613</td>
-      <td>-71.568166</td>
-      <td>23.162775</td>
-      <td>22.864628</td>
-      <td>22.762857</td>
+      <td>47853.133626</td>
+      <td>5.441764</td>
+      <td>-71.755354</td>
+      <td>23.625359</td>
+      <td>22.370813</td>
+      <td>21.739946</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>1922787</th>
-      <td>47854.276042</td>
-      <td>8.089704</td>
-      <td>-71.567329</td>
-      <td>21.866476</td>
-      <td>21.537762</td>
-      <td>21.443350</td>
+      <td>47853.126184</td>
+      <td>5.441156</td>
+      <td>-71.754439</td>
+      <td>24.915596</td>
+      <td>24.621660</td>
+      <td>24.246859</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>1922788</th>
-      <td>47854.494258</td>
-      <td>8.094830</td>
-      <td>-71.567744</td>
-      <td>23.477100</td>
-      <td>23.304274</td>
-      <td>22.939781</td>
+      <td>47853.111520</td>
+      <td>5.447762</td>
+      <td>-71.754445</td>
+      <td>22.501465</td>
+      <td>22.321180</td>
+      <td>22.319984</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -17975,7 +17961,7 @@ jp-needs-light-background
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Color-magnitude (Hess) diagram&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span><span class="mi">16</span><span class="p">);</span>
 </pre></div>
 
      </div>
@@ -17989,18 +17975,6 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(26.0, 16.0)</pre>
-</div>
-
-</div>
 <div class="jp-OutputArea-child">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
