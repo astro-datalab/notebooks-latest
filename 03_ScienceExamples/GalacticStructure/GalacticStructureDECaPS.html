@@ -15111,7 +15111,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Leah Fulmer, Astro Data Lab Team &lt;datalab@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230728&#39;</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230828&#39;</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;decaps_dr2&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Milky Way&#39;</span><span class="p">,</span> <span class="s1">&#39;stars&#39;</span><span class="p">,</span> <span class="s1">&#39;plot:color-color&#39;</span><span class="p">,</span> <span class="s1">&#39;plot:cmd&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15763,8 +15763,7 @@ Schema: decaps_dr2
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="c1"># Submit the SQL query</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Submit the SQL query</span>
 <span class="n">df1</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query1</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
 
 <span class="c1"># Examine query output</span>
@@ -15807,8 +15806,6 @@ Schema: decaps_dr2
 2        0.538182  
 3        0.850475   
 
-CPU times: user 154 ms, sys: 52.9 ms, total: 207 ms
-Wall time: 2.57 s
 </pre>
 </div>
 </div>
@@ -16151,7 +16148,7 @@ jp-needs-light-background
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -16159,9 +16156,7 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-
-<span class="c1">## Write SQL query statement as a string.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Write SQL query statement as a string.</span>
 <span class="n">query2</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">        SELECT obj_id, ra, dec, mean_mag_g_r, mean_mag_r_i,</span>
 <span class="s2">        mean_mag_g, mean_mag_r, mean_mag_i, fracflux_avg_g, fracflux_avg_r, fracflux_avg_i</span>
@@ -16178,28 +16173,6 @@ jp-needs-light-background
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 60.2 ms, sys: 19.1 ms, total: 79.3 ms
-Wall time: 8.3 s
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16497,7 +16470,7 @@ Selected Objects (2 out of 28):
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -16505,9 +16478,7 @@ Selected Objects (2 out of 28):
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-
-<span class="c1">## Write SQL query statement as a string.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Write SQL query statement as a string.</span>
 <span class="n">query3</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">        SELECT obj_id, ra, dec, </span>
 <span class="s2">        mean_mag_g_r, mean_mag_r_i,</span>
@@ -16526,28 +16497,6 @@ Selected Objects (2 out of 28):
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 223 ms, sys: 95.1 ms, total: 318 ms
-Wall time: 6.23 s
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
