@@ -15111,7 +15111,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Benjamin Alan Weaver &lt;benjamin.weaver@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230726&#39;</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230821&#39;</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sdss_dr16&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;galaxies&#39;</span><span class="p">,</span> <span class="s1">&#39;extragalactic&#39;</span><span class="p">,</span> <span class="s1">&#39;spectroscopic redshift&#39;</span><span class="p">,</span> <span class="s1">&#39;plot:color-color&#39;</span><span class="p">,</span> <span class="s1">&#39;plot:histogram&#39;</span><span class="p">,</span> <span class="s1">&#39;plot:cmd&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15439,7 +15439,7 @@ FROM sdss_dr16.photoplate WHERE (resolvestatus &amp; 256) != 0 LIMIT 100000
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15447,8 +15447,7 @@ FROM sdss_dr16.photoplate WHERE (resolvestatus &amp; 256) != 0 LIMIT 100000
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="k">try</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">vot</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;votable&#39;</span><span class="p">,</span> <span class="n">async_</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
@@ -15461,28 +15460,6 @@ FROM sdss_dr16.photoplate WHERE (resolvestatus &amp; 256) != 0 LIMIT 100000
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 8.22 s, sys: 635 ms, total: 8.86 s
-Wall time: 43 s
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15744,8 +15721,7 @@ class="
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;SELECT COUNT(*) AS nrows FROM </span><span class="si">{0}</span><span class="s2">.specobj&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;SELECT COUNT(*) AS nrows FROM </span><span class="si">{0}</span><span class="s2">.specobj&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">adql</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
@@ -15770,8 +15746,6 @@ class="
 <pre>nrows
 5107045
 
-CPU times: user 28.1 ms, sys: 4.66 ms, total: 32.8 ms
-Wall time: 863 ms
 </pre>
 </div>
 </div>
@@ -15800,8 +15774,7 @@ Wall time: 863 ms
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;SELECT boss_target1 FROM </span><span class="si">{0}</span><span class="s2">.specobj WHERE boss_target1 != 0 LIMIT 100000&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;SELECT boss_target1 FROM </span><span class="si">{0}</span><span class="s2">.specobj WHERE boss_target1 != 0 LIMIT 100000&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">))</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">vot</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;votable&#39;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
@@ -15830,8 +15803,6 @@ Wall time: 863 ms
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>[1048576 1048576 140 ... 1 2199023779840 1]
-CPU times: user 598 ms, sys: 29.5 ms, total: 628 ms
-Wall time: 2.04 s
 </pre>
 </div>
 </div>
@@ -15923,8 +15894,7 @@ Wall time: 2.04 s
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">q_lowz</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;SELECT specobjid, fluxobjid, bestobjid, plate, mjd, fiberid, z_noqso FROM </span><span class="si">{0}</span><span class="s2">.specobj &quot;</span> <span class="o">+</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">q_lowz</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;SELECT specobjid, fluxobjid, bestobjid, plate, mjd, fiberid, z_noqso FROM </span><span class="si">{0}</span><span class="s2">.specobj &quot;</span> <span class="o">+</span> 
           <span class="s2">&quot;WHERE (boss_target1 &amp; </span><span class="si">{1:d}</span><span class="s2">) != 0 AND scienceprimary = 1 AND &quot;</span> <span class="o">+</span>
           <span class="s2">&quot;zwarning_noqso = 0 AND class_noqso = &#39;GALAXY&#39; LIMIT 100000&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="k">try</span><span class="p">:</span>
@@ -15958,8 +15928,6 @@ Wall time: 2.04 s
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>100000
-CPU times: user 2.15 s, sys: 140 ms, total: 2.29 s
-Wall time: 11.5 s
 </pre>
 </div>
 </div>
@@ -15988,8 +15956,7 @@ Wall time: 11.5 s
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">q_cmass</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;SELECT specobjid, fluxobjid, bestobjid, plate, mjd, fiberid, z_noqso FROM </span><span class="si">{0}</span><span class="s2">.specobj &quot;</span> <span class="o">+</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">q_cmass</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;SELECT specobjid, fluxobjid, bestobjid, plate, mjd, fiberid, z_noqso FROM </span><span class="si">{0}</span><span class="s2">.specobj &quot;</span> <span class="o">+</span> 
            <span class="s2">&quot;WHERE (boss_target1 &amp; </span><span class="si">{1:d}</span><span class="s2">) != 0 AND scienceprimary = 1 AND &quot;</span> <span class="o">+</span>
            <span class="s2">&quot;zwarning_noqso = 0 AND class_noqso = &#39;GALAXY&#39; LIMIT 100000&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="k">try</span><span class="p">:</span>
@@ -16023,8 +15990,6 @@ Wall time: 11.5 s
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>100000
-CPU times: user 2.16 s, sys: 117 ms, total: 2.28 s
-Wall time: 10.3 s
 </pre>
 </div>
 </div>

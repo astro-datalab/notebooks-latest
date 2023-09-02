@@ -15111,7 +15111,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Giada Pastorelli &lt;gpastorelli.astro@gmail.com&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230728&#39;</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230821&#39;</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lsst_sim&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;science example&#39;</span><span class="p">,</span> <span class="s1">&#39;tutorial&#39;</span><span class="p">,</span> <span class="s1">&#39;Milky Way&#39;</span><span class="p">,</span> <span class="s1">&#39;catalogues&#39;</span><span class="p">,</span> <span class="s1">&#39;plot:histogram&#39;</span><span class="p">,</span> <span class="s1">&#39;plot:cmd&#39;</span><span class="p">,</span> <span class="s1">&#39;plot:color-color&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15450,8 +15450,7 @@ If you need all the sources in the SGP, you will get 1567784 objects.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">sgp_query</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span> <span class="c1"># R is a pandas DataFrame</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">sgp_query</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span> <span class="c1"># R is a pandas DataFrame</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of objects:&quot;</span><span class="p">,</span> <span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
@@ -15480,8 +15479,6 @@ If you need all the sources in the SGP, you will get 1567784 objects.</p>
 2  28.400  25.772  24.460   3  4.865  3.5771  0.40501  0.404 -0.70  15.20
 3  30.797  27.107  25.444   1  5.277  3.4378  0.09700  0.097 -0.64   9.65
 4  18.700  17.715  17.252   3  2.915  3.7301  0.80042  0.798 -2.19  15.65
-CPU times: user 2.18 s, sys: 1.26 s, total: 3.43 s
-Wall time: 18 s
 </pre>
 </div>
 </div>

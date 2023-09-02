@@ -15111,7 +15111,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Alice Jacques &lt;alice.jacques@noirlab.edu&gt;, Astro Data Lab Team &lt;datalab@noirlab.edu&gt;&#39;</span> 
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230726&#39;</span> <span class="c1">#yyyymmdd </span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230821&#39;</span> <span class="c1">#yyyymmdd </span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ls_dr9&#39;</span><span class="p">,</span> <span class="s1">&#39;sdss_dr17&#39;</span><span class="p">,</span> <span class="s1">&#39;gaia_dr3&#39;</span><span class="p">,</span> <span class="s1">&#39;des_dr2&#39;</span><span class="p">]</span> 
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;crossmatch&#39;</span><span class="p">,</span> <span class="s1">&#39;joint query&#39;</span><span class="p">,</span> <span class="s1">&#39;mydb&#39;</span><span class="p">,</span> <span class="s1">&#39;vospace&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15450,8 +15450,7 @@ LIMIT 10000
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">df_single</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query_single</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_single</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query_single</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
 <span class="n">df_single</span>
 </pre></div>
 
@@ -15466,17 +15465,6 @@ LIMIT 10000
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 36.8 ms, sys: 10.7 ms, total: 47.5 ms
-Wall time: 256 ms
-</pre>
-</div>
-</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
@@ -15534,9 +15522,9 @@ Wall time: 256 ms
     </tr>
     <tr>
       <th>4</th>
-      <td>110.70470</td>
-      <td>36.963974</td>
-      <td>0.000046</td>
+      <td>110.00192</td>
+      <td>39.751928</td>
+      <td>0.000305</td>
     </tr>
     <tr>
       <th>...</th>
@@ -15546,33 +15534,33 @@ Wall time: 256 ms
     </tr>
     <tr>
       <th>9995</th>
-      <td>113.19078</td>
-      <td>36.542547</td>
-      <td>0.328183</td>
+      <td>113.28194</td>
+      <td>25.709454</td>
+      <td>0.000075</td>
     </tr>
     <tr>
       <th>9996</th>
-      <td>113.19078</td>
-      <td>39.498064</td>
-      <td>0.693652</td>
+      <td>113.28196</td>
+      <td>39.540578</td>
+      <td>-0.000212</td>
     </tr>
     <tr>
       <th>9997</th>
-      <td>113.28532</td>
-      <td>24.537772</td>
-      <td>1.648059</td>
+      <td>113.28202</td>
+      <td>31.683362</td>
+      <td>0.377256</td>
     </tr>
     <tr>
       <th>9998</th>
-      <td>113.19086</td>
-      <td>31.552450</td>
-      <td>0.170207</td>
+      <td>113.28211</td>
+      <td>26.552400</td>
+      <td>1.718549</td>
     </tr>
     <tr>
       <th>9999</th>
-      <td>113.28534</td>
-      <td>32.544773</td>
-      <td>0.000248</td>
+      <td>113.28233</td>
+      <td>25.074851</td>
+      <td>0.845945</td>
     </tr>
   </tbody>
 </table>
@@ -15712,8 +15700,7 @@ LIMIT 10000
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">df_double</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query_double</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_double</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query_double</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
 <span class="n">df_double</span>
 </pre></div>
 
@@ -15728,17 +15715,6 @@ LIMIT 10000
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 45.4 ms, sys: 11.1 ms, total: 56.6 ms
-Wall time: 925 ms
-</pre>
-</div>
-</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
@@ -15790,27 +15766,27 @@ Wall time: 925 ms
     </tr>
     <tr>
       <th>2</th>
-      <td>124.93368</td>
-      <td>39.862601</td>
-      <td>0.174130</td>
-      <td>18.598770</td>
-      <td>17.707087</td>
+      <td>123.23940</td>
+      <td>39.990355</td>
+      <td>0.067814</td>
+      <td>17.442272</td>
+      <td>16.721584</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>123.73187</td>
-      <td>39.973827</td>
-      <td>1.764000</td>
-      <td>21.709936</td>
-      <td>20.956276</td>
+      <td>123.18048</td>
+      <td>39.935782</td>
+      <td>0.067945</td>
+      <td>18.585884</td>
+      <td>17.680323</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>123.83651</td>
-      <td>39.987596</td>
-      <td>0.463355</td>
-      <td>20.612232</td>
-      <td>18.626604</td>
+      <td>123.25379</td>
+      <td>39.959822</td>
+      <td>0.000056</td>
+      <td>22.013874</td>
+      <td>20.268965</td>
     </tr>
     <tr>
       <th>...</th>
@@ -15822,43 +15798,43 @@ Wall time: 925 ms
     </tr>
     <tr>
       <th>9995</th>
-      <td>141.17950</td>
-      <td>39.849704</td>
-      <td>1.112722</td>
-      <td>20.199490</td>
-      <td>19.831783</td>
+      <td>139.99228</td>
+      <td>39.700074</td>
+      <td>0.570250</td>
+      <td>23.129639</td>
+      <td>21.435806</td>
     </tr>
     <tr>
       <th>9996</th>
-      <td>138.24043</td>
-      <td>39.549354</td>
-      <td>1.303211</td>
-      <td>20.552681</td>
-      <td>20.535364</td>
+      <td>139.88228</td>
+      <td>39.660420</td>
+      <td>0.458871</td>
+      <td>20.758060</td>
+      <td>20.142900</td>
     </tr>
     <tr>
       <th>9997</th>
-      <td>140.28782</td>
-      <td>39.528155</td>
-      <td>0.183059</td>
-      <td>18.847853</td>
-      <td>18.380463</td>
+      <td>140.03065</td>
+      <td>39.671779</td>
+      <td>1.867199</td>
+      <td>21.640137</td>
+      <td>21.532164</td>
     </tr>
     <tr>
       <th>9998</th>
-      <td>141.04811</td>
-      <td>39.841038</td>
-      <td>0.000163</td>
-      <td>20.892084</td>
-      <td>20.232218</td>
+      <td>140.12081</td>
+      <td>39.656766</td>
+      <td>0.092700</td>
+      <td>15.941207</td>
+      <td>14.906138</td>
     </tr>
     <tr>
       <th>9999</th>
-      <td>140.28669</td>
-      <td>39.492603</td>
-      <td>2.064560</td>
-      <td>19.492790</td>
-      <td>19.353115</td>
+      <td>140.05747</td>
+      <td>39.636116</td>
+      <td>0.092355</td>
+      <td>17.728931</td>
+      <td>16.734123</td>
     </tr>
   </tbody>
 </table>
@@ -15934,7 +15910,7 @@ Wall time: 925 ms
 </div>
 </div>
 </div>
-</div><div id="cell-id=0440cde3-18af-47d1-927e-6ebad15c35f9" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=0440cde3-18af-47d1-927e-6ebad15c35f9" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15942,35 +15918,12 @@ Wall time: 925 ms
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">basic_query</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span><span class="n">out</span><span class="o">=</span><span class="s1">&#39;vos://basic_result.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">basic_query</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span><span class="n">out</span><span class="o">=</span><span class="s1">&#39;vos://basic_result.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 24.9 ms, sys: 2.67 ms, total: 27.6 ms
-Wall time: 1.51 s
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16114,7 +16067,7 @@ Wall time: 1.51 s
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;A Node does not exist with the requested URI.&#39;</pre>
+<pre>&#39;Error 404: &#34;vos://basic_result.csv&#34; NOT FOUND&#39;</pre>
 </div>
 
 </div>
@@ -16136,7 +16089,7 @@ Wall time: 1.51 s
 </div>
 </div>
 </div>
-</div><div id="cell-id=f6507c7b-5587-4e7c-946a-bcf9f9a6c72c" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=f6507c7b-5587-4e7c-946a-bcf9f9a6c72c" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -16144,35 +16097,12 @@ Wall time: 1.51 s
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">basic_query</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;mydb://basic_result&#39;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">basic_query</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;mydb://basic_result&#39;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 19.3 ms, sys: 1.34 ms, total: 20.7 ms
-Wall time: 320 ms
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16214,11 +16144,17 @@ Wall time: 320 ms
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>basic_result
+<pre>aaa
+aab
+basic_result
 bgsfaint_dlnotebook
+cmtestoutput
+cmxmatchtest
 desi_tile
 df_xmatch
 fastspec_everest_z_lt_0p6
+fiberassign
+gaia_rc
 gaia_sample
 gaia_sample_xmatch
 gals
@@ -16226,12 +16162,19 @@ lowmassagn_dlnotebook
 secondary_dark_subset
 sv1targets_bright_secondary
 sv1targets_dark_secondary
-tbl_stat,
+tbl_stat
 testcm
 testingx
+testresult2
 testx2
+testxmatchqueryout
+tile
+twomass_gaia1
+twomass_pt1
 twomasspsc
 usno_objects
+xmatchasyncout
+xmatchasyncout2
  
 
 </pre>
@@ -16347,7 +16290,7 @@ LEFT JOIN LATERAL (
 </div>
 </div>
 </div>
-</div><div id="cell-id=12537ea4-991b-4d6a-9d0f-8b4eebbb5409" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=12537ea4-991b-4d6a-9d0f-8b4eebbb5409" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -16355,35 +16298,12 @@ LEFT JOIN LATERAL (
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">df_xmatch</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query_xmatch</span><span class="p">,</span><span class="n">out</span><span class="o">=</span><span class="s2">&quot;mydb://df_xmatch&quot;</span><span class="p">,</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># set drop=True to remove an already existing table from MyDB with the same name</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_xmatch</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query_xmatch</span><span class="p">,</span><span class="n">out</span><span class="o">=</span><span class="s2">&quot;mydb://df_xmatch&quot;</span><span class="p">,</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># set drop=True to remove an already existing table from MyDB with the same name</span>
 </pre></div>
 
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 24 ms, sys: 1.27 ms, total: 25.3 ms
-Wall time: 7.62 s
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16549,8 +16469,7 @@ Wall time: 7.62 s
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">query_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">query_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT</span>
 <span class="s2">    id2 AS ls_id, ra2 AS ls_ra, dec2 AS ls_dec,</span>
 <span class="s2">    df_xmatch.gaia_id, df_xmatch.sdss_id</span>
@@ -16588,8 +16507,6 @@ FROM
 JOIN
     mydb://df_xmatch AS df_xmatch ON gxl.id1 = df_xmatch.gaia_id
 
-CPU times: user 101 µs, sys: 84 µs, total: 185 µs
-Wall time: 142 µs
 </pre>
 </div>
 </div>
@@ -16617,8 +16534,7 @@ Wall time: 142 µs
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query_1</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query_1</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 
@@ -16633,17 +16549,6 @@ Wall time: 142 µs
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 33.5 ms, sys: 2.69 ms, total: 36.1 ms
-Wall time: 326 ms
-</pre>
-</div>
-</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
