@@ -15111,7 +15111,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;David Nidever &lt;david.nidever@noirlab.edu&gt;, Knut Olsen &lt;knut.olsen@noirlab.edu&gt;, Robert Nikutta &lt;robert.nikutta@noirlab.edu&gt;, Stephanie Juneau &lt;stephanie.juneau@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230728&#39;</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230828&#39;</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nsc_dr2&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;science example&#39;</span><span class="p">,</span> <span class="s1">&#39;dwarf galaxies&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15628,9 +15628,7 @@ x1p5__object__vhs_dr5__vhs_cat_v3   nsc_dr2.object and vhs_dr5.vhs_cat_v3 crossm
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-
-<span class="c1"># collect query results in this dictionary</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># collect query results in this dictionary</span>
 <span class="n">df_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">dwarf</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span> <span class="k">for</span> <span class="n">dwarf</span> <span class="ow">in</span> <span class="n">name</span><span class="p">}</span>
 
 <span class="c1"># loop over the dwarfs</span>
@@ -15676,8 +15674,6 @@ Eri II
 SELECT ra,dec,gmag,gerr,imag,rmag,zmag,class_star,fwhm FROM nsc_dr2.object
        WHERE q3c_radial_query(ra,dec,56.087800,-43.533200,0.850000)
 162625 objects found
-CPU times: user 2.66 s, sys: 1.05 s, total: 3.71 s
-Wall time: 28.9 s
 </pre>
 </div>
 </div>

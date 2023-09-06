@@ -15111,7 +15111,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Alice Jacques &lt;alice.jacques@noirlab.edu&gt;, Steve Pothier &lt;steve.pothier@noirlab.edu&gt;, Adam Bolton &lt;adam.bolton@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230726&#39;</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230821&#39;</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sdss_dr16&#39;</span><span class="p">,</span> <span class="s1">&#39;boss_dr16&#39;</span><span class="p">,</span> <span class="s1">&#39;desi_edr&#39;</span><span class="p">]</span>  
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sparcl&#39;</span><span class="p">,</span> <span class="s1">&#39;spectroscopy&#39;</span><span class="p">,</span> <span class="s1">&#39;HowTo&#39;</span><span class="p">,</span> <span class="s1">&#39;sdss spectra&#39;</span><span class="p">,</span> <span class="s1">&#39;desi spectra&#39;</span><span class="p">,</span> <span class="s1">&#39;tutorial&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15142,6 +15142,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Table-of-contents">Table of contents<a class="anchor-link" href="#Table-of-contents">&#182;</a></h3><ul>
 <li><a href="#goalssummary">Goals &amp; Summary</a></li>
+<li><a href="#disclaimer">Disclaimer &amp; attribution</a></li>
 <li><a href="#install">If necessary, install the most recent version of the SPARCL Client</a></li>
 <li><a href="#imports">Imports and setup</a></li>
 <li><a href="#authentication">Authentication</a></li>
@@ -15181,6 +15182,27 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/DESI/02_DESI_EDR_SDSS_Comparison.ipynb">Comparing SDSS and DESI spectra using SPARCL</a></li>
 <li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/EmLineGalaxies/01_EmLineGalaxies_SpectraStack.ipynb">Stacking SDSS Spectra of Galaxies Selected from the BPT Diagram</a></li>
 <li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/EmLineGalaxies/02_EmLineGalaxies_Outliers.ipynb">Multi-wavelength Image Cutouts and SDSS Spectra of Active Galaxies with Extreme Emission-Line Ratios</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+<div id="cell-id=c12173d5-9849-4113-808a-c920d912e244" class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><a class="anchor" id="disclaimer"></a></p>
+<h2 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h2><p>If you use this notebook for your published science, please acknowledge the following:</p>
+<ul>
+<li><p>Data Lab concept paper: Fitzpatrick et al., &quot;The NOAO Data Laboratory: a conceptual overview&quot;, SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></p>
+</li>
+<li><p>Data Lab disclaimer: <a href="https://datalab.noirlab.edu/disclaimers.php">https://datalab.noirlab.edu/disclaimers.php</a></p>
+</li>
+<li><p>SPARCL: <a href="https://astrosparcl.datalab.noirlab.edu/sparc/acknowledgments/">https://astrosparcl.datalab.noirlab.edu/sparc/acknowledgments/</a></p>
+</li>
 </ul>
 
 </div>
@@ -15240,7 +15262,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="kn">from</span> <span class="nn">sparcl.client</span> <span class="kn">import</span> <span class="n">SparclClient</span>
 
 <span class="c1"># 3rd party imports</span>
-<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
 <span class="kn">from</span> <span class="nn">specutils</span> <span class="kn">import</span> <span class="n">Spectrum1D</span>
@@ -16894,8 +16915,7 @@ Example:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">ids_I</span> <span class="o">=</span> <span class="n">found_I</span><span class="o">.</span><span class="n">ids</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ids_I</span> <span class="o">=</span> <span class="n">found_I</span><span class="o">.</span><span class="n">ids</span>
 <span class="n">results_I</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">uuid_list</span><span class="o">=</span><span class="n">ids_I</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="n">inc</span><span class="p">)</span>
 <span class="n">results_I</span><span class="o">.</span><span class="n">info</span>
 </pre></div>
@@ -16911,17 +16931,6 @@ Example:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 43.1 ms, sys: 25.8 ms, total: 68.9 ms
-Wall time: 824 ms
-</pre>
-</div>
-</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
@@ -16931,7 +16940,7 @@ Wall time: 824 ms
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>{&#39;status&#39;: {&#39;success&#39;: True,
-  &#39;info&#39;: [&#34;Successfully found 20 records in dr_list=[&#39;DESI-EDR&#39;, &#39;BOSS-DR16&#39;, &#39;SDSS-DR16&#39;]&#34;],
+  &#39;info&#39;: [&#34;Successfully found 20 records in dr_list=[&#39;DESI-EDR&#39;, &#39;SDSS-DR16&#39;, &#39;BOSS-DR16&#39;]&#34;],
   &#39;warnings&#39;: []}}</pre>
 </div>
 
@@ -17074,8 +17083,7 @@ Example:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">results_II</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">retrieve_by_specid</span><span class="p">(</span><span class="n">specid_list</span><span class="o">=</span><span class="n">specids</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="n">inc</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results_II</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">retrieve_by_specid</span><span class="p">(</span><span class="n">specid_list</span><span class="o">=</span><span class="n">specids</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="n">inc</span><span class="p">)</span>
 <span class="n">results_II</span><span class="o">.</span><span class="n">info</span>
 </pre></div>
 
@@ -17090,17 +17098,6 @@ Example:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 78.3 ms, sys: 17 ms, total: 95.2 ms
-Wall time: 950 ms
-</pre>
-</div>
-</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
@@ -17110,7 +17107,7 @@ Wall time: 950 ms
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>{&#39;status&#39;: {&#39;success&#39;: True,
-  &#39;info&#39;: [&#34;Successfully found 21 records in dr_list=[&#39;DESI-EDR&#39;, &#39;BOSS-DR16&#39;, &#39;SDSS-DR16&#39;]&#34;],
+  &#39;info&#39;: [&#34;Successfully found 21 records in dr_list=[&#39;DESI-EDR&#39;, &#39;SDSS-DR16&#39;, &#39;BOSS-DR16&#39;]&#34;],
   &#39;warnings&#39;: []}}</pre>
 </div>
 
@@ -17821,7 +17818,7 @@ Example:
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>&lt;ipython-input-33-a24f49320160&gt;:7: UserWarning: Some UUIDs were not found. 3 out of the 5 requested uuids have no records available in the SPARC database associated with DataSets [&#39;DESI-EDR&#39;, &#39;BOSS-DR16&#39;, &#39;SDSS-DR16&#39;].Use &#34;client.missing()&#34; to get a list of the 3 unavailable uuids.
+<pre>&lt;ipython-input-33-a24f49320160&gt;:7: UserWarning: Some UUIDs were not found. 3 out of the 5 requested uuids have no records available in the SPARC database associated with DataSets [&#39;DESI-EDR&#39;, &#39;SDSS-DR16&#39;, &#39;BOSS-DR16&#39;].Use &#34;client.missing()&#34; to get a list of the 3 unavailable uuids.
   res_test = client.retrieve(uuid_list=ids_test)
 </pre>
 </div>

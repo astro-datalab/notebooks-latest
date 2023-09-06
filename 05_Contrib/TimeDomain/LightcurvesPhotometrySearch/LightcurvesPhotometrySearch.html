@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LightcurvesPhotometrySearch_RL_Edit</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>LightcurvesPhotometrySearch</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -15111,9 +15111,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Ryan M. Lau &lt;ryan.lau@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230620&#39;</span> <span class="c1"># yyyymmdd</span>
-<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ztf&#39;</span><span class="p">,</span><span class="s1">&#39;atlas&#39;</span><span class="p">,</span><span class="s1">&#39;neowise&#39;</span><span class="p">,</span><span class="s1">&#39;spitzer&#39;</span><span class="p">]</span>
-<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;light curve&#39;</span><span class="p">,</span><span class="s1">&#39;photometry&#39;</span><span class="p">,</span><span class="s1">&#39;time domain&#39;</span><span class="p">]</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230821&#39;</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ztf&#39;</span><span class="p">,</span> <span class="s1">&#39;atlas&#39;</span><span class="p">,</span> <span class="s1">&#39;neowise&#39;</span><span class="p">,</span> <span class="s1">&#39;spitzer&#39;</span><span class="p">]</span>
+<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;light curve&#39;</span><span class="p">,</span> <span class="s1">&#39;photometry&#39;</span><span class="p">,</span> <span class="s1">&#39;time domain&#39;</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -15928,8 +15928,7 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">SpitzerPhotTab</span> <span class="o">=</span> <span class="n">SpitzerForcedPhot</span><span class="p">(</span><span class="n">ra_</span><span class="p">,</span><span class="n">dec_</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">SpitzerPhotTab</span> <span class="o">=</span> <span class="n">SpitzerForcedPhot</span><span class="p">(</span><span class="n">ra_</span><span class="p">,</span><span class="n">dec_</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15949,27 +15948,7 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>100%|██████████| 109/109 [00:47&lt;00:00,  2.32it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>CPU times: user 14.9 s, sys: 3.24 s, total: 18.1 s
-Wall time: 47.2 s
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
+<pre>100%|██████████| 109/109 [00:55&lt;00:00,  1.98it/s]
 </pre>
 </div>
 </div>
@@ -16349,7 +16328,7 @@ jp-needs-light-background
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Running (Reference-subtracted) ATLAS Foced Photometry of ANT2019p2iec
-The task URL is successfully queued at https://fallingstar-data.com/forcedphot/queue/530153/
+The task URL is successfully queued at https://fallingstar-data.com/forcedphot/queue/653919/
 </pre>
 </div>
 </div>
@@ -16418,13 +16397,20 @@ The task URL is successfully queued at https://fallingstar-data.com/forcedphot/q
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Task is running (started at 2023-06-20T18:39:12Z)
-Task is running (started at 2023-06-20T18:39:12Z)
-Task is running (started at 2023-06-20T18:39:12Z)
-Task is running (started at 2023-06-20T18:39:12Z)
-Task is running (started at 2023-06-20T18:39:12Z)
-Task is running (started at 2023-06-20T18:39:12Z)
-Task is complete with results available at https://fallingstar-data.com/forcedphot/static/results/job530153.txt
+<pre>Waiting for job to start. Checking again in 10 seconds...
+Waiting for job to start. Checking again in 10 seconds...
+Waiting for job to start. Checking again in 10 seconds...
+Waiting for job to start. Checking again in 10 seconds...
+Waiting for job to start. Checking again in 10 seconds...
+Waiting for job to start. Checking again in 10 seconds...
+Waiting for job to start. Checking again in 10 seconds...
+Waiting for job to start. Checking again in 10 seconds...
+Task is running (started at 2023-08-21T22:14:58Z)
+Task is running (started at 2023-08-21T22:14:58Z)
+Task is running (started at 2023-08-21T22:14:58Z)
+Task is running (started at 2023-08-21T22:14:58Z)
+Task is running (started at 2023-08-21T22:14:58Z)
+Task is complete with results available at https://fallingstar-data.com/forcedphot/static/results/job653919.txt
 </pre>
 </div>
 </div>
@@ -16728,8 +16714,7 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">ucx</span> <span class="o">=</span> <span class="n">unTimelyCatalogExplorer</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="n">Wpath</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_progress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ucx</span> <span class="o">=</span> <span class="n">unTimelyCatalogExplorer</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="n">Wpath</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_progress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
                               <span class="n">catalog_base_url</span><span class="o">=</span><span class="s1">&#39;http://unwise.me/data/neo7/untimely-catalog/&#39;</span><span class="p">,</span>
                               <span class="n">catalog_index_file</span><span class="o">=</span><span class="s1">&#39;untimely_index-neo7.fits&#39;</span><span class="p">)</span>
 
@@ -16792,8 +16777,6 @@ Scanning individual catalog files ...
 ./202/2029p469/2029p469_w2_e014.cat.fits.gz
 ./202/2029p469/2029p469_w1_e015.cat.fits.gz
 ./202/2029p469/2029p469_w2_e015.cat.fits.gz
-CPU times: user 29.3 s, sys: 366 ms, total: 29.6 s
-Wall time: 29.6 s
 </pre>
 </div>
 </div>
