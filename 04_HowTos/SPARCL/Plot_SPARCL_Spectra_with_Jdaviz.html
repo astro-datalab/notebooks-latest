@@ -7331,7 +7331,7 @@ a.anchor-link {
     if (!diagrams.length) {
       return;
     }
-    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.5.0/mermaid.esm.min.mjs")).default;
+    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.3.1/mermaid.esm.min.mjs")).default;
     const parser = new DOMParser();
 
     mermaid.initialize({
@@ -7480,11 +7480,11 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Camilla Pacifici, Brett Morris, Benjamin Weaver &lt;benjamin.weaver@noirlab.edu&gt;, Alice Jacques &lt;alice.jacques@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20231010'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20231025'</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'desi_edr'</span><span class="p">]</span>  
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl'</span><span class="p">,</span> <span class="s1">'jdaviz'</span><span class="p">,</span> <span class="s1">'specutils'</span><span class="p">,</span> <span class="s1">'spectroscopy'</span><span class="p">,</span> <span class="s1">'desi spectra'</span><span class="p">,</span> <span class="s1">'tutorial'</span><span class="p">]</span>
 </pre></div>
@@ -7545,7 +7545,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="intro"></a></p>
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p>This notebook demonstrates how to find and retrieve spectroscopy data for certain objects from the DESI EDR data set using <a href="https://astrosparcl.datalab.noirlab.eduhttps://astrosparcl.datalab.noirlab.edu">SPARCL</a> (SPectra Analysis and Retrievable Catalog Lab) and producing an interactive plot of an object's spectrum using <a href="https://jdaviz.readthedocs.io/en/latest/index.html">Jdaviz</a>.</p>
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p>This notebook demonstrates how to find and retrieve spectroscopic data for certain objects from the DESI EDR data set using <a href="https://astrosparcl.datalab.noirlab.edu">SPARCL</a> (SPectra Analysis and Retrievable Catalog Lab) and display an interactive plot of an object's spectrum using <a href="https://jdaviz.readthedocs.io/en/latest/index.html">Jdaviz</a>.</p>
 <p>This notebook is based on <a href="https://github.com/camipacifici/jdaviz/blob/concept-sparcl/notebooks/concepts/specviz_sparcl.ipynb">an example</a> originally developed by <a href="https://github.com/camipacifici">Camilla Pacifici</a>. Additional assistance was provided by
 <a href="https://github.com/bmorris3">Brett Morris</a>.</p>
 <p>Packages:</p>
@@ -7596,10 +7596,12 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># SPARCL import</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Handle warnings below</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="c1"># SPARCL import</span>
 <span class="kn">from</span> <span class="nn">sparcl.client</span> <span class="kn">import</span> <span class="n">SparclClient</span>
 <span class="c1"># Jdaviz import</span>
 <span class="kn">from</span> <span class="nn">jdaviz</span> <span class="kn">import</span> <span class="n">Specviz</span>
@@ -7632,7 +7634,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">SparclClient</span><span class="p">()</span>
@@ -7647,7 +7649,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>(sparclclient:1.2.0, api:9.0, https://astrosparcl.datalab.noirlab.edu/sparc, verbose=False, connect_timeout=1.1, read_timeout=5400.0)</pre>
 </div>
@@ -7670,7 +7672,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">desi_fields</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'DESI-EDR'</span><span class="p">])</span>
@@ -7728,7 +7730,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">outfields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl_id'</span><span class="p">,</span> <span class="s1">'ra'</span><span class="p">,</span> <span class="s1">'dec'</span><span class="p">,</span> <span class="s1">'spectype'</span><span class="p">,</span> <span class="s1">'subtype'</span><span class="p">,</span> <span class="s1">'specid'</span><span class="p">,</span>
@@ -7749,7 +7751,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">found</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">outfields</span><span class="o">=</span><span class="n">outfields</span><span class="p">,</span>
@@ -7776,7 +7778,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">found</span><span class="o">.</span><span class="n">records</span><span class="p">:</span>
@@ -7799,7 +7801,7 @@ a.anchor-link {
 <p><a class="anchor" id="retrievesparcl"></a></p>
 <h2 id="Retrieve-spectra-from-SPARCL-and-prepare-plot-data">Retrieve spectra from SPARCL and prepare plot data<a class="anchor-link" href="#Retrieve-spectra-from-SPARCL-and-prepare-plot-data">¶</a></h2><p>Here we define a function that:</p>
 <ol>
-<li>Uses the <code>client.retrieve()</code> method from SPARCL to retrieve spectra data for the list of IDs from DESI EDR.</li>
+<li>Uses the <code>client.retrieve()</code> method from SPARCL to retrieve spectra for the list of IDs from DESI EDR.</li>
 <li>Creates a Spectrum1D object from the retrieved data.</li>
 <li>Loads the spectrum, metadata, and model.</li>
 </ol>
@@ -7811,10 +7813,13 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">on_selected</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Callback function to enable switching between different DESI spectra.</span>
+<span class="sd">    """</span>
+    <span class="n">specunit</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">'10-17 erg cm-2 s-1 AA-1'</span><span class="p">)</span>
     <span class="n">key</span> <span class="o">=</span> <span class="n">entries</span><span class="p">[</span><span class="n">b</span><span class="p">[</span><span class="s1">'new'</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">uuid_list</span><span class="o">=</span><span class="p">[</span><span class="n">ids</span><span class="p">[</span><span class="n">b</span><span class="p">[</span><span class="s1">'new'</span><span class="p">]]],</span>
                              <span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">'specid'</span><span class="p">,</span>
@@ -7875,8 +7880,6 @@ a.anchor-link {
     <span class="n">m</span> <span class="o">=</span> <span class="n">specviz</span><span class="o">.</span><span class="n">plugins</span><span class="p">[</span><span class="s1">'Metadata'</span><span class="p">]</span>
     <span class="n">m</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">' Model'</span>
     <span class="n">m</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">' Data'</span>
-    <span class="c1"># with output:</span>
-    <span class="c1">#     print(spectra)</span>
 </pre></div>
 </div>
 </div>
@@ -7891,6 +7894,7 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="plotjdaviz"></a></p>
 <h2 id="Plot-spectra-using-Jdaviz">Plot spectra using Jdaviz<a class="anchor-link" href="#Plot-spectra-using-Jdaviz">¶</a></h2><p>Run the cell below to open the interactive plot in a new panel on the right. Information on the Toolbar options can be found in the <a href="https://jdaviz.readthedocs.io/en/latest/specviz/displaying.html">Jdaviz User Guide</a>.</p>
+<p>This cell will also display a drop-down menu that controls the spectrum that will be displayed in the interactive plot.</p>
 </div>
 </div>
 </div>
@@ -7902,29 +7906,49 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">specunit</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">'10-17 erg cm-2 s-1 AA-1'</span><span class="p">)</span>
-<span class="n">spectra</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>  <span class="c1"># This will cache the retrieved spectra.</span>
-<span class="n">entries</span> <span class="o">=</span> <span class="p">[(</span><span class="n">m</span><span class="p">[</span><span class="s1">'DESIID'</span><span class="p">],</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">metadata</span><span class="p">)]</span>
-<span class="n">select</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">entries</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">'Spectrum:'</span><span class="p">,)</span>
-<span class="n">output</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
-<span class="n">specviz</span> <span class="o">=</span> <span class="n">Specviz</span><span class="p">()</span>
-
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#</span>
+<span class="c1"># Jdaviz can emit warnings about Angstrom which we will ignore.</span>
 <span class="c1">#</span>
-<span class="c1"># Trigger the download if this is the very first spectrum.</span>
-<span class="c1">#</span>
-<span class="n">on_selected</span><span class="p">({</span><span class="s1">'new'</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
-<span class="c1">#</span>
-<span class="c1"># Connect the function action to the dropdown menu.</span>
-<span class="c1">#</span>
-<span class="n">select</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">on_selected</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">'value'</span><span class="p">)</span>
-<span class="c1">#</span>
-<span class="c1"># Open the display in a separate tab.</span>
-<span class="c1">#</span>
-<span class="n">specviz</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">'sidecar:split-right'</span><span class="p">)</span>
-<span class="c1">#</span>
-<span class="c1"># Display the drop-down menu.</span>
-<span class="c1">#</span>
-<span class="n">display</span><span class="p">(</span><span class="n">select</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="c1"># Set up Specviz and the drop-down menu.</span>
+    <span class="c1">#</span>
+    <span class="n">spectra</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>  <span class="c1"># This will cache the retrieved spectra.</span>
+    <span class="n">entries</span> <span class="o">=</span> <span class="p">[(</span><span class="n">m</span><span class="p">[</span><span class="s1">'DESIID'</span><span class="p">],</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">metadata</span><span class="p">)]</span>
+    <span class="n">select</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">entries</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">'Spectrum:'</span><span class="p">,)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+    <span class="n">specviz</span> <span class="o">=</span> <span class="n">Specviz</span><span class="p">()</span>
+    <span class="c1">#</span>
+    <span class="c1"># Trigger the download if this is the very first spectrum.</span>
+    <span class="c1">#</span>
+    <span class="n">on_selected</span><span class="p">({</span><span class="s1">'new'</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+    <span class="c1">#</span>
+    <span class="c1"># Connect the function action to the dropdown menu.</span>
+    <span class="c1">#</span>
+    <span class="n">select</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">on_selected</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">'value'</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="c1"># Open the display in a separate tab.</span>
+    <span class="c1">#</span>
+    <span class="n">specviz</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">'sidecar:split-right'</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="c1"># Display the drop-down menu.</span>
+    <span class="c1">#</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">select</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e6867ab3-b29c-46f1-94b8-7b5665c8bed5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>
