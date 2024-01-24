@@ -7331,7 +7331,7 @@ a.anchor-link {
     if (!diagrams.length) {
       return;
     }
-    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.3.1/mermaid.esm.min.mjs")).default;
+    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.0/mermaid.esm.min.mjs")).default;
     const parser = new DOMParser();
 
     mermaid.initialize({
@@ -7484,7 +7484,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Camilla Pacifici, Brett Morris, Benjamin Weaver &lt;benjamin.weaver@noirlab.edu&gt;, Alice Jacques &lt;alice.jacques@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20231025'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20240124'</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'desi_edr'</span><span class="p">]</span>  
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl'</span><span class="p">,</span> <span class="s1">'jdaviz'</span><span class="p">,</span> <span class="s1">'specutils'</span><span class="p">,</span> <span class="s1">'spectroscopy'</span><span class="p">,</span> <span class="s1">'desi spectra'</span><span class="p">,</span> <span class="s1">'tutorial'</span><span class="p">]</span>
 </pre></div>
@@ -7596,11 +7596,13 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Handle warnings below</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
+<span class="c1"># Numpy import</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="c1"># SPARCL import</span>
 <span class="kn">from</span> <span class="nn">sparcl.client</span> <span class="kn">import</span> <span class="n">SparclClient</span>
 <span class="c1"># Jdaviz import</span>
@@ -7613,6 +7615,8 @@ a.anchor-link {
 <span class="c1"># Astropy import</span>
 <span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
 <span class="kn">from</span> <span class="nn">astropy.nddata</span> <span class="kn">import</span> <span class="n">InverseVariance</span><span class="p">,</span> <span class="n">StdDevUncertainty</span>
+<span class="c1"># Jdaviz can emit warnings about Angstrom which we will ignore.</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">UnitsWarning</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="sa">r</span><span class="s1">'.*VOUnit standard.*'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7629,29 +7633,17 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=482c5e93">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=482c5e93">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">SparclClient</span><span class="p">()</span>
 <span class="n">client</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(sparclclient:1.2.0, api:9.0, https://astrosparcl.datalab.noirlab.edu/sparc, verbose=False, connect_timeout=1.1, read_timeout=5400.0)</pre>
 </div>
 </div>
 </div>
@@ -7667,30 +7659,17 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9e288542-73aa-45cf-9f69-668bd3208d70">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9e288542-73aa-45cf-9f69-668bd3208d70">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">desi_fields</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'DESI-EDR'</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">desi_fields</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>['bgs_target', 'chi2', 'cmx_target', 'coadd_fiberstatus', 'coadd_numexp', 'coadd_numnight', 'coadd_numtile', 'coeff', 'data_release', 'datasetgroup', 'dateobs', 'dateobs_center', 'dec', 'deltachi2', 'desi_target', 'exptime', 'fa_target', 'fa_type', 'firstnight', 'flux', 'healpix', 'instrument', 'ivar', 'lastnight', 'mask', 'mean_delta_x', 'mean_delta_y', 'mean_fiber_dec', 'mean_fiber_ra', 'mean_mjd', 'mean_psf_to_fiber_specflux', 'model', 'mws_target', 'ncoeff', 'npixels', 'numobs_init', 'objtype', 'obsconditions', 'plate_dec', 'plate_ra', 'pmdec', 'pmra', 'priority_init', 'program', 'ra', 'redshift', 'redshift_err', 'redshift_warning', 'ref_epoch', 'rms_delta_x', 'rms_delta_y', 'scnd_target', 'site', 'sparcl_id', 'specid', 'specprimary', 'spectype', 'spgrpval', 'std_fiber_dec', 'std_fiber_ra', 'subpriority', 'subtype', 'survey', 'sv1_bgs_target', 'sv1_desi_target', 'sv1_mws_target', 'sv1_scnd_target', 'sv2_bgs_target', 'sv2_desi_target', 'sv2_mws_target', 'sv2_scnd_target', 'sv3_bgs_target', 'sv3_desi_target', 'sv3_mws_target', 'sv3_scnd_target', 'sv_nspec', 'sv_primary', 'target_dec', 'target_ra', 'targetid', 'telescope', 'tsnr2_bgs', 'tsnr2_elg', 'tsnr2_gpbbackup', 'tsnr2_gpbbright', 'tsnr2_gpbdark', 'tsnr2_lrg', 'tsnr2_lya', 'tsnr2_qso', 'wave_sigma', 'wavelength', 'wavemax', 'wavemin', 'zcat_nspec']
-</pre>
 </div>
 </div>
 </div>
@@ -7730,7 +7709,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">outfields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl_id'</span><span class="p">,</span> <span class="s1">'ra'</span><span class="p">,</span> <span class="s1">'dec'</span><span class="p">,</span> <span class="s1">'spectype'</span><span class="p">,</span> <span class="s1">'subtype'</span><span class="p">,</span> <span class="s1">'specid'</span><span class="p">,</span>
@@ -7751,7 +7730,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">found</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">outfields</span><span class="o">=</span><span class="n">outfields</span><span class="p">,</span>
@@ -7769,7 +7748,82 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Create <code>DESIID</code> from the RA and Dec of each record:</p>
+<h3 id="DESINAME">DESINAME<a class="anchor-link" href="#DESINAME">¶</a></h3><p>The function below is copied from <a href="https://github.com/desihub/desiutil/blob/main/py/desiutil/names.py"><code>desiutil.names</code></a>. <code>DESINAME</code> is a convenient RA, Dec-based label that is consistent with IAU and NED standards.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6e31ef55-3e14-45ab-9c9e-5a2da06f403b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">radec_to_desiname</span><span class="p">(</span><span class="n">target_ra</span><span class="p">,</span> <span class="n">target_dec</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Convert the right ascension and declination of a DESI target</span>
+<span class="sd">    into the corresponding "DESINAME" for reference in publications.</span>
+<span class="sd">    Length of target_ra and target_dec must be the same if providing an</span>
+<span class="sd">    array or list. Note that these names are not unique for roughly</span>
+<span class="sd">    one percent of DESI targets, so also including TARGETID in</span>
+<span class="sd">    publications is highly recommended for uniqueness.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    target_ra: array of :class:`float64`</span>
+<span class="sd">        Right ascension in degrees of target object(s). Can be float, double,</span>
+<span class="sd">         or array/list of floats or doubles</span>
+<span class="sd">    target_dec: array of :class:`float64`</span>
+<span class="sd">        Declination in degrees of target object(s). Can be float, double,</span>
+<span class="sd">         or array/list of floats or doubles</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array of :class:`str`</span>
+<span class="sd">        The DESI names referring to the input target RA and DEC's. Array is</span>
+<span class="sd">        the same length as the input arrays.</span>
+
+<span class="sd">    """</span>
+    <span class="c1"># Convert to numpy array in case inputs are scalars or lists</span>
+    <span class="n">target_ra</span><span class="p">,</span> <span class="n">target_dec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">target_ra</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">target_dec</span><span class="p">)</span>
+
+    <span class="c1"># Number of decimal places in final naming convention</span>
+    <span class="n">precision</span> <span class="o">=</span> <span class="mi">4</span>
+
+    <span class="c1"># Truncate decimals to the given precision</span>
+    <span class="n">ratrunc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trunc</span><span class="p">((</span><span class="mi">10</span> <span class="o">**</span> <span class="n">precision</span><span class="p">)</span> <span class="o">*</span> <span class="n">target_ra</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+    <span class="n">dectrunc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trunc</span><span class="p">((</span><span class="mi">10</span> <span class="o">**</span> <span class="n">precision</span><span class="p">)</span> <span class="o">*</span> <span class="n">target_dec</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+
+    <span class="c1"># Loop over input values and create DESINAME as: DESI JXXX.XXXX+/-YY.YYYY</span>
+    <span class="c1"># Here J refers to J2000, which isn't strictly correct but is the closest</span>
+    <span class="c1">#   IAU compliant term</span>
+    <span class="n">desinames</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ratrunc</span><span class="p">,</span> <span class="n">dectrunc</span><span class="p">):</span>
+        <span class="n">desiname</span> <span class="o">=</span> <span class="s1">'DESI J'</span> <span class="o">+</span> <span class="n">ra</span><span class="p">[:</span><span class="o">-</span><span class="n">precision</span><span class="p">]</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'.'</span> <span class="o">+</span> <span class="n">ra</span><span class="p">[</span><span class="o">-</span><span class="n">precision</span><span class="p">:]</span>
+        <span class="c1"># Positive numbers need an explicit "+" while negative numbers</span>
+        <span class="c1">#   already have a "-".</span>
+        <span class="c1"># zfill works properly with '-' but counts it in number of characters</span>
+        <span class="c1">#   so need one more</span>
+        <span class="k">if</span> <span class="n">dec</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'-'</span><span class="p">):</span>
+            <span class="n">desiname</span> <span class="o">+=</span> <span class="n">dec</span><span class="p">[:</span><span class="o">-</span><span class="n">precision</span><span class="p">]</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'.'</span> <span class="o">+</span> <span class="n">dec</span><span class="p">[</span><span class="o">-</span><span class="n">precision</span><span class="p">:]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">desiname</span> <span class="o">+=</span> <span class="s1">'+'</span> <span class="o">+</span> <span class="n">dec</span><span class="p">[:</span><span class="o">-</span><span class="n">precision</span><span class="p">]</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'.'</span> <span class="o">+</span> <span class="n">dec</span><span class="p">[</span><span class="o">-</span><span class="n">precision</span><span class="p">:]</span>
+        <span class="n">desinames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">desiname</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">desinames</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2d41d0fa-2eba-4298-88b7-42247521da03">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Create <code>DESINAME</code> from the RA and Dec of each record:</p>
 </div>
 </div>
 </div>
@@ -7778,13 +7832,13 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">found</span><span class="o">.</span><span class="n">records</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">record</span><span class="p">[</span><span class="s1">'_dr'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'DESI-EDR'</span><span class="p">:</span>
-        <span class="n">record</span><span class="p">[</span><span class="s1">'DESIID'</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"DESI J</span><span class="si">{</span><span class="n">record</span><span class="p">[</span><span class="s1">'ra'</span><span class="p">]</span><span class="si">:</span><span class="s2">08.4f</span><span class="si">}{</span><span class="n">record</span><span class="p">[</span><span class="s1">'dec'</span><span class="p">]</span><span class="si">:</span><span class="s2">+08.4f</span><span class="si">}</span><span class="s2">"</span>
-<span class="n">metadata</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">found</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'DESIID'</span><span class="p">])</span>
+        <span class="n">record</span><span class="p">[</span><span class="s1">'DESINAME'</span><span class="p">]</span> <span class="o">=</span> <span class="n">radec_to_desiname</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s1">'ra'</span><span class="p">],</span> <span class="n">record</span><span class="p">[</span><span class="s1">'dec'</span><span class="p">])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">metadata</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">found</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'DESINAME'</span><span class="p">])</span>
 <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span><span class="p">[</span><span class="s1">'sparcl_id'</span><span class="p">]</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -7802,8 +7856,9 @@ a.anchor-link {
 <h2 id="Retrieve-spectra-from-SPARCL-and-prepare-plot-data">Retrieve spectra from SPARCL and prepare plot data<a class="anchor-link" href="#Retrieve-spectra-from-SPARCL-and-prepare-plot-data">¶</a></h2><p>Here we define a function that:</p>
 <ol>
 <li>Uses the <code>client.retrieve()</code> method from SPARCL to retrieve spectra for the list of IDs from DESI EDR.</li>
-<li>Creates a Spectrum1D object from the retrieved data.</li>
+<li>Creates a <code>specutils.Spectrum1D</code> object from the retrieved data.</li>
 <li>Loads the spectrum, metadata, and model.</li>
+<li>Caches the converted <code>Spectrum1D</code> object.</li>
 </ol>
 </div>
 </div>
@@ -7813,11 +7868,16 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">on_selected</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Callback function to enable switching between different DESI spectra.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    b : object</span>
+<span class="sd">        A callback object supplied by Specviz.</span>
 <span class="sd">    """</span>
     <span class="n">specunit</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">'10-17 erg cm-2 s-1 AA-1'</span><span class="p">)</span>
     <span class="n">key</span> <span class="o">=</span> <span class="n">entries</span><span class="p">[</span><span class="n">b</span><span class="p">[</span><span class="s1">'new'</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
@@ -7834,6 +7894,9 @@ a.anchor-link {
                                       <span class="s1">'mask'</span><span class="p">,</span>
                                       <span class="s1">'model'</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">spectra</span><span class="p">:</span>
+        <span class="c1">#</span>
+        <span class="c1"># Note how the data and the model are prepared as two separate objects.</span>
+        <span class="c1">#</span>
         <span class="n">spectra</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Spectrum1D</span><span class="p">(</span><span class="n">spectral_axis</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'wavelength'</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">AA</span><span class="p">,</span>
                                    <span class="n">flux</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'flux'</span><span class="p">]</span><span class="o">*</span><span class="n">specunit</span><span class="p">,</span>
                                    <span class="n">uncertainty</span><span class="o">=</span><span class="n">InverseVariance</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'ivar'</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">specunit</span><span class="o">**-</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">represent_as</span><span class="p">(</span><span class="n">StdDevUncertainty</span><span class="p">),</span>
@@ -7898,7 +7961,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9c02f15b-d900-4b75-beb9-59934ae01cc1">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e6867ab3-b29c-46f1-94b8-7b5665c8bed5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7907,40 +7970,35 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#</span>
-<span class="c1"># Jdaviz can emit warnings about Angstrom which we will ignore.</span>
+<span class="c1"># Set up Specviz and the drop-down menu.</span>
 <span class="c1">#</span>
-<span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
-    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
-    <span class="c1">#</span>
-    <span class="c1"># Set up Specviz and the drop-down menu.</span>
-    <span class="c1">#</span>
-    <span class="n">spectra</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>  <span class="c1"># This will cache the retrieved spectra.</span>
-    <span class="n">entries</span> <span class="o">=</span> <span class="p">[(</span><span class="n">m</span><span class="p">[</span><span class="s1">'DESIID'</span><span class="p">],</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">metadata</span><span class="p">)]</span>
-    <span class="n">select</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">entries</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">'Spectrum:'</span><span class="p">,)</span>
-    <span class="n">output</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
-    <span class="n">specviz</span> <span class="o">=</span> <span class="n">Specviz</span><span class="p">()</span>
-    <span class="c1">#</span>
-    <span class="c1"># Trigger the download if this is the very first spectrum.</span>
-    <span class="c1">#</span>
-    <span class="n">on_selected</span><span class="p">({</span><span class="s1">'new'</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
-    <span class="c1">#</span>
-    <span class="c1"># Connect the function action to the dropdown menu.</span>
-    <span class="c1">#</span>
-    <span class="n">select</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">on_selected</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">'value'</span><span class="p">)</span>
-    <span class="c1">#</span>
-    <span class="c1"># Open the display in a separate tab.</span>
-    <span class="c1">#</span>
-    <span class="n">specviz</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">'sidecar:split-right'</span><span class="p">)</span>
-    <span class="c1">#</span>
-    <span class="c1"># Display the drop-down menu.</span>
-    <span class="c1">#</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">select</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+<span class="n">spectra</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>  <span class="c1"># This will cache the retrieved spectra.</span>
+<span class="n">entries</span> <span class="o">=</span> <span class="p">[(</span><span class="n">m</span><span class="p">[</span><span class="s1">'DESINAME'</span><span class="p">],</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">metadata</span><span class="p">)]</span>
+<span class="n">select</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">entries</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">'Spectrum:'</span><span class="p">,)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+<span class="n">specviz</span> <span class="o">=</span> <span class="n">Specviz</span><span class="p">()</span>
+<span class="c1">#</span>
+<span class="c1"># Trigger the download if this is the very first spectrum.</span>
+<span class="c1">#</span>
+<span class="n">on_selected</span><span class="p">({</span><span class="s1">'new'</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+<span class="c1">#</span>
+<span class="c1"># Connect the function action to the dropdown menu.</span>
+<span class="c1">#</span>
+<span class="n">select</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">on_selected</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">'value'</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1"># Open the display in a separate tab.</span>
+<span class="c1">#</span>
+<span class="n">specviz</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">'sidecar:split-bottom'</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1"># Display the drop-down menu.</span>
+<span class="c1">#</span>
+<span class="n">display</span><span class="p">(</span><span class="n">select</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e6867ab3-b29c-46f1-94b8-7b5665c8bed5">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0acd5ab5-c0a6-4582-8287-db7ce1f25b0e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
