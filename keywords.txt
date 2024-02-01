@@ -76,3 +76,4 @@ variable
 vospace
 vospace:copy
 WCS
+Gravitational wave events
