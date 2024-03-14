@@ -15,6 +15,7 @@ galaxies
 Gemini
 gemini llp
 GMOS
+Gravitational wave events
 Healpix map
 histogram
 HowTo
@@ -76,4 +77,3 @@ variable
 vospace
 vospace:copy
 WCS
-Gravitational wave events

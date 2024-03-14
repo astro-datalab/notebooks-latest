@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gravitational wave</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>AntaresDevKitGravitationalWaves</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -15111,7 +15111,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Antares Team &lt;antares@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20242901&#39;</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240314&#39;</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ANTARES&#39;</span><span class="p">,</span> <span class="s1">&#39;Gravitational wave events&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15146,10 +15146,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li><a href="#import">Imports &amp; setup</a></li>
 <li><a href="#chapter1">Content</a><ul>
 <li><a href="#content-background">0. Background information on ANTARES</a></li>
-<li><a href="#content-grav-waves">1. What Is a Gravitational Wave?</a></li>
+<li><a href="#content-grav-waves">1. What is a gravitational wave?</a></li>
 <li><a href="#content-grav-waves-devkit">2. How to access to gravitational wave notices using the ANTARES devkit?</a></li>
 <li><a href="#content-grav-waves-filter">3. How to develop a filter that uses gravitational wave data?</a></li>
-<li><a href="#content-grav-waves-client">4. How to access to gravitational wave notices using the ANTARES client?</a></li>
+<li><a href="#content-grav-waves-client">4. How to access gravitational wave notices using the ANTARES client?</a></li>
 </ul>
 </li>
 </ul>
@@ -15165,7 +15165,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="goals"></a></p>
-<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><p>To show how to access gravitational wave data in ANTARES</p>
+<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h1><p>To show how to access gravitational wave data from <a href="https://gcn.nasa.gov/">GCN</a> in ANTARES.</p>
 
 </div>
 </div>
@@ -15177,7 +15177,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>This jupyter notebook is an example of how to access to gravitational wave notices using the ANTARES devkit and client</p>
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>This Jupyter notebook is an example of how to access to gravitational wave notices from <a href="https://gcn.nasa.gov/">GCN</a> using the ANTARES devkit and client.</p>
 
 </div>
 </div>
@@ -15248,9 +15248,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
        / \  | \ | |_   _|/ \  |  _ \| ____/ ___|
       / _ \ |  \| | | | / _ \ | |_| |  _| \___ \\
      / ___ \| |\  | | |/ ___ \|  _ /| |___ ___| |
-    /_/   \_\_| \_| |_/_/   \_\_| \_\_____|____/   v2.9.0
+    /_/   \_\_| \_| |_/_/   \_\_| \_\_____|____/   v2.11.0
     
-2024-02-01 12:43:06,574 - WARNING MainThread settings.py:setup_prometheus:124 - Prometheus failed to start with [Errno 98] Address already in use
+2024-03-14 14:45:29,633 - WARNING MainThread settings.py:setup_prometheus:124 - Prometheus failed to start with [Errno 98] Address already in use
+2024-03-14 14:45:29,808 - WARNING MainThread settings.py:setup_prometheus:124 - Prometheus failed to start with [Errno 98] Address already in use
 </pre>
 </div>
 </div>
@@ -15272,21 +15273,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Testing loading a random Locus with `dk.get_locus()`...
 
-ANTARES v2.9.0 DevKit is ready!
+ANTARES v2.11.0 DevKit is ready!
 Website: https://antares.noirlab.edu
 Documentation: https://nsf-noirlab.gitlab.io/csdc/antares/antares/
 
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>/data0/sw/antares-kernel/lib/python3.9/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: invalid value encountered in log10
-  result = getattr(ufunc, method)(*inputs, **kwargs)
 </pre>
 </div>
 </div>
@@ -15305,16 +15295,16 @@ Documentation: https://nsf-noirlab.gitlab.io/csdc/antares/antares/
 <p><a class="anchor" id="content-background"></a></p>
 <h1 id="0.-Background-information-on-ANTARES">0. Background information on ANTARES<a class="anchor-link" href="#0.-Background-information-on-ANTARES">&#182;</a></h1><p>ANTARES receives alerts from surveys in real-time and sends them through a processing pipeline. The pipeline contains the following stages:</p>
 <ol>
-<li>Associate the Alert with the nearest point of known past measurements within a 1&quot; radius. We call this a Locus.</li>
-<li>Discard Alerts with a high probability of being false detections.</li>
-<li>Discard Alerts with poor image quality.</li>
-<li>Associate Gravitational Wave Events to Locus.</li>
+<li>Associate the alert with the nearest point of known past measurements within a 1&quot; radius. We call this a Locus.</li>
+<li>Discard alerts with a high probability of being false detections.</li>
+<li>Discard alerts with poor image quality.</li>
+<li>Associate gravitational wave events from <a href="https://gcn.nasa.gov/">GCN</a> to Locus.</li>
 <li>Look up associated objects in our catalogs.</li>
 <li>Update watch lists.</li>
-<li>Execute Filters on Locus.</li>
+<li>Execute filters on Locus.</li>
 <li>Send Locus to user Kafka topics.</li>
 </ol>
-<p>Filters are Python functions that take a Locus object as a single parameter. Functions on the Locus provide access to the Alert's properties, the data from past Alerts on the Locus, gravitational wave events on the Locus, and the associated catalog objects. This information can be used to characterize or classify the Locus. The Locus also provides functions to set new properties on the Alert and Locus, and to send the Locus to a specific Kafka stream.</p>
+<p>Filters are Python functions that take a Locus object as a single parameter. Functions on the Locus provide access to the alerts properties, the data from past alerts on the Locus, gravitational wave events on the Locus, and the associated catalog objects. This information can be used to characterize or classify the Locus. The Locus also provides functions to set new properties on the Alert and Locus objects, and to send the Locus to a specific Kafka stream.</p>
 
 </div>
 </div>
@@ -15328,7 +15318,7 @@ Documentation: https://nsf-noirlab.gitlab.io/csdc/antares/antares/
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># First we retrieve a locus</span>
-<span class="n">locus</span> <span class="o">=</span> <span class="n">dk</span><span class="o">.</span><span class="n">get_locus</span><span class="p">(</span><span class="s2">&quot;ANT2020ho42c&quot;</span><span class="p">)</span>
+<span class="n">locus</span> <span class="o">=</span> <span class="n">dk</span><span class="o">.</span><span class="n">get_locus</span><span class="p">(</span><span class="s2">&quot;ANT2020ho42c&quot;</span><span class="p">,</span> <span class="n">include_gravitational_wave_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15344,9 +15334,7 @@ Documentation: https://nsf-noirlab.gitlab.io/csdc/antares/antares/
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="content-grav-waves"></a></p>
-<h1 id="1.-What-Is-a-Gravitational-Wave?">1. What Is a Gravitational Wave?<a class="anchor-link" href="#1.-What-Is-a-Gravitational-Wave?">&#182;</a></h1><p>Gravitational waves are ripples in space.  The current suite of
-gravitational wave detectors are sensitive to the coalescence of
-binary systems with massive compact objects, such as neutron stars and
+<h1 id="1.-What-is-a-gravitational-wave?">1. What is a gravitational wave?<a class="anchor-link" href="#1.-What-is-a-gravitational-wave?">&#182;</a></h1><p>Gravitational waves are ripples in space.  The current suite of gravitational wave detectors are sensitive to the coalescence of binary systems with massive compact objects, such as neutron stars and
 black holes.</p>
 
 </div>
@@ -15360,7 +15348,7 @@ black holes.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="content-grav-waves-devkit"></a></p>
-<h1 id="2.-How-to-access-to-gravitational-wave-notices-using-the-ANTARES-devkit?">2. How to access to gravitational wave notices using the ANTARES devkit?<a class="anchor-link" href="#2.-How-to-access-to-gravitational-wave-notices-using-the-ANTARES-devkit?">&#182;</a></h1><p>We can access to the gravitational wave events associated with a locus by accessing to the <code>grav_wave_events_metadata</code> dictionary</p>
+<h1 id="2.-How-to-access-to-gravitational-wave-notices-using-the-ANTARES-devkit?">2. How to access to gravitational wave notices using the ANTARES devkit?<a class="anchor-link" href="#2.-How-to-access-to-gravitational-wave-notices-using-the-ANTARES-devkit?">&#182;</a></h1><p>We can access the gravitational wave events associated with a locus through the <code>grav_wave_events_metadata</code> dictionary</p>
 
 </div>
 </div>
@@ -15394,33 +15382,33 @@ black holes.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>S231027bk 2023-10-27 20:01:09.100000
-S231028r 2023-10-28 06:59:50.019000
+<pre>S231025ap 2023-10-25 14:23:06.141000
+S231025aw 2023-10-25 15:07:18.932000
+S231025az 2023-10-25 16:03:30.074000
+S231025c 2023-10-25 03:29:30.125000
+S231025p 2023-10-25 05:38:55.316000
+S231025t 2023-10-25 06:16:12.235000
+S231026n 2023-10-26 07:11:39.708000
+S231026z 2023-10-26 12:54:28.507000
+S231027bk 2023-10-27 20:01:09.100000
+S231027m 2023-10-27 02:15:46.238000
+S231027r 2023-10-27 03:51:15.755000
 S231028aw 2023-10-28 14:00:36.384000
 S231028br 2023-10-28 17:34:20.951000
-S231029e 2023-10-29 00:54:46.395000
-S231029n 2023-10-29 07:44:33.518000
-S231029y 2023-10-29 11:15:08.754000
+S231028r 2023-10-28 06:59:50.019000
 S231029ah 2023-10-29 14:19:37.578000
 S231029ai 2023-10-29 14:51:39.214000
 S231029at 2023-10-29 19:48:41.864000
 S231029bd 2023-10-29 22:13:58.142000
-S231030r 2023-10-30 02:12:04.512000
-S231030t 2023-10-30 02:26:50.708000
-S231030v 2023-10-30 02:51:32.206000
+S231029e 2023-10-29 00:54:46.395000
+S231029n 2023-10-29 07:44:33.518000
+S231029y 2023-10-29 11:15:08.754000
 S231030ad 2023-10-30 06:25:23.301000
 S231030bd 2023-10-30 15:05:30.555000
 S231030be 2023-10-30 15:05:30.437000
-S231025c 2023-10-25 03:29:30.125000
-S231025p 2023-10-25 05:38:55.316000
-S231025t 2023-10-25 06:16:12.235000
-S231025ap 2023-10-25 14:23:06.141000
-S231025aw 2023-10-25 15:07:18.932000
-S231025az 2023-10-25 16:03:30.074000
-S231026n 2023-10-26 07:11:39.708000
-S231026z 2023-10-26 12:54:28.507000
-S231027m 2023-10-27 02:15:46.238000
-S231027r 2023-10-27 03:51:15.755000
+S231030r 2023-10-30 02:12:04.512000
+S231030t 2023-10-30 02:26:50.708000
+S231030v 2023-10-30 02:51:32.206000
 S231103aa 2023-11-03 18:52:48.712000
 S231104j 2023-11-04 07:15:57.806000
 S231104m 2023-11-04 07:55:47.805000
@@ -15428,22 +15416,22 @@ S231104s 2023-11-04 10:03:23.502000
 S231106k 2023-11-06 02:35:25.371000
 S231106r 2023-11-06 04:21:56.090000
 S231107a 2023-11-07 00:14:17.023000
+S231108ab 2023-11-08 19:57:22.468000
 S231108l 2023-11-08 03:52:53.817000
 S231108p 2023-11-08 05:02:19.117000
 S231108x 2023-11-08 18:08:46.982000
-S231108ab 2023-11-08 19:57:22.468000
-S231109p 2023-11-09 05:29:01.246000
-S231109y 2023-11-09 08:38:47.557000
 S231109ab 2023-11-09 09:45:18.521000
 S231109ap 2023-11-09 14:09:51.447000
 S231109as 2023-11-09 14:25:46.369000
 S231109bh 2023-11-09 17:54:05.911000
 S231109bj 2023-11-09 18:12:37.889000
 S231109bo 2023-11-09 19:19:18.691000
+S231109p 2023-11-09 05:29:01.246000
+S231109y 2023-11-09 08:38:47.557000
 S231110az 2023-11-10 17:17:31.380000
+S231112ag None
 S231112i 2023-11-12 05:06:43.617000
 S231112j 2023-11-12 05:14:27.065000
-S231112ag None
 </pre>
 </div>
 </div>
@@ -15472,7 +15460,7 @@ wave notice class, see <a href="https://nsf-noirlab.gitlab.io/csdc/antares/antar
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>If we want to access to the gravitational wave events associated with an alert, we can access to the <code>grav_wave_events</code> variable</p>
+<p>We can access the gravitational wave events associated with an alert through the <code>grav_wave_events</code> variable</p>
 
 </div>
 </div>
@@ -15544,7 +15532,7 @@ wave notice class, see <a href="https://nsf-noirlab.gitlab.io/csdc/antares/antar
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>If we want to access to more information about a gravitational wave we can use its gracedb_id to search it in treasuremap</p>
+<p>We can use the <code>gracedb_id</code> property to search for an event in the treasuremap</p>
 
 </div>
 </div>
@@ -15597,7 +15585,7 @@ wave notice class, see <a href="https://nsf-noirlab.gitlab.io/csdc/antares/antar
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="content-grav-waves-filter"></a></p>
-<h1 id="3.-How-to-develop-a-filter-that-uses-gravitational-wave-data?">3. How to develop a filter that uses gravitational wave data?<a class="anchor-link" href="#3.-How-to-develop-a-filter-that-uses-gravitational-wave-data?">&#182;</a></h1><p>When developing a filter using the devkit we can restrict the alerts that the filter will be ran based on the probability region</p>
+<h1 id="3.-How-to-develop-a-filter-that-uses-gravitational-wave-data?">3. How to develop a filter that uses gravitational wave data?<a class="anchor-link" href="#3.-How-to-develop-a-filter-that-uses-gravitational-wave-data?">&#182;</a></h1><p>When developing a filter using the devkit we can restrict the alerts that the filter will be ran on based on the probability region</p>
 
 </div>
 </div>
@@ -15614,7 +15602,7 @@ wave notice class, see <a href="https://nsf-noirlab.gitlab.io/csdc/antares/antar
     <span class="n">REQUIRED_GRAV_WAVE_PROB_REGION</span> <span class="o">=</span> <span class="mf">48.97257324004685</span>
 
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locus</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of grave wave notices: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">locus</span><span class="o">.</span><span class="n">grav_wave_events_metadata</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of gravitational wave notices: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">locus</span><span class="o">.</span><span class="n">grav_wave_events_metadata</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15651,8 +15639,8 @@ wave notice class, see <a href="https://nsf-noirlab.gitlab.io/csdc/antares/antar
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Number of grave wave notices: 50
-{&#39;locus_id&#39;: &#39;ANT2020ho42c&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2020ho42c&#34;), &#39;t&#39;: 7.434700000175098e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: set(), &#39;raised_halt&#39;: False}
+<pre>Number of gravitational wave notices: 50
+{&#39;locus_id&#39;: &#39;ANT2020ho42c&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2020ho42c&#34;), &#39;t&#39;: 9.545899999885421e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: set(), &#39;raised_halt&#39;: False}
 </pre>
 </div>
 </div>
@@ -15669,7 +15657,7 @@ wave notice class, see <a href="https://nsf-noirlab.gitlab.io/csdc/antares/antar
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="content-grav-waves-client"></a></p>
-<h1 id="4.-How-to-access-to-gravitational-wave-notices-using-the-ANTARES-client?">4. How to access to gravitational wave notices using the ANTARES client?<a class="anchor-link" href="#4.-How-to-access-to-gravitational-wave-notices-using-the-ANTARES-client?">&#182;</a></h1><p>For cases when we want to access to a gravitational wave notice by the id we can use some methods of the antares_client available in <a href="https://nsf-noirlab.gitlab.io/csdc/antares/client/tutorial/searching.html">https://nsf-noirlab.gitlab.io/csdc/antares/client/tutorial/searching.html</a></p>
+<h1 id="4.-How-to-access-gravitational-wave-notices-using-the-ANTARES-client?">4. How to access gravitational wave notices using the ANTARES client?<a class="anchor-link" href="#4.-How-to-access-gravitational-wave-notices-using-the-ANTARES-client?">&#182;</a></h1><p>For cases when we want to access a gravitational wave notice by ID we can use methods of the antares_client, described at <a href="https://nsf-noirlab.gitlab.io/csdc/antares/client/tutorial/searching.html">https://nsf-noirlab.gitlab.io/csdc/antares/client/tutorial/searching.html</a></p>
 
 </div>
 </div>
