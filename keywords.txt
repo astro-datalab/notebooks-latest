@@ -15,6 +15,7 @@ galaxies
 Gemini
 gemini llp
 GMOS
+Gravitational wave events
 Healpix map
 histogram
 HowTo
