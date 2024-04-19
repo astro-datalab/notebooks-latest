@@ -1,7 +1,7 @@
 
 ## DRAGONS data reduction (Jupyter Notebooks):
 
-This repository has Jupyter Notebook examples of data reduction for the Gemini Observatory instruments. They were written using the [DRAGONS' Application Program Interface (API)](https://dragons-recipe-system-users-manual.readthedocs.io/en/v2.1.1/appendices/full_api_example.html) for Python, based on the examples provided in the [DRAGONS Documentation](https://dragons.readthedocs.io/).
+This repository has Jupyter Notebook examples of data reduction for the Gemini Observatory instruments. Usually, you need DRAGONS installed on your computer to run these notebooks, but the Astro Data Lab has a custom kernel called DRAGONS (Py3.7) that will allow you to run them. The notebooks are set to open the DRAGONS kernel by default, but if this doesn’t happen, you can click ‘kernel’ at the top of the notebook, then ‘change notebook,’ and select DRAGONS (Py3.7). These notebooks were written using the [DRAGONS' Application Program Interface (API)](https://dragons-recipe-system-users-manual.readthedocs.io/en/v2.1.1/appendices/full_api_example.html) for Python, based on the examples provided in the [DRAGONS Documentation](https://dragons.readthedocs.io/).
 
 ---
 ## Before you try the notebooks:
