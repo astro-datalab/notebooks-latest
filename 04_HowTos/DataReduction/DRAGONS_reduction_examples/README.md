@@ -34,8 +34,7 @@ This repository has Jupyter Notebook examples of data reduction for the Gemini O
 
 ### Flamingos2_Imaging_BrownDwarf.ipynb
 
-Flamingos-2 imaging (Y-band) of the brown dwarf WISE J041358.14-475039.3. This is extracted from the Gemini/DRAGONS F2 tutorial, Section 3. Dataset includes Flats, Darks, and Science frames. Link to the [Jupyter notebook](notebooks-latest/04_HowTos/DataReduction/DRAGONS_reduction_examples
-/Flamingos2_Imaging_BrownDwarf.ipynb) or [direct download](https://raw.githubusercontent.com/usngo/DRAGONS/main/Flamingos2_Imaging_BrownDwarf.ipynb) (right-click &#8594; Save Link As...).
+Flamingos-2 imaging (Y-band) of the brown dwarf WISE J041358.14-475039.3. This is extracted from the Gemini/DRAGONS F2 tutorial, Section 3. Dataset includes Flats, Darks, and Science frames. Link to the [Jupyter notebook](https://github.com/bmerino95/notebooks-latest/blob/brian_dragons/04_HowTos/DataReduction/DRAGONS_reduction_examples/) or [direct download](https://raw.githubusercontent.com/usngo/DRAGONS/main/Flamingos2_Imaging_BrownDwarf.ipynb) (right-click &#8594; Save Link As...).
 
 ### GMOS_Imaging_StarryField.ipynb
 
