@@ -38,15 +38,15 @@ Flamingos-2 imaging (Y-band) of the brown dwarf WISE J041358.14-475039.3. This i
 
 ### GMOS_Imaging_StarryField.ipynb
 
-GMOS imaging (i-band) of a stellar field. This is extracted from the Gemini/DRAGONS GMOS tutorial, Section 3. Dataset includes Biases, Twilight Flats, and Science frames. Link to the [Jupyter notebook]([GMOS_Imaging_StarryField.ipynb](https://github.com/bmerino95/notebooks-latest/blob/brian_dragons/04_HowTos/DataReduction/DRAGONS_reduction_examples/GMOS_Imaging_StarryField/GMOS_Imaging_StarryField.ipynb).
+GMOS imaging (i-band) of a stellar field. This is extracted from the Gemini/DRAGONS GMOS tutorial, Section 3. Dataset includes Biases, Twilight Flats, and Science frames. Link to the [Jupyter notebook](https://github.com/bmerino95/notebooks-latest/blob/brian_dragons/04_HowTos/DataReduction/DRAGONS_reduction_examples/GMOS_Imaging_StarryField/GMOS_Imaging_StarryField.ipynb).
 
 ### GMOS_Imaging_Galaxy.ipynb
 
-GMOS imaging (g-band) of the elliptical galaxy NGC5018.  Dataset includes Biases, Twilight Flats, and Science frames. Link to the [Jupyter notebook]([GMOS_Imaging_Galaxy.ipynb](https://github.com/bmerino95/notebooks-latest/blob/brian_dragons/04_HowTos/DataReduction/DRAGONS_reduction_examples/GMOS_Imaging_Galaxy/GMOS_Imaging_Galaxy.ipynb).
+GMOS imaging (g-band) of the elliptical galaxy NGC5018.  Dataset includes Biases, Twilight Flats, and Science frames. Link to the [Jupyter notebook](https://github.com/bmerino95/notebooks-latest/blob/brian_dragons/04_HowTos/DataReduction/DRAGONS_reduction_examples/GMOS_Imaging_Galaxy/GMOS_Imaging_Galaxy.ipynb).
 
 ### GNIRS_Imaging_GammaRayBurst.ipynb
 
-GNIRS imaging (J-band - point source through keyhole) of GRB120116A. This is extracted from the Gemini/DRAGONS GNIRS tutorial, Example 1-B. Dataset includes Flats, Darks, and Science frames. Link to the [Jupyter notebook]([GNIRS_Imaging_GammaRayBurst.ipynb](https://github.com/bmerino95/notebooks-latest/blob/brian_dragons/04_HowTos/DataReduction/DRAGONS_reduction_examples/GNIRS_Imaging_GammaRayBurst/GNIRS_Imaging_GammaRayBurst.ipynb).
+GNIRS imaging (J-band - point source through keyhole) of GRB120116A. This is extracted from the Gemini/DRAGONS GNIRS tutorial, Example 1-B. Dataset includes Flats, Darks, and Science frames. Link to the [Jupyter notebook](https://github.com/bmerino95/notebooks-latest/blob/brian_dragons/04_HowTos/DataReduction/DRAGONS_reduction_examples/GNIRS_Imaging_GammaRayBurst/GNIRS_Imaging_GammaRayBurst.ipynb).
 
 ### GSAOI_Imaging_EllipticalGalaxy.ipynb
 
