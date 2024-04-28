@@ -1,8 +1,8 @@
-__author__ = 'Robert Nikutta <nikutta@noao.edu>, NOAO Data Lab Team <datalab@noao.edu>'
-__version__ = '20170804' # yyymmdd
+__author__ = 'Robert Nikutta <robert.nikutta@noirlab.edu>, Astro Data Lab Team <datalab@noirlab.edu>'
+__version__ = '20240427' # yyymmdd
 
 import numpy as np
-from astropy import stats
+from astropy import timeseries
 import astropy.units as u
 import pylab as plt
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes, mark_inset
@@ -93,7 +93,7 @@ def get_ls_periodogram(t,y,min_freq=1./1.,max_freq=1./0.1):
     """
     
     # Use astropy's LombScargle class
-    ls = stats.LombScargle(t, y)
+    ls = timeseries.LombScargle(t, y)
 
     # Compute the periodogram
     #   We guide the algorithm a bit:
