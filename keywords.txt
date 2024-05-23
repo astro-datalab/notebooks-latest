@@ -8,6 +8,7 @@ data reduction
 desi spectra
 DRAGONS
 dwarf galaxies
+exoplanets
 Exploratory Analysis
 extragalactic
 file service
@@ -26,6 +27,7 @@ Introduction to Machine Learning
 IRAF
 joint query
 Jupyter
+Kepler
 La Serena School for Data Science
 lightcurve
 LMC
@@ -36,6 +38,7 @@ Milky Way
 movingobject
 mydb
 object classification
+occurrence rates
 Pal5
 parallax
 period
