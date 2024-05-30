@@ -36,6 +36,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -15107,12 +15108,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Eric Armengaud, Benjamin Weaver &lt;benjamin.weaver@noirlab.edu&gt;, Alice Jacques &lt;alice.jacques@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230816&#39;</span> <span class="c1"># yyyymmdd</span>
-<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sdss_dr16&#39;</span><span class="p">,</span> <span class="s1">&#39;boss_dr16&#39;</span><span class="p">,</span> <span class="s1">&#39;desi_edr&#39;</span><span class="p">]</span>  
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240529&#39;</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sdss_dr16&#39;</span><span class="p">,</span> <span class="s1">&#39;boss_dr16&#39;</span><span class="p">,</span> <span class="s1">&#39;desi_edr&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sparcl&#39;</span><span class="p">,</span> <span class="s1">&#39;spectroscopy&#39;</span><span class="p">,</span> <span class="s1">&#39;sdss spectra&#39;</span><span class="p">,</span> <span class="s1">&#39;desi spectra&#39;</span><span class="p">,</span> <span class="s1">&#39;tutorial&#39;</span><span class="p">,</span> <span class="s1">&#39;prospect&#39;</span><span class="p">,</span> <span class="s1">&#39;specutils&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -15128,7 +15129,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Obtain-and-plot-spectra-data-using-SPARCL,-prospect,-and-specutils">Obtain and plot spectra data using SPARCL, prospect, and specutils<a class="anchor-link" href="#Obtain-and-plot-spectra-data-using-SPARCL,-prospect,-and-specutils">&#182;</a></h1><p><em>Credit</em>: <a href="https://github.com/armengau">Eric Armengaud</a>, Saclay - CEA, is the primary author of prospect. See also the <a href="https://github.com/desihub/prospect/graphs/contributors">prospect contributors</a>.</p>
+<h1 id="Obtain-and-plot-spectra-data-using-SPARCL,-prospect,-and-specutils">Obtain and plot spectra data using SPARCL, prospect, and specutils<a class="anchor-link" href="#Obtain-and-plot-spectra-data-using-SPARCL,-prospect,-and-specutils">&#182;</a></h1><p><em>Credit</em>: <a href="https://github.com/armengau">Eric Armengaud</a>, Saclay - CEA, is the primary author of prospect. See also the <a href="https://github.com/desihub/prospect/graphs/contributors">prospect contributors</a>. <a href="https://github.com/weaverba137">Benjamin Weaver</a> and <a href="https://github.com/jacquesalice">Alice Jacques</a> contributed to the development of this notebook.</p>
 
 </div>
 </div>
@@ -15207,20 +15208,22 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">NumbaDeprecationWarning</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">NumbaDeprecationWarning</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;.*numba\.jit.*&#39;</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
 <span class="kn">from</span> <span class="nn">astropy.nddata</span> <span class="kn">import</span> <span class="n">InverseVariance</span>
 <span class="kn">from</span> <span class="nn">specutils</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">specutils_version</span><span class="p">,</span> <span class="n">Spectrum1D</span>
+<span class="kn">from</span> <span class="nn">bokeh</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">bokeh_version</span>
 <span class="kn">from</span> <span class="nn">prospect</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">prospect_version</span>
 <span class="kn">from</span> <span class="nn">prospect.viewer</span> <span class="kn">import</span> <span class="n">plotspectra</span>
 <span class="kn">from</span> <span class="nn">prospect.specutils</span> <span class="kn">import</span> <span class="n">Spectra</span>
@@ -15229,6 +15232,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">dl_version</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;astro-datalab==</span><span class="si">{</span><span class="n">dl_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;specutils==</span><span class="si">{</span><span class="n">specutils_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bokeh==</span><span class="si">{</span><span class="n">bokeh_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;prospect==</span><span class="si">{</span><span class="n">prospect_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sparcl==</span><span class="si">{</span><span class="n">sparcl_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -15236,30 +15240,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>astro-datalab==2.21.3
-specutils==1.9.1
-prospect==1.2.5
-sparcl==1.2.0
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15273,12 +15253,12 @@ sparcl==1.2.0
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">SparclClient</span><span class="p">()</span>
@@ -15288,29 +15268,6 @@ sparcl==1.2.0
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(sparclclient:1.2.0, api:9.0, https://astrosparcl.datalab.noirlab.edu/sparc, verbose=False, connect_timeout=1.1, read_timeout=5400.0)</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15325,12 +15282,12 @@ sparcl==1.2.0
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">get_profile</span><span class="p">()</span>
@@ -15339,29 +15296,6 @@ sparcl==1.2.0
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;default&#39;</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15388,12 +15322,12 @@ sparcl==1.2.0
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -15418,53 +15352,6 @@ sparcl==1.2.0
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div><i>Table length=50</i>
-<table id="table140011841076336" class="table-striped table-bordered table-condensed">
-<thead><tr><th>targetid</th><th>chi2</th><th>z</th><th>zerr</th><th>zwarn</th><th>spectype</th><th>subtype</th><th>coadd_numexp</th><th>coadd_exptime</th><th>healpix</th><th>deltachi2</th></tr></thead>
-<thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>str6</th><th>int64</th><th>int64</th><th>float64</th><th>int64</th><th>float64</th></tr></thead>
-<tr><td>1018147809263616</td><td>7365.986792743206</td><td>0.5242944629168498</td><td>6.0633200133966495e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>733.9571</td><td>10517</td><td>71.94141682237387</td></tr>
-<tr><td>1030495978651648</td><td>8103.990616310388</td><td>0.7552786543004375</td><td>0.00017749836792365145</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>1228.5404</td><td>25934</td><td>20.647511329501867</td></tr>
-<tr><td>1030507408130048</td><td>7649.292701952159</td><td>0.6367214865921862</td><td>0.00010330595538305078</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>1521.4265</td><td>25599</td><td>133.98583871871233</td></tr>
-<tr><td>1030526211194880</td><td>7539.091522403061</td><td>0.8053032876978878</td><td>0.00011301271093738162</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>979.7707</td><td>25945</td><td>156.96490418165922</td></tr>
-<tr><td>1030538257235968</td><td>8134.653569459915</td><td>0.5719903498779939</td><td>3.223043052206872e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>2</td><td>1719.2445</td><td>25957</td><td>609.7288934141397</td></tr>
-<tr><td>1030538257235969</td><td>7135.108882904053</td><td>0.5722036123057208</td><td>1.620413588830633e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>979.7707</td><td>25957</td><td>487.25401762500405</td></tr>
-<tr><td>1030550353608705</td><td>7867.883817739785</td><td>0.7842247194907328</td><td>0.0001135860568130856</td><td>0</td><td>GALAXY</td><td>--</td><td>3</td><td>2420.4485</td><td>25968</td><td>37.140998892486095</td></tr>
-<tr><td>1030568439447553</td><td>8961.871326968074</td><td>0.754500761465981</td><td>0.00010126469934510125</td><td>0</td><td>GALAXY</td><td>--</td><td>4</td><td>3522.769</td><td>25976</td><td>10.445683613419533</td></tr>
-<tr><td>1030573330006017</td><td>8754.344732429832</td><td>0.5732047635328416</td><td>0.00012256537277712583</td><td>0</td><td>GALAXY</td><td>--</td><td>4</td><td>5545.4507</td><td>27247</td><td>310.3479618281126</td></tr>
-<tr><td>1031504037675008</td><td>7480.231691986322</td><td>0.6514473439669506</td><td>6.622491253337035e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>941.1897</td><td>9929</td><td>256.8893585279584</td></tr>
-<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-<tr><td>1084078698790912</td><td>8082.1450235862285</td><td>0.5538389287047147</td><td>0.0005284074865208822</td><td>0</td><td>GALAXY</td><td>--</td><td>2</td><td>2001.6584</td><td>10512</td><td>18.699554620310664</td></tr>
-<tr><td>1084079202107393</td><td>7683.44479547441</td><td>0.8871215972756863</td><td>7.686933698533896e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>1039.5458</td><td>9342</td><td>17.911938205361366</td></tr>
-<tr><td>1084083752927238</td><td>7599.528635233641</td><td>0.5019248697451463</td><td>4.989704264975716e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>1266.5073</td><td>9150</td><td>10.690924648195505</td></tr>
-<tr><td>1084089213911042</td><td>7343.692225933075</td><td>0.6519883320942474</td><td>7.267464562064621e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>2</td><td>1538.5286</td><td>9425</td><td>9.654731012880802</td></tr>
-<tr><td>1084094209327112</td><td>9197.105464577675</td><td>0.6807816884993237</td><td>2.589359578514029e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>2</td><td>2043.0839</td><td>9425</td><td>30.95276916027069</td></tr>
-<tr><td>1084094213521414</td><td>7594.119990326464</td><td>0.5491421976493851</td><td>8.221539032230453e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>1039.5458</td><td>9425</td><td>12.318490572273731</td></tr>
-<tr><td>1084099200548870</td><td>7922.7978156507015</td><td>0.5420632178811425</td><td>5.248537797530134e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>2</td><td>2043.0839</td><td>9428</td><td>15.281807787716389</td></tr>
-<tr><td>1084104162410503</td><td>7799.4767319485545</td><td>0.5129965664056207</td><td>6.47509440134427e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>719.255</td><td>9428</td><td>9.173644490540028</td></tr>
-<tr><td>1084104162410508</td><td>7731.811375722289</td><td>0.6724520231637495</td><td>5.926636400790151e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>1039.5458</td><td>9428</td><td>15.01417849957943</td></tr>
-<tr><td>1084104174993420</td><td>17191.26975917816</td><td>0.7053922442542426</td><td>1.0702979036256088e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>2</td><td>1893.018</td><td>9343</td><td>31.31516170501709</td></tr>
-</table></div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15482,7 +15369,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">desi_ids</span><span class="p">[</span><span class="s1">&#39;targetid&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="n">desi_ids</span><span class="p">[</span><span class="s1">&#39;targetid&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
@@ -15505,12 +15392,12 @@ sparcl==1.2.0
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">include</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DESI-EDR&#39;</span><span class="p">])</span>
@@ -15523,31 +15410,6 @@ sparcl==1.2.0
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;status&#39;: {&#39;success&#39;: True,
-  &#39;info&#39;: [&#34;Successfully found 50 records in dr_list=[&#39;DESI-EDR&#39;]&#34;],
-  &#39;warnings&#39;: []}}</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15567,7 +15429,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">targetids_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">targetid</span><span class="p">)</span>
@@ -15598,10 +15460,45 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="nb">all</span><span class="p">([(</span><span class="n">r</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">==</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>QA</strong>: Are any of the spectra fully masked?</p>
+
+</div>
+</div>
+</div>
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">desi_fully_masked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">)):</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: Spectrum record </span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2"> is fully masked!&quot;</span><span class="p">)</span>
+        <span class="n">desi_fully_masked</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 
      </div>
@@ -15620,12 +15517,12 @@ sparcl==1.2.0
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -15634,136 +15531,6 @@ sparcl==1.2.0
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;specid&#39;: 1084094209327112,
- &#39;datasetgroup&#39;: &#39;DESI&#39;,
- &#39;redshift_err&#39;: 2.58935957851403e-05,
- &#39;telescope&#39;: &#39;kp4m&#39;,
- &#39;spectype&#39;: &#39;GALAXY&#39;,
- &#39;instrument&#39;: &#39;DESI&#39;,
- &#39;targetid&#39;: 1084094209327112,
- &#39;wavemax&#39;: 9800.0,
- &#39;redshift_warning&#39;: 0,
- &#39;dec&#39;: 34.4909674837506,
- &#39;ra&#39;: 251.046383671818,
- &#39;specprimary&#39;: True,
- &#39;exptime&#39;: 2043.08386230469,
- &#39;site&#39;: &#39;kpno&#39;,
- &#39;redshift&#39;: 0.680781688499324,
- &#39;data_release&#39;: &#39;DESI-EDR&#39;,
- &#39;wavemin&#39;: 3600.0,
- &#39;std_fiber_ra&#39;: 0.0,
- &#39;pmra&#39;: 0.0,
- &#39;sv3_desi_target&#39;: 4611686018427387904,
- &#39;sv3_mws_target&#39;: 0,
- &#39;healpix&#39;: 9425,
- &#39;fa_type&#39;: 1,
- &#39;npixels&#39;: 7925,
- &#39;rms_delta_x&#39;: 0.004000000189989805,
- &#39;program&#39;: &#39;dark&#39;,
- &#39;tsnr2_elg&#39;: 169.35247802734375,
- &#39;pmdec&#39;: 0.0,
- &#39;deltachi2&#39;: 30.95276916027069,
- &#39;priority_init&#39;: 1700,
- &#39;target_ra&#39;: None,
- &#39;zcat_nspec&#39;: 1,
- &#39;cmx_target&#39;: 0,
- &#39;sv1_desi_target&#39;: 0,
- &#39;mean_mjd&#39;: 59325.4455512,
- &#39;objtype&#39;: &#39;TGT&#39;,
- &#39;coadd_fiberstatus&#39;: 0,
- &#39;sv2_scnd_target&#39;: 0,
- &#39;sv_primary&#39;: True,
- &#39;plate_dec&#39;: 34.49096748375056,
- &#39;plate_ra&#39;: 251.046383671818,
- &#39;rms_delta_y&#39;: 0.004999999888241291,
- &#39;sv2_mws_target&#39;: 0,
- &#39;sv1_mws_target&#39;: 0,
- &#39;coadd_numnight&#39;: 1,
- &#39;sv3_bgs_target&#39;: 0,
- &#39;chi2&#39;: 9197.105464577675,
- &#39;sv2_bgs_target&#39;: 0,
- &#39;subtype&#39;: &#39;&#39;,
- &#39;survey&#39;: &#39;sv3&#39;,
- &#39;sv3_scnd_target&#39;: 70368744177664,
- &#39;target_dec&#39;: None,
- &#39;coeff&#39;: [-25.51869871906527,
-  53.140944787638894,
-  -29.807739589998427,
-  33.65364472688803,
-  3.8906922759272136,
-  -5.233573046246487,
-  -10.112239147902963,
-  -2.0839650322750187,
-  5.412344258789117,
-  -5.17894099275291],
- &#39;mean_delta_y&#39;: 0.004999999888241291,
- &#39;bgs_target&#39;: 0,
- &#39;lastnight&#39;: 20210420,
- &#39;desi_target&#39;: 0,
- &#39;sv_nspec&#39;: 1,
- &#39;coadd_numtile&#39;: 1,
- &#39;tsnr2_bgs&#39;: 9716.763671875,
- &#39;numobs_init&#39;: 5,
- &#39;sv2_desi_target&#39;: 0,
- &#39;tsnr2_lya&#39;: 128.94442749023438,
- &#39;sv1_scnd_target&#39;: 0,
- &#39;tsnr2_qso&#39;: 42.80076599121094,
- &#39;std_fiber_dec&#39;: 0.0,
- &#39;mean_fiber_dec&#39;: 34.49094744813409,
- &#39;tsnr2_gpbdark&#39;: 14932.283203125,
- &#39;tsnr2_gpbbackup&#39;: 17583.5859375,
- &#39;scnd_target&#39;: 0,
- &#39;mean_fiber_ra&#39;: 251.0464028870182,
- &#39;sv1_bgs_target&#39;: 0,
- &#39;fa_target&#39;: 4611686018427387904,
- &#39;tsnr2_gpbbright&#39;: 2693.44287109375,
- &#39;tsnr2_lrg&#39;: 109.68939971923828,
- &#39;coadd_numexp&#39;: 2,
- &#39;subpriority&#39;: 0.621237875361596,
- &#39;obsconditions&#39;: 63,
- &#39;mean_delta_x&#39;: 0.004000000189989805,
- &#39;mws_target&#39;: 0,
- &#39;firstnight&#39;: 20210420,
- &#39;ref_epoch&#39;: 2015.5,
- &#39;spgrpval&#39;: 9425,
- &#39;ncoeff&#39;: 10,
- &#39;mean_psf_to_fiber_specflux&#39;: 0.7919076085090637,
- &#39;wave_sigma&#39;: array([0.65058374, 0.6509847 , 0.6523146 , ..., 0.81115586, 0.81793427,
-        0.83779615]),
- &#39;ivar&#39;: array([ 0.05370376,  0.0903969 ,  0.07890871, ..., 16.917099  ,
-        23.1467514 , 26.40428162]),
- &#39;mask&#39;: array([0, 0, 0, ..., 0, 0, 0]),
- &#39;model&#39;: array([-0.13465281, -0.17642727, -0.1826259 , ...,  0.05010873,
-         0.04731604,  0.03256743]),
- &#39;wavelength&#39;: array([3600. , 3600.8, 3601.6, ..., 9822.4, 9823.2, 9824. ]),
- &#39;flux&#39;: array([-2.30227423, -1.29785132, -1.67398036, ...,  0.35962611,
-        -0.07549828,  0.22138898]),
- &#39;dateobs&#39;: &#39;[&#34;2021-04-21 10:30:22.076928+00&#34;,&#34;2021-04-21 10:52:49.170432+00&#34;]&#39;,
- &#39;dateobs_center&#39;: &#39;2021-04-21 10:41:35.62368+00&#39;,
- &#39;sparcl_id&#39;: &#39;0bbeae4d-1dc3-4e73-b602-6bf40ae6aec3&#39;,
- &#39;_dr&#39;: &#39;DESI-EDR&#39;}</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15793,7 +15560,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
@@ -15837,13 +15604,13 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;targetid&#39;</span><span class="p">,</span> <span class="s1">&#39;ra&#39;</span><span class="p">,</span> <span class="s1">&#39;dec&#39;</span><span class="p">,</span> <span class="s1">&#39;ref_epoch&#39;</span><span class="p">,</span> <span class="s1">&#39;pmra&#39;</span><span class="p">,</span> <span class="s1">&#39;pmdec&#39;</span><span class="p">,</span> <span class="s1">&#39;ebv&#39;</span><span class="p">,</span>
            <span class="s1">&#39;flux_g&#39;</span><span class="p">,</span> <span class="s1">&#39;flux_r&#39;</span><span class="p">,</span> <span class="s1">&#39;flux_z&#39;</span><span class="p">,</span> <span class="s1">&#39;flux_w1&#39;</span><span class="p">,</span> <span class="s1">&#39;flux_w2&#39;</span><span class="p">)</span>
 <span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT </span><span class="si">{0}</span><span class="s2"></span>
+<span class="s2">SELECT </span><span class="si">{0}</span>
 <span class="s2">FROM desi_edr.photometry</span>
 <span class="s2">WHERE targetid IN (</span><span class="si">{1}</span><span class="s2">)</span>
 <span class="s2">ORDER BY targetid</span>
@@ -15862,7 +15629,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">fibermap</span><span class="o">.</span><span class="n">colnames</span><span class="p">:</span>
@@ -15894,7 +15661,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="p">(</span><span class="n">fibermap</span><span class="p">[</span><span class="s1">&#39;TARGETID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">desi_ids</span><span class="p">[</span><span class="s1">&#39;targetid&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
@@ -15922,12 +15689,12 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;targetid&#39;</span><span class="p">,</span> <span class="s1">&#39;sv3_desi_target&#39;</span><span class="p">,</span> <span class="s1">&#39;sv3_bgs_target&#39;</span><span class="p">,</span> <span class="s1">&#39;sv3_mws_target&#39;</span><span class="p">,</span> <span class="s1">&#39;sv3_scnd_target&#39;</span><span class="p">)</span>
 <span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT DISTINCT </span><span class="si">{0}</span><span class="s2"></span>
+<span class="s2">SELECT DISTINCT </span><span class="si">{0}</span>
 <span class="s2">FROM desi_edr.target</span>
 <span class="s2">WHERE targetid IN (</span><span class="si">{1}</span><span class="s2">)</span>
 <span class="s2">ORDER BY targetid</span>
@@ -15946,7 +15713,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">targeting</span><span class="o">.</span><span class="n">colnames</span><span class="p">:</span>
@@ -15975,7 +15742,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="p">(</span><span class="n">targeting</span><span class="p">[</span><span class="s1">&#39;TARGETID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">fibermap</span><span class="p">[</span><span class="s1">&#39;TARGETID&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
@@ -15998,12 +15765,12 @@ sparcl==1.2.0
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;SV3_DESI_TARGET&#39;</span><span class="p">,</span> <span class="s1">&#39;SV3_BGS_TARGET&#39;</span><span class="p">,</span> <span class="s1">&#39;SV3_MWS_TARGET&#39;</span><span class="p">,</span> <span class="s1">&#39;SV3_SCND_TARGET&#39;</span><span class="p">):</span>
@@ -16014,53 +15781,6 @@ sparcl==1.2.0
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div><i>Table length=50</i>
-<table id="table140011840986800" class="table-striped table-bordered table-condensed">
-<thead><tr><th>TARGETID</th><th>TARGET_RA</th><th>TARGET_DEC</th><th>REF_EPOCH</th><th>PMRA</th><th>PMDEC</th><th>EBV</th><th>FLUX_G</th><th>FLUX_R</th><th>FLUX_Z</th><th>FLUX_W1</th><th>FLUX_W2</th><th>SV3_DESI_TARGET</th><th>SV3_BGS_TARGET</th><th>SV3_MWS_TARGET</th><th>SV3_SCND_TARGET</th></tr></thead>
-<thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th></tr></thead>
-<tr><td>1018147809263616</td><td>218.15530210149535</td><td>35.769959220507396</td><td>0.0</td><td>0</td><td>0</td><td>0.011083154</td><td>0.48597622</td><td>1.2058442</td><td>1.5106901</td><td>2.482841</td><td>1.3636942</td><td>4611686018427387904</td><td>0</td><td>0</td><td>2147483648</td></tr>
-<tr><td>1030495978651648</td><td>218.82868695999053</td><td>-1.4239743152821387</td><td>0.0</td><td>0</td><td>0</td><td>0.040679332</td><td>0.6364655</td><td>1.2522537</td><td>4.010964</td><td>13.028034</td><td>7.1272125</td><td>4611686018427387904</td><td>0</td><td>0</td><td>17179869184</td></tr>
-<tr><td>1030507408130048</td><td>180.1889661147553</td><td>-0.9613644465384479</td><td>0.0</td><td>0</td><td>0</td><td>0.024523733</td><td>0.48548192</td><td>1.483542</td><td>4.9795527</td><td>15.609289</td><td>7.899148</td><td>4611686018427387904</td><td>0</td><td>0</td><td>17179869184</td></tr>
-<tr><td>1030526211194880</td><td>220.97916752669602</td><td>-0.12526168095554563</td><td>0.0</td><td>0</td><td>0</td><td>0.03961234</td><td>2.365766</td><td>4.175312</td><td>9.775242</td><td>57.561703</td><td>120.945496</td><td>4611686018427387904</td><td>0</td><td>0</td><td>17179869184</td></tr>
-<tr><td>1030538257235968</td><td>218.87134476858458</td><td>0.3034533715013907</td><td>0.0</td><td>0</td><td>0</td><td>0.038472127</td><td>1.699776</td><td>4.9637136</td><td>11.5170145</td><td>23.5799</td><td>13.483782</td><td>4611686018427387904</td><td>0</td><td>0</td><td>17179869184</td></tr>
-<tr><td>1030538257235969</td><td>218.8711</td><td>0.3036</td><td>2015.5</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>4611686018427387904</td><td>0</td><td>0</td><td>17179869184</td></tr>
-<tr><td>1030550353608705</td><td>219.75550234102283</td><td>0.8547659846230762</td><td>0.0</td><td>0</td><td>0</td><td>0.04603932</td><td>0.748148</td><td>1.0393113</td><td>2.4640872</td><td>7.8900027</td><td>14.943021</td><td>4611686018427387904</td><td>0</td><td>0</td><td>17179869184</td></tr>
-<tr><td>1030568439447553</td><td>217.962</td><td>1.5059</td><td>2015.5</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>4611686018427387904</td><td>0</td><td>0</td><td>17179869184</td></tr>
-<tr><td>1030573330006017</td><td>149.459078510057</td><td>1.7517805116389942</td><td>0.0</td><td>0</td><td>0</td><td>0.021018779</td><td>0.29732797</td><td>0.36820117</td><td>0.07077911</td><td>0.44191432</td><td>5.732679</td><td>4611686018427387904</td><td>0</td><td>0</td><td>17179869184</td></tr>
-<tr><td>1031504037675008</td><td>236.22257223003703</td><td>44.46367776807275</td><td>0.0</td><td>0</td><td>0</td><td>0.017812433</td><td>0.9394297</td><td>2.6696484</td><td>8.393229</td><td>24.123352</td><td>15.881443</td><td>4611686018427387904</td><td>0</td><td>0</td><td>17179869184</td></tr>
-<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-<tr><td>1084078698790912</td><td>216.3758661941111</td><td>33.86380538698533</td><td>2015.5</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>4611686018427387904</td><td>0</td><td>0</td><td>70368744177664</td></tr>
-<tr><td>1084079202107393</td><td>252.48958065997311</td><td>33.71384019990504</td><td>2015.5</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>4611686018427387904</td><td>0</td><td>0</td><td>70368744177664</td></tr>
-<tr><td>1084083752927238</td><td>218.55653821513727</td><td>34.013552434290446</td><td>2015.5</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>4611686018427387904</td><td>0</td><td>0</td><td>70368744177664</td></tr>
-<tr><td>1084089213911042</td><td>251.04852052764727</td><td>34.175781013868544</td><td>2015.5</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>4611686018427387904</td><td>0</td><td>0</td><td>70368744177664</td></tr>
-<tr><td>1084094209327112</td><td>251.046383671818</td><td>34.49096748375056</td><td>2015.5</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>4611686018427387904</td><td>0</td><td>0</td><td>70368744177664</td></tr>
-<tr><td>1084094213521414</td><td>251.13129732325746</td><td>34.47655381083552</td><td>2015.5</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>4611686018427387904</td><td>0</td><td>0</td><td>70368744177664</td></tr>
-<tr><td>1084099200548870</td><td>251.92148148981218</td><td>34.66294674127848</td><td>2015.5</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>4611686018427387904</td><td>0</td><td>0</td><td>70368744177664</td></tr>
-<tr><td>1084104162410503</td><td>251.85737208059027</td><td>34.8870362692651</td><td>2015.5</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>4611686018427387904</td><td>0</td><td>0</td><td>70368744177664</td></tr>
-<tr><td>1084104162410508</td><td>251.86491325762373</td><td>34.8836792111499</td><td>2015.5</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>4611686018427387904</td><td>0</td><td>0</td><td>70368744177664</td></tr>
-<tr><td>1084104174993420</td><td>252.62041501561</td><td>35.06214822458531</td><td>2015.5</td><td>0</td><td>0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>4611686018427387904</td><td>0</td><td>0</td><td>70368744177664</td></tr>
-</table></div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16080,15 +15800,15 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">desi_prospect</span> <span class="o">=</span> <span class="n">Spectra</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;coadd&#39;</span><span class="p">],</span>
                         <span class="n">wave</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;coadd&#39;</span><span class="p">:</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">},</span>
-                        <span class="n">flux</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;coadd&#39;</span><span class="p">:</span> <span class="n">flux</span><span class="p">},</span>
-                        <span class="n">ivar</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;coadd&#39;</span><span class="p">:</span> <span class="n">uncertainty</span><span class="p">},</span>
-                        <span class="n">mask</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;coadd&#39;</span><span class="p">:</span> <span class="n">mask</span><span class="p">},</span>
-                        <span class="n">fibermap</span><span class="o">=</span><span class="n">fibermap</span><span class="p">,</span>
+                        <span class="n">flux</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;coadd&#39;</span><span class="p">:</span> <span class="n">flux</span><span class="p">[</span><span class="o">~</span><span class="n">desi_fully_masked</span><span class="p">,</span> <span class="p">:]},</span>
+                        <span class="n">ivar</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;coadd&#39;</span><span class="p">:</span> <span class="n">uncertainty</span><span class="p">[</span><span class="o">~</span><span class="n">desi_fully_masked</span><span class="p">,</span> <span class="p">:]},</span>
+                        <span class="n">mask</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;coadd&#39;</span><span class="p">:</span> <span class="n">mask</span><span class="p">[</span><span class="o">~</span><span class="n">desi_fully_masked</span><span class="p">,</span> <span class="p">:]},</span>
+                        <span class="n">fibermap</span><span class="o">=</span><span class="n">fibermap</span><span class="p">[</span><span class="o">~</span><span class="n">desi_fully_masked</span><span class="p">],</span>
                         <span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;coadd&#39;</span><span class="p">:</span> <span class="n">meta</span><span class="p">})</span>
 </pre></div>
 
@@ -16109,12 +15829,12 @@ sparcl==1.2.0
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">desi_zcatalog</span> <span class="o">=</span> <span class="n">desi_ids</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -16129,53 +15849,6 @@ sparcl==1.2.0
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div><i>Table length=50</i>
-<table id="table140010889074768" class="table-striped table-bordered table-condensed">
-<thead><tr><th>TARGETID</th><th>CHI2</th><th>Z</th><th>ZERR</th><th>ZWARN</th><th>SPECTYPE</th><th>SUBTYPE</th><th>COADD_NUMEXP</th><th>COADD_EXPTIME</th><th>HPXPIXEL</th><th>DELTACHI2</th></tr></thead>
-<thead><tr><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>str6</th><th>int64</th><th>int64</th><th>float64</th><th>int64</th><th>float64</th></tr></thead>
-<tr><td>1018147809263616</td><td>7365.986792743206</td><td>0.5242944629168498</td><td>6.0633200133966495e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>733.9571</td><td>10517</td><td>71.94141682237387</td></tr>
-<tr><td>1030495978651648</td><td>8103.990616310388</td><td>0.7552786543004375</td><td>0.00017749836792365145</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>1228.5404</td><td>25934</td><td>20.647511329501867</td></tr>
-<tr><td>1030507408130048</td><td>7649.292701952159</td><td>0.6367214865921862</td><td>0.00010330595538305078</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>1521.4265</td><td>25599</td><td>133.98583871871233</td></tr>
-<tr><td>1030526211194880</td><td>7539.091522403061</td><td>0.8053032876978878</td><td>0.00011301271093738162</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>979.7707</td><td>25945</td><td>156.96490418165922</td></tr>
-<tr><td>1030538257235968</td><td>8134.653569459915</td><td>0.5719903498779939</td><td>3.223043052206872e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>2</td><td>1719.2445</td><td>25957</td><td>609.7288934141397</td></tr>
-<tr><td>1030538257235969</td><td>7135.108882904053</td><td>0.5722036123057208</td><td>1.620413588830633e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>979.7707</td><td>25957</td><td>487.25401762500405</td></tr>
-<tr><td>1030550353608705</td><td>7867.883817739785</td><td>0.7842247194907328</td><td>0.0001135860568130856</td><td>0</td><td>GALAXY</td><td>--</td><td>3</td><td>2420.4485</td><td>25968</td><td>37.140998892486095</td></tr>
-<tr><td>1030568439447553</td><td>8961.871326968074</td><td>0.754500761465981</td><td>0.00010126469934510125</td><td>0</td><td>GALAXY</td><td>--</td><td>4</td><td>3522.769</td><td>25976</td><td>10.445683613419533</td></tr>
-<tr><td>1030573330006017</td><td>8754.344732429832</td><td>0.5732047635328416</td><td>0.00012256537277712583</td><td>0</td><td>GALAXY</td><td>--</td><td>4</td><td>5545.4507</td><td>27247</td><td>310.3479618281126</td></tr>
-<tr><td>1031504037675008</td><td>7480.231691986322</td><td>0.6514473439669506</td><td>6.622491253337035e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>941.1897</td><td>9929</td><td>256.8893585279584</td></tr>
-<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-<tr><td>1084078698790912</td><td>8082.1450235862285</td><td>0.5538389287047147</td><td>0.0005284074865208822</td><td>0</td><td>GALAXY</td><td>--</td><td>2</td><td>2001.6584</td><td>10512</td><td>18.699554620310664</td></tr>
-<tr><td>1084079202107393</td><td>7683.44479547441</td><td>0.8871215972756863</td><td>7.686933698533896e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>1039.5458</td><td>9342</td><td>17.911938205361366</td></tr>
-<tr><td>1084083752927238</td><td>7599.528635233641</td><td>0.5019248697451463</td><td>4.989704264975716e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>1266.5073</td><td>9150</td><td>10.690924648195505</td></tr>
-<tr><td>1084089213911042</td><td>7343.692225933075</td><td>0.6519883320942474</td><td>7.267464562064621e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>2</td><td>1538.5286</td><td>9425</td><td>9.654731012880802</td></tr>
-<tr><td>1084094209327112</td><td>9197.105464577675</td><td>0.6807816884993237</td><td>2.589359578514029e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>2</td><td>2043.0839</td><td>9425</td><td>30.95276916027069</td></tr>
-<tr><td>1084094213521414</td><td>7594.119990326464</td><td>0.5491421976493851</td><td>8.221539032230453e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>1039.5458</td><td>9425</td><td>12.318490572273731</td></tr>
-<tr><td>1084099200548870</td><td>7922.7978156507015</td><td>0.5420632178811425</td><td>5.248537797530134e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>2</td><td>2043.0839</td><td>9428</td><td>15.281807787716389</td></tr>
-<tr><td>1084104162410503</td><td>7799.4767319485545</td><td>0.5129965664056207</td><td>6.47509440134427e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>719.255</td><td>9428</td><td>9.173644490540028</td></tr>
-<tr><td>1084104162410508</td><td>7731.811375722289</td><td>0.6724520231637495</td><td>5.926636400790151e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1</td><td>1039.5458</td><td>9428</td><td>15.01417849957943</td></tr>
-<tr><td>1084104174993420</td><td>17191.26975917816</td><td>0.7053922442542426</td><td>1.0702979036256088e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>2</td><td>1893.018</td><td>9343</td><td>31.31516170501709</td></tr>
-</table></div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16195,7 +15868,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
@@ -16203,8 +15876,8 @@ sparcl==1.2.0
 
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">)):</span>
         <span class="n">model_flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">model</span>
-        
-<span class="n">desi_model</span> <span class="o">=</span> <span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">model_flux</span><span class="p">)</span>
+
+<span class="n">desi_model</span> <span class="o">=</span> <span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">model_flux</span><span class="p">[</span><span class="o">~</span><span class="n">desi_fully_masked</span><span class="p">,</span> <span class="p">:])</span>
 </pre></div>
 
      </div>
@@ -16219,7 +15892,17 @@ sparcl==1.2.0
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Start-prospect">Start prospect<a class="anchor-link" href="#Start-prospect">&#182;</a></h3><p>With everything assembled, the interface to prospect is just a single call.</p>
+<h3 id="Start-prospect">Start prospect<a class="anchor-link" href="#Start-prospect">&#182;</a></h3><p>With everything assembled, the interface to prospect is just a single call.  Note that we're setting <code>with_vi_widgets=True</code> in order to fully describe the prospect display. Other visualization examples below will have <code>with_vi_widgets=False</code>.</p>
+<p>Further details about the prospect display:</p>
+<ul>
+<li>The large window displays a spectrum with best fit model overlaid.</li>
+<li>Scanning the mouse over that plot shows a full-resolution zoom of that portion of the spectrum to the right, which is particularly useful for scanning narrow emission lines.</li>
+<li>Try the various tools at the top for panning, zooming, selecting. When the wheel zoom tool is selected (default), using the scroll wheel will zoom in and out. Point the mouse over the x or y axis before scrolling to zoom on just that axis.</li>
+<li>Click on one of the legend entries to the lower right to turn that item on or off.</li>
+<li>The example below includes visual inspection (VI) tools, in a shaded box to the lower left. This allows individuals to rate spectra on questions such as &quot;is the redshift accurate?&quot;, or &quot;is the object really a galaxy as opposed to a star?&quot;. Guidelines on using the VI tools are just below the tools themselves.</li>
+<li>Immediately above the VI tools are arrows and a slider for displaying other spectra.</li>
+<li>To the right of the VI tools are metadata about the spectrum, interspersed with tools for smoothing the spectrum, manually changing the redshift of the best-fit model, and toggling the display of emission and absorption line markers.</li>
+</ul>
 
 </div>
 </div>
@@ -16233,11 +15916,11 @@ sparcl==1.2.0
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plotspectra</span><span class="p">(</span><span class="n">desi_prospect</span><span class="p">,</span>
-            <span class="n">zcatalog</span><span class="o">=</span><span class="n">desi_zcatalog</span><span class="p">,</span>
+            <span class="n">zcatalog</span><span class="o">=</span><span class="n">desi_zcatalog</span><span class="p">[</span><span class="o">~</span><span class="n">desi_fully_masked</span><span class="p">],</span>
             <span class="n">redrock_cat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
             <span class="n">with_thumb_tab</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-            <span class="n">with_vi_widgets</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">with_vi_widgets</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
             <span class="n">with_coaddcam</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">mask_type</span><span class="o">=</span><span class="s1">&#39;SV3_DESI_TARGET&#39;</span><span class="p">,</span>
             <span class="n">model_from_zcat</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -16272,12 +15955,12 @@ sparcl==1.2.0
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -16302,53 +15985,6 @@ sparcl==1.2.0
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div><i>Table length=50</i>
-<table id="table140010886114656" class="table-striped table-bordered table-condensed">
-<thead><tr><th>specobjid</th><th>bestobjid</th><th>z</th><th>zerr</th><th>zwarning</th><th>class</th><th>subclass</th><th>rchi2diff</th><th>primtarget</th><th>sectarget</th></tr></thead>
-<thead><tr><th>int64</th><th>int64</th><th>float64</th><th>float64</th><th>int64</th><th>str6</th><th>str11</th><th>float64</th><th>int64</th><th>int64</th></tr></thead>
-<tr><td>3327035125891360768</td><td>1237655468065620461</td><td>0.26219922</td><td>6.426468e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.16153336</td><td>96</td><td>0</td></tr>
-<tr><td>3327036500280895488</td><td>1237655468065489538</td><td>0.21097003</td><td>5.7919853e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.13921309</td><td>64</td><td>0</td></tr>
-<tr><td>3327038424426244096</td><td>1237655468065620456</td><td>0.2605426</td><td>6.229882e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.22558784</td><td>32</td><td>0</td></tr>
-<tr><td>3327038974182057984</td><td>1237655468065620382</td><td>0.11276812</td><td>1.5994665e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.510905</td><td>64</td><td>0</td></tr>
-<tr><td>3327040073693685760</td><td>1237651736318574966</td><td>0.06364931</td><td>2.8312488e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.42436635</td><td>64</td><td>0</td></tr>
-<tr><td>3327040348571592704</td><td>1237651736318640378</td><td>0.20836118</td><td>4.189276e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1.1794078</td><td>96</td><td>0</td></tr>
-<tr><td>3327040898327406592</td><td>1237655468602491146</td><td>0.20784536</td><td>4.1236628e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.61972916</td><td>64</td><td>0</td></tr>
-<tr><td>3327041722961127424</td><td>1237651736318575080</td><td>0.1408417</td><td>1.9260546e-05</td><td>0</td><td>GALAXY</td><td>STARFORMING</td><td>0.49670327</td><td>64</td><td>0</td></tr>
-<tr><td>3327042822472755200</td><td>1237651736318574838</td><td>0.21259658</td><td>7.138862e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.14038157</td><td>96</td><td>0</td></tr>
-<tr><td>3327044196862289920</td><td>1237655468602556710</td><td>0.12747255</td><td>1.0024814e-05</td><td>0</td><td>GALAXY</td><td>STARFORMING</td><td>0.9118272</td><td>64</td><td>0</td></tr>
-<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-<tr><td>3327063988071589888</td><td>1237655468602294437</td><td>0.117277816</td><td>1.2225097e-05</td><td>0</td><td>GALAXY</td><td>STARBURST</td><td>2.301178</td><td>64</td><td>0</td></tr>
-<tr><td>3327065087583217664</td><td>1237651736318378283</td><td>0.02987722</td><td>6.544521e-06</td><td>0</td><td>GALAXY</td><td>STARBURST</td><td>6.2372937</td><td>64</td><td>0</td></tr>
-<tr><td>3327065362461124608</td><td>1237655468602360140</td><td>0.08503898</td><td>2.8198616e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.38777363</td><td>64</td><td>0</td></tr>
-<tr><td>3327065912216938496</td><td>1237651736318443551</td><td>0.16617252</td><td>3.350158e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.5785748</td><td>64</td><td>0</td></tr>
-<tr><td>3327066187094845440</td><td>1237655468602294603</td><td>0.084284484</td><td>1.1737382e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.53542316</td><td>64</td><td>0</td></tr>
-<tr><td>3327066736850659328</td><td>1237651736318378031</td><td>0.050459415</td><td>3.3662614e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.066199064</td><td>64</td><td>0</td></tr>
-<tr><td>3327067011728566272</td><td>1237651735781377183</td><td>0.44971278</td><td>0.00015747716</td><td>0</td><td>GALAXY</td><td>--</td><td>0.060908318</td><td>32</td><td>0</td></tr>
-<tr><td>3327067286606473216</td><td>1237651736318444114</td><td>0.15844806</td><td>2.7416756e-05</td><td>0</td><td>GALAXY</td><td>STARFORMING</td><td>0.13396144</td><td>64</td><td>0</td></tr>
-<tr><td>3327067561484380160</td><td>1237655468064965078</td><td>0.0846016</td><td>2.5953486e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.16839969</td><td>64</td><td>0</td></tr>
-<tr><td>3327068111240194048</td><td>1237655468064964823</td><td>0.08544502</td><td>3.2923934e-05</td><td>0</td><td>GALAXY</td><td>STARFORMING</td><td>0.3577659</td><td>64</td><td>0</td></tr>
-</table></div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -16366,7 +16002,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">sdss_ids</span><span class="p">[</span><span class="s1">&#39;specobjid&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="n">sdss_ids</span><span class="p">[</span><span class="s1">&#39;specobjid&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
@@ -16389,12 +16025,12 @@ sparcl==1.2.0
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">include</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SDSS-DR16&#39;</span><span class="p">])</span>
@@ -16407,31 +16043,6 @@ sparcl==1.2.0
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;status&#39;: {&#39;success&#39;: True,
-  &#39;info&#39;: [&#34;Successfully found 50 records in dr_list=[&#39;SDSS-DR16&#39;]&#34;],
-  &#39;warnings&#39;: []}}</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16451,7 +16062,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sdss_specids_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">specid</span><span class="p">)</span>
@@ -16482,7 +16093,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="nb">all</span><span class="p">([(</span><span class="n">r</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">==</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">])</span>
@@ -16500,16 +16111,63 @@ sparcl==1.2.0
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="View-the-contents-of-the-first-retrieved-record">View the contents of the first retrieved record<a class="anchor-link" href="#View-the-contents-of-the-first-retrieved-record">&#182;</a></h4>
+<p><strong>QA</strong>: Are any of the spectra fully masked?</p>
+
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sdss_fully_masked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">)):</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: Spectrum record </span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2"> is fully masked!&quot;</span><span class="p">)</span>
+        <span class="n">sdss_fully_masked</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Note</strong> that one of the spectra has a non-zero mask for every pixel. This will cause problems with some versions of Prospect, so for the demonstration below, we will not attempt to plot that spectrum. Future versions of Prospect will handle this more gracefully.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="View-the-contents-of-the-first-retrieved-record">View the contents of the first retrieved record<a class="anchor-link" href="#View-the-contents-of-the-first-retrieved-record">&#182;</a></h4>
+</div>
+</div>
+</div>
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -16518,248 +16176,6 @@ sparcl==1.2.0
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;specid&#39;: 3327046121007638528,
- &#39;datasetgroup&#39;: &#39;SDSS_BOSS&#39;,
- &#39;redshift_err&#39;: 2.27969903789926e-05,
- &#39;telescope&#39;: &#39;sloan25m&#39;,
- &#39;spectype&#39;: &#39;GALAXY&#39;,
- &#39;instrument&#39;: &#39;SDSS&#39;,
- &#39;targetid&#39;: 1237655468065292360,
- &#39;wavemax&#39;: 9191.7880859375,
- &#39;redshift_warning&#39;: 0,
- &#39;dec&#39;: 0.79150642,
- &#39;ra&#39;: 235.80015,
- &#39;specprimary&#39;: True,
- &#39;exptime&#39;: 3002.0,
- &#39;site&#39;: &#39;apo&#39;,
- &#39;redshift&#39;: 0.0843528062105179,
- &#39;data_release&#39;: &#39;SDSS-DR16&#39;,
- &#39;wavemin&#39;: 3812.41357421875,
- &#39;fiberid&#39;: 43,
- &#39;class_noqso&#39;: &#39;&#39;,
- &#39;special_target1&#39;: 0,
- &#39;elodie_filename&#39;: &#39;&#39;,
- &#39;platesn2&#39;: 20.60099983215332,
- &#39;targetobjid&#39;: &#39;     11268994536964194&#39;,
- &#39;specsegue&#39;: 0,
- &#39;calibflux&#39;: [5.839175701141357,
-  32.200157165527344,
-  82.3163070678711,
-  126.0885009765625,
-  179.93894958496094],
- &#39;subclass_noqso&#39;: &#39;&#39;,
- &#39;spec2_i&#39;: 23.063199996948242,
- &#39;rchi2&#39;: 0.9485337138175964,
- &#39;survey&#39;: &#39;sdss&#39;,
- &#39;segue1_target1&#39;: 0,
- &#39;plate&#39;: 2955,
- &#39;elodie_object&#39;: &#39;&#39;,
- &#39;mjd&#39;: 54562,
- &#39;vdispz&#39;: 0.0,
- &#39;spec1_i&#39;: 20.87619972229004,
- &#39;eboss_target2&#39;: 0,
- &#39;elodie_feh&#39;: 0.0,
- &#39;fluxobjid&#39;: &#39;1237655468065292360&#39;,
- &#39;cx&#39;: -0.5620275803368721,
- &#39;elodie_bv&#39;: 0.0,
- &#39;platequality&#39;: &#39;good&#39;,
- &#39;theta&#39;: [0.0032299787271767855,
-  -0.003086125710979104,
-  0.004519165027886629,
-  -0.0018139064777642488,
-  -4.29939079284668,
-  10.22780704498291,
-  -4.929110050201416,
-  0.0,
-  0.0,
-  0.0],
- &#39;chi68p&#39;: 0.9453041553497314,
- &#39;specsegue1&#39;: 0,
- &#39;designid&#39;: -1,
- &#39;targettype&#39;: &#39;SCIENCE&#39;,
- &#39;tfile&#39;: &#39;spEigenGal-53724.fits&#39;,
- &#39;firstrelease&#39;: &#39;dr7&#39;,
- &#39;spec2_g&#39;: 24.95490074157715,
- &#39;vdisp_err&#39;: 8.152422904968262,
- &#39;specsdss&#39;: 1,
- &#39;z_noqso&#39;: 0.0,
- &#39;elodie_dof&#39;: 0,
- &#39;spectroflux&#39;: [9.332414627075195,
-  31.732585906982422,
-  82.59172058105469,
-  126.56288146972656,
-  169.82315063476562],
- &#39;rchi2diff_noqso&#39;: 0.0,
- &#39;elodie_rchi2&#39;: 0.0,
- &#39;specboss&#39;: 0,
- &#39;nspecobs&#39;: 2,
- &#39;platerun&#39;: &#39;dr2008.02.1&#39;,
- &#39;wcoverage&#39;: 0.374099999666214,
- &#39;vdispdof&#39;: 2117,
- &#39;spectrosynflux&#39;: [8.001383781433105,
-  31.711828231811523,
-  82.3985824584961,
-  126.65225982666016,
-  170.72434997558594],
- &#39;rchi2diff&#39;: 1.071800947189331,
- &#39;ancillary_target2&#39;: 0,
- &#39;elodie_logg&#39;: 0.0,
- &#39;anyandmask&#39;: 226557952,
- &#39;chunk&#39;: &#39;chunk186&#39;,
- &#39;fracnsighi&#39;: [0.14675220847129822,
-  0.01790964975953102,
-  0.002138465642929077,
-  0.0005346164107322693,
-  0.0,
-  0.0,
-  0.0,
-  0.0,
-  0.0,
-  0.0],
- &#39;dof&#39;: 3734,
- &#39;elodie_teff&#39;: 0.0,
- &#39;run2d&#39;: 26,
- &#39;calibflux_ivar&#39;: [3.595198631286621,
-  14.76074504852295,
-  7.691927433013916,
-  3.182457208633423,
-  0.31164321303367615],
- &#39;subclass&#39;: &#39;&#39;,
- &#39;eboss_target1&#39;: 0,
- &#39;zwarning_noqso&#39;: 0,
- &#39;class_person&#39;: 0,
- &#39;elodie_z_err&#39;: 0.0,
- &#39;xfocal&#39;: 82.68842315673828,
- &#39;vdispz_err&#39;: 0.0,
- &#39;segue2_target2&#39;: 0,
- &#39;snturnoff&#39;: -9999.0,
- &#39;marvels_target2&#39;: 0,
- &#39;thing_id&#39;: 0,
- &#39;sn_median&#39;: [1.9228945970535278,
-  10.949285507202148,
-  24.799718856811523,
-  29.473806381225586,
-  20.79361915588379],
- &#39;marvels_target1&#39;: 0,
- &#39;z_person&#39;: 0.0,
- &#39;primtarget&#39;: 64,
- &#39;spec2_r&#39;: 26.778099060058594,
- &#39;thing_id_targeting&#39;: 0,
- &#39;tile&#39;: 1929,
- &#39;fracnsigma&#39;: [0.29109862446784973,
-  0.04036353901028633,
-  0.0034750066697597504,
-  0.0005346164107322693,
-  0.0,
-  0.0,
-  0.0,
-  0.0,
-  0.0,
-  0.0],
- &#39;tcolumn&#39;: [0, 1, 2, 3, -1, -1, -1, -1, -1, -1],
- &#39;spectrographid&#39;: 1,
- &#39;zoffset&#39;: 0.0,
- &#39;objid&#39;: [2327, 40, 2, 90, 98],
- &#39;plateid&#39;: &#39;3327034301257639936&#39;,
- &#39;sourcetype&#39;: &#39;GALAXY&#39;,
- &#39;spectrosynflux_ivar&#39;: [2.1609764099121094,
-  4.695135116577148,
-  2.821389675140381,
-  1.6888610124588013,
-  0.8614444136619568],
- &#39;segue2_target1&#39;: 0,
- &#39;yfocal&#39;: -185.64418029785156,
- &#39;specsegue2&#39;: 0,
- &#39;comments_person&#39;: &#39;&#39;,
- &#39;sectarget&#39;: 0,
- &#39;spec1_g&#39;: 20.60099983215332,
- &#39;run1d&#39;: 0,
- &#39;z_err_noqso&#39;: 0.0,
- &#39;special_target2&#39;: 0,
- &#39;vdispchi2&#39;: 1636.79052734375,
- &#39;anyormask&#39;: 262078464,
- &#39;deredsn2&#39;: 0.0,
- &#39;spectroskyflux&#39;: [7.107358932495117,
-  10.76518726348877,
-  27.018781661987305,
-  45.612754821777344,
-  82.89754486083984],
- &#39;lambda_eff&#39;: 5000.0,
- &#39;boss_specobj_id&#39;: 0,
- &#39;z_conf_person&#39;: 0,
- &#39;vdisp&#39;: 152.95208740234375,
- &#39;cz&#39;: 0.01381395369992667,
- &#39;sn_median_all&#39;: 18.48808479309082,
- &#39;legacy_target1&#39;: 64,
- &#39;vdispnpix&#39;: 2168.0,
- &#39;fracnsiglo&#39;: [0.1443464308977127,
-  0.02245388925075531,
-  0.0013365410268306732,
-  0.0,
-  0.0,
-  0.0,
-  0.0,
-  0.0,
-  0.0,
-  0.0],
- &#39;eboss_target0&#39;: 0,
- &#39;boss_target2&#39;: 0,
- &#39;nturnoff&#39;: -1,
- &#39;legacy_target2&#39;: 0,
- &#39;spec1_r&#39;: 21.144100189208984,
- &#39;ancillary_target1&#39;: 0,
- &#39;speclegacy&#39;: 1,
- &#39;elodie_z_modelerr&#39;: 0.0,
- &#39;elodie_z&#39;: 0.0,
- &#39;npoly&#39;: 3,
- &#39;cy&#39;: -0.8270031279407939,
- &#39;bluefiber&#39;: -1,
- &#39;eboss_target_id&#39;: 0,
- &#39;boss_target1&#39;: 0,
- &#39;programname&#39;: &#39;legacy&#39;,
- &#39;segue1_target2&#39;: 0,
- &#39;elodie_sptype&#39;: &#39;&#39;,
- &#39;spectroflux_ivar&#39;: [1.5567643642425537,
-  4.762773513793945,
-  2.497319459915161,
-  1.469778060913086,
-  0.6877836585044861],
- &#39;wave_sigma&#39;: array([0., 0., 0., ..., 0., 0., 0.]),
- &#39;ivar&#39;: array([0., 0., 0., ..., 0., 0., 0.]),
- &#39;sky&#39;: array([0., 0., 0., ..., 0., 0., 0.]),
- &#39;mask&#39;: array([16777216, 16777216, 16777216, ..., 16777216, 16777216, 16777216]),
- &#39;model&#39;: array([ 6.41936302,  6.48199415,  6.59158564, ..., 22.07676125,
-        22.27691269, 22.87110901]),
- &#39;wavelength&#39;: array([3802.76948244, 3803.64520329, 3804.5211258 , ..., 9217.22098659,
-        9219.34357452, 9221.46665124]),
- &#39;flux&#39;: array([ 5.68828678,  5.68669415,  5.68510437, ..., 21.37030602,
-        21.3703804 , 21.37045288]),
- &#39;dateobs&#39;: &#39;[&#34;2008-04-06 00:00:00+00&#34;,&#34;2008-04-06 00:00:00+00&#34;]&#39;,
- &#39;dateobs_center&#39;: &#39;2008-04-06 00:00:00+00&#39;,
- &#39;sparcl_id&#39;: &#39;0ab82ff3-5500-4ae4-97d5-72cc573fa96b&#39;,
- &#39;_dr&#39;: &#39;SDSS-DR16&#39;}</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16789,7 +16205,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
@@ -16833,12 +16249,12 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;objid&#39;</span><span class="p">,</span> <span class="s1">&#39;ra&#39;</span><span class="p">,</span> <span class="s1">&#39;dec&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)</span>
 <span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT </span><span class="si">{0}</span><span class="s2"></span>
+<span class="s2">SELECT </span><span class="si">{0}</span>
 <span class="s2">FROM sdss_dr16.photoplate</span>
 <span class="s2">WHERE objid IN (</span><span class="si">{1}</span><span class="s2">)</span>
 <span class="s2">ORDER BY objid</span>
@@ -16857,7 +16273,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">plugmap</span><span class="o">.</span><span class="n">colnames</span><span class="p">:</span>
@@ -16868,7 +16284,7 @@ sparcl==1.2.0
 <span class="n">plugmap</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="n">mag</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;MAG&#39;</span><span class="p">)</span>
 <span class="n">plugmap</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="n">sdss_ids</span><span class="p">[</span><span class="s1">&#39;primtarget&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;PRIMTARGET&#39;</span><span class="p">)</span>
 <span class="n">plugmap</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="n">sdss_ids</span><span class="p">[</span><span class="s1">&#39;sectarget&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;SECTARGET&#39;</span><span class="p">)</span>
-<span class="n">meta</span><span class="p">[</span><span class="s1">&#39;plugmap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plugmap</span>
+<span class="n">meta</span><span class="p">[</span><span class="s1">&#39;plugmap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plugmap</span><span class="p">[</span><span class="o">~</span><span class="n">sdss_fully_masked</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -16893,7 +16309,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="p">(</span><span class="n">plugmap</span><span class="p">[</span><span class="s1">&#39;OBJID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">sdss_ids</span><span class="p">[</span><span class="s1">&#39;bestobjid&#39;</span><span class="p">]))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
@@ -16921,13 +16337,13 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sdss_prospect</span> <span class="o">=</span> <span class="n">Spectrum1D</span><span class="p">(</span><span class="n">flux</span><span class="o">=</span><span class="n">flux</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;1e-17 erg / (Angstrom cm2 s)&#39;</span><span class="p">),</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sdss_prospect</span> <span class="o">=</span> <span class="n">Spectrum1D</span><span class="p">(</span><span class="n">flux</span><span class="o">=</span><span class="n">flux</span><span class="p">[</span><span class="o">~</span><span class="n">sdss_fully_masked</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;1e-17 erg / (Angstrom cm2 s)&#39;</span><span class="p">),</span>
                            <span class="n">spectral_axis</span><span class="o">=</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;Angstrom&#39;</span><span class="p">),</span>
-                           <span class="n">uncertainty</span><span class="o">=</span><span class="n">InverseVariance</span><span class="p">(</span><span class="n">uncertainty</span><span class="p">),</span>
-                           <span class="n">mask</span><span class="o">=</span><span class="n">mask</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span>
+                           <span class="n">uncertainty</span><span class="o">=</span><span class="n">InverseVariance</span><span class="p">(</span><span class="n">uncertainty</span><span class="p">[</span><span class="o">~</span><span class="n">sdss_fully_masked</span><span class="p">,</span> <span class="p">:]),</span>
+                           <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">[</span><span class="o">~</span><span class="n">sdss_fully_masked</span><span class="p">,</span> <span class="p">:]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span>
                            <span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">)</span>
 </pre></div>
 
@@ -16948,12 +16364,12 @@ sparcl==1.2.0
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sdss_zcatalog</span> <span class="o">=</span> <span class="n">sdss_ids</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -16968,53 +16384,6 @@ sparcl==1.2.0
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div><i>Table length=50</i>
-<table id="table140010885843792" class="table-striped table-bordered table-condensed">
-<thead><tr><th>SPECOBJID</th><th>BESTOBJID</th><th>Z</th><th>Z_ERR</th><th>ZWARNING</th><th>CLASS</th><th>SUBCLASS</th><th>RCHI2DIFF</th><th>PRIMTARGET</th><th>SECTARGET</th></tr></thead>
-<thead><tr><th>int64</th><th>int64</th><th>float64</th><th>float64</th><th>int64</th><th>str6</th><th>str11</th><th>float64</th><th>int64</th><th>int64</th></tr></thead>
-<tr><td>3327035125891360768</td><td>1237655468065620461</td><td>0.26219922</td><td>6.426468e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.16153336</td><td>96</td><td>0</td></tr>
-<tr><td>3327036500280895488</td><td>1237655468065489538</td><td>0.21097003</td><td>5.7919853e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.13921309</td><td>64</td><td>0</td></tr>
-<tr><td>3327038424426244096</td><td>1237655468065620456</td><td>0.2605426</td><td>6.229882e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.22558784</td><td>32</td><td>0</td></tr>
-<tr><td>3327038974182057984</td><td>1237655468065620382</td><td>0.11276812</td><td>1.5994665e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.510905</td><td>64</td><td>0</td></tr>
-<tr><td>3327040073693685760</td><td>1237651736318574966</td><td>0.06364931</td><td>2.8312488e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.42436635</td><td>64</td><td>0</td></tr>
-<tr><td>3327040348571592704</td><td>1237651736318640378</td><td>0.20836118</td><td>4.189276e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>1.1794078</td><td>96</td><td>0</td></tr>
-<tr><td>3327040898327406592</td><td>1237655468602491146</td><td>0.20784536</td><td>4.1236628e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.61972916</td><td>64</td><td>0</td></tr>
-<tr><td>3327041722961127424</td><td>1237651736318575080</td><td>0.1408417</td><td>1.9260546e-05</td><td>0</td><td>GALAXY</td><td>STARFORMING</td><td>0.49670327</td><td>64</td><td>0</td></tr>
-<tr><td>3327042822472755200</td><td>1237651736318574838</td><td>0.21259658</td><td>7.138862e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.14038157</td><td>96</td><td>0</td></tr>
-<tr><td>3327044196862289920</td><td>1237655468602556710</td><td>0.12747255</td><td>1.0024814e-05</td><td>0</td><td>GALAXY</td><td>STARFORMING</td><td>0.9118272</td><td>64</td><td>0</td></tr>
-<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-<tr><td>3327063988071589888</td><td>1237655468602294437</td><td>0.117277816</td><td>1.2225097e-05</td><td>0</td><td>GALAXY</td><td>STARBURST</td><td>2.301178</td><td>64</td><td>0</td></tr>
-<tr><td>3327065087583217664</td><td>1237651736318378283</td><td>0.02987722</td><td>6.544521e-06</td><td>0</td><td>GALAXY</td><td>STARBURST</td><td>6.2372937</td><td>64</td><td>0</td></tr>
-<tr><td>3327065362461124608</td><td>1237655468602360140</td><td>0.08503898</td><td>2.8198616e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.38777363</td><td>64</td><td>0</td></tr>
-<tr><td>3327065912216938496</td><td>1237651736318443551</td><td>0.16617252</td><td>3.350158e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.5785748</td><td>64</td><td>0</td></tr>
-<tr><td>3327066187094845440</td><td>1237655468602294603</td><td>0.084284484</td><td>1.1737382e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.53542316</td><td>64</td><td>0</td></tr>
-<tr><td>3327066736850659328</td><td>1237651736318378031</td><td>0.050459415</td><td>3.3662614e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.066199064</td><td>64</td><td>0</td></tr>
-<tr><td>3327067011728566272</td><td>1237651735781377183</td><td>0.44971278</td><td>0.00015747716</td><td>0</td><td>GALAXY</td><td>--</td><td>0.060908318</td><td>32</td><td>0</td></tr>
-<tr><td>3327067286606473216</td><td>1237651736318444114</td><td>0.15844806</td><td>2.7416756e-05</td><td>0</td><td>GALAXY</td><td>STARFORMING</td><td>0.13396144</td><td>64</td><td>0</td></tr>
-<tr><td>3327067561484380160</td><td>1237655468064965078</td><td>0.0846016</td><td>2.5953486e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.16839969</td><td>64</td><td>0</td></tr>
-<tr><td>3327068111240194048</td><td>1237655468064964823</td><td>0.08544502</td><td>3.2923934e-05</td><td>0</td><td>GALAXY</td><td>STARFORMING</td><td>0.3577659</td><td>64</td><td>0</td></tr>
-</table></div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -17034,7 +16403,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
@@ -17042,8 +16411,8 @@ sparcl==1.2.0
 
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">)):</span>
         <span class="n">model_flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">model</span>
-        
-<span class="n">sdss_model</span> <span class="o">=</span> <span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">model_flux</span><span class="p">)</span>
+
+<span class="n">sdss_model</span> <span class="o">=</span> <span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">model_flux</span><span class="p">[</span><span class="o">~</span><span class="n">sdss_fully_masked</span><span class="p">,</span> <span class="p">:])</span>
 </pre></div>
 
      </div>
@@ -17072,7 +16441,7 @@ sparcl==1.2.0
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plotspectra</span><span class="p">(</span><span class="n">sdss_prospect</span><span class="p">,</span>
-            <span class="n">zcatalog</span><span class="o">=</span><span class="n">sdss_zcatalog</span><span class="p">,</span>
+            <span class="n">zcatalog</span><span class="o">=</span><span class="n">sdss_zcatalog</span><span class="p">[</span><span class="o">~</span><span class="n">sdss_fully_masked</span><span class="p">],</span>
             <span class="n">redrock_cat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
             <span class="n">with_thumb_tab</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -17111,12 +16480,12 @@ sparcl==1.2.0
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -17130,7 +16499,7 @@ sparcl==1.2.0
 <span class="s2">    AND z.mjd = 58131</span>
 <span class="s2">    AND z.class = &#39;GALAXY&#39;</span>
 <span class="s2">    AND z.zwarning = 0</span>
-<span class="s2">ORDER BY z.specobjid </span>
+<span class="s2">ORDER BY z.specobjid</span>
 <span class="s2">LIMIT 50</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="n">boss_ids</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
@@ -17140,53 +16509,6 @@ sparcl==1.2.0
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div><i>Table length=50</i>
-<table id="table140010886248144" class="table-striped table-bordered table-condensed">
-<thead><tr><th>specobjid</th><th>bestobjid</th><th>z</th><th>zerr</th><th>zwarning</th><th>class</th><th>subclass</th><th>rchi2diff</th><th>boss_target1</th><th>eboss_target0</th><th>eboss_target1</th><th>eboss_target2</th></tr></thead>
-<thead><tr><th>int64</th><th>int64</th><th>float64</th><th>float64</th><th>int64</th><th>str6</th><th>int64</th><th>float64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th></tr></thead>
-<tr><td>-7639230456632422400</td><td>1237665127987282622</td><td>0.88640094</td><td>7.4862786e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.06782746</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639227982731259904</td><td>1237665098459972441</td><td>0.91102755</td><td>0.00010790457</td><td>0</td><td>GALAXY</td><td>--</td><td>0.017501831</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639227707853352960</td><td>1237665128524284395</td><td>0.38422388</td><td>3.725687e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.04291892</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639227432975446016</td><td>1237665098459972179</td><td>0.80037284</td><td>7.310519e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.027097106</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639226333463818240</td><td>1237665128524350020</td><td>0.7552472</td><td>0.00021918201</td><td>0</td><td>GALAXY</td><td>--</td><td>0.013135433</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639225783708004352</td><td>1237665128524415517</td><td>0.821098</td><td>8.6746266e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.024078012</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639225233952190464</td><td>1237665098460037767</td><td>1.4448227</td><td>0.28259814</td><td>0</td><td>GALAXY</td><td>--</td><td>0.011102319</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639224959074283520</td><td>1237665128524153288</td><td>0.921071</td><td>0.00011867128</td><td>0</td><td>GALAXY</td><td>--</td><td>0.018088818</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639224409318469632</td><td>1237665097923035567</td><td>0.9825296</td><td>0.00013494636</td><td>0</td><td>GALAXY</td><td>--</td><td>0.012501717</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639224134440562688</td><td>1237665128524153695</td><td>0.72651744</td><td>0.00017377117</td><td>0</td><td>GALAXY</td><td>--</td><td>0.0122798085</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-<tr><td>-7639198021039403008</td><td>1237664834855306140</td><td>0.84657186</td><td>0.00014326358</td><td>0</td><td>GALAXY</td><td>--</td><td>0.010893226</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639197196405682176</td><td>1237665097385771894</td><td>0.956134</td><td>0.00012707015</td><td>0</td><td>GALAXY</td><td>--</td><td>0.014543593</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639196371771961344</td><td>1237665097385772080</td><td>0.9289425</td><td>0.00012458111</td><td>0</td><td>GALAXY</td><td>--</td><td>0.020382047</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639191698847543296</td><td>1237665098459644688</td><td>0.8261575</td><td>6.600007e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.044630587</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639191423969636352</td><td>1237665128523891276</td><td>0.87418866</td><td>0.00013456396</td><td>0</td><td>GALAXY</td><td>--</td><td>0.012468994</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639190874213822464</td><td>1237665098459644459</td><td>0.8458766</td><td>0.00012213441</td><td>0</td><td>GALAXY</td><td>--</td><td>0.019898295</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639190599335915520</td><td>1237665098459644444</td><td>0.8814697</td><td>0.000113710026</td><td>0</td><td>GALAXY</td><td>--</td><td>0.013058186</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639190049580101632</td><td>1237665098459710264</td><td>0.29381153</td><td>5.269431e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.017101109</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639188950068473856</td><td>1237665098459644427</td><td>0.9214788</td><td>0.00020183463</td><td>0</td><td>GALAXY</td><td>--</td><td>0.011347413</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639187850556846080</td><td>1237664834855174988</td><td>0.7884503</td><td>7.470537e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.033761322</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-</table></div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -17206,7 +16528,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">boss_ids</span><span class="p">[</span><span class="s1">&#39;specobjid&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="n">boss_ids</span><span class="p">[</span><span class="s1">&#39;specobjid&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
@@ -17229,12 +16551,12 @@ sparcl==1.2.0
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">include</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;BOSS-DR16&#39;</span><span class="p">])</span>
@@ -17247,31 +16569,6 @@ sparcl==1.2.0
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;status&#39;: {&#39;success&#39;: True,
-  &#39;info&#39;: [&#34;Successfully found 50 records in dr_list=[&#39;BOSS-DR16&#39;]&#34;],
-  &#39;warnings&#39;: []}}</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -17291,7 +16588,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">boss_specids_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">specid</span><span class="p">)</span>
@@ -17322,10 +16619,45 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="nb">all</span><span class="p">([(</span><span class="n">r</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">==</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>QA</strong>: Are any of the spectra fully masked?</p>
+
+</div>
+</div>
+</div>
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">boss_fully_masked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">)):</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;WARNING: Spectrum record </span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2"> is fully masked!&quot;</span><span class="p">)</span>
+        <span class="n">boss_fully_masked</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 
      </div>
@@ -17344,12 +16676,12 @@ sparcl==1.2.0
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -17358,248 +16690,6 @@ sparcl==1.2.0
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;specid&#39;: -7639227982731259904,
- &#39;datasetgroup&#39;: &#39;SDSS_BOSS&#39;,
- &#39;redshift_err&#39;: 0.000107904568722006,
- &#39;telescope&#39;: &#39;sloan25m&#39;,
- &#39;spectype&#39;: &#39;GALAXY&#39;,
- &#39;instrument&#39;: &#39;BOSS&#39;,
- &#39;targetid&#39;: 1237665098459972441,
- &#39;wavemax&#39;: 10332.37109375,
- &#39;redshift_warning&#39;: 0,
- &#39;dec&#39;: 24.150201,
- &#39;ra&#39;: 134.23291,
- &#39;specprimary&#39;: True,
- &#39;exptime&#39;: 3600.35,
- &#39;site&#39;: &#39;apo&#39;,
- &#39;redshift&#39;: 0.911027550697327,
- &#39;data_release&#39;: &#39;BOSS-DR16&#39;,
- &#39;wavemin&#39;: 3601.63745117188,
- &#39;fiberid&#39;: 10,
- &#39;class_noqso&#39;: &#39;GALAXY&#39;,
- &#39;special_target1&#39;: 0,
- &#39;elodie_filename&#39;: &#39;&#39;,
- &#39;platesn2&#39;: 5.494349956512451,
- &#39;targetobjid&#39;: &#39;&#39;,
- &#39;specsegue&#39;: 0,
- &#39;calibflux&#39;: [-0.2695178985595703,
-  0.4001877009868622,
-  1.0699976682662964,
-  1.9848341941833496,
-  1.4778335094451904],
- &#39;subclass_noqso&#39;: &#39;&#39;,
- &#39;spec2_i&#39;: 16.17180061340332,
- &#39;rchi2&#39;: 1.056380033493042,
- &#39;survey&#39;: &#39;eboss&#39;,
- &#39;segue1_target1&#39;: 0,
- &#39;plate&#39;: 9599,
- &#39;elodie_object&#39;: &#39;&#39;,
- &#39;mjd&#39;: 58131,
- &#39;vdispz&#39;: 0.0,
- &#39;spec1_i&#39;: 15.260899543762207,
- &#39;eboss_target2&#39;: 562949953421312,
- &#39;elodie_feh&#39;: 0.0,
- &#39;fluxobjid&#39;: &#39;1237665098459972441&#39;,
- &#39;cx&#39;: -0.6365221042048994,
- &#39;elodie_bv&#39;: 0.0,
- &#39;platequality&#39;: &#39;good&#39;,
- &#39;theta&#39;: [-0.00016797342686913908,
-  -0.08542104810476303,
-  0.47529876232147217,
-  -0.05967295914888382,
-  -1.2809841632843018,
-  1.9083034992218018,
-  0.6780674457550049,
-  0.0,
-  0.0,
-  0.0],
- &#39;chi68p&#39;: 0.9848752617835999,
- &#39;specsegue1&#39;: 0,
- &#39;designid&#39;: 10182,
- &#39;targettype&#39;: &#39;SCIENCE&#39;,
- &#39;tfile&#39;: &#39;spEigenGal-56436.fits&#39;,
- &#39;firstrelease&#39;: &#39;dr16&#39;,
- &#39;spec2_g&#39;: 6.322159767150879,
- &#39;vdisp_err&#39;: 84.35669708251953,
- &#39;specsdss&#39;: 0,
- &#39;z_noqso&#39;: 0.9110275506973267,
- &#39;elodie_dof&#39;: 0,
- &#39;spectroflux&#39;: [1.435661792755127,
-  0.6843998432159424,
-  1.11798095703125,
-  2.7152459621429443,
-  4.8464884757995605],
- &#39;rchi2diff_noqso&#39;: 0.01931917667388916,
- &#39;elodie_rchi2&#39;: 0.0,
- &#39;specboss&#39;: 1,
- &#39;nspecobs&#39;: 1,
- &#39;platerun&#39;: &#39;2016.11.b.eboss&#39;,
- &#39;wcoverage&#39;: 0.44369998574256897,
- &#39;vdispdof&#39;: 977,
- &#39;spectrosynflux&#39;: [0.23032288253307343,
-  0.5758841633796692,
-  1.1153984069824219,
-  2.661834239959717,
-  4.950334548950195],
- &#39;rchi2diff&#39;: 0.0175018310546875,
- &#39;ancillary_target2&#39;: 0,
- &#39;elodie_logg&#39;: 0.0,
- &#39;anyandmask&#39;: 96468992,
- &#39;chunk&#39;: &#39;eboss23&#39;,
- &#39;fracnsighi&#39;: [0.16384944319725037,
-  0.026819923892617226,
-  0.00428217276930809,
-  0.0006761325057595968,
-  0.0,
-  0.0,
-  0.0,
-  0.0,
-  0.0,
-  0.0],
- &#39;dof&#39;: 4430,
- &#39;elodie_teff&#39;: 0.0,
- &#39;run2d&#39;: &#39;v5_13_0&#39;,
- &#39;calibflux_ivar&#39;: [5.1266865730285645,
-  35.9057731628418,
-  12.093795776367188,
-  4.879647731781006,
-  0.23459704220294952],
- &#39;subclass&#39;: &#39;&#39;,
- &#39;eboss_target1&#39;: 17592186044416,
- &#39;zwarning_noqso&#39;: 0,
- &#39;class_person&#39;: 0,
- &#39;elodie_z_err&#39;: 0.0,
- &#39;xfocal&#39;: 250.6492462158203,
- &#39;vdispz_err&#39;: 0.0,
- &#39;segue2_target2&#39;: 0,
- &#39;snturnoff&#39;: 0.0,
- &#39;marvels_target2&#39;: 0,
- &#39;thing_id&#39;: 322028114,
- &#39;sn_median&#39;: [0.2970021367073059,
-  0.4282677471637726,
-  0.5722729563713074,
-  1.0959781408309937,
-  1.2025727033615112],
- &#39;marvels_target1&#39;: 0,
- &#39;z_person&#39;: 0.0,
- &#39;primtarget&#39;: 0,
- &#39;spec2_r&#39;: 15.675800323486328,
- &#39;thing_id_targeting&#39;: 0,
- &#39;tile&#39;: 17241,
- &#39;fracnsigma&#39;: [0.3132747411727905,
-  0.05296371504664421,
-  0.008338967338204384,
-  0.0009015100076794624,
-  0.0,
-  0.0,
-  0.0,
-  0.0,
-  0.0,
-  0.0],
- &#39;tcolumn&#39;: [0, 1, 2, 3, -1, -1, -1, -1, -1, -1],
- &#39;spectrographid&#39;: 1,
- &#39;zoffset&#39;: 0.0,
- &#39;objid&#39;: [0, 0, 0, 0, 0],
- &#39;plateid&#39;: &#39;10807513342203144192&#39;,
- &#39;sourcetype&#39;: &#39;ELG&#39;,
- &#39;spectrosynflux_ivar&#39;: [6.718648433685303,
-  9.009385108947754,
-  6.640621662139893,
-  3.9203224182128906,
-  1.8029663562774658],
- &#39;segue2_target1&#39;: 0,
- &#39;yfocal&#39;: -11.306900978088379,
- &#39;specsegue2&#39;: 0,
- &#39;comments_person&#39;: &#39;&#39;,
- &#39;sectarget&#39;: 0,
- &#39;spec1_g&#39;: 5.494349956512451,
- &#39;run1d&#39;: 0,
- &#39;z_err_noqso&#39;: 0.00010790456872200593,
- &#39;special_target2&#39;: 0,
- &#39;vdispchi2&#39;: 1288.5028076171875,
- &#39;anyormask&#39;: 265224192,
- &#39;deredsn2&#39;: 5.494349956512451,
- &#39;spectroskyflux&#39;: [9.471259117126465,
-  12.944680213928223,
-  28.706430435180664,
-  63.788429260253906,
-  177.5773468017578],
- &#39;lambda_eff&#39;: 7500.0,
- &#39;boss_specobj_id&#39;: 3485750,
- &#39;z_conf_person&#39;: 0,
- &#39;vdisp&#39;: 261.1448974609375,
- &#39;cz&#39;: 0.40913010396598953,
- &#39;sn_median_all&#39;: 0.6640755534172058,
- &#39;legacy_target1&#39;: 0,
- &#39;vdispnpix&#39;: 1186.0,
- &#39;fracnsiglo&#39;: [0.14942528307437897,
-  0.026143791154026985,
-  0.004056795034557581,
-  0.0002253775019198656,
-  0.0,
-  0.0,
-  0.0,
-  0.0,
-  0.0,
-  0.0],
- &#39;eboss_target0&#39;: 0,
- &#39;boss_target2&#39;: 0,
- &#39;nturnoff&#39;: 0,
- &#39;legacy_target2&#39;: 0,
- &#39;spec1_r&#39;: 19.63450050354004,
- &#39;ancillary_target1&#39;: 0,
- &#39;speclegacy&#39;: 0,
- &#39;elodie_z_modelerr&#39;: 0.0,
- &#39;elodie_z&#39;: 0.0,
- &#39;npoly&#39;: 3,
- &#39;cy&#39;: 0.6537982631418852,
- &#39;bluefiber&#39;: 1,
- &#39;eboss_target_id&#39;: 2592008,
- &#39;boss_target1&#39;: 0,
- &#39;programname&#39;: &#39;ELG_NGC&#39;,
- &#39;segue1_target2&#39;: 0,
- &#39;elodie_sptype&#39;: &#39;&#39;,
- &#39;spectroflux_ivar&#39;: [2.2663114070892334,
-  9.039624214172363,
-  5.574249267578125,
-  2.5262067317962646,
-  0.08043096959590912],
- &#39;wave_sigma&#39;: array([0., 0., 0., ..., 0., 0., 0.]),
- &#39;ivar&#39;: array([0., 0., 0., ..., 0., 0., 0.]),
- &#39;sky&#39;: array([0., 0., 0., ..., 0., 0., 0.]),
- &#39;mask&#39;: array([88080384, 88080384, 88080384, ..., 83886080, 83886080, 83886080]),
- &#39;model&#39;: array([0.27797607, 0.27003613, 0.26285109, ..., 0.93880498, 0.94388986,
-        0.94133079]),
- &#39;wavelength&#39;: array([ 3586.7408577 ,  3587.56683039,  3588.39299329, ...,
-        10351.42166679, 10353.80544415, 10356.18977045]),
- &#39;flux&#39;: array([ 3.74299359,  3.74153113,  3.7400713 , ..., -0.72711331,
-        -0.72711992, -0.72712654]),
- &#39;dateobs&#39;: &#39;[&#34;2018-01-13 05:57:56+00&#34;,&#34;2018-01-13 05:57:56+00&#34;]&#39;,
- &#39;dateobs_center&#39;: &#39;2018-01-13 05:57:56+00&#39;,
- &#39;sparcl_id&#39;: &#39;140d935e-7490-4351-b0e4-36085f1e75d1&#39;,
- &#39;_dr&#39;: &#39;BOSS-DR16&#39;}</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -17629,7 +16719,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
@@ -17673,12 +16763,12 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;objid&#39;</span><span class="p">,</span> <span class="s1">&#39;ra&#39;</span><span class="p">,</span> <span class="s1">&#39;dec&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)</span>
 <span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">SELECT </span><span class="si">{0}</span><span class="s2"></span>
+<span class="s2">SELECT </span><span class="si">{0}</span>
 <span class="s2">FROM sdss_dr16.photoplate</span>
 <span class="s2">WHERE objid IN (</span><span class="si">{1}</span><span class="s2">)</span>
 <span class="s2">ORDER BY objid</span>
@@ -17697,7 +16787,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">plugmap</span><span class="o">.</span><span class="n">colnames</span><span class="p">:</span>
@@ -17710,7 +16800,7 @@ sparcl==1.2.0
 <span class="n">plugmap</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="n">boss_ids</span><span class="p">[</span><span class="s1">&#39;eboss_target0&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;EBOSS_TARGET0&#39;</span><span class="p">)</span>
 <span class="n">plugmap</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="n">boss_ids</span><span class="p">[</span><span class="s1">&#39;eboss_target1&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;EBOSS_TARGET1&#39;</span><span class="p">)</span>
 <span class="n">plugmap</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="n">boss_ids</span><span class="p">[</span><span class="s1">&#39;eboss_target2&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;EBOSS_TARGET2&#39;</span><span class="p">)</span>
-<span class="n">meta</span><span class="p">[</span><span class="s1">&#39;plugmap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plugmap</span>
+<span class="n">meta</span><span class="p">[</span><span class="s1">&#39;plugmap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plugmap</span><span class="p">[</span><span class="o">~</span><span class="n">boss_fully_masked</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -17735,7 +16825,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="p">(</span><span class="n">plugmap</span><span class="p">[</span><span class="s1">&#39;OBJID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">boss_ids</span><span class="p">[</span><span class="s1">&#39;bestobjid&#39;</span><span class="p">]))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
@@ -17763,13 +16853,13 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">boss_prospect</span> <span class="o">=</span> <span class="n">Spectrum1D</span><span class="p">(</span><span class="n">flux</span><span class="o">=</span><span class="n">flux</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;1e-17 erg / (Angstrom cm2 s)&#39;</span><span class="p">),</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">boss_prospect</span> <span class="o">=</span> <span class="n">Spectrum1D</span><span class="p">(</span><span class="n">flux</span><span class="o">=</span><span class="n">flux</span><span class="p">[</span><span class="o">~</span><span class="n">boss_fully_masked</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;1e-17 erg / (Angstrom cm2 s)&#39;</span><span class="p">),</span>
                            <span class="n">spectral_axis</span><span class="o">=</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;Angstrom&#39;</span><span class="p">),</span>
-                           <span class="n">uncertainty</span><span class="o">=</span><span class="n">InverseVariance</span><span class="p">(</span><span class="n">uncertainty</span><span class="p">),</span>
-                           <span class="n">mask</span><span class="o">=</span><span class="n">mask</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span>
+                           <span class="n">uncertainty</span><span class="o">=</span><span class="n">InverseVariance</span><span class="p">(</span><span class="n">uncertainty</span><span class="p">[</span><span class="o">~</span><span class="n">boss_fully_masked</span><span class="p">,</span> <span class="p">:]),</span>
+                           <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">[</span><span class="o">~</span><span class="n">boss_fully_masked</span><span class="p">,</span> <span class="p">:]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span>
                            <span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">)</span>
 </pre></div>
 
@@ -17790,12 +16880,12 @@ sparcl==1.2.0
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[48]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">boss_zcatalog</span> <span class="o">=</span> <span class="n">boss_ids</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -17810,53 +16900,6 @@ sparcl==1.2.0
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[48]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div><i>Table length=50</i>
-<table id="table140010874717232" class="table-striped table-bordered table-condensed">
-<thead><tr><th>SPECOBJID</th><th>BESTOBJID</th><th>Z</th><th>Z_ERR</th><th>ZWARNING</th><th>CLASS</th><th>SUBCLASS</th><th>RCHI2DIFF</th><th>BOSS_TARGET1</th><th>EBOSS_TARGET0</th><th>EBOSS_TARGET1</th><th>EBOSS_TARGET2</th></tr></thead>
-<thead><tr><th>int64</th><th>int64</th><th>float64</th><th>float64</th><th>int64</th><th>str6</th><th>int64</th><th>float64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th></tr></thead>
-<tr><td>-7639230456632422400</td><td>1237665127987282622</td><td>0.88640094</td><td>7.4862786e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.06782746</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639227982731259904</td><td>1237665098459972441</td><td>0.91102755</td><td>0.00010790457</td><td>0</td><td>GALAXY</td><td>--</td><td>0.017501831</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639227707853352960</td><td>1237665128524284395</td><td>0.38422388</td><td>3.725687e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.04291892</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639227432975446016</td><td>1237665098459972179</td><td>0.80037284</td><td>7.310519e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.027097106</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639226333463818240</td><td>1237665128524350020</td><td>0.7552472</td><td>0.00021918201</td><td>0</td><td>GALAXY</td><td>--</td><td>0.013135433</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639225783708004352</td><td>1237665128524415517</td><td>0.821098</td><td>8.6746266e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.024078012</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639225233952190464</td><td>1237665098460037767</td><td>1.4448227</td><td>0.28259814</td><td>0</td><td>GALAXY</td><td>--</td><td>0.011102319</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639224959074283520</td><td>1237665128524153288</td><td>0.921071</td><td>0.00011867128</td><td>0</td><td>GALAXY</td><td>--</td><td>0.018088818</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639224409318469632</td><td>1237665097923035567</td><td>0.9825296</td><td>0.00013494636</td><td>0</td><td>GALAXY</td><td>--</td><td>0.012501717</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639224134440562688</td><td>1237665128524153695</td><td>0.72651744</td><td>0.00017377117</td><td>0</td><td>GALAXY</td><td>--</td><td>0.0122798085</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-<tr><td>-7639198021039403008</td><td>1237664834855306140</td><td>0.84657186</td><td>0.00014326358</td><td>0</td><td>GALAXY</td><td>--</td><td>0.010893226</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639197196405682176</td><td>1237665097385771894</td><td>0.956134</td><td>0.00012707015</td><td>0</td><td>GALAXY</td><td>--</td><td>0.014543593</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639196371771961344</td><td>1237665097385772080</td><td>0.9289425</td><td>0.00012458111</td><td>0</td><td>GALAXY</td><td>--</td><td>0.020382047</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639191698847543296</td><td>1237665098459644688</td><td>0.8261575</td><td>6.600007e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.044630587</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639191423969636352</td><td>1237665128523891276</td><td>0.87418866</td><td>0.00013456396</td><td>0</td><td>GALAXY</td><td>--</td><td>0.012468994</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639190874213822464</td><td>1237665098459644459</td><td>0.8458766</td><td>0.00012213441</td><td>0</td><td>GALAXY</td><td>--</td><td>0.019898295</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639190599335915520</td><td>1237665098459644444</td><td>0.8814697</td><td>0.000113710026</td><td>0</td><td>GALAXY</td><td>--</td><td>0.013058186</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639190049580101632</td><td>1237665098459710264</td><td>0.29381153</td><td>5.269431e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.017101109</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639188950068473856</td><td>1237665098459644427</td><td>0.9214788</td><td>0.00020183463</td><td>0</td><td>GALAXY</td><td>--</td><td>0.011347413</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-<tr><td>-7639187850556846080</td><td>1237664834855174988</td><td>0.7884503</td><td>7.470537e-05</td><td>0</td><td>GALAXY</td><td>--</td><td>0.033761322</td><td>0</td><td>0</td><td>17592186044416</td><td>562949953421312</td></tr>
-</table></div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -17876,7 +16919,7 @@ sparcl==1.2.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
@@ -17884,8 +16927,8 @@ sparcl==1.2.0
 
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">)):</span>
         <span class="n">model_flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">model</span>
-        
-<span class="n">boss_model</span> <span class="o">=</span> <span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">model_flux</span><span class="p">)</span>
+
+<span class="n">boss_model</span> <span class="o">=</span> <span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">model_flux</span><span class="p">[</span><span class="o">~</span><span class="n">boss_fully_masked</span><span class="p">,</span> <span class="p">:])</span>
 </pre></div>
 
      </div>
@@ -17914,7 +16957,7 @@ sparcl==1.2.0
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plotspectra</span><span class="p">(</span><span class="n">boss_prospect</span><span class="p">,</span>
-            <span class="n">zcatalog</span><span class="o">=</span><span class="n">boss_zcatalog</span><span class="p">,</span>
+            <span class="n">zcatalog</span><span class="o">=</span><span class="n">boss_zcatalog</span><span class="p">[</span><span class="o">~</span><span class="n">boss_fully_masked</span><span class="p">],</span>
             <span class="n">redrock_cat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
             <span class="n">with_thumb_tab</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -17923,6 +16966,22 @@ sparcl==1.2.0
             <span class="n">mask_type</span><span class="o">=</span><span class="s1">&#39;EBOSS_TARGET1&#39;</span><span class="p">,</span>
             <span class="n">model_from_zcat</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">model</span><span class="o">=</span><span class="n">boss_model</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
      </div>
