@@ -6,6 +6,8 @@ The Astro Data Lab includes a collection of notebooks showcasing the DESI data. 
 
 - `01_Intro_to_DESI_EDR.ipynb` shows how to access the redshift catalog from the Astro Data Lab database, how to separate objects based on the DESI targeting information, how to access all the available spectra for a given object using [SPARCL (SPectra Analysis and Retrievable Catalog Lab)](https://astrosparcl.datalab.noirlab.edu), and finally how to plot the "best" spectrum.
 
+- `01a_Intro_to_DESI_EDR-Py3.ipynb` is similar to the previous notebook, but installing the DESI software is not required to run this notebook. It uses the Python 3 kernel and shows how to access the DESI EDR redshift catalog from the Astro Data Lab database, how to select sources based on the DESI targeting information, and how to access and plot the required spectra using SPARCL. 
+
 - `02_DESI_EDR_SDSS_Comparison.ipynb` shows how to use SPARCL data discovery to find available SDSS DR16 and DESI EDR spectra of sources in a specific region of the sky with redshift and spectype constraints, how to retrieve and compare spectra for the same galaxy observed with both SDSS and DESI.
 
 ## How-to folder: `04_HowTos/`
