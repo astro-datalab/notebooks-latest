@@ -36,6 +36,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -15107,11 +15108,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Knut Olsen &lt;knut.olsen@noirlab.edu&gt;, Mike Fitzpatrick &lt;mike.fitzpatrick@noirlab.edu&gt;, Adam Scott &lt;adam.scott@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230821&#39;</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240603&#39;</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;usno.a2&#39;</span><span class="p">,</span> <span class="s1">&#39;gaia_dr3&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;crossmatch&#39;</span><span class="p">,</span> <span class="s1">&#39;mydb&#39;</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="s1">&#39;tutorial&#39;</span><span class="p">,</span> <span class="s1">&#39;vospace&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15193,13 +15194,29 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="attribution"></a></p>
-<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h1><p>If you use this notebook for your published science, please acknowledge the following:</p>
+<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h1><h2 id="Disclaimers">Disclaimers<a class="anchor-link" href="#Disclaimers">&#182;</a></h2><p>Note that using the Astro Data Lab constitutes your agreement with our minimal <a href="https://datalab.noirlab.edu/disclaimers.php">Disclaimers</a>.</p>
+<h2 id="Acknowledgments">Acknowledgments<a class="anchor-link" href="#Acknowledgments">&#182;</a></h2><p>If you use <strong>Astro Data Lab</strong> in your published research, please include the text in your paper's Acknowledgments section:</p>
+<p><em>This research uses services or data provided by the Astro Data Lab, which is part of the Community Science and Data Center (CSDC) Program of NSF NOIRLab. NOIRLab is operated by the Association of Universities for Research in Astronomy (AURA), Inc. under a cooperative agreement with the U.S. National Science Foundation.</em></p>
+<p>If you use <strong>SPARCL jointly with the Astro Data Lab platform</strong> (via JupyterLab, command-line, or web interface) in your published research, please include this text below in your paper's Acknowledgments section:</p>
+<p><em>This research uses services or data provided by the SPectra Analysis and Retrievable Catalog Lab (SPARCL) and the Astro Data Lab, which are both part of the Community Science and Data Center (CSDC) Program of NSF NOIRLab. NOIRLab is operated by the Association of Universities for Research in Astronomy (AURA), Inc. under a cooperative agreement with the U.S. National Science Foundation.</em></p>
+<p>In either case <strong>please cite the following papers</strong>:</p>
 <ul>
-<li><p>Data Lab concept paper: Fitzpatrick et al., &quot;The NOAO Data Laboratory: a conceptual overview&quot;, SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></p>
+<li><p>Data Lab concept paper: Fitzpatrick et al., &quot;The NOAO Data Laboratory: a conceptual overview&quot;, SPIE, 9149, 2014, <a href="https://doi.org/10.1117/12.2057445">https://doi.org/10.1117/12.2057445</a></p>
 </li>
-<li><p>Data Lab disclaimer: <a href="https://datalab.noirlab.edu/disclaimers.php">https://datalab.noirlab.edu/disclaimers.php</a></p>
+<li><p>Astro Data Lab overview: Nikutta et al., &quot;Data Lab - A Community Science Platform&quot;, Astronomy and Computing, 33, 2020, <a href="https://doi.org/10.1016/j.ascom.2020.100411">https://doi.org/10.1016/j.ascom.2020.100411</a></p>
 </li>
 </ul>
+<p>If you are referring to the Data Lab JupyterLab / Jupyter Notebooks, cite:</p>
+<ul>
+<li>Juneau et al., &quot;Jupyter-Enabled Astrophysical Analysis Using Data-Proximate Computing Platforms&quot;, CiSE, 23, 15, 2021, <a href="https://doi.org/10.1109/MCSE.2021.3057097">https://doi.org/10.1109/MCSE.2021.3057097</a></li>
+</ul>
+<p>If publishing in a AAS journal, also add the keyword: <code>\facility{Astro Data Lab}</code></p>
+<p>And if you are using SPARCL, please also add <code>\software{SPARCL}</code> and cite:</p>
+<ul>
+<li>Juneau et al., &quot;SPARCL: SPectra Analysis and Retrievable Catalog Lab&quot;, Conference Proceedings for ADASS XXXIII, 2024</li>
+</ul>
+<p><a href="https://doi.org/10.48550/arXiv.2401.05576">https://doi.org/10.48550/arXiv.2401.05576</a></p>
+<p>The NOIRLab Library maintains <a href="https://noirlab.edu/science/about/scientific-acknowledgments">lists of proper acknowledgments</a> to use when publishing papers using the Lab's facilities, data, or services.</p>
 
 </div>
 </div>
@@ -15221,7 +15238,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span>
@@ -15252,12 +15269,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#token = ac.login(input(&quot;Enter user name: (+ENTER) &quot;),getpass(&quot;Enter password: (+ENTER) &quot;))</span>
@@ -15267,29 +15284,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;demo00&#39;</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15324,12 +15318,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Listing mydb tables:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">())</span>
@@ -15338,59 +15332,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Listing mydb tables:
-aaa
-aab
-basic_result
-bgsfaint_dlnotebook
-cmtestoutput
-cmxmatchtest
-desi_tile
-df_xmatch
-fastspec_everest_z_lt_0p6
-fiberassign
-gaia_rc
-gaia_sample
-gaia_sample_xmatch
-gals
-lowmassagn_dlnotebook
-secondary_dark_subset
-sv1targets_bright_secondary
-sv1targets_dark_secondary
-tbl_stat
-testcm
-testingx
-testresult2
-testx2
-testxmatchqueryout
-tile
-twomass_gaia1
-twomass_pt1
-twomasspsc
-usno_objects
-xmatchasyncout
-xmatchasyncout2
-
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15405,12 +15346,12 @@ xmatchasyncout2
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;select top 15 id,raj2000,dej2000 from usno.a2&#39;</span>
@@ -15425,60 +15366,6 @@ xmatchasyncout2
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Error: Table name already exists. It can be dropped with queryClient.mydb_drop() or add drop=True to your current request
-Listing mydb tables:
-aaa
-aab
-basic_result
-bgsfaint_dlnotebook
-cmtestoutput
-cmxmatchtest
-desi_tile
-df_xmatch
-fastspec_everest_z_lt_0p6
-fiberassign
-gaia_rc
-gaia_sample
-gaia_sample_xmatch
-gals
-lowmassagn_dlnotebook
-secondary_dark_subset
-sv1targets_bright_secondary
-sv1targets_dark_secondary
-tbl_stat
-testcm
-testingx
-testresult2
-testx2
-testxmatchqueryout
-tile
-twomass_gaia1
-twomass_pt1
-twomasspsc
-usno_objects
-xmatchasyncout
-xmatchasyncout2
-
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15506,12 +15393,12 @@ xmatchasyncout2
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span> <span class="p">(</span><span class="s1">&#39;select id,raj2000 as ra,dej2000 as dec from usno.a2 limit 15&#39;</span><span class="p">)</span>  <span class="c1"># CSV String</span>
@@ -15535,29 +15422,6 @@ xmatchasyncout2
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>(1 / 1) objects.csv -&gt; vos://objects.csv
--rw-rw-r-x  demo00     528  21 Aug 2023 13:56  objects.csv
-
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15570,12 +15434,12 @@ xmatchasyncout2
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;select top 15 id,raj2000,dej2000 from usno.a2&#39;</span>
@@ -15586,29 +15450,6 @@ xmatchasyncout2
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>-rw-rw-r-x  demo00     528  21 Aug 2023 13:56  objects.csv
--rw-rw-r-x  demo00    2026  21 Aug 2023 13:56  objects.vot
-
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15646,12 +15487,12 @@ xmatchasyncout2
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Local file result: &#39;</span>   <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects1&#39;</span><span class="p">,</span> <span class="s1">&#39;objects.csv&#39;</span><span class="p">))</span>
@@ -15660,27 +15501,6 @@ xmatchasyncout2
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Local file result: OK
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15694,12 +15514,12 @@ xmatchasyncout2
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;VOS file result: &#39;</span>   <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects2&#39;</span><span class="p">,</span> <span class="s1">&#39;vos://objects.csv&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
@@ -15708,29 +15528,6 @@ xmatchasyncout2
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>15 row(s) imported to mydb_1018.&#34;objects2&#34;
-
-VOS file result: OK
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15744,12 +15541,12 @@ VOS file result: OK
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;String (CSV) result: &#39;</span> <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects3&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">))</span>
@@ -15763,27 +15560,6 @@ VOS file result: OK
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>String (CSV) result: OK
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15795,12 +15571,12 @@ VOS file result: OK
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Pandas result: &#39;</span> <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects4&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">))</span>
@@ -15809,27 +15585,6 @@ VOS file result: OK
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Pandas result: OK
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15843,12 +15598,12 @@ VOS file result: OK
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects5&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>             <span class="c1"># Drop existing table by default</span>
@@ -15863,36 +15618,6 @@ VOS file result: OK
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>15 row(s) imported to mydb_1018.&#34;objects5&#34;
-
-Num rows in objects5: count
-15
-
-15 row(s) imported to mydb_1018.&#34;objects5&#34;
-
-Num rows in objects5: count
-15
-
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15904,12 +15629,12 @@ Num rows in objects5: count
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generate a VOTable by calling the PanSTARRS Cone Search service.</span>
@@ -15928,28 +15653,6 @@ Num rows in objects5: count
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>(1 / 1) ps1.vot -&gt; vos://ps1.vot
-http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=PS1V3OBJECTS&amp;RA=0.0&amp;DEC=0.0&amp;SR=0.05
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15962,12 +15665,12 @@ http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=PS1V3OBJECTS&amp;RA=0.0
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects6a&#39;</span><span class="p">,</span> <span class="s1">&#39;ps1.vot&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>             <span class="c1"># Load from local VOTable</span>
@@ -15980,38 +15683,12 @@ http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=PS1V3OBJECTS&amp;RA=0.0
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>253 row(s) imported to mydb_1018.&#34;objects6a&#34;
-
-import res: OK
-Num rows in objects6a: count
-253
-
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects6b&#39;</span><span class="p">,</span> <span class="s1">&#39;vos://ps1.vot&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>       <span class="c1"># Load from virtual storage VOTable</span>
@@ -16023,37 +15700,12 @@ Num rows in objects6a: count
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>253 row(s) imported to mydb_1018.&#34;objects6b&#34;
-
-Num rows in objects6b: count
-253
-
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_import</span> <span class="p">(</span><span class="s1">&#39;objects6c&#39;</span><span class="p">,</span> <span class="n">ps1_url</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>               <span class="c1"># Load from service URL directly</span>
@@ -16063,31 +15715,6 @@ Num rows in objects6b: count
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>253 row(s) imported to mydb_1018.&#34;objects6c&#34;
-
-Num rows in objects6c: count
-253
-
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16102,12 +15729,12 @@ Num rows in objects6c: count
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">(</span><span class="s1">&#39;objects4&#39;</span><span class="p">))</span>              <span class="c1"># Use of the &#39;mydb://&#39; prefix is optional</span>
@@ -16117,131 +15744,6 @@ Num rows in objects6c: count
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>id
-ra
-dec
-
-objname
-objid
-ndetections
-nstackdetections
-ng
-nr
-ni
-nz
-ny
-objinfoflag
-qualityflag
-ramean
-decmean
-rameanerr
-decmeanerr
-gflags
-rflags
-iflags
-zflags
-yflags
-gqfperfect
-rqfperfect
-iqfperfect
-zqfperfect
-yqfperfect
-gmeanpsfmag
-gmeanpsfmagerr
-gmeanpsfmagnpt
-gmeanpsfmagmin
-gmeanpsfmagmax
-gmeanpsfmagstd
-rmeanpsfmag
-rmeanpsfmagerr
-rmeanpsfmagnpt
-rmeanpsfmagmin
-rmeanpsfmagmax
-rmeanpsfmagstd
-imeanpsfmag
-imeanpsfmagerr
-imeanpsfmagnpt
-imeanpsfmagmin
-imeanpsfmagmax
-imeanpsfmagstd
-zmeanpsfmag
-zmeanpsfmagerr
-zmeanpsfmagnpt
-zmeanpsfmagmin
-zmeanpsfmagmax
-zmeanpsfmagstd
-ymeanpsfmag
-ymeanpsfmagerr
-ymeanpsfmagnpt
-ymeanpsfmagmin
-ymeanpsfmagmax
-ymeanpsfmagstd
-gmeanapmag
-gmeanapmagerr
-gmeanapmagnpt
-gmeanapmagstd
-rmeanapmag
-rmeanapmagerr
-rmeanapmagnpt
-rmeanapmagstd
-imeanapmag
-imeanapmagerr
-imeanapmagnpt
-imeanapmagstd
-zmeanapmag
-zmeanapmagerr
-zmeanapmagnpt
-zmeanapmagstd
-ymeanapmag
-ymeanapmagerr
-ymeanapmagnpt
-ymeanapmagstd
-gmeankronmag
-gmeankronmagerr
-gmeankronmagnpt
-gmeankronmagstd
-rmeankronmag
-rmeankronmagerr
-rmeankronmagnpt
-rmeankronmagstd
-imeankronmag
-imeankronmagerr
-imeankronmagnpt
-imeankronmagstd
-zmeankronmag
-zmeankronmagerr
-zmeankronmagnpt
-zmeankronmagstd
-ymeankronmag
-ymeankronmagerr
-ymeankronmagnpt
-ymeankronmagstd
-mag
-ra
-dec
-htmid
-distance
-
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16273,7 +15775,7 @@ drop          [Optional, default=True] Drop any existing table before loading th
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a simple (id,ra,dec) schema of a text string and two double values</span>
@@ -16287,12 +15789,12 @@ drop          [Optional, default=True] Drop any existing table before loading th
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Example 1:  Create a table from a schema definition file, drop existing table</span>
@@ -16304,33 +15806,12 @@ drop          [Optional, default=True] Drop any existing table before loading th
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Creating table &#39;test&#39;...  OK
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Example 2:  Create a table from a schema definition str</span>
@@ -16342,33 +15823,12 @@ drop          [Optional, default=True] Drop any existing table before loading th
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Creating table &#39;test&#39;...  OK
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;table1 structure:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">(</span><span class="s1">&#39;test1&#39;</span><span class="p">))</span>
@@ -16378,36 +15838,6 @@ drop          [Optional, default=True] Drop any existing table before loading th
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>table1 structure:
-id
-ra
-dec
-
-table2 structure:
-id
-ra
-dec
-
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16432,12 +15862,12 @@ csv_header    [Optional, default=True] CSV data contains a header row of column 
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Example 1:  Load from a CSV file</span>
@@ -16452,28 +15882,6 @@ csv_header    [Optional, default=True] CSV data contains a header row of column 
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Loading from file:   OK
-Loading from string: OK
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -16486,12 +15894,12 @@ Loading from string: OK
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running query: &#39;select * from mydb://test1&#39;&quot;</span><span class="p">)</span>
@@ -16502,154 +15910,6 @@ Loading from string: OK
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Running query: &#39;select * from mydb://test1&#39;
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>id</th>
-      <th>ra</th>
-      <th>dec</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1200-16738677</td>
-      <td>314.998300</td>
-      <td>35.267575</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1200-16737889</td>
-      <td>314.994803</td>
-      <td>35.267942</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1200-16740156</td>
-      <td>315.005123</td>
-      <td>35.270559</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1200-16737180</td>
-      <td>314.991714</td>
-      <td>35.269028</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1200-16736554</td>
-      <td>314.988739</td>
-      <td>35.270420</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1200-16737350</td>
-      <td>314.992450</td>
-      <td>35.271870</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>1200-16739707</td>
-      <td>315.003048</td>
-      <td>35.273520</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>1200-16742178</td>
-      <td>315.014253</td>
-      <td>35.272075</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>1200-16742894</td>
-      <td>315.017528</td>
-      <td>35.274592</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>1200-16743776</td>
-      <td>315.021645</td>
-      <td>35.275409</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>1200-16743453</td>
-      <td>315.020131</td>
-      <td>35.276256</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>1200-16740549</td>
-      <td>315.006939</td>
-      <td>35.274864</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>1200-16740499</td>
-      <td>315.006750</td>
-      <td>35.279698</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>1200-16742673</td>
-      <td>315.016534</td>
-      <td>35.280123</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>1200-16735740</td>
-      <td>314.985175</td>
-      <td>35.276403</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16679,7 +15939,7 @@ Loading from string: OK
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># xmatch query of mydb://objects6a (our small PS1 table) against gaia_dr3.gaia_source within 0.01 degrees, return all matches</span>
@@ -16696,12 +15956,12 @@ Loading from string: OK
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;nrows x ncols: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -16711,124 +15971,6 @@ Loading from string: OK
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>nrows x ncols: (210, 3)
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>objid</th>
-      <th>designation</th>
-      <th>dist_arcsec</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>108000000004132800</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>33.644098</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>107990000018985382</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>29.641774</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>107990000054816431</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>16.739560</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>107990000094369406</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>0.024728</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>108013599948120838</td>
-      <td>Gaia DR3 2738188646457069696</td>
-      <td>22.856130</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>108000000093455743</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>19.168215</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>108000000105384460</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>15.916200</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>108003599898938079</td>
-      <td>Gaia DR3 2642111838657303808</td>
-      <td>35.941535</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>108003599898938079</td>
-      <td>Gaia DR3 2738188646457069696</td>
-      <td>21.190770</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>108003599869045137</td>
-      <td>Gaia DR3 2642111735577925376</td>
-      <td>34.998654</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16860,7 +16002,7 @@ Loading from string: OK
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;SELECT  o.objid, gg.designation, (q3c_dist(o.ramean,o.decmean,gg.ra,gg.dec)*3600.0) as dist_arcsec </span>
@@ -16884,12 +16026,12 @@ Loading from string: OK
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;nrows x ncols: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df3</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -16899,124 +16041,6 @@ Loading from string: OK
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>nrows x ncols: (253, 3)
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>objid</th>
-      <th>designation</th>
-      <th>dist_arcsec</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>108000000004132800</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>33.644098</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>108003599979874881</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>107990000018985382</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>29.641774</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>107990000054816431</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>16.739560</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>107990000094369406</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>0.024728</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>107983599973919166</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>108013599996822453</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>108013599948120838</td>
-      <td>Gaia DR3 2738188646457069696</td>
-      <td>22.856130</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>108000000093455743</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>19.168215</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>108000000105384460</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>15.916200</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -17036,7 +16060,7 @@ Loading from string: OK
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;SELECT  o.objid, gg.designation, (q3c_dist(o.ramean,o.decmean,gg.ra,gg.dec)*3600.0) as dist_arcsec </span>
@@ -17060,12 +16084,12 @@ Loading from string: OK
 </div>
 </div>
 
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;nrows x ncols: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df4</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -17075,124 +16099,6 @@ Loading from string: OK
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>nrows x ncols: (132, 3)
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>objid</th>
-      <th>designation</th>
-      <th>dist_arcsec</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>108000000004132800</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>33.644098</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>107990000018985382</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>29.641774</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>107990000054816431</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>16.739560</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>107990000094369406</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>0.024728</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>108013599948120838</td>
-      <td>Gaia DR3 2738188646457069696</td>
-      <td>22.856130</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>108000000093455743</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>19.168215</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>108000000105384460</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>15.916200</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>108003599898938079</td>
-      <td>Gaia DR3 2738188646457069696</td>
-      <td>21.190770</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>108003599869045137</td>
-      <td>Gaia DR3 2642111838657303808</td>
-      <td>28.265715</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>107990000145388611</td>
-      <td>Gaia DR3 2546034966433885568</td>
-      <td>18.547336</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -17208,12 +16114,12 @@ Loading from string: OK
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Drop any tables or temp files we created.</span>
@@ -17238,71 +16144,6 @@ Loading from string: OK
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Dropping table &#39;test1&#39; ... 	OK
-Dropping table &#39;test2&#39; ... 	OK
-Dropping table &#39;objects1&#39; ... 	OK
-Dropping table &#39;objects2&#39; ... 	OK
-Dropping table &#39;objects3&#39; ... 	OK
-Dropping table &#39;objects4&#39; ... 	OK
-Dropping table &#39;objects5&#39; ... 	OK
-Dropping table &#39;objects6a&#39; ... 	OK
-Dropping table &#39;objects6b&#39; ... 	OK
-Dropping table &#39;objects6c&#39; ... 	OK
-Listing mydb tables:
-aaa
-aab
-basic_result
-bgsfaint_dlnotebook
-cmtestoutput
-cmxmatchtest
-desi_tile
-df_xmatch
-fastspec_everest_z_lt_0p6
-fiberassign
-gaia_rc
-gaia_sample
-gaia_sample_xmatch
-gals
-lowmassagn_dlnotebook
-secondary_dark_subset
-sv1targets_bright_secondary
-sv1targets_dark_secondary
-tbl_stat
-testcm
-testingx
-testresult2
-testx2
-testxmatchqueryout
-tile
-twomass_gaia1
-twomass_pt1
-twomasspsc
-usno_objects
-xmatchasyncout
-xmatchasyncout2
-
-removing objects.csv
-removing objects.vot
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -17320,7 +16161,7 @@ removing objects.vot
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="kc">False</span><span class="p">:</span>      <span class="c1"># CAUTION! Change this to &#39;if True&#39; to remove all tables</span>

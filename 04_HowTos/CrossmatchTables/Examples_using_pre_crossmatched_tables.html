@@ -36,6 +36,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -15107,11 +15108,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Alice Jacques &lt;alice.jacques@noirlab.edu&gt;, Astro Data Lab Team &lt;datalab@noirlab.edu&gt;&#39;</span> 
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230821&#39;</span> <span class="c1">#yyyymmdd </span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240603&#39;</span> <span class="c1">#yyyymmdd </span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ls_dr9&#39;</span><span class="p">,</span> <span class="s1">&#39;sdss_dr17&#39;</span><span class="p">,</span> <span class="s1">&#39;gaia_dr3&#39;</span><span class="p">,</span> <span class="s1">&#39;des_dr2&#39;</span><span class="p">]</span> 
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;crossmatch&#39;</span><span class="p">,</span> <span class="s1">&#39;joint query&#39;</span><span class="p">,</span> <span class="s1">&#39;mydb&#39;</span><span class="p">,</span> <span class="s1">&#39;vospace&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15181,13 +15182,29 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="attribution"></a></p>
-<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h1><p>If you use this notebook for your published science, please acknowledge the following:</p>
+<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h1><h2 id="Disclaimers">Disclaimers<a class="anchor-link" href="#Disclaimers">&#182;</a></h2><p>Note that using the Astro Data Lab constitutes your agreement with our minimal <a href="https://datalab.noirlab.edu/disclaimers.php">Disclaimers</a>.</p>
+<h2 id="Acknowledgments">Acknowledgments<a class="anchor-link" href="#Acknowledgments">&#182;</a></h2><p>If you use <strong>Astro Data Lab</strong> in your published research, please include the text in your paper's Acknowledgments section:</p>
+<p><em>This research uses services or data provided by the Astro Data Lab, which is part of the Community Science and Data Center (CSDC) Program of NSF NOIRLab. NOIRLab is operated by the Association of Universities for Research in Astronomy (AURA), Inc. under a cooperative agreement with the U.S. National Science Foundation.</em></p>
+<p>If you use <strong>SPARCL jointly with the Astro Data Lab platform</strong> (via JupyterLab, command-line, or web interface) in your published research, please include this text below in your paper's Acknowledgments section:</p>
+<p><em>This research uses services or data provided by the SPectra Analysis and Retrievable Catalog Lab (SPARCL) and the Astro Data Lab, which are both part of the Community Science and Data Center (CSDC) Program of NSF NOIRLab. NOIRLab is operated by the Association of Universities for Research in Astronomy (AURA), Inc. under a cooperative agreement with the U.S. National Science Foundation.</em></p>
+<p>In either case <strong>please cite the following papers</strong>:</p>
 <ul>
-<li><p>Data Lab concept paper: Fitzpatrick et al., &quot;The NOAO Data Laboratory: a conceptual overview&quot;, SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></p>
+<li><p>Data Lab concept paper: Fitzpatrick et al., &quot;The NOAO Data Laboratory: a conceptual overview&quot;, SPIE, 9149, 2014, <a href="https://doi.org/10.1117/12.2057445">https://doi.org/10.1117/12.2057445</a></p>
 </li>
-<li><p>Data Lab disclaimer: <a href="https://datalab.noirlab.edu/disclaimers.php">https://datalab.noirlab.edu/disclaimers.php</a></p>
+<li><p>Astro Data Lab overview: Nikutta et al., &quot;Data Lab - A Community Science Platform&quot;, Astronomy and Computing, 33, 2020, <a href="https://doi.org/10.1016/j.ascom.2020.100411">https://doi.org/10.1016/j.ascom.2020.100411</a></p>
 </li>
 </ul>
+<p>If you are referring to the Data Lab JupyterLab / Jupyter Notebooks, cite:</p>
+<ul>
+<li>Juneau et al., &quot;Jupyter-Enabled Astrophysical Analysis Using Data-Proximate Computing Platforms&quot;, CiSE, 23, 15, 2021, <a href="https://doi.org/10.1109/MCSE.2021.3057097">https://doi.org/10.1109/MCSE.2021.3057097</a></li>
+</ul>
+<p>If publishing in a AAS journal, also add the keyword: <code>\facility{Astro Data Lab}</code></p>
+<p>And if you are using SPARCL, please also add <code>\software{SPARCL}</code> and cite:</p>
+<ul>
+<li>Juneau et al., &quot;SPARCL: SPectra Analysis and Retrievable Catalog Lab&quot;, Conference Proceedings for ADASS XXXIII, 2024</li>
+</ul>
+<p><a href="https://doi.org/10.48550/arXiv.2401.05576">https://doi.org/10.48550/arXiv.2401.05576</a></p>
+<p>The NOIRLab Library maintains <a href="https://noirlab.edu/science/about/scientific-acknowledgments">lists of proper acknowledgments</a> to use when publishing papers using the Lab's facilities, data, or services.</p>
 
 </div>
 </div>
@@ -15209,7 +15226,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># std lib</span>
@@ -15246,12 +15263,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
-</div><div id="cell-id=49207a6a-0716-4270-a6b9-ba16606e57a8" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=49207a6a-0716-4270-a6b9-ba16606e57a8" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#token = ac.login(input(&quot;Enter user name: (+ENTER) &quot;),getpass(&quot;Enter password: (+ENTER) &quot;))</span>
@@ -15261,29 +15278,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;demo00&#39;</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15370,12 +15364,12 @@ NOTE: the default JOIN is an <code>INNER JOIN</code>.</p>
 </div>
 </div>
 </div>
-</div><div id="cell-id=730021ea-1262-4e71-8e31-13fb3c358595" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=730021ea-1262-4e71-8e31-13fb3c358595" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query_single</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
@@ -15387,7 +15381,7 @@ NOTE: the default JOIN is an <code>INNER JOIN</code>.</p>
 <span class="s2">JOIN</span>
 <span class="s2">    sdss_dr17.specobj AS S ON X.id1 = S.specobjid </span>
 <span class="s2">WHERE</span>
-<span class="s2">    X.ra1 BETWEEN </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span><span class="s2"> and X.dec1 BETWEEN </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">    X.ra1 BETWEEN </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span><span class="s2"> and X.dec1 BETWEEN </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span>
 <span class="s2">LIMIT 10000</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="p">)</span> <span class="o">%</span><span class="p">(</span><span class="mi">110</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mf">7.</span><span class="p">,</span><span class="mf">40.</span><span class="p">)</span>  <span class="c1">#large region</span>
@@ -15397,38 +15391,6 @@ NOTE: the default JOIN is an <code>INNER JOIN</code>.</p>
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-SELECT 
-    X.ra1 AS ra_sdss, X.dec1 AS dec_sdss,
-    S.z
-FROM
-    sdss_dr17.x1p5__specobj__ls_dr9__tractor AS X 
-JOIN
-    sdss_dr17.specobj AS S ON X.id1 = S.specobjid 
-WHERE
-    X.ra1 BETWEEN 110 and 200 and X.dec1 BETWEEN 7.0 and 40.0
-LIMIT 10000
-
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15442,12 +15404,12 @@ LIMIT 10000
 </div>
 </div>
 </div>
-</div><div id="cell-id=e82e6dd9-52aa-4456-8054-9df7ef667fd6" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=e82e6dd9-52aa-4456-8054-9df7ef667fd6" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_single</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query_single</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
@@ -15457,121 +15419,6 @@ LIMIT 10000
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ra_sdss</th>
-      <th>dec_sdss</th>
-      <th>z</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>110.00027</td>
-      <td>39.699210</td>
-      <td>0.516598</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>110.00065</td>
-      <td>39.613622</td>
-      <td>0.053511</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>110.00140</td>
-      <td>30.987794</td>
-      <td>-0.000062</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>110.00143</td>
-      <td>37.534445</td>
-      <td>-0.000253</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>110.00192</td>
-      <td>39.751928</td>
-      <td>0.000305</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>9995</th>
-      <td>113.28194</td>
-      <td>25.709454</td>
-      <td>0.000075</td>
-    </tr>
-    <tr>
-      <th>9996</th>
-      <td>113.28196</td>
-      <td>39.540578</td>
-      <td>-0.000212</td>
-    </tr>
-    <tr>
-      <th>9997</th>
-      <td>113.28202</td>
-      <td>31.683362</td>
-      <td>0.377256</td>
-    </tr>
-    <tr>
-      <th>9998</th>
-      <td>113.28211</td>
-      <td>26.552400</td>
-      <td>1.718549</td>
-    </tr>
-    <tr>
-      <th>9999</th>
-      <td>113.28233</td>
-      <td>25.074851</td>
-      <td>0.845945</td>
-    </tr>
-  </tbody>
-</table>
-<p>10000 rows × 3 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15614,12 +15461,12 @@ LIMIT 10000
 </div>
 </div>
 </div>
-</div><div id="cell-id=6f74ac38-f2e7-48ba-b2b8-e621d75096c1" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=6f74ac38-f2e7-48ba-b2b8-e621d75096c1" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query_double</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
@@ -15634,7 +15481,7 @@ LIMIT 10000
 <span class="s2">JOIN</span>
 <span class="s2">    ls_dr9.tractor AS L ON X.id2 = L.ls_id</span>
 <span class="s2">WHERE</span>
-<span class="s2">    X.ra1 BETWEEN </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span><span class="s2"> and X.dec1 BETWEEN </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span><span class="s2"></span>
+<span class="s2">    X.ra1 BETWEEN </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span><span class="s2"> and X.dec1 BETWEEN </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span>
 <span class="s2">LIMIT 10000</span>
 <span class="s2">&quot;&quot;&quot;</span>
 <span class="p">)</span> <span class="o">%</span><span class="p">(</span><span class="mi">110</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mf">7.</span><span class="p">,</span><span class="mf">40.</span><span class="p">)</span>  <span class="c1">#large region</span>
@@ -15644,41 +15491,6 @@ LIMIT 10000
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-SELECT 
-    X.ra1 AS ra_sdss, X.dec1 AS dec_sdss,
-    S.z,
-    L.mag_g, L.mag_r
-FROM
-    sdss_dr17.x1p5__specobj__ls_dr9__tractor AS X 
-JOIN
-    sdss_dr17.specobj AS S ON X.id1 = S.specobjid 
-JOIN
-    ls_dr9.tractor AS L ON X.id2 = L.ls_id
-WHERE
-    X.ra1 BETWEEN 110 and 200 and X.dec1 BETWEEN 7.0 and 40.0
-LIMIT 10000
-
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15692,12 +15504,12 @@ LIMIT 10000
 </div>
 </div>
 </div>
-</div><div id="cell-id=c420e32b-8592-44b7-ae55-cbceb9ee6664" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=c420e32b-8592-44b7-ae55-cbceb9ee6664" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_double</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query_double</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
@@ -15707,145 +15519,6 @@ LIMIT 10000
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ra_sdss</th>
-      <th>dec_sdss</th>
-      <th>z</th>
-      <th>mag_g</th>
-      <th>mag_r</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>123.12650</td>
-      <td>39.993317</td>
-      <td>0.124905</td>
-      <td>18.130915</td>
-      <td>16.995148</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>123.36125</td>
-      <td>39.996015</td>
-      <td>-0.000117</td>
-      <td>21.921595</td>
-      <td>20.344702</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>123.23940</td>
-      <td>39.990355</td>
-      <td>0.067814</td>
-      <td>17.442272</td>
-      <td>16.721584</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>123.18048</td>
-      <td>39.935782</td>
-      <td>0.067945</td>
-      <td>18.585884</td>
-      <td>17.680323</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>123.25379</td>
-      <td>39.959822</td>
-      <td>0.000056</td>
-      <td>22.013874</td>
-      <td>20.268965</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>9995</th>
-      <td>139.99228</td>
-      <td>39.700074</td>
-      <td>0.570250</td>
-      <td>23.129639</td>
-      <td>21.435806</td>
-    </tr>
-    <tr>
-      <th>9996</th>
-      <td>139.88228</td>
-      <td>39.660420</td>
-      <td>0.458871</td>
-      <td>20.758060</td>
-      <td>20.142900</td>
-    </tr>
-    <tr>
-      <th>9997</th>
-      <td>140.03065</td>
-      <td>39.671779</td>
-      <td>1.867199</td>
-      <td>21.640137</td>
-      <td>21.532164</td>
-    </tr>
-    <tr>
-      <th>9998</th>
-      <td>140.12081</td>
-      <td>39.656766</td>
-      <td>0.092700</td>
-      <td>15.941207</td>
-      <td>14.906138</td>
-    </tr>
-    <tr>
-      <th>9999</th>
-      <td>140.05747</td>
-      <td>39.636116</td>
-      <td>0.092355</td>
-      <td>17.728931</td>
-      <td>16.734123</td>
-    </tr>
-  </tbody>
-</table>
-<p>10000 rows × 5 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15861,12 +15534,12 @@ LIMIT 10000
 </div>
 </div>
 </div>
-</div><div id="cell-id=a22d726d-4f77-4838-b153-2809018acba8" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=a22d726d-4f77-4838-b153-2809018acba8" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">basic_query</span> <span class="o">=</span> <span class="s2">&quot;SELECT specobjid, ra, dec FROM sdss_dr17.specobj LIMIT 10000&quot;</span>
@@ -15876,27 +15549,6 @@ LIMIT 10000
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>SELECT specobjid, ra, dec FROM sdss_dr17.specobj LIMIT 10000
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15915,7 +15567,7 @@ LIMIT 10000
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">basic_query</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span><span class="n">out</span><span class="o">=</span><span class="s1">&#39;vos://basic_result.csv&#39;</span><span class="p">)</span>
@@ -15937,12 +15589,12 @@ LIMIT 10000
 </div>
 </div>
 </div>
-</div><div id="cell-id=d84a1bd5-1c36-4db2-90a8-e6c8e46356a1" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=d84a1bd5-1c36-4db2-90a8-e6c8e46356a1" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://basic_result.csv&#39;</span><span class="p">)</span>
@@ -15951,29 +15603,6 @@ LIMIT 10000
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;basic_result.csv&#39;</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -15987,12 +15616,12 @@ LIMIT 10000
 </div>
 </div>
 </div>
-</div><div id="cell-id=1ad5fdbd-6ae6-41d9-b2ee-4417a8333484" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=1ad5fdbd-6ae6-41d9-b2ee-4417a8333484" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">rm</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://basic_result.csv&#39;</span><span class="p">)</span>
@@ -16001,29 +15630,6 @@ LIMIT 10000
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;OK&#39;</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16037,12 +15643,12 @@ LIMIT 10000
 </div>
 </div>
 </div>
-</div><div id="cell-id=644a0b79-aa48-45b5-a3bc-3381a6368c20" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=644a0b79-aa48-45b5-a3bc-3381a6368c20" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;vos://basic_result.csv&#39;</span><span class="p">)</span>
@@ -16051,29 +15657,6 @@ LIMIT 10000
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;Error 404: &#34;vos://basic_result.csv&#34; NOT FOUND&#39;</pre>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16094,7 +15677,7 @@ LIMIT 10000
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">basic_query</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;mydb://basic_result&#39;</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -16116,12 +15699,12 @@ LIMIT 10000
 </div>
 </div>
 </div>
-</div><div id="cell-id=84dcbec1-7f2f-435f-ac67-f49d8b6ad6aa" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=84dcbec1-7f2f-435f-ac67-f49d8b6ad6aa" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">(),</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -16130,59 +15713,6 @@ LIMIT 10000
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>aaa
-aab
-basic_result
-bgsfaint_dlnotebook
-cmtestoutput
-cmxmatchtest
-desi_tile
-df_xmatch
-fastspec_everest_z_lt_0p6
-fiberassign
-gaia_rc
-gaia_sample
-gaia_sample_xmatch
-gals
-lowmassagn_dlnotebook
-secondary_dark_subset
-sv1targets_bright_secondary
-sv1targets_dark_secondary
-tbl_stat
-testcm
-testingx
-testresult2
-testx2
-testxmatchqueryout
-tile
-twomass_gaia1
-twomass_pt1
-twomasspsc
-usno_objects
-xmatchasyncout
-xmatchasyncout2
- 
-
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16209,12 +15739,12 @@ xmatchasyncout2
 </div>
 </div>
 </div>
-</div><div id="cell-id=3bc7feeb-2486-42e8-a3f3-6b4e14d3c6d9" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=3bc7feeb-2486-42e8-a3f3-6b4e14d3c6d9" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query_xmatch</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -16242,43 +15772,6 @@ xmatchasyncout2
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-SELECT
-    b.specobjid AS sdss_id, gg.source_id AS gaia_id, 
-    (q3c_dist(b.ra,b.dec,gg.ra,gg.dec)*3600.0) AS dist_arcsec 
-FROM
-    mydb://basic_result AS b
-LEFT JOIN LATERAL (
-    SELECT g.* 
-    FROM 
-        gaia_dr3.gaia_source AS g
-    WHERE
-        q3c_join(b.ra, b.dec, g.ra, g.dec, 0.01)
-    ORDER BY
-        q3c_dist(b.ra,b.dec,g.ra,g.dec)
-    ASC LIMIT 1
-) AS gg ON true
-
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div id="cell-id=07593aaf-07f6-4a69-a180-4e4399d2ee74" class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -16295,7 +15788,7 @@ LEFT JOIN LATERAL (
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_xmatch</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query_xmatch</span><span class="p">,</span><span class="n">out</span><span class="o">=</span><span class="s2">&quot;mydb://df_xmatch&quot;</span><span class="p">,</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># set drop=True to remove an already existing table from MyDB with the same name</span>
@@ -16317,12 +15810,12 @@ LEFT JOIN LATERAL (
 </div>
 </div>
 </div>
-</div><div id="cell-id=721507c3-a270-4814-b960-3e5057d213a1" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=721507c3-a270-4814-b960-3e5057d213a1" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">&quot;select * from mydb://df_xmatch&quot;</span>
@@ -16333,121 +15826,6 @@ LEFT JOIN LATERAL (
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sdss_id</th>
-      <th>gaia_id</th>
-      <th>dist_arcsec</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2889072702671316992</td>
-      <td>1.962451e+18</td>
-      <td>0.122596</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2877815347283519488</td>
-      <td>1.962452e+18</td>
-      <td>0.135446</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2877824143376541696</td>
-      <td>1.961010e+18</td>
-      <td>0.193541</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2877823318742820864</td>
-      <td>1.960965e+18</td>
-      <td>0.133224</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2889071878037596160</td>
-      <td>1.960965e+18</td>
-      <td>11.562321</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>9995</th>
-      <td>2857534859855816704</td>
-      <td>2.272961e+18</td>
-      <td>0.049671</td>
-    </tr>
-    <tr>
-      <th>9996</th>
-      <td>2866543439439226880</td>
-      <td>2.272962e+18</td>
-      <td>0.060718</td>
-    </tr>
-    <tr>
-      <th>9997</th>
-      <td>2857536234245351424</td>
-      <td>2.272973e+18</td>
-      <td>0.080895</td>
-    </tr>
-    <tr>
-      <th>9998</th>
-      <td>2866556633578760192</td>
-      <td>2.272977e+18</td>
-      <td>0.043344</td>
-    </tr>
-    <tr>
-      <th>9999</th>
-      <td>2857539257902327808</td>
-      <td>2.272975e+18</td>
-      <td>0.213171</td>
-    </tr>
-  </tbody>
-</table>
-<p>10000 rows × 3 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -16461,12 +15839,12 @@ LEFT JOIN LATERAL (
 </div>
 </div>
 </div>
-</div><div id="cell-id=d4ff84af-218e-4d4e-be3f-a1cf12251156" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=d4ff84af-218e-4d4e-be3f-a1cf12251156" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">query_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -16486,35 +15864,6 @@ LEFT JOIN LATERAL (
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>
-SELECT
-    id2 AS ls_id, ra2 AS ls_ra, dec2 AS ls_dec,
-    df_xmatch.gaia_id, df_xmatch.sdss_id
-FROM
-    gaia_dr3.x1p5__gaia_source__ls_dr9__tractor AS gxl
-JOIN
-    mydb://df_xmatch AS df_xmatch ON gxl.id1 = df_xmatch.gaia_id
-
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div id="cell-id=9d0d5b46-90e9-4dbd-b445-a1953f2e5cd4" class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -16526,12 +15875,12 @@ JOIN
 </div>
 </div>
 </div>
-</div><div id="cell-id=5f90c8b4-fae1-474d-adf3-9c8a5fa0a926" class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div id="cell-id=5f90c8b4-fae1-474d-adf3-9c8a5fa0a926" class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">query_1</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;pandas&#39;</span><span class="p">)</span>
@@ -16541,145 +15890,6 @@ JOIN
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ls_id</th>
-      <th>ls_ra</th>
-      <th>ls_dec</th>
-      <th>gaia_id</th>
-      <th>sdss_id</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>9907737095837650</td>
-      <td>287.228165</td>
-      <td>48.064735</td>
-      <td>2131102058617608064</td>
-      <td>3384465917919389696</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>9907737159009377</td>
-      <td>287.448870</td>
-      <td>48.229697</td>
-      <td>2131098455144685056</td>
-      <td>3384466192797296640</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>9907737158950166</td>
-      <td>287.387517</td>
-      <td>48.168933</td>
-      <td>2131097218194075904</td>
-      <td>3384462344506599424</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>9907737221862367</td>
-      <td>287.697861</td>
-      <td>48.382752</td>
-      <td>2131196930154414592</td>
-      <td>3384463718896134144</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>9907737221859120</td>
-      <td>287.547174</td>
-      <td>48.407548</td>
-      <td>2131195006009050240</td>
-      <td>3384465093285668864</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>840</th>
-      <td>9907740343599562</td>
-      <td>276.670899</td>
-      <td>63.135065</td>
-      <td>2160347319866203008</td>
-      <td>2873374430422132736</td>
-    </tr>
-    <tr>
-      <th>841</th>
-      <td>9907740343599573</td>
-      <td>276.671625</td>
-      <td>63.208500</td>
-      <td>2160347899685623680</td>
-      <td>2873378278712829952</td>
-    </tr>
-    <tr>
-      <th>842</th>
-      <td>9907740343599244</td>
-      <td>276.634148</td>
-      <td>63.135310</td>
-      <td>2160347972701229440</td>
-      <td>2873379103346550784</td>
-    </tr>
-    <tr>
-      <th>843</th>
-      <td>9907740343535831</td>
-      <td>276.356517</td>
-      <td>63.279633</td>
-      <td>2160352916207452416</td>
-      <td>2873378828468643840</td>
-    </tr>
-    <tr>
-      <th>844</th>
-      <td>9907740343535595</td>
-      <td>276.327702</td>
-      <td>63.257707</td>
-      <td>2160352473826955520</td>
-      <td>2873373880666318848</td>
-    </tr>
-  </tbody>
-</table>
-<p>845 rows × 5 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
