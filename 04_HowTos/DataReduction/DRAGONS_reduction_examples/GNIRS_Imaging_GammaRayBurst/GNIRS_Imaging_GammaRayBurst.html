@@ -15112,7 +15112,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Brian Merino &lt;brian.merino@noirlab.edu&gt;, Vinicius Placco &lt;vinicius.placco@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240530&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240604&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gnirs&#39;</span><span class="p">,</span><span class="s1">&#39;gemini&#39;</span><span class="p">,</span><span class="s1">&#39;GRB&#39;</span><span class="p">,</span><span class="s1">&#39;dragons&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -15546,6 +15546,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="Master_Flat"></a></p>
 <h1 id="Create-master-flat-field">Create master flat field<a class="anchor-link" href="#Create-master-flat-field">&#182;</a></h1><p>A GNIRS master flat is created from a series of lamp-on and lamp-off exposures. Each flavor is stacked, and then the lamp-off stack is subtracted from the lamp-on stack.</p>
+<p>The master flat will be saved as N20120117S0034_flat.fits.</p>
 
 </div>
 </div>
@@ -15579,6 +15580,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <h1 id="Reduce-science-images">Reduce science images<a class="anchor-link" href="#Reduce-science-images">&#182;</a></h1><p>The science target is a point source. The sequence dithers on-target, moving the source across the thin keyhole aperture. The sky frames for each science image will be the adjacent dithered frames obtained within a certain time limit. The default for GNIRS keyhole images is &quot;within 600 seconds&quot;.</p>
 <p>Both the master dark and the master flat are in our local calibration database. The calibration manager would retrieve any other Gemini facility instrument automatically. However, GNIRS is not an imager, and the keyhole is typically used only for acquisition, so there are no calibration association rules between GNIRS keyhole images and darks.</p>
 <p>The output stack units are in electrons (header keyword BUNIT=electrons). The output stack is stored in a multi-extension FITS (MEF) file. The science signal is in the &quot;SCI&quot; extension, the variance is in the &quot;VAR&quot; extension, and the data quality plane (mask) is in the &quot;DQ&quot; extension.</p>
+<p>The final reduced science image and the stacked image will have the same name as the first science file with the suffixes _image.fits and _stack.fits respectively.</p>
 <p>NOTE: After running this cell, you may receive a WARNING about too few correlated objects. This will not affect the final product, so you can ignore it.</p>
 
 </div>

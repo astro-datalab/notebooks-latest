@@ -15112,7 +15112,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Brian Merino &lt;brian.merino@noirlab.edu&gt;, Vinicius Placco &lt;vinicius.placco@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240530&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240604&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;niri&#39;</span><span class="p">,</span><span class="s1">&#39;gemini&#39;</span><span class="p">,</span><span class="s1">&#39;supernova&#39;</span><span class="p">,</span><span class="s1">&#39;dragons&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -15617,6 +15617,7 @@ A set of standard star observations.</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="Master_Flat"></a></p>
 <h1 id="Master-flat-field">Master flat field<a class="anchor-link" href="#Master-flat-field">&#182;</a></h1><p>A NIRI master flat is created from a series of lamp-on and lamp-off exposures. Each flavor is stacked, and then the lamp-off stack is subtracted from the lamp-on stack.</p>
+<p>The master flat will be saved as N20160102S0373_flat.fits.</p>
 
 </div>
 </div>
@@ -15650,6 +15651,7 @@ A set of standard star observations.</p>
 <p><a class="anchor" id="Standard_Star"></a></p>
 <h1 id="Standard-star">Standard star<a class="anchor-link" href="#Standard-star">&#182;</a></h1><p>The standard star is reduced more or less like the science target (next section), except that dark frames are not obtained for standard star observations. Therefore, the dark correction needs to be turned off.</p>
 <p>The processed flat field we added to the local calibration database will be fetched automatically. The user BPM (optional but recommended) needs to be specified by the user.</p>
+<p>The reduced standard star image will be saved as N20160102S0296_image.fits.</p>
 <p>NOTE: After running this cell, you may receive a warning regarding the Dark correction being turned off. You can ignore this warning as it will not affect the final product.</p>
 
 </div>
@@ -15687,6 +15689,7 @@ A set of standard star observations.</p>
 <p>The sky frame comes from off-target sky observations. We feed the pipeline all the on-target and off-target frames. The software will split the on-target and the off-target appropriately.</p>
 <p>The master dark and flat will be retrieved automatically from the local calibration database. Again, the user BPM needs to be specified on the command line.</p>
 <p>The output stack units are in electrons (header keyword BUNIT=electrons). The output stack is stored in a multi-extension FITS (MEF) file. The science signal is in the &quot;SCI&quot; extension, the variance is in the &quot;VAR&quot; extension, and the data quality plane (mask) is in the &quot;DQ&quot; extension.</p>
+<p>The final reduced image will be saved as N20160102S0296_image.fits.</p>
 
 </div>
 </div>

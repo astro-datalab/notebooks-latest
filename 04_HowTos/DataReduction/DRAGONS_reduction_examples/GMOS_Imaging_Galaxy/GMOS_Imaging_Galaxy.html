@@ -15112,7 +15112,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Brian Merino &lt;brian.merino@noirlab.edu&gt;, Susan Ridgway &lt;susan.ridgway@noirlab.edu&gt;, Vinicius Placco &lt;vinicius.placco@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240530&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240604&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gmos&#39;</span><span class="p">,</span><span class="s1">&#39;gemini&#39;</span><span class="p">,</span><span class="s1">&#39;galaxy&#39;</span><span class="p">,</span><span class="s1">&#39;dragons&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -15426,7 +15426,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="Master_Bias"></a></p>
-<h1 id="Create-a-master-bias">Create a master bias<a class="anchor-link" href="#Create-a-master-bias">&#182;</a></h1><p>We start the data reduction by creating a master bias for the science data. It can be created and added to the calibration database using the commands below:</p>
+<h1 id="Create-a-master-bias">Create a master bias<a class="anchor-link" href="#Create-a-master-bias">&#182;</a></h1><p>We start the data reduction by creating a master bias for the science data. It can be created and added to the calibration database using the commands below. When the cell is done running, the master bias file will be saved as S20180423S0050_bias.fits.</p>
 
 </div>
 </div>
@@ -15458,6 +15458,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="Master_Flat"></a></p>
 <h1 id="Create-a-master-flat-field">Create a master flat field<a class="anchor-link" href="#Create-a-master-flat-field">&#182;</a></h1><p>Twilight flat images are used to produce an imaging master flat and the result is added to the calibration database.</p>
+<p>The master flat will have the name of the first twilight flat file with the suffix _flat.fits.</p>
 
 </div>
 </div>
@@ -15489,6 +15490,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="Master_Fringe"></a></p>
 <h1 id="Create-master-fringe-frame">Create master fringe frame<a class="anchor-link" href="#Create-master-fringe-frame">&#182;</a></h1><p>The dataset used in this tutorial does not require a Master Fringe Frame. However, the following cell demonstrates how to create one for completeness.</p>
+<p>The master flat will have the name of the first science file with the suffix _fringe.fits.</p>
 
 </div>
 </div>
@@ -15523,6 +15525,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <h1 id="Reduce-science-images">Reduce science images<a class="anchor-link" href="#Reduce-science-images">&#182;</a></h1><p>Once our calibration files are processed and added to the database, we can run reduce on our science data.</p>
 <p>This command will generate bias and flat-corrected files and will stack them. If a fringe frame is needed, this command will apply the correction. The stacked image will have the _stack suffix.</p>
 <p>The output stack units are in electrons (header keyword BUNIT=electrons). The output stack is stored in a multi-extension FITS (MEF) file. The science signal is in the &quot;SCI&quot; extension, the variance is in the &quot;VAR&quot; extension, and the data quality plane (mask) is in the &quot;DQ&quot; extension.</p>
+<p>The reduced science image will have the name of the first science file with the suffix _image.fits.</p>
 
 </div>
 </div>
