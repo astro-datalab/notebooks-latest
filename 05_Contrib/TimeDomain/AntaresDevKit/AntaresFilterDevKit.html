@@ -36,6 +36,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -15112,7 +15113,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Carl Stubens, Sebastián Vicencio&#39;</span>
 <span class="n">__edited__</span> <span class="o">=</span> <span class="s1">&#39;Gautham Narayan, Chien-Hsiu Lee, ANTARES Team &lt;antares@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230615&#39;</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240601&#39;</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ANTARES&#39;</span><span class="p">,</span> <span class="s1">&#39;transient&#39;</span><span class="p">]</span>
 </pre></div>
@@ -15140,6 +15141,30 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li>How to write filters using the ANTARES filter API.</li>
 <li>How to test filters against a small test dataset.</li>
 </ol>
+<p><a class="anchor" id="attribution"></a></p>
+<h2 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h2><h2 id="Disclaimers">Disclaimers<a class="anchor-link" href="#Disclaimers">&#182;</a></h2><p>Note that using the Astro Data Lab constitutes your agreement with our minimal <a href="https://datalab.noirlab.edu/disclaimers.php">Disclaimers</a>.</p>
+<h2 id="Acknowledgments">Acknowledgments<a class="anchor-link" href="#Acknowledgments">&#182;</a></h2><p>If you use <strong>Astro Data Lab</strong> in your published research, please include the text in your paper's Acknowledgments section:</p>
+<p><em>This research uses services or data provided by the Astro Data Lab, which is part of the Community Science and Data Center (CSDC) Program of NSF NOIRLab. NOIRLab is operated by the Association of Universities for Research in Astronomy (AURA), Inc. under a cooperative agreement with the U.S. National Science Foundation.</em></p>
+<p>If you use <strong>SPARCL jointly with the Astro Data Lab platform</strong> (via JupyterLab, command-line, or web interface) in your published research, please include this text below in your paper's Acknowledgments section:</p>
+<p><em>This research uses services or data provided by the SPectra Analysis and Retrievable Catalog Lab (SPARCL) and the Astro Data Lab, which are both part of the Community Science and Data Center (CSDC) Program of NSF NOIRLab. NOIRLab is operated by the Association of Universities for Research in Astronomy (AURA), Inc. under a cooperative agreement with the U.S. National Science Foundation.</em></p>
+<p>In either case <strong>please cite the following papers</strong>:</p>
+<ul>
+<li><p>Data Lab concept paper: Fitzpatrick et al., &quot;The NOAO Data Laboratory: a conceptual overview&quot;, SPIE, 9149, 2014, <a href="https://doi.org/10.1117/12.2057445">https://doi.org/10.1117/12.2057445</a></p>
+</li>
+<li><p>Astro Data Lab overview: Nikutta et al., &quot;Data Lab - A Community Science Platform&quot;, Astronomy and Computing, 33, 2020, <a href="https://doi.org/10.1016/j.ascom.2020.100411">https://doi.org/10.1016/j.ascom.2020.100411</a></p>
+</li>
+</ul>
+<p>If you are referring to the Data Lab JupyterLab / Jupyter Notebooks, cite:</p>
+<ul>
+<li>Juneau et al., &quot;Jupyter-Enabled Astrophysical Analysis Using Data-Proximate Computing Platforms&quot;, CiSE, 23, 15, 2021, <a href="https://doi.org/10.1109/MCSE.2021.3057097">https://doi.org/10.1109/MCSE.2021.3057097</a></li>
+</ul>
+<p>If publishing in a AAS journal, also add the keyword: <code>\facility{Astro Data Lab}</code></p>
+<p>And if you are using SPARCL, please also add <code>\software{SPARCL}</code> and cite:</p>
+<ul>
+<li>Juneau et al., &quot;SPARCL: SPectra Analysis and Retrievable Catalog Lab&quot;, Conference Proceedings for ADASS XXXIII, 2024</li>
+</ul>
+<p><a href="https://doi.org/10.48550/arXiv.2401.05576">https://doi.org/10.48550/arXiv.2401.05576</a></p>
+<p>The NOIRLab Library maintains <a href="https://noirlab.edu/science/about/scientific-acknowledgments">lists of proper acknowledgments</a> to use when publishing papers using the Lab's facilities, data, or services.</p>
 <h2 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h2><ul>
 <li><a href="#background">0. Background information on ANTARES</a></li>
 <li><a href="#connect">1. Initialize the dev kit</a></li>
@@ -15208,9 +15233,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
        / \  | \ | |_   _|/ \  |  _ \| ____/ ___|
       / _ \ |  \| | | | / _ \ | |_| |  _| \___ \\
      / ___ \| |\  | | |/ ___ \|  _ /| |___ ___| |
-    /_/   \_\_| \_| |_/_/   \_\_| \_\_____|____/   v2.4.2
+    /_/   \_\_| \_| |_/_/   \_\_| \_\_____|____/   v2.11.0
     
-2023-06-15 15:27:19,556 - WARNING MainThread settings.py:setup_prometheus:124 - Prometheus failed to start with [Errno 98] Address already in use
+2024-06-01 10:38:51,491 - WARNING MainThread settings.py:setup_prometheus:124 - Prometheus failed to start with [Errno 98] Address already in use
 </pre>
 </div>
 </div>
@@ -15230,16 +15255,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>2023-06-15 15:27:19,720 - WARNING MainThread settings.py:setup_prometheus:124 - Prometheus failed to start with [Errno 98] Address already in use
-Testing loading a random Locus with `dk.get_locus()`...
-2023-06-15 15:27:22,736 - INFO MainThread settings.py:cassandra_session_factory:84 - Establishing connection to Cassandra
-2023-06-15 15:27:24,415 - INFO MainThread settings.py:cassandra_session_factory:88 - Connection to Cassandra established
-2023-06-15 15:27:24,417 - INFO MainThread settings.py:cassandra_session_factory:84 - Establishing connection to Cassandra
-2023-06-15 15:27:26,163 - INFO MainThread settings.py:cassandra_session_factory:88 - Connection to Cassandra established
-2023-06-15 15:27:26,165 - INFO MainThread settings.py:cassandra_session_factory:84 - Establishing connection to Cassandra
-2023-06-15 15:27:27,660 - INFO MainThread settings.py:cassandra_session_factory:88 - Connection to Cassandra established
+<pre>Testing loading a random Locus with `dk.get_locus()`...
 
-ANTARES v2.4.2 DevKit is ready!
+ANTARES v2.11.0 DevKit is ready!
 Website: https://antares.noirlab.edu
 Documentation: https://nsf-noirlab.gitlab.io/csdc/antares/antares/
 
@@ -15338,8 +15356,19 @@ Documentation: https://nsf-noirlab.gitlab.io/csdc/antares/antares/
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Hello Locus ANT2023n3v3cn1p83t3
-{&#39;locus_id&#39;: &#39;ANT2023n3v3cn1p83t3&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2023n3v3cn1p83t3&#34;), &#39;t&#39;: 9.550499999910755e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}
+<pre>Hello Locus ANT2020hwxa
+{&#39;locus_id&#39;: &#39;ANT2020hwxa&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2020hwxa&#34;), &#39;t&#39;: 7.525999999913324e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>/data0/sw/antares-kernel/lib/python3.9/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: invalid value encountered in log10
+  result = getattr(ufunc, method)(*inputs, **kwargs)
 </pre>
 </div>
 </div>
@@ -15389,7 +15418,7 @@ Documentation: https://nsf-noirlab.gitlab.io/csdc/antares/antares/
     <span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locus</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        If this Alert has a high SNR, then tag the Locus &quot;high_snr&quot;.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># The threshold is dependent on the band that is being imaged.</span>
@@ -15629,11 +15658,22 @@ Documentation: https://nsf-noirlab.gitlab.io/csdc/antares/antares/
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>/data0/sw/antares-kernel/lib/python3.9/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: invalid value encountered in log10
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Hello Locus ANT2023n3v3cn1p83t3
-{&#39;locus_id&#39;: &#39;ANT2023n3v3cn1p83t3&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2023n3v3cn1p83t3&#34;), &#39;t&#39;: 9.591499999928033e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}
+<pre>Hello Locus ANT2020hwxa
+{&#39;locus_id&#39;: &#39;ANT2020hwxa&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2020hwxa&#34;), &#39;t&#39;: 8.110999999999535e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}
 Hello Locus ANT2020hcm7s
-{&#39;locus_id&#39;: &#39;ANT2020hcm7s&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2020hcm7s&#34;), &#39;t&#39;: 9.556300000035378e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}
+{&#39;locus_id&#39;: &#39;ANT2020hcm7s&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2020hcm7s&#34;), &#39;t&#39;: 7.251000000074725e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}
 </pre>
 </div>
 </div>
@@ -15685,20 +15725,8 @@ Hello Locus ANT2020hcm7s
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Hello Locus ANT2023s02lcd6ghmqk
-Hello Locus ANT20232t0kxfogc779
-2023-06-15 15:28:42,423 - WARNING MainThread cassandra.py:list_by_location:1184 - Catalog object not found (catalog_id=19, object_id=463921197)
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>/data0/sw/antares-kernel/lib/python3.9/site-packages/pandas/core/arraylike.py:396: RuntimeWarning: invalid value encountered in log10
+<pre>/data0/sw/antares-kernel/lib/python3.9/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: invalid value encountered in log10
   result = getattr(ufunc, method)(*inputs, **kwargs)
 </pre>
 </div>
@@ -15709,16 +15737,128 @@ Hello Locus ANT20232t0kxfogc779
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Hello Locus ANT2022zwnzmqzxzegu
-2023-06-15 15:28:44,546 - WARNING MainThread cassandra.py:list_by_location:1184 - Catalog object not found (catalog_id=19, object_id=416125355)
-Hello Locus ANT2020cwwlw
-Hello Locus ANT202365auf72q5s2v
-Hello Locus ANT2023vj9bj3thlsp1
-Hello Locus ANT2023rxd0b9x7f63z
-Hello Locus ANT2023gwciy0ve5906
-Hello Locus ANT2023iozgpb0a4p89
-Hello Locus ANT2023oj6pypiczaeq
-{&#39;n&#39;: 10, &#39;results&#39;: [{&#39;locus_id&#39;: &#39;ANT2023s02lcd6ghmqk&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2023s02lcd6ghmqk&#34;), &#39;t&#39;: 0.00015708599999975092, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT20232t0kxfogc779&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT20232t0kxfogc779&#34;), &#39;t&#39;: 8.333799999959979e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2022zwnzmqzxzegu&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2022zwnzmqzxzegu&#34;), &#39;t&#39;: 8.953400000066836e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2020cwwlw&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2020cwwlw&#34;), &#39;t&#39;: 8.30910000004792e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT202365auf72q5s2v&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT202365auf72q5s2v&#34;), &#39;t&#39;: 0.00010445500000066943, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2023vj9bj3thlsp1&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2023vj9bj3thlsp1&#34;), &#39;t&#39;: 0.00017351200000170763, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2023rxd0b9x7f63z&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2023rxd0b9x7f63z&#34;), &#39;t&#39;: 8.975199999916583e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2023gwciy0ve5906&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2023gwciy0ve5906&#34;), &#39;t&#39;: 8.037999999999101e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2023iozgpb0a4p89&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2023iozgpb0a4p89&#34;), &#39;t&#39;: 9.997799999972301e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2023oj6pypiczaeq&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2023oj6pypiczaeq&#34;), &#39;t&#39;: 8.610500000116872e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}], &#39;t_50_percentile&#39;: 8.96429999999171e-05, &#39;t_90_percentile&#39;: 0.00015872859999994658, &#39;t_95_percentile&#39;: 0.0001661203000008271, &#39;t_99_percentile&#39;: 0.00017203366000153152}
+<pre>Hello Locus ANT2020hwxa
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>/data0/sw/antares-kernel/lib/python3.9/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: invalid value encountered in log10
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Hello Locus ANT2020aeh5y
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>/data0/sw/antares-kernel/lib/python3.9/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: invalid value encountered in log10
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Hello Locus ANT2021j33gq
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>/data0/sw/antares-kernel/lib/python3.9/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: invalid value encountered in log10
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Hello Locus ANT2020nywq
+Hello Locus ANT2024ca1o11v66al9
+Hello Locus ANT2023bynq4t663xbp
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>/data0/sw/antares-kernel/lib/python3.9/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: invalid value encountered in log10
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Hello Locus ANT2020gs3q
+Hello Locus ANT2021fadmw
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>/data0/sw/antares-kernel/lib/python3.9/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: invalid value encountered in log10
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Hello Locus ANT2022cbz4qhsr5ayq
+Hello Locus ANT2020j6cty
+{&#39;n&#39;: 10, &#39;results&#39;: [{&#39;locus_id&#39;: &#39;ANT2020hwxa&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2020hwxa&#34;), &#39;t&#39;: 6.059000000036008e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2020aeh5y&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2020aeh5y&#34;), &#39;t&#39;: 6.427000000108762e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2021j33gq&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2021j33gq&#34;), &#39;t&#39;: 5.53100000004747e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2020nywq&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2020nywq&#34;), &#39;t&#39;: 8.371000000018114e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2024ca1o11v66al9&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2024ca1o11v66al9&#34;), &#39;t&#39;: 8.20099999998547e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2023bynq4t663xbp&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2023bynq4t663xbp&#34;), &#39;t&#39;: 0.00013588000000019917, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2020gs3q&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2020gs3q&#34;), &#39;t&#39;: 6.941000000004749e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2021fadmw&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2021fadmw&#34;), &#39;t&#39;: 8.352999999949873e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2022cbz4qhsr5ayq&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2022cbz4qhsr5ayq&#34;), &#39;t&#39;: 4.7190000000085774e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}, {&#39;locus_id&#39;: &#39;ANT2020j6cty&#39;, &#39;locus_data&#39;: FilterContext(locus_id=&#34;ANT2020j6cty&#34;), &#39;t&#39;: 5.379000000083067e-05, &#39;new_locus_properties&#39;: {}, &#39;new_alert_properties&#39;: {}, &#39;new_tags&#39;: {&#39;hello_world&#39;}, &#39;raised_halt&#39;: False}], &#39;t_50_percentile&#39;: 6.684000000056756e-05, &#39;t_90_percentile&#39;: 8.892700000018293e-05, &#39;t_95_percentile&#39;: 0.000112403500000191, &#39;t_99_percentile&#39;: 0.00013118470000019755}
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>/data0/sw/antares-kernel/lib/python3.9/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: invalid value encountered in log10
+  result = getattr(ufunc, method)(*inputs, **kwargs)
 </pre>
 </div>
 </div>
@@ -15803,9 +15943,8 @@ Hello Locus ANT2023oj6pypiczaeq
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>2023-06-15 15:29:04,253 - WARNING MainThread cassandra.py:list_by_location:1184 - Catalog object not found (catalog_id=19, object_id=490951081)
-2023-06-15 15:29:04,328 - WARNING MainThread ztf_flux_correction.py:correct_mags:62 - Attempt to correct magnitudes failed, missing fields
-Building the lightcurve with the following missing columns: {&#39;ant_magerr&#39;, &#39;ant_maglim&#39;, &#39;ant_passband&#39;, &#39;ant_ra&#39;, &#39;ant_survey&#39;, &#39;ant_dec&#39;}
+<pre>2024-06-01 10:39:19,394 - WARNING MainThread ztf_flux_correction.py:correct_mags:62 - Attempt to correct magnitudes failed, missing fields
+Building the lightcurve with the following missing columns: {&#39;ant_magerr&#39;, &#39;ant_survey&#39;, &#39;ant_ra&#39;, &#39;ant_maglim&#39;, &#39;ant_dec&#39;, &#39;ant_passband&#39;}
 Hello Locus locus1
 </pre>
 </div>
@@ -15820,7 +15959,7 @@ Hello Locus locus1
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
 <pre>{&#39;locus_id&#39;: &#39;locus1&#39;,
  &#39;locus_data&#39;: FilterContext(locus_id=&#34;locus1&#34;),
- &#39;t&#39;: 6.352399999975944e-05,
+ &#39;t&#39;: 2.4439999998904227e-05,
  &#39;new_locus_properties&#39;: {},
  &#39;new_alert_properties&#39;: {},
  &#39;new_tags&#39;: {&#39;hello_world&#39;},
@@ -15879,7 +16018,7 @@ Hello Locus locus1
     <span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        ANTARES will call this function once at the beginning of each night</span>
 <span class="sd">        when filters are loaded.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -15895,7 +16034,7 @@ Hello Locus locus1
         <span class="bp">self</span><span class="o">.</span><span class="n">my_object</span> <span class="o">=</span> <span class="n">my_object</span>
 
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locus</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        ANTARES will call this function in real-time for each incoming alert.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Here you can use `self.my_object` in your processing of the alert.</span>
