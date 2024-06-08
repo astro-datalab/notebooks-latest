@@ -15712,7 +15712,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <h1 id="Create-master-flat-field">Create master flat field<a class="anchor-link" href="#Create-master-flat-field">&#182;</a></h1><p>GMOS longslit flat fields are normally obtained at night along with the observation sequence to match the telescope and instrument flexure. The matching flat nearest in time to the target observation is used to flat field the target. The central wavelength, filter, grating, binning, gain, and read speed must match.</p>
 <p>Because of the flexure, GMOS longslit flat fields are not stacked. Each is reduced and used individually. The default recipe takes that into account.</p>
 <p>We can send all the flats, regardless of characteristics, to Reduce and each will be reduce individually. When a calibration is needed, in this case, a master bias, the best match will be obtained automatically from the local calibration manager.</p>
-<p>The master flats will be saved as S20170826S0161_flat.fits, S20171022S0088_flat.fits, and S20171022S0096_flat.fits.</p>
+<p>The master flats will have the name of the first flat of each list, all with the suffix _flat.fits</p>
 <p>NOTE: A warning may appear after running this cell regarding too few unmasked points. This warning can be ignored and will not affect the final product.</p>
 
 </div>
@@ -15746,7 +15746,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <p><a class="anchor" id="Arc"></a></p>
 <h1 id="Processed-arc---wavelength-solution">Processed arc - wavelength solution<a class="anchor-link" href="#Processed-arc---wavelength-solution">&#182;</a></h1><p>GMOS longslit arc can be obtained at night with the observation sequence, if requested by the program, but are often obtained at the end of the night or the following afternoon instead. In this example, the arcs have been obtained at night, as part of the sequence. Like the spectroscopic flats, they are not stacked which means that they can be sent to reduce all together and will be reduced individually.</p>
 <p>The wavelength solution is automatically calculated and the algorithm has been found to be quite reliable. There might be cases where it fails; inspect the *_mosaic.pdf plot and the RMS of determineWavelengthSolution in the logs to confirm a good solution.</p>
-<p>The processed arcs will be saved as S20170826S0162_arc.fits, S20171022S0092_arc.fits, and S20171022S0099_arc.fits. The mosaics will be saved as S20170826S0162_mosaic.pdf, S20171022S0092_mosaic.pdf, and S20171022S0099_mosaic.pdf.</p>
+<p>The processed arcs will be saved with the suffix _arc.fits. The mosaics will be saved with the suffix _mosaic.pdf.</p>
 
 </div>
 </div>
@@ -15779,7 +15779,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <p><a class="anchor" id="Standard"></a></p>
 <h1 id="Processed-standard---sensitivity-function">Processed standard - sensitivity function<a class="anchor-link" href="#Processed-standard---sensitivity-function">&#182;</a></h1><p>The GMOS longslit spectrophotometric standards are normally taken when there is a hole in the queue schedule, often when the weather is not good enough for science observations. One standard per configuration, per program is the norm. If you dither along the dispersion axis, most likely only one of the positions will have been used for the spectrophotometric standard. This is normal for baseline calibrations at Gemini. The standard is used to calculate the sensitivity function. It has been shown that a difference of 10 or so nanometers does not significantly impact the spectrophotometric calibration.</p>
 <p>The reduction of the standard will be using a BPM, a master bias, a master flat, and a processed arc. If those have been added to the local calibration manager, they will be picked up automatically. The output of the reduction includes the sensitivity function and will be added to the calibration database automatically if the &quot;store&quot; option is set in the dragonsrc configuration file.</p>
-<p>The processed standard will be saved as S20170826S0160_standard.fits.</p>
+<p>The processed standard will be saved with the suffix _standard.fits.</p>
 
 </div>
 </div>
@@ -15812,7 +15812,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <p><a class="anchor" id="Science"></a></p>
 <h1 id="Science-observations">Science observations<a class="anchor-link" href="#Science-observations">&#182;</a></h1><p>The science target is a DB white dwarf candidate. The sequence has four images that were dithered spatially and along the dispersion axis. DRAGONS will register the four images in both directions, align and stack them before extracting the 1-D spectrum.</p>
 <p>With the master bias, the master flat, the processed arcs (one for each of the grating position, aka central wavelength), and the processed standard in the local calibration manager, one only needs to do as follows to reduce the science observations and extract the 1-D spectrum.</p>
-<p>Running this cell will produce the final reduced 2D spectrum as S20171022S0087_2D.fits, as well as several files that contain the names of the science images with the suffix _flagCosmicRays.pdf.</p>
+<p>Running this cell will produce the final reduced 2D spectrum with the suffix _2D.fits, as well as several files that contain the names of the science images with the suffix _flagCosmicRays.pdf.</p>
 <p><strong>Warning:</strong> This cell may take approximately 10 minutes to finish running.</p>
 
 </div>

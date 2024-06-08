@@ -15488,7 +15488,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="Master_Flat"></a></p>
 <h1 id="Create-master-flat-field">Create master flat field<a class="anchor-link" href="#Create-master-flat-field">&#182;</a></h1><p>The GSAOI Kshort master flat is created from a series of lamp-on and lamp-off dome exposures. They should all have the same exposure time. Each flavor is stacked (averaged), then the lamp-off stack is subtracted from the lamp-on stack, and the result is normalized.</p>
-<p>The master flat will be saved as S20170505S0030_flat.fits.</p>
+<p>The master flat will be saved with the suffix _flat.fits.</p>
 
 </div>
 </div>
@@ -15557,7 +15557,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 Unlike the other near-IR instruments, the additive offset_sky parameter is used by default to adjust the sky frame background for GSAOI instead of the multiplicative scale_sky parameter. It was found to work better when the sky background per pixel is very low. This is common due to the short exposure time needed to avoid saturating stars and the small pixel scale. The reader is encouraged to experiment with scale_sky if offset_sky does not seem to lead to an optimal sky subtraction.</p>
 <p>(Remember that both parameters normally must be turned off when the source is extended.)</p>
 <p>The sky frame comes from off-target sky observations. We feed the pipeline all the on-target and off-target frames. The software will appropriately split the on-target and off-target using information in the headers.</p>
-<p>This command will generate flat-corrected and sky-subtracted files but will not stack them. You can differentiate each file by its suffix (_flatCorrected or _skyCorrected). The on-target files are the ones that have been sky subtracted (_skyCorrected). Finally, the stacked image will be saved as S20170505S0095_image.fits.</p>
+<p>This command will generate flat-corrected and sky-subtracted files but will not stack them. You can differentiate each file by its suffix (_flatCorrected or _skyCorrected). The on-target files are the ones that have been sky subtracted (_skyCorrected). Finally, the stacked image will be saved with the suffix _image.fits.</p>
 <p>NOTE: After running this cell, you may receive WARNINGS that there is no REFCAT available for some files. These WARNINGS will not affect the final product and can be ignored.</p>
 
 </div>

@@ -15516,7 +15516,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="Master_Bias"></a></p>
-<h1 id="Create-a-master-bias">Create a master bias<a class="anchor-link" href="#Create-a-master-bias">&#182;</a></h1><p>We start the data reduction by creating a master bias for the science data. It can be created and added to the calibration database using the commands below. The master bias will be saved as N20170613S0180_bias.fits.</p>
+<h1 id="Create-a-master-bias">Create a master bias<a class="anchor-link" href="#Create-a-master-bias">&#182;</a></h1><p>We start the data reduction by creating a master bias for the science data. It can be created and added to the calibration database using the commands below. The master bias will have the name of the first bias with the suffix _bias.fits</p>
 
 </div>
 </div>
@@ -15582,7 +15582,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <h1 id="Reduce-science-images">Reduce science images<a class="anchor-link" href="#Reduce-science-images">&#182;</a></h1><p>Once our calibration files are processed and added to the database, we can run reduce on our science data.</p>
 <p>This command will generate bias and flat corrected files and will stack them. If a fringe frame is needed, this command will apply the correction. The stacked image will have the _stack suffix.</p>
 <p>The output stack units are in electrons (header keyword BUNIT=electrons). The output stack is stored in a multi-extension FITS (MEF) file. The science signal is in the &quot;SCI&quot; extension, the variance is in the &quot;VAR&quot; extension, and the data quality plane (mask) is in the &quot;DQ&quot; extension.</p>
-<p>The reduced science image will have the name of the first science file with the suffix _image.fits.</p>
+<p>Each reduced science image will have the original name with the suffix _image.fits.</p>
 
 </div>
 </div>
