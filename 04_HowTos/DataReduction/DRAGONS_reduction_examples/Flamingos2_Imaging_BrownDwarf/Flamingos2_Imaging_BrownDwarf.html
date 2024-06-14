@@ -15112,7 +15112,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Brian Merino &lt;brian.merino@noirlab.edu&gt;, Vinicius Placco &lt;vinicius.placco@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240530&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240606&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;flamingos-2&#39;</span><span class="p">,</span><span class="s1">&#39;gemini&#39;</span><span class="p">,</span><span class="s1">&#39;browndwarf&#39;</span><span class="p">,</span><span class="s1">&#39;dwarf&#39;</span><span class="p">,</span><span class="s1">&#39;dragons&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -15506,7 +15506,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="Master_dark"></a></p>
-<h1 id="Create-master-dark">Create master dark<a class="anchor-link" href="#Create-master-dark">&#182;</a></h1>
+<h1 id="Create-master-dark">Create master dark<a class="anchor-link" href="#Create-master-dark">&#182;</a></h1><p>The final master dark will have the same name as the first dark file, with the modified suffix _dark.fits.</p>
+
 </div>
 </div>
 </div>
@@ -15539,6 +15540,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <h1 id="Create-a-bad-pixel-mask">Create a bad pixel mask<a class="anchor-link" href="#Create-a-bad-pixel-mask">&#182;</a></h1><p>The Bad Pixel Mask (BPM) can be built using flat images with the lamps on and off and a set of short-exposure dark files. Here, our shortest dark files have a 2-second exposure time. Again, we use the reduce command to produce the BPMs.</p>
 <p>It is important to note that the recipe library association is based on the nature of the first file in the input list. Since the recipe to make the BPM is located in the recipe library for flats, the first item on the list must be a flat.</p>
 <p>For Flamingos-2, the filter wheel’s location is such that the filter choice does not interfere with the results. Here, we will use Y-band flats.</p>
+<p>The BPM will have the name of the first flat file with the suffix _bpm.fits.</p>
 
 </div>
 </div>
@@ -15574,6 +15576,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="Master_Flat"></a></p>
 <h1 id="Create-a-master-flat-field">Create a master flat field<a class="anchor-link" href="#Create-a-master-flat-field">&#182;</a></h1><p>The F2 Y-band master flat is created from a series of lamp-on and lamp-off exposures. They should all have the same exposure time. Each flavor is stacked (averaged), then the lamp-off stack is subtracted from the lamp-on stack, and the result is normalized.</p>
+<p>The master flat will have the name of the first flat file with the suffix _flat.fits.</p>
 
 </div>
 </div>
@@ -15608,6 +15611,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <h1 id="Reduce-the-science-images">Reduce the science images<a class="anchor-link" href="#Reduce-the-science-images">&#182;</a></h1><p>This command retrieves the master dark and flat and applies them to the science data. For sky subtraction, the software analyses the sequence to establish whether this is a dither-on-target or an offset-to-sky sequence and proceeds accordingly. Finally, the sky-subtracted frames are aligned and stacked together. Sources in the frames are used for the alignment.</p>
 <p>The final product file will have a _stack.fits suffix.</p>
 <p>The output stack units are in electrons (header keyword BUNIT=electrons). The output stack is stored in a multi-extension FITS (MEF) file. The science signal is in the &quot;SCI&quot; extension, the variance is in the &quot;VAR&quot; extension, and the data quality plane (mask) is in the &quot;DQ&quot; extension.</p>
+<p>Multiple files will be created by running this cell. Two new files will be created for each science frame. Both files will contain the name of the file, with the first containing the suffix _flatCorrected.fits and the second _skyCorrected.fits. In addition to these files, the final stacked image will share the name of the first science file with the suffix _stack.fits.</p>
 
 </div>
 </div>

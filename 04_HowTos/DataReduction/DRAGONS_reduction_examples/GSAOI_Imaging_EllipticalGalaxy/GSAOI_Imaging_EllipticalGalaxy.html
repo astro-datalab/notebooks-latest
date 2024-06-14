@@ -15112,7 +15112,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Brian Merino &lt;brian.merino@noirlab.edu&gt;, Vinicius Placco &lt;vinicius.placco@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240530&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240606&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gsaoi&#39;</span><span class="p">,</span><span class="s1">&#39;gemini&#39;</span><span class="p">,</span><span class="s1">&#39;galaxy&#39;</span><span class="p">,</span><span class="s1">&#39;dragons&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -15488,6 +15488,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="Master_Flat"></a></p>
 <h1 id="Create-master-flat-field">Create master flat field<a class="anchor-link" href="#Create-master-flat-field">&#182;</a></h1><p>The GSAOI Kshort master flat is created from a series of lamp-on and lamp-off dome exposures. They should all have the same exposure time. Each flavor is stacked (averaged), then the lamp-off stack is subtracted from the lamp-on stack, and the result is normalized.</p>
+<p>The master flat will be saved with the suffix _flat.fits.</p>
 
 </div>
 </div>
@@ -15519,6 +15520,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="Standard_Star"></a></p>
 <h1 id="Reduce-standard-star">Reduce standard star<a class="anchor-link" href="#Reduce-standard-star">&#182;</a></h1><p>The standard star is reduced essentially like the science target (next section). The processed flat field we added to the local calibration database will be fetched automatically. Also, in this case, the standard star was obtained using ROIs (Regions-of-Interest), which do not match the flat field. The software will recognize that the flat field is valid and crop it to match the ROIs.</p>
+<p>This cell will create three files for each of the science darks. They will contain the suffixes _countsScaled.fits, _flatCorrected.fits, and sourcesDetected.fits.</p>
 <p>NOTE: After running this cell, you may receive WARNINGS that there is no REFCAT available for some files or ERRORS regarding the extensions having different shapes. These WARNINGS and ERRORS will not affect the final product and can be ignored.</p>
 
 </div>
@@ -15555,7 +15557,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 Unlike the other near-IR instruments, the additive offset_sky parameter is used by default to adjust the sky frame background for GSAOI instead of the multiplicative scale_sky parameter. It was found to work better when the sky background per pixel is very low. This is common due to the short exposure time needed to avoid saturating stars and the small pixel scale. The reader is encouraged to experiment with scale_sky if offset_sky does not seem to lead to an optimal sky subtraction.</p>
 <p>(Remember that both parameters normally must be turned off when the source is extended.)</p>
 <p>The sky frame comes from off-target sky observations. We feed the pipeline all the on-target and off-target frames. The software will appropriately split the on-target and off-target using information in the headers.</p>
-<p>This command will generate flat-corrected and sky-subtracted files but will not stack them. You can differentiate each file by its suffix (_flatCorrected or _skyCorrected). The on-target files are the ones that have been sky subtracted (_skyCorrected). There should be nine of them.</p>
+<p>This command will generate flat-corrected and sky-subtracted files but will not stack them. You can differentiate each file by its suffix (_flatCorrected or _skyCorrected). The on-target files are the ones that have been sky subtracted (_skyCorrected). Finally, the stacked image will be saved with the suffix _image.fits.</p>
 <p>NOTE: After running this cell, you may receive WARNINGS that there is no REFCAT available for some files. These WARNINGS will not affect the final product and can be ignored.</p>
 
 </div>
