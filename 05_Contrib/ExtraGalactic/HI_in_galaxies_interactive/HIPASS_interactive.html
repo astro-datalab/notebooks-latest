@@ -36,6 +36,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -15111,7 +15112,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Robert Dzudzar &lt;robertdzudzar@gmail.com&gt;, &lt;rdzudzar@swin.edu.au&gt;; Robert Nikutta &lt;robert.nikutta@noirlab.edu&gt;&#39;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20230417&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;20240531&#39;</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;extragalactic&#39;</span><span class="p">,</span> <span class="s1">&#39;interactive plot&#39;</span><span class="p">,</span> <span class="s1">&#39;spectra&#39;</span><span class="p">,</span> <span class="s1">&#39;galaxies&#39;</span><span class="p">,</span><span class="s1">&#39;image cutout&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -15208,13 +15209,29 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a class="anchor" id="attribution"></a></p>
-<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h1><p>If you use this notebook for your published science, please acknowledge the following:</p>
+<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">&#182;</a></h1><h2 id="Disclaimers">Disclaimers<a class="anchor-link" href="#Disclaimers">&#182;</a></h2><p>Note that using the Astro Data Lab constitutes your agreement with our minimal <a href="https://datalab.noirlab.edu/disclaimers.php">Disclaimers</a>.</p>
+<h2 id="Acknowledgments">Acknowledgments<a class="anchor-link" href="#Acknowledgments">&#182;</a></h2><p>If you use <strong>Astro Data Lab</strong> in your published research, please include the text in your paper's Acknowledgments section:</p>
+<p><em>This research uses services or data provided by the Astro Data Lab, which is part of the Community Science and Data Center (CSDC) Program of NSF NOIRLab. NOIRLab is operated by the Association of Universities for Research in Astronomy (AURA), Inc. under a cooperative agreement with the U.S. National Science Foundation.</em></p>
+<p>If you use <strong>SPARCL jointly with the Astro Data Lab platform</strong> (via JupyterLab, command-line, or web interface) in your published research, please include this text below in your paper's Acknowledgments section:</p>
+<p><em>This research uses services or data provided by the SPectra Analysis and Retrievable Catalog Lab (SPARCL) and the Astro Data Lab, which are both part of the Community Science and Data Center (CSDC) Program of NSF NOIRLab. NOIRLab is operated by the Association of Universities for Research in Astronomy (AURA), Inc. under a cooperative agreement with the U.S. National Science Foundation.</em></p>
+<p>In either case <strong>please cite the following papers</strong>:</p>
 <ul>
-<li><p>Data Lab concept paper: Fitzpatrick et al., &quot;The NOAO Data Laboratory: a conceptual overview&quot;, SPIE, 9149, 2014, <a href="http://dx.doi.org/10.1117/12.2057445">http://dx.doi.org/10.1117/12.2057445</a></p>
+<li><p>Data Lab concept paper: Fitzpatrick et al., &quot;The NOAO Data Laboratory: a conceptual overview&quot;, SPIE, 9149, 2014, <a href="https://doi.org/10.1117/12.2057445">https://doi.org/10.1117/12.2057445</a></p>
 </li>
-<li><p>Data Lab disclaimer: <a href="https://datalab.noirlab.edu/disclaimers.php">https://datalab.noirlab.edu/disclaimers.php</a></p>
+<li><p>Astro Data Lab overview: Nikutta et al., &quot;Data Lab - A Community Science Platform&quot;, Astronomy and Computing, 33, 2020, <a href="https://doi.org/10.1016/j.ascom.2020.100411">https://doi.org/10.1016/j.ascom.2020.100411</a></p>
 </li>
 </ul>
+<p>If you are referring to the Data Lab JupyterLab / Jupyter Notebooks, cite:</p>
+<ul>
+<li>Juneau et al., &quot;Jupyter-Enabled Astrophysical Analysis Using Data-Proximate Computing Platforms&quot;, CiSE, 23, 15, 2021, <a href="https://doi.org/10.1109/MCSE.2021.3057097">https://doi.org/10.1109/MCSE.2021.3057097</a></li>
+</ul>
+<p>If publishing in a AAS journal, also add the keyword: <code>\facility{Astro Data Lab}</code></p>
+<p>And if you are using SPARCL, please also add <code>\software{SPARCL}</code> and cite:</p>
+<ul>
+<li>Juneau et al., &quot;SPARCL: SPectra Analysis and Retrievable Catalog Lab&quot;, Conference Proceedings for ADASS XXXIII, 2024</li>
+</ul>
+<p><a href="https://doi.org/10.48550/arXiv.2401.05576">https://doi.org/10.48550/arXiv.2401.05576</a></p>
+<p>The NOIRLab Library maintains <a href="https://noirlab.edu/science/about/scientific-acknowledgments">lists of proper acknowledgments</a> to use when publishing papers using the Lab's facilities, data, or services.</p>
 
 </div>
 </div>
@@ -15309,9 +15326,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 
-<div id="e17ce47d-2616-4eb7-95a9-b897639076dd" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="4a1a4de9-08dd-4434-8dfb-b65958ee3005" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('e17ce47d-2616-4eb7-95a9-b897639076dd');
+var element = document.getElementById('4a1a4de9-08dd-4434-8dfb-b65958ee3005');
 
 (function(root) {
   function now() {
@@ -16704,7 +16721,7 @@ The name of the directories will contain the <em>selected</em> dataset.</p>
         <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
         <span class="c1"># Put the giles into VOSpace and remove from the local dir</span>
         <span class="n">sc</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">fr</span> <span class="o">=</span> <span class="n">fname</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="n">images_path</span><span class="o">+</span><span class="n">fname</span><span class="p">)</span>
-        <span class="o">!</span>rm -f hipass_*.png
+        <span class="o">!</span>rm<span class="w"> </span>-f<span class="w"> </span>hipass_*.png
         
         <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
         
@@ -16949,9 +16966,9 @@ The name of the directories will contain the <em>selected</em> dataset.</p>
 
 
 
-<div id="42cf6c6e-9990-4caf-b9a5-d9a4dc12311e" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
+<div id="ca6f95ef-b37c-4164-a1d3-48fb05d98b1a" class="jp-RenderedJavaScript jp-OutputArea-output " data-mime-type="application/javascript">
 <script type="text/javascript">
-var element = document.getElementById('42cf6c6e-9990-4caf-b9a5-d9a4dc12311e');
+var element = document.getElementById('ca6f95ef-b37c-4164-a1d3-48fb05d98b1a');
 (function(root) {
   function embed_document(root) {
     
