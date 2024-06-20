@@ -1,4 +1,4 @@
-Version of this file: 20220218
+Version of this file: 20240620
 
 HOW TO CONTRIBUTE NOTEBOOKS TO ASTRO DATA LAB
 =============================================
@@ -32,7 +32,7 @@ You can develop your notebook either in the Astro Data Lab notebook
 server or locally on your machine.
 
 In either case, when your notebook is ready to go, you will have to
-make a pull request on GitHub, so that the Data Lab team can review
+make a pull request (PR) on GitHub, so that the Data Lab team can review
 and accept your notebook.
 
 * If you want to develop on the Data Lab notebook server:
@@ -55,8 +55,7 @@ and accept your notebook.
     
     Click on "Fork" in the upper right corner.
 
-    The forked repository will be under https://github.com/youongithub/notebooks-latest.git
-    where 'youongithub' is your GitHub user name.
+    The forked repository will be under https://github.com/youongithub/notebooks-latest.git where 'youongithub' is your GitHub user name.
 
   - Clone from your fork
 
@@ -66,6 +65,8 @@ and accept your notebook.
       git clone https://github.com/youongithub/notebooks-latest.git
 
 * Your contributed notebook goes inside the '05_Contrib/' directory
+
+  ... unless you've had prior communication with the Data Lab team and were asked to place it elsewhere.
 
   Decide where under '05_Contrib/' your notebook will live.
 
@@ -127,3 +128,7 @@ and accept your notebook.
   part of the default set of notebooks delivered with DL.
 
 As always, please ask the DL team any questions you have at <datalab@noirlab.edu>
+
+* A note on HTML-rendered views of notebooks
+
+In the checked-out 'notebooks-latest' repository you will see that for every notebook `*.ipynb` file there is an identically-named companion `*.html` file. These are rendered HTML views of the notebooks, to make previewing in the browser easy. The HTML files are generated automatically when you create a PR, both if you are contributing a new notebook, or editing an existing one. The reviewer of your PR will see both the `*.ipynb` and `*.html` files. In short: never worry about the HTML files.
