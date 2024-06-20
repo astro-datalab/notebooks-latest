@@ -1,0 +1,61 @@
+name: Creating new html files from notebooks
+run-name: Creating html files from all notebooks
+on: 
+  #push:
+   # paths: "**.ipynb"
+  # Trigger on PRs that change the notebooks in some way
+  pull_request:
+    branches: [master]
+    paths: 
+      - "**.ipynb"
+      - "**.html"
+  #pull_request_review:
+    #types: [submitted]
+jobs:
+  approved:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This PR was approved"
+      - name: Check out repository code
+        uses: actions/checkout@v4
+        with:
+          #Only checkout the branch that is being merged into main
+          ref: ${{ github.head_ref }}
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3'
+      - name: Installing Packages
+        run: pip install jupyter nbconvert
+      - name: Getting only the changed Notebooks
+        # Gets only the changed files using an action from the marketplace
+        uses: Ana06/get-changed-files@v2.3.0
+        id: changes
+      - name: Running all changed Jupyter Notebooks and saving as HTML
+        #Makes the list of changed files into only the list of changed notebooks, then runs and converts all notebooks
+        run: |
+          notebooks=()
+          for changed_file in ${{ steps.changes.outputs.added_modified }}; do
+            if [[ "$changed_file" == *".ipynb" ]]; then
+              notebooks+=("$changed_file")
+            elif [[ "$changed_file" == *".html" ]]; then
+              striped="${changed_file%.*}.ipynb"
+              notebooks+=("$striped")
+            fi
+          done
+          for changed_file in ${{ steps.changes.outputs.removed }}; do
+            if [[ "$changed_file" == *".html" ]]; then
+              striped="${changed_file%.*}.ipynb"
+              notebooks+=("$striped")
+            fi
+          done
+          echo "Changed files: ${notebooks[@]}"
+          jupyter nbconvert --to html ${notebooks[@]}
+      - name: Push and commit new HTML files
+        #Commits changes to the branch being merged into main
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add -A
+          git commit -m "Automated commit for HTML files" || exit 0
+          git push
