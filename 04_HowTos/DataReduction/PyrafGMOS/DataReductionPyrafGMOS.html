@@ -7514,12 +7514,12 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0045'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Vinicius Placco &lt;vinicius.placco@noirlab.edu&gt;, Brian Molina Merino &lt;brian.merino@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20240606'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20240801'</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'IRAF'</span><span class="p">,</span> <span class="s1">'Gemini'</span><span class="p">,</span> <span class="s1">'GMOS'</span><span class="p">,</span> <span class="s1">'data reduction'</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -7616,11 +7616,17 @@ The general GMOS data reduction cookbook from the US National Gemini Office is l
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pyraf</span> <span class="kn">import</span> <span class="n">iraf</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># workaround for pyraf import resetting the CWD to /home/</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">cwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">pyraf</span> <span class="kn">import</span> <span class="n">iraf</span>
 <span class="kn">from</span> <span class="nn">pyraf.iraf</span> <span class="kn">import</span> <span class="n">gemini</span><span class="p">,</span> <span class="n">gmos</span>
 <span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">cwd</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7635,10 +7641,10 @@ The general GMOS data reduction cookbook from the US National Gemini Office is l
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>could not open XWindow display
 could not open XWindow display
+
 No graphics display available for this session.
 Graphics tasks that attempt to plot to an interactive screen will fail.
 For help, search "PyRAF FAQ 5.13"
-
 
 </pre>
 </div>
@@ -7733,7 +7739,7 @@ wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>-N<spa
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>
 ----------------------------------------------------------------------------
-GSREDUCE -- Wed Jun  5 19:17:37 UTC 2024
+GSREDUCE -- Thu Aug  1 19:09:42 UTC 2024
 
 Input image or list  = N20190302S0248
 Output image or list = 
@@ -7778,10 +7784,10 @@ Input image = N20190302S0248.fits; Output image = gsN20190302S0248.fits
 GSREDUCE: Image N20190302S0248.fits has been QE corrected? no
 GSREDUCE: Calling GIREDUCE to process image
 ----------------------------------------------------------------------------
-GIREDUCE -- Wed Jun  5 19:17:38 UTC 2024
+GIREDUCE -- Thu Aug  1 19:09:43 UTC 2024
 
 ----------------------------------------------------------------------------
-GPREPARE -- Wed Jun  5 19:17:38 UTC 2024
+GPREPARE -- Thu Aug  1 19:09:43 UTC 2024
 
 Input list    = N20190302S0248
 Output list   = 
@@ -7802,31 +7808,31 @@ Input files:
 gN20190302S0248
 
 Output files:
-tmpimage1231031f
+tmpimage1215370f
 
-GIREDUCE: Image tmpimage1231031f overscan subtracted
-GIREDUCE: Image tmpimage1231031f trimmed
+GIREDUCE: Image tmpimage1215370f overscan subtracted
+GIREDUCE: Image tmpimage1215370f trimmed
 
 Output image       Bias                 Flat               Dark       Scale 
-tmpimage1231031f   N20190304S0204_bias  INDEF              INDEF       0.00
-GIREDUCE: Subtracted bias N20190304S0204_bias from tmpimage1231031f
-GIREDUCE: multiplying image tmpimage1231031f by gain
+tmpimage1215370f   N20190304S0204_bias  INDEF              INDEF       0.00
+GIREDUCE: Subtracted bias N20190304S0204_bias from tmpimage1215370f
+GIREDUCE: multiplying image tmpimage1215370f by gain
 GIREDUCE: output counts in electrons
 
-GIREDUCE - Cleaning up -- Wed Jun  5 19:17:53 UTC 2024
+GIREDUCE - Cleaning up -- Thu Aug  1 19:13:06 UTC 2024
 
-GIREDUCE -- Wed Jun  5 19:17:53 UTC 2024
+GIREDUCE -- Thu Aug  1 19:13:06 UTC 2024
 GIREDUCE exit status:  good.
 ----------------------------------------------------------------------------
 GSREDUCE: Calling GMOSAIC
 GMOSAIC 
 GMOSAIC -------------------------------------------------------------------
-GMOSAIC Log opened at [Wed 12:17:53 05-Jun-2024]
+GMOSAIC Log opened at [Thu 12:13:06 01-Aug-2024]
 GMOSAIC 
 GMOSAIC --------------------
 GMOSAIC Input Parameters:
-GMOSAIC      inimages       = tmpimage1231031f.fits
-GMOSAIC      outimages      = tmpimage2231031g.fits
+GMOSAIC      inimages       = tmpimage1215370f.fits
+GMOSAIC      outimages      = tmpimage2215370g.fits
 GMOSAIC      outpref        = 
 GMOSAIC      fl_paste       = no
 GMOSAIC      fl_vardq       = no
@@ -7852,39 +7858,39 @@ GMOSAIC      logfile        = gmos.log
 GMOSAIC      verbose        = yes
 GMOSAIC      fl_real        = no
 GMOSAIC --------------------
-GMOSAIC Input: tmpimage1231031f  Output: tmpimage2231031g.fits
+GMOSAIC Input: tmpimage1215370f  Output: tmpimage2215370g.fits
 GMOSAIC Found a MDF, copying for later use.
-GMOSAIC imcopy  tmpimage1231031f[SCI,1][1:256,1:512]  tmptile231031_21[1,append][1:256,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031f[SCI,2][1:256,1:512]  tmptile231031_21[1,append][257:512,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031f[SCI,3][1:256,1:512]  tmptile231031_21[1,append][513:768,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031f[SCI,4][1:256,1:512]  tmptile231031_21[1,append][769:1024,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031f[SCI,5][1:256,1:512]  tmptile231031_22[1,append][1:256,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031f[SCI,6][1:256,1:512]  tmptile231031_22[1,append][257:512,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031f[SCI,7][1:256,1:512]  tmptile231031_22[1,append][513:768,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031f[SCI,8][1:256,1:512]  tmptile231031_22[1,append][769:1024,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031f[SCI,9][1:256,1:512]  tmptile231031_23[1,append][1:256,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031f[SCI,10][1:256,1:512]  tmptile231031_23[1,append][257:512,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031f[SCI,11][1:256,1:512]  tmptile231031_23[1,append][513:768,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031f[SCI,12][1:256,1:512]  tmptile231031_23[1,append][769:1024,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370f[SCI,1][1:256,1:512]  tmptile215370_21[1,append][1:256,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370f[SCI,2][1:256,1:512]  tmptile215370_21[1,append][257:512,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370f[SCI,3][1:256,1:512]  tmptile215370_21[1,append][513:768,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370f[SCI,4][1:256,1:512]  tmptile215370_21[1,append][769:1024,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370f[SCI,5][1:256,1:512]  tmptile215370_22[1,append][1:256,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370f[SCI,6][1:256,1:512]  tmptile215370_22[1,append][257:512,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370f[SCI,7][1:256,1:512]  tmptile215370_22[1,append][513:768,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370f[SCI,8][1:256,1:512]  tmptile215370_22[1,append][769:1024,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370f[SCI,9][1:256,1:512]  tmptile215370_23[1,append][1:256,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370f[SCI,10][1:256,1:512]  tmptile215370_23[1,append][257:512,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370f[SCI,11][1:256,1:512]  tmptile215370_23[1,append][513:768,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370f[SCI,12][1:256,1:512]  tmptile215370_23[1,append][769:1024,1:512]  INDEF  0.
 GMOSAIC Setting rotation Xrot[1]=-0.004000, Yrot[1]=-0.004000
 GMOSAIC Setting rotation Xrot[2]= 0.000000, Yrot[2]= 0.000000
 GMOSAIC Setting rotation Xrot[3]=-0.005370, Yrot[3]=-0.005370
 GMOSAIC 
-GMOSAIC Transforming image tmpimg231031_17[SCI,1][1:1024,1:512] to image tmpchipsci231031_24
+GMOSAIC Transforming image tmpimg215370_17[SCI,1][1:1024,1:512] to image tmpchipsci215370_24
 GMOSAIC     xshift: 0.99 yshift: 0.07 xmag: 1.00 ymag: 1.00 xrot: 360.00 yrot: 360.00
 GMOSAIC 
-GMOSAIC Transforming image tmpimg231031_17[SCI,2][1:1024,1:512] to image tmpchipsci231031_25
+GMOSAIC Transforming image tmpimg215370_17[SCI,2][1:1024,1:512] to image tmpchipsci215370_25
 GMOSAIC     xshift: 0.00 yshift: 0.00 xmag: 1.00 ymag: 1.00 xrot: 0.00 yrot: 0.00
 GMOSAIC 
-GMOSAIC Transforming image tmpimg231031_17[SCI,3][1:1024,1:512] to image tmpchipsci231031_26
+GMOSAIC Transforming image tmpimg215370_17[SCI,3][1:1024,1:512] to image tmpchipsci215370_26
 GMOSAIC     xshift: -0.72 yshift: -0.13 xmag: 1.00 ymag: 1.00 xrot: 359.99 yrot: 359.99
-GMOSAIC imcopy  tmpchipsci231031_24  tmpimage2231031g.fits[1,append][1:1024,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpchipsci231031_25  tmpimage2231031g.fits[1,append][1058:2081,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpchipsci231031_26  tmpimage2231031g.fits[1,append][2115:3138,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpchipsci215370_24  tmpimage2215370g.fits[1,append][1:1024,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpchipsci215370_25  tmpimage2215370g.fits[1,append][1058:2081,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpchipsci215370_26  tmpimage2215370g.fits[1,append][2115:3138,1:512]  INDEF  0.
 GMOSAIC All 1 images successfully mosaiced.
 GMOSAIC --------------------
 GMOSAIC Exit status: SUCCESS
-GMOSAIC Log closed at [Wed 12:17:54 05-Jun-2024]
+GMOSAIC Log closed at [Thu 12:13:10 01-Aug-2024]
 GMOSAIC -------------------------------------------------------------------
 GMOSAIC 
 GSREDUCE: returned from GMOSAIC.
@@ -7894,7 +7900,7 @@ GSREDUCE done
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
-GSREDUCE -- Wed Jun  5 19:17:55 UTC 2024
+GSREDUCE -- Thu Aug  1 19:13:11 UTC 2024
 
 Input image or list  = N20190302S0249
 Output image or list = 
@@ -7939,10 +7945,10 @@ Input image = N20190302S0249.fits; Output image = gsN20190302S0249.fits
 GSREDUCE: Image N20190302S0249.fits has been QE corrected? no
 GSREDUCE: Calling GIREDUCE to process image
 ----------------------------------------------------------------------------
-GIREDUCE -- Wed Jun  5 19:17:55 UTC 2024
+GIREDUCE -- Thu Aug  1 19:13:11 UTC 2024
 
 ----------------------------------------------------------------------------
-GPREPARE -- Wed Jun  5 19:17:55 UTC 2024
+GPREPARE -- Thu Aug  1 19:13:11 UTC 2024
 
 Input list    = N20190302S0249
 Output list   = 
@@ -7963,31 +7969,31 @@ Input files:
 gN20190302S0249
 
 Output files:
-tmpimage1231031_31
+tmpimage1215370_31
 
-GIREDUCE: Image tmpimage1231031_31 overscan subtracted
-GIREDUCE: Image tmpimage1231031_31 trimmed
+GIREDUCE: Image tmpimage1215370_31 overscan subtracted
+GIREDUCE: Image tmpimage1215370_31 trimmed
 
 Output image       Bias                 Flat               Dark       Scale 
-tmpimage1231031_31 N20190304S0204_bias  INDEF              INDEF       0.00
-GIREDUCE: Subtracted bias N20190304S0204_bias from tmpimage1231031_31
-GIREDUCE: multiplying image tmpimage1231031_31 by gain
+tmpimage1215370_31 N20190304S0204_bias  INDEF              INDEF       0.00
+GIREDUCE: Subtracted bias N20190304S0204_bias from tmpimage1215370_31
+GIREDUCE: multiplying image tmpimage1215370_31 by gain
 GIREDUCE: output counts in electrons
 
-GIREDUCE - Cleaning up -- Wed Jun  5 19:18:11 UTC 2024
+GIREDUCE - Cleaning up -- Thu Aug  1 19:17:10 UTC 2024
 
-GIREDUCE -- Wed Jun  5 19:18:11 UTC 2024
+GIREDUCE -- Thu Aug  1 19:17:10 UTC 2024
 GIREDUCE exit status:  good.
 ----------------------------------------------------------------------------
 GSREDUCE: Calling GMOSAIC
 GMOSAIC 
 GMOSAIC -------------------------------------------------------------------
-GMOSAIC Log opened at [Wed 12:18:11 05-Jun-2024]
+GMOSAIC Log opened at [Thu 12:17:10 01-Aug-2024]
 GMOSAIC 
 GMOSAIC --------------------
 GMOSAIC Input Parameters:
-GMOSAIC      inimages       = tmpimage1231031_31.fits
-GMOSAIC      outimages      = tmpimage2231031_32.fits
+GMOSAIC      inimages       = tmpimage1215370_31.fits
+GMOSAIC      outimages      = tmpimage2215370_32.fits
 GMOSAIC      outpref        = 
 GMOSAIC      fl_paste       = no
 GMOSAIC      fl_vardq       = no
@@ -8013,39 +8019,39 @@ GMOSAIC      logfile        = gmos.log
 GMOSAIC      verbose        = yes
 GMOSAIC      fl_real        = no
 GMOSAIC --------------------
-GMOSAIC Input: tmpimage1231031_31  Output: tmpimage2231031_32.fits
+GMOSAIC Input: tmpimage1215370_31  Output: tmpimage2215370_32.fits
 GMOSAIC Found a MDF, copying for later use.
-GMOSAIC imcopy  tmpimage1231031_31[SCI,1][1:256,1:512]  tmptile231031_72[1,append][1:256,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_31[SCI,2][1:256,1:512]  tmptile231031_72[1,append][257:512,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_31[SCI,3][1:256,1:512]  tmptile231031_72[1,append][513:768,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_31[SCI,4][1:256,1:512]  tmptile231031_72[1,append][769:1024,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_31[SCI,5][1:256,1:512]  tmptile231031_73[1,append][1:256,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_31[SCI,6][1:256,1:512]  tmptile231031_73[1,append][257:512,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_31[SCI,7][1:256,1:512]  tmptile231031_73[1,append][513:768,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_31[SCI,8][1:256,1:512]  tmptile231031_73[1,append][769:1024,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_31[SCI,9][1:256,1:512]  tmptile231031_74[1,append][1:256,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_31[SCI,10][1:256,1:512]  tmptile231031_74[1,append][257:512,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_31[SCI,11][1:256,1:512]  tmptile231031_74[1,append][513:768,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_31[SCI,12][1:256,1:512]  tmptile231031_74[1,append][769:1024,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_31[SCI,1][1:256,1:512]  tmptile215370_72[1,append][1:256,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_31[SCI,2][1:256,1:512]  tmptile215370_72[1,append][257:512,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_31[SCI,3][1:256,1:512]  tmptile215370_72[1,append][513:768,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_31[SCI,4][1:256,1:512]  tmptile215370_72[1,append][769:1024,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_31[SCI,5][1:256,1:512]  tmptile215370_73[1,append][1:256,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_31[SCI,6][1:256,1:512]  tmptile215370_73[1,append][257:512,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_31[SCI,7][1:256,1:512]  tmptile215370_73[1,append][513:768,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_31[SCI,8][1:256,1:512]  tmptile215370_73[1,append][769:1024,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_31[SCI,9][1:256,1:512]  tmptile215370_74[1,append][1:256,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_31[SCI,10][1:256,1:512]  tmptile215370_74[1,append][257:512,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_31[SCI,11][1:256,1:512]  tmptile215370_74[1,append][513:768,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_31[SCI,12][1:256,1:512]  tmptile215370_74[1,append][769:1024,1:512]  INDEF  0.
 GMOSAIC Setting rotation Xrot[1]=-0.004000, Yrot[1]=-0.004000
 GMOSAIC Setting rotation Xrot[2]= 0.000000, Yrot[2]= 0.000000
 GMOSAIC Setting rotation Xrot[3]=-0.005370, Yrot[3]=-0.005370
 GMOSAIC 
-GMOSAIC Transforming image tmpimg231031_68[SCI,1][1:1024,1:512] to image tmpchipsci231031_75
+GMOSAIC Transforming image tmpimg215370_68[SCI,1][1:1024,1:512] to image tmpchipsci215370_75
 GMOSAIC     xshift: 0.99 yshift: 0.07 xmag: 1.00 ymag: 1.00 xrot: 360.00 yrot: 360.00
 GMOSAIC 
-GMOSAIC Transforming image tmpimg231031_68[SCI,2][1:1024,1:512] to image tmpchipsci231031_76
+GMOSAIC Transforming image tmpimg215370_68[SCI,2][1:1024,1:512] to image tmpchipsci215370_76
 GMOSAIC     xshift: 0.00 yshift: 0.00 xmag: 1.00 ymag: 1.00 xrot: 0.00 yrot: 0.00
 GMOSAIC 
-GMOSAIC Transforming image tmpimg231031_68[SCI,3][1:1024,1:512] to image tmpchipsci231031_77
+GMOSAIC Transforming image tmpimg215370_68[SCI,3][1:1024,1:512] to image tmpchipsci215370_77
 GMOSAIC     xshift: -0.72 yshift: -0.13 xmag: 1.00 ymag: 1.00 xrot: 359.99 yrot: 359.99
-GMOSAIC imcopy  tmpchipsci231031_75  tmpimage2231031_32.fits[1,append][1:1024,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpchipsci231031_76  tmpimage2231031_32.fits[1,append][1058:2081,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpchipsci231031_77  tmpimage2231031_32.fits[1,append][2115:3138,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpchipsci215370_75  tmpimage2215370_32.fits[1,append][1:1024,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpchipsci215370_76  tmpimage2215370_32.fits[1,append][1058:2081,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpchipsci215370_77  tmpimage2215370_32.fits[1,append][2115:3138,1:512]  INDEF  0.
 GMOSAIC All 1 images successfully mosaiced.
 GMOSAIC --------------------
 GMOSAIC Exit status: SUCCESS
-GMOSAIC Log closed at [Wed 12:18:12 05-Jun-2024]
+GMOSAIC Log closed at [Thu 12:17:16 01-Aug-2024]
 GMOSAIC -------------------------------------------------------------------
 GMOSAIC 
 GSREDUCE: returned from GMOSAIC.
@@ -8055,7 +8061,7 @@ GSREDUCE done
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
-GSREDUCE -- Wed Jun  5 19:18:12 UTC 2024
+GSREDUCE -- Thu Aug  1 19:17:16 UTC 2024
 
 Input image or list  = N20190302S0250
 Output image or list = 
@@ -8100,10 +8106,10 @@ Input image = N20190302S0250.fits; Output image = gsN20190302S0250.fits
 GSREDUCE: Image N20190302S0250.fits has been QE corrected? no
 GSREDUCE: Calling GIREDUCE to process image
 ----------------------------------------------------------------------------
-GIREDUCE -- Wed Jun  5 19:18:12 UTC 2024
+GIREDUCE -- Thu Aug  1 19:17:18 UTC 2024
 
 ----------------------------------------------------------------------------
-GPREPARE -- Wed Jun  5 19:18:12 UTC 2024
+GPREPARE -- Thu Aug  1 19:17:18 UTC 2024
 
 Input list    = N20190302S0250
 Output list   = 
@@ -8124,31 +8130,31 @@ Input files:
 gN20190302S0250
 
 Output files:
-tmpimage1231031_82
+tmpimage1215370_82
 
-GIREDUCE: Image tmpimage1231031_82 overscan subtracted
-GIREDUCE: Image tmpimage1231031_82 trimmed
+GIREDUCE: Image tmpimage1215370_82 overscan subtracted
+GIREDUCE: Image tmpimage1215370_82 trimmed
 
 Output image       Bias                 Flat               Dark       Scale 
-tmpimage1231031_82 N20190304S0204_bias  INDEF              INDEF       0.00
-GIREDUCE: Subtracted bias N20190304S0204_bias from tmpimage1231031_82
-GIREDUCE: multiplying image tmpimage1231031_82 by gain
+tmpimage1215370_82 N20190304S0204_bias  INDEF              INDEF       0.00
+GIREDUCE: Subtracted bias N20190304S0204_bias from tmpimage1215370_82
+GIREDUCE: multiplying image tmpimage1215370_82 by gain
 GIREDUCE: output counts in electrons
 
-GIREDUCE - Cleaning up -- Wed Jun  5 19:18:28 UTC 2024
+GIREDUCE - Cleaning up -- Thu Aug  1 19:21:08 UTC 2024
 
-GIREDUCE -- Wed Jun  5 19:18:28 UTC 2024
+GIREDUCE -- Thu Aug  1 19:21:09 UTC 2024
 GIREDUCE exit status:  good.
 ----------------------------------------------------------------------------
 GSREDUCE: Calling GMOSAIC
 GMOSAIC 
 GMOSAIC -------------------------------------------------------------------
-GMOSAIC Log opened at [Wed 12:18:28 05-Jun-2024]
+GMOSAIC Log opened at [Thu 12:21:09 01-Aug-2024]
 GMOSAIC 
 GMOSAIC --------------------
 GMOSAIC Input Parameters:
-GMOSAIC      inimages       = tmpimage1231031_82.fits
-GMOSAIC      outimages      = tmpimage2231031_83.fits
+GMOSAIC      inimages       = tmpimage1215370_82.fits
+GMOSAIC      outimages      = tmpimage2215370_83.fits
 GMOSAIC      outpref        = 
 GMOSAIC      fl_paste       = no
 GMOSAIC      fl_vardq       = no
@@ -8174,39 +8180,39 @@ GMOSAIC      logfile        = gmos.log
 GMOSAIC      verbose        = yes
 GMOSAIC      fl_real        = no
 GMOSAIC --------------------
-GMOSAIC Input: tmpimage1231031_82  Output: tmpimage2231031_83.fits
+GMOSAIC Input: tmpimage1215370_82  Output: tmpimage2215370_83.fits
 GMOSAIC Found a MDF, copying for later use.
-GMOSAIC imcopy  tmpimage1231031_82[SCI,1][1:256,1:512]  tmptile231031_123[1,append][1:256,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_82[SCI,2][1:256,1:512]  tmptile231031_123[1,append][257:512,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_82[SCI,3][1:256,1:512]  tmptile231031_123[1,append][513:768,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_82[SCI,4][1:256,1:512]  tmptile231031_123[1,append][769:1024,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_82[SCI,5][1:256,1:512]  tmptile231031_124[1,append][1:256,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_82[SCI,6][1:256,1:512]  tmptile231031_124[1,append][257:512,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_82[SCI,7][1:256,1:512]  tmptile231031_124[1,append][513:768,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_82[SCI,8][1:256,1:512]  tmptile231031_124[1,append][769:1024,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_82[SCI,9][1:256,1:512]  tmptile231031_125[1,append][1:256,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_82[SCI,10][1:256,1:512]  tmptile231031_125[1,append][257:512,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_82[SCI,11][1:256,1:512]  tmptile231031_125[1,append][513:768,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpimage1231031_82[SCI,12][1:256,1:512]  tmptile231031_125[1,append][769:1024,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_82[SCI,1][1:256,1:512]  tmptile215370_123[1,append][1:256,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_82[SCI,2][1:256,1:512]  tmptile215370_123[1,append][257:512,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_82[SCI,3][1:256,1:512]  tmptile215370_123[1,append][513:768,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_82[SCI,4][1:256,1:512]  tmptile215370_123[1,append][769:1024,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_82[SCI,5][1:256,1:512]  tmptile215370_124[1,append][1:256,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_82[SCI,6][1:256,1:512]  tmptile215370_124[1,append][257:512,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_82[SCI,7][1:256,1:512]  tmptile215370_124[1,append][513:768,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_82[SCI,8][1:256,1:512]  tmptile215370_124[1,append][769:1024,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_82[SCI,9][1:256,1:512]  tmptile215370_125[1,append][1:256,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_82[SCI,10][1:256,1:512]  tmptile215370_125[1,append][257:512,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_82[SCI,11][1:256,1:512]  tmptile215370_125[1,append][513:768,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpimage1215370_82[SCI,12][1:256,1:512]  tmptile215370_125[1,append][769:1024,1:512]  INDEF  0.
 GMOSAIC Setting rotation Xrot[1]=-0.004000, Yrot[1]=-0.004000
 GMOSAIC Setting rotation Xrot[2]= 0.000000, Yrot[2]= 0.000000
 GMOSAIC Setting rotation Xrot[3]=-0.005370, Yrot[3]=-0.005370
 GMOSAIC 
-GMOSAIC Transforming image tmpimg231031_119[SCI,1][1:1024,1:512] to image tmpchipsci231031_126
+GMOSAIC Transforming image tmpimg215370_119[SCI,1][1:1024,1:512] to image tmpchipsci215370_126
 GMOSAIC     xshift: 0.99 yshift: 0.07 xmag: 1.00 ymag: 1.00 xrot: 360.00 yrot: 360.00
 GMOSAIC 
-GMOSAIC Transforming image tmpimg231031_119[SCI,2][1:1024,1:512] to image tmpchipsci231031_127
+GMOSAIC Transforming image tmpimg215370_119[SCI,2][1:1024,1:512] to image tmpchipsci215370_127
 GMOSAIC     xshift: 0.00 yshift: 0.00 xmag: 1.00 ymag: 1.00 xrot: 0.00 yrot: 0.00
 GMOSAIC 
-GMOSAIC Transforming image tmpimg231031_119[SCI,3][1:1024,1:512] to image tmpchipsci231031_128
+GMOSAIC Transforming image tmpimg215370_119[SCI,3][1:1024,1:512] to image tmpchipsci215370_128
 GMOSAIC     xshift: -0.72 yshift: -0.13 xmag: 1.00 ymag: 1.00 xrot: 359.99 yrot: 359.99
-GMOSAIC imcopy  tmpchipsci231031_126  tmpimage2231031_83.fits[1,append][1:1024,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpchipsci231031_127  tmpimage2231031_83.fits[1,append][1058:2081,1:512]  INDEF  0.
-GMOSAIC imcopy  tmpchipsci231031_128  tmpimage2231031_83.fits[1,append][2115:3138,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpchipsci215370_126  tmpimage2215370_83.fits[1,append][1:1024,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpchipsci215370_127  tmpimage2215370_83.fits[1,append][1058:2081,1:512]  INDEF  0.
+GMOSAIC imcopy  tmpchipsci215370_128  tmpimage2215370_83.fits[1,append][2115:3138,1:512]  INDEF  0.
 GMOSAIC All 1 images successfully mosaiced.
 GMOSAIC --------------------
 GMOSAIC Exit status: SUCCESS
-GMOSAIC Log closed at [Wed 12:18:29 05-Jun-2024]
+GMOSAIC Log closed at [Thu 12:21:22 01-Aug-2024]
 GMOSAIC -------------------------------------------------------------------
 GMOSAIC 
 GSREDUCE: returned from GMOSAIC.
@@ -8216,7 +8222,7 @@ GSREDUCE done
 ----------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-GSFLAT -- Wed Jun  5 19:18:30 UTC 2024
+GSFLAT -- Thu Aug  1 19:21:22 UTC 2024
 
 Input images or list              = gsN20190302S0250
 Output spectral flat              = N20190302S0250_flat
@@ -8274,11 +8280,11 @@ GSFLAT : Found 3 Slits in MDF.
  
 GSFLAT: Calling GSCUT to determine image sections for spectra.
 --------------------------------------------------------------------------------
-GSCUT -- Wed Jun  5 19:18:30 UTC 2024
+GSCUT -- Thu Aug  1 19:21:25 UTC 2024
  
-inimage     = tmpcombflat231031_133
-outimage    = tmpscisec231031_138
-secfile     = tmpsecfile231031_129
+inimage     = tmpcombflat215370_133
+outimage    = tmpscisec215370_138
+secfile     = tmpsecfile215370_129
 gratingdb   = gmos$data/GMOSgratings.dat
 filterdb    = gmos$data/GMOSfilters.dat
 bpmfile     = gmos$data/chipgaps.dat
@@ -8314,11 +8320,11 @@ GSFLAT: Fitting response for slit#1 - SpecSec = [1:2756,1:511]
  
 GSFLAT: Finished Loop over slits. Now packing output MEF...
  
-GSFLAT done Wed Jun  5 19:18:32 UTC 2024
+GSFLAT done Thu Aug  1 19:21:40 UTC 2024
 --------------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
-GSREDUCE -- Wed Jun  5 19:18:32 UTC 2024
+GSREDUCE -- Thu Aug  1 19:21:40 UTC 2024
 
 Input image or list  = gsN20190302S0248
 Output image or list = 
@@ -8376,7 +8382,7 @@ GSREDUCE: Flatfield image : N20190302S0250_flat.fits
 GSREDUCE: Image gsN20190302S0248.fits is LONGSLIT. Will not cut spectra into separate science extensions
 GSREDUCE: Calling GSAPPWAVE
 --------------------------------------------------------------------------------
-GSAPPWAVE -- Wed Jun  5 19:18:33 UTC 2024
+GSAPPWAVE -- Thu Aug  1 19:21:45 UTC 2024
  
 inimages = gsgsN20190302S0248.fits
 Grating: B600+_G5307
@@ -8444,11 +8450,11 @@ GSREDUCE done
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>--------------------------------------------------------------------------------
-GSWAVELENGTH -- Wed Jun  5 19:18:33 UTC 2024
+GSWAVELENGTH -- Thu Aug  1 19:21:47 UTC 2024
  
 inimages = gsN20190302S0249
 --------------------------------------------------------------------------------
-GSAPPWAVE -- Wed Jun  5 19:18:33 UTC 2024
+GSAPPWAVE -- Thu Aug  1 19:21:47 UTC 2024
  
 inimages = gsN20190302S0249.fits
 Grating: B600+_G5307
@@ -8474,11 +8480,11 @@ GSAPPWAVE done
 --------------------------------------------------------------------------------
 Calibrating extension: 1
 
-AUTOIDENTIFY: NOIRLab IRAF V2.18 @gp13.datalab.noirlab.edu Wed 12:18:34 05-Jun-2024
+AUTOIDENTIFY: NOIRLab IRAF V2.18 @gp13.datalab.noirlab.edu Thu 12:21:51 01-Aug-2024
   Spectrum                 # Found   Midpoint Dispersion        RMS
   gsN20190302S0249_001[*,256]         66    4209.02      -1.01      0.301
 
-REIDENTIFY: NOIRLab IRAF V2.18 @gp13.datalab.noirlab.edu Wed 12:18:34 05-Jun-2024
+REIDENTIFY: NOIRLab IRAF V2.18 @gp13.datalab.noirlab.edu Thu 12:21:51 01-Aug-2024
   Reference image = gsN20190302S0249_001, New image = gsN20190302S0249_001, Refit = yes
           Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
 gsN20190302S0249_001[*,246] 66/66   62/66    9.83E-4    -0.00148  -4.7E-9    0.264
@@ -8532,7 +8538,7 @@ gsN20190302S0249_001[*,486] 66/66   63/66     -0.114       0.115  2.73E-5    0.3
 gsN20190302S0249_001[*,496] 65/66   65/66     -0.037      0.0373  8.77E-6    0.317
 gsN20190302S0249_001[*,506] 65/66   65/66    -0.0172      0.0179  2.18E-6    0.307
 
-NOIRLab IRAF V2.18 @gp13.datalab.noirlab.edu Wed 12:18:34 05-Jun-2024
+NOIRLab IRAF V2.18 @gp13.datalab.noirlab.edu Thu 12:21:51 01-Aug-2024
   Longslit coordinate fit name is gsN20190302S0249_001.
   Longslit database is database.
   Features from images:
@@ -8549,7 +8555,7 @@ NOIRLab IRAF V2.18 @gp13.datalab.noirlab.edu Wed 12:18:34 05-Jun-2024
 GSWAVELENGTH exit status: good
 --------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
-GSTRANSFORM -- Wed Jun  5 19:18:34 UTC 2024
+GSTRANSFORM -- Thu Aug  1 19:21:52 UTC 2024
  
 
 inimages   = gsN20190302S0249
@@ -8577,8 +8583,8 @@ sci_ext    = SCI
 Transforming gsN20190302S0249.fits[SCI,1]
 MDF row: 1
 
-NOIRLab IRAF V2.18 @gp13.datalab.noirlab.edu Wed 12:18:35 05-Jun-2024
-  Transform gsN20190302S0249.fits[SCI,1] to tmpsci231031_186.
+NOIRLab IRAF V2.18 @gp13.datalab.noirlab.edu Thu 12:21:54 01-Aug-2024
+  Transform gsN20190302S0249.fits[SCI,1] to tmpsci215370_186.
   Conserve flux per pixel.
   User coordinate transformations:
     gsN20190302S0249_001
@@ -8632,7 +8638,7 @@ GSTRANSFORM exit status: good
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>-------------------------------------------------------------------------------
-GSTRANSFORM -- Wed Jun  5 19:18:35 UTC 2024
+GSTRANSFORM -- Thu Aug  1 19:27:57 UTC 2024
  
 
 inimages   = gsgsN20190302S0248
@@ -8660,8 +8666,8 @@ sci_ext    = SCI
 Transforming gsgsN20190302S0248.fits[SCI,1]
 MDF row: 1
 
-NOIRLab IRAF V2.18 @gp13.datalab.noirlab.edu Wed 12:18:35 05-Jun-2024
-  Transform gsgsN20190302S0248.fits[SCI,1] to tmpsci231031_198.
+NOIRLab IRAF V2.18 @gp13.datalab.noirlab.edu Thu 12:27:58 01-Aug-2024
+  Transform gsgsN20190302S0248.fits[SCI,1] to tmpsci215370_198.
   Conserve flux per pixel.
   User coordinate transformations:
     gsN20190302S0249_001
@@ -8675,7 +8681,7 @@ GSTRANSFORM exit status: good
 -------------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
-GSSKYSUB -- Wed Jun  5 19:18:36 UTC 2024
+GSSKYSUB -- Thu Aug  1 19:28:00 UTC 2024
 
 input        = tgsgsN20190302S0248
 output       = 
@@ -8704,11 +8710,11 @@ GSSKYSUB: Sky-subtraction started
   Number of slits = 1
   Slit #1 ; background sample = [*]
 
-GSSKYSUB done. Exit status good -- Wed Jun  5 19:18:38 UTC 2024
+GSSKYSUB done. Exit status good -- Thu Aug  1 19:28:27 UTC 2024
 -------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-GSEXTRACT -- 2024-06-05T19:18:39
+GSEXTRACT -- 2024-08-01T19:28:27
  
 inimages     = stgsgsN20190302S0248
 outimages    = 
@@ -8736,7 +8742,7 @@ gain         = 2.2
  
 Extracting spectrum stgsgsN20190302S0248.fits[SCI,1]
  
-GSEXTRACT: Done -- 2024-06-05T19:18:39
+GSEXTRACT: Done -- 2024-08-01T19:28:31
 GSEXTRACT: Exit status GOOD
 --------------------------------------------------------------------------------
 </pre>
@@ -8834,7 +8840,7 @@ GSEXTRACT: Exit status GOOD
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># !rm -f *N2019030*.fits Afx*.fits gmos.list gmos.log _sed tmp* # remove files</span>
