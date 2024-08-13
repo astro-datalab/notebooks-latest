@@ -1,0 +1,50 @@
+<!DOCTYPE>
+<html>
+  <body>
+    <h1>Aladin Lite v3 test v14</h1>
+
+
+    <!-- our script needs jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js" charset="utf-8"></script>
+
+    <!-- Aladin Lite container at requested dimensions -->
+    <div id="aladin-lite-div" style="width:700px;height:400px;"></div>
+
+    <input id="DSS" type="radio" name="survey" value="P/DSS2/color" checked><label for="DSS">DSS color<label>
+    <input id="DSS-blue" type="radio" name="survey" value="P/DSS2/blue"><label for="DSS-blue">DSS blue<label>
+    <input id="2MASS" type="radio" name="survey" value="P/2MASS/color"><label for="2MASS">2MASS<label>
+    <input id="allwise" type="radio" name="survey" value="P/allWISE/color"><label for="allwise">AllWISE<label>
+    <input id="glimpse" type="radio" name="survey" value="P/GLIMPSE360"><label for="glimpse">GLIMPSE 360<label>
+
+
+    <!-- Aladin Lite JS code -->
+    <script type="text/javascript" src="https://aladin.cds.unistra.fr/AladinLite/api/v3/latest/aladin.js" charset="utf-8"></script>
+
+    <!-- Creation of Aladin Lite instance with initial parameters -->
+    <script type="text/javascript">
+        let aladin;
+        A.init.then(() => {
+            aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", fov:1.5, target: "M 20"});
+
+            $('input[name=survey]').change(function() {
+                aladin.setImageSurvey($(this).val());
+            });
+
+
+	    //TEST
+	    var test_hips = A.catalogHiPS('http://0.0.0.0:8000/des_dr2_100000/', {onClick: 'showTable', color: 'orange', name: 'DES_DR2 test'});
+	    aladin.addCatalog(test_hips);
+
+	    let hips_new_test = A.catalogHiPS('http://0.0.0.0:8000/des_dr2_100000_random/', {onClick: 'showTable', color: 'red', name: 'HiPS Test 2'});
+	    aladin.addCatalog(hips_new_test)
+	    
+        });
+    </script>
+
+    
+  </body>
+</html>
+
+
+
+
