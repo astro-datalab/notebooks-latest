@@ -68,7 +68,7 @@ java -jar Hipsgen-cat.jar -cat <catalog name, no extension> -in <catalog name, w
 
     - <catalog name, no extension> means if the files is called catalog_test.csv, you would enter catalog_test
     - <catalog name, with extension> means you should enter the file name with its extension, so catalog_test.csv
-    - <desired output directory name>, this command will output a directory containing many files. What you enter here will eb the name of the parent directory that contains all of the files.
-    - <scored value> can be a different column in the input catalog that can be used to rank the sources. For example, if I were to use 'mag_auto_g', the produced HiPS cat will prioritize showing the sources with bright g-band magnitudes first. Then as you zoom in, the next brightest sources will be displayed.
+    - <desired output directory name>, this command will output a directory containing many files. What you enter here will be the name of the parent directory that contains all of the files.
+    - <scored value> Enter the name of a different column in the input catalog that contains numerical values. This will be used to rank the sources. For example, if I were to use 'mag_auto_g', the produced HiPS cat will prioritize showing the sources with bright g-band magnitudes first. Then as you zoom in, the next brightest sources will be displayed.
 
 As of 08/05/24, I am able to sucessfully create HiPS catalogs, and display them on my Aladin Lite viewer and the desktop version of Aladin, but I am unable to display it in a Jupyter Notebook becasue ipyaladin is not compatable with HiPS cats yet. According to the Issues page on the ipyaladin GitHub, they are working on including this functionality, but it is not available yet.
