@@ -1,4 +1,4 @@
-*Version:* 20200712 | *Author:* Robert Nikutta \<nikutta@noao.edu\>
+*Version:* 20240816 | *Author:* Robert Nikutta \<robert.nikutta@noirlab.edu\>
 
 
 # Automatically test notebooks
@@ -48,13 +48,13 @@ Run `testnotebooks.ipynb` to test a collection of other notebooks for runtime fa
 
 1. Make sure you have the Data Lab command line installed:
 
-  `pip install --ignore-installed --no-cache-dir noaodatalab`
+  `pip install --ignore-installed --no-cache-dir astro-datalab`
 
 2. Get a fresh copy of `notebooks-latest/` to a local target directory:
 
   ```mkdir foobar/
      cd foobar
-     git clone https://github.com/noaodatalab/notebooks-latest.git
+     git clone https://github.com/astro-datalab/notebooks-latest.git
      cd notebooks-latest/tests/
   ```
 
@@ -72,7 +72,7 @@ OR
   * `cd` into `notebooks-latest/tests/`
   * Either accept the default `paths` and `exclude` variables, or adjust them by editing them towards the end of the `testnotebooks.py` file. **Note: the `.py` file, not `.ipynb`!**
 
-  * Run the test suite via: `python .testnotebooks.py`
+  * Run the test suite via: `python ./testnotebooks.py`
   
   You will see something akin to this:
   
