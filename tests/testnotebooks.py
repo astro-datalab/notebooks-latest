@@ -1,5 +1,5 @@
-__version__ = '20240816'
-__author__ = 'Robert Nikutta <robert.nikutta@noirlab.edu>'
+__author__ = 'Robert Nikutta <robert.nikutta@noirlab.edu>, Data Lab Team <datalab@noirlab.edu'
+__version__ = '20240819'
 
 # imports
 
@@ -399,14 +399,14 @@ if __name__ == '__main__':
     #
     # Examples:
     #
-    #paths = '../01_GettingStartedWithDataLab/'  # test ony notebooks in 01_GetttingStartedWithDataLab/ directory
+    #paths = '../01_GettingStartedWithDataLab/'  # test ony notebooks in 01_GettingStartedWithDataLab/ directory
     #paths = ('../01_GettingStartedWithDataLab/','../02_DataAccessOverview/')  # test notebooks in these two directories
     #paths = ('../01_GettingStartedWithDataLab/02_GettingStartedWithDataLab.ipynb','../02_DataAccessOverview/')  # test one NB in 01... dir, and all NBs in 02... dir
     paths = '../' # test all notebooks that are not excluded below
 
     # List pattern of notebook names, and/or paths, to exclude from testing.
-    # ** means "any number of intermediate directries"
-    # * means "any number if intermediate characters in this directory"
+    # ** means "any number of intermediate directories"
+    # * means "any number of intermediate characters in this directory"
     # A few default notebooks are explicitly excluded here b/c they absolutely require interactive execution.
     # A few others are temporarily excluded until they will be fixed.
     exclude = ('**/*AuthClient.ipynb','**/Rowstore*.ipynb','**/e-Teen*/**/*ipynb',
