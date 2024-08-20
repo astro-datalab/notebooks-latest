@@ -1,5 +1,5 @@
-__author__ = 'Robert Nikutta <robert.nikutta@noirlab.edu>, Data Lab Team <datalab@noirlab.edu'
-__version__ = '20240819'
+__author__ = 'Robert Nikutta <robert.nikutta@noirlab.edu>, Data Lab Team <datalab@noirlab.edu>'
+__version__ = '20240820'
 
 # imports
 
