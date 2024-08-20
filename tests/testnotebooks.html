@@ -7517,8 +7517,8 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20240816'</span>
-<span class="n">__author__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Robert Nikutta &lt;robert.nikutta@noirlab.edu&gt;'</span><span class="p">,</span> <span class="s1">'Data Lab Team &lt;datalab@noirlab.edu'</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Robert Nikutta &lt;robert.nikutta@noirlab.edu&gt;, Data Lab Team &lt;datalab@noirlab.edu'</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20240819'</span>
 </pre></div>
 </div>
 </div>
@@ -7611,22 +7611,44 @@ a.anchor-link {
 <span class="c1">#</span>
 <span class="c1"># Examples:</span>
 <span class="c1">#</span>
-<span class="c1">#paths = '../01_GettingStartedWithDataLab/'  # test only notebooks in the ../01_GetttingStartedWithDataLab/ directory</span>
+<span class="n">paths</span> <span class="o">=</span> <span class="s1">'../01_GettingStartedWithDataLab/'</span>  <span class="c1"># test only notebooks in the ../01_GettingStartedWithDataLab/ directory</span>
 <span class="c1">#paths = ('../01_GettingStartedWithDataLab/','../02_DataAccessOverview/')  # test notebooks in these two directories; Note: this is a tuple of paths</span>
 <span class="c1">#paths = ('../01_GettingStartedWithDataLab/02_GettingStartedWithDataLab.ipynb','../02_DataAccessOverview/')  # test one NB in 01... dir, and all NBs in 02... dir</span>
-<span class="n">paths</span> <span class="o">=</span> <span class="s1">'../'</span> <span class="c1"># test all Data Lab notebooks that are not excluded below</span>
+<span class="c1">#paths = '../' # test all Data Lab notebooks that are not excluded below</span>
 
 <span class="c1"># List pattern of notebook names, and/or paths, to exclude from testing.</span>
-<span class="c1"># ** means "any number of intermediate directries"</span>
-<span class="c1"># * means "any number if intermediate characters in this directory"</span>
+<span class="c1"># ** means "any number of intermediate directories"</span>
+<span class="c1"># * means "any number of intermediate characters in this directory"</span>
 <span class="c1"># A few default notebooks are explicitly excluded here, e.g. b/c they have very long run times.</span>
 <span class="c1">#exclude = ('**/*AuthClient.ipynb','**/e-Teen*/**/*ipynb','**/*DataReduction*/**/*ipynb')</span>
 <span class="n">exclude</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'**/*AuthClient.ipynb'</span><span class="p">,</span><span class="s1">'**/e-Teen*/**/*ipynb'</span><span class="p">,</span>
            <span class="s1">'**/DRAGONS_reduction_examples/GMOS_longslit_WhiteDwarf/GMOS_longslit_WhiteDwarf.ipynb'</span><span class="p">,</span>
            <span class="s1">'**/DRAGONS_reduction_examples/GSAOI_Imaging_EllipticalGalaxy/GSAOI_Imaging_EllipticalGalaxy.ipynb'</span><span class="p">)</span>
-
-<span class="c1"># get list of notebooks to run</span>
-<span class="n">nbs</span> <span class="o">=</span> <span class="n">get_nbs</span><span class="p">(</span><span class="n">paths</span><span class="o">=</span><span class="n">paths</span><span class="p">,</span><span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Get-list-of-notebooks-to-run">Get list of notebooks to run<a class="anchor-link" href="#Get-list-of-notebooks-to-run">¶</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">nbs</span> <span class="o">=</span> <span class="n">get_nbs</span><span class="p">(</span><span class="n">paths</span><span class="o">=</span><span class="n">paths</span><span class="p">,</span><span class="n">exclude</span><span class="o">=</span><span class="n">exclude</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7651,8 +7673,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">testresults</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">nbs</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">testresults</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">nbs</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
