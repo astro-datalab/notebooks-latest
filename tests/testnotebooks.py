@@ -1,5 +1,5 @@
 __author__ = 'Robert Nikutta <robert.nikutta@noirlab.edu>, Data Lab Team <datalab@noirlab.edu>'
-__version__ = '20240820'
+__version__ = '20240920'
 
 # imports
 
@@ -334,6 +334,8 @@ def run(nbs,plain=False):
         print('TESTING NOTEBOOK %d/%d: %s' % (j+1,len(nbs),nbfile))
 
         kernel = get_kernel_name(nbfile)
+
+        print('Running under kernel: %s' % kernel)
         
         # run NB; trap when the kernel died (likely due to RAM exhaustion), or if kernel is not present
         try:
