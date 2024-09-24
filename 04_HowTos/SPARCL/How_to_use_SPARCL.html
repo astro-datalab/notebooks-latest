@@ -7519,7 +7519,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0051'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Alice Jacques &lt;alice.jacques@noirlab.edu&gt;, Steve Pothier &lt;steve.pothier@noirlab.edu&gt;, Adam Bolton &lt;adam.bolton@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20240829'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20240924'</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sdss_dr16'</span><span class="p">,</span> <span class="s1">'boss_dr16'</span><span class="p">,</span> <span class="s1">'desi_edr'</span><span class="p">]</span>  
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl'</span><span class="p">,</span> <span class="s1">'spectroscopy'</span><span class="p">,</span> <span class="s1">'HowTo'</span><span class="p">,</span> <span class="s1">'sdss spectra'</span><span class="p">,</span> <span class="s1">'desi spectra'</span><span class="p">,</span> <span class="s1">'tutorial'</span><span class="p">]</span>
 </pre></div>
@@ -7577,7 +7577,7 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="goalssummary"></a></p>
 <h2 id="Goals-&amp;-Summary">Goals &amp; Summary<a class="anchor-link" href="#Goals-&amp;-Summary">¶</a></h2><p>SPARCL (SPectra Analysis and Retrievable Catalog Lab) is an online service for discovery and retrieval of one-dimensional optical-infrared spectra. SPARCL is designed to work for large survey datasets containing many millions of spectra, and to provide access to multiple different data sets through common methods. For more information, see the <a href="https://astrosparcl.datalab.noirlab.edu/static/SPARCLUserManual.pdf">SPARCL User Guide</a>.</p>
-<p>This notebook provides a basic introduction to using the SPARCL client (or sparclclient) to find and retrieve spectroscopic data within a Python notebook context. The sparclclient connects to the SPARCL server at <a href="https://noirlab.edu/public/">NSF's NOIRLab</a> and provides access to the contents of the SPARCL database.</p>
+<p>This notebook provides a basic introduction to using the SPARCL client (or sparclclient) to find and retrieve spectroscopic data within a Python notebook context. The sparclclient connects to the SPARCL server at <a href="https://noirlab.edu/public/">NSF NOIRLab</a> and provides access to the contents of the SPARCL database.</p>
 <p>To see the current data sets and number of spectra available in the SPARCL database, please visit the <a href="https://astrosparcl.datalab.noirlab.edu/sparc/">SPARCL summary page</a>.</p>
 <p>To get the latest sparclclient documentation, visit the <a href="https://sparclclient.readthedocs.io/en/latest/">sparclclient readthedocs site</a>.</p>
 <p>Feedback on SPARCL (questions, comments, science use cases, feature requests, bug reports, confusing error messages, etc.) can be submitted to datalab-spectro@noirlab.edu. For bug reports and confusing error messages, it's helpful if you include: a log of <em>what you did</em>, <em>the result you got</em>, and <em>the result you expected</em>.</p>
@@ -7587,6 +7587,11 @@ a.anchor-link {
 <li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/DESI/02_DESI_EDR_SDSS_Comparison.ipynb">Comparing SDSS and DESI spectra using SPARCL</a></li>
 <li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/EmLineGalaxies/01_EmLineGalaxies_SpectraStack.ipynb">Stacking SDSS Spectra of Galaxies Selected from the BPT Diagram</a></li>
 <li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/EmLineGalaxies/02_EmLineGalaxies_Outliers.ipynb">Multi-wavelength Image Cutouts and SDSS Spectra of Active Galaxies with Extreme Emission-Line Ratios</a></li>
+</ul>
+<p>And our other How-To notebooks that use SPARCL:</p>
+<ul>
+<li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/04_HowTos/SPARCL/Plot_SPARCL_Spectra_with_Jdaviz.ipynb">SPARCL + Jdaviz</a></li>
+<li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/04_HowTos/SPARCL/Plot_SPARCL_Spectra_with_Prospect.ipynb">Obtain and plot spectra data using SPARCL, prospect, and specutils</a></li>
 </ul>
 </div>
 </div>
@@ -7712,7 +7717,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=50a1081b">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=50a1081b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7721,20 +7726,8 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#token = ac.login(input("Enter user name: (+ENTER) "),getpass("Enter password: (+ENTER) "))</span>
-<span class="n">ac</span><span class="o">.</span><span class="n">whoAmI</span><span class="p">()</span>
+<span class="c1">#ac.whoAmI()</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>'ajacques'</pre>
 </div>
 </div>
 </div>
@@ -7785,7 +7778,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="auth_sparcl"></a></p>
-<h1 id="Authentication-for-SPARCL">Authentication for SPARCL<a class="anchor-link" href="#Authentication-for-SPARCL">¶</a></h1><p>All public SPARCL data sets can be accessed without explicitly logging in. However, some data sets are private and can only be accessed by authorized users. If you are an authorized user and wish to login to SPARCL, un-comment the cell below and enter your SSO user name and password.</p>
+<h1 id="Authentication-for-SPARCL">Authentication for SPARCL<a class="anchor-link" href="#Authentication-for-SPARCL">¶</a></h1><p>All public SPARCL data sets can be accessed without explicitly logging in. However, some data sets are private and can only be accessed by authorized users. If you are an authorized user and wish to login to SPARCL, un-comment the cell below and enter your NOIRLab CSDC SSO user name and password. If you need to create an account, sign-up at <a href="https://sso.csdc.noirlab.edu/">https://sso.csdc.noirlab.edu/</a> then email datalab-spectro@noirlab.edu with your First Name, Last Name, and Email Address (the same one you used to create your NOIRLab CSDC SSO account).</p>
 <p>To logout of SPARCL after a session, use:</p>
 <pre><code>client.logout()
 </code></pre>
@@ -7814,7 +7807,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="View-which-data-sets-you-have-access-to:">View which data sets you have access to:<a class="anchor-link" href="#View-which-data-sets-you-have-access-to:">¶</a></h4>
+<h4 id="View-which-data-sets-you-have-access-to:">View which data sets you have access to:<a class="anchor-link" href="#View-which-data-sets-you-have-access-to:">¶</a></h4><p><strong>Note:</strong> if you are not logged in or if your SSO user name is not in the authorized list of SPARCL users, you will only see public data sets</p>
 </div>
 </div>
 </div>
@@ -8816,7 +8809,7 @@ Example:
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>{'status': {'success': True,
-  'info': ["Successfully found 20 records in dr_list={'DESI-EDR', 'BOSS-DR16', 'SDSS-DR16'}"],
+  'info': ["Successfully found 20 records in dr_list={'SDSS-DR16', 'BOSS-DR16', 'DESI-EDR'}"],
   'warnings': []}}</pre>
 </div>
 </div>
@@ -8956,7 +8949,7 @@ Example:
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>{'status': {'success': True,
-  'info': ["Successfully found 20 records in dr_list={'DESI-EDR', 'BOSS-DR16', 'SDSS-DR16'}"],
+  'info': ["Successfully found 20 records in dr_list={'SDSS-DR16', 'BOSS-DR16', 'DESI-EDR'}"],
   'warnings': []}}</pre>
 </div>
 </div>
@@ -9562,7 +9555,7 @@ Example:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/tmp/ipykernel_2004647/2568251338.py:7: UserWarning: Some UUIDs were not found. 5 out of the 5 requested uuids have no records available in the SPARCL database associated with DataSets {'DESI-EDR', 'BOSS-DR16', 'SDSS-DR16'}.Use "client.missing()" to get a list of the 5 unavailable uuids.
+<pre>/tmp/ipykernel_1163822/2568251338.py:7: UserWarning: Some UUIDs were not found. 5 out of the 5 requested uuids have no records available in the SPARCL database associated with DataSets {'SDSS-DR16', 'BOSS-DR16', 'DESI-EDR'}.Use "client.missing()" to get a list of the 5 unavailable uuids.
   res_test = client.retrieve(uuid_list=ids_test)
 </pre>
 </div>
@@ -9602,8 +9595,8 @@ Example:
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>['0000fabc-0e15-4d76-b44c-4f152f31de09',
- '0000403e-51da-43b0-a0e9-e806ea31ca9e',
  '00001c20-b7ff-4367-af08-26432cd7e01d',
+ '0000403e-51da-43b0-a0e9-e806ea31ca9e',
  'ddbb57ee-8e90-4a0d-823b-0f5d97028076',
  '000025da-914b-4b67-b9a9-97cc811b0459']</pre>
 </div>
