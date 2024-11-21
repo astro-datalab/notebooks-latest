@@ -7519,8 +7519,8 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'00XX'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Brian Merino &lt;brian.merino@noirlab.edu&gt;, Vinicius Placco &lt;vinicius.placco@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20241025'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
-<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'GHOST'</span><span class="p">,</span><span class="s1">'Gemini'</span><span class="p">,</span><span class="s1">'star'</span><span class="p">,</span><span class="s1">'dragons'</span><span class="p">]</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20241121'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'GHOST'</span><span class="p">,</span><span class="s1">'Gemini'</span><span class="p">,</span><span class="s1">'stars'</span><span class="p">,</span><span class="s1">'DRAGONS'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -7545,14 +7545,14 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Note:-This-notebook-may-take-more-than-an-hour-to-run.">Note: This notebook may take more than an hour to run.<a class="anchor-link" href="#Note:-This-notebook-may-take-more-than-an-hour-to-run.">¶</a></h1><h3 id="If-you-want-to-run-this-notebook-on-your-local-machine,-ensure-your-DRAGONS-calibration-database-is-correctly-set-up.-To-do-so,-make-sure-the-contents-of-./dragons/dragonsrc-looks-like-this:">If you want to run this notebook on your local machine, ensure your DRAGONS calibration database is correctly set up. To do so, make sure the contents of ./dragons/dragonsrc looks like this:<a class="anchor-link" href="#If-you-want-to-run-this-notebook-on-your-local-machine,-ensure-your-DRAGONS-calibration-database-is-correctly-set-up.-To-do-so,-make-sure-the-contents-of-./dragons/dragonsrc-looks-like-this:">¶</a></h3><pre><code>[calibs]
+<h3 id="Note:-This-notebook-may-take-more-than-an-hour-to-run.-It-may-take-more-or-less-time-if-you-work-with-a-dataset-different-from-the-one-used-in-this-tutorial.-The-total-running-time-depends-on-the-number-and-variety-of-files-you-want-to-reduce.">Note: This notebook may take more than an hour to run. It may take more or less time if you work with a dataset different from the one used in this tutorial. The total running time depends on the number and variety of files you want to reduce.<a class="anchor-link" href="#Note:-This-notebook-may-take-more-than-an-hour-to-run.-It-may-take-more-or-less-time-if-you-work-with-a-dataset-different-from-the-one-used-in-this-tutorial.-The-total-running-time-depends-on-the-number-and-variety-of-files-you-want-to-reduce.">¶</a></h3><h3 id="If-you-want-to-run-this-notebook-on-your-local-machine,-ensure-your-DRAGONS-calibration-database-is-correctly-set-up.-To-do-so,-make-sure-the-calibrations-section-of-./dragons/dragonsrc-looks-like-this:">If you want to run this notebook on your local machine, ensure your DRAGONS calibration database is correctly set up. To do so, make sure the calibrations section of ./dragons/dragonsrc looks like this:<a class="anchor-link" href="#If-you-want-to-run-this-notebook-on-your-local-machine,-ensure-your-DRAGONS-calibration-database-is-correctly-set-up.-To-do-so,-make-sure-the-calibrations-section-of-./dragons/dragonsrc-looks-like-this:">¶</a></h3><pre><code>[calibs]
 databases = ~/.dragons/dragons.db get store
 </code></pre>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=123b968c-1c2b-4552-bcaa-f64d01886f09">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8e6381c1-8c86-4d70-b33c-4a52e4cec8b6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7601,20 +7601,30 @@ databases = ~/.dragons/dragons.db get store
 <li><a href="#science_slit_viewer">Select and reduce science slit-viewer data</a></li>
 <li><a href="#update_list_7">Update list of files 7</a></li>
 <li><a href="#red_science">Select and reduce red science data</a></li>
-<li><a href="#blue_science">Selet and reduce blue science data</a></li>
+<li><a href="#blue_science">Select and reduce blue science data</a></li>
 <li><a href="#Plot">Plot reduced spectra</a></li>
 <li><a href="#write1DSpectra">Output 1D spectra</a></li>
 <li><a href="#Save_plot">Save plots of reduced spectra</a></li>
 <li><a href="#IRAF_compatible">Make reduced spectra IRAF compatible</a></li>
 <li><a href="#clean_up_4">Clean up working directory 4</a></li>
 </ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=123b968c-1c2b-4552-bcaa-f64d01886f09">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="goals"></a></p>
-<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">¶</a></h1><p>Showcase how to reduce GHOST spectroscopy data using the Gemini DRAGONS package on the Data Lab science platform using a custom DRAGONS kernel <code>"DRAGONS (Py3.7)"</code>. The steps include downloading data from the Gemini archive, setting up the DRAGONS calibration service, processing biases, flats, and arcs, creating master flats and slit-flats, reducing the standards and science data, and finally creating the final reduced spectra for GHOST's red and blue arms.</p>
+<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">¶</a></h1><p>Showcase how to reduce GHOST spectroscopy data using the Gemini DRAGONS package on the Data Lab science platform using a custom DRAGONS kernel <code>"DRAGONS-3.2.1 (Py3.10)"</code>. The steps include downloading data from the Gemini archive, setting up the DRAGONS calibration service, processing biases, flats, and arcs, creating master flats and slit-flats, reducing the standards and science data, and finally creating the final reduced spectra for GHOST's red and blue arms.</p>
 <p><a class="anchor" id="summary"></a></p>
 <h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>DRAGONS is a Python-based astronomical data reduction platform written by the Gemini Science User Support Department. It can currently be used to reduce imaging data from Gemini instruments GMOS, NIRI, Flamingos 2, GSAOI, and GNIRS, as well as spectroscopic data taken with GHOST and GMOS in longslit mode. Linked <a href="https://dragons.readthedocs.io/en/v3.2.1/">here</a> is a general list of guides, manuals, and tutorials about the use of DRAGONS.</p>
-<p>The DRAGONS kernel has been made available in the Data Lab environment, allowing users to access the routines without being dependent on installing the software on their local machines.</p>
+<p>The DRAGONS kernel has been made available in the Data Lab environment, allowing users to access the routines without being dependent on installing the software on their local machines. It is important to note that when a DRAGON command is executed, the output will be displayed inside the cell. Make sure to scroll through the output to ensure no errors are missed.</p>
 <p>In this notebook, we present an example of a DRAGONS Jupyter notebook that works in the Data Lab environment to reduce Gemini South GHOST blue:2x2 and red:2x2 spectroscopy data fully. This notebook will not present all of the details of the many options available to adjust or optimize the DRAGONS GHOST data reduction process; rather, it will just show one example of a standard reduction of a GHOST spectroscopic dataset.</p>
-<p>The data used in this notebook example is GHOST blue:2x2 and red:2x2 spectroscopy data from the Gemini archive of the star XX Oph from the GHOST commisioning run, program ID <a href="https://archive.gemini.edu/programinfo/GS-CAL20230416">GS-CAL20230416</a>.</p>
+<p>The data used in this notebook example is GHOST blue:2x2 and red:2x2 spectroscopy data from the Gemini archive of the star XX Oph from the GHOST commissioning run. Because the data used is from a commissioning run, there is no program information available, but you can find more information about GHOST's red and blue IFUs on the <a href="https://www.gemini.edu/instrumentation/ghost">GHOST instrument page</a>.</p>
 <p><a class="anchor" id="disclaimer"></a></p>
 <h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">¶</a></h1><h2 id="Disclaimers">Disclaimers<a class="anchor-link" href="#Disclaimers">¶</a></h2><p>Note that using the Astro Data Lab constitutes your agreement with our minimal <a href="https://datalab.noirlab.edu/disclaimers.php">Disclaimers</a>.</p>
 <h2 id="Acknowledgments">Acknowledgments<a class="anchor-link" href="#Acknowledgments">¶</a></h2><p>If you use <strong>Astro Data Lab</strong> in your published research, please include the text in your paper's Acknowledgments section:</p>
@@ -7641,7 +7651,7 @@ databases = ~/.dragons/dragons.db get store
 <p>The NOIRLab Library maintains <a href="https://noirlab.edu/science/about/scientific-acknowledgments">lists of proper acknowledgments</a> to use when publishing papers using the Lab's facilities, data, or services.</p>
 <p>For this notebook specifically, please acknowledge:</p>
 <ul>
-<li><p>DRAGONS publication: Labrie et al., <a href="https://ui.adsabs.harvard.edu/abs/2019ASPC..523..321L/abstract">"DRAGONS - Data Reduction for Astronomy from Gemini Observatory North and South"</a>, ASPC, 523, 321L</p>
+<li><p>DRAGONS publication: Labrie et al., <a href="https://ui.adsabs.harvard.edu/abs/2019ASPC..523..321L/abstract">DRAGONS - Data Reduction for Astronomy from Gemini Observatory North and South</a>, ASPC, 523, 321L</p>
 </li>
 <li><p><a href="https://zenodo.org/record/7776065#.ZDg5qOzMLUI">DRAGONS open source software publication</a></p>
 </li>
@@ -7657,7 +7667,7 @@ databases = ~/.dragons/dragons.db get store
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="imports"></a></p>
-<h1 id="Importing-Python-libraries">Importing Python libraries<a class="anchor-link" href="#Importing-Python-libraries">¶</a></h1>
+<h1 id="Imports-and-setup">Imports and setup<a class="anchor-link" href="#Imports-and-setup">¶</a></h1>
 </div>
 </div>
 </div>
@@ -7708,57 +7718,16 @@ databases = ~/.dragons/dragons.db get store
 <p><a class="anchor" id="About"></a></p>
 <h1 id="About-the-dataset">About the dataset<a class="anchor-link" href="#About-the-dataset">¶</a></h1><p>The GHOST data used for this tutorial is of the star XX Oph. IFU-1 was used to obtain standard resolution of the star. The data was obtained during the commissioning run.</p>
 <p>The table below contains a summary of the dataset:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Observation Type</th>
-<th style="text-align:left">File name(s)</th>
-<th style="text-align:center">Purpose and Exposure (seconds)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Science</td>
-<td style="text-align:left">S20230416S0079</td>
-<td style="text-align:center">blue:2x2, slow; red:2x2, medium</td>
-</tr>
-<tr>
-<td style="text-align:left">Science bias</td>
-<td style="text-align:left">S20230417S0011-015</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">Science flats</td>
-<td style="text-align:left">S20230416S0047</td>
-<td style="text-align:center">1x1; blue:slow; red:medium</td>
-</tr>
-<tr>
-<td style="text-align:left">Science Arcs</td>
-<td style="text-align:left">S20230416S0049-51</td>
-<td style="text-align:center">1x1; blue:slow; red:medium</td>
-</tr>
-<tr>
-<td style="text-align:left">Flat biases <br/> Arc Biases</td>
-<td style="text-align:left">S20230417S0036-40</td>
-<td style="text-align:center">1x1; blue:slow; red:medium</td>
-</tr>
-<tr>
-<td style="text-align:left">Standard (CD -32 9927)</td>
-<td style="text-align:left">S20230416S0073</td>
-<td style="text-align:center">blue:2x2, slow; red:2x2, medium</td>
-</tr>
-<tr>
-<td style="text-align:left">Standard biases <br/> Standard flats <br/> Standard arc <br/> Standard flat biases <br/> Standard arc biases</td>
-<td style="text-align:left">In this case, the calibrations for the science can be used for the standard star.</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:left">BPMs</td>
-<td style="text-align:left">bpm_20220601_ghost_blue_11_full_4amp.fits <br/> bpm_20220601_ghost_red_11_full_4amp.fits</td>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
+<p>| Observation Type | File name(s) | IFU, Binning, and Read Mode |
+| :--- | :--- | :---: |
+| Science | S20230416S0079 | blue:2x2, slow; red:2x2, medium |
+| Science bias | S20230417S0011-015 |  |
+| Science flats | S20230416S0047 | 1x1; blue:slow; red:medium |
+| Science Arcs | S20230416S0049-51 | 1x1; blue:slow; red:medium |
+| Flat biases <br/> Arc Biases | S20230417S0036-40 | 1x1; blue:slow; red:medium |
+| Standard (CD -32 9927) | S20230416S0073 | blue:2x2, slow; red:2x2, medium |
+| Standard biases <br/> Standard flats <br/> Standard arc <br/> Standard flat biases <br/> Standard arc biases | Use science calibrations |
+| BPMs | bpm_20220601_ghost_blue_11_full_4amp.fits <br/> bpm_20220601_ghost_red_11_full_4amp.fits |  |</p>
 </div>
 </div>
 </div>
@@ -7770,7 +7739,8 @@ databases = ~/.dragons/dragons.db get store
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="Prepare"></a></p>
-<h1 id="Prepare-the-working-directory">Prepare the working directory<a class="anchor-link" href="#Prepare-the-working-directory">¶</a></h1><p>If you have any intermediate files that were created from running this code in the past, you will need to remove them from your working directory. The cell below defines a clean-up function that will remove all the fits files from your working directory. This function will be called again at the end of the tutorial, leaving you with only the final product. By default, this function will delete all files in the working directory. If there are files that have been previously reduced that you would like to keep, set <code>save_reduced=1</code> when calling the function.</p>
+<h1 id="Prepare-the-working-directory">Prepare the working directory<a class="anchor-link" href="#Prepare-the-working-directory">¶</a></h1><p>If you have any intermediate files that were created from running this code in the past, you will need to remove them from your working directory. The cell below defines a clean-up function that will remove all the fits files from your working directory. This function will be called again at the end of the tutorial, leaving you with only the final product.</p>
+<p>By default, this function will delete all files in the working directory. If there are files that have been previously reduced that you would like to keep, set <code>save_reduced=1</code> when calling the function.</p>
 </div>
 </div>
 </div>
@@ -7920,7 +7890,7 @@ databases = ~/.dragons/dragons.db get store
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="raw"></a></p>
-<h1 id="Create-directory-for-raw-files">Create directory for raw files<a class="anchor-link" href="#Create-directory-for-raw-files">¶</a></h1><h3 id="This-tutorial-will-create-a-large-number-of-intermediate-files-that-will-temporarily-stored-in-the-working-directory.-To-make-sure-none-of-the-original-data-is-lost,-we-are-going-to-create-a-directory-called-raw-to-safely-store-the-priliminary-data.">This tutorial will create a large number of intermediate files that will temporarily stored in the working directory. To make sure none of the original data is lost, we are going to create a directory called raw to safely store the priliminary data.<a class="anchor-link" href="#This-tutorial-will-create-a-large-number-of-intermediate-files-that-will-temporarily-stored-in-the-working-directory.-To-make-sure-none-of-the-original-data-is-lost,-we-are-going-to-create-a-directory-called-raw-to-safely-store-the-priliminary-data.">¶</a></h3>
+<h1 id="Create-a-directory-for-raw-files">Create a directory for raw files<a class="anchor-link" href="#Create-a-directory-for-raw-files">¶</a></h1><h3 id="This-tutorial-will-create-a-large-number-of-intermediate-files-that-will-be-temporarily-stored-in-the-working-directory.-To-ensure-none-of-the-original-data-is-lost,-we-will-create-a-directory-called-raw-to-store-the-preliminary-data-safely.">This tutorial will create a large number of intermediate files that will be temporarily stored in the working directory. To ensure none of the original data is lost, we will create a directory called raw to store the preliminary data safely.<a class="anchor-link" href="#This-tutorial-will-create-a-large-number-of-intermediate-files-that-will-be-temporarily-stored-in-the-working-directory.-To-ensure-none-of-the-original-data-is-lost,-we-will-create-a-directory-called-raw-to-store-the-preliminary-data-safely.">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7987,7 +7957,7 @@ mv<span class="w"> </span>*fits<span class="w"> </span>raw/
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h6 id=""><a class="anchor" id="File_Lists"></a><a class="anchor-link" href="#">¶</a></h6><h1 id="Create-file-lists">Create file lists<a class="anchor-link" href="#Create-file-lists">¶</a></h1><p>This data set contains science and calibration frames. For some programs, it could have different observed targets and exposure times depending on how you organize your raw data. The DRAGONS data reduction pipeline does not organize the data for you. You have to do it. DRAGONS provides tools to help you with that.</p>
-<p>The first step is to create lists that will be used in the data reduction process. For that, we use dataselect. Please refer to the <a href="https://dragons.readthedocs.io/projects/recipe-system-users-manual/en/stable/supptools/dataselect.html?highlight=dataselect">dataselect</a> documentation for details regarding its usage.</p>
+<p>The first step is to create lists that will be used in the data reduction process.</p>
 </div>
 </div>
 </div>
@@ -8094,7 +8064,7 @@ mv<span class="w"> </span>*fits<span class="w"> </span>raw/
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">intermediate</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span> <span class="o">==</span> <span class="s1">'.fits'</span><span class="p">:</span>
             <span class="n">new_all_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="c1">#print(new_all_files)</span>
+    
     <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%i</span><span class="s1"> files in the list.'</span><span class="o">%</span><span class="k">len</span>(new_all_files))
 
     <span class="k">return</span> <span class="n">new_all_files</span>
@@ -8112,15 +8082,17 @@ mv<span class="w"> </span>*fits<span class="w"> </span>raw/
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">reduce_func</span><span class="p">(</span><span class="n">files_list</span><span class="p">,</span><span class="n">uparms</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">recipename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1">#Use DRAGONS' reduce function to reduce the provided list of files.</span>
+    <span class="c1">#By default, this function will use the default settings for reduce().</span>
+    <span class="c1">#uparms: This is a list of tuples with the primitive name and parameter in the first element and the value in the second e.g. [('stackFrames:operation', 'median')]. </span>
+    <span class="c1">#recipename: The name of the recipe to use e.g. 'makeIRAFCompatible'.</span>
     <span class="n">reduce</span> <span class="o">=</span> <span class="n">Reduce</span><span class="p">()</span>
     <span class="n">reduce</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">files_list</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">uparms</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="c1">#reduce_stdred.uparms = [('scaleCountsToReference:tolerance', 1)]</span>
         <span class="n">reduce</span><span class="o">.</span><span class="n">uparms</span> <span class="o">=</span> <span class="p">[</span><span class="n">uparms</span><span class="p">]</span>
     
     <span class="k">if</span> <span class="n">recipename</span><span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="c1">#reduce_stdred.recipename = 'reduceStandard'</span>
         <span class="n">reduce</span><span class="o">.</span><span class="n">recipename</span> <span class="o">=</span> <span class="n">recipename</span>
     
     <span class="n">reduce</span><span class="o">.</span><span class="n">runr</span><span class="p">()</span>
@@ -8137,7 +8109,7 @@ mv<span class="w"> </span>*fits<span class="w"> </span>raw/
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="biases"></a></p>
-<h1 id="Use-dataselect-to-choose-the-all-the-BIAS-files.">Use dataselect to choose the all the BIAS files.<a class="anchor-link" href="#Use-dataselect-to-choose-the-all-the-BIAS-files.">¶</a></h1>
+<h1 id="Select-and-reduce-biases">Select and reduce biases<a class="anchor-link" href="#Select-and-reduce-biases">¶</a></h1>
 </div>
 </div>
 </div>
@@ -8163,8 +8135,7 @@ mv<span class="w"> </span>*fits<span class="w"> </span>raw/
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><a class="anchor" id="Reduce_biases"></a></p>
-<h1 id="Use-reduce_func()-to-reduce-the-biases">Use reduce_func() to reduce the biases<a class="anchor-link" href="#Use-reduce_func()-to-reduce-the-biases">¶</a></h1>
+<h2 id="Use-reduce_func()-to-reduce-the-biases">Use reduce_func() to reduce the biases<a class="anchor-link" href="#Use-reduce_func()-to-reduce-the-biases">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8190,7 +8161,7 @@ mv<span class="w"> </span>*fits<span class="w"> </span>raw/
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="update_list_1"></a></p>
-<h2 id="DRAGONS'-reduce()-function-creates-a-lot-of-intermediate-files-that-are-stored-in-the-working-directory.-Before-calling-it-again,-we-first-need-to-udpate-our-list-of-files-using-update_list().">DRAGONS' reduce() function creates a lot of intermediate files that are stored in the working directory. Before calling it again, we first need to udpate our list of files using update_list().<a class="anchor-link" href="#DRAGONS'-reduce()-function-creates-a-lot-of-intermediate-files-that-are-stored-in-the-working-directory.-Before-calling-it-again,-we-first-need-to-udpate-our-list-of-files-using-update_list().">¶</a></h2>
+<h1 id="Update-list">Update list<a class="anchor-link" href="#Update-list">¶</a></h1><p>DRAGONS' reduce() function creates a lot of intermediate files that are stored in the working directory. Before calling it again, we first need to update our list of files using update_list().</p>
 </div>
 </div>
 </div>
@@ -8242,8 +8213,7 @@ mv<span class="w"> </span>*fits<span class="w"> </span>raw/
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><a class="anchor" id="Reduce_slit_biases"></a></p>
-<h1 id="Reduce-the-slit-biases.">Reduce the slit biases.<a class="anchor-link" href="#Reduce-the-slit-biases.">¶</a></h1>
+<h2 id="Reduce-the-slit-biases.">Reduce the slit biases.<a class="anchor-link" href="#Reduce-the-slit-biases.">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8375,7 +8345,7 @@ mv<span class="w"> </span>*fits<span class="w"> </span>raw/
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Reduce-the-red-science-biases.">Reduce the red science biases.<a class="anchor-link" href="#Reduce-the-red-science-biases.">¶</a></h1>
+<h1 id="Reduce-the-blue-science-biases.">Reduce the blue science biases.<a class="anchor-link" href="#Reduce-the-blue-science-biases.">¶</a></h1>
 </div>
 </div>
 </div>
@@ -8485,7 +8455,7 @@ mv<span class="w"> </span>*fits<span class="w"> </span>raw/
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="clean_up_1"></a></p>
-<h1 id="Clean-up">Clean-up<a class="anchor-link" href="#Clean-up">¶</a></h1><h3 id="GHOST-reduction-creates-a-lot-of,-often-big,-files-in-the-work-directory.-It-is-recommended-to-clean-up-between-each-reduction-phase.-If-you-want-to-save-the-intermediate-files,-move-them-(mv)-somewhere-else.-In-this-tutorial,-we-will-simply-delete-them.">GHOST reduction creates a lot of, often big, files in the work directory. It is recommended to clean up between each reduction phase. If you want to save the intermediate files, move them (mv) somewhere else. In this tutorial, we will simply delete them.<a class="anchor-link" href="#GHOST-reduction-creates-a-lot-of,-often-big,-files-in-the-work-directory.-It-is-recommended-to-clean-up-between-each-reduction-phase.-If-you-want-to-save-the-intermediate-files,-move-them-(mv)-somewhere-else.-In-this-tutorial,-we-will-simply-delete-them.">¶</a></h3>
+<h1 id="Clean-up">Clean-up<a class="anchor-link" href="#Clean-up">¶</a></h1><p>GHOST reduction creates a lot of, often big, files in the working directory. It is recommended to clean up between each reduction phase. If you want to save the intermediate files, move them (mv) somewhere else. In this tutorial, we will simply delete them.</p>
 </div>
 </div>
 </div>
@@ -9392,6 +9362,7 @@ rm<span class="w"> </span>*fits
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">expression</span> <span class="o">=</span> <span class="s2">"object=='XX Oph'"</span>
 <span class="n">parsed_expr</span> <span class="o">=</span> <span class="n">dataselect</span><span class="o">.</span><span class="n">expr_parser</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
 <span class="n">sciblue</span> <span class="o">=</span> <span class="n">dataselect</span><span class="o">.</span><span class="n">select_data</span><span class="p">(</span><span class="n">new_all_files7</span><span class="p">,</span> <span class="p">[</span><span class="s1">'BLUE'</span><span class="p">],</span> <span class="p">[])</span>
+<span class="n">sciblue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">sciblue</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9481,7 +9452,7 @@ rm<span class="w"> </span>*fits
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="write1DSpectra"></a></p>
-<h3 id="If-you-would-like-to-save-the-finished-spectra-as-text-files-instead-of-fits-files,-use-the-write1DSpectra-recipe-as-demonstrated-in-the-following-two-cells.">If you would like to save the finished spectra as text files instead of fits files, use the write1DSpectra recipe as demonstrated in the following two cells.<a class="anchor-link" href="#If-you-would-like-to-save-the-finished-spectra-as-text-files-instead-of-fits-files,-use-the-write1DSpectra-recipe-as-demonstrated-in-the-following-two-cells.">¶</a></h3>
+<h1 id="Save-1D-Spectra">Save 1D Spectra<a class="anchor-link" href="#Save-1D-Spectra">¶</a></h1><p>If you would like to save the finished spectra as text files instead of fits files, use the write1DSpectra recipe as demonstrated in the following two cells.</p>
 </div>
 </div>
 </div>
@@ -9523,7 +9494,7 @@ rm<span class="w"> </span>*fits
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="Save_plot"></a></p>
-<h3 id="If-you-want-to-save-a-PNG-stamp-plot-of-the-reduced-red-and-blue-spectra,-run-the-following-cell.-You-also-have-the-option-to-save-the-image-in-a-different-format,-including-SVG,-eps,-and-PS,-by-replacing-'PNG'-in-the-second-to-last-line-with-your-desired-format.">If you want to save a PNG stamp plot of the reduced red and blue spectra, run the following cell. You also have the option to save the image in a different format, including SVG, eps, and PS, by replacing 'PNG' in the second to last line with your desired format.<a class="anchor-link" href="#If-you-want-to-save-a-PNG-stamp-plot-of-the-reduced-red-and-blue-spectra,-run-the-following-cell.-You-also-have-the-option-to-save-the-image-in-a-different-format,-including-SVG,-eps,-and-PS,-by-replacing-'PNG'-in-the-second-to-last-line-with-your-desired-format.">¶</a></h3>
+<h1 id="Save-reduced-spectra">Save reduced spectra<a class="anchor-link" href="#Save-reduced-spectra">¶</a></h1><p>If you want to save a PNG stamp plot of the reduced red and blue spectra, run the following cell. You also have the option to save the image in a different format, including SVG, eps, and PS, by replacing 'PNG' in the second to last line with your desired format.</p>
 </div>
 </div>
 </div>
@@ -9633,7 +9604,7 @@ rm<span class="w"> </span>*fits
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="IRAF_compatible"></a></p>
-<h1 id="Note:-This-notebook's-finished-products-conform-to-DRAGONS'-fits-standards-which-does-not-comply-with-what-IRAF-expects.-If-you-would-like-the-final-reduced-spectra-to-be-compatible-with-IRAF,-you-can-use-the-makeIRAFCompatible-recipe-as-shown-below.-(Uncomment-before-running.)">Note: This notebook's finished products conform to DRAGONS' fits standards which does not comply with what IRAF expects. If you would like the final reduced spectra to be compatible with IRAF, you can use the makeIRAFCompatible recipe as shown below. (Uncomment before running.)<a class="anchor-link" href="#Note:-This-notebook's-finished-products-conform-to-DRAGONS'-fits-standards-which-does-not-comply-with-what-IRAF-expects.-If-you-would-like-the-final-reduced-spectra-to-be-compatible-with-IRAF,-you-can-use-the-makeIRAFCompatible-recipe-as-shown-below.-(Uncomment-before-running.)">¶</a></h1>
+<h1 id="Make-IRAF-compatible">Make IRAF compatible<a class="anchor-link" href="#Make-IRAF-compatible">¶</a></h1><p>This notebook's finished products conform to DRAGONS' fits standards which does not comply with what IRAF expects. If you would like the final reduced spectra to be compatible with IRAF, you can use the makeIRAFCompatible recipe as shown below. (Uncomment before running.)</p>
 </div>
 </div>
 </div>
@@ -9680,7 +9651,7 @@ rm<span class="w"> </span>*fits
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="This-notebook-has-only-used-DRAGONS'-default-options.-If-you-would-like-all-the-individual-exposures-to-be-reduced-seperately,-you-can-look-into-the-combineOrders()-command.">This notebook has only used DRAGONS' default options. If you would like all the individual exposures to be reduced seperately, you can look into the <a href="https://dragons.readthedocs.io/projects/ghost-drtutorial/en/stable/ex1_ghost_stdonetarget_cmdline.html#alternative-data-products">combineOrders()</a> command.<a class="anchor-link" href="#This-notebook-has-only-used-DRAGONS'-default-options.-If-you-would-like-all-the-individual-exposures-to-be-reduced-seperately,-you-can-look-into-the-combineOrders()-command.">¶</a></h1>
+<p>This notebook has only used DRAGONS' default options. If you would like all the individual exposures to be reduced seperately, you can look into the <a href="https://dragons.readthedocs.io/projects/ghost-drtutorial/en/stable/ex1_ghost_stdonetarget_cmdline.html#alternative-data-products">combineOrders()</a> command.</p>
 </div>
 </div>
 </div>
@@ -9704,13 +9675,13 @@ rm<span class="w"> </span>*fits
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#clean_up(save_reduced=1)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># clean_up(save_reduced=1)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=340a15ba-a217-4d9e-805c-5de8ca5bafed">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=854e8435-a1a2-497a-a985-e2456d58312a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
