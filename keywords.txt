@@ -6,6 +6,7 @@ cluster
 convolution
 crossmatch
 data reduction
+desi spectra
 DRAGONS
 dwarf galaxies
 Exploratory Analysis
@@ -15,6 +16,7 @@ galaxies
 Gemini
 gemini llp
 GMOS
+Gravitational wave events
 Healpix map
 histogram
 HowTo
@@ -46,6 +48,7 @@ plot:color-color
 plot:histogram
 plot:quiver
 proper motions
+prospect
 Python
 quasars
 query
@@ -62,11 +65,13 @@ spectra
 spectra stacking
 spectroscopic redshift
 spectroscopy
+specutils
 SQL
 star clusters
 stars
 Supervised Machine Learning
 tap
+time domain
 time series
 token
 transient

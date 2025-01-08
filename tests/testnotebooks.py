@@ -1,5 +1,5 @@
-__version__ = '20230620'
-__author__ = 'Robert Nikutta <robert.nikutta@noirlab.edu>'
+__author__ = 'Robert Nikutta <robert.nikutta@noirlab.edu>, Data Lab Team <datalab@noirlab.edu>'
+__version__ = '20240920'
 
 # imports
 
@@ -267,15 +267,11 @@ def get_kernel_name(nbpath,default='python3'):
 
     return kernel
 
+def get_nbs(paths,include=('/**/*.ipynb',),exclude=('/**/*_tested.ipynb',)):
 
-def run(paths,include=('/**/*.ipynb',),exclude=('/**/*_tested.ipynb',),plain=False):
+    """Construct a list of all *.ipynb files to run.
 
-    """Run *.ipynb files via nbconvert and report PASS/FAIL test matrix.
-
-    Also record runtime for each notebook file.
-
-    Run all notebooks found in `paths`, possibly excluding those that
-    match name patterns given by `exclude`.
+    Run all notebooks found in `paths`, excluding those that match name patterns given by `exclude`.
 
     Parameters:
     -----------
@@ -292,19 +288,42 @@ def run(paths,include=('/**/*.ipynb',),exclude=('/**/*_tested.ipynb',),plain=Fal
     exclude_default: str or tuple
         See docstring of :func:`myglob`.
 
-    plain: bool
-        If False (the default, for usage in Jupyter and color-aware
-        terminals), report errors with ANSI escape codes for color. If
-        True, filter out these escape codes (i.e. print in plain text)
 
+    Returns:
+    --------
+
+    nbs : list
+        List of valid notebook files to test.
     """
-    
+
     nbs = myglob(paths,include=include,exclude=exclude)
     
     print()
     cprint('Will test these notebooks:',bar=0,color='yellow',frame=False,pad='')
     pprint(nbs)
     cprint('Number of notebooks: ' + str(len(nbs)),bar=0,color='yellow',frame=False,pad='',newline=True)
+    
+    return nbs
+
+
+def run(nbs,plain=False):
+
+    """Run *.ipynb files given in the `nbs` list via nbconvert and report PASS/FAIL test matrix.
+
+    Also record runtime for each notebook file.
+
+    Parameters:
+    -----------
+
+    nbs: list
+        List of notebook files (full paths) to run in the test.
+
+    plain: bool
+        If False (the default, for usage in Jupyter and color-aware
+        terminals), report errors with ANSI escape codes for color. If
+        True, filter out these escape codes (i.e. print in plain text)
+
+    """
     
     tests = []  # will record test results per notebook file
         
@@ -315,6 +334,8 @@ def run(paths,include=('/**/*.ipynb',),exclude=('/**/*_tested.ipynb',),plain=Fal
         print('TESTING NOTEBOOK %d/%d: %s' % (j+1,len(nbs),nbfile))
 
         kernel = get_kernel_name(nbfile)
+
+        print('Running under kernel: %s' % kernel)
         
         # run NB; trap when the kernel died (likely due to RAM exhaustion), or if kernel is not present
         try:
@@ -362,7 +383,7 @@ def run(paths,include=('/**/*.ipynb',),exclude=('/**/*_tested.ipynb',),plain=Fal
     fgcolor = lambda x: 'color: white'
     fontweight = lambda x: 'font-weight: bold'
     
-    testresults = df.style.applymap(bgcolor,subset=subset).applymap(fgcolor,subset=subset).applymap(fontweight,subset=subset)
+    testresults = df.style.map(bgcolor,subset=subset).map(fgcolor,subset=subset).map(fontweight,subset=subset)
     
     return testresults
 
@@ -380,24 +401,29 @@ if __name__ == '__main__':
     #
     # Examples:
     #
-    #paths = '../01_GettingStartedWithDataLab/'  # test ony notebooks in 01_GetttingStartedWithDataLab/ directory
+    #paths = '../01_GettingStartedWithDataLab/'  # test ony notebooks in 01_GettingStartedWithDataLab/ directory
     #paths = ('../01_GettingStartedWithDataLab/','../02_DataAccessOverview/')  # test notebooks in these two directories
     #paths = ('../01_GettingStartedWithDataLab/02_GettingStartedWithDataLab.ipynb','../02_DataAccessOverview/')  # test one NB in 01... dir, and all NBs in 02... dir
     paths = '../' # test all notebooks that are not excluded below
 
     # List pattern of notebook names, and/or paths, to exclude from testing.
-    # ** means "any number of intermediate directries"
-    # * means "any number if intermediate characters in this directory"
+    # ** means "any number of intermediate directories"
+    # * means "any number of intermediate characters in this directory"
     # A few default notebooks are explicitly excluded here b/c they absolutely require interactive execution.
     # A few others are temporarily excluded until they will be fixed.
-    exclude = ('**/*AuthClient.ipynb','**/Rowstore*.ipynb','**/e-Teen*/**/*ipynb')
+    exclude = ('**/*AuthClient.ipynb','**/Rowstore*.ipynb','**/e-Teen*/**/*ipynb',
+               '**/DRAGONS_reduction_examples/GMOS_longslit_WhiteDwarf/GMOS_longslit_WhiteDwarf.ipynb',
+               '**/DRAGONS_reduction_examples/GSAOI_Imaging_EllipticalGalaxy/GSAOI_Imaging_EllipticalGalaxy.ipynb')
     
     # log in to Data Lab once
     cprint('Login to Data Lab',color='yellow',bar=0,pad='')
     token = login(input('Username: '),getpass('Password: '))
 
+    # get list of notebooks to run
+    nbs = get_nbs(paths=paths,exclude=exclude)
+    
     # run the tests (this can take a while)
-    testresults = run(paths=paths,exclude=exclude,plain=True)
+    testresults = run(nbs,plain=True)
 
     stop = time.time()
     cprint('Total runtime: %g seconds' % (stop-start),color='yellow',bar=0,pad='',newline=True)
