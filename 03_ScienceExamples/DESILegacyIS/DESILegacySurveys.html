@@ -7519,7 +7519,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">'David Herrera &lt;david.herrera@noirlab.edu&gt;, Robert Nikutta &lt;robert.nikutta@noirlab.edu&gt; and the Astro Data Lab Team &lt;datalab@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250108'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250109'</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'ls_dr6'</span><span class="p">,</span><span class="s1">'ls_dr7'</span><span class="p">,</span><span class="s1">'ls_dr8'</span><span class="p">,</span><span class="s1">'ls_dr9'</span><span class="p">,</span><span class="s1">'allwise'</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'extragalactic'</span><span class="p">,</span><span class="s1">'galaxies'</span><span class="p">,</span><span class="s1">'joint query'</span><span class="p">,</span><span class="s1">'legacy survey'</span><span class="p">,</span><span class="s1">'desi'</span><span class="p">]</span>
 <span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'nb0068'</span>
@@ -7578,14 +7578,14 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>The DESI Legacy Imaging Surveys are a set of photometric surveys conducted for target identification for the Dark Energy Spectroscopic Instrument (DESI) survey, currently under way on the NOIRLab/Kitt Peak Mayall 4m telescope. Once finished, the DESI Survey will feature up to 40 million individual galaxy spectra, and help answer questions about the nature of Dark Energy in the universe.</p>
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>The DESI Legacy Imaging Surveys are a set of photometric surveys conducted for target identification for the Dark Energy Spectroscopic Instrument (DESI) survey, currently underway on the NOIRLab/Kitt Peak Mayall 4m telescope. Once finished, the DESI Survey will feature up to 40 million individual galaxy spectra, and help answer questions about the nature of Dark Energy in the universe.</p>
 <p>The Legacy Imaging Surveys comprise three individual surveys:</p>
 <ul>
 <li>Dark Energy Camera Legacy Survey (DECaLS)</li>
 <li>Beijing-Arizona Sky Survey (BASS)</li>
 <li>Mayall z-band Legacy Survey (MzLS)</li>
 </ul>
-<p>of the Northern sky, collected on the Kitt Peak National Observatory (KPNO) and the Cerro Tololo Inter-American Observatory (CTIO). Jointly these surveys have imaged over 14,000 squere degrees in the g,r,z bands.</p>
+<p>of the Northern sky, collected on the Kitt Peak National Observatory (KPNO) and the Cerro Tololo Inter-American Observatory (CTIO). Jointly these surveys have imaged over 14,000 square degrees in the g, r, and z bands.</p>
 <p>In this notebook we will reproduce several figures from the overview paper:</p>
 <ul>
 <li>Fig 2: Query the catalogs for LS healpixel positions and construct an all-sky map (from LS DR8)</li>
@@ -8700,7 +8700,7 @@ WHERE Q3C_JOIN(a.ra,a.dec,l.ra,l.dec,1/3600.)
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="Fig15"></a></p>
-<h1 id="Fig.-15---Survey-depth-for-point-sources">Fig. 15 - Survey depth for point sources<a class="anchor-link" href="#Fig.-15---Survey-depth-for-point-sources">¶</a></h1><p>Now we are going to calculate the depth for point sources in DRs 6, 7, and 9, for each band <em>g,r,z</em> following the prescription in the original paper. Our queries will be against the 'bricks' tables -- survey summary tables which contain information, for instance, on the number of sources detected in each "brick".</p>
+<h1 id="Fig.-15---Survey-depth-for-point-sources">Fig. 15 - Survey depth for point sources<a class="anchor-link" href="#Fig.-15---Survey-depth-for-point-sources">¶</a></h1><p>Now, we will calculate the depth for point sources in DRs 6, 7, and 9 for each band <em>g, r, z</em> following the prescription in the original paper. Our queries will be against the 'bricks' tables -- survey summary tables which contain information, for instance, on the number of sources detected in each "brick".</p>
 <p>We first define some minimum requirements for each query:</p>
 </div>
 </div>
