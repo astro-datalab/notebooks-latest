@@ -1,3 +1,4 @@
+allwise
 ANTARES
 authentication
 catalogues
@@ -28,6 +29,7 @@ IRAF
 joint query
 Jupyter
 La Serena School for Data Science
+legacy survey
 lightcurve
 LMC
 login
