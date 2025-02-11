@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href='/static/xsl/vosi.xsl' type='text/xsl'?>
+<cap:capabilities xmlns:cap="http://www.ivoa.net/xml/VOSICapabilities/v1.0" xmlns:tr="http://www.ivoa.net/xml/TAPRegExt/v1.0" xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0" xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ivoa.net/xml/VOSICapabilities/v1.0 http://vo.ari.uni-heidelberg.de/docs/schemata/VOSICapabilities-v1.0.xsd http://www.ivoa.net/xml/TAPRegExt/v1.0 http://vo.ari.uni-heidelberg.de/docs/schemata/TAPRegExt-v1.0.xsd http://www.ivoa.net/xml/VORegistry/v1.0 http://vo.ari.uni-heidelberg.de/docs/schemata/VORegistry-v1.0.xsd http://www.ivoa.net/xml/VOResource/v1.0 http://vo.ari.uni-heidelberg.de/docs/schemata/VOResource-v1.1.xsd http://www.ivoa.net/xml/VODataService/v1.1 http://vo.ari.uni-heidelberg.de/docs/schemata/VODataService-v1.1.xsd">
+  <capability standardID="ivo://ivoa.net/std/VOSI#availability">
+    <description>one</description>
+    <description>two</description>
+  </capability>
+</cap:capabilities>

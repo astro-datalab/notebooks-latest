@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href='/static/xsl/tap-job-to-html.xsl' type='text/xsl'?>
+<uws:job xmlns:uws="http://www.ivoa.net/xml/UWS/v1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1" xsi:schemaLocation="http://www.ivoa.net/xml/UWS/v1.0 http://vo.ari.uni-heidelberg.de/docs/schemata/UWS-1.1.xsd http://www.w3.org/1999/xlink http://vo.ari.uni-heidelberg.de/docs/schemata/xlink.xsd">
+  <uws:jobId>1337</uws:jobId>
+  <uws:ownerId xsi:nil="true"/>
+  <uws:phase>COMPLETED</uws:phase>
+  <uws:quote>2018-01-01T02:00:00Z</uws:quote>
+  <uws:creationTime>2018-01-01T00:00:00Z</uws:creationTime>
+  <uws:startTime>2018-01-01T00:05:00Z</uws:startTime>
+  <uws:endTime>2018-01-01T02:00:00Z</uws:endTime>
+  <uws:executionDuration>7200</uws:executionDuration>
+  <uws:destruction>2018-02-01T00:00:00Z</uws:destruction>
+  <uws:parameters>
+    <uws:parameter id="lang">ADQL</uws:parameter>
+    <uws:parameter id="maxrec"/>
+    <uws:parameter id="query">SELECT 'test'</uws:parameter>
+    <uws:parameter id="request">doQuery</uws:parameter>
+    <uws:parameter id="responseformat"/>
+    <uws:parameter id="upload"/>
+  </uws:parameters>
+  <uws:results>
+    <uws:result id="result" xlink:href="http://example.com/tap/async/1337/results/result"/>
+  </uws:results>
+</uws:job>

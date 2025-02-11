@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Produced with astropy.io.votable version 5.0.1
+     https://www.astropy.org/ -->
+<VOTABLE version="1.4" xmlns="http://www.ivoa.net/xml/VOTable/v1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.3 http://www.ivoa.net/xml/VOTable/VOTable-1.4.xsd">
+ <RESOURCE type="results">
+  <INFO ID="QUERY_STATUS" name="QUERY_STATUS" value="OK">OK</INFO>
+  <TABLE>
+   <FIELD ID="dataformat" arraysize="42" datatype="unicodeChar" name="dataformat" ucd="meta.code.mime"/>
+   <FIELD ID="dataurl" arraysize="49" datatype="char" name="dataurl" ucd="meta.dataset;meta.ref.url" utype="Access.Reference"/>
+   <DATA>
+    <TABLEDATA>
+     <TR>
+      <TD>image/fits</TD>
+      <TD>http://example.com/querydata/image.fits</TD>
+     </TR>
+     <TR>
+      <TD>application/x-votable+xml</TD>
+      <TD>http://example.com/querydata/votable.xml</TD>
+     </TR>
+     <TR>
+      <TD>application/x-votable+xml;content=datalink</TD>
+      <TD>http://example.com/querydata/votable-datalink.xml</TD>
+     </TR>
+    </TABLEDATA>
+   </DATA>
+  </TABLE>
+ </RESOURCE>
+</VOTABLE>

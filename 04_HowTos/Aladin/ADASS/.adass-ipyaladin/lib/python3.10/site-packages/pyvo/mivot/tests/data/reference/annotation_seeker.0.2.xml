@@ -1,0 +1,44 @@
+<TEMPLATES tableref="Results">
+  <INSTANCE dmid="_ts_data" dmrole="" dmtype="cube:NDPoint">
+    <COLLECTION dmrole="cube:NDPoint.observable" dmtype="root_collection">
+      <INSTANCE dmtype="cube:Observable">
+        <ATTRIBUTE dmrole="cube:DataAxis.dependent" dmtype="ivoa:boolean" value="False">
+          </ATTRIBUTE>
+      <INSTANCE dmrole="cube:MeasurementAxis.measure" dmtype="meas:Time">
+          <INSTANCE dmrole="meas:Time.coord" dmtype="coords:MJD">
+            <ATTRIBUTE dmrole="coords:MJD.date" dmtype="ivoa:real" ref="_obstime">
+              </ATTRIBUTE>
+          <REFERENCE_3 dmrole="coords:Coordinate.coordSys" dmref="_timesys">
+              </REFERENCE_3>
+          </INSTANCE>
+        </INSTANCE>
+      </INSTANCE>
+    <INSTANCE dmtype="cube:Observable">
+        <ATTRIBUTE dmrole="cube:DataAxis.dependent" dmtype="ivoa:boolean" value="True">
+          </ATTRIBUTE>
+      <INSTANCE dmrole="cube:MeasurementAxis.measure" dmtype="meas:GenericMeasure">
+          <INSTANCE dmrole="meas:GenericMeasure.coord" dmtype="coords:PhysicalCoordinate">
+            <ATTRIBUTE dmrole="coords:PhysicalCoordinate.cval" dmtype="ivoa:RealQuantity" ref="_mag">
+              </ATTRIBUTE>
+          </INSTANCE>
+        </INSTANCE>
+      </INSTANCE>
+    <INSTANCE dmtype="cube:Observable">
+        <ATTRIBUTE dmrole="cube:DataAxis.dependent" dmtype="ivoa:boolean" value="True">
+          </ATTRIBUTE>
+      <INSTANCE dmrole="cube:MeasurementAxis.measure" dmtype="meas:GenericMeasure">
+          <INSTANCE dmrole="meas:GenericMeasure.coord" dmtype="coords:PhysicalCoordinate">
+            <ATTRIBUTE dmrole="coords:PhysicalCoordinate.cval" dmtype="ivoa:RealQuantity" ref="_flux">
+              </ATTRIBUTE>
+          </INSTANCE>
+        <INSTANCE dmrole="meas:Measure.error" dmtype="meas:Error">
+            <INSTANCE dmrole="meas:Error.statError" dmtype="meas:Symmetrical">
+              <ATTRIBUTE dmrole="meas:Symmetrical.radius" dmtype="ivoa:RealQuantity" ref="_fluxerr">
+                </ATTRIBUTE>
+            </INSTANCE>
+          </INSTANCE>
+        </INSTANCE>
+      </INSTANCE>
+    </COLLECTION>
+  </INSTANCE>
+</TEMPLATES>

@@ -1,0 +1,26 @@
+#CRTFv0
+global coord=B1950, frame=BARY, corr=[I, Q], color=blue
+
+# A simple circle region:
+ann circle[[18h12m24s, -23d11m00s], 2.3arcsec]
+
+# A box region, this one only for annotation: (Not Implemented )
+# ann box[[140.0342deg, -12.34243deg], [140.0360deg, -12.34320deg]]
+
+# A rotated box region, for a particular range of velocities:
+rotbox[[12h01m34.1s, 12d23m32s], [3arcmin, 1arcmin], 12deg], range=[-1240km/s, 1240km/s]
+
+# An annular region, overriding some of the global defaults:
+annulus[[17h51m03.2s, -45d17m50s], [0.10deg, 4.12deg]], corr=[I,Q,U,V], color=red, label='My label here'
+
+# Cuts an ellipse out of the previous regions, but only for Q and a particular frequency range:
+-ellipse[[12deg, +45deg], [0.25deg, 1.34deg], 45rad], range=[1.420GHz, 1.421GHz], corr=[Q], color=green, label='Removed this'
+
+# A diamond marker, in J2000 coordinates:
+symbol[[32.1423deg, 12.1412deg], D], linewidth=2, coord=J2000, symsize=2
+
+# Text region
+text[[32.1423deg, 12.1412deg], 'my text'], linewidth=2, coord=J2000
+
+# Box region
+box[[1deg, 2deg], [3deg, 4deg]]

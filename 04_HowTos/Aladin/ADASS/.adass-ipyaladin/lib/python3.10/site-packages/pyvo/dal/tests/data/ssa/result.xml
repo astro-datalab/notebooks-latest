@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="xmlns:http://www.ivoa.net/xml/VOTable/VOTable-1.1.xsd"
+ xmlns:ssa="http:www.ivoa.net/xml/DalSsap/v1.0" version="1.1">
+<RESOURCE type="results">
+<DESCRIPTION>DALServer proxy service for JHU spectrum services</DESCRIPTION>
+<INFO name="QUERY_STATUS" value="OK"/>
+<INFO name="REQUEST" value="queryData"/>
+<INFO name="POS" value="180.0,1.0"/>
+<INFO name="SIZE" value="0.2"/>
+<INFO name="FORMAT" value="votable"/>
+<INFO name="Collection" value="ivo://jhu/sdss/dr6/spec/2.5"/>
+<INFO name="ServiceEngine" value="JhuSsapServlet: SSAP version 1.0 DALServer version 0.3"/>
+<INFO name="TableRows" value="35"/>
+<TABLE>
+<FIELD ID="Score" name="Score" datatype="float" utype="ssa:Query.Score">
+<DESCRIPTION>Degree of match to query parameters</DESCRIPTION>
+</FIELD>
+<FIELD ID="AcRef" name="AcRef" datatype="char" ucd="meta.ref.url" utype="ssa:Access.Reference" arraysize="*">
+<DESCRIPTION>URL used to access dataset</DESCRIPTION>
+</FIELD>
+<FIELD ID="Format" name="Format" datatype="char" utype="ssa:Access.Format" arraysize="*">
+<DESCRIPTION>Content or MIME type of dataset</DESCRIPTION>
+</FIELD>
+<FIELD ID="DataModel" name="DataModel" datatype="char" utype="ssa:Dataset.DataModel" arraysize="*">
+<DESCRIPTION>Datamodel name and version</DESCRIPTION>
+</FIELD>
+<FIELD ID="DatasetType" name="DatasetType" datatype="char" utype="ssa:Dataset.Type" arraysize="*">
+<DESCRIPTION>Dataset or segment type</DESCRIPTION>
+</FIELD>
+<FIELD ID="DataLength" name="DataLength" datatype="long" ucd="meta.number" utype="ssa:Dataset.Length">
+<DESCRIPTION>Number of points</DESCRIPTION>
+</FIELD>
+<FIELD ID="TimeSI" name="TimeSI" datatype="char" utype="ssa:Dataset.TimeSI" arraysize="*">
+<DESCRIPTION>SI factor and dimensions</DESCRIPTION>
+</FIELD>
+<FIELD ID="SpectralSI" name="SpectralSI" datatype="char" utype="ssa:Dataset.SpectralSI" arraysize="*">
+<DESCRIPTION>SI factor and dimensions</DESCRIPTION>
+</FIELD>
+<FIELD ID="FluxSI" name="FluxSI" datatype="char" utype="ssa:Dataset.FluxSI" arraysize="*">
+<DESCRIPTION>SI factor and dimensions</DESCRIPTION>
+</FIELD>
+<FIELD ID="Title" name="Title" datatype="char" ucd="meta.title;meta.dataset" utype="ssa:DataID.Title" arraysize="*">
+<DESCRIPTION>Dataset Title</DESCRIPTION>
+</FIELD>
+<FIELD ID="Creator" name="Creator" datatype="char" utype="ssa:DataID.Creator" arraysize="*">
+<DESCRIPTION>Dataset creator</DESCRIPTION>
+</FIELD>
+<FIELD ID="Collection" name="Collection" datatype="char" utype="ssa:DataID.Collection" arraysize="*">
+<DESCRIPTION>Data collection to which dataset belongs</DESCRIPTION>
+</FIELD>
+<FIELD ID="CreatorDID" name="CreatorDID" datatype="char" ucd="meta.id" utype="ssa:DataID.CreatorDID" arraysize="*">
+<DESCRIPTION>Creator's ID for the dataset</DESCRIPTION>
+</FIELD>
+<FIELD ID="CreatorDate" name="CreatorDate" datatype="char" ucd="time;meta.dataset" utype="ssa:DataID.Date" arraysize="*">
+<DESCRIPTION>Data processing/creation date</DESCRIPTION>
+</FIELD>
+<FIELD ID="CreatorVersion" name="CreatorVersion" datatype="char" ucd="meta.version;meta.dataset" utype="ssa:DataID.Version" arraysize="*">
+<DESCRIPTION>Version of dataset</DESCRIPTION>
+</FIELD>
+<FIELD ID="DatasetID" name="DatasetID" datatype="char" ucd="meta.id;meta.dataset" utype="ssa:DataID.DatasetID" arraysize="*">
+<DESCRIPTION>IVOA Dataset ID</DESCRIPTION>
+</FIELD>
+<FIELD ID="Instrument" name="Instrument" datatype="char" ucd="meta.id;instr" utype="ssa:DataID.Instrument" arraysize="*">
+<DESCRIPTION>Instrument name</DESCRIPTION>
+</FIELD>
+<FIELD ID="Bandpass" name="Bandpass" datatype="char" ucd="instr.bandpass" utype="ssa:DataID.Bandpass" arraysize="*">
+<DESCRIPTION>Band as in RSM Coverage.Spectral</DESCRIPTION>
+</FIELD>
+<FIELD ID="DataSource" name="DataSource" datatype="char" utype="ssa:DataID.DataSource" arraysize="*">
+<DESCRIPTION>Original source of the data</DESCRIPTION>
+</FIELD>
+<FIELD ID="CreationType" name="CreationType" datatype="char" utype="ssa:DataID.CreationType" arraysize="*">
+<DESCRIPTION>Dataset creation type</DESCRIPTION>
+</FIELD>
+<FIELD ID="Publisher" name="Publisher" datatype="char" ucd="meta.curation" utype="ssa:Curation.Publisher" arraysize="*">
+<DESCRIPTION>Dataset publisher</DESCRIPTION>
+</FIELD>
+<FIELD ID="PublisherDID" name="PublisherDID" datatype="char" ucd="meta.ref.url;meta.curation" utype="ssa:Curation.PublisherDID" arraysize="*">
+<DESCRIPTION>Publisher's ID for the dataset ID</DESCRIPTION>
+</FIELD>
+<FIELD ID="Rights" name="Rights" datatype="char" utype="ssa:Curation.Rights" arraysize="*">
+<DESCRIPTION>Restrictions on data access</DESCRIPTION>
+</FIELD>
+<FIELD ID="TargetPos" name="TargetPos" datatype="double" ucd="pos.eq;src" utype="ssa:Target.Pos" arraysize="2" unit="deg">
+<DESCRIPTION>Target RA and Dec</DESCRIPTION>
+</FIELD>
+<FIELD ID="TargetName" name="TargetName" datatype="char" ucd="meta.id;src" utype="ssa:Target.Name" arraysize="*">
+<DESCRIPTION>Target name</DESCRIPTION>
+</FIELD>
+<FIELD ID="TargetClass" name="TargetClass" datatype="char" ucd="src.class" utype="ssa:Target.Class" arraysize="*">
+<DESCRIPTION>Object class of observed target</DESCRIPTION>
+</FIELD>
+<FIELD ID="Redshift" name="Redshift" datatype="double" ucd="src.redshift" utype="ssa:Target.Redshift">
+<DESCRIPTION>Target redshift</DESCRIPTION>
+</FIELD>
+<FIELD ID="VarAmpl" name="VarAmpl" datatype="float" ucd="src.var.amplitude" utype="ssa:Target.VarAmpl">
+<DESCRIPTION>Target variability amplitude (typical)</DESCRIPTION>
+</FIELD>
+<FIELD ID="SpaceFrameName" name="SpaceFrameName" datatype="char" utype="ssa:CoordSys.SpaceFrame.Name" arraysize="*">
+<DESCRIPTION>Spatial coordinate frame name</DESCRIPTION>
+</FIELD>
+<FIELD ID="SpaceFrameEquinox" name="SpaceFrameEquinox" datatype="double" ucd="time.equinox;pos.frame" utype="ssa:CoordSys.SpaceFrame.Equinox" unit="yr">
+<DESCRIPTION>Equinox</DESCRIPTION>
+</FIELD>
+<FIELD ID="TimeFrameName" name="TimeFrameName" datatype="char" ucd="time.scale" utype="ssa:CoordSys.TimeFrame.Name" arraysize="*">
+<DESCRIPTION>Timescale</DESCRIPTION>
+</FIELD>
+<FIELD ID="SpatialLocation" name="SpatialLocation" datatype="double" ucd="pos.eq" utype="ssa:Char.SpatialAxis.Coverage.Location.Value" arraysize="2" unit="deg">
+<DESCRIPTION>Spatial Position</DESCRIPTION>
+</FIELD>
+<FIELD ID="SpatialExtent" name="SpatialExtent" datatype="double" ucd="instr.fov" utype="ssa:Char.SpatialAxis.Coverage.Bounds.Extent" unit="deg">
+<DESCRIPTION>Aperture angular size</DESCRIPTION>
+</FIELD>
+<GROUP ID="Query" name="Query" utype="ssa:Query">
+<DESCRIPTION>Query Metadata</DESCRIPTION>
+<FIELDref ref="Score"/>
+</GROUP>
+<GROUP ID="Access" name="Access" utype="ssa:Access">
+<DESCRIPTION>Access Metadata</DESCRIPTION>
+<FIELDref ref="AcRef"/>
+<FIELDref ref="Format"/>
+<PARAM ID="DatasetSize" unit="byte" datatype="long" name="DatasetSize" utype="ssa:Access.Size" value="800000">
+<DESCRIPTION>Estimated dataset size</DESCRIPTION>
+</PARAM>
+</GROUP>
+<GROUP ID="Dataset" name="Dataset" utype="ssa:Dataset">
+<DESCRIPTION>General Dataset Metadata</DESCRIPTION>
+<FIELDref ref="DataModel"/>
+<FIELDref ref="DatasetType"/>
+<FIELDref ref="DataLength"/>
+<FIELDref ref="TimeSI"/>
+<FIELDref ref="SpectralSI"/>
+<FIELDref ref="FluxSI"/>
+</GROUP>
+<GROUP ID="DataID" name="DataID" utype="ssa:DataID">
+<DESCRIPTION>Dataset Identification Metadata</DESCRIPTION>
+<FIELDref ref="Title"/>
+<FIELDref ref="Creator"/>
+<FIELDref ref="Collection"/>
+<FIELDref ref="CreatorDID"/>
+<FIELDref ref="CreatorDate"/>
+<FIELDref ref="CreatorVersion"/>
+<FIELDref ref="DatasetID"/>
+<FIELDref ref="Instrument"/>
+<FIELDref ref="Bandpass"/>
+<FIELDref ref="DataSource"/>
+<FIELDref ref="CreationType"/>
+</GROUP>
+<GROUP ID="Curation" name="Curation" utype="ssa:Curation">
+<DESCRIPTION>Curation Metadata</DESCRIPTION>
+<FIELDref ref="Publisher"/>
+<FIELDref ref="PublisherDID"/>
+<FIELDref ref="Rights"/>
+</GROUP>
+<GROUP ID="Target" name="Target" utype="ssa:Target">
+<DESCRIPTION>Target Metadata</DESCRIPTION>
+<FIELDref ref="TargetPos"/>
+<FIELDref ref="TargetName"/>
+<FIELDref ref="TargetClass"/>
+<FIELDref ref="Redshift"/>
+<FIELDref ref="VarAmpl"/>
+</GROUP>
+<GROUP ID="CoordSys" name="CoordSys" utype="ssa:CoordSys">
+<DESCRIPTION>Coordinate System Metadata</DESCRIPTION>
+<FIELDref ref="SpaceFrameName"/>
+<FIELDref ref="SpaceFrameEquinox"/>
+<FIELDref ref="TimeFrameName"/>
+</GROUP>
+<GROUP ID="Char.SpatialAxis" name="Char.SpatialAxis" utype="ssa:Char.SpatialAxis">
+<DESCRIPTION>Spatial Axis Characterization</DESCRIPTION>
+<FIELDref ref="SpatialLocation"/>
+<FIELDref ref="SpatialExtent"/>
+</GROUP>
+<DATA>
+<TABLEDATA>
+<TR><TD>1.0</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261170552832</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115923.80+005905.16 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261170552832</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261170552832</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261170552832</TD><TD>PUBLIC</TD><TD>179.849160 0.984768</TD><TD>SDSS J115923.80+005905.16</TD><TD>GALAXY</TD><TD>0.451941</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.849160 0.984768</TD><TD></TD></TR>
+<TR><TD>1.0</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443407863906304</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115923.80+005905.16 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443407863906304</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443407863906304</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443407863906304</TD><TD>PUBLIC</TD><TD>179.849160 0.984768</TD><TD>SDSS J115923.80+005905.16</TD><TD>GALAXY</TD><TD>0.451707</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.849160 0.984768</TD><TD></TD></TR>
+<TR><TD>0.2182701723871967</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261472542720</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115955.84+010937.46 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261472542720</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261472542720</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261472542720</TD><TD>PUBLIC</TD><TD>179.982660 1.160404</TD><TD>SDSS J115955.84+010937.46</TD><TD>GALAXY</TD><TD>0.0783957</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.982660 1.160404</TD><TD></TD></TR>
+<TR><TD>0.2182701723871967</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443408233005056</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115955.84+010937.46 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408233005056</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408233005056</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443408233005056</TD><TD>PUBLIC</TD><TD>179.982660 1.160404</TD><TD>SDSS J115955.84+010937.46</TD><TD>GALAXY</TD><TD>0.0782823</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.982660 1.160404</TD><TD></TD></TR>
+<TR><TD>0.2152962973906383</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261447376896</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J120029.86+005857.51 SKY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261447376896</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261447376896</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261447376896</TD><TD>PUBLIC</TD><TD>180.124420 0.982641</TD><TD>SDSS J120029.86+005857.51</TD><TD>SKY</TD><TD>-9999</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>180.124420 0.982641</TD><TD></TD></TR>
+<TR><TD>0.2152962973906383</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443408224616448</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J120029.86+005857.51 SKY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408224616448</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408224616448</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443408224616448</TD><TD>PUBLIC</TD><TD>180.124420 0.982641</TD><TD>SDSS J120029.86+005857.51</TD><TD>SKY</TD><TD>-9999</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>180.124420 0.982641</TD><TD></TD></TR>
+<TR><TD>8.695981252317388E-7</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443408262365184</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J120008.29+010848.68 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408262365184</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408262365184</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443408262365184</TD><TD>PUBLIC</TD><TD>180.034560 1.146855</TD><TD>SDSS J120008.29+010848.68</TD><TD>GALAXY</TD><TD>3.19604E-05</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>180.034560 1.146855</TD><TD></TD></TR>
+<TR><TD>8.695981252317388E-7</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261464154112</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J120008.29+010848.68 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261464154112</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261464154112</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261464154112</TD><TD>PUBLIC</TD><TD>180.034560 1.146855</TD><TD>SDSS J120008.29+010848.68</TD><TD>GALAXY</TD><TD>3.05799E-05</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>180.034560 1.146855</TD><TD></TD></TR>
+<TR><TD>8.497366575010945E-7</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443408249782272</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115943.32+010204.53 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408249782272</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408249782272</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443408249782272</TD><TD>PUBLIC</TD><TD>179.930500 1.034592</TD><TD>SDSS J115943.32+010204.53</TD><TD>GALAXY</TD><TD>0.174046</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.930500 1.034592</TD><TD></TD></TR>
+<TR><TD>8.497366575010945E-7</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261510291456</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115943.32+010204.53 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261510291456</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261510291456</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261510291456</TD><TD>PUBLIC</TD><TD>179.930500 1.034592</TD><TD>SDSS J115943.32+010204.53</TD><TD>GALAXY</TD><TD>0.174079</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.930500 1.034592</TD><TD></TD></TR>
+<TR><TD>4.841872020928674E-7</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443408237199360</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J120020.57+010207.33 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408237199360</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408237199360</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443408237199360</TD><TD>PUBLIC</TD><TD>180.085720 1.035371</TD><TD>SDSS J120020.57+010207.33</TD><TD>GALAXY</TD><TD>0.198567</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>180.085720 1.035371</TD><TD></TD></TR>
+<TR><TD>4.841872020928674E-7</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261455765504</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J120020.57+010207.33 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261455765504</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261455765504</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261455765504</TD><TD>PUBLIC</TD><TD>180.085720 1.035371</TD><TD>SDSS J120020.57+010207.33</TD><TD>GALAXY</TD><TD>0.198618</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>180.085720 1.035371</TD><TD></TD></TR>
+<TR><TD>2.7872930478268343E-9</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261468348416</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115938.50+005726.95 QSO</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261468348416</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261468348416</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261468348416</TD><TD>PUBLIC</TD><TD>179.910430 0.957486</TD><TD>SDSS J115938.50+005726.95</TD><TD>QSO</TD><TD>-0.000255692</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.910430 0.957486</TD><TD></TD></TR>
+<TR><TD>2.7872930478268343E-9</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443408270753792</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115938.50+005726.95 QSO</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408270753792</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408270753792</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443408270753792</TD><TD>PUBLIC</TD><TD>179.910430 0.957486</TD><TD>SDSS J115938.50+005726.95</TD><TD>QSO</TD><TD>-0.00013688</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.910430 0.957486</TD><TD></TD></TR>
+<TR><TD>2.367640751371186E-9</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261459959808</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115949.74+010446.07 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261459959808</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261459959808</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261459959808</TD><TD>PUBLIC</TD><TD>179.957260 1.079465</TD><TD>SDSS J115949.74+010446.07</TD><TD>GALAXY</TD><TD>0.200457</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.957260 1.079465</TD><TD></TD></TR>
+<TR><TD>2.367640751371186E-9</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443408207839232</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115949.74+010446.07 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408207839232</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408207839232</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443408207839232</TD><TD>PUBLIC</TD><TD>179.957260 1.079465</TD><TD>SDSS J115949.74+010446.07</TD><TD>GALAXY</TD><TD>0.200352</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.957260 1.079465</TD><TD></TD></TR>
+<TR><TD>6.785416172617944E-12</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261162164224</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115904.60+005656.94 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261162164224</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261162164224</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261162164224</TD><TD>PUBLIC</TD><TD>179.769180 0.949151</TD><TD>SDSS J115904.60+005656.94</TD><TD>GALAXY</TD><TD>0.396087</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.769180 0.949151</TD><TD></TD></TR>
+<TR><TD>6.785416172617944E-12</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443407893266432</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115904.60+005656.94 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443407893266432</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443407893266432</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443407893266432</TD><TD>PUBLIC</TD><TD>179.769180 0.949151</TD><TD>SDSS J115904.60+005656.94</TD><TD>GALAXY</TD><TD>0.39605</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.769180 0.949151</TD><TD></TD></TR>
+<TR><TD>2.341439286296514E-14</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261501902848</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115944.85+005628.47 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261501902848</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261501902848</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261501902848</TD><TD>PUBLIC</TD><TD>179.936880 0.941241</TD><TD>SDSS J115944.85+005628.47</TD><TD>GALAXY</TD><TD>0.100913</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.936880 0.941241</TD><TD></TD></TR>
+<TR><TD>2.341439286296514E-14</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443408212033536</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115944.85+005628.47 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408212033536</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408212033536</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443408212033536</TD><TD>PUBLIC</TD><TD>179.936880 0.941241</TD><TD>SDSS J115944.85+005628.47</TD><TD>GALAXY</TD><TD>0.100891</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.936880 0.941241</TD><TD></TD></TR>
+<TR><TD>4.041185654538269E-15</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261187330048</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115928.97+005619.92 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261187330048</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261187330048</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261187330048</TD><TD>PUBLIC</TD><TD>179.870720 0.938866</TD><TD>SDSS J115928.97+005619.92</TD><TD>GALAXY</TD><TD>0.163847</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.870720 0.938866</TD><TD></TD></TR>
+<TR><TD>4.041185654538269E-15</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443407914237952</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115928.97+005619.92 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443407914237952</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443407914237952</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443407914237952</TD><TD>PUBLIC</TD><TD>179.870720 0.938866</TD><TD>SDSS J115928.97+005619.92</TD><TD>GALAXY</TD><TD>0.16389</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.870720 0.938866</TD><TD></TD></TR>
+<TR><TD>8.581980694287659E-16</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443408279142400</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115944.81+011207.06 QSO</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408279142400</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408279142400</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443408279142400</TD><TD>PUBLIC</TD><TD>179.936720 1.201961</TD><TD>SDSS J115944.81+011207.06</TD><TD>QSO</TD><TD>2.00014</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.936720 1.201961</TD><TD></TD></TR>
+<TR><TD>8.581980694287659E-16</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261480931328</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115944.81+011207.06 QSO</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261480931328</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261480931328</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261480931328</TD><TD>PUBLIC</TD><TD>179.936720 1.201961</TD><TD>SDSS J115944.81+011207.06</TD><TD>QSO</TD><TD>1.03026</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.936720 1.201961</TD><TD></TD></TR>
+<TR><TD>2.0502337296517507E-17</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443408258170880</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J120044.06+005553.57 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408258170880</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408258170880</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443408258170880</TD><TD>PUBLIC</TD><TD>180.183580 0.931548</TD><TD>SDSS J120044.06+005553.57</TD><TD>GALAXY</TD><TD>0.125593</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>180.183580 0.931548</TD><TD></TD></TR>
+<TR><TD>2.0502337296517507E-17</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261506097152</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J120044.06+005553.57 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261506097152</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261506097152</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261506097152</TD><TD>PUBLIC</TD><TD>180.183580 0.931548</TD><TD>SDSS J120044.06+005553.57</TD><TD>GALAXY</TD><TD>0.12555</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>180.183580 0.931548</TD><TD></TD></TR>
+<TR><TD>1.4806720665249466E-20</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261489319936</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J120034.98+005517.51 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261489319936</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261489319936</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261489319936</TD><TD>PUBLIC</TD><TD>180.145770 0.921530</TD><TD>SDSS J120034.98+005517.51</TD><TD>GALAXY</TD><TD>0.0860478</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>180.145770 0.921530</TD><TD></TD></TR>
+<TR><TD>1.4806720665249466E-20</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443408216227840</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J120034.98+005517.51 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408216227840</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408216227840</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443408216227840</TD><TD>PUBLIC</TD><TD>180.145770 0.921530</TD><TD>SDSS J120034.98+005517.51</TD><TD>GALAXY</TD><TD>0.0860211</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>180.145770 0.921530</TD><TD></TD></TR>
+<TR><TD>1.6300048361147802E-21</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261174747136</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115922.31+010453.49 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261174747136</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261174747136</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261174747136</TD><TD>PUBLIC</TD><TD>179.842950 1.081526</TD><TD>SDSS J115922.31+010453.49</TD><TD>GALAXY</TD><TD>0.103514</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.842950 1.081526</TD><TD></TD></TR>
+<TR><TD>1.6300048361147802E-21</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443407901655040</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115922.31+010453.49 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443407901655040</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443407901655040</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443407901655040</TD><TD>PUBLIC</TD><TD>179.842950 1.081526</TD><TD>SDSS J115922.31+010453.49</TD><TD>GALAXY</TD><TD>0.103523</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.842950 1.081526</TD><TD></TD></TR>
+<TR><TD>1.33654114566609E-22</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380725178694238208</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J120020.40+004752.35 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80725178694238208</TD><TD>2001-03-31 05:48:15Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80725178694238208</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80725178694238208</TD><TD>PUBLIC</TD><TD>180.084990 0.797876</TD><TD>SDSS J120020.40+004752.35</TD><TD>GALAXY</TD><TD>0.13986</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>180.084990 0.797876</TD><TD></TD></TR>
+<TR><TD>1.0976232720625123E-25</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261485125632</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J120022.76+004741.46 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261485125632</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261485125632</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261485125632</TD><TD>PUBLIC</TD><TD>180.094830 0.794849</TD><TD>SDSS J120022.76+004741.46</TD><TD>GALAXY</TD><TD>0.139842</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>180.094830 0.794849</TD><TD></TD></TR>
+<TR><TD>1.0976232720625123E-25</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443408220422144</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J120022.76+004741.46 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408220422144</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443408220422144</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443408220422144</TD><TD>PUBLIC</TD><TD>180.094830 0.794849</TD><TD>SDSS J120022.76+004741.46</TD><TD>GALAXY</TD><TD>0.139797</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>180.094830 0.794849</TD><TD></TD></TR>
+<TR><TD>8.441184510333563E-42</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380443407868100608</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115918.12+005113.61 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80443407868100608</TD><TD>2001-01-21 11:23:50Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80443407868100608</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80443407868100608</TD><TD>PUBLIC</TD><TD>179.825520 0.853781</TD><TD>SDSS J115918.12+005113.61</TD><TD>GALAXY</TD><TD>0.0770442</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.825520 0.853781</TD><TD></TD></TR>
+<TR><TD>8.441184510333563E-42</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261136998400</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115918.12+005113.61 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261136998400</TD><TD>2000-04-29 03:22:00Z</TD><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261136998400</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261136998400</TD><TD>PUBLIC</TD><TD>179.825520 0.853781</TD><TD>SDSS J115918.12+005113.61</TD><TD>GALAXY</TD><TD>0.0770941</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.825520 0.853781</TD><TD></TD></TR>
+<TR><TD>8.441184510333563E-42</TD><TD>http://vaosa-vm1.aoc.nrao.edu/ivoa-dal/JhuSsapServlet?REQUEST=getData&amp;FORMAT=votable&amp;PubDID=ivo%3A%2F%2Fjhu%2Fsdss%2Fdr6%2Fspec%2F2.5%2380442261136998400</TD><TD>application/x-votable+xml</TD><TD>SPECTRUM-1.0</TD><TD>SPECTRUM</TD><TD>4000</TD><TD>s</TD><TD>A</TD><TD>10**(-17) erg s**(-1) cm**(-2) A**(-1)</TD><TD>SDSS J115918.12+005113.61 GALAXY</TD><TD>sdss</TD><TD>SDSS DR6</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261136998400</TD><TD/><!-- Empty VOX:Image_MJDateObs field --><TD>6.2.5</TD><TD>ivo://sdss/dr6/spec/2_5/#80442261136998400</TD><TD>SDSS 2.5-M SPEC2 v4_5</TD><TD>OPTICAL</TD><TD>SURVEY</TD><TD>ARCHIVAL</TD><TD>ELTE VO</TD><TD>ivo://jhu/sdss/dr6/spec/2.5#80442261136998400</TD><TD>PUBLIC</TD><TD>179.825520 0.853781</TD><TD>SDSS J115918.12+005113.61</TD><TD>GALAXY</TD><TD>0.0770941</TD><TD>0</TD><TD>FK5</TD><TD>2000</TD><TD>TAI</TD><TD>179.825520 0.853781</TD><TD></TD></TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

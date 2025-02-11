@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='utf-8'?>
+<?xml-stylesheet href='/static/xsl/vosi.xsl' type='text/xsl'?>
+<cap:capabilities xmlns:cap="http://www.ivoa.net/xml/VOSICapabilities/v1.0" xmlns:tr="http://www.ivoa.net/xml/TAPRegExt/v1.0" xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0" xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ivoa.net/xml/VOSICapabilities/v1.0 http://vo.ari.uni-heidelberg.de/docs/schemata/VOSICapabilities-v1.0.xsd http://www.ivoa.net/xml/TAPRegExt/v1.0 http://vo.ari.uni-heidelberg.de/docs/schemata/TAPRegExt.xsd http://www.ivoa.net/xml/VORegistry/v1.0 http://vo.ari.uni-heidelberg.de/docs/schemata/VORegistry.xsd http://www.ivoa.net/xml/VOResource/v1.0 http://vo.ari.uni-heidelberg.de/docs/schemata/VOResource.xsd http://www.ivoa.net/xml/VODataService/v1.1 http://vo.ari.uni-heidelberg.de/docs/schemata/VODataService.xsd"><capability standardID="ivo://ivoa.net/std/TAP" xsi:type="tr:TableAccess"><interface role="std" version="1.1" xsi:type="vs:ParamHTTP"><accessURL use="full">http://dc.zah.uni-heidelberg.de/tap</accessURL><mirrorURL>https://dc.zah.uni-heidelberg.de/tap</mirrorURL></interface><dataModel ivo-id="ivo://org.gavo.dc/std/glots#tables-1.0">GloTS 1.0</dataModel><dataModel ivo-id="ivo://ivoa.net/std/RegTAP#1.1">Registry 1.1</dataModel><dataModel ivo-id="ivo://ivoa.net/std/obscore#core-1.1">Obscore-1.1</dataModel><language><name>ADQL</name><version ivo-id="ivo://ivoa.net/std/ADQL#v2.0">2.0</version><version ivo-id="ivo://ivoa.net/std/ADQL#v2.1">2.1</version><description>The Astronomical Data Query Language is the standard IVOA dialect of SQL; it contains a very general SELECT statement as well as some extensions for spherical geometry and higher mathematics.</description><languageFeatures type="ivo://ivoa.net/std/TAPRegExt#features-udf"><feature><form>gavo_apply_pm(ra DOUBLE PRECISION, dec DOUBLE PRECISION, pmra DOUBLE PRECISION, pmde DOUBLE PRECISION, epdist DOUBLE PRECISION) -&gt; POINT</form><description>Returns a POINT (in the UNDEFINED reference frame) for the position
+an object at ra/dec with proper motion pmra/pmde has after epdist years.
+
+positions must be in degrees, PMs in should be in julian years (i.e., proper
+motions are expected in degrees/year).  pmra is assumed to contain
+cos(delta).
+
+This function goes through the tangential plane.  Since it does not have
+information on distance and radial velocity, it cannot reconstruct
+the true space motion, and hence its results will degrade over time.
+
+This function should not be used in new queries; use ivo_epoch_prop
+instead.</description></feature><feature><form>gavo_getauthority(ivoid TEXT) -&gt; TEXT</form><description>returns the authority part of an ivoid (or, more generally a URI).
+So, ivo://org.gavo.dc/foo/bar#baz becomes org.gavo.dc.
+
+The behaviour for anything that's not a full URI is undefined.</description></feature><feature><form>gavo_ipix(long REAL, lat REAL) -&gt; BIGINT</form><description>gavo_ipix returns the q3c ipix for a long/lat pair (it simply wraps
+the 13c_ang2ipix function).
+
+This is probably only relevant when you play tricks with indices or
+PPMXL ids.</description></feature><feature><form>gavo_match(pattern TEXT, string TEXT) -&gt; INTEGER</form><description>gavo_match returns 1 if the POSIX regular expression pattern
+matches anything in string, 0 otherwise.</description></feature><feature><form>gavo_mocintersect(moc1 MOC, moc2 MOC) -&gt; MOC</form><description>returns the intersection of two MOCs.</description></feature><feature><form>gavo_mocunion(moc1 MOC, moc2 MOC) -&gt; MOC</form><description>returns the union of two MOCs.</description></feature><feature><form>gavo_specconv(expr DOUBLE PRECISION, dest_unit TEXT) -&gt; DOUBLE PRECISION</form><description>returns the spectral value expr converted to dest_unit.
+
+expr has to be in either energy, wavelength, or frequency, and dest_unit
+must be a VOUnit giving another spectral unit (e.g., MHz, keV, nm, or
+Angstrom). This is intended to let users express spectral constraints
+in their preferred unit independently of the choice of unit in the
+database.  Examples::
+
+	gavo_specconv(obscore.em_min, "keV") &gt; 300
+	gavo_specconv(obscore.em_max, "MHz") &gt; 30
+	gavo_specconv(spectral_start, "Angstrom") &gt; 4000
+
+There is a variant of gavo_specconv accepting expr's unit in a third
+argument.</description></feature><feature><form>gavo_specconv(expr NUMERIC, expr_unit TEXT, dest_unit TEXT) -&gt; NUMERIC</form><description>returns expr assumed to be in expr_unit expressed in dest_unit.
+
+		This is a variant of the two-argument gavo_specconv for when
+		the unit of expr is not known to the ADQL translator, either because
+		it because it is a literal or because it does not look like
+		a spectral unit.  Examples::
+
+			gavo_specconv(656, 'nm', 'J') BETWEEN spectral_start AND spectral_end
+			gavo_specconv(arccos(phi)*incidence, 'Hz', 'eV')
+		
+		Clearly, overriding known units is likely to yield bad results;
+		the translator therefore warns if an existing unit is overridden
+		with a different unit.</description></feature><feature><form>gavo_vocmatch(vocname TEXT, term TEXT, matchagainst TEXT) -&gt; INTEGER</form><description>returns 1 if matchagainst is term or narrower in the IVOA vocabulary
+vocname, 0 otherwise.
+
+This is intended for semantic querying.  For instance,
+gavo_vocmatch('datalink/core', 'calibration', semantics) would be 1
+if semantics is any of calibration, bias, dark, or flat.
+
+For RDF-flavoured vocabularies (strict trees), term will expand to the
+entire branch rooted in term.  For SKOS-flavoured vocabularies (where
+narrower is not transitive), only directly narrower terms will be included.
+
+Both the term and the vocabulary name must be string literals (i.e.,
+constants).  matchagainst can be any string-valued expression.</description></feature><feature><form>ivo_epoch_prop(ra DOUBLE PRECISION, dec DOUBLE PRECISION, parallax DOUBLE PRECISION, pmra DOUBLE PRECISION, pmdec DOUBLE PRECISION, radial_velocity DOUBLE PRECISION, ref_epoch DOUBLE PRECISION, out_epoch DOUBLE PRECISION) -&gt; DOUBLE PRECISION[6]</form><description>Returns a 6-vector of (ra, dec, parallax, pmra, pmdec, rv)
+at out_epoch for these quantities at ref_epoch.
+
+Essentially, it will apply the proper motion under the assumption of
+linear motion.  Despite the name of the positional parameters, this is
+not restricted to equatorial systems, as long as positions and proper
+motions are expressed in the same reference frames.
+
+Units on input and output are degrees for ra and dec, mas for parallax,
+mas/yr for pmra and pmdec, and km/s for the radial velocity.
+
+ref_epoch and out_epoch are given in Julian years.
+
+parallax, pmra, pmdec, and radial_velocity may be None and will enter
+the computations as 0 then, except in the case of parallax, which
+will be some small value.  When abs(parallax) is smaller or equal
+to that small value, parallax and radial velocity will be NULL on
+output.
+
+In daily use, you probably want to use the ivo_epoch_prop_pos functions.</description></feature><feature><form>ivo_epoch_prop_pos(ra DOUBLE PRECISION, dec DOUBLE PRECISION, parallax DOUBLE PRECISION, pmra DOUBLE PRECISION, pmdec DOUBLE PRECISION, radial_velocity DOUBLE PRECISION, ref_epoch DOUBLE PRECISION, out_epoch DOUBLE PRECISION) -&gt; POINT</form><description>Returns a POINT giving the position at out_epoch for an object
+with the six parameters at ref_epoch.
+
+Essentially, it will apply the proper motion under the assumption of
+linear motion.  Despite the name of the positional parameters, this is
+not restricted to equatorial systems, as long as positions and proper
+motions are expressed in the same reference frames.
+
+Units on input are degrees for ra and dec, mas for parallax,
+mas/yr for pmra and pmdec, and km/s for the radial velocity.
+ref_epoch and out_epoch are given in Julian years.
+
+parallax, pmra, pmdec, and radial_velocity may be None and will enter
+the computations as 0 then, except in the case of parallax, which
+will be some small value.</description></feature><feature><form>ivo_epoch_prop_pos(ra DOUBLE PRECISION, dec DOUBLE PRECISION, pmra DOUBLE PRECISION, pmdec DOUBLE PRECISION, ref_epoch DOUBLE PRECISION, out_epoch DOUBLE PRECISION) -&gt; POINT</form><description>A variant of ivo_epoch_prop_pos that behave as if parallax
+		and radial_velocity were both passed as NULL.</description></feature><feature><form>ivo_geom_transform(from_sys TEXT, to_sys TEXT, geo GEOMETRY) -&gt; GEOMETRY</form><description>The function transforms ADQL geometries between various reference systems.
+geo can be a POINT, a CIRCLE, or a POLYGON, and the function will return a
+geometry of the same type.  In the current implementation, from_sys and
+to_sys must be literal strings (i.e., they cannot be computed through
+expressions or be taken from database columns).
+
+All transforms are just simple rotations, which is only a rough
+approximation to the actual relationships between reference systems
+(in particular between FK4 and ICRS-based ones).  Note that, in particular,
+the epoch is not changed (i.e., no proper motions are applied).
+
+We currently support the following reference frames: ICRS, FK5 (which
+is treated as ICRS), FK4 (for B1950. without epoch-dependent corrections),
+GALACTIC.  Reference frame names are case-sensitive.</description></feature><feature><form>ivo_hashlist_has(hashlist TEXT, item TEXT) -&gt; INTEGER</form><description>The function takes two strings; the first is a list of words not
+containing the hash sign (#), concatenated by hash signs, the second is
+a word not containing the hash sign.  It returns 1 if, compared
+case-insensitively, the second argument is in the list of words coded in
+the first argument.  The behaviour in case the the second
+argument contains a hash sign is unspecified.</description></feature><feature><form>ivo_hasword(haystack TEXT, needle TEXT) -&gt; INTEGER</form><description>gavo_hasword returns 1 if needle shows up in haystack, 0 otherwise.  This
+is for "google-like"-searches in text-like fields.  In word, you can
+actually employ a fairly complex query language; see
+https://www.postgresql.org/docs/current/textsearch.html
+for details.</description></feature><feature><form>ivo_healpix_center(hpxOrder INTEGER, hpxIndex BIGINT) -&gt; POINT</form><description>returns a POINT corresponding to the center of the healpix with
+the given index at the given order.</description></feature><feature><form>ivo_healpix_index(order INTEGER, ra DOUBLE PRECISION, dec DOUBLE PRECISION) -&gt; BIGINT</form><description>Returns the index of the (nest) healpix with order containing the
+spherical point (ra, dec).
+
+An alternative, 2-argument form
+
+ivo_healpix_index(order INTEGER, p POINT) -&gt; BIGINT
+
+is also available.</description></feature><feature><form>ivo_histogram(val REAL, lower REAL, upper REAL, nbins INTEGER) -&gt; INTEGER[]</form><description>The aggregate function returns a histogram of val with nbins+2 elements.
+Assuming 0-based arrays, result[0] contains the number of underflows (i.e.,
+val&lt;lower), result[nbins+1] the number of overflows.  Elements 1..nbins
+are the counts in nbins bins of width (upper-lower)/nbins.  Clients
+will have to convert back to physical units using some external
+communication, there currently is no (meta-) data as lower and upper in
+the TAP response.</description></feature><feature><form>ivo_interval_has(val NUMERIC, iv INTERVAL) -&gt; INTEGER</form><description>The function returns 1 if the interval iv contains val, 0 otherwise.
+The lower limit is always included in iv, behaviour on the upper
+limit is column-specific.</description></feature><feature><form>ivo_interval_overlaps(l1 NUMERIC, h1 NUMERIC, l2 NUMERIC, h2 NUMERIC) -&gt; INTEGER</form><description>The function returns 1 if the interval [l1...h1] overlaps with
+the interval [l2...h2].  For the purposes of this function,
+the case l1=h2 or l2=h1 is treated as overlap.  The function
+returns 0 for non-overlapping intervals.</description></feature><feature><form>ivo_nocasematch(value TEXT, pattern TEXT) -&gt; INTEGER</form><description>ivo_nocasematch returns 1 if pattern matches value, 0 otherwise.
+pattern is defined as for the SQL LIKE operator, but the
+match is performed case-insensitively.  This function in effect
+provides a surrogate for the ILIKE SQL operator that is missing from
+ADQL.
+
+On this site, this is actually implemented using python's and SQL's
+LOWER, so for everything except ASCII, your mileage will vary.</description></feature><feature><form>ivo_normal_random(mu REAL, sigma REAL) -&gt; REAL</form><description>The function returns a random number drawn from a normal distribution
+with mean mu and width sigma.
+
+Implementation note: Right now, the Gaussian is approximated by
+summing up and scaling ten calls to random.  This, hence, is not
+very precise or fast.  It might work for some use cases, and we
+will provide a better implementation if this proves inadequate.</description></feature><feature><form>ivo_simbadpoint(identifier TEXT) -&gt; POINT</form><description>gavo_simbadpoint queries simbad for an identifier and returns the
+corresponding point.  Note that identifier can only be a literal,
+i.e., as simple string rather than a column name. This is because
+our database cannot query simbad, and we probably wouldn't want
+to fire off millions of simbad queries anyway; use simbad's own
+TAP service for this kind of application.</description></feature><feature><form>ivo_string_agg(expression TEXT, delimiter TEXT) -&gt; TEXT</form><description>An aggregate function returning all values of
+expression within a GROUP contcatenated with delimiter</description></feature><feature><form>ivo_to_jd(d TIMESTAMP) -&gt; DOUBLE PRECISION</form><description>The function converts a postgres timestamp to julian date.
+This is naive; no corrections for timezones, let alone time
+scales or the like are done; you can thus not expect this to be
+good to second-precision unless you are careful in the construction
+of the timestamp.</description></feature><feature><form>ivo_to_mjd(d TIMESTAMP) -&gt; DOUBLE PRECISION</form><description>The function converts a postgres timestamp to modified julian date.
+This is naive; no corrections for timezones, let alone time
+scales or the like are done; you can thus not expect this to be
+good to second-precision unless you are careful in the construction
+of the timestamp.</description></feature></languageFeatures><languageFeatures type="ivo://ivoa.net/std/TAPRegExt#features-adqlgeo"><feature><form>BOX</form></feature><feature><form>POINT</form></feature><feature><form>CIRCLE</form></feature><feature><form>POLYGON</form></feature><feature><form>REGION</form></feature><feature><form>CENTROID</form></feature><feature><form>COORD1</form></feature><feature><form>COORD2</form></feature><feature><form>DISTANCE</form></feature><feature><form>CONTAINS</form></feature><feature><form>INTERSECTS</form></feature><feature><form>AREA</form></feature></languageFeatures><languageFeatures type="ivo://ivoa.net/std/TAPRegExt#features-adql-string"><feature><form>LOWER</form></feature><feature><form>ILIKE</form></feature></languageFeatures><languageFeatures type="ivo://ivoa.net/std/TAPRegExt#features-adql-offset"><feature><form>OFFSET</form></feature></languageFeatures><languageFeatures type="ivo://ivoa.net/std/TAPRegExt#features-adql-type"><feature><form>CAST</form></feature></languageFeatures><languageFeatures type="ivo://ivoa.net/std/TAPRegExt#features-adql-unit"><feature><form>IN_UNIT</form></feature></languageFeatures><languageFeatures type="ivo://ivoa.net/std/TAPRegExt#features-adql-common-table"><feature><form>WITH</form></feature></languageFeatures><languageFeatures type="ivo://org.gavo.dc/std/exts#extra-adql-keywords"><feature><form>TABLESAMPLE</form><description>Written after a table reference, TABLESAMPLE(10) will make the database only use 10% of the rows; these are `somewhat random' in that the system will use random blocks.  This should be good enough when just testing queries (and much better than using TOP n).</description></feature><feature><form>MOC</form><description>A geometry function creating MOCs.  It either takes a string argument with an ASCII MOC ('4/13 17-18 8/3002'), or an order and another geometry.</description></feature><feature><form>COALESCE</form><description>This is the standard SQL COALESCE for providing defaults in case of NULL values.</description></feature><feature><form>VECTORMATH</form><description>You can compute with vectors here. See https://wiki.ivoa.net/twiki/bin/view/IVOA/ADQLVectorMath for an overview of the functions and operators available.</description></feature><feature><form>CASE</form><description>The SQL92 CASE expression</description></feature></languageFeatures><languageFeatures type="ivo://ivoa.net/std/TAPRegExt#features-adql-sets"><feature><form>UNION</form></feature><feature><form>EXCEPT</form></feature><feature><form>INTERSECT</form></feature></languageFeatures></language><outputFormat><mime>text/tab-separated-values</mime><alias>tsv</alias></outputFormat><outputFormat><mime>text/plain</mime><alias>txt</alias></outputFormat><outputFormat><mime>text/csv</mime><alias>csv_bare</alias></outputFormat><outputFormat><mime>text/csv;header=present</mime><alias>csv</alias></outputFormat><outputFormat><mime>application/json</mime><alias>json</alias></outputFormat><outputFormat><mime>application/geo+json</mime><alias>geojson</alias></outputFormat><outputFormat ivo-id="ivo://ivoa.net/std/TAPRegExt#output-votable-binary"><mime>application/x-votable+xml</mime><alias>votable</alias></outputFormat><outputFormat ivo-id="ivo://ivoa.net/std/TAPRegExt#output-votable-binary2"><mime>application/x-votable+xml;serialization=BINARY2</mime><alias>votable/b2</alias><alias>votableb2</alias></outputFormat><outputFormat ivo-id="ivo://ivoa.net/std/TAPRegExt#output-votable-td"><mime>application/x-votable+xml;serialization=TABLEDATA</mime><alias>text/xml</alias><alias>votable/td</alias><alias>votabletd</alias></outputFormat><outputFormat><mime>application/x-votable+xml;serialization=TABLEDATA;version=1.1</mime><alias>text/xml</alias><alias>votabletd1.1</alias></outputFormat><outputFormat><mime>application/x-votable+xml;version=1.1</mime><alias>text/xml</alias><alias>votable1.1</alias></outputFormat><outputFormat><mime>application/x-votable+xml;serialization=TABLEDATA;version=1.2</mime><alias>text/xml</alias><alias>votabletd1.2</alias></outputFormat><outputFormat><mime>application/x-votable+xml;serialization=TABLEDATA;version=1.5</mime><alias>vodml</alias></outputFormat><outputFormat><mime>application/x-votable+xml;version=1.5</mime><alias>vodmlb</alias></outputFormat><outputFormat><mime>text/html</mime><alias>html</alias></outputFormat><outputFormat><mime>application/fits</mime><alias>fits</alias></outputFormat><uploadMethod ivo-id="ivo://ivoa.net/std/TAPRegExt#upload-inline"/><uploadMethod ivo-id="ivo://ivoa.net/std/TAPRegExt#upload-http"/><uploadMethod ivo-id="ivo://ivoa.net/std/TAPRegExt#upload-https"/><uploadMethod ivo-id="ivo://ivoa.net/std/TAPRegExt#upload-ftp"/><retentionPeriod><default>172800</default></retentionPeriod><executionDuration><default>7200</default></executionDuration><outputLimit><default unit="row">20000</default><hard unit="row">16000000</hard></outputLimit><uploadLimit><hard unit="byte">100000000</hard></uploadLimit></capability><capability standardID="ivo://ivoa.net/std/VOSI#availability"><interface role="std" xsi:type="vs:ParamHTTP"><accessURL use="full">http://dc.zah.uni-heidelberg.de/__system__/tap/run/availability</accessURL><mirrorURL>https://dc.zah.uni-heidelberg.de/__system__/tap/run/availability</mirrorURL></interface></capability><capability standardID="ivo://ivoa.net/std/VOSI#capabilities"><interface role="std" xsi:type="vs:ParamHTTP"><accessURL use="full">http://dc.zah.uni-heidelberg.de/__system__/tap/run/capabilities</accessURL><mirrorURL>https://dc.zah.uni-heidelberg.de/__system__/tap/run/capabilities</mirrorURL></interface></capability><capability standardID="ivo://ivoa.net/std/VOSI#tables"><interface role="std" version="1.1" xsi:type="vs:ParamHTTP"><accessURL use="full">http://dc.zah.uni-heidelberg.de/__system__/tap/run/tableMetadata</accessURL><mirrorURL>https://dc.zah.uni-heidelberg.de/__system__/tap/run/tableMetadata</mirrorURL></interface></capability><capability standardID="ivo://ivoa.net/std/DALI#examples"><interface xsi:type="vr:WebBrowser"><accessURL use="full">http://dc.zah.uni-heidelberg.de/__system__/tap/run/examples</accessURL><mirrorURL>https://dc.zah.uni-heidelberg.de/__system__/tap/run/examples</mirrorURL></interface></capability></cap:capabilities>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.3">
+  <RESOURCE type="results">
+    <INFO name="QUERY_STATUS" value="OK" />
+    <INFO name="QUERY_TIMESTAMP" value="2020-02-07T03:37:36.754" />
+    <INFO name="QUERY" value="SELECT * FROM ivoa.ObsCore WHERE dataproduct_type IN ( 'image', 'cube' )" />
+    <TABLE>
+      <FIELD name="calib_level" datatype="int" ucd="meta.code;obs.calib" utype="obscore:ObsDataset.calibLevel">
+        <DESCRIPTION>calibration level (0,1,2,3)</DESCRIPTION>
+      </FIELD>
+      <FIELD name="obs_publisher_did" datatype="char" arraysize="256*" ID="caomPlaneURI" ucd="meta.ref.url;meta.curation" utype="obscore:Curation.PublisherDID">
+        <DESCRIPTION>publisher dataset identifier</DESCRIPTION>
+      </FIELD>
+      <FIELD name="obs_collection" datatype="char" arraysize="128*" ucd="meta.id" utype="obscore:DataID.Collection">
+        <DESCRIPTION>short name for the data colection</DESCRIPTION>
+      </FIELD>
+      <FIELD name="facility_name" datatype="char" arraysize="128*" ucd="meta.id;instr.tel" utype="obscore:Provenance.ObsConfig.Facility.name">
+        <DESCRIPTION>telescope name</DESCRIPTION>
+      </FIELD>
+      <FIELD name="instrument_name" datatype="char" arraysize="128*" ucd="meta.id;instr" utype="obscore:Provenance.ObsConfig.Instrument.name">
+        <DESCRIPTION>instrument name</DESCRIPTION>
+      </FIELD>
+      <FIELD name="obs_id" datatype="char" arraysize="128*" ucd="meta.id" utype="obscore:DataID.observationID">
+        <DESCRIPTION>internal dataset identifier</DESCRIPTION>
+      </FIELD>
+      <FIELD name="dataproduct_type" datatype="char" arraysize="128*" ucd="meta.id" utype="obscore:ObsDataset.dataProductType">
+        <DESCRIPTION>type of product</DESCRIPTION>
+      </FIELD>
+      <FIELD name="obs_release_date" datatype="char" arraysize="23*" ucd="time.release" utype="obscore:Curation.releaseDate" xtype="timestamp">
+        <DESCRIPTION>timestamp of date the data becomes publicly available</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_ra" datatype="double" ucd="pos.eq.ra" unit="deg" utype="obscore:Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1">
+        <DESCRIPTION>RA of central coordinates</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_dec" datatype="double" ucd="pos.eq.dec" unit="deg" utype="obscore:Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2">
+        <DESCRIPTION>DEC of central coordinates</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_fov" datatype="double" ucd="phys.angSize;instr.fov" unit="deg" utype="obscore:Char.SpatialAxis.Coverage.Bounds.Extent.diameter">
+        <DESCRIPTION>size of the region covered (~diameter of minimum bounding circle)</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_region" datatype="char" arraysize="*" ucd="pos.outline;obs.field" utype="obscore:Char.SpatialAxis.Coverage.Support.Area" xtype="adql:REGION">
+        <DESCRIPTION>region bounded by observation</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_resolution" datatype="double" ucd="pos.angResolution" unit="arcsec" utype="obscore:Char.SpatialAxis.Resolution.refval.value">
+        <DESCRIPTION>typical spatial resolution</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_xel1" datatype="long" ucd="meta.number" utype="obscore:Char.SpatialAxis.numBins1">
+        <DESCRIPTION>dimensions (number of pixels) along one spatial axis</DESCRIPTION>
+      </FIELD>
+      <FIELD name="target_name" datatype="char" arraysize="32*" ucd="meta.id;src" utype="obscore:Target.Name">
+        <DESCRIPTION>name of intended target</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_xel2" datatype="long" ucd="meta.number" utype="obscore:Char.SpatialAxis.numBins2">
+        <DESCRIPTION>dimensions (number of pixels) along the other spatial axis</DESCRIPTION>
+      </FIELD>
+      <FIELD name="t_min" datatype="double" ucd="time.start;obs.exposure" unit="d" utype="obscore:Char.TimeAxis.Coverage.Bounds.Limits.StartTime">
+        <DESCRIPTION>start time of observation (MJD)</DESCRIPTION>
+      </FIELD>
+      <FIELD name="t_max" datatype="double" ucd="time.end;obs.exposure" unit="d" utype="obscore:Char.TimeAxis.Coverage.Bounds.Limits.StopTime">
+        <DESCRIPTION>end time of observation (MJD)</DESCRIPTION>
+      </FIELD>
+      <FIELD name="t_exptime" datatype="double" ucd="time.duration;obs.exposure" unit="s" utype="obscore:Char.TimeAxis.Coverage.Support.Extent">
+        <DESCRIPTION>exposure time of observation</DESCRIPTION>
+      </FIELD>
+      <FIELD name="t_resolution" datatype="double" ucd="time.resolution" unit="s" utype="obscore:Char.TimeAxis.Resolution.refval.value">
+        <DESCRIPTION>typical temporal resolution</DESCRIPTION>
+      </FIELD>
+      <FIELD name="t_xel" datatype="long" ucd="meta.number" utype="obscore:Char.TimeAxis.numBins">
+        <DESCRIPTION>dimensions (number of pixels) along the time axis</DESCRIPTION>
+      </FIELD>
+      <FIELD name="em_min" datatype="double" ucd="em.wl;stat.min" unit="m" utype="obscore:Char.SpectralAxis.Coverage.Bounds.Limits.LoLimit">
+        <DESCRIPTION>start spectral coordinate value</DESCRIPTION>
+      </FIELD>
+      <FIELD name="em_max" datatype="double" ucd="em.wl;stat.max" unit="m" utype="obscore:Char.SpectralAxis.Coverage.Bounds.Limits.HiLimit">
+        <DESCRIPTION>stop spectral coordinate value</DESCRIPTION>
+      </FIELD>
+      <FIELD name="em_res_power" datatype="double" ucd="spect.resolution" utype="obscore:Char.SpectralAxis.Resolution.ResolPower.refval">
+        <DESCRIPTION>typical spectral resolution</DESCRIPTION>
+      </FIELD>
+      <FIELD name="em_xel" datatype="long" ucd="meta.number" utype="obscore:Char.SpectralAxis.numBins">
+        <DESCRIPTION>dimensions (number of pixels) along the energy axis</DESCRIPTION>
+      </FIELD>
+      <FIELD name="pol_xel" datatype="long" ucd="meta.number" utype="obscore:Char.PolarizationAxis.numBins">
+        <DESCRIPTION>dimensions (number of pixels) along the polarization axis</DESCRIPTION>
+      </FIELD>
+      <FIELD name="em_ucd" datatype="char" arraysize="32*" ucd="meta.ucd" utype="obscore:Char.SpectralAxis.ucd">
+        <DESCRIPTION>UCD describing the spectral axis</DESCRIPTION>
+      </FIELD>
+      <FIELD name="pol_states" datatype="char" arraysize="32*" ucd="meta.code;phys.polarization" utype="obscore:Char.PolarizationAxis.stateList">
+        <DESCRIPTION>polarization states present in the data</DESCRIPTION>
+      </FIELD>
+      <FIELD name="access_url" datatype="char" arraysize="*" ucd="meta.ref.url" utype="obscore:Access.Reference" xtype="clob">
+        <DESCRIPTION>URL to download the data</DESCRIPTION>
+      </FIELD>
+      <FIELD name="access_estsize" datatype="long" ucd="phys.size;meta.file" unit="kbyte" utype="obscore:Access.Size">
+        <DESCRIPTION>estimated size of the download</DESCRIPTION>
+      </FIELD>
+      <FIELD name="o_ucd" datatype="char" arraysize="32*" ucd="meta.ucd" utype="obscore:Char.ObservableAxis.ucd">
+        <DESCRIPTION>UCD describing the observable axis (pixel values)</DESCRIPTION>
+      </FIELD>
+      <FIELD name="access_format" datatype="char" arraysize="128*" ucd="meta.code.mime" utype="obscore:Access.Format">
+        <DESCRIPTION>format of the data file(s)</DESCRIPTION>
+      </FIELD>
+      <FIELD name="core_id" datatype="char" arraysize="36" xtype="uuid">
+        <DESCRIPTION>primary key</DESCRIPTION>
+      </FIELD>
+      <FIELD name="lastModified" datatype="char" arraysize="23*" xtype="timestamp">
+        <DESCRIPTION>timestamp of last modification of the metadata</DESCRIPTION>
+      </FIELD>
+      <DATA>
+        <TABLEDATA>
+          <TR>
+            <TD>1</TD>
+            <TD>ivo://cadc.nrc.ca/TEST?C190508_1442_SCI/C190508_1442_SCI</TD>
+            <TD>TEST</TD>
+            <TD>TEST-1.6m</TD>
+            <TD>TEST-INSTR</TD>
+            <TD>TEST-DATASET</TD>
+            <TD>image</TD>
+            <TD>2000-01-01T00:00:00.000</TD>
+            <TD>253.0637009871805</TD>
+            <TD>69.94853437563255</TD>
+            <TD>0.7176383627131244</TD>
+            <TD>polygon 252.33774699999995 70.20847500000002 253.83481099999992 70.19265699999998 253.77173199999996 69.68570399999999 252.31050299999995 69.70114700000002</TD>
+            <TD />
+            <TD>2048</TD>
+            <TD>BYW1651+6953</TD>
+            <TD>2048</TD>
+            <TD>58612.30703703704</TD>
+            <TD>58612.30726851852</TD>
+            <TD>20.295</TD>
+            <TD>0.1</TD>
+            <TD>1</TD>
+            <TD>1.1699999999999998E-6</TD>
+            <TD>1.33E-6</TD>
+            <TD />
+            <TD>1</TD>
+            <TD />
+            <TD />
+            <TD />
+            <TD>https://example.com/datalink?runid=i4oh43a0oky3dyvp&amp;ID=ivo%3A%2F%2Fexample.com%2FTEST%3FC190508_1442_SCI%2FC190508_1442_SCI</TD>
+            <TD />
+            <TD>phot.count</TD>
+            <TD>application/x-votable+xml;content=datalink</TD>
+            <TD>f0a8f0ad-be05-4adf-ab3d-8b13c45b79b1</TD>
+            <TD>2019-09-19T22:17:07.594</TD>
+          </TR>
+        </TABLEDATA>
+      </DATA>
+    </TABLE>
+    <INFO name="QUERY_STATUS" value="OK" />
+  </RESOURCE>
+  <RESOURCE type="meta" utype="adhoc:service">
+    <PARAM name="resourceIdentifier" datatype="char" arraysize="*" value="ivo://test.com/datalink" />
+    <PARAM name="standardID" datatype="char" arraysize="*" value="ivo://ivoa.net/std/DataLink#links-1.0" />
+    <PARAM name="accessURL" datatype="char" arraysize="62" value="https://example.com/caom2ops/datalink" />
+    <GROUP name="inputParams">
+      <PARAM name="ID" datatype="char" arraysize="*" ref="caomPlaneURI" value="" />
+      <PARAM name="RESPONSEFORMAT" datatype="char" arraysize="*" value="application/x-votable+xml;content=datalink">
+        <VALUES>
+          <OPTION value="application/x-votable+xml;content=datalink" />
+          <OPTION value="application/x-download-manifest+txt" />
+        </VALUES>
+      </PARAM>
+    </GROUP>
+  </RESOURCE>
+</VOTABLE>

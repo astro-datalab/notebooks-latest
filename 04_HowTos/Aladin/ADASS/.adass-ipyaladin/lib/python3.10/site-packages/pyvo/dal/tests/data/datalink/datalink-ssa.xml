@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ssa="http://www.ivoa.net/xml/DalSsap/v1.0" version="1.3" xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.3 http://vo.ari.uni-heidelberg.de/docs/schemata/VOTable-1.3.xsd">
+  <DESCRIPTION> Spectra from the Flash and Heros Echelle spectrographs developed at
+Landessternwarte Heidelberg and mounted at La Silla and various other
+observatories. The data mostly contains spectra of OB stars. Heros was
+the name of the instrument after Flash got a second channel in 1995.</DESCRIPTION>
+  <INFO name="legal" value="If you use this data, please acknowledge: &quot;This research made use of Flash/Heros data served through the GAVO data center&quot;. Thanks."/>
+  <RESOURCE type="results">
+    <INFO name="warning" value="In table result: The query limit was reached. Increase it to retrieve more matches. Note that unsorted truncated queries are not reproducible (i.e., might return a different result set at a later time)."/>
+    <INFO name="citation" ucd="meta.bib.bibcode" value="1996A&amp;A...312..539S">This resource contains data associated with the publication 1996A&amp;A...312..539S.</INFO>
+    <INFO name="citation" ucd="meta.bib" value="http://dc.zah.uni-heidelberg.de/tableinfo/flashheros.data">For advice on how to cite the resource(s) that contributed to this result, see http://dc.zah.uni-heidelberg.de/tableinfo/flashheros.data</INFO>
+    <INFO name="SERVICE_PROTOCOL" value="1.04">SSAP</INFO>
+    <INFO name="standardID" value="ivo://ivoa.net/std/ssap"/>
+    <COOSYS ID="system" system="ICRS"/>
+    <COOSYS ID="system0" system="ICRS"/>
+    <TABLE name="result">
+      <GROUP utype="stc:CatalogEntryLocation">
+        <PARAM arraysize="*" datatype="char" name="CoordFlavor" utype="stc:AstroCoordSystem.SpaceFrame.CoordFlavor" value="SPHERICAL"/>
+        <PARAM arraysize="*" datatype="char" name="CoordRefFrame" utype="stc:AstroCoordSystem.SpaceFrame.CoordRefFrame" value="ICRS"/>
+        <PARAM arraysize="*" datatype="char" name="URI" utype="stc:DataModel.URI" value="http://www.ivoa.net/xml/STC/stc-v1.30.xsd"/>
+        <FIELDref ref="location_ra" utype="stc:AstroCoords.Position2D.Value2.C1"/>
+        <FIELDref ref="location_dec" utype="stc:AstroCoords.Position2D.Value2.C2"/>
+      </GROUP>
+      <GROUP utype="stc:CatalogEntryLocation">
+        <PARAM arraysize="*" datatype="char" name="CoordFlavor" utype="stc:AstroCoordSystem.SpaceFrame.CoordFlavor" value="SPHERICAL"/>
+        <PARAM arraysize="*" datatype="char" name="CoordRefFrame" utype="stc:AstroCoordSystem.SpaceFrame.CoordRefFrame" value="ICRS"/>
+        <PARAM arraysize="*" datatype="char" name="TimeScale" utype="stc:AstroCoordSystem.TimeFrame.TimeScale" value="TT"/>
+        <PARAM arraysize="*" datatype="char" name="URI" utype="stc:DataModel.URI" value="http://www.ivoa.net/xml/STC/stc-v1.30.xsd"/>
+        <FIELDref ref="ssa_specend" utype="stc:AstroCoordArea.SpectralInterval.HiLimit"/>
+        <FIELDref ref="ssa_specstart" utype="stc:AstroCoordArea.SpectralInterval.LoLimit"/>
+        <FIELDref ref="ssa_aperture" utype="stc:AstroCoords.Position2D.Size2Radius"/>
+        <FIELDref ref="ssa_location" utype="stc:AstroCoords.Position2D.Value2"/>
+        <FIELDref ref="ssa_specmid" utype="stc:AstroCoords.Spectral.Value"/>
+        <FIELDref ref="ssa_dateObs" utype="stc:AstroCoords.Time.TimeInstant"/>
+      </GROUP>
+      <FIELD ID="ssa_score" datatype="float" name="ssa_score" utype="ssa:Query.Score">
+        <DESCRIPTION>A measure of how closely the record matches your query. Higher numbers mean better matches.</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="location_ra" datatype="float" name="location_ra" ref="system" ucd="pos.eq.ra;meta.main" unit="deg" utype="ssa:Char.SpatialAxis.Coverage.Location.Value.C1"/>
+      <FIELD ID="location_dec" datatype="float" name="location_dec" ref="system" ucd="pos.eq.dec;meta.main" unit="deg" utype="ssa:Char.SpatialAxis.Coverage.Location.Value.C2"/>
+      <FIELD ID="location_arr" arraysize="2" datatype="float" name="location_arr" ucd="pos.eq" utype="ssa:Char.SpatialAxis.Coverage.Location.Value">
+        <DESCRIPTION>Observed position RA and Dec as a 2-real array as required by SSAP.</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="target_arr" arraysize="2" datatype="float" name="target_arr" ucd="pos.eq;src" utype="ssa:Target.Pos">
+        <DESCRIPTION>Target RA and Dec as a 2-real array as required by SSAP.</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="preview" arraysize="*" datatype="char" name="preview" ucd="meta.ref.url;datalink.preview">
+        <DESCRIPTION>URL of a preview for the dataset, where available.</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="accref" arraysize="*" datatype="char" name="accref" ucd="meta.ref.url;meta.dataset" utype="ssa:Access.Reference">
+        <DESCRIPTION>Access key for the data</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="mime" arraysize="*" datatype="char" name="mime" utype="ssa:Access.Format">
+        <DESCRIPTION>MIME type of the file served</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="accsize" datatype="long" name="accsize" ucd="VOX:Image_FileSize" unit="byte" utype="ssa:Access.Size">
+        <DESCRIPTION>Size of the data in bytes</DESCRIPTION>
+        <VALUES null="-1"/>
+      </FIELD>
+      <FIELD ID="ssa_dstitle" arraysize="*" datatype="char" name="ssa_dstitle" ucd="meta.title;meta.dataset" utype="ssa:DataID.Title">
+        <DESCRIPTION>Title or the dataset (usually, spectrum)</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_creatorDID" arraysize="*" datatype="char" name="ssa_creatorDID" ucd="meta.id" utype="ssa:DataID.CreatorDID">
+        <DESCRIPTION>Dataset identifier assigned by the creator</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_pubDID" arraysize="*" datatype="char" name="ssa_pubDID" utype="ssa:Curation.PublisherDID">
+        <DESCRIPTION>Dataset identifier assigned by the publisher</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_cdate" arraysize="*" datatype="char" name="ssa_cdate" ucd="time;meta.dataset" utype="ssa:DataID.Date" xtype="adql:TIMESTAMP">
+        <DESCRIPTION>Processing/Creation date</DESCRIPTION>
+        <VALUES null=""/>
+      </FIELD>
+      <FIELD ID="ssa_pdate" arraysize="*" datatype="char" name="ssa_pdate" utype="ssa:Curation.Date" xtype="adql:TIMESTAMP">
+        <DESCRIPTION>Date last published.</DESCRIPTION>
+        <VALUES null=""/>
+      </FIELD>
+      <FIELD ID="ssa_bandpass" arraysize="*" datatype="char" name="ssa_bandpass" ucd="instr.bandpass" utype="ssa:DataID.Bandpass">
+        <DESCRIPTION>Bandpass (i.e., rough spectral location) of this dataset; use something generic like 'Optical' here.</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_cversion" arraysize="*" datatype="char" name="ssa_cversion" ucd="meta.version;meta.dataset" utype="ssa:DataID.Version">
+        <DESCRIPTION>Creator assigned version for this dataset (will be incremented when this particular item is changed).</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_targname" arraysize="*" datatype="char" name="ssa_targname" ucd="meta.id;src" utype="ssa:Target.Name">
+        <DESCRIPTION>Common name of object observed.</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_targclass" arraysize="*" datatype="char" name="ssa_targclass" ucd="src.class" utype="ssa:Target.Class">
+        <DESCRIPTION>Object class (star, QSO,...; use Simbad object classification http://simbad.u-strasbg.fr/simbad/sim-display?data=otypes if at all possible)</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_redshift" datatype="float" name="ssa_redshift" ucd="src.redshift" utype="ssa:Target.Redshift">
+        <DESCRIPTION>Redshift of target object</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_targetpos" arraysize="2" datatype="double" name="ssa_targetpos" ucd="pos.eq;src" utype="ssa:Target.pos.spoint">
+        <DESCRIPTION>Equatorial (ICRS) position of the target object.</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_snr" datatype="float" name="ssa_snr" ucd="stat.snr" utype="ssa:Derived.SNR">
+        <DESCRIPTION>Signal-to-noise ratio estimated for this dataset</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_location" arraysize="2" datatype="double" name="ssa_location" ucd="pos.eq" unit="deg" utype="stc:AstroCoords.Position2D.Value2">
+        <DESCRIPTION>ICRS location of aperture center</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_aperture" datatype="float" name="ssa_aperture" ucd="instr.fov" unit="deg" utype="ssa:Char.SpatialAxis.Coverage.Bounds.Extent">
+        <DESCRIPTION>Angular diameter of aperture</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_dateObs" datatype="double" name="ssa_dateObs" ucd="time.epoch" unit="d" utype="ssa:Char.TimeAxis.Coverage.Location.Value" xtype="mjd">
+        <DESCRIPTION>Midpoint of exposure</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_timeExt" datatype="float" name="ssa_timeExt" ucd="time.duration" unit="s" utype="ssa:Char.TimeAxis.Coverage.Bounds.Extent">
+        <DESCRIPTION>Exposure duration</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_specmid" datatype="float" name="ssa_specmid" ucd="em.wl;instr.bandpass" unit="m" utype="ssa:Char.SpectralAxis.Coverage.Location.Value">
+        <DESCRIPTION>Midpoint of region covered in this dataset</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_specext" datatype="float" name="ssa_specext" ucd="em.wl;instr.bandwidth" unit="m" utype="ssa:Char.SpectralAxis.Coverage.Bounds.Extent">
+        <DESCRIPTION>Width of the spectrum</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_specstart" datatype="float" name="ssa_specstart" ucd="em.wl;stat.min" unit="m" utype="ssa:Char.SpectralAxis.Coverage.Bounds.Start">
+        <DESCRIPTION>Lower value of spectral coordinate</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_specend" datatype="float" name="ssa_specend" ucd="em.wl;stat.max" unit="m" utype="ssa:Char.SpectralAxis.Coverage.Bounds.Stop">
+        <DESCRIPTION>Upper value of spectral coordinate</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_length" datatype="int" name="ssa_length" utype="ssa:Dataset.Length">
+        <DESCRIPTION>Number of points in the spectrum</DESCRIPTION>
+        <VALUES null="-1"/>
+      </FIELD>
+      <FIELD ID="localKey" arraysize="*" datatype="char" name="localKey" ucd="meta.id">
+        <DESCRIPTION>Local observation key (used to connect to single orders).</DESCRIPTION>
+      </FIELD>
+      <FIELD ID="ssa_fluxcalib" arraysize="*" datatype="char" name="ssa_fluxcalib" utype="ssa:Char.FluxAxis.Calibration">
+        <DESCRIPTION>Type of flux calibration</DESCRIPTION>
+        <VALUES>
+          <OPTION name="ABSOLUTE" value="ABSOLUTE"/>
+          <OPTION name="CALIBRATED" value="CALIBRATED"/>
+          <OPTION name="RELATIVE" value="RELATIVE"/>
+          <OPTION name="NORMALIZED" value="NORMALIZED"/>
+          <OPTION name="UNCALIBRATED" value="UNCALIBRATED"/>
+        </VALUES>
+      </FIELD>
+      <PARAM arraysize="*" datatype="char" name="ssa_model" utype="ssa:Dataset.DataModel" value="Spectrum-1.0">
+        <DESCRIPTION>Data model name and version</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_csysName" utype="ssa:CoordSys.SpaceFrame.Name" value="ICRS">
+        <DESCRIPTION>System RA and Dec are given in</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_timeSI" utype="ssa:Dataset.TimeSI" value="">
+        <DESCRIPTION>Time conversion factor in Osuna-Salgado convention.</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_spectralSI" utype="ssa:Dataset.SpectralSI" value="">
+        <DESCRIPTION>Spectral conversion factor in Osuna-Salgado convention</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_spectralucd" utype="ssa:Char.SpectralAxis.Ucd" value="em.wl">
+        <DESCRIPTION>UCD of the spectral column</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_spectralunit" utype="ssa:Char.SpectralAxis.Unit" value="0.1 nm">
+        <DESCRIPTION>Unit of the spectral column</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_fluxSI" utype="ssa:Dataset.FluxSI" value="">
+        <DESCRIPTION>Flux/magnitude conversion factor in Osuna-Salgado convention</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_fluxucd" utype="ssa:Char.FluxAxis.Ucd" value="phot.flux.density">
+        <DESCRIPTION>UCD of the flux column</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_fluxunit" utype="ssa:Char.FluxAxis.Unit" value=" ">
+        <DESCRIPTION>Unit of the flux column</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_dstype" utype="ssa:Dataset.Type" value="Spectrum">
+        <DESCRIPTION>Type of data (spectrum, time series, etc)</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_publisher" utype="ssa:Curation.Publisher" value="ivo://org.gavo.dc">
+        <DESCRIPTION>Publisher of the datasets included here.</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="unicodeChar" name="ssa_creator" utype="ssa:DataID.Creator" value="">
+        <DESCRIPTION>Creator of the datasets included here.</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_collection" utype="ssa:DataID.Collection" value="flashheros">
+        <DESCRIPTION>IOVA id of the originating data collection</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_instrument" ucd="meta.id;instr" utype="ssa:DataID.Instrument" value="Flash/Heros">
+        <DESCRIPTION>Instrument or code used to produce these datasets</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_datasource" utype="ssa:DataID.DataSource" value="pointed">
+        <DESCRIPTION>Method of generation for the data.</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_creationtype" utype="ssa:DataID.CreationType" value="archival">
+        <DESCRIPTION>Process used to produce the data</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_reference" utype="ssa:Curation.Reference" value="">
+        <DESCRIPTION>URL or bibcode of a publication describing this data.</DESCRIPTION>
+      </PARAM>
+      <PARAM datatype="float" name="ssa_fluxStatError" ucd="stat.error;phot.flux.density;em" utype="ssa:Char.FluxAxis.Accuracy.StatError" value="">
+        <DESCRIPTION>Statistical error in flux</DESCRIPTION>
+        <VALUES null="NaN"/>
+      </PARAM>
+      <PARAM datatype="float" name="ssa_fluxSysError" ucd="stat.error.sys;phot.flux.density;em" utype="ssa:Char.FluxAxis.Accuracy.SysError" value="">
+        <DESCRIPTION>Systematic error in flux</DESCRIPTION>
+        <VALUES null="NaN"/>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_fluxcalib" utype="ssa:Char.FluxAxis.Calibration" value="UNCALIBRATED">
+        <DESCRIPTION>Type of flux calibration</DESCRIPTION>
+        <VALUES>
+          <OPTION name="ABSOLUTE" value="ABSOLUTE"/>
+          <OPTION name="CALIBRATED" value="CALIBRATED"/>
+          <OPTION name="RELATIVE" value="RELATIVE"/>
+          <OPTION name="NORMALIZED" value="NORMALIZED"/>
+          <OPTION name="UNCALIBRATED" value="UNCALIBRATED"/>
+        </VALUES>
+      </PARAM>
+      <PARAM datatype="float" name="ssa_binSize" ucd="em.wl;spect.binSize" unit="m" utype="ssa:Char.SpectralAxis.Accuracy.BinSize" value="">
+        <DESCRIPTION>Bin size in wavelength</DESCRIPTION>
+      </PARAM>
+      <PARAM datatype="float" name="ssa_spectStatError" ucd="stat.error;em" unit="m" utype="ssa:Char.SpectralAxis.Accuracy.StatError" value="0.05">
+        <DESCRIPTION>Statistical error in wavelength</DESCRIPTION>
+        <VALUES null="NaN"/>
+      </PARAM>
+      <PARAM datatype="float" name="ssa_spectSysError" ucd="stat.error.sys;em" unit="m" utype="ssa:Char.SpectralAxis.Accuracy.SysError" value="">
+        <DESCRIPTION>Systematic error in wavelength</DESCRIPTION>
+        <VALUES null="NaN"/>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_speccalib" ucd="meta.code.qual" utype="ssa:Char.SpectralAxis.Calibration" value="ABSOLUTE">
+        <DESCRIPTION>Type of wavelength calibration</DESCRIPTION>
+      </PARAM>
+      <PARAM datatype="float" name="ssa_specres" ucd="spect.resolution;em.wl" unit="m" utype="ssa:Char.SpectralAxis.Resolution" value="2.5e-11">
+        <DESCRIPTION>Resolution on the spectral axis</DESCRIPTION>
+        <VALUES null="NaN"/>
+      </PARAM>
+      <PARAM datatype="float" name="ssa_spaceError" ucd="stat.error;pos.eq" unit="deg" utype="ssa:Char.SpatialAxis.Accuracy.StatError" value="">
+        <DESCRIPTION>Statistical error in position</DESCRIPTION>
+        <VALUES null="NaN"/>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="ssa_spaceCalib" ucd="meta.code.qual" utype="ssa:Char.SpatialAxis.Calibration" value="">
+        <DESCRIPTION>Type of calibration in spatial coordinates</DESCRIPTION>
+      </PARAM>
+      <PARAM datatype="float" name="ssa_spaceRes" ucd="pos.angResolution" unit="deg" utype="ssa:Char.SpatialAxis.Resolution" value="">
+        <DESCRIPTION>Spatial resolution of data</DESCRIPTION>
+      </PARAM>
+      <DATA>
+        <TABLEDATA>
+          <TR>
+            <TD>0.0</TD>
+            <TD>304.446675349555</TD>
+            <TD>38.0329313131891</TD>
+            <TD>304.446675349555 38.0329313131891</TD>
+            <TD>NaN NaN</TD>
+            <TD>http://dc.zah.uni-heidelberg.de/getproduct/flashheros/data/ca90/f0011.mt?preview=True</TD>
+            <TD>http://dc.zah.uni-heidelberg.de/getproduct/flashheros/data/ca90/f0011.mt</TD>
+            <TD>image/fits</TD>
+            <TD>100800</TD>
+            <TD>Flash/Heros p Cyg 1990-10-11 09:28:07.500003</TD>
+            <TD/>
+            <TD>ivo://org.gavo.dc/~?flashheros/data/ca90/f0011.mt</TD>
+            <TD>1993-05-18T00:00:00</TD>
+            <TD>2017-02-22T13:19:40.966036</TD>
+            <TD/>
+            <TD/>
+            <TD>p Cyg</TD>
+            <TD>star</TD>
+            <TD>NaN</TD>
+            <TD>NaN NaN</TD>
+            <TD>NaN</TD>
+            <TD>304.446675349555 38.0329313131891</TD>
+            <TD>17.6</TD>
+            <TD>48175.39453125</TD>
+            <TD>NaN</TD>
+            <TD>5.40127e-07</TD>
+            <TD>2.78147e-07</TD>
+            <TD>4.01053e-07</TD>
+            <TD>6.792e-07</TD>
+            <TD>23181</TD>
+            <TD>ca90/f0011.mt</TD>
+            <TD>NORMALIZED</TD>
+          </TR>
+        </TABLEDATA>
+      </DATA>
+    </TABLE>
+  </RESOURCE>
+  <RESOURCE ID="ndndtgsodnha" type="meta" utype="adhoc:service">
+    <GROUP name="inputParams">
+      <PARAM arraysize="*" datatype="char" name="ID" ref="ssa_pubDID" ucd="meta.id;meta.main" value="ivo://org.gavo.dc/~?flashheros/data/ca90/f0011.mt">
+        <DESCRIPTION>The pubisher DID of the dataset of interest</DESCRIPTION>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="FLUXCALIB" ucd="phot.calib" utype="ssa:Char.FluxAxis.Calibration" value="">
+        <DESCRIPTION>Recalibrate the spectrum.  Right now, the only recalibration supported is max(flux)=1 ('RELATIVE').</DESCRIPTION>
+        <VALUES>
+          <OPTION name="RELATIVE" value="RELATIVE"/>
+          <OPTION name="NORMALIZED" value="NORMALIZED"/>
+        </VALUES>
+      </PARAM>
+      <PARAM arraysize="2" datatype="double" name="BAND" ucd="em.wl" unit="m" value="" xtype="interval">
+        <DESCRIPTION>Spectral cutout interval</DESCRIPTION>
+        <VALUES>
+          <MIN value="4.01049e-07"/>
+          <MAX value="6.79232e-07"/>
+        </VALUES>
+      </PARAM>
+      <PARAM arraysize="*" datatype="char" name="FORMAT" ucd="meta.code.mime" utype="ssa:Access.Format" value="">
+        <DESCRIPTION>MIME type of the output format</DESCRIPTION>
+        <VALUES>
+          <OPTION name="VOTable 1.4 beta" value="application/x-votable+xml;version=1.4"/>
+          <OPTION name="VOTable, experimental spectral DM 2 serialization" value="application/x-votable+xml;content=spec2"/>
+          <OPTION name="FITS binary table" value="application/fits"/>
+          <OPTION name="Comma separated values" value="text/csv"/>
+          <OPTION name="VOTable, tabledata encoding" value="application/x-votable+xml;serialization=tabledata"/>
+          <OPTION name="VOTable, binary encoding" value="application/x-votable+xml"/>
+          <OPTION name="Tab separated values" value="text/plain"/>
+        </VALUES>
+      </PARAM>
+    </GROUP>
+    <PARAM arraysize="*" datatype="char" name="accessURL" ucd="meta.ref.url" value="http://dc.zah.uni-heidelberg.de/flashheros/q/sdl/dlget"/>
+    <PARAM arraysize="*" datatype="char" name="standardID" value="ivo://ivoa.net/std/SODA#sync-1.0"/>
+  </RESOURCE>
+  <RESOURCE type="meta" utype="adhoc:service">
+    <GROUP name="inputParams">
+      <PARAM arraysize="*" datatype="char" name="ID" ref="ssa_pubDID" ucd="meta.id;meta.main" value=""/>
+    </GROUP>
+    <PARAM arraysize="*" datatype="char" name="standardID" value="ivo://ivoa.net/std/DataLink#links-1.0"/>
+    <PARAM arraysize="*" datatype="char" name="accessURL" value="http://example.com/datalink"/>
+  </RESOURCE>
+</VOTABLE>

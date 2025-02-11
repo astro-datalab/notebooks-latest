@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.4">
+  <RESOURCE type="results">
+    <INFO name="QUERY_STATUS" value="OK" />
+    <INFO name="QUERY_TIMESTAMP" value="2020-03-05T04:21:45.936" />
+    <INFO name="QUERY" value="select * from ivoa.ObsCore" />
+    <TABLE>
+      <FIELD name="calib_level" datatype="int" ucd="meta.code;obs.calib" utype="obscore:ObsDataset.calibLevel">
+        <DESCRIPTION>calibration level (0,1,2,3)</DESCRIPTION>
+      </FIELD>
+      <FIELD name="obs_publisher_did" datatype="char" arraysize="256*" ID="caomPlaneURI" ucd="meta.ref.url;meta.curation" utype="obscore:Curation.PublisherDID">
+        <DESCRIPTION>publisher dataset identifier</DESCRIPTION>
+      </FIELD>
+      <FIELD name="obs_collection" datatype="char" arraysize="128*" ucd="meta.id" utype="obscore:DataID.Collection">
+        <DESCRIPTION>short name for the data colection</DESCRIPTION>
+      </FIELD>
+      <FIELD name="facility_name" datatype="char" arraysize="128*" ucd="meta.id;instr.tel" utype="obscore:Provenance.ObsConfig.Facility.name">
+        <DESCRIPTION>telescope name</DESCRIPTION>
+      </FIELD>
+      <FIELD name="instrument_name" datatype="char" arraysize="128*" ucd="meta.id;instr" utype="obscore:Provenance.ObsConfig.Instrument.name">
+        <DESCRIPTION>instrument name</DESCRIPTION>
+      </FIELD>
+      <FIELD name="obs_id" datatype="char" arraysize="128*" ucd="meta.id" utype="obscore:DataID.observationID">
+        <DESCRIPTION>internal dataset identifier</DESCRIPTION>
+      </FIELD>
+      <FIELD name="dataproduct_type" datatype="char" arraysize="128*" ucd="meta.id" utype="obscore:ObsDataset.dataProductType">
+        <DESCRIPTION>type of product</DESCRIPTION>
+      </FIELD>
+      <FIELD name="obs_release_date" datatype="char" arraysize="23*" ucd="time.release" utype="obscore:Curation.releaseDate" xtype="timestamp">
+        <DESCRIPTION>timestamp of date the data becomes publicly available</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_ra" datatype="double" ucd="pos.eq.ra" unit="deg" utype="obscore:Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1">
+        <DESCRIPTION>RA of central coordinates</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_dec" datatype="double" ucd="pos.eq.dec" unit="deg" utype="obscore:Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2">
+        <DESCRIPTION>DEC of central coordinates</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_fov" datatype="double" ucd="phys.angSize;instr.fov" unit="deg" utype="obscore:Char.SpatialAxis.Coverage.Bounds.Extent.diameter">
+        <DESCRIPTION>size of the region covered (~diameter of minimum bounding circle)</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_region" datatype="char" arraysize="*" ucd="pos.outline;obs.field" utype="obscore:Char.SpatialAxis.Coverage.Support.Area" xtype="adql:REGION">
+        <DESCRIPTION>region bounded by observation</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_resolution" datatype="double" ucd="pos.angResolution" unit="arcsec" utype="obscore:Char.SpatialAxis.Resolution.refval.value">
+        <DESCRIPTION>typical spatial resolution</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_xel1" datatype="long" ucd="meta.number" utype="obscore:Char.SpatialAxis.numBins1">
+        <DESCRIPTION>dimensions (number of pixels) along one spatial axis</DESCRIPTION>
+      </FIELD>
+      <FIELD name="target_name" datatype="char" arraysize="32*" ucd="meta.id;src" utype="obscore:Target.Name">
+        <DESCRIPTION>name of intended target</DESCRIPTION>
+      </FIELD>
+      <FIELD name="s_xel2" datatype="long" ucd="meta.number" utype="obscore:Char.SpatialAxis.numBins2">
+        <DESCRIPTION>dimensions (number of pixels) along the other spatial axis</DESCRIPTION>
+      </FIELD>
+      <FIELD name="t_min" datatype="double" ucd="time.start;obs.exposure" unit="d" utype="obscore:Char.TimeAxis.Coverage.Bounds.Limits.StartTime">
+        <DESCRIPTION>start time of observation (MJD)</DESCRIPTION>
+      </FIELD>
+      <FIELD name="t_max" datatype="double" ucd="time.end;obs.exposure" unit="d" utype="obscore:Char.TimeAxis.Coverage.Bounds.Limits.StopTime">
+        <DESCRIPTION>end time of observation (MJD)</DESCRIPTION>
+      </FIELD>
+      <FIELD name="t_exptime" datatype="double" ucd="time.duration;obs.exposure" unit="s" utype="obscore:Char.TimeAxis.Coverage.Support.Extent">
+        <DESCRIPTION>exposure time of observation</DESCRIPTION>
+      </FIELD>
+      <FIELD name="t_resolution" datatype="double" ucd="time.resolution" unit="s" utype="obscore:Char.TimeAxis.Resolution.refval.value">
+        <DESCRIPTION>typical temporal resolution</DESCRIPTION>
+      </FIELD>
+      <FIELD name="t_xel" datatype="long" ucd="meta.number" utype="obscore:Char.TimeAxis.numBins">
+        <DESCRIPTION>dimensions (number of pixels) along the time axis</DESCRIPTION>
+      </FIELD>
+      <FIELD name="em_min" datatype="double" ucd="em.wl;stat.min" unit="m" utype="obscore:Char.SpectralAxis.Coverage.Bounds.Limits.LoLimit">
+        <DESCRIPTION>start spectral coordinate value</DESCRIPTION>
+      </FIELD>
+      <FIELD name="em_max" datatype="double" ucd="em.wl;stat.max" unit="m" utype="obscore:Char.SpectralAxis.Coverage.Bounds.Limits.HiLimit">
+        <DESCRIPTION>stop spectral coordinate value</DESCRIPTION>
+      </FIELD>
+      <FIELD name="em_res_power" datatype="double" ucd="spect.resolution" utype="obscore:Char.SpectralAxis.Resolution.ResolPower.refval">
+        <DESCRIPTION>typical spectral resolution</DESCRIPTION>
+      </FIELD>
+      <FIELD name="em_xel" datatype="long" ucd="meta.number" utype="obscore:Char.SpectralAxis.numBins">
+        <DESCRIPTION>dimensions (number of pixels) along the energy axis</DESCRIPTION>
+      </FIELD>
+      <FIELD name="pol_xel" datatype="long" ucd="meta.number" utype="obscore:Char.PolarizationAxis.numBins">
+        <DESCRIPTION>dimensions (number of pixels) along the polarization axis</DESCRIPTION>
+      </FIELD>
+      <FIELD name="em_ucd" datatype="char" arraysize="32*" ucd="meta.ucd" utype="obscore:Char.SpectralAxis.ucd">
+        <DESCRIPTION>UCD describing the spectral axis</DESCRIPTION>
+      </FIELD>
+      <FIELD name="pol_states" datatype="char" arraysize="32*" ucd="meta.code;phys.polarization" utype="obscore:Char.PolarizationAxis.stateList">
+        <DESCRIPTION>polarization states present in the data</DESCRIPTION>
+      </FIELD>
+      <FIELD name="access_url" datatype="char" arraysize="*" ucd="meta.ref.url" utype="obscore:Access.Reference" xtype="clob">
+        <DESCRIPTION>URL to download the data</DESCRIPTION>
+      </FIELD>
+      <FIELD name="access_estsize" datatype="long" ucd="phys.size;meta.file" unit="kbyte" utype="obscore:Access.Size">
+        <DESCRIPTION>estimated size of the download</DESCRIPTION>
+      </FIELD>
+      <FIELD name="o_ucd" datatype="char" arraysize="32*" ucd="meta.ucd" utype="obscore:Char.ObservableAxis.ucd">
+        <DESCRIPTION>UCD describing the observable axis (pixel values)</DESCRIPTION>
+      </FIELD>
+      <FIELD name="access_format" datatype="char" arraysize="128*" ucd="meta.code.mime" utype="obscore:Access.Format">
+        <DESCRIPTION>format of the data file(s)</DESCRIPTION>
+      </FIELD>
+      <FIELD name="core_id" datatype="char" arraysize="36" xtype="uuid">
+        <DESCRIPTION>primary key</DESCRIPTION>
+      </FIELD>
+      <FIELD name="lastModified" datatype="char" arraysize="23*" xtype="timestamp">
+        <DESCRIPTION>timestamp of last modification of the metadata</DESCRIPTION>
+      </FIELD>
+      <DATA>
+        <TABLEDATA>
+          <TR>
+            <TD>2</TD>
+            <TD>ivo://cadc.nrc.ca/MACHO?54150/cal054150r</TD>
+            <TD>MACHO</TD>
+            <TD>Mt. Stromlo Observatory 50 inch</TD>
+            <TD>MACHO</TD>
+            <TD>54150</TD>
+            <TD>image</TD>
+            <TD>2008-10-08T00:00:00.000</TD>
+            <TD>88.81762854444203</TD>
+            <TD>-67.77109486072844</TD>
+            <TD>1.0245546113974644</TD>
+            <TD>polygon 89.70783791485876 -67.41840881752057 89.74786512306278 -68.14322955012662 88.22311503462467 -68.14813181576002 87.81208257298478 -67.77896886699358 87.82899304985233 -67.4197778334441</TD>
+            <TD>4.353822892</TD>
+            <TD>4181</TD>
+            <TD>macho000071</TD>
+            <TD>4200</TD>
+            <TD>50527.522581</TD>
+            <TD>50527.526053</TD>
+            <TD>300.0</TD>
+            <TD>300.0</TD>
+            <TD>7</TD>
+            <TD>5.800000000000001E-7</TD>
+            <TD>7.8E-7</TD>
+            <TD>5.799999999999999</TD>
+            <TD>7</TD>
+            <TD />
+            <TD />
+            <TD />
+            <TD>https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/caom2ops/datalink?runid=b7vdfnrcr8kq35a1&amp;ID=ivo%3A%2F%2Fcadc.nrc.ca%2FMACHO%3F54150%2Fcal054150r</TD>
+            <TD />
+            <TD>phot.count</TD>
+            <TD>application/x-votable+xml;content=datalink</TD>
+            <TD>00000000-0000-0000-93cf-fed05e0e60f6</TD>
+            <TD>2019-11-20T19:29:40.929</TD>
+          </TR>
+          <TR>
+            <TD>2</TD>
+            <TD>ivo://cadc.nrc.ca/MACHO?54151/cal054151b</TD>
+            <TD>MACHO</TD>
+            <TD>Mt. Stromlo Observatory 50 inch</TD>
+            <TD>MACHO</TD>
+            <TD>54151</TD>
+            <TD>image</TD>
+            <TD>2008-10-08T00:00:00.000</TD>
+            <TD>79.9564431173079</TD>
+            <TD>-70.32295142824165</TD>
+            <TD>1.0420934836421956</TD>
+            <TD>polygon 81.03835269676311 -69.95434045997953 81.07118698080274 -70.68523150491481 78.84035765138141 -70.68806135194416 78.88155357298983 -69.9513684574919</TD>
+            <TD>5.020573004</TD>
+            <TD>4175</TD>
+            <TD>macho000006</TD>
+            <TD>4168</TD>
+            <TD>50527.527002</TD>
+            <TD>50527.530475</TD>
+            <TD>300.0</TD>
+            <TD>300.0</TD>
+            <TD>8</TD>
+            <TD>4.800000000000001E-7</TD>
+            <TD>5.800000000000001E-7</TD>
+            <TD>5.799999999999999</TD>
+            <TD>8</TD>
+            <TD />
+            <TD />
+            <TD />
+            <TD>https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/caom2ops/datalink?runid=b7vdfnrcr8kq35a1&amp;ID=ivo%3A%2F%2Fcadc.nrc.ca%2FMACHO%3F54151%2Fcal054151b</TD>
+            <TD />
+            <TD>phot.count</TD>
+            <TD>application/x-votable+xml;content=datalink</TD>
+            <TD>00000000-0000-0000-b8fb-fed05e2e4e02</TD>
+            <TD>2019-11-20T19:29:40.960</TD>
+          </TR>
+          <TR>
+            <TD>2</TD>
+            <TD>ivo://cadc.nrc.ca/MACHO?54151/cal054151r</TD>
+            <TD>MACHO</TD>
+            <TD>Mt. Stromlo Observatory 50 inch</TD>
+            <TD>MACHO</TD>
+            <TD>54151</TD>
+            <TD>image</TD>
+            <TD>2008-10-08T00:00:00.000</TD>
+            <TD>80.01859124602015</TD>
+            <TD>-70.30750032450052</TD>
+            <TD>1.0248990302163568</TD>
+            <TD>polygon 81.01558843560966 -69.95461093880266 81.06567094624911 -70.67927922356017 79.34988020864029 -70.684376201833 78.89013903241694 -70.31495449099631 78.91029632344201 -69.95565099163903</TD>
+            <TD>5.020573004</TD>
+            <TD>4181</TD>
+            <TD>macho000006</TD>
+            <TD>4169</TD>
+            <TD>50527.527002</TD>
+            <TD>50527.530475</TD>
+            <TD>300.0</TD>
+            <TD>300.0</TD>
+            <TD>7</TD>
+            <TD>5.800000000000001E-7</TD>
+            <TD>7.8E-7</TD>
+            <TD>5.799999999999999</TD>
+            <TD>7</TD>
+            <TD />
+            <TD />
+            <TD />
+            <TD>https://www.cadc-ccda.hia-iha.nrc-cnrc.gc.ca/caom2ops/datalink?runid=b7vdfnrcr8kq35a1&amp;ID=ivo%3A%2F%2Fcadc.nrc.ca%2FMACHO%3F54151%2Fcal054151r</TD>
+            <TD />
+            <TD>phot.count</TD>
+            <TD>application/x-votable+xml;content=datalink</TD>
+            <TD>00000000-0000-0000-b83a-fed05e27f58e</TD>
+            <TD>2019-11-20T19:29:40.960</TD>
+          </TR>
+        </TABLEDATA>
+      </DATA>
+    </TABLE>
+  </RESOURCE>
+  <RESOURCE type="meta" utype="adhoc:service">
+    <PARAM name="resourceIdentifier" datatype="char" arraysize="*" value="ivo://test.com/caom2ops" />
+    <PARAM name="standardID" datatype="char" arraysize="*" value="ivo://ivoa.net/std/DataLink#links-1.0" />
+    <PARAM name="accessURL" datatype="char" arraysize="62" value="https://example.com/obscore-datalink" />
+    <GROUP name="inputParams">
+      <PARAM name="ID" datatype="char" arraysize="*" ref="caomPlaneURI" value="" />
+      <PARAM name="RESPONSEFORMAT" datatype="char" arraysize="*" value="application/x-votable+xml;content=datalink">
+        <VALUES>
+          <OPTION value="application/x-votable+xml;content=datalink" />
+          <OPTION value="application/x-download-manifest+txt" />
+        </VALUES>
+      </PARAM>
+    </GROUP>
+  </RESOURCE>
+</VOTABLE>

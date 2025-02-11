@@ -1,0 +1,176 @@
+{
+  "uri": "http://www.ivoa.net/rdf/datalink/core",
+  "flavour": "RDF Property",
+  "terms": {
+    "this": {
+      "label": "the data itself",
+      "description": "the primary (as opposed to related) data of the identified resource",
+      "wider": [],
+      "narrower": []
+    },
+    "progenitor": {
+      "label": "Progenitor",
+      "description": "data resources that were used to create this dataset (e.g. input raw data)",
+      "wider": [],
+      "narrower": []
+    },
+    "derivation": {
+      "label": "Derivation",
+      "description": "data resources that are derived from this dataset (e.g. output data products)",
+      "wider": [],
+      "narrower": []
+    },
+    "auxiliary": {
+      "label": "Auxiliary",
+      "description": "auxiliary resources",
+      "wider": [],
+      "narrower": [
+        "weight",
+        "error",
+        "noise"
+      ]
+    },
+    "weight": {
+      "label": "Weight map",
+      "description": "resource with array(s) containing weighting values",
+      "wider": [
+        "auxiliary"
+      ],
+      "narrower": []
+    },
+    "error": {
+      "label": "Error map",
+      "description": "resource with array(s) containing error values",
+      "wider": [
+        "auxiliary"
+      ],
+      "narrower": []
+    },
+    "noise": {
+      "label": "Noise map",
+      "description": "resource with array(s) containing noise values",
+      "wider": [
+        "auxiliary"
+      ],
+      "narrower": []
+    },
+    "calibration": {
+      "label": "Applicable Calibration",
+      "description": " Data products that can be used to remove instrumental signatures from #this.  Note that the calibration steps such data products feed have not been applied to #this yet.",
+      "wider": [],
+      "narrower": [
+        "bias",
+        "dark",
+        "flat"
+      ]
+    },
+    "bias": {
+      "label": "Bias Frame",
+      "description": "Data products that can be used to remove detector offset levels from #this.",
+      "wider": [
+        "calibration"
+      ],
+      "narrower": []
+    },
+    "dark": {
+      "label": "Dark Frame",
+      "description": "Data products that can be used to remove detector dark current from #this.",
+      "wider": [
+        "calibration"
+      ],
+      "narrower": []
+    },
+    "flat": {
+      "label": "Flat Field",
+      "description": "Data products that can be used to remove the signature of non-homogeneous detector sensitivity from #this.",
+      "wider": [
+        "calibration"
+      ],
+      "narrower": []
+    },
+    "preview": {
+      "label": "Preview",
+      "description": "low fidelity but easily viewed representation of the data ",
+      "wider": [],
+      "narrower": [
+        "preview-image",
+        "preview-plot",
+        "thumbnail"
+      ]
+    },
+    "preview-image": {
+      "label": "Image preview",
+      "description": "preview of the data as a 2-dimensional image",
+      "wider": [
+        "preview"
+      ],
+      "narrower": []
+    },
+    "preview-plot": {
+      "label": "Plot preview",
+      "description": "preview of the data as a plot (e.g. spectrum or light-curve)",
+      "wider": [
+        "preview"
+      ],
+      "narrower": []
+    },
+    "thumbnail": {
+      "label": "Small Graphical Representation",
+      "description": "A very small preview suitable for displaying many at one time.",
+      "wider": [
+        "preview"
+      ],
+      "narrower": []
+    },
+    "proc": {
+      "label": "Processing",
+      "description": "server-side data processing result",
+      "wider": [],
+      "narrower": [
+        "cutout"
+      ]
+    },
+    "cutout": {
+      "label": "Cutout",
+      "description": "a subsection of the primary data",
+      "wider": [
+        "proc"
+      ],
+      "narrower": []
+    },
+    "documentation": {
+      "label": "Documentation",
+      "description": "Structured or unstructured metadata helping to understand, interpret, or work with #this.  Such information can range from processing logs to weather reports to technical documents on instruments to related publications.",
+      "wider": [],
+      "narrower": [
+        "detached-header"
+      ]
+    },
+    "detached-header": {
+      "label": "Detached Header",
+      "description": "Machine-readable metadata for #this, which in general will be necessary for its scientific use.  Examples include FITS headers distributed without their data blocks or PDS label files.",
+      "wider": [
+        "documentation"
+      ],
+      "narrower": []
+    },
+    "coderived": {
+      "label": "Coderived Data",
+      "description": "Data products sharing one or more progenitors with #this.  This could be a lightcurve for an object catalog derived from repeated observations, the dataset processed using a different pipeline, or the like.",
+      "wider": [],
+      "narrower": []
+    },
+    "counterpart": {
+      "label": "Counterpart",
+      "description": "Data products sharing the target of the experiment or observation that led to #this but of unrelated provenance.  This could be observations of the same object in different wavelengths or along different axes (time, spectrum), but spectra of dust of common origin but different laboratories would be #counterparts as well.",
+      "wider": [],
+      "narrower": []
+    },
+    "package": {
+      "label": "Single Download Package",
+      "description": "All file-like items related to #this and #this itself packaged together in a single downloadable archive.",
+      "wider": [],
+      "narrower": []
+    }
+  }
+}

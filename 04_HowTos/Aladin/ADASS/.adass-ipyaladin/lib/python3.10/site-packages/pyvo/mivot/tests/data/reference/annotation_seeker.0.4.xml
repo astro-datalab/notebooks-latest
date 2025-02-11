@@ -1,0 +1,12 @@
+<INSTANCE dmid="_ds1" dmrole="" dmtype="ds:experiment.ObsDataset">
+  <PRIMARY_KEY dmtype="ivoa:string" value="5813181197970338560">
+        </PRIMARY_KEY>
+        <ATTRIBUTE dmrole="ds:dataset.Dataset.dataProductType" dmtype="ds:dataset.DataProductType" value="TIMESERIES">
+        </ATTRIBUTE>
+        <ATTRIBUTE dmrole="ds:dataset.Dataset.dataProductSubtype" dmtype="ivoa:string" value="GAIA Time Series">
+        </ATTRIBUTE>
+        <ATTRIBUTE dmrole="ds:experiment.ObsDataset.calibLevel" dmtype="ivoa:integer" value="1">
+        </ATTRIBUTE>
+        <REFERENCE_1 dmrole="ds:experiment.ObsDataset.target" dmref="_tg1">
+        </REFERENCE_1>
+</INSTANCE>

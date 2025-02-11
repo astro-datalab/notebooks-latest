@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href='/static/xsl/vosi.xsl' type='text/xsl'?>
+<avl:availability xmlns:avl="http://www.ivoa.net/xml/VOSIAvailability/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ivoa.net/xml/VOSIAvailability/v1.0 http://vo.ari.uni-heidelberg.de/docs/schemata/VOSIAvailability-v1.0.xsd">
+  <avl:available>true</avl:available>
+  <avl:upSince>2000-00-00T00:00:00Z</avl:upSince>
+  <avl:downAt>2666-00-00T00:00:00Z</avl:downAt>
+  <avl:backAt>2666-23-23T13:37:00Z</avl:backAt>
+  <avl:note>foo</avl:note>
+  <avl:note>bar</avl:note>
+</avl:availability>

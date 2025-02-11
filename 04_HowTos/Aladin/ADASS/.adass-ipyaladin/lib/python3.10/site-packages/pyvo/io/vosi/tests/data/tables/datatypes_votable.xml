@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href='/static/xsl/vosi.xsl' type='text/xsl'?>
+<vtm:tableset xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.1" xmlns:vtm="http://www.ivoa.net/xml/VOSITables/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ivoa.net/xml/VODataService/v1.1 http://vo.ari.uni-heidelberg.de/docs/schemata/VODataService-v1.1.xsd http://www.ivoa.net/xml/VOSITables/v1.0 http://vo.ari.uni-heidelberg.de/docs/schemata/VOSITables-v1.0.xsd">
+  <schema>
+    <name>test</name>
+    <table>
+      <name>test.votable</name>
+      <column>
+        <name>_boolean</name>
+        <dataType arraysize="*" xsi:type="vs:VOTable">boolean</dataType>
+      </column>
+      <column>
+        <name>_bit</name>
+        <dataType arraysize="*" xsi:type="vs:VOTable">bit</dataType>
+      </column>
+      <column>
+        <name>_unsignedBytes</name>
+        <dataType arraysize="*" xsi:type="vs:VOTable">unsignedByte</dataType>
+      </column>
+      <column>
+        <name>_short</name>
+        <dataType arraysize="*" xsi:type="vs:VOTable">short</dataType>
+      </column>
+      <column>
+        <name>_int</name>
+        <dataType arraysize="*" xsi:type="vs:VOTable">int</dataType>
+      </column>
+      <column>
+        <name>_long</name>
+        <dataType arraysize="*" xsi:type="vs:VOTable">long</dataType>
+      </column>
+      <column>
+        <name>_char</name>
+        <dataType arraysize="*" xsi:type="vs:VOTable">char</dataType>
+      </column>
+      <column>
+        <name>_unicodeChar</name>
+        <dataType arraysize="*" xsi:type="vs:VOTable">unicodeChar</dataType>
+      </column>
+      <column>
+        <name>_float</name>
+        <dataType arraysize="*" xsi:type="vs:VOTable">float</dataType>
+      </column>
+      <column>
+        <name>_double</name>
+        <dataType arraysize="*" xsi:type="vs:VOTable">double</dataType>
+      </column>
+      <column>
+        <name>_floatComplex</name>
+        <dataType arraysize="*" xsi:type="vs:VOTable">floatComplex</dataType>
+      </column>
+      <column>
+        <name>_doubleComplex</name>
+        <dataType arraysize="*" xsi:type="vs:VOTable">doubleComplex</dataType>
+      </column>
+    </table>
+    <table>
+      <name>test.votable</name>
+      <column>
+        <name>_boolean</name>
+        <dataType arraysize="*" xsi:type="vs:VOTableType">boolean</dataType>
+      </column>
+      <column>
+        <name>_bit</name>
+        <dataType arraysize="*" xsi:type="vs:VOTableType">bit</dataType>
+      </column>
+      <column>
+        <name>_unsignedBytes</name>
+        <dataType arraysize="*" xsi:type="vs:VOTableType">unsignedByte</dataType>
+      </column>
+      <column>
+        <name>_short</name>
+        <dataType arraysize="*" xsi:type="vs:VOTableType">short</dataType>
+      </column>
+      <column>
+        <name>_int</name>
+        <dataType arraysize="*" xsi:type="vs:VOTableType">int</dataType>
+      </column>
+      <column>
+        <name>_long</name>
+        <dataType arraysize="*" xsi:type="vs:VOTableType">long</dataType>
+      </column>
+      <column>
+        <name>_char</name>
+        <dataType arraysize="*" xsi:type="vs:VOTableType">char</dataType>
+      </column>
+      <column>
+        <name>_unicodeChar</name>
+        <dataType arraysize="*" xsi:type="vs:VOTableType">unicodeChar</dataType>
+      </column>
+      <column>
+        <name>_float</name>
+        <dataType arraysize="*" xsi:type="vs:VOTableType">float</dataType>
+      </column>
+      <column>
+        <name>_double</name>
+        <dataType arraysize="*" xsi:type="vs:VOTableType">double</dataType>
+      </column>
+      <column>
+        <name>_floatComplex</name>
+        <dataType arraysize="*" xsi:type="vs:VOTableType">floatComplex</dataType>
+      </column>
+      <column>
+        <name>_doubleComplex</name>
+        <dataType arraysize="*" xsi:type="vs:VOTableType">doubleComplex</dataType>
+      </column>
+    </table>
+  </schema>
+</vtm:tableset>

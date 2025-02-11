@@ -1,0 +1,11 @@
+{
+  "COLLECTION": [
+    "coords:TimeSys",
+    "coords:SpaceSys",
+    "mango:coordinates.PhotometryCoordSys",
+    "ds:experiment.ObsDataset"
+  ],
+  "INSTANCE": [
+    "ds:experiment.Target"
+  ]
+}

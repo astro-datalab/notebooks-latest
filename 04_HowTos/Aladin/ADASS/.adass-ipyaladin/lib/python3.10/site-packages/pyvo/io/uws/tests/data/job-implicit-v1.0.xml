@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<job xmlns="http://www.ivoa.net/xml/UWS/v1.0" xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ivoa.net/xml/UWS/v1.0 http://www.ivoa.net/xml/UWS/v1.0">
+	<jobId>1576511540079_32840</jobId>
+	<ownerId/>
+	<phase>COMPLETED</phase>
+	<startTime>2019-12-16T10:52:20</startTime>
+	<endTime>2019-12-17T10:52:20</endTime>
+	<executionDuration>600</executionDuration>
+	<destruction>2019-12-17T10:52:20</destruction>
+	<parameters>
+		<parameter id="lang">ADQL-2.0</parameter>
+		<parameter id="serviceType">tap</parameter>
+		<parameter id="request">doQuery</parameter>
+		<parameter id="query">
+SELECT ra, dec FROM table
+</parameter>
+	</parameters>
+	<results>
+		<result id="resultsTable" xlink:href="http://example.com/tap/async/1234/results/result"/>
+	</results>
+</job>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Produced with astropy.io.votable version 3.1.dev21501
+     https://www.astropy.org/ -->
+<VOTABLE version="1.3" xmlns="http://www.ivoa.net/xml/VOTable/v1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.ivoa.net/xml/VOTable/v1.3">
+ <RESOURCE type="results">
+  <INFO ID="QUERY_STATUS" name="QUERY_STATUS" value="OK">OK</INFO>
+  <TABLE>
+    <FIELD ID="not_data_url" arraysize="*" datatype="char" name="not_data_url" utype="obscore:access.reference" ucd="meta.ref.url">
+      <DESCRIPTION>Not the access key for the data</DESCRIPTION>
+    </FIELD>
+    <FIELD ID="accref" arraysize="*" datatype="char" name="accref" ucd="VOX:Image_AccessReference" utype="Access.Reference">
+      <DESCRIPTION>Access key for the data</DESCRIPTION>
+    </FIELD>
+    <FIELD ID="mime" arraysize="*" datatype="char" name="mime" ucd="VOX:Image_Format" utype="Access.Format">
+      <DESCRIPTION>MIME type of the file served</DESCRIPTION>
+    </FIELD>
+    <FIELD ID="accsize" datatype="long" name="accsize" ucd="VOX:Image_FileSize" unit="byte" utype="Access.Size">
+      <DESCRIPTION>Size of the data in bytes</DESCRIPTION>
+      <VALUES null="-1"/>
+    </FIELD>
+    <FIELD ID="dateObs" datatype="double" name="dateObs" ref="system" ucd="VOX:Image_MJDateObs" unit="d" xtype="mjd">
+      <DESCRIPTION>Epoch at midpoint of observation</DESCRIPTION>
+    </FIELD>
+    <FIELD ID="object" arraysize="*" datatype="char" name="object" ucd="meta.name">
+      <DESCRIPTION>Object being observed, Simbad-resolvable form</DESCRIPTION>
+    </FIELD>
+    <FIELD ID="centerAlpha" datatype="double" name="centerAlpha" ref="system" ucd="POS_EQ_RA_MAIN" unit="deg">
+      <DESCRIPTION>Approximate center of image, RA</DESCRIPTION>
+    </FIELD>
+    <FIELD ID="centerDelta" datatype="double" name="centerDelta" ref="system" ucd="POS_EQ_DEC_MAIN" unit="deg">
+      <DESCRIPTION>Approximate center of image, Dec</DESCRIPTION>
+    </FIELD>
+    <FIELD ID="imageTitle" arraysize="*" datatype="char" name="imageTitle" ucd="VOX:Image_Title">
+      <DESCRIPTION>Synthetic name of the image</DESCRIPTION>
+    </FIELD>
+    <FIELD ID="bandpassLo" datatype="float" name="bandpassLo" ucd="VOX:BandPass_LoLimit" unit="m">
+      <DESCRIPTION>Lower limit of the bandpass (in BandPass_Unit units)</DESCRIPTION>
+    </FIELD>
+    <FIELD ID="bandpassHi" datatype="float" name="bandpassHi" ucd="VOX:BandPass_HiLimit" unit="m">
+      <DESCRIPTION>Upper limit of the bandpass (in BandPass_Unit units)</DESCRIPTION>
+    </FIELD>
+    <FIELD ID="pixelScale" arraysize="*" datatype="float" name="pixelScale" ucd="VOX:Image_Scale" unit="deg/pix">
+      <DESCRIPTION>The pixel scale on each image axis</DESCRIPTION>
+    </FIELD>
+   <DATA>
+    <TABLEDATA>
+     <TR>
+      <TD>This should not be the dataurl</TD>
+      <TD>http://example.com/querydata/image.fits</TD>
+      <TD>image/fits</TD>
+      <TD>153280</TD>
+      <TD>18885.9416782409</TD>
+      <TD>Test</TD>
+      <TD>288.95078924817</TD>
+      <TD>15.0322239971381</TD>
+      <TD>Test Observation</TD>
+      <TD>3.8e-07</TD>
+      <TD>5.2e-07</TD>
+      <TD>0.000403806 0.000406123</TD>
+     </TR>
+     <TR>
+      <TD>This should not be the dataurl</TD>
+      <TD>http://example.com/querydata/image.fits</TD>
+      <TD>image/fits</TD>
+      <TD>153280</TD>
+      <TD/> <!-- Empty VOX:Image_MJDateObs field -->
+      <TD>Test</TD>
+      <TD>288.95078924817</TD>
+      <TD>15.0322239971381</TD>
+      <TD>Test Observation</TD>
+      <TD>3.8e-07</TD>
+      <TD>5.2e-07</TD>
+      <TD>0.000403806 0.000406123</TD>
+     </TR>
+    </TABLEDATA>
+   </DATA>
+  </TABLE>
+ </RESOURCE>
+</VOTABLE>

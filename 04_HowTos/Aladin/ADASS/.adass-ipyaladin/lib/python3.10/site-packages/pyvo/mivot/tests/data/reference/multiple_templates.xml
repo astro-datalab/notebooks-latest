@@ -1,0 +1,8 @@
+<VODML>
+  <TEMPLATES xmlns:dm-mapping="http://www.ivoa.net/xml/merged-syntax">
+    <INSTANCE dmid="_ts_data" dmrole="" dmtype="cube:NDPoint"/>
+  </TEMPLATES>
+  <TEMPLATES xmlns:dm-mapping="http://www.ivoa.net/xml/merged-syntax">
+    <INSTANCE dmid="_ts_data" dmrole="" dmtype="cube:NDPoint"/>
+  </TEMPLATES>
+</VODML>

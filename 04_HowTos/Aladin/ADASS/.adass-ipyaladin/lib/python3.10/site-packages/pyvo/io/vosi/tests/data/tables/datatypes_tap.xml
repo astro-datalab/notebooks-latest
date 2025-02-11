@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href='/static/xsl/vosi.xsl' type='text/xsl'?>
+<vtm:tableset xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.1" xmlns:vtm="http://www.ivoa.net/xml/VOSITables/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ivoa.net/xml/VODataService/v1.1 http://vo.ari.uni-heidelberg.de/docs/schemata/VODataService-v1.1.xsd http://www.ivoa.net/xml/VOSITables/v1.0 http://vo.ari.uni-heidelberg.de/docs/schemata/VOSITables-v1.0.xsd">
+  <schema>
+    <name>test</name>
+    <table>
+      <name>test.tap</name>
+      <column>
+        <name>_boolean</name>
+        <dataType arraysize="*" xsi:type="vs:TAP">BOOLEAN</dataType>
+      </column>
+      <column>
+        <name>_smallint</name>
+        <dataType arraysize="*" xsi:type="vs:TAP">SMALLINT</dataType>
+      </column>
+      <column>
+        <name>_integer</name>
+        <dataType arraysize="*" xsi:type="vs:TAP">INTEGER</dataType>
+      </column>
+      <column>
+        <name>_bigint</name>
+        <dataType arraysize="*" xsi:type="vs:TAP">BIGINT</dataType>
+      </column>
+      <column>
+        <name>_real</name>
+        <dataType arraysize="*" xsi:type="vs:TAP">REAL</dataType>
+      </column>
+      <column>
+        <name>_double</name>
+        <dataType arraysize="*" xsi:type="vs:TAP">DOUBLE</dataType>
+      </column>
+      <column>
+        <name>_timestamp</name>
+        <dataType arraysize="*" xsi:type="vs:TAP">TIMESTAMP</dataType>
+      </column>
+      <column>
+        <name>_char</name>
+        <dataType arraysize="*" xsi:type="vs:TAP">CHAR</dataType>
+      </column>
+      <column>
+        <name>_varchar</name>
+        <dataType arraysize="*" xsi:type="vs:TAP">VARCHAR</dataType>
+      </column>
+      <column>
+        <name>_binary</name>
+        <dataType arraysize="*" xsi:type="vs:TAP">BINARY</dataType>
+      </column>
+      <column>
+        <name>_varbinary</name>
+        <dataType arraysize="*" xsi:type="vs:TAP">VARBINARY</dataType>
+      </column>
+      <column>
+        <name>_point</name>
+        <dataType arraysize="*" xsi:type="vs:TAP">POINT</dataType>
+      </column>
+      <column>
+        <name>_region</name>
+        <dataType arraysize="*" xsi:type="vs:TAP">REGION</dataType>
+      </column>
+      <column>
+        <name>_clob</name>
+        <dataType arraysize="*" xsi:type="vs:TAP">CLOB</dataType>
+      </column>
+      <column>
+        <name>_blob</name>
+        <dataType arraysize="*" xsi:type="vs:TAP">BLOB</dataType>
+      </column>
+    </table>
+    <table>
+      <name>test.taptype</name>
+      <column>
+        <name>_boolean</name>
+        <dataType arraysize="*" xsi:type="vs:TAPType">BOOLEAN</dataType>
+      </column>
+      <column>
+        <name>_smallint</name>
+        <dataType arraysize="*" xsi:type="vs:TAPType">SMALLINT</dataType>
+      </column>
+      <column>
+        <name>_integer</name>
+        <dataType arraysize="*" xsi:type="vs:TAPType">INTEGER</dataType>
+      </column>
+      <column>
+        <name>_bigint</name>
+        <dataType arraysize="*" xsi:type="vs:TAPType">BIGINT</dataType>
+      </column>
+      <column>
+        <name>_real</name>
+        <dataType arraysize="*" xsi:type="vs:TAPType">REAL</dataType>
+      </column>
+      <column>
+        <name>_double</name>
+        <dataType arraysize="*" xsi:type="vs:TAPType">DOUBLE</dataType>
+      </column>
+      <column>
+        <name>_timestamp</name>
+        <dataType arraysize="*" xsi:type="vs:TAPType">TIMESTAMP</dataType>
+      </column>
+      <column>
+        <name>_char</name>
+        <dataType arraysize="*" xsi:type="vs:TAPType">CHAR</dataType>
+      </column>
+      <column>
+        <name>_varchar</name>
+        <dataType arraysize="*" xsi:type="vs:TAPType">VARCHAR</dataType>
+      </column>
+      <column>
+        <name>_binary</name>
+        <dataType arraysize="*" xsi:type="vs:TAPType">BINARY</dataType>
+      </column>
+      <column>
+        <name>_varbinary</name>
+        <dataType arraysize="*" xsi:type="vs:TAPType">VARBINARY</dataType>
+      </column>
+      <column>
+        <name>_point</name>
+        <dataType arraysize="*" xsi:type="vs:TAPType">POINT</dataType>
+      </column>
+      <column>
+        <name>_region</name>
+        <dataType arraysize="*" xsi:type="vs:TAPType">REGION</dataType>
+      </column>
+      <column>
+        <name>_clob</name>
+        <dataType arraysize="*" xsi:type="vs:TAPType">CLOB</dataType>
+      </column>
+      <column>
+        <name>_blob</name>
+        <dataType arraysize="*" xsi:type="vs:TAPType">BLOB</dataType>
+      </column>
+    </table>
+  </schema>
+</vtm:tableset>

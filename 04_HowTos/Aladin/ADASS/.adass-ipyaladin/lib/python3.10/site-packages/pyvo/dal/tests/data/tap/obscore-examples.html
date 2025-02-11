@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" version="XHTML+RDFa 1.1">
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" href="/static/css/gavo_dc.css" type="text/css" />
+  </head>
+  <body vocab="ivo://ivoa.net/std/DALI-examples#" class="container">
+    <h1>ObsCore Examples from Heidelberg</h1>
+    <p>These are examples for ADQL you can run in TAP services carrying
+      an <code>ivoa.obscore</code> table.  See
+      <a href="http://ivoa.net/documents/ObsCore/">ObsCore</a> for the underlying
+      data model.</p>
+   <div typeof="example" id="Findingplatesbytimeandplace" resource="#Findingplatesbytimeandplace">
+    <h2 property="name">Finding images by time and place</h2>
+    <p>Suppose you read in an old amateur observer's log there was an unexpected
+object on the night sky in the cold winter nights of the week between January
+12th and 18th, 1903 &#x2013; and now you would like to see whether there could
+be an observation of such a thing.</p>
+         <pre class="literal-block">
+SELECT s_ra, s_dec, t_min FROM ivoa.obscore
+  WHERE t_min BETWEEN gavo_to_mjd('1903-01-12')
+      AND gavo_to_mjd('1903-01-19')
+</pre>
+     <p>There is also a shortcut via user defined functions.  As an extension
+to regular ADQL, DaCHS lets you write gavo_simbadpoint('object') and replaces
+the result with a position obtained from simbad, like this:</p>
+        <pre class="dachs-ex-tapquery literal-block" property="query">
+SELECT access_url, t_exptime, t_min FROM ivoa.obscore
+  WHERE
+    t_min BETWEEN gavo_to_mjd('J2416128.5')
+      AND gavo_to_mjd('J2416133.5') AND
+    1=CONTAINS(gavo_simbadpoint('Aldebaran'),
+      CIRCLE('ICRS', s_ra, s_dec, 15))
+</pre>
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,15 @@
+# Region file format: DS9 astropy/regions
+galactic
+circle(104.84,68.54,3.96") # dashlist=8 3 select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 source=1 text={Circle} tag={foo} tag={foo bar} This is a Comment color=pink width=3 font="times 10 normal roman"
+-ellipse(104.84,68.55,7.93",3.96",158.39) # dashlist=8 3 select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 source=1 text={Ellipse} background color=#0ff width=1 font="helvetica 10 normal italic"
+-box(104.85,68.55,15.86",7.93",158.39) # dashlist=8 3 select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 source=1 text={Box} color=yellow width=1 font="helvetica 10 bold roman"
+polygon(104.85,68.56,104.86,68.56,104.86,68.56,104.85,68.56) # dashlist=8 3 select=1 highlite=1 dash=0 fixed=0 edit=0 move=1 delete=1 source=1 text={Polygon} rotate=0 color=green width=1 font="courier 10 normal roman"
+-line(104.85,68.56,104.86,68.56) # dashlist=8 3 select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 source=1 line=1 1 text={Line} color=cyan width=1 font="helvetica 10 normal roman"
+box(104.83,68.56,7.93",3.96",0.00) # dashlist=8 3 select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 source=1 text={Box Annulus} color=green width=1 font="helvetica 10 bold roman"
+point(104.81,68.55) # dashlist=8 3 select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 source=1 text={Circle Point} color=green width=1 font="helvetica 10 normal roman" point=circle
+point(104.81,68.55) # dashlist=8 3 select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 source=1 text={Box Point} color=red width=3 font="helvetica 10 normal roman" point=box
+point(104.82,68.56) # dashlist=8 3 select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 source=1 text={Diamond Point} color=green width=1 font="helvetica 10 normal roman" point=diamond
+point(104.80,68.55) # dashlist=8 3 select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 source=1 text={Cross Point} color=blue width=1 font="helvetica 10 normal roman" point=cross
+point(104.81,68.55) # dashlist=8 3 select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 source=1 text={X Point} color=green width=1 font="helvetica 10 normal roman" point=x
+point(104.81,68.56) # dashlist=8 3 select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 source=1 text={Arrow Point} color=magenta width=1 font="helvetica 10 normal roman" point=arrow
+point(104.80,68.56) # dashlist=8 3 select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 source=1 text={BoxCircle Point} color=green width=1 font="helvetica 10 normal roman" point=boxcircle

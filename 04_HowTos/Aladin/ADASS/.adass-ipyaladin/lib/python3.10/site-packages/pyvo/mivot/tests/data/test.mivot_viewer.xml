@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<VOTABLE version="1.4" xmlns="http://www.ivoa.net/xml/VOTable/v1.3">
+  <DESCRIPTION>Epoch photometry. This table contains light curve data points. Each entry is a photometric flux-time pair for a given object, band and time. It follows the (evolving) VO convention for time series as much as possible. At the time of writing, a VO recommendation has not yet been released.</DESCRIPTION>
+  <RESOURCE type="results">
+    <RESOURCE type="meta">
+      <VODML xmlns:dm-mapping="http://www.ivoa.net/xml/merged-syntax" >
+          <MODEL name="mango"  url="file:/Users/sao/Documents/IVOA/GitHub/ivoa-dm-examples/tmp/Mango-v1.0.vo-dml.xml" />
+          <MODEL name="cube"   url="https://volute.g-vo.org/svn/trunk/projects/dm/Cube/vo-dml/Cube-1.0.vo-dml.xml" />
+          <MODEL name="ds"     url="https://volute.g-vo.org/svn/trunk/projects/dm/DatasetMetadata/vo-dml/DatasetMetadata-1.0.vo-dml.xml" />
+          <MODEL name="meas"   url="https://www.ivoa.net/xml/Meas/20200908/Meas-v1.0.vo-dml.xml" />
+          <MODEL name="coords" url="https://www.ivoa.net/xml/STC/20200908/Coords-v1.0.vo-dml.xml" />
+          <MODEL name="ivoa"   url="https://www.ivoa.net/xml/VODML/IVOA-v1.vo-dml.xml" />
+          <!--
+             place holder for singular data model instances not associated with a singular VOTabme TABLE
+          -->
+          <GLOBALS>
+            <!--
+              Container for the coordinate systems
+            -->
+            <COLLECTION dmid="_CoordinateSystems" dmrole="" >
+              <!--
+                Time coordinate system
+              -->
+              <INSTANCE dmid="_timesys" dmrole="" dmtype="coords:TimeSys">
+                <PRIMARY_KEY dmtype="ivoa:string" value="TCB"/>
+                <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="coords:TimeFrame">
+                  <ATTRIBUTE dmrole="coords:TimeFrame.timescale" dmtype="ivoa:string" value="TCB" />
+                  <INSTANCE dmrole="coords:TimeFrame.refPosition" dmtype="coords:StdRefLocation">
+                    <ATTRIBUTE dmrole="coords:StdRefLocation.position" dmtype="ivoa:string" value="BARYCENTER"/>
+                  </INSTANCE>
+                </INSTANCE>
+              </INSTANCE>
+               <!--
+                Space coordinate system
+              -->
+             <INSTANCE dmid="_spacesys1" dmrole="" dmtype="coords:SpaceSys">
+                <PRIMARY_KEY dmtype="ivoa:string" value="ICRS"/>
+                <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="coords:SpaceFrame">
+                  <ATTRIBUTE dmrole="coords:SpaceFrame.spaceRefFrame" dmtype="ivoa:string" value="ICRS"/>
+                  <ATTRIBUTE dmrole="coords:SpaceFrame.equinox" dmtype="coords:Epoch" value="J2015.5"/>
+                </INSTANCE>
+              </INSTANCE>
+              <!--
+                Photometric coordinate system: At the time of writing, PhotDM was not available in VODML. 
+                We use a class of the first MANGO draft
+              -->
+             <INSTANCE dmid="_photsys_G" dmtype="mango:coordinates.PhotometryCoordSys">
+                <PRIMARY_KEY dmtype="ivoa:string" value="G"/>
+                <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="mango:coordinates.PhotFilter">
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.name" dmtype="ivoa:string" value="GAIA/GAIA2r.G"/>
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.zeroPointFlux" dmtype="ivoa:RealQuantity" value="2.49524e-9"/>
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.magnitudeSystem" dmtype="ivoa:string" value="Vega"/>
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.effectiveWavelength" dmtype="ivoa:RealQuantity" value="6246.77"/>
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.unit" dmtype="ivoa:Unit" value="Angstrom" />
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.bandWidth" dmtype="ivoa:real" value="4578.32"/>
+                </INSTANCE>
+              </INSTANCE>
+              <INSTANCE dmid="_photsys_RP" dmrole="" dmtype="mango:coordinates.PhotometryCoordSys">
+                <PRIMARY_KEY dmtype="ivoa:string" value="RP"/>
+                <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="mango:coordinates.PhotFilter">
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.name" dmtype="ivoa:string" value="GAIA/GAIA2r.Grp"/>
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.zeroPointFlux" dmtype="ivoa:RealQuantity" value="1.29363e-9"/>
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.magnitudeSystem" dmtype="ivoa:string" value="Vega"/>
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.effectiveWavelength" dmtype="ivoa:RealQuantity" value="7740.87"/>
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.unit" dmtype="ivoa:Unit" value="Angstrom"/>
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.bandWidth" dmtype="ivoa:real" value="2943.72"/>
+                </INSTANCE>
+              </INSTANCE>
+              <INSTANCE dmid="_photsys_BP" dmrole="" dmtype="mango:coordinates.PhotometryCoordSys">
+                <PRIMARY_KEY dmtype="ivoa:string" value="BP"/>
+                <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="mango:coordinates.PhotFilter">
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.name" dmtype="ivoa:string" value="GAIA/GAIA2r.Gbp"/>
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.zeroPointFlux" dmtype="ivoa:RealQuantity" value="4.03528e-9"/>
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.magnitudeSystem" dmtype="ivoa:string" value="Vega"/>
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.effectiveWavelength" dmtype="ivoa:RealQuantity" value="5278.58"/>
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.unit" dmtype="ivoa:Unit" value="Angstrom"/>
+                  <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.bandWidth" dmtype="ivoa:real" value="2279.45"/>
+                </INSTANCE>
+              </INSTANCE>
+            </COLLECTION>
+            <!--
+              Container for the datasets (one per timeseries)
+            -->
+            <COLLECTION dmid="_Datasets" dmrole="">
+              <INSTANCE dmid="_ds1" dmrole="" dmtype="ds:experiment.ObsDataset">
+                <!--
+                  The primary keys of that collection items are set by the mapping 
+                -->
+                <PRIMARY_KEY dmtype="ivoa:string" value="5813181197970338560"/>
+                <ATTRIBUTE dmrole="ds:dataset.Dataset.dataProductType" dmtype="ds:dataset.DataProductType" value="TIMESERIES"/>
+                <ATTRIBUTE dmrole="ds:dataset.Dataset.dataProductSubtype" dmtype="ivoa:string" value="GAIA Time Series"/>
+                <ATTRIBUTE dmrole="ds:experiment.ObsDataset.calibLevel" dmtype="ivoa:integer" value="1"/>
+                <REFERENCE dmrole="ds:experiment.ObsDataset.target" dmref="_tg1"/>
+              </INSTANCE>
+            </COLLECTION>
+            <!--
+              Time series target
+              Value set as a literal by the mapping
+            -->
+            <INSTANCE dmid="_tg1" dmrole="" dmtype="ds:experiment.Target">
+              <ATTRIBUTE dmrole="ds:experiment.BaseTarget.name" dmtype="ivoa:string" value="5813181197970338560"/>
+            </INSTANCE>
+          </GLOBALS>
+          <!--
+            Mapping of the rows of the table _PKTable
+          -->
+          <TEMPLATES tableref="_PKTable">
+            <INSTANCE dmid="_TimeSeries" dmrole="" dmtype="cube:SparseCube">
+             <!--
+                The dataset object is the item of the COLLECTION@dmid=_Datasets
+                having a primary key matching the value of the column _pksrcid for that particular row
+              -->
+              <REFERENCE dmrole="cube:DataProduct.dataset" sourceref="_Datasets">
+                <FOREIGN_KEY ref="_pksrcid"/>
+              </REFERENCE>
+              <!--
+                Sparse cube data are given by the INSTANCE@dmid="_ts_data"
+                These instances are located in the Results table (must be found by the client)
+                The matching row are identified by a double join condition
+                    _PKTable[_pksrcid] = Results[_srcid]
+                    _PKTable[_pkband] = Results[_band]
+              -->
+              <COLLECTION dmrole="cube:SparseCube.data">
+                <JOIN dmref="_ts_data">
+                  <WHERE foreignkey="_srcid" primarykey="_pksrcid" />
+                  <WHERE foreignkey="_band" primarykey="_pkband"  />
+                </JOIN>
+              </COLLECTION>
+            </INSTANCE>
+          </TEMPLATES>
+          <!--
+            Mapping of the rows of the table Results
+          -->
+          <TEMPLATES tableref="Results">
+            <INSTANCE dmid="_ts_data" dmrole="" dmtype="cube:NDPoint">
+              <COLLECTION dmrole="cube:NDPoint.observable">
+                <INSTANCE dmtype="cube:Observable">
+                  <ATTRIBUTE dmrole="cube:DataAxis.dependent" dmtype="ivoa:boolean" value="False"/>
+                  <INSTANCE dmrole="cube:MeasurementAxis.measure" dmtype="meas:Time">
+                    <INSTANCE dmrole="meas:Time.coord" dmtype="coords:MJD">
+                      <ATTRIBUTE dmrole="coords:MJD.date" dmtype="ivoa:real" ref="_obstime"/>
+                      <!--
+                       The time coordinate is given by the INSTANCE@dmid=_timesys
+                       This instance must be located by the client
+                      -->
+                      <REFERENCE dmrole="coords:Coordinate.coordSys" dmref="_timesys"/>
+                    </INSTANCE>
+                  </INSTANCE>
+                </INSTANCE>
+                <INSTANCE dmtype="cube:Observable">
+                  <ATTRIBUTE dmrole="cube:DataAxis.dependent" dmtype="ivoa:boolean" value="True"/>
+                  <INSTANCE dmrole="cube:MeasurementAxis.measure" dmtype="meas:GenericMeasure">
+                    <INSTANCE dmrole="meas:GenericMeasure.coord" dmtype="coords:PhysicalCoordinate">
+                      <ATTRIBUTE dmrole="coords:PhysicalCoordinate.cval" dmtype="ivoa:RealQuantity" ref="_mag"/>
+             		  <!--
+                        The photometric system is given by the item of the COLLECTION@dmid=_CoordinateSystems
+                        having a primary key matching the value of the column _band for that particular row
+                      -->
+                      <!-- Dynamic Reference not implemented yet
+                      <REFERENCE dmrole="coords:Coordinate.coordSys" sourceref="_CoordinateSystems">
+                        <FOREIGN_KEY ref="_band"/>
+                      </REFERENCE>-->
+                    </INSTANCE>
+                  </INSTANCE>
+                </INSTANCE>
+                <INSTANCE dmtype="cube:Observable">
+                  <ATTRIBUTE dmrole="cube:DataAxis.dependent" dmtype="ivoa:boolean" value="True"/>
+                  <INSTANCE dmrole="cube:MeasurementAxis.measure" dmtype="meas:GenericMeasure">
+                    <INSTANCE dmrole="meas:GenericMeasure.coord" dmtype="coords:PhysicalCoordinate">
+                      <ATTRIBUTE dmrole="coords:PhysicalCoordinate.cval" dmtype="ivoa:RealQuantity" ref="_flux"/>
+             		  <!--
+                        The photometric system is given by the item of the COLLECTION@dmid=_CoordinateSystems
+                        having a primary key matching the value of the column _band for that particular row
+                      -->
+                      <!--<REFERENCE dmrole="coords:Coordinate.coordSys" sourceref="_CoordinateSystems">
+                        <FOREIGN_KEY ref="_band"/>
+                      </REFERENCE>-->
+                    </INSTANCE>
+                    <INSTANCE dmrole="meas:Measure.error" dmtype="meas:Error">
+                      <INSTANCE dmrole="meas:Error.statError" dmtype="meas:Symmetrical">
+                        <ATTRIBUTE dmrole="meas:Symmetrical.radius" dmtype="ivoa:RealQuantity" ref="_fluxerr"/>
+                      </INSTANCE>
+                    </INSTANCE>
+                  </INSTANCE>
+                </INSTANCE>
+              </COLLECTION>
+            </INSTANCE>
+          </TEMPLATES>
+      </VODML>
+    <!--
+      mapping block end
+    -->
+    </RESOURCE>
+    
+    <TABLE ID="_PKTable">
+        <FIELD ID="_pksrcid" datatype="char" arraysize="*" name="pksrcid">
+          <DESCRIPTION>Source ID</DESCRIPTION>
+        </FIELD>
+        <FIELD ID="_pkband" name="pkband" datatype="char" arraysize="*">
+          <DESCRIPTION>Photometric Band</DESCRIPTION>
+        </FIELD>
+        <DATA>
+          <TABLEDATA>
+            <TR>
+              <TD>5813181197970338560</TD>
+              <TD>G</TD>
+            </TR>
+            <TR>
+              <TD>5813181197970338560</TD>
+              <TD>BP</TD>
+            </TR>
+            <TR>
+              <TD>5813181197970338560</TD>
+              <TD>RP</TD>
+            </TR>
+           </TABLEDATA>
+        </DATA>
+    </TABLE>
+<TABLE ID="Results">
+<FIELD ID="_srcid" datatype="char" arraysize="*" name="source_id" utype="meta.id;meta.main">
+<DESCRIPTION>Source Id. A unique single numerical identifier of the source obtained from GaiaSource.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="long" name="transit_id" ucd="meta.version">
+<DESCRIPTION>Transit unique identifier. For a given object, a transit comprises the different Gaia observations (SM, AF, BP, RP and RVS) obtained for each focal plane crossing.</DESCRIPTION>
+</FIELD>
+<FIELD ID="_band" arraysize="*" datatype="char" name="band" ucd="instr.bandpass" utype="ssa:DataID.Bandpass">
+<DESCRIPTION>Photometric band. Values: G (per-transit combined SM-AF flux), BP (blue photometer integrated flux) and RP (red photometer integrated flux).</DESCRIPTION>
+</FIELD>
+<FIELD ID="_obstime" datatype="double" name="time" ucd="time.epoch;VOX:Image_MJDateObs" unit="d" utype="spec:Spectrum.Data.TimeAxis.Value">
+<DESCRIPTION>Different times are defined for each band. For G, it is the field-of-view transit averaged observation time. For BP and RP, it is the observation time of the BP CCD transit. The units are Barycentric JD (in TCB) in days -2,455,197.5, computed as follows. First the observation time is converted from On-board Mission Time (OBMT) into Julian date in TCB (Temps Coordonnee Barycentrique). Next a correction is applied for the light-travel time to the Solar system barycentre, resulting in Barycentric Julian Date (BJD). Finally, an offset of 2,455,197.5 days is applied (corresponding to a reference time $T_0$ at 2010-01-01T00:00:00) to have a conveniently small numerical value. Although the centroiding time accuracy of the individual CCD observations is (much) below 1~ms (e.g. in BP and RP), the G band observation time is averaged over typically 9 CCD observations taken in a time range of about 44sec.</DESCRIPTION>
+</FIELD>
+<FIELD ID="_mag" datatype="float" name="mag" ucd="phot.mag;em.opt" unit="mag">
+<DESCRIPTION>Vega magnitude, computed from the flux applying the zero-point defined in ExtPhotZeroPoint.</DESCRIPTION>
+</FIELD>
+<FIELD ID="_flux" datatype="float" name="flux" ucd="phot.flux;em.opt;stat.mean" unit="s-1" utype="spec:Spectrum.Data.SpectralAxis.Value">
+<DESCRIPTION>Band flux value for the transit. For G band, it is a combination of individual SM-AF CCD fluxes. For BP and RP bands, it is an integrated CCD flux.</DESCRIPTION>
+</FIELD>
+<FIELD ID="_fluxerr" datatype="float" name="flux_error" ucd="stat.error;phot.flux;em.opt" unit="s-1">
+<DESCRIPTION>Flux error. If the flux has been rejected or is unavailable, this error will be set to null.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="float" name="flux_over_error" ucd="stat.error;phot.flux;em.opt">
+<DESCRIPTION>Band flux divided by its error. If the flux has been rejected or is unavailable, this field will be set to null.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="rejected_by_photometry" ucd="meta.code.status">
+<DESCRIPTION>Rejected by DPAC photometry processing.</DESCRIPTION>
+</FIELD>
+<FIELD datatype="boolean" name="rejected_by_variability" ucd="meta.code.status">
+<DESCRIPTION>Rejected by DPAC variability processing (or variability analysis).</DESCRIPTION>
+</FIELD>
+<FIELD datatype="long" name="other_flags" ucd="meta.code.status">
+</FIELD>
+<FIELD datatype="long" name="solution_id" ucd="meta.version">
+<DESCRIPTION>All Gaia data processed by the Data Processing and Analysis Consortium comes tagged with a solution identifier. This is a numeric field attached to each table row that can be used to unequivocally identify the version of all the subsystems that where used in the generation of the data as well as the input data used. It is mainly for internal DPAC use but is included in the published data releases to enable end users to examine the provenance of processed data products. To decode a given solution ID  visit https://gaia.esac.esa.int/decoder/solnDecoder.jsp</DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+  <TR>
+    <TD>5813181197970338560</TD>
+    <TD>17091923342681275</TD>
+    <TD>G</TD>
+    <TD>1705.9437360200984</TD>
+    <TD>15.216574774452164</TD>
+    <TD>15442.456273273616</TD>
+    <TD>44.151258712309364</TD>
+    <TD>349.76254</TD>
+    <TD>F</TD>
+    <TD>F</TD>
+    <TD>4097</TD>
+    <TD>369295551293819386</TD>
+  </TR>
+  <TR>
+    <TD>5813181197970338560</TD>
+    <TD>17096015648964756</TD>
+    <TD>G</TD>
+    <TD>1706.0177100217386</TD>
+    <TD>14.767336693604877</TD>
+    <TD>23356.70699319823</TD>
+    <TD>33.53035403015752</TD>
+    <TD>696.584</TD>
+    <TD>F</TD>
+    <TD>F</TD>
+    <TD>4194817</TD>
+    <TD>369295551293819386</TD>
+  </TR>
+  <TR>
+    <TD>5813181197970338560</TD>
+    <TD>19103616164443503</TD>
+    <TD>G</TD>
+    <TD>1742.3215763366886</TD>
+    <TD>15.278342999137502</TD>
+    <TD>14588.447956240941</TD>
+    <TD>15.054069973748831</TD>
+    <TD>969.07</TD>
+    <TD>F</TD>
+    <TD>F</TD>
+    <TD>1</TD>
+    <TD>369295551293819386</TD>
+  </TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

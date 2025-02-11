@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE version="1.4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.ivoa.net/xml/VOTable/v1.3"
+	xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.3 http://www.ivoa.net/xml/VOTable/v1.3">
+	<RESOURCE ID="yCat_1146" name="I/146">
+        <DESCRIPTION>Prototype for covariance errors</DESCRIPTION>
+		<RESOURCE type="meta">
+			<VODML xmlns:dm-mapping="http://www.ivoa.net/xml/mivot">
+				<REPORT status="OK">hand-made mapping</REPORT>
+				<GLOBALS>
+				</GLOBALS>
+				<TEMPLATES tableref="one_instance">
+					<INSTANCE dmtype="one_instance"/>
+				</TEMPLATES>
+				<TEMPLATES tableref="coll_and_instances">
+					<COLLECTION dmrole="coll"/>
+					<INSTANCE dmtype="first"/>
+					<INSTANCE dmtype="second"/>
+				</TEMPLATES>
+				<TEMPLATES tableref="one_collection">
+					<COLLECTION dmrole="OneCollection"/>
+				</TEMPLATES>
+				<TEMPLATES tableref="only_collection">
+					<COLLECTION dmrole="First"/>
+					<COLLECTION dmrole="Second"/>
+				</TEMPLATES>
+				<TEMPLATES tableref="empty">
+				</TEMPLATES>
+			</VODML>
+		</RESOURCE>
+		<TABLE ID="Results" name="Result">
+			<FIELD name="name" ucd="meta.id;meta.main" datatype="char" arraysize="*" />
+			<DATA>
+				<TABLEDATA>
+					<TR>
+						<TD>SourceName</TD>
+					</TR>
+					<TR>
+						<TD>OtherSourceName</TD>
+					</TR>
+				</TABLEDATA>
+			</DATA>
+		</TABLE>
+	</RESOURCE>
+</VOTABLE>

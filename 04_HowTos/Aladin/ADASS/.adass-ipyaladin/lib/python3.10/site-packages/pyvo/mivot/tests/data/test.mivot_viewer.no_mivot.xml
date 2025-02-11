@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE version="1.4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.ivoa.net/xml/VOTable/v1.3"
+  xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.3 http://www.ivoa.net/xml/VOTable/v1.3">
+
+<RESOURCE ID="yCat_1329" name="I/329">
+  <DESCRIPTION>URAT1 Catalog (Zacharias+ 2015)</DESCRIPTION>  <INFO name="ivoid" value="ivo://cds.vizier/i/329">    IVOID of underlying data collection  </INFO>
+  
+  <COOSYS ID="H" system="ICRS"/>
+  <TIMESYS ID="time_1" refposition="UNKNOWN" timeorigin="0.000000" timescale="UNKNOWN"/>
+  <TABLE ID="I_329_urat1" name="I/329/urat1">
+    <DESCRIPTION>URAT1 catalog</DESCRIPTION>
+    <!-- RowName: -c=${$poseq}&-c.rs=0.004 -->
+    <!-- Definitions of GROUPs and FIELDs -->
+    <FIELD name="_r" ucd="pos.angDistance" datatype="double" width="8" precision="6" unit=""><!-- ucd="POS_ANG_DIST_GENERAL" -->
+      <DESCRIPTION>Distance from center (052.2670800+59.9402700)[ICRS], at Epoch of catalog (Epoch)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="URAT1" ucd="meta.id;meta.main" datatype="char" arraysize="10*"><!-- ucd="meta.id;meta.main" -->
+      <DESCRIPTION>URAT1 recommended identifier (ZZZ-NNNNNN) (13) [datatype=char]</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="RAICRS" ucd="pos.eq.ra;meta.main" ref="H" datatype="double" width="11" precision="7" unit="deg"><!-- ucd="pos.eq.ra;meta.main" -->
+      <DESCRIPTION>Right ascension on ICRS, at "Epoch" (1)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="DEICRS" ucd="pos.eq.dec;meta.main" ref="H" datatype="double" width="11" precision="7" unit="deg"><!-- ucd="pos.eq.dec;meta.main" -->
+      <DESCRIPTION>Declination on ICRS, at "Epoch" (1)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="sigs" ucd="stat.error" datatype="short" width="3" unit="mas"><!-- ucd="ERROR" -->
+      <DESCRIPTION>Position error per coordinate, from scatter (2)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="sigm" ucd="stat.error" datatype="short" width="3" unit="mas"><!-- ucd="ERROR" -->
+      <DESCRIPTION>Position error per coordinate, from model (2)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="Ns" ucd="meta.number" datatype="short" width="2"><!-- ucd="NUMBER" -->
+      <DESCRIPTION>(nst) Total number of sets the star is in (3)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="Nu" ucd="meta.number" datatype="short" width="2"><!-- ucd="NUMBER" -->
+      <DESCRIPTION>(nsu) Number of sets used for mean position (3)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="Epoch" ucd="time.epoch;obs;stat.mean" ref="H" ID="_tab1_8" datatype="double" width="8" precision="3" unit="yr"><!-- ucd="TIME_EPOCH" -->
+      <DESCRIPTION>(epoc) Mean URAT observation epoch (1)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="f.mag" ucd="phot.mag;em.opt.R" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="PHOT_MAG_OPTICAL" -->
+      <DESCRIPTION>?(mmag) mean URAT model fit magnitude (4)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="e_f.mag" ucd="stat.error" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="ERROR" -->
+      <DESCRIPTION>?(sigp) URAT photometry error (5)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="Nm" ucd="meta.number" datatype="short" width="2"><!-- ucd="NUMBER" -->
+      <DESCRIPTION>(nsm) Number of sets used for URAT magnitude (3)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="r" ucd="meta.code" datatype="unsignedByte" width="1"><!-- ucd="CODE_MISC" -->
+      <DESCRIPTION>(ref) largest reference star flag (6)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="Nit" ucd="meta.number" datatype="short" width="3"><!-- ucd="NUMBER" -->
+      <DESCRIPTION>(nit) Total number of images (observations)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="Niu" ucd="meta.number" datatype="short" width="3"><!-- ucd="NUMBER" -->
+      <DESCRIPTION>(niu) Number of images used for mean position</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="Ngt" ucd="meta.number" datatype="short" width="3"><!-- ucd="NUMBER" -->
+      <DESCRIPTION>(ngt) Total number of 1st order grating observations</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="Ngu" ucd="meta.number" datatype="short" width="3"><!-- ucd="NUMBER" -->
+      <DESCRIPTION>(ngu) Number of 1st order grating positions used</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="pmRA" ucd="pos.pm;pos.eq.ra" ref="H" datatype="float" width="6" precision="1" unit="mas/yr"><!-- ucd="POS_EQ_PMRA" -->
+      <DESCRIPTION>?(pmr) Proper motion RA*cosDec (from 2MASS) (7)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="pmDE" ucd="pos.pm;pos.eq.dec" ref="H" datatype="float" width="6" precision="1" unit="mas/yr"><!-- ucd="POS_EQ_PMDEC" -->
+      <DESCRIPTION>?(pmd) Proper motion in Declination (7)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="e_pm" ucd="stat.error" datatype="float" width="4" precision="1" unit="mas/yr"><!-- ucd="ERROR" -->
+      <DESCRIPTION>?(pme) Proper motion error per coordinate (8)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="mf2" ucd="meta.code" datatype="short" width="2"><!-- ucd="CODE_MISC" -->
+      <DESCRIPTION>[1/11] Match flag URAT with 2MASS (9)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="mfa" ucd="meta.code" datatype="short" width="2"><!-- ucd="CODE_MISC" -->
+      <DESCRIPTION>[1/11] Match flag URAT with APASS (9)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="G" ucd="meta.code" datatype="char" arraysize="1"><!-- ucd="CODE_MISC" -->
+      <DESCRIPTION>[-] "-" if there is no match with GSC2.4 (14)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="2Mkey" ID="_2Mkey" ucd="meta.id" datatype="long" width="10"><!-- ucd="ID_NUMBER" -->
+      <DESCRIPTION>?(id2) unique 2MASS star identification number</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="-9223372036854775808" />
+    </FIELD>
+    <FIELD name="Jmag" ucd="phot.mag;em.IR.J" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="PHOT_JHN_J" -->
+      <DESCRIPTION>?(jmag) 2MASS J-band magnitude</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="e_Jmag" ucd="stat.error;phot.mag" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="ERROR" -->
+      <DESCRIPTION>?(ejmag) Error on Jmag</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="q_Jmag" ucd="meta.code.qual" datatype="char" arraysize="2"><!-- ucd="CODE_QUALITY" -->
+      <DESCRIPTION>[0,58]? J-band quality-confusion flag (10)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="Hmag" ucd="phot.mag;em.IR.H" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="PHOT_JHN_H" -->
+      <DESCRIPTION>?(hmag) 2MASS H-band magnitude</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="e_Hmag" ucd="stat.error;phot.mag" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="ERROR" -->
+      <DESCRIPTION>?(ehmag) Error on H-band magnitude (10)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="q_Hmag" ucd="meta.code.qual" datatype="char" arraysize="2"><!-- ucd="CODE_QUALITY" -->
+      <DESCRIPTION>[0,58]? H-band quality-confusion flag (10)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="Kmag" ucd="phot.mag;em.IR.K" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="PHOT_JHN_K" -->
+      <DESCRIPTION>?(kmag) 2MASS Ks-band magnitude</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="e_Kmag" ucd="stat.error;phot.mag" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="ERROR" -->
+      <DESCRIPTION>?(ekmag) Error on Ks-band magnitude (10)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="q_Kmag" ucd="meta.code.qual" datatype="char" arraysize="2"><!-- ucd="CODE_QUALITY" -->
+      <DESCRIPTION>[0,58]? Ks-band quality-confusion flag (10)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="Nn" ucd="meta.number" datatype="short" width="3"><!-- ucd="NUMBER" -->
+      <DESCRIPTION>(ann) Number of APASS observation nights (12)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="No" ucd="meta.number" datatype="short" width="3"><!-- ucd="NUMBER" -->
+      <DESCRIPTION>(ano) Number of APASS observations (12)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+    </FIELD>
+    <FIELD name="Bmag" ucd="phot.mag;em.opt.B" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="PHOT_MAG_B" -->
+      <DESCRIPTION>?(abm) APASS B-band magnitude (11)</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="e_Bmag" ucd="stat.error;phot.mag" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="ERROR" -->
+      <DESCRIPTION>?(ebm) Error on Bmag</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="Vmag" ucd="phot.mag;em.opt.V" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="PHOT_MAG_V" -->
+      <DESCRIPTION>?(avm) APASS V-band magnitude</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="e_Vmag" ucd="stat.error;phot.mag" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="ERROR" -->
+      <DESCRIPTION>?(evm) Error on Vmag</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="gmag" ucd="phot.mag;em.opt.B" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="PHOT_SDSS_G" -->
+      <DESCRIPTION>?(agm) APASS g-band magnitude</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="e_gmag" ucd="stat.error;phot.mag" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="ERROR" -->
+      <DESCRIPTION>?(egm) Error on gmag</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="rmag" ucd="phot.mag;em.opt.R" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="PHOT_SDSS_R" -->
+      <DESCRIPTION>?(arm) APASS r-band magnitude</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="e_rmag" ucd="stat.error;phot.mag" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="ERROR" -->
+      <DESCRIPTION>?(erm) Error on rmag</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="imag" ucd="phot.mag;em.opt.I" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="PHOT_SDSS_I" -->
+      <DESCRIPTION>?(aim) APASS i-band magnitude</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="e_imag" ucd="stat.error;phot.mag" datatype="float" width="6" precision="3" unit="mag"><!-- ucd="ERROR" -->
+      <DESCRIPTION>?(eim) Error on imag</DESCRIPTION>
+<!-- ++++ What is 'M' in edition ?? -->
+      <VALUES null="NaN" />
+    </FIELD>
+<DATA><TABLEDATA>
+<TR><TD>0.049402</TD><TD>750-146023</TD><TD>052.2340018</TD><TD>+59.8937333</TD><TD>9</TD><TD>6</TD><TD>13</TD><TD>13</TD><TD>2013.418</TD><TD>15.340</TD><TD>0.013</TD><TD>13</TD><TD>9</TD><TD>74</TD><TD>74</TD><TD>0</TD><TD>0</TD><TD>1.5</TD><TD>-12.3</TD><TD>5.9</TD><TD>1</TD><TD>5</TD><TD></TD><TD>758808681</TD><TD>13.713</TD><TD>0.028</TD><TD>5</TD><TD>13.340</TD><TD>0.034</TD><TD>5</TD><TD>13.101</TD><TD>0.034</TD><TD>5</TD><TD>1</TD><TD>4</TD><TD>17.632</TD><TD>0.204</TD><TD>16.164</TD><TD>0.001</TD><TD>16.690</TD><TD>0.001</TD><TD>15.750</TD><TD>0.001</TD><TD></TD><TD></TD></TR>
+</TABLEDATA></DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

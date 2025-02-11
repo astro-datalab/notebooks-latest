@@ -1,0 +1,99 @@
+<GLOBALS>
+  <COLLECTION dmid="_CoordinateSystems" dmrole="">
+    <INSTANCE dmid="_timesys" dmrole="" dmtype="coords:TimeSys">
+      <PRIMARY_KEY dmtype="ivoa:string" value="TCB">
+        </PRIMARY_KEY>
+    <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="coords:TimeFrame">
+        <ATTRIBUTE dmrole="coords:TimeFrame.timescale" dmtype="ivoa:string" value="TCB">
+          </ATTRIBUTE>
+      <INSTANCE dmrole="coords:TimeFrame.refPosition" dmtype="coords:StdRefLocation">
+          <ATTRIBUTE dmrole="coords:StdRefLocation.position" dmtype="ivoa:string" value="BARYCENTER">
+            </ATTRIBUTE>
+        </INSTANCE>
+      </INSTANCE>
+    </INSTANCE>
+  <INSTANCE dmid="_spacesys1" dmrole="" dmtype="coords:SpaceSys">
+      <PRIMARY_KEY dmtype="ivoa:string" value="ICRS">
+        </PRIMARY_KEY>
+    <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="coords:SpaceFrame">
+        <ATTRIBUTE dmrole="coords:SpaceFrame.spaceRefFrame" dmtype="ivoa:string" value="ICRS">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="coords:SpaceFrame.equinox" dmtype="coords:Epoch" value="J2015.5">
+          </ATTRIBUTE>
+      </INSTANCE>
+    </INSTANCE>
+  <INSTANCE dmid="_photsys_G" dmtype="mango:coordinates.PhotometryCoordSys">
+      <PRIMARY_KEY dmtype="ivoa:string" value="G">
+        </PRIMARY_KEY>
+    <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="mango:coordinates.PhotFilter">
+        <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.name" dmtype="ivoa:string" value="GAIA/GAIA2r.G">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.zeroPointFlux" dmtype="ivoa:RealQuantity" value="2.49524e-9">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.magnitudeSystem" dmtype="ivoa:string" value="Vega">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.effectiveWavelength" dmtype="ivoa:RealQuantity" value="6246.77">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.unit" dmtype="ivoa:Unit" value="Angstrom">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.bandWidth" dmtype="ivoa:real" value="4578.32">
+          </ATTRIBUTE>
+      </INSTANCE>
+    </INSTANCE>
+  <INSTANCE dmid="_photsys_RP" dmrole="" dmtype="mango:coordinates.PhotometryCoordSys">
+      <PRIMARY_KEY dmtype="ivoa:string" value="RP">
+        </PRIMARY_KEY>
+    <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="mango:coordinates.PhotFilter">
+        <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.name" dmtype="ivoa:string" value="GAIA/GAIA2r.Grp">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.zeroPointFlux" dmtype="ivoa:RealQuantity" value="1.29363e-9">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.magnitudeSystem" dmtype="ivoa:string" value="Vega">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.effectiveWavelength" dmtype="ivoa:RealQuantity" value="7740.87">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.unit" dmtype="ivoa:Unit" value="Angstrom">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.bandWidth" dmtype="ivoa:real" value="2943.72">
+          </ATTRIBUTE>
+      </INSTANCE>
+    </INSTANCE>
+  <INSTANCE dmid="_photsys_BP" dmrole="" dmtype="mango:coordinates.PhotometryCoordSys">
+      <PRIMARY_KEY dmtype="ivoa:string" value="BP">
+        </PRIMARY_KEY>
+    <INSTANCE dmrole="coords:PhysicalCoordSys.frame" dmtype="mango:coordinates.PhotFilter">
+        <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.name" dmtype="ivoa:string" value="GAIA/GAIA2r.Gbp">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.zeroPointFlux" dmtype="ivoa:RealQuantity" value="4.03528e-9">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.magnitudeSystem" dmtype="ivoa:string" value="Vega">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.effectiveWavelength" dmtype="ivoa:RealQuantity" value="5278.58">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.unit" dmtype="ivoa:Unit" value="Angstrom">
+          </ATTRIBUTE>
+      <ATTRIBUTE dmrole="mango:coordinates.PhotFilter.bandWidth" dmtype="ivoa:real" value="2279.45">
+          </ATTRIBUTE>
+      </INSTANCE>
+    </INSTANCE>
+  </COLLECTION>
+  <COLLECTION dmid="_Datasets" dmrole="">
+    <INSTANCE dmid="_ds1" dmrole="" dmtype="ds:experiment.ObsDataset">
+      <PRIMARY_KEY dmtype="ivoa:string" value="5813181197970338560">
+        </PRIMARY_KEY>
+    <ATTRIBUTE dmrole="ds:dataset.Dataset.dataProductType" dmtype="ds:dataset.DataProductType" value="TIMESERIES">
+        </ATTRIBUTE>
+    <ATTRIBUTE dmrole="ds:dataset.Dataset.dataProductSubtype" dmtype="ivoa:string" value="GAIA Time Series">
+        </ATTRIBUTE>
+    <ATTRIBUTE dmrole="ds:experiment.ObsDataset.calibLevel" dmtype="ivoa:integer" value="1">
+        </ATTRIBUTE>
+    <REFERENCE_1 dmrole="ds:experiment.ObsDataset.target" dmref="_tg1">
+        </REFERENCE_1>
+    </INSTANCE>
+  </COLLECTION>
+  <INSTANCE dmid="_tg1" dmrole="" dmtype="ds:experiment.Target">
+    <ATTRIBUTE dmrole="ds:experiment.BaseTarget.name" dmtype="ivoa:string" value="5813181197970338560">
+      </ATTRIBUTE>
+  </INSTANCE>
+</GLOBALS>
+

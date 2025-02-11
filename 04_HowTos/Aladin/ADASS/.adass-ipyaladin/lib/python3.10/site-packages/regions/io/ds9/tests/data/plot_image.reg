@@ -1,0 +1,14 @@
+# Region file format: DS9 astropy/regions
+image
+circle(501.000000,601.000000,50.000000) # color=red
+line(401.000000,201.000000,501.000000,101.000000) # color=blue
+point(101.000000,801.000000) # point=cross color=orange
+point(101.000000,101.000000) # point=x color=brown
+point(101.000000,301.000000) # point=boxcircle color=yellow
+point(101.000000,401.000000) # point=x color=violet
+point(101.000000,201.000000) # color=red
+ellipse(301.000000,751.000000,45.000000,30.000000,75.000000) # color=blue
+text(151.000000,551.000000) # text={Text} textangle=45 color=orange font="helvetica 12 normal roman"
+annulus(651.000000,301.000000,60.000000,90.000000) # color=brown
+polygon(451.000000,751.000000,451.000000,701.000000,551.000000,651.000000,601.000000,751.000000) # color=yellow
+box(401.000000,401.000000,100.000000,80.000000,0.000000) # color=violet

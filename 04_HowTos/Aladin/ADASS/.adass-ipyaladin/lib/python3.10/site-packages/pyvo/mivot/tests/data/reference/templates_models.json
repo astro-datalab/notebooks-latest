@@ -1,0 +1,25 @@
+{
+  "_PKTable": {
+    "COLLECTION": [],
+    "INSTANCE": [
+      "cube:SparseCube"
+    ]
+  },
+  "Results": {
+    "COLLECTION": [],
+    "INSTANCE": [
+      "cube:NDPoint",
+      "cube:Observable",
+      "meas:Time",
+      "coords:MJD",
+      "cube:Observable",
+      "meas:GenericMeasure",
+      "coords:PhysicalCoordinate",
+      "cube:Observable",
+      "meas:GenericMeasure",
+      "coords:PhysicalCoordinate",
+      "meas:Error",
+      "meas:Symmetrical"
+    ]
+  }
+}

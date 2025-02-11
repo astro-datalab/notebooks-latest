@@ -1,0 +1,103 @@
+{
+  "uri": "http://www.ivoa.net/rdf/messenger",
+  "flavour": "RDF Class",
+  "terms": {
+    "Photon": {
+      "label": "Photon",
+      "description": "          Carrier particles of the electromagnetic interaction",
+      "preliminary": "",
+      "wider": [],
+      "narrower": [
+        "Radio",
+        "Millimeter",
+        "Infrared",
+        "Optical",
+        "UV",
+        "X-ray",
+        "Gamma-ray",
+        "EUV"
+      ]
+    },
+    "Radio": {
+      "label": "Radio",
+      "description": "           Photon with a wavelength longer than 10 mm (or \u03bd<30 GHz)",
+      "preliminary": "",
+      "wider": [
+        "Photon"
+      ],
+      "narrower": []
+    },
+    "Millimeter": {
+      "label": "Millimeter",
+      "description": "      Photon with a wavelength between 0.1 mm and 10 mm (or 30 GHz<=\u03bd<300 GHz)",
+      "preliminary": "",
+      "wider": [
+        "Photon"
+      ],
+      "narrower": []
+    },
+    "Infrared": {
+      "label": "Infrared",
+      "description": "        Photon with a wavelength between 1 \u00b5m and 100 \u00b5m",
+      "preliminary": "",
+      "wider": [
+        "Photon"
+      ],
+      "narrower": []
+    },
+    "Optical": {
+      "label": "Optical",
+      "description": "         Photon with a wavelength between 300 nm and 1000 nm",
+      "preliminary": "",
+      "wider": [
+        "Photon"
+      ],
+      "narrower": []
+    },
+    "UV": {
+      "label": "Ultraviolet",
+      "description": "     Photon with a wavelength between 100 nm and 300 nm",
+      "preliminary": "",
+      "wider": [
+        "Photon"
+      ],
+      "narrower": [
+        "EUV"
+      ]
+    },
+    "EUV": {
+      "label": "Extreme UV",
+      "description": "      Photon with an energy between 12 eV and 120 eV",
+      "preliminary": "",
+      "wider": [
+        "UV"
+      ],
+      "narrower": []
+    },
+    "X-ray": {
+      "label": "X-Ray",
+      "description": "           Photon with an energy between 120 eV and 120 keV",
+      "preliminary": "",
+      "wider": [
+        "Photon"
+      ],
+      "narrower": []
+    },
+    "Gamma-ray": {
+      "label": "Gamma Ray",
+      "description": "       Photon with an energy above 120 keV",
+      "preliminary": "",
+      "wider": [
+        "Photon"
+      ],
+      "narrower": []
+    },
+    "Neutrino": {
+      "label": "Neutrino",
+      "description": "        This term comprises all generations of neutrinos (electron, \u00b5, \u03c4), and particles as well as antiparticles.",
+      "preliminary": "",
+      "wider": [],
+      "narrower": []
+    }
+  }
+}

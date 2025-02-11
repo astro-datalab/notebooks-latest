@@ -1,0 +1,36 @@
+{
+  "GLOBALS": [
+    "coords:TimeSys",
+    "coords:TimeFrame",
+    "coords:StdRefLocation",
+    "coords:SpaceSys",
+    "coords:SpaceFrame",
+    "mango:coordinates.PhotometryCoordSys",
+    "mango:coordinates.PhotFilter",
+    "mango:coordinates.PhotometryCoordSys",
+    "mango:coordinates.PhotFilter",
+    "mango:coordinates.PhotometryCoordSys",
+    "mango:coordinates.PhotFilter",
+    "ds:experiment.ObsDataset",
+    "ds:experiment.Target"
+  ],
+  "TEMPLATES": {
+    "_PKTable": [
+      "cube:SparseCube"
+    ],
+    "Results": [
+      "cube:NDPoint",
+      "cube:Observable",
+      "meas:Time",
+      "coords:MJD",
+      "cube:Observable",
+      "meas:GenericMeasure",
+      "coords:PhysicalCoordinate",
+      "cube:Observable",
+      "meas:GenericMeasure",
+      "coords:PhysicalCoordinate",
+      "meas:Error",
+      "meas:Symmetrical"
+    ]
+  }
+}
