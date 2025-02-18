@@ -7520,7 +7520,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0072'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Alice Jacques &lt;alice.jacques@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250217'</span> <span class="c1"># yyyymmdd; </span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250218'</span> <span class="c1"># yyyymmdd; </span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'skymapper_dr4'</span><span class="p">,</span> <span class="s1">'gaia_dr3'</span><span class="p">,</span> <span class="s1">'sdss_dr17'</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'science example'</span><span class="p">,</span> <span class="s1">'crossmatch'</span><span class="p">,</span> <span class="s1">'LMC'</span><span class="p">,</span> <span class="s1">'photometry'</span><span class="p">,</span> <span class="s1">'plot:cmd'</span><span class="p">,</span> <span class="s1">'stars'</span><span class="p">]</span>
 </pre></div>
@@ -7693,7 +7693,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>'ajacques'</pre>
+<pre>'demo01'</pre>
 </div>
 </div>
 </div>
@@ -7706,7 +7706,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="query"></a></p>
-<h1 id="Query-for-EMP-candidates-in-SkyMapper-DR4,-Gaia-DR3,-and-APOGEE-2">Query for EMP candidates in SkyMapper DR4, Gaia DR3, and APOGEE-2<a class="anchor-link" href="#Query-for-EMP-candidates-in-SkyMapper-DR4,-Gaia-DR3,-and-APOGEE-2">¶</a></h1><p>Our query will search for possible EMP candidates in the LMC using data from the <a href="https://datalab.noirlab.edu/query.php?name=skymapper_dr4.master"><strong>skymapper_dr4.master</strong></a>, <a href="https://datalab.noirlab.edu/query.php?name=gaia_dr3.gaia_source"><strong>gaia_dr3.gaia_source</strong></a>, and <a href="https://datalab.noirlab.edu/query.php?name=sdss_dr17.apogee2_allstar"><strong>sdss_dr17.apogee2_allstar</strong></a> tables. Column defintions for each table can be found at the corresponding links in the previous sentence.</p>
+<h1 id="Query-for-EMP-candidates-in-SkyMapper-DR4,-Gaia-DR3,-and-APOGEE-2">Query for EMP candidates in SkyMapper DR4, Gaia DR3, and APOGEE-2<a class="anchor-link" href="#Query-for-EMP-candidates-in-SkyMapper-DR4,-Gaia-DR3,-and-APOGEE-2">¶</a></h1><p>Our query will search for possible EMP candidates in the LMC using data from the <a href="https://datalab.noirlab.edu/query.php?name=skymapper_dr4.master"><strong>skymapper_dr4.master</strong></a>, <a href="https://datalab.noirlab.edu/query.php?name=gaia_dr3.gaia_source"><strong>gaia_dr3.gaia_source</strong></a>, and <a href="https://datalab.noirlab.edu/query.php?name=sdss_dr17.apogee2_allstar"><strong>sdss_dr17.apogee2_allstar</strong></a> tables. Column definitions for each table can be found at the corresponding links in the previous sentence.</p>
 <h4 id="We-will-search-for-objects-in-the-skymapper_dr4.master-table-with-the-following-constraints:">We will search for objects in the <strong>skymapper_dr4.master</strong> table with the following constraints:<a class="anchor-link" href="#We-will-search-for-objects-in-the-skymapper_dr4.master-table-with-the-following-constraints:">¶</a></h4><ul>
 <li>$class\_star &gt; 0.9$<blockquote>
 <p>to ensure that the object is stellar in nature</p>
@@ -7980,7 +7980,7 @@ Number of initial EMP candidates with radial velocity values: 24
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="metallicity"></a></p>
-<h1 id="Metallicity-sensitive-diagram-and-CMD">Metallicity-sensitive diagram and CMD<a class="anchor-link" href="#Metallicity-sensitive-diagram-and-CMD">¶</a></h1><p>Next, we'll plot a metallicity-sensitive diagram with Dartmouth isochrones of $[Fe/H] = −4$ and $[Fe/H] = −2$ and our EMP candidates. We'll then further constrain our candidate selection by setting an upper boundary of $[Fe/H] = -2$ on the metallicity index.</p>
+<h1 id="Metallicity-sensitive-diagram-and-CMD">Metallicity-sensitive diagram and CMD<a class="anchor-link" href="#Metallicity-sensitive-diagram-and-CMD">¶</a></h1><p>Next, we'll plot a metallicity-sensitive diagram with Dartmouth isochrones of $[Fe/H] = −4$ and $[Fe/H] = −2$ and our EMP candidates. We'll then further constrain our candidate selection by setting an upper boundary of $[Fe/H] = -2$ on the metallicity index. We also plot the color-magnitude diagram of our candidates.</p>
 </div>
 </div>
 </div>
@@ -8319,8 +8319,8 @@ Number of final EMP candidates with radial velocity values: 10
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><em>Top:</em> Metallicity-sensitive diagram showing the Magellanic EMP candidates from our adopted selection. The blue and black curves represent $[Fe/H] = −4$ and $[Fe/H] = −2$ Dartmouth isochrones for an age of 12.5 Gyr and $[\alpha/Fe]=0.4$ (<a href="https://ui.adsabs.harvard.edu/abs/2008ApJS..178...89D/abstract">Dotter et al. 2008</a>). Both isochrones have been calibrated with reference to the SkyMapper DR3 data as described in <a href="https://ui.adsabs.harvard.edu/abs/2019MNRAS.489.5900D/abstract">Da Costa et al. 2019</a>. The upper (positive) bound on the metallicity index selection was set by the location of the $[Fe/H] = -2$ Dartmouth isochrone for an age of 12.5 Gyr and $[\alpha/H]=0.4$ (<a href="https://ui.adsabs.harvard.edu/abs/2008ApJS..178...89D/abstract">Dotter et al. 2008</a>). The red stars represent the 10 EMP candidates that have a radial velocity (rv) value from APOGEE-2. Compare this with Figure 1 in Oh et al. 2023.</p>
-<p><em>Bottom:</em> CMD with the same description as above. The isochrones have been shifted in distance modulus by 18.5 to match the LMC distance.</p>
+<p><em>Top:</em> Metallicity-sensitive diagram of our Magellanic EMP candidates where $m_{i}$ is the metallicity-sensitive index defined as: $m_{i} = (v − g)_0 − 1.5(g − i)_0$. The blue and black curves represent $[Fe/H] = −4$ and $[Fe/H] = −2$ Dartmouth isochrones for an age of 12.5 Gyr and $[\alpha/Fe]=0.4$ (<a href="https://ui.adsabs.harvard.edu/abs/2008ApJS..178...89D/abstract">Dotter et al. 2008</a>). Both isochrones have been calibrated with reference to the SkyMapper DR3 data as described in <a href="https://ui.adsabs.harvard.edu/abs/2019MNRAS.489.5900D/abstract">Da Costa et al. 2019</a>. The upper (positive) bound on the metallicity index selection was set by the location of the $[Fe/H] = -2$ Dartmouth isochrone for an age of 12.5 Gyr and $[\alpha/H]=0.4$ (<a href="https://ui.adsabs.harvard.edu/abs/2008ApJS..178...89D/abstract">Dotter et al. 2008</a>). The red stars represent the 10 EMP candidates that have a radial velocity (rv) value from APOGEE-2. Compare this with Figure 1 in Oh et al. 2023.</p>
+<p><em>Bottom:</em> CMD with the same description as above. $g_{0}$ is the g-band magnitude that has been dereddened using E(B-V) derived from OGLE-IV reddening maps (<a href="https://ui.adsabs.harvard.edu/abs/2021ApJS..252...23S/abstract">Skowron et al. 2021</a>). The isochrones have been shifted in distance modulus by 18.5 to match the LMC distance.</p>
 </div>
 </div>
 </div>
@@ -8437,10 +8437,11 @@ Number of final EMP candidates with radial velocity values: 10
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Da Costa et al. (2019) "The SkyMapper DR1.1 search for extremely metal-poor stars", <a href="10.1093/mnras/stz2550">MNRAS</a>, 489, 5900: <a href="https://ui.adsabs.harvard.edu/abs/2019MNRAS.489.5900D/abstract">https://ui.adsabs.harvard.edu/abs/2019MNRAS.489.5900D/abstract</a></p>
+<p>Da Costa et al. (2019) "The SkyMapper DR1.1 search for extremely metal-poor stars", <a href="https://academic.oup.com/mnras/article/489/4/5900/5568381">MNRAS</a>, 489, 5900: <a href="https://ui.adsabs.harvard.edu/abs/2019MNRAS.489.5900D/abstract">https://ui.adsabs.harvard.edu/abs/2019MNRAS.489.5900D/abstract</a></p>
 <p>Dotter et al. (2008) "The Dartmouth Stellar Evolution Database", <a href="http://dx.doi.org/10.1086/589654">ApJS</a>, 178, 89: <a href="https://ui.adsabs.harvard.edu/abs/2008ApJS..178...89D/abstract">https://ui.adsabs.harvard.edu/abs/2008ApJS..178...89D/abstract</a></p>
-<p>Oh et al. (2023) "The SkyMapper search for extremely metal-poor stars in the Large Magellanic Cloud", <a href="10.1093/mnras/stad1960">MNRAS</a>, 542, 577: <a href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.524..577O/abstract">https://ui.adsabs.harvard.edu/abs/2023MNRAS.524..577O/abstract</a></p>
+<p>Oh et al. (2023) "The SkyMapper search for extremely metal-poor stars in the Large Magellanic Cloud", <a href="https://academic.oup.com/mnras/article/524/1/577/7216506">MNRAS</a>, 542, 577: <a href="https://ui.adsabs.harvard.edu/abs/2023MNRAS.524..577O/abstract">https://ui.adsabs.harvard.edu/abs/2023MNRAS.524..577O/abstract</a></p>
 <p>Reggiani et al. (2021) "The Most Metal-poor Stars in the Magellanic Clouds Are r-process Enhanced", <a href="http://dx.doi.org/10.3847/1538-3881/ac1f9a">AJ</a>, 162, 229: <a href="https://ui.adsabs.harvard.edu/abs/2021AJ....162..229R/abstract">https://ui.adsabs.harvard.edu/abs/2021AJ....162..229R/abstract</a></p>
+<p>Skowron et al. (2021) "OGLE-ing the Magellanic System: Optical Reddening Maps of the Large and Small Magellanic Clouds from Red Clump Stars", <a href="https://iopscience.iop.org/article/10.3847/1538-4365/abcb81">ApJS</a>, 252, 23, <a href="https://ui.adsabs.harvard.edu/abs/2021ApJS..252...23S/abstract">https://ui.adsabs.harvard.edu/abs/2021ApJS..252...23S/abstract</a></p>
 <p>van der Marel et al. (2002) "New Understanding of Large Magellanic Cloud Structure, Dynamics, and Orbit from Carbon Star Kinematics", <a href="http://dx.doi.org/10.1086/343775">AJ</a>, 124, 2639: <a href="https://ui.adsabs.harvard.edu/abs/2002AJ....124.2639V/abstract">https://ui.adsabs.harvard.edu/abs/2002AJ....124.2639V/abstract</a></p>
 </div>
 </div>
