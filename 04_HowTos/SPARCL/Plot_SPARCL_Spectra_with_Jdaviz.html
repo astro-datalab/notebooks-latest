@@ -7312,6 +7312,7 @@ a.anchor-link {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7519,8 +7520,8 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0052'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Camilla Pacifici, Brett Morris, Benjamin Weaver &lt;benjamin.weaver@noirlab.edu&gt;, Alice Jacques &lt;alice.jacques@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20240607'</span> <span class="c1"># yyyymmdd</span>
-<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'desi_edr'</span><span class="p">]</span>  
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250317'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'desi_dr1'</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl'</span><span class="p">,</span> <span class="s1">'jdaviz'</span><span class="p">,</span> <span class="s1">'specutils'</span><span class="p">,</span> <span class="s1">'spectroscopy'</span><span class="p">,</span> <span class="s1">'desi spectra'</span><span class="p">,</span> <span class="s1">'tutorial'</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -7566,7 +7567,7 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="goals"></a></p>
 <h2 id="Goals">Goals<a class="anchor-link" href="#Goals">¶</a></h2><ul>
-<li>Search for and obtain spectra from DESI EDR using the <a href="https://astrosparcl.datalab.noirlab.edu">NOIRLab SPARCL service</a></li>
+<li>Search for and obtain spectra from DESI DR1 using the <a href="https://astrosparcl.datalab.noirlab.edu">NOIRLab SPARCL service</a></li>
 <li>Plot spectra using the <a href="https://jdaviz.readthedocs.io/en/latest/index.html">Jdaviz</a> data analysis visualization tool</li>
 </ul>
 </div>
@@ -7580,7 +7581,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="intro"></a></p>
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p>This notebook demonstrates how to find and retrieve spectroscopic data for certain objects from the DESI EDR data set using <a href="https://astrosparcl.datalab.noirlab.edu">SPARCL</a> (SPectra Analysis and Retrievable Catalog Lab) and display an interactive plot of an object's spectrum using <a href="https://jdaviz.readthedocs.io/en/latest/index.html">Jdaviz</a>.</p>
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p>This notebook demonstrates how to find and retrieve spectroscopic data for certain objects from the DESI DR1 data set using <a href="https://astrosparcl.datalab.noirlab.edu">SPARCL</a> (SPectra Analysis and Retrievable Catalog Lab) and display an interactive plot of an object's spectrum using <a href="https://jdaviz.readthedocs.io/en/latest/index.html">Jdaviz</a>.</p>
 <p>This notebook is based on <a href="https://github.com/camipacifici/jdaviz/blob/concept-sparcl/notebooks/concepts/specviz_sparcl.ipynb">an example</a> originally developed by <a href="https://github.com/camipacifici">Camilla Pacifici</a>. Additional assistance was provided by
 <a href="https://github.com/bmorris3">Brett Morris</a>.</p>
 <p>Packages:</p>
@@ -7651,21 +7652,21 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Handle warnings below</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="c1"># Numpy import</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="c1"># SPARCL import</span>
-<span class="kn">from</span> <span class="nn">sparcl.client</span> <span class="kn">import</span> <span class="n">SparclClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sparcl.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">SparclClient</span>
 <span class="c1"># Jdaviz import</span>
-<span class="kn">from</span> <span class="nn">jdaviz</span> <span class="kn">import</span> <span class="n">Specviz</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jdaviz</span><span class="w"> </span><span class="kn">import</span> <span class="n">Specviz</span>
 <span class="c1"># Jupyter</span>
-<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">widgets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
 <span class="c1"># Specutils import</span>
-<span class="kn">from</span> <span class="nn">specutils</span> <span class="kn">import</span> <span class="n">Spectrum1D</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">specutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">Spectrum1D</span>
 <span class="c1"># Astropy import</span>
-<span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
-<span class="kn">from</span> <span class="nn">astropy.nddata</span> <span class="kn">import</span> <span class="n">InverseVariance</span><span class="p">,</span> <span class="n">StdDevUncertainty</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.nddata</span><span class="w"> </span><span class="kn">import</span> <span class="n">InverseVariance</span><span class="p">,</span> <span class="n">StdDevUncertainty</span>
 <span class="c1"># Jdaviz can emit warnings about Angstrom which we will ignore.</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">UnitsWarning</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="sa">r</span><span class="s1">'.*VOUnit standard.*'</span><span class="p">)</span>
 </pre></div>
@@ -7706,7 +7707,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="View-the-full-list-of-fields-for-the-DESI-EDR-data-set-that-can-be-obtained-from-SPARCL">View the full list of fields for the DESI EDR data set that can be obtained from SPARCL<a class="anchor-link" href="#View-the-full-list-of-fields-for-the-DESI-EDR-data-set-that-can-be-obtained-from-SPARCL">¶</a></h4>
+<h4 id="View-the-full-list-of-fields-for-the-DESI-DR1-data-set-that-can-be-obtained-from-SPARCL">View the full list of fields for the DESI DR1 data set that can be obtained from SPARCL<a class="anchor-link" href="#View-the-full-list-of-fields-for-the-DESI-DR1-data-set-that-can-be-obtained-from-SPARCL">¶</a></h4>
 </div>
 </div>
 </div>
@@ -7718,7 +7719,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">desi_fields</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'DESI-EDR'</span><span class="p">])</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">desi_fields</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'DESI-DR1'</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">desi_fields</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7733,7 +7734,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="searchsparcl"></a></p>
-<h2 id="Search-for-spectra-in-SPARCL">Search for spectra in SPARCL<a class="anchor-link" href="#Search-for-spectra-in-SPARCL">¶</a></h2><p>Using the <code>client.find()</code> method, we obtain the following fields from the DESI EDR data set using SPARCL:</p>
+<h2 id="Search-for-spectra-in-SPARCL">Search for spectra in SPARCL<a class="anchor-link" href="#Search-for-spectra-in-SPARCL">¶</a></h2><p>Using the <code>client.find()</code> method, we obtain the following fields from the DESI DR1 data set using SPARCL:</p>
 <ul>
 <li><code>sparcl_id</code> : Universally Unique Identifier for spectrum in SPARCL</li>
 <li><code>ra</code> : Right Ascension in degrees</li>
@@ -7750,7 +7751,7 @@ a.anchor-link {
 <li><code>redshift_warning = 0</code> (Redshift warning bitmask measured by Redrock)</li>
 <li><code>specprimary = 1</code> (Boolean flag (True/False) for the primary coadded spectrum for a given target object)</li>
 <li><code>spectype = QSO</code></li>
-<li><code>data_release = DESI EDR</code></li>
+<li><code>data_release = DESI DR1</code></li>
 </ul>
 </div>
 </div>
@@ -7769,7 +7770,7 @@ a.anchor-link {
                <span class="s1">'redshift_warning'</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
                <span class="s1">'specprimary'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span>
                <span class="s1">'spectype'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'QSO'</span><span class="p">],</span>
-               <span class="s1">'data_release'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'DESI-EDR'</span><span class="p">],</span>
+               <span class="s1">'data_release'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'DESI-DR1'</span><span class="p">],</span>
                <span class="p">}</span>
 </pre></div>
 </div>
@@ -7811,7 +7812,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">radec_to_desiname</span><span class="p">(</span><span class="n">target_ra</span><span class="p">,</span> <span class="n">target_dec</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">radec_to_desiname</span><span class="p">(</span><span class="n">target_ra</span><span class="p">,</span> <span class="n">target_dec</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Convert the right ascension and declination of a DESI target</span>
 <span class="sd">    into the corresponding "DESINAME" for reference in publications.</span>
 <span class="sd">    Length of target_ra and target_dec must be the same if providing an</span>
@@ -7887,7 +7888,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">found</span><span class="o">.</span><span class="n">records</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">record</span><span class="p">[</span><span class="s1">'_dr'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'DESI-EDR'</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">record</span><span class="p">[</span><span class="s1">'_dr'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'DESI-DR1'</span><span class="p">:</span>
         <span class="n">record</span><span class="p">[</span><span class="s1">'DESINAME'</span><span class="p">]</span> <span class="o">=</span> <span class="n">radec_to_desiname</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s1">'ra'</span><span class="p">],</span> <span class="n">record</span><span class="p">[</span><span class="s1">'dec'</span><span class="p">])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">metadata</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">found</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'DESINAME'</span><span class="p">])</span>
 <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span><span class="p">[</span><span class="s1">'sparcl_id'</span><span class="p">]</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">]</span>
@@ -7906,7 +7907,7 @@ a.anchor-link {
 <p><a class="anchor" id="retrievesparcl"></a></p>
 <h2 id="Retrieve-spectra-from-SPARCL-and-prepare-plot-data">Retrieve spectra from SPARCL and prepare plot data<a class="anchor-link" href="#Retrieve-spectra-from-SPARCL-and-prepare-plot-data">¶</a></h2><p>Here we define a function that:</p>
 <ol>
-<li>Uses the <code>client.retrieve()</code> method from SPARCL to retrieve spectra for the list of IDs from DESI EDR.</li>
+<li>Uses the <code>client.retrieve()</code> method from SPARCL to retrieve spectra for the list of IDs from DESI DR1.</li>
 <li>Creates a <code>specutils.Spectrum1D</code> object from the retrieved data.</li>
 <li>Loads the spectrum, metadata, and model.</li>
 <li>Caches the converted <code>Spectrum1D</code> object.</li>
@@ -7922,7 +7923,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">on_selected</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_selected</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Callback function to enable switching between different DESI spectra.</span>
 
 <span class="sd">    Parameters</span>
