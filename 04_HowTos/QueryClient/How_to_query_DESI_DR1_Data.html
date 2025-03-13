@@ -7617,6 +7617,9 @@ a.anchor-link {
 <h3 id="Important-notes">Important notes<a class="anchor-link" href="#Important-notes">¶</a></h3><ul>
 <li>This database does not contain any sky spectra. Both deliberately-targeted (<code>targetid &amp; 2**59 != 0</code>) and negative targetid (<code>targetid &lt; 0</code>) sky spectra are excluded.</li>
 <li>Only quantities derived from <em>cumulative</em> tile-based spectra are included at the present time.</li>
+<li>Every table below has a primary key and a "unique identifier". In some cases the primary key and unique identifier are one and the same.
+In other cases the unique identifier is a set of several columns, and the primary key is an arbitrary value composed from those columns.
+Usually, but not always, the unique identifier will also have a <code>UNIQUE</code> index separate from the primary key.</li>
 </ul>
 <h3 id="The-tables">The tables<a class="anchor-link" href="#The-tables">¶</a></h3><ul>
 <li><code>photometry</code>. This contains the pure photometric data. Usually this is derived from the LS DR9 Tractor data, but not every <em>targeted</em> object has Tractor photometry.<ul>
