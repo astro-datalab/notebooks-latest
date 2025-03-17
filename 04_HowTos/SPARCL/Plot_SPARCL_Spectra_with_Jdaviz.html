@@ -7801,6 +7801,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="DESINAME">DESINAME<a class="anchor-link" href="#DESINAME">¶</a></h3><p>The function below is copied from <a href="https://github.com/desihub/desiutil/blob/main/py/desiutil/names.py"><code>desiutil.names</code></a>. <code>DESINAME</code> is a convenient RA, Dec-based label that is consistent with IAU and NED standards.</p>
+<p>Although as of DESI DR1, <code>DESINAME</code> is available from the SPARCL database, it is not a <code>CORE</code> field, so <code>client.find()</code> will not return it. However, we need a label for these spectra to pass to <code>Specviz</code>, <em>before</em> the spectra are retrieved. So we will compute <code>DESINAME</code> as a work-around.</p>
 </div>
 </div>
 </div>
