@@ -7616,7 +7616,7 @@ a.anchor-link {
 <h2 id="Contents-of-the-Database">Contents of the Database<a class="anchor-link" href="#Contents-of-the-Database">¶</a></h2><h3 id="Schema">Schema<a class="anchor-link" href="#Schema">¶</a></h3><p>All tables are grouped into the <code>desi_dr1</code> database schema.</p>
 <h3 id="Important-notes">Important notes<a class="anchor-link" href="#Important-notes">¶</a></h3><ul>
 <li>This database does not contain any sky spectra. Both deliberately-targeted (<code>targetid &amp; 2**59 != 0</code>) and negative targetid (<code>targetid &lt; 0</code>) sky spectra are excluded.</li>
-<li>Only quantities derived from <em>cumulative</em> tile-based spectra are included at the present time.</li>
+<li>The <code>ztile</code> table <em>only</em> contains quantities derived from <em>cumulative</em> tile-based spectra at the present time.</li>
 <li>Every table below has a primary key and a "unique identifier". In some cases the primary key and unique identifier are one and the same.
 In other cases the unique identifier is a set of several columns, and the primary key is an arbitrary value composed from those columns.
 Usually, but not always, the unique identifier will also have a <code>UNIQUE</code> index separate from the primary key.</li>
@@ -7800,7 +7800,8 @@ Usually, but not always, the unique identifier will also have a <code>UNIQUE</co
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Which-tiles-were-observed-on-a-night?">Which tiles were observed on a night?<a class="anchor-link" href="#Which-tiles-were-observed-on-a-night?">¶</a></h4><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">tileid</span><span class="p">,</span><span class="w"> </span><span class="n">survey</span><span class="p">,</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_dr1</span><span class="p">.</span><span class="n">exposure</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">night</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20210115</span><span class="p">;</span>
+<h4 id="Which-tiles-were-observed-on-a-night?">Which tiles were observed on a night?<a class="anchor-link" href="#Which-tiles-were-observed-on-a-night?">¶</a></h4><p>A DESI observing night is represented by an integer in the form <code>YYYYMMDD</code>.</p>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">tileid</span><span class="p">,</span><span class="w"> </span><span class="n">survey</span><span class="p">,</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">desi_dr1</span><span class="p">.</span><span class="n">exposure</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">night</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20210115</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
