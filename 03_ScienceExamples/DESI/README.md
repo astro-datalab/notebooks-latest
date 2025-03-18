@@ -8,7 +8,7 @@ The Astro Data Lab includes a collection of notebooks showcasing the DESI data. 
 
 - `01_Intro_to_DESI_EDR.ipynb` is the previous Early Data Release (EDR) version with similar functionality: how to access the redshift catalog from the Astro Data Lab database, how to separate objects based on the DESI targeting information, how to access all the available spectra for a given object using SPARCL, and finally how to plot the "best" spectrum. We recommend using the latest (DR1) version instead as it supersedes the EDR data.
 
-- `01a_Intro_to_DESI_DR1-Py3.ipynb` is adapted from the `01_Intro_to_DESI_DR1.ipynb` to work without any DESI software. It requires a Python-3 environment with the datalab and sparclclient installed (both can be pip-installed locally by users if not working in the Jupyter server).
+- `01a_Intro_to_DESI_DR1-Py3.ipynb` is adapted from the `01_Intro_to_DESI_DR1.ipynb` to work without any DESI software. It requires a Python-3 environment with the datalab and sparcl clients installed (both can be pip-installed locally by users if not working in the Astro Data Lab Jupyter server).
 
 - `02_DESI_SDSS_Comparison.ipynb` shows how to use SPARCL data discovery to find available SDSS DR16 and DESI DR1 spectra of sources in a specific region of the sky with redshift and spectype constraints, how to retrieve and compare spectra for the same galaxy observed with both SDSS and DESI.
 
