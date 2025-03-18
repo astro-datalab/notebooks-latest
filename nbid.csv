@@ -3,7 +3,7 @@ nbid,notebook
 0001,01_GettingStartedWithDataLab/01_JupyterPythonSQL101.ipynb
 0002,01_GettingStartedWithDataLab/02_GettingStartedWithDataLab.ipynb
 0003,02_DataAccessOverview/DataAccessOverview.ipynb
-0004,03_ScienceExamples/DESI/01a_Intro_to_DESI_EDR-Py3.ipynb
+0004,03_ScienceExamples/DESI/01a_Intro_to_DESI_DR1-Py3.ipynb
 0005,03_ScienceExamples/DESI/01_Intro_to_DESI_EDR.ipynb
 0006,03_ScienceExamples/DESI/02_DESI_EDR_SDSS_Comparison.ipynb
 0007,03_ScienceExamples/DwarfGalaxies/DwarfGalaxiesInDelveDr2.ipynb
@@ -74,3 +74,4 @@ nbid,notebook
 0071,04_HowTos/DataReduction/DRAGONS_reduction_examples/GHOST_IFU_Star/GHOST_IFU_Star.ipynb
 0072,03_ScienceExamples/MagellanicClouds/ExtremelyMetalPoorStarsInTheLMC.ipynb
 0073,04_HowTos/QueryClient/How_to_query_DESI_DR1_Data.ipynb
+0074,03_ScienceExamples/DESI/01_Intro_to_DESI_DR1.ipynb
