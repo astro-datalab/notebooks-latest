@@ -7520,7 +7520,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0004'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Stephanie Juneau &lt;stephanie.juneau@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250318'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250319'</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'desi_dr1'</span><span class="p">]</span>  
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl'</span><span class="p">,</span> <span class="s1">'spectra'</span><span class="p">,</span> <span class="s1">'database'</span><span class="p">]</span>
 </pre></div>
@@ -7550,13 +7550,14 @@ a.anchor-link {
 <li><a href="#goals">Goals &amp; summary</a></li>
 <li><a href="#attribution">Disclaimer &amp; attribution</a></li>
 <li><a href="#import">Imports</a></li>
-<li><a href="#desi_edr">DESI EDR database</a></li>
+<li><a href="#desi_dr1">DESI DR1 database</a></li>
 <li><a href="#desi_target_access">Accessing DESI targets</a><ul>
 <li><a href="#target_info">Selecting sources based on targeting information</a></li>
 <li><a href="#hpx_sel">Selecting sources in a region of the sky</a></li>
 </ul>
 </li>
 <li><a href="#spectra_access">Accessing and plotting the spectra of a given object</a></li>
+<li><a href="#multiple_spectra">Objects with multiple coadded spectra</a></li>
 <li><a href="#ref">References</a></li>
 </ul>
 </div>
@@ -7709,7 +7710,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><a class="anchor" id="desi_edr"></a></p>
+<p><a class="anchor" id="desi_dr1"></a></p>
 <h1 id="DESI-DR1-database">DESI DR1 database<a class="anchor-link" href="#DESI-DR1-database">¶</a></h1><p>The <code>desi_dr1</code> database schema at Data Lab consists of several tables associated with the targets.</p>
 </div>
 </div>
@@ -8203,7 +8204,8 @@ SPECTYPE=STAR includes N=418756 (20.3%)
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    table : astropy table</span>
-<span class="sd">        Table of DESI targets with required sv*desi_target columns</span>
+<span class="sd">        Table of DESI targets with required desi_target columns</span>
+<span class="sd">        (code and table can be modified to also include sv*_desi_target)</span>
 <span class="sd">        </span>
 <span class="sd">    bit : int</span>
 <span class="sd">        Target bit from DESI</span>
@@ -8385,8 +8387,8 @@ SPECTYPE=STAR includes N=418756 (20.3%)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The <code>SV*_DESI_TARGET</code> columns consists of the uppermost level targeting information in DESI. However, there are sub-classes of targets. <br/>
-For example, BGS have different target masks depending on the selection criterion. Each of the different secondary target proposals have their own masks. They can be selected in a similar way as above, but with the respective columns (like <code>SV1_BGS_TARGET</code> or <code>SV1_SCND_TARGET</code> in the <code>target</code> table. More information about Bitmasks in DESI is available <a href="https://desidatamodel.readthedocs.io/en/latest/bitmasks.html">here</a>.</p>
+<p>The <code>DESI_TARGET</code> columns consists of the uppermost level targeting information in DESI. However, there are sub-classes of targets. <br/>
+For example, BGS have different target masks depending on the selection criterion. Each of the different secondary target proposals have their own masks. They can be selected in a similar way as above, but with the respective columns (like <code>BGS_TARGET</code> or <code>SCND_TARGET</code>. More information about Bitmasks in DESI is available <a href="https://desidatamodel.readthedocs.io/en/latest/bitmasks.html">here</a>.</p>
 </div>
 </div>
 </div>
@@ -8398,7 +8400,7 @@ For example, BGS have different target masks depending on the selection criterio
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="hpx_sel"></a></p>
-<h2 id="Selecting-sources-in-a-region-of-the-sky">Selecting sources in a region of the sky<a class="anchor-link" href="#Selecting-sources-in-a-region-of-the-sky">¶</a></h2><p>Here, we show how to query unique targets from DESI EDR in a given region of the sky.</p>
+<h2 id="Selecting-sources-in-a-region-of-the-sky">Selecting sources in a region of the sky<a class="anchor-link" href="#Selecting-sources-in-a-region-of-the-sky">¶</a></h2><p>Here, we show how to query unique targets from DESI DR1 in a given region of the sky.</p>
 <p>We also select and overplot the <code>Milky Way Survey</code> targets in this region.</p>
 </div>
 </div>
