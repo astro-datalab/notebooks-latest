@@ -7520,7 +7520,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0071'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Brian Merino &lt;brian.merino@noirlab.edu&gt;, Vinicius Placco &lt;vinicius.placco@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20241216'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250515'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'GHOST'</span><span class="p">,</span><span class="s1">'Gemini'</span><span class="p">,</span><span class="s1">'stars'</span><span class="p">,</span><span class="s1">'DRAGONS'</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -7535,7 +7535,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Gemini-GHOST-XX-Oph-reduction-using-DRAGONS-Python-API">Gemini GHOST XX Oph reduction using DRAGONS Python API<a class="anchor-link" href="#Gemini-GHOST-XX-Oph-reduction-using-DRAGONS-Python-API">¶</a></h1><hr/>
-<h2 id="Public-archival-data-from-ghost_tutorial---GS-ENG-GHOST-COM-3-915-(XX-Oph)">Public archival data from ghost_tutorial - GS-ENG-GHOST-COM-3-915 (XX Oph)<a class="anchor-link" href="#Public-archival-data-from-ghost_tutorial---GS-ENG-GHOST-COM-3-915-(XX-Oph)">¶</a></h2><h4 id="adapted-from-https://dragons.readthedocs.io/projects/ghost-drtutorial/en/release-3.2.x/index.html">adapted from <a href="https://dragons.readthedocs.io/projects/ghost-drtutorial/en/release-3.2.x/index.html">https://dragons.readthedocs.io/projects/ghost-drtutorial/en/release-3.2.x/index.html</a><a class="anchor-link" href="#adapted-from-https://dragons.readthedocs.io/projects/ghost-drtutorial/en/release-3.2.x/index.html">¶</a></h4><hr/>
+<h2 id="Public-archival-data-from-ghost_tutorial---GS-ENG-GHOST-COM-3-915-(XX-Oph)">Public archival data from ghost_tutorial - GS-ENG-GHOST-COM-3-915 (XX Oph)<a class="anchor-link" href="#Public-archival-data-from-ghost_tutorial---GS-ENG-GHOST-COM-3-915-(XX-Oph)">¶</a></h2><h4 id="adapted-from-https://dragons.readthedocs.io/projects/ghost-drtutorial/en/stable/">adapted from <a href="https://dragons.readthedocs.io/projects/ghost-drtutorial/en/stable/">https://dragons.readthedocs.io/projects/ghost-drtutorial/en/stable/</a><a class="anchor-link" href="#adapted-from-https://dragons.readthedocs.io/projects/ghost-drtutorial/en/stable/">¶</a></h4><hr/>
 </div>
 </div>
 </div>
@@ -7570,20 +7570,11 @@ databases = ~/.dragons/dragons.db get store
 <li><a href="#File_Lists">Create File Lists</a></li>
 <li><a href="#DRAGONS_logger">Set up the DRAGONS logger</a></li>
 <li><a href="#func">Create update_list() and reduce_func()</a></li>
-<li><a href="#biases">Select and reduce biases</a></li>
-<li><a href="#slit_biases">Select and reduce slit biases</a></li>
-<li><a href="#science_biases">Select and reduce science biases</a></li>
-<li><a href="#flat_arc_biases">Select and reduce flat/arc biases</a></li>
-<li><a href="#master_flat_and_slit_flats">Select and reduce master and slit flats</a></li>
-<li><a href="#flats">Select and reduce flats</a></li>
-<li><a href="#arcs">Select and reduce arcs</a></li>
-<li><a href="#slit_viewer">Select and reduce slit viewer data</a></li>
-<li><a href="#arcs">Select and reduce arcs</a></li>
-<li><a href="#spec_standard">Select and reduce spectroscopic standard</a></li>
-<li><a href="#standard">Select and reduce standard data</a></li>
-<li><a href="#science">Select and reduce science data</a></li>
-<li><a href="#science_slit_viewer">Select and reduce science slit-viewer data</a></li>
-<li><a href="#science">Select and reduce science data</a></li>
+<li><a href="#biases">Bias reduction</a></li>
+<li><a href="#flats">Flat reduction</a></li>
+<li><a href="#arcs">Arc reduction</a></li>
+<li><a href="#spec_standard">Spectroscopic standard reduction</a></li>
+<li><a href="#science">Science reduction</a></li>
 <li><a href="#Plot">Plot reduced spectra</a></li>
 <li><a href="#write1DSpectra">Output 1D spectra</a></li>
 <li><a href="#Save_plot">Save plots of reduced spectra</a></li>
@@ -7603,9 +7594,10 @@ databases = ~/.dragons/dragons.db get store
 <h1 id="Goals">Goals<a class="anchor-link" href="#Goals">¶</a></h1><p>Showcase how to reduce GHOST spectroscopy data using the Gemini DRAGONS package on the Data Lab science platform using a custom DRAGONS kernel <code>"DRAGONS-3.2.2 (DL,Py3.10.14)"</code>. The steps include downloading data from the Gemini archive, setting up the DRAGONS calibration service, processing biases, flats, and arcs, creating master flats and slit-flats, reducing the standards and science data, and finally creating the final reduced spectra for GHOST's red and blue arms.</p>
 <p><a class="anchor" id="summary"></a></p>
 <h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>DRAGONS is a Python-based astronomical data reduction platform written by the Gemini Science User Support Department. It can currently be used to reduce imaging data from Gemini instruments GMOS, NIRI, Flamingos 2, GSAOI, and GNIRS, as well as spectroscopic data taken with GHOST and GMOS in longslit mode. Linked <a href="https://dragons.readthedocs.io/en/v3.2.1/">here</a> is a general list of guides, manuals, and tutorials about the use of DRAGONS.</p>
-<p>The DRAGONS kernel has been made available in the Data Lab environment, allowing users to access the routines without being dependent on installing the software on their local machines. It is important to note that when a DRAGON command is executed, the output will be displayed inside the cell. Make sure to scroll through the output to ensure no errors are missed.</p>
-<p>In this notebook, we present an example of a DRAGONS Jupyter notebook that works in the Data Lab environment to reduce Gemini South GHOST blue:2x2 and red:2x2 spectroscopy data fully. This notebook will not present all of the details of the many options available to adjust or optimize the DRAGONS GHOST data reduction process; rather, it will just show one example of a standard reduction of a GHOST spectroscopic dataset.</p>
+<p>The DRAGONS kernel has been made available in the Data Lab environment, allowing users to access the routines without being dependent on installing the software on their local machines. It is important to note that when a DRAGONS command is executed, the output will be displayed inside the cell. Make sure to scroll through the output to ensure no errors are missed.</p>
+<p>We present an example of a DRAGONS Jupyter notebook that works in the Data Lab environment to reduce Gemini South GHOST blue:2x2 and red:2x2 spectroscopy data fully. This notebook will not present all of the details of the many options available to adjust or optimize the DRAGONS GHOST data reduction process; rather, it will just show one example of a standard reduction of a GHOST spectroscopic dataset.</p>
 <p>The data used in this notebook example is GHOST blue:2x2 and red:2x2 spectroscopy data from the Gemini archive of the star XX Oph from the GHOST commissioning run. Because the data used is from a commissioning run, there is no program information available, but you can find more information about GHOST's red and blue IFUs on the <a href="https://www.gemini.edu/instrumentation/ghost">GHOST instrument page</a>.</p>
+<p>Several files will be downloaded and created while running this notebook. Ensure you have at least 3 GB of storage space before running this notebook, so that enough space is available to accommodate these files.</p>
 <p><a class="anchor" id="disclaimer"></a></p>
 <h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">¶</a></h1><h2 id="Disclaimers">Disclaimers<a class="anchor-link" href="#Disclaimers">¶</a></h2><p>Note that using the Astro Data Lab constitutes your agreement with our minimal <a href="https://datalab.noirlab.edu/disclaimers.php">Disclaimers</a>.</p>
 <h2 id="Acknowledgments">Acknowledgments<a class="anchor-link" href="#Acknowledgments">¶</a></h2><p>If you use <strong>Astro Data Lab</strong> in your published research, please include the text in your paper's Acknowledgments section:</p>
@@ -7689,7 +7681,7 @@ databases = ~/.dragons/dragons.db get store
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Establish-function-to-check-and-delete-various-directories-or-files.">Establish function to check and delete various directories or files.<a class="anchor-link" href="#Establish-function-to-check-and-delete-various-directories-or-files.">¶</a></h2>
+<h2 id="Establish-a-function-to-check-and-delete-various-directories-or-files.">Establish a function to check and delete various directories or files.<a class="anchor-link" href="#Establish-a-function-to-check-and-delete-various-directories-or-files.">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8072,7 +8064,7 @@ databases = ~/.dragons/dragons.db get store
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="biases"></a></p>
-<h1 id="Select-and-reduce-biases">Select and reduce biases<a class="anchor-link" href="#Select-and-reduce-biases">¶</a></h1>
+<h1 id="Bias-reduction">Bias reduction<a class="anchor-link" href="#Bias-reduction">¶</a></h1><p>Start by using dataselect to identify all the files in all_files with the 'BIAS' tag.</p>
 </div>
 </div>
 </div>
@@ -8148,8 +8140,7 @@ databases = ~/.dragons/dragons.db get store
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><a class="anchor" id="slit_biases"></a></p>
-<h1 id="Now-use-dataselect-to-choose-the-slit-biases.">Now use dataselect to choose the slit biases.<a class="anchor-link" href="#Now-use-dataselect-to-choose-the-slit-biases.">¶</a></h1>
+<h2 id="Now-use-dataselect-to-choose-the-slit-biases.">Now use dataselect to choose the slit biases.<a class="anchor-link" href="#Now-use-dataselect-to-choose-the-slit-biases.">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8175,7 +8166,7 @@ databases = ~/.dragons/dragons.db get store
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Reduce-the-slit-biases.">Reduce the slit biases.<a class="anchor-link" href="#Reduce-the-slit-biases.">¶</a></h2><p>When done running, a new file will be created called S20230417S0040_slit_bias.fits.</p>
+<h2 id="Reduce-the-slit-biases.">Reduce the slit biases.<a class="anchor-link" href="#Reduce-the-slit-biases.">¶</a></h2><p>When done running, a new file will be created called S20230417S0011_slit_bias.fits.</p>
 </div>
 </div>
 </div>
@@ -8219,25 +8210,13 @@ databases = ~/.dragons/dragons.db get store
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6c6fd471-66ee-47ce-a86d-5e3dccad55be">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><a class="anchor" id="science_biases"></a></p>
-<h1 id="Select-and-reduce-science-biases.">Select and reduce science biases.<a class="anchor-link" href="#Select-and-reduce-science-biases.">¶</a></h1>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=564370a4-2eae-4b2c-b400-9550bcdfca56">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Use-dataselect-to-choose-the-red-science-biases.">Use dataselect to choose the red science biases.<a class="anchor-link" href="#Use-dataselect-to-choose-the-red-science-biases.">¶</a></h2>
+<h2 id="Use-dataselect-to-choose-the-red-science-biases-and-reduce-them.">Use dataselect to choose the red science biases and reduce them.<a class="anchor-link" href="#Use-dataselect-to-choose-the-red-science-biases-and-reduce-them.">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8264,7 +8243,7 @@ databases = ~/.dragons/dragons.db get store
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Reduce-the-red-science-biases.">Reduce the red science biases.<a class="anchor-link" href="#Reduce-the-red-science-biases.">¶</a></h2><p>Once done running, a new file called S20230417S0012_red001_bias.fits will exist in the working directory.</p>
+<p>Once done running, a new file called S20230417S0011_red001_bias.fits will exist in the working directory.</p>
 </div>
 </div>
 </div>
@@ -8289,7 +8268,7 @@ databases = ~/.dragons/dragons.db get store
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Select-the-blue-science-biases.">Select the blue science biases.<a class="anchor-link" href="#Select-the-blue-science-biases.">¶</a></h2>
+<h2 id="Select-the-blue-science-biases-and-reduce-them.">Select the blue science biases and reduce them.<a class="anchor-link" href="#Select-the-blue-science-biases-and-reduce-them.">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8301,8 +8280,7 @@ databases = ~/.dragons/dragons.db get store
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#expression = 'binning==\'2x2\''</span>
-<span class="n">expression</span> <span class="o">=</span> <span class="s2">"binning=='2x2'"</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">expression</span> <span class="o">=</span> <span class="s2">"binning=='2x2'"</span>
 <span class="n">parsed_expr</span> <span class="o">=</span> <span class="n">dataselect</span><span class="o">.</span><span class="n">expr_parser</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
 <span class="n">biasbluesci</span> <span class="o">=</span> <span class="n">dataselect</span><span class="o">.</span><span class="n">select_data</span><span class="p">(</span><span class="n">new_all_files2</span><span class="p">,</span> <span class="p">[</span><span class="s1">'BIAS'</span><span class="p">,</span><span class="s1">'BLUE'</span><span class="p">],</span> <span class="p">[],</span> <span class="n">parsed_expr</span><span class="p">)</span>
 </pre></div>
@@ -8317,7 +8295,7 @@ databases = ~/.dragons/dragons.db get store
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Reduce-the-blue-science-biases.">Reduce the blue science biases.<a class="anchor-link" href="#Reduce-the-blue-science-biases.">¶</a></h2><p>A single file called S20230417S0011_blue001_bias.fits will be created after running this cell.</p>
+<p>A single file called S20230417S0011_blue001_bias.fits will be created after running this cell.</p>
 </div>
 </div>
 </div>
@@ -8332,18 +8310,6 @@ databases = ~/.dragons/dragons.db get store
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">reduce_func</span><span class="p">(</span><span class="n">biasbluesci</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d0f2171f-08f1-49a0-baf1-d4292a4a626c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><a class="anchor" id="flat_arc_biases"></a></p>
-<h1 id="Select-the-flat/arc-biases-and-reduce-them.">Select the flat/arc biases and reduce them.<a class="anchor-link" href="#Select-the-flat/arc-biases-and-reduce-them.">¶</a></h1>
 </div>
 </div>
 </div>
@@ -8381,7 +8347,7 @@ databases = ~/.dragons/dragons.db get store
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Running the following cell will create a new file called S20230417S0038_red001_bias.fits.</p>
+<p>Running the following cell will create a new file called S20230417S0036_red001_bias.fits.</p>
 </div>
 </div>
 </div>
@@ -8433,7 +8399,7 @@ databases = ~/.dragons/dragons.db get store
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Running the following cell will create a new file called S20230417S0039_blue001_bias.fits.</p>
+<p>Running the following cell will create a new file called S20230417S0036_blue001_bias.fits.</p>
 </div>
 </div>
 </div>
@@ -8485,8 +8451,8 @@ rm<span class="w"> </span>*fits
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><a class="anchor" id="master_flat_and_slit_flats"></a></p>
-<h1 id="Master-Flats-and-Slit-flats">Master Flats and Slit-flats<a class="anchor-link" href="#Master-Flats-and-Slit-flats">¶</a></h1><h2 id="Debundle-the-flats,-then-reduce-them.">Debundle the flats, then reduce them.<a class="anchor-link" href="#Debundle-the-flats,-then-reduce-them.">¶</a></h2>
+<p><a class="anchor" id="flats"></a></p>
+<h1 id="Flat-reduction">Flat reduction<a class="anchor-link" href="#Flat-reduction">¶</a></h1><h2 id="Debundle-the-flats,-then-reduce-them.-Starting-with-the-master-flats-and-slit-flats">Debundle the flats, then reduce them. Starting with the master flats and slit-flats<a class="anchor-link" href="#Debundle-the-flats,-then-reduce-them.-Starting-with-the-master-flats-and-slit-flats">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8551,18 +8517,6 @@ rm<span class="w"> </span>*fits
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">new_all_files3</span> <span class="o">=</span> <span class="n">update_list</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c624a12d-5839-485b-b002-9d520b7c0c6e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><a class="anchor" id="flats"></a></p>
-<h1 id="Select-and-reduce-the-flats.">Select and reduce the flats.<a class="anchor-link" href="#Select-and-reduce-the-flats.">¶</a></h1>
 </div>
 </div>
 </div>
@@ -8649,7 +8603,7 @@ rm<span class="w"> </span>*fits
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Running the next cell will also create a single file called S20230416S0047_red002_flat.fits.</p>
+<p>Running the next cell will also create a single file called S20230416S0047_red001_flat.fits.</p>
 </div>
 </div>
 </div>
@@ -8752,7 +8706,7 @@ rm<span class="w"> </span>*fits
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="arcs"></a></p>
-<h1 id="Arcs">Arcs<a class="anchor-link" href="#Arcs">¶</a></h1><h3 id="Debundle-the-arcs-and-reduce-them.">Debundle the arcs and reduce them.<a class="anchor-link" href="#Debundle-the-arcs-and-reduce-them.">¶</a></h3>
+<h1 id="Arcs">Arcs<a class="anchor-link" href="#Arcs">¶</a></h1><h2 id="Debundle-the-arcs-and-reduce-them.">Debundle the arcs and reduce them.<a class="anchor-link" href="#Debundle-the-arcs-and-reduce-them.">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8827,8 +8781,7 @@ rm<span class="w"> </span>*fits
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><a class="anchor" id="slit_viewer"></a></p>
-<h1 id="Select-and-reduce-the-slit-viewer-data.">Select and reduce the slit-viewer data.<a class="anchor-link" href="#Select-and-reduce-the-slit-viewer-data.">¶</a></h1>
+<h2 id="Select-and-reduce-the-slit-images-for-the-arc.">Select and reduce the slit images for the arc.<a class="anchor-link" href="#Select-and-reduce-the-slit-images-for-the-arc.">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8886,18 +8839,6 @@ rm<span class="w"> </span>*fits
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">reduce_func</span><span class="p">(</span><span class="n">arcslit_2</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2ebf5837-acb4-4907-aa28-98473209c6bd">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><a class="anchor" id="arcs"></a></p>
-<h1 id="Select-and-reduce-the-arcs.">Select and reduce the arcs.<a class="anchor-link" href="#Select-and-reduce-the-arcs.">¶</a></h1>
 </div>
 </div>
 </div>
@@ -9040,7 +8981,7 @@ rm<span class="w"> </span>*fits
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="spec_standard"></a></p>
-<h1 id="Spectroscopic-Standard">Spectroscopic Standard<a class="anchor-link" href="#Spectroscopic-Standard">¶</a></h1><h2 id="Debundle-the-standards-and-reduce-them.">Debundle the standards and reduce them.<a class="anchor-link" href="#Debundle-the-standards-and-reduce-them.">¶</a></h2>
+<h1 id="Spectroscopic-standard">Spectroscopic standard<a class="anchor-link" href="#Spectroscopic-standard">¶</a></h1><h2 id="Debundle-the-standards-and-reduce-them.">Debundle the standards and reduce them.<a class="anchor-link" href="#Debundle-the-standards-and-reduce-them.">¶</a></h2>
 </div>
 </div>
 </div>
@@ -9109,18 +9050,6 @@ rm<span class="w"> </span>*fits
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">new_all_files5</span> <span class="o">=</span> <span class="n">update_list</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c18a6def-0501-4dcf-9551-135645fe24c5">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><a class="anchor" id="standard_slit_viewer"></a></p>
-<h1 id="Select-and-reduce-the-standard-data.">Select and reduce the standard data.<a class="anchor-link" href="#Select-and-reduce-the-standard-data.">¶</a></h1>
 </div>
 </div>
 </div>
@@ -9330,7 +9259,7 @@ rm<span class="w"> </span>*fits
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="science"></a></p>
-<h1 id="Science-Frames">Science Frames<a class="anchor-link" href="#Science-Frames">¶</a></h1><h2 id="Debundle-the-science-frames-and-reduce-them.">Debundle the science frames and reduce them.<a class="anchor-link" href="#Debundle-the-science-frames-and-reduce-them.">¶</a></h2>
+<h1 id="Science">Science<a class="anchor-link" href="#Science">¶</a></h1><h2 id="Debundle-the-science-frames-and-reduce-them.">Debundle the science frames and reduce them.<a class="anchor-link" href="#Debundle-the-science-frames-and-reduce-them.">¶</a></h2>
 </div>
 </div>
 </div>
@@ -9474,18 +9403,6 @@ rm<span class="w"> </span>*fits
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">new_all_files7</span> <span class="o">=</span> <span class="n">update_list</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a21cf298-4093-4f05-ac80-32d6e84936aa">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><a class="anchor" id="science"></a></p>
-<h1 id="Select-and-reduce-the-science-data.">Select and reduce the science data.<a class="anchor-link" href="#Select-and-reduce-the-science-data.">¶</a></h1>
 </div>
 </div>
 </div>
@@ -9892,20 +9809,6 @@ rm<span class="w"> </span>*fits
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># clean_up(save_reduced=0)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=854e8435-a1a2-497a-a985-e2456d58312a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>
