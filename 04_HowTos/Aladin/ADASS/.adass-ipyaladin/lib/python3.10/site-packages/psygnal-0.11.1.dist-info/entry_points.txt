@@ -1,2 +1,0 @@
-[pyinstaller40]
-hook-dirs = psygnal._pyinstaller_util._pyinstaller_hook:get_hook_dirs

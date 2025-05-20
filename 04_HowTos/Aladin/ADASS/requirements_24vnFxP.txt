@@ -1,6 +1,0 @@
-jupyterlab>4,<5
-ipyaladin>=0.5.1
-sidecar>=0.2.1
-astroquery>=0.4.8.dev0
-regions
-mocpy
