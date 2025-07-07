@@ -7520,7 +7520,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0073'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Benjamin Weaver &lt;benjamin.weaver@noirlab.edu&gt;, Alice Jacques &lt;alice.jacques@noirlab.edu&gt;, Astro Data Lab Team &lt;datalab@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250317'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250424'</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'desi_dr1'</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'query'</span><span class="p">,</span> <span class="s1">'DESI'</span><span class="p">]</span>
 </pre></div>
@@ -7720,8 +7720,9 @@ Usually, but not always, the unique identifier will also have a <code>UNIQUE</co
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#token = ac.login(input("Enter user name: (+ENTER) "),getpass("Enter password: (+ENTER) "))</span>
-<span class="n">ac</span><span class="o">.</span><span class="n">whoAmI</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># from getpass import getpass</span>
+<span class="c1"># token = ac.login(input("Enter user name: (+ENTER) "), getpass("Enter password: (+ENTER) "))</span>
+<span class="c1"># ac.whoAmI()</span>
 </pre></div>
 </div>
 </div>
@@ -8255,7 +8256,7 @@ Usually, but not always, the unique identifier will also have a <code>UNIQUE</co
 <span class="w">              </span><span class="k">JOIN</span><span class="w"> </span><span class="n">desi_dr1</span><span class="p">.</span><span class="n">exposure</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ee</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">ff</span><span class="p">.</span><span class="n">tileid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ee</span><span class="p">.</span><span class="n">tileid</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">tt</span><span class="p">.</span><span class="n">targetid</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">q1</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">targetid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q1</span><span class="p">.</span><span class="n">targetid</span>
 <span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">desi_dr1</span><span class="p">.</span><span class="n">exposure</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">tileid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">tileid</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">q1</span><span class="p">.</span><span class="n">targetid</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">expid</span><span class="p">;</span>
 </pre></div>
-<p><em>WARNING</em>: This query will take several minutes, please be patient.</p>
+<p>Note that this consists of an inner query, <code>(SELECT tt.targetid FROM desi_dr1.target AS tt ...) AS q1</code> and an outer query that treats <code>q1</code> as if it were a table. In some cases we can run this query exactly as written above, but due to time limitations, we'll split this query apart and run them asynchronously, saving the intermediate results in a MyDB table.</p>
 </div>
 </div>
 </div>
@@ -8267,17 +8268,30 @@ Usually, but not always, the unique identifier will also have a <code>UNIQUE</co
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Find all targetids that have observations.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#</span>
+<span class="c1"># Clean up any existing intermediate table.</span>
 <span class="c1">#</span>
-<span class="n">q1</span> <span class="o">=</span> <span class="s2">"""SELECT tt.targetid FROM desi_dr1.target AS tt JOIN desi_dr1.fiberassign AS ff ON tt.targetid = ff.targetid</span>
-<span class="s2">    JOIN desi_dr1.exposure AS ee ON ff.tileid = ee.tileid GROUP BY tt.targetid"""</span>
+<span class="n">overwrite_q1_table</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">q1_table</span> <span class="o">=</span> <span class="s1">'desi_dr1_survey_progress_q1'</span>
+<span class="n">mydb_tables</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">mydb_list</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">q1_table</span> <span class="ow">in</span> <span class="n">mydb_tables</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">overwrite_q1_table</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Using existing survey progress table </span><span class="si">{</span><span class="n">q1_table</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">qc</span><span class="o">.</span><span class="n">mydb_drop</span><span class="p">(</span><span class="s1">'desi_dr1_survey_progress_q1'</span><span class="p">)</span>
+    <span class="c1">#</span>
+    <span class="c1"># Find all targetids that have observations.</span>
+    <span class="c1">#</span>
+    <span class="n">q1</span> <span class="o">=</span> <span class="s2">"""SELECT tt.targetid FROM desi_dr1.target AS tt JOIN desi_dr1.fiberassign AS ff ON tt.targetid = ff.targetid</span>
+<span class="s2">        JOIN desi_dr1.exposure AS ee ON ff.tileid = ee.tileid GROUP BY tt.targetid;"""</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">q1</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="sa">f</span><span class="s1">'mydb://</span><span class="si">{</span><span class="n">q1_table</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">async_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">poll</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">6000</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 <span class="c1">#</span>
-<span class="c1"># Find the exposure times for the targetids that have been observed</span>
+<span class="c1"># Find the exposure dates (MJD) for the targetids that have been observed</span>
 <span class="c1">#</span>
 <span class="n">q2</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"""SELECT f.targetid, e.expid, e.mjd FROM desi_dr1.fiberassign AS f</span>
-<span class="s2">    JOIN (</span><span class="si">{</span><span class="n">q1</span><span class="si">}</span><span class="s2">) AS q1 ON f.targetid = q1.targetid</span>
+<span class="s2">    JOIN mydb://</span><span class="si">{</span><span class="n">q1_table</span><span class="si">}</span><span class="s2"> AS q1 ON f.targetid = q1.targetid</span>
 <span class="s2">    JOIN desi_dr1.exposure AS e ON f.tileid = e.tileid ORDER BY q1.targetid, e.expid;"""</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">q2</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">'pandas'</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">q2</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">'pandas'</span><span class="p">,</span> <span class="n">async_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">poll</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">6000</span><span class="p">)</span>
 <span class="n">targetid</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">targetid</span><span class="o">.</span><span class="n">values</span>
 <span class="n">expid</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">expid</span><span class="o">.</span><span class="n">values</span>
 <span class="n">mjd</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">mjd</span><span class="o">.</span><span class="n">values</span>
