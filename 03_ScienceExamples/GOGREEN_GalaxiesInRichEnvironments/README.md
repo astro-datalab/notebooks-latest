@@ -28,3 +28,5 @@ This notebook aims to visualize sky positions and redshifts of galaxies as a fun
 ## 4_GOGREENDr2Spec1DRedshift.ipynb
 
 This notebook illustrates 1D and 2D spectrum emission line features and demonstrates how to derive the redshift and equivalent width of the \[O II\]3727 doublet from a Gaussian fit.
+
+**Note:** Astro Data Lab also hosts GOGREEN DR1. However, GOGREEN DR2 supersedes the DR1 version and should be used for any and all science cases.
