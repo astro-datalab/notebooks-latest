@@ -7520,7 +7520,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0023'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Felix Pat &lt;felixpat10@email.arizona.edu&gt;, Stephanie Juneau &lt;stephanie.juneau@noirlab.edu&gt;, Alice Jacques &lt;alice.jacques@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250714'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250721'</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'gogreen_dr2'</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'gemini llp'</span><span class="p">,</span> <span class="s1">'tap'</span><span class="p">,</span> <span class="s1">'cluster'</span><span class="p">,</span> <span class="s1">'photometry'</span><span class="p">,</span> <span class="s1">'redshift'</span><span class="p">,</span> <span class="s1">'file service'</span><span class="p">,</span> <span class="s1">'spectra'</span><span class="p">,</span> <span class="s1">'catalogues'</span><span class="p">]</span>
 </pre></div>
@@ -7536,6 +7536,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Intro-to-Spectroscopy-from-the-GOGREEN-DR2-Dataset">Intro to Spectroscopy from the GOGREEN DR2 Dataset<a class="anchor-link" href="#Intro-to-Spectroscopy-from-the-GOGREEN-DR2-Dataset">¶</a></h1><p><em>Authors: Felix Pat (Univ. of Arizona), Stéphanie Juneau (NOIRLab Astro Data Lab), Alice Jacques (NOIRLab Astro Data Lab), and the Astro Data Lab Team</em></p>
+<p><strong>Note:</strong> Astro Data Lab also hosts GOGREEN DR1. However, GOGREEN DR2 supersedes the DR1 version and should be used for any and all science cases.</p>
 </div>
 </div>
 </div>
@@ -7719,11 +7720,11 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="s1">'gogreen_dr2.'</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="s1">'gogreen_dr2'</span>
 <span class="n">tables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'clusters'</span><span class="p">,</span> <span class="s1">'redshift'</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">tables</span><span class="p">:</span>
-    <span class="nb">globals</span><span class="p">()[</span><span class="s1">'</span><span class="si">%s</span><span class="s1">_table'</span><span class="o">%</span><span class="k">table</span>] = qc.query('select * from %s%s' % (dataset, table), fmt = 'pandas')
+    <span class="nb">globals</span><span class="p">()[</span><span class="s1">'</span><span class="si">%s</span><span class="s1">_table'</span><span class="o">%</span><span class="k">table</span>] = qc.query('select * from %s.%s' % (dataset, table), fmt = 'pandas')
     <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%s</span><span class="s1">'</span><span class="o">%</span><span class="k">table</span>)
     <span class="n">display_html</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[(</span><span class="s1">'</span><span class="si">%s</span><span class="s1">_table'</span><span class="o">%</span><span class="k">table</span>)].head(5))
 </pre></div>

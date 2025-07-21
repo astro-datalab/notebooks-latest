@@ -7520,7 +7520,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0019'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Stephanie Juneau &lt;stephanie.juneau@noirlab.edu&gt;, Felix Pat &lt;felixpat10@email.arizona.edu&gt;, Alice Jacques &lt;alice.jacques@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250714'</span> <span class="c1">#yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250721'</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'gogreen_dr2'</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'gemini llp'</span><span class="p">,</span> <span class="s1">'file service'</span><span class="p">,</span> <span class="s1">'spectra'</span><span class="p">,</span> <span class="s1">'catalogues'</span><span class="p">]</span>
 </pre></div>
@@ -7536,6 +7536,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Listing-files-in-the-GOGREEN-DR2-Dataset">Listing files in the GOGREEN DR2 Dataset<a class="anchor-link" href="#Listing-files-in-the-GOGREEN-DR2-Dataset">¶</a></h1><p><em>Authors: Stéphanie Juneau (NOIRLab Astro Data Lab), Felix Pat (Univ. of Arizona), Alice Jacques (NOIRLab Astro Data Lab), and the Astro Data Lab Team</em></p>
+<p><strong>Note:</strong> Astro Data Lab also hosts GOGREEN DR1. However, GOGREEN DR2 supersedes the DR1 version and should be used for any and all science cases.</p>
 </div>
 </div>
 </div>
@@ -7639,11 +7640,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 3rd party</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">textwrap</span>
-<span class="n">wrapper</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">TextWrapper</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-
-<span class="c1"># Data Lab</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Data Lab</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dl</span><span class="w"> </span><span class="kn">import</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span>
 </pre></div>
 </div>
@@ -8078,7 +8075,7 @@ Name: cluster, dtype: object</pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2e76690b-2e6c-494c-94f2-708a5b15d141">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f8c759d2-6cf8-40fa-b841-b8a50ab776a6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8086,7 +8083,7 @@ Name: cluster, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">oneddir</span><span class="o">+</span><span class="s1">'README'</span><span class="p">)))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">oneddir</span><span class="o">+</span><span class="s1">'README'</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -8100,6 +8097,7 @@ Name: cluster, dtype: object</pre>
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>This directory contains final 1D spectra for every system in GOGREEN and GCLASS.  These have been absolute flux calibrated where possible, using Lyndsay's v1.1 calibrations.
+
 </pre>
 </div>
 </div>
@@ -8248,7 +8246,7 @@ SPT0205    True
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=97aade61-99b1-4c83-9d82-40cb58ba710c">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6f9e7329-f749-4e29-9215-716d4468cda9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8256,7 +8254,7 @@ SPT0205    True
 <div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">twoddir</span><span class="o">+</span><span class="s1">'README'</span><span class="p">)))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">twoddir</span><span class="o">+</span><span class="s1">'README'</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -8269,8 +8267,8 @@ SPT0205    True
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Each file contains 2D spectra for GOGREEN.  The spatial axis is in pixels, which are 0.16".  No relative or absolute flux calibration has been applied to these spectra; the pixel units are in detector
-counts.  Note the dimension of these MEF files can be different from the corresponding 1D files because the latter include GCLASS spectra.
+<pre>Each file contains 2D spectra for GOGREEN.  The spatial axis is in pixels, which are 0.16".  No relative or absolute flux calibration has been applied to these spectra; the pixel units are in detector counts.  Note the dimension of these MEF files can be different from the corresponding 1D files because the latter include GCLASS spectra.
+
 </pre>
 </div>
 </div>
