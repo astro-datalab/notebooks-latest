@@ -34,6 +34,6 @@ The [DESI Data Documentation website](https://data.desi.lbl.gov/doc/) describes 
 
 ### Astro Data Lab & DESI Help
 
-If you have an Astro Data Lab question, please visite the [Data Lab User Forum](https://datalab.noirlab.edu/help/).
+If you have an Astro Data Lab question, please visit the [Data Lab User Forum](https://datalab.noirlab.edu/help/).
 
 If you have a DESI question, please visit the [DESI User Forum](https://help.desi.lbl.gov). 
