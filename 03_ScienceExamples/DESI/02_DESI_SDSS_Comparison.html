@@ -7689,7 +7689,7 @@ The spectroscopic survey for SDSS I/II (2000-2008) was conducted using the "SDSS
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="n">divide</span> <span class="o">=</span> <span class="s1">'ignore'</span><span class="p">)</span>    <span class="c1">## Ignores division by zero warning</span>
+<span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="n">divide</span> <span class="o">=</span> <span class="s1">'ignore'</span><span class="p">)</span>    <span class="c1"># Ignores division by zero warning</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">join</span><span class="p">,</span> <span class="n">hstack</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates</span><span class="w"> </span><span class="kn">import</span> <span class="n">SkyCoord</span><span class="p">,</span> <span class="n">search_around_sky</span>
@@ -7702,7 +7702,7 @@ The spectroscopic survey for SDSS I/II (2000-2008) was conducted using the "SDSS
 <span class="kn">from</span><span class="w"> </span><span class="nn">dl</span><span class="w"> </span><span class="kn">import</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">getpass</span><span class="w"> </span><span class="kn">import</span> <span class="n">getpass</span>
 
-<span class="c1">## SPARCL</span>
+<span class="c1"># SPARCL</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sparcl.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">SparclClient</span>
 </pre></div>
 </div>
@@ -7739,7 +7739,7 @@ The spectroscopic survey for SDSS I/II (2000-2008) was conducted using the "SDSS
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Making the matplotlib plots look nicer</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Making the matplotlib plots look nicer</span>
 <span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">'font.size'</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span>
     <span class="s1">'axes.linewidth'</span><span class="p">:</span><span class="mf">2.0</span><span class="p">,</span>
@@ -7785,7 +7785,7 @@ The spectroscopic survey for SDSS I/II (2000-2008) was conducted using the "SDSS
 <div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Load the SPARCL client for data discovery and spectral access</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Load the SPARCL client for data discovery and spectral access</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">SparclClient</span><span class="p">()</span>
 <span class="n">client</span>
 </pre></div>
@@ -7800,7 +7800,7 @@ The spectroscopic survey for SDSS I/II (2000-2008) was conducted using the "SDSS
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(sparclclient:1.2.5, api:12.0, https://astrosparcl.datalab.noirlab.edu/sparc, client_hash=722fe4a0e2cb8fc8ab3bd68bb68a1ebc5cb7838e, verbose=False, connect_timeout=1.1, read_timeout=5400.0)</pre>
+<pre>(sparclclient:1.2.5, api:12.0, https://astrosparcl.datalab.noirlab.edu/sparc, client_hash=703b0bee29383f25672ef5797dba6799b7b4918f, verbose=False, connect_timeout=1.1, read_timeout=5400.0)</pre>
 </div>
 </div>
 </div>
@@ -7842,16 +7842,16 @@ The spectroscopic survey for SDSS I/II (2000-2008) was conducted using the "SDSS
 <div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## The outfields that are required as output from SPARCL</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># The outfields that are required as output from SPARCL</span>
 <span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl_id'</span><span class="p">,</span> <span class="s1">'specid'</span><span class="p">,</span> <span class="s1">'ra'</span><span class="p">,</span> <span class="s1">'dec'</span><span class="p">,</span> <span class="s1">'redshift'</span><span class="p">]</span> 
 
-<span class="c1">## Constraints</span>
-<span class="c1">## SPECTYPE = 'GALAXY'</span>
-<span class="c1">## 208.4 &lt;= RA &lt;= 210.2</span>
-<span class="c1">## 4.8 &lt;= DEC &lt;= 6.4</span>
-<span class="c1">## 0.1 &lt;= Redshift &lt;= 0.15</span>
-<span class="c1">## SPECPRIMARY = True -- consider only primary spectra</span>
-<span class="c1">## "datasetgroup" denotes the required survey (SDSS_BOSS for SDSS-DR16 (SDSS+BOSS data), and DESI for DESI DR1 data)</span>
+<span class="c1"># Constraints</span>
+<span class="c1"># SPECTYPE = 'GALAXY'</span>
+<span class="c1"># 208.4 &lt;= RA &lt;= 210.2</span>
+<span class="c1"># 4.8 &lt;= DEC &lt;= 6.4</span>
+<span class="c1"># 0.1 &lt;= Redshift &lt;= 0.15</span>
+<span class="c1"># SPECPRIMARY = True -- consider only primary spectra</span>
+<span class="c1"># "datasetgroup" denotes the required survey (SDSS_BOSS for SDSS-DR16 (SDSS+BOSS data), and DESI for DESI DR1 data)</span>
 
 <span class="n">sdss_cons</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'spectype'</span><span class="p">:[</span><span class="s1">'GALAXY'</span><span class="p">],</span> <span class="s1">'ra'</span><span class="p">:[</span><span class="mf">208.4</span><span class="p">,</span> <span class="mf">210.2</span><span class="p">],</span> <span class="s1">'dec'</span><span class="p">:[</span><span class="mf">4.8</span><span class="p">,</span> <span class="mf">6.4</span><span class="p">],</span> <span class="s1">'specprimary'</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">],</span> <span class="s1">'datasetgroup'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'SDSS_BOSS'</span><span class="p">],</span> <span class="s1">'redshift'</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">]}</span>
 <span class="n">desi_cons</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'spectype'</span><span class="p">:[</span><span class="s1">'GALAXY'</span><span class="p">],</span> <span class="s1">'ra'</span><span class="p">:[</span><span class="mf">208.4</span><span class="p">,</span> <span class="mf">210.2</span><span class="p">],</span> <span class="s1">'dec'</span><span class="p">:[</span><span class="mf">4.8</span><span class="p">,</span> <span class="mf">6.4</span><span class="p">],</span> <span class="s1">'specprimary'</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">],</span> <span class="s1">'data_release'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'DESI-DR1'</span><span class="p">],</span> <span class="s1">'redshift'</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">]}</span> 
@@ -7901,7 +7901,7 @@ The spectroscopic survey for SDSS I/II (2000-2008) was conducted using the "SDSS
 <div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Overlap of sources</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Overlap of sources</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 
@@ -7961,7 +7961,7 @@ The spectroscopic survey for SDSS I/II (2000-2008) was conducted using the "SDSS
 <div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Find common sources between SDSS and DESI</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Find common sources between SDSS and DESI</span>
 
 <span class="n">cat_desi</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span> <span class="o">=</span> <span class="n">ra_desi</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">dec</span> <span class="o">=</span> <span class="n">dec_desi</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
 <span class="n">cat_sdss</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span> <span class="o">=</span> <span class="n">ra_sdss</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">dec</span> <span class="o">=</span> <span class="n">dec_sdss</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
@@ -8010,7 +8010,7 @@ The spectroscopic survey for SDSS I/II (2000-2008) was conducted using the "SDSS
 <div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Combining the two tables into a single table</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Combining the two tables into a single table</span>
 
 <span class="n">t_comb</span> <span class="o">=</span> <span class="n">hstack</span><span class="p">([</span><span class="n">t_desi_common</span><span class="p">,</span> <span class="n">t_sdss_common</span><span class="p">],</span> <span class="n">table_names</span><span class="o">=</span><span class="p">[</span><span class="s1">'desi'</span><span class="p">,</span> <span class="s1">'sdss'</span><span class="p">])</span>
 </pre></div>
@@ -8055,13 +8055,13 @@ Number of unique DESI objects:  122
 <div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## This suggests that some SDSS object have been matched with two DESI objects.</span>
-<span class="c1">## We remove that particular object from our selection</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># This suggests that some SDSS object have been matched with two DESI objects.</span>
+<span class="c1"># We remove that particular object from our selection</span>
 
 <span class="n">sdss_ids_unique</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">n_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">t_comb</span><span class="p">[</span><span class="s1">'specid_sdss'</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">return_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">sdss_id_repeated</span> <span class="o">=</span> <span class="n">sdss_ids_unique</span><span class="p">[</span><span class="n">n_counts</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
 
-<span class="c1">## Removing these cases for now (Exercise: investigate what happened in those cases)</span>
+<span class="c1"># Removing these cases for now (Exercise: investigate what happened in those cases)</span>
 <span class="n">t_comb_unique</span> <span class="o">=</span> <span class="n">t_comb</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -8174,7 +8174,7 @@ Number of unique DESI objects:  122
 <div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Query to access galaxies with non-zero [OII] measurements</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Query to access galaxies with non-zero [OII] measurements</span>
 <span class="n">query</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">SELECT specobjid as specid_sdss,</span>
 <span class="s2">flux_oii_3726, flux_oii_3726_err,</span>
@@ -8246,8 +8246,8 @@ AND (flux_oii_3726_err != 0) AND (flux_oii_3728_err != 0)
 <div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Find sources from the common SDSS and DESI catalog that has [OII] flux</span>
-<span class="c1">## This part will change with SPARCL as well</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Find sources from the common SDSS and DESI catalog that has [OII] flux</span>
+<span class="c1"># This part will change with SPARCL as well</span>
 
 <span class="n">t_oii_comb</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">t_comb_unique</span><span class="p">,</span> <span class="n">t_em</span><span class="p">,</span> <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'specid_sdss'</span><span class="p">])</span>
 </pre></div>
@@ -8338,7 +8338,7 @@ AND (flux_oii_3726_err != 0) AND (flux_oii_3728_err != 0)
 <div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Unique identifiers for SDSS and DESI</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Unique identifiers for SDSS and DESI</span>
 <span class="n">ids_sdss</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">t_oii_comb</span><span class="p">[</span><span class="s1">'sparcl_id_sdss'</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">]</span>
 <span class="n">ids_desi</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">t_oii_comb</span><span class="p">[</span><span class="s1">'sparcl_id_desi'</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">]</span>
 </pre></div>
@@ -8354,8 +8354,8 @@ AND (flux_oii_3726_err != 0) AND (flux_oii_3728_err != 0)
 <div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Use client.retrive for spectra</span>
-<span class="c1">## This retrieves all the 95 spectra at once</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Use client.retrive for spectra</span>
+<span class="c1"># This retrieves all the 95 spectra at once</span>
 <span class="n">sel</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'wavelength'</span><span class="p">,</span> <span class="s1">'flux'</span><span class="p">,</span> <span class="s1">'ivar'</span><span class="p">,</span> <span class="s1">'model'</span><span class="p">,</span> <span class="s1">'sparcl_id'</span><span class="p">]</span>
 
 <span class="n">spec_sdss</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">uuid_list</span><span class="o">=</span><span class="n">ids_sdss</span><span class="p">,</span> <span class="n">include</span> <span class="o">=</span> <span class="n">sel</span><span class="p">)</span>
@@ -8373,7 +8373,7 @@ AND (flux_oii_3726_err != 0) AND (flux_oii_3728_err != 0)
 <div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Reorder the records to match the original table</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Reorder the records to match the original table</span>
 <span class="n">res_sdss</span> <span class="o">=</span> <span class="n">spec_sdss</span><span class="o">.</span><span class="n">reorder</span><span class="p">(</span><span class="n">ids_sdss</span><span class="p">)</span>
 <span class="n">res_desi</span> <span class="o">=</span> <span class="n">spec_desi</span><span class="o">.</span><span class="n">reorder</span><span class="p">(</span><span class="n">ids_desi</span><span class="p">)</span>
 </pre></div>
@@ -8482,12 +8482,12 @@ The following function is useful to access any spectra, given its SPARCL record 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Calculate [OII] doublet flux and S/N</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Calculate [OII] doublet flux and S/N</span>
 <span class="n">total_oii_flux</span> <span class="o">=</span> <span class="n">t_oii_comb</span><span class="p">[</span><span class="s1">'flux_oii_3726'</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">+</span> <span class="n">t_oii_comb</span><span class="p">[</span><span class="s1">'flux_oii_3728'</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
 <span class="n">total_oii_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">t_oii_comb</span><span class="p">[</span><span class="s1">'flux_oii_3726_err'</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">t_oii_comb</span><span class="p">[</span><span class="s1">'flux_oii_3728_err'</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">oii_snr</span> <span class="o">=</span> <span class="n">total_oii_flux</span><span class="o">/</span><span class="n">total_oii_err</span>
 
-<span class="c1">## Caculate mean [OII] doublet width</span>
+<span class="c1"># Caculate mean [OII] doublet width</span>
 <span class="n">sig_oii</span> <span class="o">=</span> <span class="p">(</span><span class="n">t_oii_comb</span><span class="p">[</span><span class="s1">'sigma_oii_3726'</span><span class="p">]</span><span class="o">+</span><span class="n">t_oii_comb</span><span class="p">[</span><span class="s1">'sigma_oii_3728'</span><span class="p">])</span><span class="o">/</span><span class="mf">2.</span>
 </pre></div>
 </div>
@@ -8502,9 +8502,9 @@ The following function is useful to access any spectra, given its SPARCL record 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Sanity Check: </span>
-<span class="c1">## Left panel -- plot the line widths</span>
-<span class="c1">## Right panel -- SNR vs. Mean Linewidth</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Sanity Check: </span>
+<span class="c1"># Left panel -- plot the line widths</span>
+<span class="c1"># Right panel -- SNR vs. Mean Linewidth</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 
@@ -8548,7 +8548,7 @@ The following function is useful to access any spectra, given its SPARCL record 
 <div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Select an example source with a high [OII] SNR and reasonable line width</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Select an example source with a high [OII] SNR and reasonable line width</span>
 <span class="n">ii</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">oii_snr</span><span class="o">&gt;</span><span class="mi">8</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">sig_oii</span><span class="o">&gt;</span><span class="mi">20</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">sig_oii</span><span class="o">&lt;</span><span class="mi">200</span><span class="p">))[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="n">ii</span>

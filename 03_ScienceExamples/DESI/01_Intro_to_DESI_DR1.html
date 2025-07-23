@@ -7644,13 +7644,13 @@ a.anchor-link {
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span> 
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="c1"># DESI targeting masks - </span>
+<span class="c1"># DESI targeting masks </span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">desitarget</span><span class="w"> </span><span class="kn">import</span> <span class="n">targetmask</span>            <span class="c1"># For Main survey</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">desitarget.sv1</span><span class="w"> </span><span class="kn">import</span> <span class="n">sv1_targetmask</span>    <span class="c1"># For SV1</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">desitarget.sv2</span><span class="w"> </span><span class="kn">import</span> <span class="n">sv2_targetmask</span>    <span class="c1"># For SV2</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">desitarget.sv3</span><span class="w"> </span><span class="kn">import</span> <span class="n">sv3_targetmask</span>    <span class="c1"># For SV3</span>
 
-<span class="c1">## DataLab related modules</span>
+<span class="c1"># DataLab related modules</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sparcl.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">SparclClient</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dl</span><span class="w"> </span><span class="kn">import</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">getpass</span><span class="w"> </span><span class="kn">import</span> <span class="n">getpass</span>
@@ -7689,7 +7689,8 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Making the matplotlib plots look nicer</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Making the matplotlib plots look nicer</span>
+
 <span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">'font.size'</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span>
     <span class="s1">'axes.linewidth'</span><span class="p">:</span><span class="mf">2.0</span><span class="p">,</span>
@@ -7723,7 +7724,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Load SPARCLClient</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Load SPARCLClient</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">SparclClient</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -7821,7 +7822,7 @@ x1p5__zpix__unwise_dr1__object   desi_dr1.zpix and xmatch_std.unwise_dr1__object
 <div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Columns in the zpix table</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Columns in the zpix table</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">schema</span><span class="p">(</span><span class="s1">'desi_dr1.zpix'</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -8018,19 +8019,18 @@ coadd_fiberstatus   Bitwise AND of the FIBERSTATUS values of the spectra used
 <span class="s2">        WHERE (zp.survey='main') AND zp.main_primary AND (zp.random_id BETWEEN 0. AND 10.)</span>
 <span class="s2">        """</span> 
 
-<span class="c1">## Information about the query</span>
-<span class="c1">## </span>
-<span class="c1">## Selected columns --</span>
-<span class="c1">##   targetid, survey, program -- unique identifiers for a given spectrum</span>
-<span class="c1">##   desi_target -- encodes main survey's desi targeting information - explained in detail below</span>
-<span class="c1">##   mean_fiber_ra, mean_fiber_dec -- coordinates where fiber was placed</span>
-<span class="c1">##   z -- spectroscopic redshift of the target</span>
-<span class="c1">##   zwarn -- encoded information regarding the redshift (zwarn = 0 is good)</span>
-<span class="c1">##   spectype -- Spectral type of the target: STAR | GALAXY | QSO</span>
-<span class="c1">## Constraints (WHERE statement) --</span>
-<span class="c1">##   survey: selecting main survey only</span>
-<span class="c1">##   main_primary: keeping only the best spectrum in Main (removes possible multiples)</span>
-<span class="c1">##   random_id: selects a slice of 10% of the sample (0-10 out of 100)</span>
+<span class="c1"># Information about the query</span>
+<span class="c1"># Selected columns --</span>
+<span class="c1">#   targetid, survey, program -- unique identifiers for a given spectrum</span>
+<span class="c1">#   desi_target -- encodes main survey's desi targeting information - explained in detail below</span>
+<span class="c1">#   mean_fiber_ra, mean_fiber_dec -- coordinates where fiber was placed</span>
+<span class="c1">#   z -- spectroscopic redshift of the target</span>
+<span class="c1">#   zwarn -- encoded information regarding the redshift (zwarn = 0 is good)</span>
+<span class="c1">#   spectype -- Spectral type of the target: STAR | GALAXY | QSO</span>
+<span class="c1"># Constraints (WHERE statement) --</span>
+<span class="c1">#   survey: selecting main survey only</span>
+<span class="c1">#   main_primary: keeping only the best spectrum in Main (removes possible multiples)</span>
+<span class="c1">#   random_id: selects a slice of 10% of the sample (0-10 out of 100)</span>
 </pre></div>
 </div>
 </div>
@@ -8113,7 +8113,7 @@ coadd_fiberstatus   Bitwise AND of the FIBERSTATUS values of the spectra used
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div><i>Table length=5</i>
-<table class="table-striped table-bordered table-condensed" id="table139740359215424">
+<table class="table-striped table-bordered table-condensed" id="table140121145429248">
 <thead><tr><th>targetid</th><th>survey</th><th>program</th><th>desi_target</th><th>mean_fiber_ra</th><th>mean_fiber_dec</th><th>z</th><th>zwarn</th><th>spectype</th></tr></thead>
 <thead><tr><th>int64</th><th>str4</th><th>str6</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>str6</th></tr></thead>
 <tr><td>39628129664239940</td><td>main</td><td>dark</td><td>65537</td><td>234.7166322469532</td><td>14.27766943485698</td><td>0.6129316573380434</td><td>0</td><td>GALAXY</td></tr>
@@ -8165,7 +8165,7 @@ N(rows) with unique TARGETIDs : 2063506
 <div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Check the spectral types</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Check the spectral types</span>
 <span class="n">spectypes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">zpix_cat</span><span class="p">[</span><span class="s1">'spectype'</span><span class="p">])</span>
 
 <span class="k">for</span> <span class="n">spectype</span> <span class="ow">in</span> <span class="n">spectypes</span><span class="p">:</span>
@@ -8322,7 +8322,7 @@ Apart from these main classes, there are targets that are part of secondary-fibe
 
 <span class="n">desi_tgt</span> <span class="o">=</span> <span class="n">zpix_cat</span><span class="p">[</span><span class="s1">'desi_target'</span><span class="p">]</span>
 
-<span class="c1">## DESI Bitmasks</span>
+<span class="c1"># DESI Bitmasks</span>
 <span class="n">desi_mask</span> <span class="o">=</span> <span class="n">targetmask</span><span class="o">.</span><span class="n">desi_mask</span>
 </pre></div>
 </div>
@@ -8484,7 +8484,7 @@ For example, BGS have different target masks depending on the selection criterio
 <div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## BGS Target Masks</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># BGS Target Masks</span>
 <span class="n">targetmask</span><span class="o">.</span><span class="n">bgs_mask</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -8520,7 +8520,7 @@ For example, BGS have different target masks depending on the selection criterio
 <div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Secondary Target Masks</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Secondary Target Masks</span>
 <span class="n">targetmask</span><span class="o">.</span><span class="n">scnd_mask</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -8607,26 +8607,26 @@ We also overplot the <code>Milky Way Survey</code> targets in this region.</p>
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">hpx</span> <span class="o">=</span> <span class="mi">26279</span>      
 
-<span class="c1">## Write query to select this given healpix (detailed information below)</span>
+<span class="c1"># Write query to select this given healpix (detailed information below)</span>
 <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'''SELECT zp.targetid, zp.survey, zp.program, zp.desi_target,</span>
 <span class="s1">                   zp.z, zp.zwarn, zp.spectype, </span>
 <span class="s1">                   zp.mean_fiber_ra, zp.mean_fiber_dec </span>
 <span class="s1">            FROM desi_dr1.zpix AS zp</span>
 <span class="s1">            WHERE (healpix=</span><span class="si">{</span><span class="n">hpx</span><span class="si">}</span><span class="s1"> AND survey='main' AND main_primary)'''</span>
 
-<span class="c1">## Information about the query</span>
-<span class="c1">## </span>
-<span class="c1">## Selected columns:</span>
-<span class="c1">##   targetid, survey, program -- unique identifiers for a given spectrum</span>
-<span class="c1">##   desi_target -- encodeds main survey's desi targeting information</span>
-<span class="c1">##   z -- spectroscopic redshift of the target</span>
-<span class="c1">##   zwarn -- encoded information regarding the redshift (zwarn = 0 is good)</span>
-<span class="c1">##   spectype -- Spectral type of the target: STAR | GALAXY | QSO</span>
-<span class="c1">##   mean_fiber_ra, mean_fiber_dec -- coordinates where fiber was placed</span>
-<span class="c1">## Constraints (WHERE statement):</span>
-<span class="c1">##   healpix: select a specific one</span>
-<span class="c1">##   survey: keep only the Main survey</span>
-<span class="c1">##   main_primary: keep the best spectrum in the Main survey (in case there are duplicates)</span>
+<span class="c1"># Information about the query</span>
+<span class="c1"># </span>
+<span class="c1"># Selected columns:</span>
+<span class="c1">#   targetid, survey, program -- unique identifiers for a given spectrum</span>
+<span class="c1">#   desi_target -- encodeds main survey's desi targeting information</span>
+<span class="c1">#   z -- spectroscopic redshift of the target</span>
+<span class="c1">#   zwarn -- encoded information regarding the redshift (zwarn = 0 is good)</span>
+<span class="c1">#   spectype -- Spectral type of the target: STAR | GALAXY | QSO</span>
+<span class="c1">#   mean_fiber_ra, mean_fiber_dec -- coordinates where fiber was placed</span>
+<span class="c1"># Constraints (WHERE statement):</span>
+<span class="c1">#   healpix: select a specific one</span>
+<span class="c1">#   survey: keep only the Main survey</span>
+<span class="c1">#   main_primary: keep the best spectrum in the Main survey (in case there are duplicates)</span>
 </pre></div>
 </div>
 </div>
@@ -8654,7 +8654,7 @@ We also overplot the <code>Milky Way Survey</code> targets in this region.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Selecting MWS sources in this regions</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Selecting MWS sources in this regions</span>
 <span class="n">is_mws</span> <span class="o">=</span> <span class="p">(</span><span class="n">tsel</span><span class="p">[</span><span class="s1">'desi_target'</span><span class="p">]</span> <span class="o">&amp;</span> <span class="n">targetmask</span><span class="o">.</span><span class="n">desi_mask</span><span class="p">[</span><span class="s1">'MWS_ANY'</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8676,7 +8676,7 @@ We also overplot the <code>Milky Way Survey</code> targets in this region.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tsel</span><span class="p">[</span><span class="s1">'mean_fiber_ra'</span><span class="p">][</span><span class="n">is_mws</span><span class="p">],</span> <span class="n">tsel</span><span class="p">[</span><span class="s1">'mean_fiber_dec'</span><span class="p">][</span><span class="n">is_mws</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">'x'</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">'MWS'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'R.A. (deg)'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'DEC (deg)'</span><span class="p">)</span>
-<span class="c1">## RA increases toward the left (East)</span>
+<span class="c1"># RA increases toward the left (East)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
@@ -8718,7 +8718,7 @@ Detailed ways to use SPARCL are available in this <a href="https://github.com/as
 <div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Select objects with nspec &gt; 5</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Select objects with nspec &gt; 5</span>
 <span class="n">query</span> <span class="o">=</span> <span class="s1">'''SELECT targetid, survey, program, z, zwarn, coadd_fiberstatus, </span>
 <span class="s1">                  zcat_primary, zcat_nspec, tsnr2_lrg</span>
 <span class="s1">           FROM desi_dr1.zpix</span>
@@ -8765,12 +8765,12 @@ Detailed ways to use SPARCL are available in this <a href="https://github.com/as
 <div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Randomly select an object</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Randomly select an object</span>
 
 <span class="n">ii</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">targetid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tsel</span><span class="p">[</span><span class="s1">'targetid'</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>   <span class="c1">## SPARCL accepts only python integers</span>
+<span class="n">targetid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tsel</span><span class="p">[</span><span class="s1">'targetid'</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>   <span class="c1"># SPARCL accepts only python integers</span>
 
-<span class="c1">## Save a table with the rows that share the same targetid as selected</span>
+<span class="c1"># Save a table with the rows that share the same targetid as selected</span>
 <span class="n">tsel_id</span> <span class="o">=</span> <span class="n">tsel</span><span class="p">[</span><span class="n">tsel</span><span class="p">[</span><span class="s1">'targetid'</span><span class="p">]</span><span class="o">==</span><span class="n">tsel</span><span class="p">[</span><span class="s1">'targetid'</span><span class="p">][</span><span class="n">ii</span><span class="p">]]</span>
 </pre></div>
 </div>
@@ -8785,7 +8785,7 @@ Detailed ways to use SPARCL are available in this <a href="https://github.com/as
 <div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Retrieve Spectra</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Retrieve Spectra</span>
 
 <span class="n">inc</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'specid'</span><span class="p">,</span> <span class="s1">'redshift'</span><span class="p">,</span> <span class="s1">'flux'</span><span class="p">,</span> <span class="s1">'wavelength'</span><span class="p">,</span> <span class="s1">'spectype'</span><span class="p">,</span> <span class="s1">'specprimary'</span><span class="p">,</span> <span class="s1">'survey'</span><span class="p">,</span> <span class="s1">'program'</span><span class="p">,</span> <span class="s1">'targetid'</span><span class="p">,</span> <span class="s1">'redshift_warning'</span><span class="p">]</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">retrieve_by_specid</span><span class="p">(</span><span class="n">specid_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">targetid</span><span class="p">],</span>
@@ -8804,7 +8804,7 @@ Detailed ways to use SPARCL are available in this <a href="https://github.com/as
 <div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Checking that all the different spectra are retrieved</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Checking that all the different spectra are retrieved</span>
 
 <span class="nb">print</span> <span class="p">(</span><span class="s1">'Number of coadded spectra: '</span><span class="p">,</span> <span class="n">tsel</span><span class="p">[</span><span class="s1">'zcat_nspec'</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">'Number of retrieved records: '</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">records</span><span class="p">))</span>
@@ -8863,7 +8863,7 @@ Number of retrieved records:  6
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">records</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">records</span>
 
-<span class="c1">## Select the primary spectrum</span>
+<span class="c1"># Select the primary spectrum</span>
 <span class="n">spec_primary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">records</span><span class="p">[</span><span class="n">jj</span><span class="p">]</span><span class="o">.</span><span class="n">specprimary</span> <span class="k">for</span> <span class="n">jj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">))])</span>
 
 <span class="n">primary_ii</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">spec_primary</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -9021,7 +9021,7 @@ Let's print the table of values of their quality flags including ZWARN and COADD
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div><i>Table length=6</i>
-<table class="table-striped table-bordered table-condensed" id="table139740317212032">
+<table class="table-striped table-bordered table-condensed" id="table140121103434464">
 <thead><tr><th>targetid</th><th>survey</th><th>program</th><th>zwarn</th><th>coadd_fiberstatus</th><th>tsnr2_lrg</th><th>zcat_primary</th></tr></thead>
 <thead><tr><th>int64</th><th>str7</th><th>str6</th><th>int64</th><th>int64</th><th>float64</th><th>str1</th></tr></thead>
 <tr><td>39627751560317946</td><td>sv3</td><td>dark</td><td>0</td><td>0</td><td>358.0292</td><td>t</td></tr>
@@ -9072,7 +9072,7 @@ Let's print the table of values of their quality flags including ZWARN and COADD
 <div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Write a query to select all main objects with N&gt;1 spectrum (detailed info below)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Write a query to select all main objects with N&gt;1 spectrum (detailed info below)</span>
 <span class="n">q_multi</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">        SELECT targetid, survey, program, desi_target, </span>
 <span class="s2">               z, zwarn, coadd_fiberstatus, spectype, </span>
@@ -9081,22 +9081,22 @@ Let's print the table of values of their quality flags including ZWARN and COADD
 <span class="s2">        WHERE (survey='main') AND (main_nspec&gt;1)</span>
 <span class="s2">        """</span>
 
-<span class="c1">## Information about the query</span>
-<span class="c1">## </span>
-<span class="c1">## Selected columns --</span>
-<span class="c1">##   targetid, survey, program -- unique identifiers for a given spectrum</span>
-<span class="c1">##   desi_target -- encodes main survey's desi targeting information - explained in detail below</span>
-<span class="c1">##   z -- spectroscopic redshift of the target</span>
-<span class="c1">##   zwarn -- encoded information regarding the redshift (zwarn = 0 is good)</span>
-<span class="c1">##   coadd_fiberstatus -- encoded information regarding the fiber that is assigned to the target (coadd_fiberstatus = 0 is good)</span>
-<span class="c1">##   spectype -- Spectral type of the target: STAR | GALAXY | QSO</span>
-<span class="c1">##   main_nspec -- Number of coadded spectra that are available for a given target</span>
-<span class="c1">##   main_primary -- Whether or not a given coadded spectra is the primary spectra. ZCAT_PRIMARY = True for the "best" spectrum.</span>
-<span class="c1">##   CASTing this column as an INT: ZCAT_PRIMARY = 1 for the "best" spectrum.</span>
-<span class="c1">## Constraints (WHERE statement) --</span>
-<span class="c1">##   survey: selecting main survey only</span>
-<span class="c1">##   main_nspec: keeping objects with more than one Main survey spectrum</span>
-<span class="c1">##               (e.g., they were observed on both DARK and BRIGHT programs)</span>
+<span class="c1"># Information about the query</span>
+<span class="c1"># </span>
+<span class="c1"># Selected columns --</span>
+<span class="c1">#   targetid, survey, program -- unique identifiers for a given spectrum</span>
+<span class="c1">#   desi_target -- encodes main survey's desi targeting information - explained in detail below</span>
+<span class="c1">#   z -- spectroscopic redshift of the target</span>
+<span class="c1">#   zwarn -- encoded information regarding the redshift (zwarn = 0 is good)</span>
+<span class="c1">#   coadd_fiberstatus -- encoded information regarding the fiber that is assigned to the target (coadd_fiberstatus = 0 is good)</span>
+<span class="c1">#   spectype -- Spectral type of the target: STAR | GALAXY | QSO</span>
+<span class="c1">#   main_nspec -- Number of coadded spectra that are available for a given target</span>
+<span class="c1">#   main_primary -- Whether or not a given coadded spectra is the primary spectra. ZCAT_PRIMARY = True for the "best" spectrum.</span>
+<span class="c1">#   CASTing this column as an INT: ZCAT_PRIMARY = 1 for the "best" spectrum.</span>
+<span class="c1"># Constraints (WHERE statement) --</span>
+<span class="c1">#   survey: selecting main survey only</span>
+<span class="c1">#   main_nspec: keeping objects with more than one Main survey spectrum</span>
+<span class="c1">#               (e.g., they were observed on both DARK and BRIGHT programs)</span>
 </pre></div>
 </div>
 </div>
@@ -9146,7 +9146,7 @@ Let's print the table of values of their quality flags including ZWARN and COADD
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div><i>Table length=5</i>
-<table class="table-striped table-bordered table-condensed" id="table139740296309792">
+<table class="table-striped table-bordered table-condensed" id="table140121082458080">
 <thead><tr><th>targetid</th><th>survey</th><th>program</th><th>desi_target</th><th>z</th><th>zwarn</th><th>coadd_fiberstatus</th><th>spectype</th><th>main_primary</th><th>main_nspec</th></tr></thead>
 <thead><tr><th>int64</th><th>str4</th><th>str6</th><th>int64</th><th>float64</th><th>int64</th><th>int64</th><th>str6</th><th>int64</th><th>int64</th></tr></thead>
 <tr><td>39633221406692395</td><td>main</td><td>bright</td><td>2305843009213694980</td><td>0.9276516309963582</td><td>0</td><td>0</td><td>QSO</td><td>0</td><td>2</td></tr>
@@ -9198,7 +9198,7 @@ N(rows) with MAIN_PRIMARY=False: 254235
 <div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Check how many per program (and fraction that are "Primary" = "Best" spectrum)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Check how many per program (and fraction that are "Primary" = "Best" spectrum)</span>
 <span class="n">programs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">zmulti</span><span class="p">[</span><span class="s1">'program'</span><span class="p">])</span>
 <span class="n">programs</span>
 
