@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>0_GOGREENDr1FileService</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>0_GOGREENDr2FileService</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7312,6 +7312,7 @@ a.anchor-link {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7518,10 +7519,10 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0019'</span>
-<span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Stephanie Juneau &lt;stephanie.juneau@noirlab.edu&gt;, Felix Pat &lt;felixpat10@email.arizona.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20240606'</span> <span class="c1">#yyyymmdd</span>
-<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'gogreen_dr1'</span><span class="p">]</span>
-<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'gemini llp'</span><span class="p">,</span><span class="s1">'file service'</span><span class="p">,</span><span class="s1">'spectra'</span><span class="p">,</span><span class="s1">'catalogues'</span><span class="p">]</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Stephanie Juneau &lt;stephanie.juneau@noirlab.edu&gt;, Felix Pat &lt;felixpat10@email.arizona.edu&gt;, Alice Jacques &lt;alice.jacques@noirlab.edu&gt;'</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250721'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'gogreen_dr2'</span><span class="p">]</span>
+<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'gemini llp'</span><span class="p">,</span> <span class="s1">'file service'</span><span class="p">,</span> <span class="s1">'spectra'</span><span class="p">,</span> <span class="s1">'catalogues'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -7534,7 +7535,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Listing-files-in-the-GOGREEN-DR1-Dataset">Listing files in the GOGREEN DR1 Dataset<a class="anchor-link" href="#Listing-files-in-the-GOGREEN-DR1-Dataset">¶</a></h1><p><em>Authors: Stephanie Juneau (NOIRLab), Felix Pat (Univ. of Arizona), and the Astro Data Lab Team</em></p>
+<h1 id="Listing-files-in-the-GOGREEN-DR2-Dataset">Listing files in the GOGREEN DR2 Dataset<a class="anchor-link" href="#Listing-files-in-the-GOGREEN-DR2-Dataset">¶</a></h1><p><em>Authors: Stéphanie Juneau (NOIRLab Astro Data Lab), Felix Pat (Univ. of Arizona), Alice Jacques (NOIRLab Astro Data Lab), and the Astro Data Lab Team</em></p>
+<p><strong>Note:</strong> Astro Data Lab also hosts GOGREEN DR1. However, GOGREEN DR2 supersedes the DR1 version and should be used for any and all science cases.</p>
 </div>
 </div>
 </div>
@@ -7568,7 +7570,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="LFgoal"></a></p>
-<h1 id="Goal">Goal<a class="anchor-link" href="#Goal">¶</a></h1><p>This notebook uses the file service to list available files as part of the <a href="https://datalab.noirlab.edu/gogreendr1/">GOGREEN DR1 dataset</a>, which includes data from <a href="https://ui.adsabs.harvard.edu/abs/2017MNRAS.470.4168B/abstract">GOGREEN</a> and <a href="https://ui.adsabs.harvard.edu/abs/2012ApJ...746..188M/abstract">GCLASS.</a></p>
+<h1 id="Goal">Goal<a class="anchor-link" href="#Goal">¶</a></h1><p>This notebook uses the file service to list available files as part of the <a href="https://datalab.noirlab.edu/data/gemini-llps/gogreen-and-gclass">GOGREEN DR2 dataset</a>, which includes data from <a href="https://ui.adsabs.harvard.edu/abs/2017MNRAS.470.4168B/abstract">GOGREEN</a> and <a href="https://ui.adsabs.harvard.edu/abs/2012ApJ...746..188M/abstract">GCLASS</a>.</p>
 </div>
 </div>
 </div>
@@ -7580,7 +7582,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="LFsummary"></a></p>
-<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>This notebook prints out files available in Data Lab from <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.500..358B/abstract">GOGREEN DR1 dataset</a> 1D spectra, 2D spectra, and image directories. After listing each cluster name and whether their respective file is available, one can use the lists to retrieve data for clusters and/or galaxies of interest. This notebooks gives a tour of the data files as a starting point while other GOGREEN notebooks demonstrate various capabilities for data access and analyses.</p>
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>This notebook prints out files available in Data Lab from the <a href="http://gogreensurvey.ca/data-releases/data-packages/second-public-data-release-dr2/">GOGREEN DR2 dataset</a> 1D spectra, 2D spectra, and image directories. After listing each cluster name and whether their respective file is available, one can use the lists to retrieve data for clusters and/or galaxies of interest. This notebooks gives a tour of the data files as a starting point while other GOGREEN notebooks demonstrate various capabilities for data access and analyses.</p>
 </div>
 </div>
 </div>
@@ -7638,12 +7640,8 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 3rd party</span>
-<span class="kn">import</span> <span class="nn">textwrap</span>
-<span class="n">wrapper</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">TextWrapper</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-
-<span class="c1"># Data Lab</span>
-<span class="kn">from</span> <span class="nn">dl</span> <span class="kn">import</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Data Lab</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dl</span><span class="w"> </span><span class="kn">import</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span>
 </pre></div>
 </div>
 </div>
@@ -7657,7 +7655,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="LF0"></a></p>
-<h1 id="Read-in-Clusters-table-from-the-gogreen_dr1-database">Read in Clusters table from the <a href="https://datalab.noirlab.edu/query.php?name=gogreen_dr1.clusters">gogreen_dr1 database</a><a class="anchor-link" href="#Read-in-Clusters-table-from-the-gogreen_dr1-database">¶</a></h1>
+<h1 id="Read-in-Clusters-table-from-the-gogreen_dr2-database">Read in Clusters table from the <a href="https://datalab.noirlab.edu/data-explorer?showTable=gogreen_dr2.clusters">gogreen_dr2 database</a><a class="anchor-link" href="#Read-in-Clusters-table-from-the-gogreen_dr2-database">¶</a></h1>
 </div>
 </div>
 </div>
@@ -7669,7 +7667,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">clusters</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'select * from gogreen_dr1.clusters'</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">'pandas'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">clusters</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'select * from gogreen_dr2.clusters'</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">'pandas'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7696,14 +7694,14 @@ a.anchor-link {
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>Index(['cluster', 'fullname', 'cluster_id', 'ra_best', 'dec_best', 'ra_gmos',
-       'dec_gmos', 'pa_deg', 'redshift', 'vdisp', 'vdisp_err', 'gogreen_m1',
-       'gogreen_m2', 'gogreen_m3', 'gogreen_m4', 'gogreen_m5', 'gogreen_m6',
+<pre>Index(['pa_deg', 'redshift', 'elat', 'elon', 'glat', 'glon', 'cluster_id',
+       'htm9', 'nest4096', 'ring256', 'dec_best', 'ra_best', 'ra_gmos',
+       'dec_gmos', 'random_id', 'vdisp', 'vdisp_err', 'cluster', 'fullname',
        'gclass_m1', 'gclass_m2', 'gclass_m3', 'gclass_m4', 'gclass_m5',
-       'kphot_cat', 'photoz_cat', 'stelmass_cat', 'image_u', 'image_b',
-       'image_g', 'image_v', 'image_r', 'image_i', 'image_z', 'image_j',
-       'image_j1', 'image_y', 'image_k', 'image_irac1', 'preimage',
-       'random_id'],
+       'gogreen_m1', 'gogreen_m2', 'gogreen_m3', 'gogreen_m4', 'gogreen_m5',
+       'gogreen_m6', 'image_b', 'image_g', 'image_i', 'image_irac1', 'image_j',
+       'image_j1', 'image_k', 'image_r', 'image_u', 'image_v', 'image_y',
+       'image_z', 'kphot_cat', 'photoz_cat', 'preimage', 'stelmass_cat'],
       dtype='object')</pre>
 </div>
 </div>
@@ -7758,159 +7756,159 @@ a.anchor-link {
 <tbody>
 <tr>
 <th>0</th>
-<td>COSMOS-125</td>
-<td>GS2015ALP001-02</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>1</th>
-<td>COSMOS-221</td>
-<td>GS2014BLP001-05</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>2</th>
-<td>COSMOS-28</td>
-<td>GN2015BLP004-03</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>3</th>
-<td>COSMOS-63</td>
-<td>GN2015BLP004-02</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>4</th>
-<td>SPT0205</td>
-<td>GS2014BLP001-06</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>5</th>
-<td>SPT0546</td>
-<td>GS2014BLP001-09</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>6</th>
-<td>SPT2106</td>
-<td>GS2018ALP001-01</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>7</th>
-<td>SXDF49</td>
-<td>GN2015BLP004-01</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>8</th>
-<td>SXDF64</td>
-<td>GS2014BLP001-08</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>9</th>
-<td>SXDF76</td>
-<td>GS2014BLP001-02</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>10</th>
-<td>SXDF76b</td>
-<td>GS2014BLP001-02</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>11</th>
-<td>SXDF87</td>
-<td>GS2014BLP001-07</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>12</th>
-<td>SpARCS0035</td>
-<td>GS2015BLP001-06</td>
-<td>GS2010BQ027-01</td>
-</tr>
-<tr>
-<th>13</th>
-<td>SpARCS0219</td>
-<td>GS2015BLP001-17</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>14</th>
-<td>SpARCS0335</td>
-<td>GS2016BLP001-13</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>15</th>
-<td>SpARCS1033</td>
-<td>GN2017ALP004-02</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>16</th>
-<td>SpARCS1034</td>
-<td>GN2017BDD012-01</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>17</th>
-<td>SpARCS1051</td>
-<td>GN2016ALP004-03</td>
-<td>GN2010AQ001-07</td>
-</tr>
-<tr>
-<th>18</th>
 <td>SpARCS1616</td>
 <td>GN2016ALP004-06</td>
 <td>GN2009AQ001-01</td>
 </tr>
 <tr>
-<th>19</th>
-<td>SpARCS1634</td>
-<td>GN2016ALP004-04</td>
-<td>GN2010AQ001-08</td>
-</tr>
-<tr>
-<th>20</th>
-<td>SpARCS1638</td>
-<td>GN2016ALP004-01</td>
-<td>GN2010AQ001-10</td>
-</tr>
-<tr>
-<th>21</th>
-<td>SpARCS0034</td>
+<th>1</th>
+<td>SpARCS1613</td>
 <td>NaN</td>
-<td>GS2009BQ026-05</td>
+<td>GN2010AQ001-04</td>
 </tr>
 <tr>
-<th>22</th>
-<td>SpARCS0036</td>
+<th>2</th>
+<td>SpARCS1051</td>
+<td>GN2016ALP004-03</td>
+<td>GN2010AQ001-07</td>
+</tr>
+<tr>
+<th>3</th>
+<td>SpARCS1034</td>
+<td>GN2017BDD012-01</td>
 <td>NaN</td>
-<td>GS2009BQ026-01</td>
 </tr>
 <tr>
-<th>23</th>
-<td>SpARCS0215</td>
+<th>4</th>
+<td>SpARCS1033</td>
+<td>GN2017ALP004-02</td>
 <td>NaN</td>
-<td>GN2009BQ034-01</td>
 </tr>
 <tr>
-<th>24</th>
+<th>5</th>
 <td>SpARCS1047</td>
 <td>NaN</td>
 <td>GN2010BQ037-04</td>
 </tr>
 <tr>
-<th>25</th>
-<td>SpARCS1613</td>
+<th>6</th>
+<td>SpARCS0036</td>
 <td>NaN</td>
-<td>GN2010AQ001-04</td>
+<td>GS2009BQ026-01</td>
+</tr>
+<tr>
+<th>7</th>
+<td>SpARCS0034</td>
+<td>NaN</td>
+<td>GS2009BQ026-05</td>
+</tr>
+<tr>
+<th>8</th>
+<td>SpARCS0035</td>
+<td>GS2015BLP001-06</td>
+<td>GS2010BQ027-01</td>
+</tr>
+<tr>
+<th>9</th>
+<td>SXDF64</td>
+<td>GS2014BLP001-08</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>10</th>
+<td>SXDF49</td>
+<td>GN2015BLP004-01</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>11</th>
+<td>SpARCS0215</td>
+<td>NaN</td>
+<td>GN2009BQ034-01</td>
+</tr>
+<tr>
+<th>12</th>
+<td>SpARCS0219</td>
+<td>GS2015BLP001-17</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>13</th>
+<td>SXDF76b</td>
+<td>GS2014BLP001-02</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>14</th>
+<td>SXDF76</td>
+<td>GS2014BLP001-02</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>15</th>
+<td>SXDF87</td>
+<td>GS2014BLP001-07</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>16</th>
+<td>SpARCS0335</td>
+<td>GS2016BLP001-13</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>17</th>
+<td>COSMOS-28</td>
+<td>GN2015BLP004-03</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>18</th>
+<td>COSMOS-63</td>
+<td>GN2015BLP004-02</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>19</th>
+<td>COSMOS-125</td>
+<td>GS2015ALP001-02</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>20</th>
+<td>COSMOS-221</td>
+<td>GS2014BLP001-05</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>21</th>
+<td>SpARCS1634</td>
+<td>GN2016ALP004-04</td>
+<td>GN2010AQ001-08</td>
+</tr>
+<tr>
+<th>22</th>
+<td>SpARCS1638</td>
+<td>GN2016ALP004-01</td>
+<td>GN2010AQ001-10</td>
+</tr>
+<tr>
+<th>23</th>
+<td>SPT2106</td>
+<td>GS2018ALP001-01</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>24</th>
+<td>SPT0546</td>
+<td>GS2014BLP001-09</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>25</th>
+<td>SPT0205</td>
+<td>GS2014BLP001-06</td>
+<td>NaN</td>
 </tr>
 </tbody>
 </table>
@@ -7950,32 +7948,32 @@ a.anchor-link {
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>0     COSMOS-125
-1     COSMOS-221
-2      COSMOS-28
-3      COSMOS-63
-4        SPT0205
-5        SPT0546
-6        SPT2106
-7         SXDF49
-8         SXDF64
-9         SXDF76
-10       SXDF76b
-11        SXDF87
-12    SpARCS0035
-13    SpARCS0219
-14    SpARCS0335
-15    SpARCS1033
-16    SpARCS1034
-17    SpARCS1051
-18    SpARCS1616
-19    SpARCS1634
-20    SpARCS1638
-21    SpARCS0034
-22    SpARCS0036
-23    SpARCS0215
-24    SpARCS1047
-25    SpARCS1613
+<pre>0     SpARCS1616
+1     SpARCS1613
+2     SpARCS1051
+3     SpARCS1034
+4     SpARCS1033
+5     SpARCS1047
+6     SpARCS0036
+7     SpARCS0034
+8     SpARCS0035
+9         SXDF64
+10        SXDF49
+11    SpARCS0215
+12    SpARCS0219
+13       SXDF76b
+14        SXDF76
+15        SXDF87
+16    SpARCS0335
+17     COSMOS-28
+18     COSMOS-63
+19    COSMOS-125
+20    COSMOS-221
+21    SpARCS1634
+22    SpARCS1638
+23       SPT2106
+24       SPT0546
+25       SPT0205
 Name: cluster, dtype: object</pre>
 </div>
 </div>
@@ -8001,9 +7999,9 @@ Name: cluster, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">oneddir</span> <span class="o">=</span> <span class="s1">'gogreen_dr1://SPECTROSCOPY/OneD/'</span>  <span class="c1"># 1-d spectra</span>
-<span class="n">twoddir</span> <span class="o">=</span> <span class="s1">'gogreen_dr1://SPECTROSCOPY/TwoD/'</span>  <span class="c1"># 2-d spectra</span>
-<span class="n">imdir</span> <span class="o">=</span> <span class="s1">'gogreen_dr1://PHOTOMETRY/IMAGES/'</span>    <span class="c1"># photometry and images</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">oneddir</span> <span class="o">=</span> <span class="s1">'gogreen_dr2://SPECTROSCOPY/OneD/'</span>  <span class="c1"># 1-d spectra</span>
+<span class="n">twoddir</span> <span class="o">=</span> <span class="s1">'gogreen_dr2://SPECTROSCOPY/TwoD/'</span>  <span class="c1"># 2-d spectra</span>
+<span class="n">imdir</span> <span class="o">=</span> <span class="s1">'gogreen_dr2://PHOTOMETRY/IMAGES/'</span>    <span class="c1"># photometry and images</span>
 
 <span class="c1"># make variables for file names</span>
 <span class="n">onedfiles</span> <span class="o">=</span> <span class="n">oneddir</span> <span class="o">+</span> <span class="n">cluster</span> <span class="o">+</span> <span class="s1">'_final.fits'</span>
@@ -8046,38 +8044,38 @@ Name: cluster, dtype: object</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>-rw-rw-r-x  gogreen_dr1  2793600  13 Aug 2020 17:54  COSMOS-125_final.fits
--rw-rw-r-x  gogreen_dr1  3438720  13 Aug 2020 17:54  COSMOS-221_final.fits
--rw-rw-r-x  gogreen_dr1  2833920  13 Aug 2020 17:54  COSMOS-28_final.fits
--rw-rw-r-x  gogreen_dr1  1379520  13 Aug 2020 17:54  COSMOS-63_final.fits
--rw-rw-r-x  gogreen_dr1     174  13 Aug 2020 17:54  README
--rw-rw-r-x  gogreen_dr1  3720960  13 Aug 2020 17:54  SPT0205_final.fits
--rw-rw-r-x  gogreen_dr1  4728960  13 Aug 2020 17:54  SPT0546_final.fits
--rw-rw-r-x  gogreen_dr1  3358080  13 Aug 2020 17:54  SPT2106_final.fits
--rw-rw-r-x  gogreen_dr1  5011200  13 Aug 2020 17:54  SXDF49_final.fits
--rw-rw-r-x  gogreen_dr1  1137600  13 Aug 2020 17:54  SXDF64_final.fits
--rw-rw-r-x  gogreen_dr1  4245120  13 Aug 2020 17:54  SXDF76_final.fits
--rw-rw-r-x  gogreen_dr1  4783680  13 Aug 2020 17:54  SpARCS0034_final.fits
--rw-rw-r-x  gogreen_dr1  5451840  13 Aug 2020 17:54  SpARCS0035_final.fits
--rw-rw-r-x  gogreen_dr1  4262400  13 Aug 2020 17:54  SpARCS0036_final.fits
--rw-rw-r-x  gogreen_dr1  4331520  13 Aug 2020 17:54  SpARCS0215_final.fits
--rw-rw-r-x  gogreen_dr1  3075840  13 Aug 2020 17:54  SpARCS0219_final.fits
--rw-rw-r-x  gogreen_dr1  3317760  13 Aug 2020 17:54  SpARCS0335_final.fits
--rw-rw-r-x  gogreen_dr1  2995200  13 Aug 2020 17:54  SpARCS1033_final.fits
--rw-rw-r-x  gogreen_dr1  3156480  13 Aug 2020 17:54  SpARCS1034_final.fits
--rw-rw-r-x  gogreen_dr1  5094720  13 Aug 2020 17:54  SpARCS1047_final.fits
--rw-rw-r-x  gogreen_dr1  7240320  13 Aug 2020 17:54  SpARCS1051_final.fits
--rw-rw-r-x  gogreen_dr1  5613120  13 Aug 2020 17:54  SpARCS1613_final.fits
--rw-rw-r-x  gogreen_dr1  8461440  13 Aug 2020 17:54  SpARCS1616_final.fits
--rw-rw-r-x  gogreen_dr1  7361280  13 Aug 2020 17:54  SpARCS1634_final.fits
--rw-rw-r-x  gogreen_dr1  7084800  13 Aug 2020 17:54  SpARCS1638_final.fits
+<pre>-rw-rw-r-x  gogreen_dr2  2793600  13 May 2025 13:46  COSMOS-125_final.fits
+-rw-rw-r-x  gogreen_dr2  3438720  13 May 2025 13:46  COSMOS-221_final.fits
+-rw-rw-r-x  gogreen_dr2  2833920  13 May 2025 13:46  COSMOS-28_final.fits
+-rw-rw-r-x  gogreen_dr2  1379520  13 May 2025 13:46  COSMOS-63_final.fits
+-rw-rw-r-x  gogreen_dr2     174  13 May 2025 13:46  README
+-rw-rw-r-x  gogreen_dr2  3720960  13 May 2025 13:46  SPT0205_final.fits
+-rw-rw-r-x  gogreen_dr2  4728960  13 May 2025 13:46  SPT0546_final.fits
+-rw-rw-r-x  gogreen_dr2  3358080  13 May 2025 13:46  SPT2106_final.fits
+-rw-rw-r-x  gogreen_dr2  5011200  13 May 2025 13:46  SXDF49_final.fits
+-rw-rw-r-x  gogreen_dr2  1137600  13 May 2025 13:46  SXDF64_final.fits
+-rw-rw-r-x  gogreen_dr2  4245120  13 May 2025 13:46  SXDF76_final.fits
+-rw-rw-r-x  gogreen_dr2  4783680  13 May 2025 13:46  SpARCS0034_final.fits
+-rw-rw-r-x  gogreen_dr2  5451840  13 May 2025 13:46  SpARCS0035_final.fits
+-rw-rw-r-x  gogreen_dr2  4262400  13 May 2025 13:46  SpARCS0036_final.fits
+-rw-rw-r-x  gogreen_dr2  4331520  13 May 2025 13:46  SpARCS0215_final.fits
+-rw-rw-r-x  gogreen_dr2  3075840  13 May 2025 13:46  SpARCS0219_final.fits
+-rw-rw-r-x  gogreen_dr2  3317760  13 May 2025 13:46  SpARCS0335_final.fits
+-rw-rw-r-x  gogreen_dr2  2995200  13 May 2025 13:46  SpARCS1033_final.fits
+-rw-rw-r-x  gogreen_dr2  3156480  13 May 2025 13:46  SpARCS1034_final.fits
+-rw-rw-r-x  gogreen_dr2  5094720  13 May 2025 13:46  SpARCS1047_final.fits
+-rw-rw-r-x  gogreen_dr2  7240320  13 May 2025 13:46  SpARCS1051_final.fits
+-rw-rw-r-x  gogreen_dr2  5613120  13 May 2025 13:46  SpARCS1613_final.fits
+-rw-rw-r-x  gogreen_dr2  8461440  13 May 2025 13:46  SpARCS1616_final.fits
+-rw-rw-r-x  gogreen_dr2  7361280  13 May 2025 13:46  SpARCS1634_final.fits
+-rw-rw-r-x  gogreen_dr2  7084800  13 May 2025 13:46  SpARCS1638_final.fits
 
 </pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2e76690b-2e6c-494c-94f2-708a5b15d141">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f8c759d2-6cf8-40fa-b841-b8a50ab776a6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8085,7 +8083,7 @@ Name: cluster, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">oneddir</span><span class="o">+</span><span class="s1">'README'</span><span class="p">)))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">oneddir</span><span class="o">+</span><span class="s1">'README'</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -8099,6 +8097,7 @@ Name: cluster, dtype: object</pre>
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>This directory contains final 1D spectra for every system in GOGREEN and GCLASS.  These have been absolute flux calibrated where possible, using Lyndsay's v1.1 calibrations.
+
 </pre>
 </div>
 </div>
@@ -8111,7 +8110,7 @@ Name: cluster, dtype: object</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Note:">Note:<a class="anchor-link" href="#Note:">¶</a></h3><p>From the list above, there are 24 subfolders for 26 clusters. This is expected because two pairs of clusters are in the same field and therefore share a file (see footnote to Table 1 in the GOGREEN DR1 paper):</p>
+<h3 id="Note:">Note:<a class="anchor-link" href="#Note:">¶</a></h3><p>From the list above, there are 24 subfolders for 26 clusters. This is expected because two pairs of clusters are in the same field and therefore share a file (see footnote to Table 1 in the <a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.500..358B/abstract">GOGREEN DR1 paper</a>):</p>
 <ul>
 <li><code>SXDF49</code> and <code>SXDF87</code> share a single GMOS field.  The spectra for both are included in the <code>SXDF49</code> fits files.</li>
 <li><code>SXDF76</code> and <code>SXDF76b</code> share a single GMOS field.  The spectra for both are included in the <code>SXDF76</code> fits files.</li>
@@ -8146,32 +8145,32 @@ Name: cluster, dtype: object</pre>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>COSMOS-125 True
-COSMOS-221 True
+<pre>SpARCS1616 True
+SpARCS1613 True
+SpARCS1051 True
+SpARCS1034 True
+SpARCS1033 True
+SpARCS1047 True
+SpARCS0036 True
+SpARCS0034 True
+SpARCS0035 True
+SXDF64     True
+SXDF49     True
+SpARCS0215 True
+SpARCS0219 True
+SXDF76b    False
+SXDF76     True
+SXDF87     False
+SpARCS0335 True
 COSMOS-28  True
 COSMOS-63  True
-SPT0205    True
-SPT0546    True
-SPT2106    True
-SXDF49     True
-SXDF64     True
-SXDF76     True
-SXDF76b    False
-SXDF87     False
-SpARCS0035 True
-SpARCS0219 True
-SpARCS0335 True
-SpARCS1033 True
-SpARCS1034 True
-SpARCS1051 True
-SpARCS1616 True
+COSMOS-125 True
+COSMOS-221 True
 SpARCS1634 True
 SpARCS1638 True
-SpARCS0034 True
-SpARCS0036 True
-SpARCS0215 True
-SpARCS1047 True
-SpARCS1613 True
+SPT2106    True
+SPT0546    True
+SPT0205    True
 </pre>
 </div>
 </div>
@@ -8221,33 +8220,33 @@ SpARCS1613 True
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>-rw-rw-r-x  gogreen_dr1  8714082  13 Aug 2020 17:54  COSMOS-125_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  10620431  13 Aug 2020 17:54  COSMOS-221_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  14009121  13 Aug 2020 17:54  COSMOS-28_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  4838575  13 Aug 2020 17:54  COSMOS-63_twod.fits.gz
--rw-rw-r-x  gogreen_dr1     340  13 Aug 2020 17:54  README
--rw-rw-r-x  gogreen_dr1  11848796  13 Aug 2020 17:54  SPT0205_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  15034157  13 Aug 2020 17:54  SPT0546_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  10916915  13 Aug 2020 17:54  SPT2106_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  27405946  13 Aug 2020 17:54  SXDF49_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  3710772  13 Aug 2020 17:54  SXDF64_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  13944087  13 Aug 2020 17:54  SXDF76_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  11352764  13 Aug 2020 17:54  SpARCS0035_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  10195223  13 Aug 2020 17:54  SpARCS0219_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  10879009  13 Aug 2020 17:54  SpARCS0335_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  9898930  13 Aug 2020 17:54  SpARCS1033_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  10452166  13 Aug 2020 17:54  SpARCS1034_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  15114192  13 Aug 2020 17:54  SpARCS1051_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  17194858  13 Aug 2020 17:54  SpARCS1616_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  18905927  13 Aug 2020 17:54  SpARCS1634_twod.fits.gz
--rw-rw-r-x  gogreen_dr1  18361425  13 Aug 2020 17:54  SpARCS1638_twod.fits.gz
+<pre>-rw-rw-r-x  gogreen_dr2  8714082  13 May 2025 13:46  COSMOS-125_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  10620431  13 May 2025 13:46  COSMOS-221_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  14009121  13 May 2025 13:46  COSMOS-28_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  4838575  13 May 2025 13:46  COSMOS-63_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2     340  13 May 2025 13:46  README
+-rw-rw-r-x  gogreen_dr2  11848796  13 May 2025 13:46  SPT0205_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  15034157  13 May 2025 13:46  SPT0546_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  10916915  13 May 2025 13:46  SPT2106_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  27405946  13 May 2025 13:46  SXDF49_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  3710772  13 May 2025 13:46  SXDF64_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  13944087  13 May 2025 13:46  SXDF76_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  11352764  13 May 2025 13:46  SpARCS0035_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  10195223  13 May 2025 13:46  SpARCS0219_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  10879009  13 May 2025 13:46  SpARCS0335_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  9898930  13 May 2025 13:46  SpARCS1033_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  10452166  13 May 2025 13:46  SpARCS1034_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  15114192  13 May 2025 13:46  SpARCS1051_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  17194858  13 May 2025 13:46  SpARCS1616_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  18905927  13 May 2025 13:46  SpARCS1634_twod.fits.gz
+-rw-rw-r-x  gogreen_dr2  18361425  13 May 2025 13:46  SpARCS1638_twod.fits.gz
 
 </pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=97aade61-99b1-4c83-9d82-40cb58ba710c">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6f9e7329-f749-4e29-9215-716d4468cda9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8255,7 +8254,7 @@ SpARCS1613 True
 <div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">wrapper</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">twoddir</span><span class="o">+</span><span class="s1">'README'</span><span class="p">)))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">twoddir</span><span class="o">+</span><span class="s1">'README'</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -8268,8 +8267,8 @@ SpARCS1613 True
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Each file contains 2D spectra for GOGREEN.  The spatial axis is in pixels, which are 0.16".  No relative or absolute flux calibration has been applied to these spectra; the pixel units are in detector
-counts.  Note the dimension of these MEF files can be different from the corresponding 1D files because the latter include GCLASS spectra.
+<pre>Each file contains 2D spectra for GOGREEN.  The spatial axis is in pixels, which are 0.16".  No relative or absolute flux calibration has been applied to these spectra; the pixel units are in detector counts.  Note the dimension of these MEF files can be different from the corresponding 1D files because the latter include GCLASS spectra.
+
 </pre>
 </div>
 </div>
@@ -8301,32 +8300,32 @@ counts.  Note the dimension of these MEF files can be different from the corresp
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>COSMOS-125 True
-COSMOS-221 True
+<pre>SpARCS1616 True
+SpARCS1613 False
+SpARCS1051 True
+SpARCS1034 True
+SpARCS1033 True
+SpARCS1047 False
+SpARCS0036 False
+SpARCS0034 False
+SpARCS0035 True
+SXDF64     True
+SXDF49     True
+SpARCS0215 False
+SpARCS0219 True
+SXDF76b    False
+SXDF76     True
+SXDF87     False
+SpARCS0335 True
 COSMOS-28  True
 COSMOS-63  True
-SPT0205    True
-SPT0546    True
-SPT2106    True
-SXDF49     True
-SXDF64     True
-SXDF76     True
-SXDF76b    False
-SXDF87     False
-SpARCS0035 True
-SpARCS0219 True
-SpARCS0335 True
-SpARCS1033 True
-SpARCS1034 True
-SpARCS1051 True
-SpARCS1616 True
+COSMOS-125 True
+COSMOS-221 True
 SpARCS1634 True
 SpARCS1638 True
-SpARCS0034 False
-SpARCS0036 False
-SpARCS0215 False
-SpARCS1047 False
-SpARCS1613 False
+SPT2106    True
+SPT0546    True
+SPT0205    True
 </pre>
 </div>
 </div>
@@ -8339,7 +8338,7 @@ SpARCS1613 False
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Note:">Note:<a class="anchor-link" href="#Note:">¶</a></h3><p>The last five SpARCS clusters lack a GOGREEN mask, and therefore lack a twod data folder (as expected). In addition, the two pairs of clusters sharing a GMOS field are grouped together as we saw for the 1D spectra above (<code>SXDF76b</code> together with <code>SXDF76</code>; <code>SXDF87</code> together with <code>SXDF49</code>).</p>
+<h3 id="Note:">Note:<a class="anchor-link" href="#Note:">¶</a></h3><p>SpARCS0034, SpARCS0036, SpARCS0215, SpARCS1047, and SpARCS1613 lack a GOGREEN mask, and therefore lack a twod data folder (as expected). In addition, the two pairs of clusters sharing a GMOS field are grouped together as we saw for the 1D spectra above (<code>SXDF76b</code> together with <code>SXDF76</code>; <code>SXDF87</code> together with <code>SXDF49</code>).</p>
 </div>
 </div>
 </div>
@@ -8376,29 +8375,30 @@ SpARCS1613 False
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  HST/
--rw-rw-r-x  gogreen_dr1    5058  13 Aug 2020 17:54  MAGZPs_cal.list
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  MANMASKS/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  Preimages/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPTCL-0205/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPTCL-0546/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPTCL-2106/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SpARCS-0034/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SpARCS-0035/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SpARCS-0036/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SpARCS-0215/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SpARCS-0219/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SpARCS-0335/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SpARCS-1034/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SpARCS-1047/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SpARCS-1051/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SpARCS-1613/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SpARCS-1616/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SpARCS-1634/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SpARCS-1638/
--rw-rw-r-x  gogreen_dr1     288  13 Aug 2020 17:54  psfsize_target.dat
--rw-rw-r-x  gogreen_dr1     204  13 Aug 2020 17:54  psfsize_target_psf2.dat
--rw-rw-r-x  gogreen_dr1    1380  13 Aug 2020 17:54  seeingpsf.info
+<pre>drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  HST/
+-rw-rw-r-x  gogreen_dr2    5310  13 May 2025 13:46  MAGZPs_cal.list
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  MANMASKS/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  Preimages/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPTCL-0205/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPTCL-0546/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPTCL-2106/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SpARCS-0034/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SpARCS-0035/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SpARCS-0036/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SpARCS-0215/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SpARCS-0219/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SpARCS-0335/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SpARCS-1033/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SpARCS-1034/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SpARCS-1047/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SpARCS-1051/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SpARCS-1613/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SpARCS-1616/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SpARCS-1634/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SpARCS-1638/
+-rw-rw-r-x  gogreen_dr2     288  13 May 2025 13:46  psfsize_target.dat
+-rw-rw-r-x  gogreen_dr2     204  13 May 2025 13:46  psfsize_target_psf2.dat
+-rw-rw-r-x  gogreen_dr2    1380  13 May 2025 13:46  seeinggpsf.info
 
 </pre>
 </div>
@@ -8417,7 +8417,7 @@ drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SpARCS-1638/
 <li><code>SPTxxxx</code> are named <code>SPTCL-xxxx</code></li>
 <li><code>SpARCSxxxx</code> are named <code>SpARCS-xxxx</code></li>
 </ul>
-<p>There are 16 out of 26 clusters with an imaging folder. In the case of Cluster <code>SpARCS1033</code>, the K-band imaging was not available at the time of the first release. It will however become available in the future as part of GOGREEN DR2.</p>
+<p>There are 17 out of 26 clusters with an imaging folder. In the case of Cluster <code>SpARCS1033</code>, the K-band imaging was not available at the time of the first release. However, it is now available as part of GOGREEN DR2.</p>
 <p>In addition, there is an <code>HST/</code> folder for Hubble Space Telescope imaging. Let's examine its content next.</p>
 </div>
 </div>
@@ -8443,25 +8443,25 @@ drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SpARCS-1638/
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>-rw-rw-r-x  gogreen_dr1    3325  13 Aug 2020 17:54  README
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  RGB_images/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPARCS0034/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPARCS0035/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPARCS0036/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPARCS0215/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPARCS0219/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPARCS0335/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPARCS1033/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPARCS1034/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPARCS1047/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPARCS1051/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPARCS1613/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPARCS1616/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPARCS1634/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPARCS1638/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPT0205/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPT0546/
-drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPT2106/
+<pre>-rw-rw-r-x  gogreen_dr2    3325  13 May 2025 13:46  README
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  RGB_images/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPARCS0034/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPARCS0035/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPARCS0036/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPARCS0215/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPARCS0219/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPARCS0335/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPARCS1033/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPARCS1034/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPARCS1047/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPARCS1051/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPARCS1613/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPARCS1616/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPARCS1634/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPARCS1638/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPT0205/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPT0546/
+drwxrwxr-x  gogreen_dr2       0  13 May 2025 13:46  SPT2106/
 
 </pre>
 </div>
@@ -8493,10 +8493,10 @@ drwxrwxr-x  gogreen_dr1       0  13 Aug 2020 17:54  SPT2106/
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="LF5"></a></p>
 <h1 id="References">References<a class="anchor-link" href="#References">¶</a></h1><h4 id="GOGREEN-Notebooks-at-the-Data-Lab">GOGREEN Notebooks at the Data Lab<a class="anchor-link" href="#GOGREEN-Notebooks-at-the-Data-Lab">¶</a></h4><ul>
-<li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/GOGREEN_GalaxiesInRichEnvironments/1_GOGREENDr1DataAccessAtDataLab.ipynb">GOGREEN Data Release 1 data access at Astro Data Lab</a></li>
-<li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/GOGREEN_GalaxiesInRichEnvironments/2_GOGREENDr1SIA.ipynb">GOGREEN DR1 at Data Lab - Simple Image Access (SIA)</a></li>
+<li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/GOGREEN_GalaxiesInRichEnvironments/1_GOGREENDr2DataAccessAtDataLab.ipynb">GOGREEN Data Release 2 data access at Astro Data Lab</a></li>
+<li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/GOGREEN_GalaxiesInRichEnvironments/2_GOGREENDr2SIA.ipynb">GOGREEN DR2 at Data Lab - Simple Image Access (SIA)</a></li>
 </ul>
-<h4 id="GOGREEN-&amp;-GCLASS-DR1-Paper">GOGREEN &amp; GCLASS DR1 Paper<a class="anchor-link" href="#GOGREEN-&amp;-GCLASS-DR1-Paper">¶</a></h4><ul>
+<h4 id="GOGREEN-&amp;-GCLASS-Paper">GOGREEN &amp; GCLASS Paper<a class="anchor-link" href="#GOGREEN-&amp;-GCLASS-Paper">¶</a></h4><ul>
 <li><a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.500..358B/abstract">Balogh et al. 2021, MNRAS, 500, 358</a></li>
 </ul>
 </div>
