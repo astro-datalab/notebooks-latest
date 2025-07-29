@@ -7519,8 +7519,8 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Brian Merino &lt;brian.merino@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'04/16/2025'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
-<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Aladin'</span><span class="p">,</span><span class="s1">'smash'</span><span class="p">,</span><span class="s1">'des'</span><span class="p">,</span><span class="s1">'delve'</span><span class="p">]</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'07082025'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'AladinLite'</span><span class="p">,</span><span class="s1">'smash'</span><span class="p">,</span><span class="s1">'des'</span><span class="p">,</span><span class="s1">'delve'</span><span class="p">,</span><span class="s1">'ipyaladin'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -7560,17 +7560,23 @@ a.anchor-link {
 <p><a class="anchor" id="goals"></a></p>
 <h1 id="Goals">Goals<a class="anchor-link" href="#Goals">¶</a></h1><p>Showcase how to query the Data Lab via the query client service and use the data to create Multi-Order Coverage maps (MOCs) that will then be displayed with the Aladin Lite viewer.</p>
 <p><a class="anchor" id="summary"></a></p>
-<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>Aladin Lite is an interactive sky atlas that runs in your browser. Aladin can be used to explore the sky and has built-in functionality that makes it possible to overlay images onto the viewer and identify objects included in databases. This notebook will demonstrate how to create and overlay several MOCs onto Aladin, which would help identify overlapping datasets.</p>
-<p>The MOCs generated in this notebook will be used to display the survey footprints, making it possible to visualize any overlaps.</p>
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p><a href="https://aladin.cds.unistra.fr/AladinLite/">Aladin Lite</a> is an interactive sky atlas that runs in your browser. Aladin can be used to explore the sky and has built-in functionality that makes it possible to overlay images onto the viewer and identify objects included in databases. <a href="https://github.com/cds-astro/ipyaladin">ipyaladin</a> was created to allow Jupyter Notebooks to utilize Aladin Lite's functionality. This notebook will demonstrate how to use ipyaladin to create and overlay MOCs onto Aladin, which would help identify overlapping datasets.</p>
 <p>Visualizing surveys like this could help identify whether a source of interest has already been observed by a survey in the Data Lab, which could be helpful in preparing a telescope proposal.</p>
 <p><a class="anchor" id="disclaimer"></a></p>
-<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">¶</a></h1><p>If you use this notebook for your published science, please acknowledge the following:</p>
-<ul>
-<li><p>Data Lab concept paper: Fitzpatrick et al., <a href="http://dx.doi.org/10.1117/12.2057445">"The NOAO Data Laboratory: a conceptual overview"</a>, SPIE, 9149, 2014</p>
-</li>
-<li><p><a href="https://datalab.noirlab.edu/disclaimers.php">Data Lab disclaimer</a></p>
-</li>
-</ul>
+<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">¶</a></h1><h2 id="Disclaimers">Disclaimers<a class="anchor-link" href="#Disclaimers">¶</a></h2><p>Note that using the Astro Data Lab constitutes your agreement with our minimal <a href="https://datalab.noirlab.edu/about/disclaimers">Disclaimers</a>.</p>
+<h2 id="Acknowledgments">Acknowledgments<a class="anchor-link" href="#Acknowledgments">¶</a></h2><p>If you use Astro Data Lab in your published research, please include the text in your paper's Acknowledgments section:</p>
+<p>This research uses services or data provided by the Astro Data Lab, which is part of the Community Science and Data Center (CSDC) Program of NSF NOIRLab. NOIRLab is operated by the Association of Universities for Research in Astronomy (AURA), Inc. under a cooperative agreement with the U.S. National Science Foundation.</p>
+<p>If you use SPARCL jointly with the Astro Data Lab platform (via JupyterLab, command-line, or web interface) in your published research, please include this text below in your paper's Acknowledgments section:</p>
+<p>This research uses services or data provided by the SPectra Analysis and Retrievable Catalog Lab (SPARCL) and the Astro Data Lab, which are both part of the Community Science and Data Center (CSDC) Program of NSF NOIRLab. NOIRLab is operated by the Association of Universities for Research in Astronomy (AURA), Inc. under a cooperative agreement with the U.S. National Science Foundation.</p>
+<p>In either case please cite the following papers:</p>
+<p>Data Lab concept paper: Fitzpatrick et al., "The NOAO Data Laboratory: a conceptual overview", SPIE, 9149, 2014, <a href="https://doi.org/10.1117/12.2057445">https://doi.org/10.1117/12.2057445</a></p>
+<p>Astro Data Lab overview: Nikutta et al., "Data Lab - A Community Science Platform", Astronomy and Computing, 33, 2020, <a href="https://doi.org/10.1016/j.ascom.2020.100411">https://doi.org/10.1016/j.ascom.2020.100411</a></p>
+<p>If you are referring to the Data Lab JupyterLab / Jupyter Notebooks, cite:</p>
+<p>Juneau et al., "Jupyter-Enabled Astrophysical Analysis Using Data-Proximate Computing Platforms", CiSE, 23, 15, 2021, <a href="https://doi.org/10.1109/MCSE.2021.3057097">https://doi.org/10.1109/MCSE.2021.3057097</a>
+If publishing in a AAS journal, also add the keyword: \facility{Astro Data Lab}</p>
+<p>And if you are using SPARCL, please also add \software{SPARCL} and cite:</p>
+<p>Juneau et al., "SPARCL: SPectra Analysis and Retrievable Catalog Lab", Conference Proceedings for ADASS XXXIII, 2024 <a href="https://doi.org/10.48550/arXiv.2401.05576">https://doi.org/10.48550/arXiv.2401.05576</a>
+The NOIRLab Library maintains lists of proper acknowledgments to use when publishing papers using the Lab's facilities, data, or services.</p>
 </div>
 </div>
 </div>
@@ -7582,7 +7588,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="imports"></a></p>
-<h1 id="Imports-and-setup">Imports and setup<a class="anchor-link" href="#Imports-and-setup">¶</a></h1><p>This is the setup that is required to use the query client. The first thing to do is import the relevant Python modules.</p>
+<h1 id="Imports-and-setup">Imports and setup<a class="anchor-link" href="#Imports-and-setup">¶</a></h1>
 </div>
 </div>
 </div>
@@ -7594,26 +7600,25 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#plotting</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Standard library</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">getpass</span><span class="w"> </span><span class="kn">import</span> <span class="n">getpass</span>
+
+<span class="c1"># Third-party libraries</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpatches</span>
 
-<span class="c1"># Standard lib</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">getpass</span><span class="w"> </span><span class="kn">import</span> <span class="n">getpass</span>
-
-<span class="c1"># Data Lab</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dl</span><span class="w"> </span><span class="kn">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span>
-
-<span class="c1">#astropy</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.visualization.wcsaxes.frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">EllipticalFrame</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.wcs</span><span class="w"> </span><span class="kn">import</span> <span class="n">WCS</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">QTable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates</span><span class="w"> </span><span class="kn">import</span> <span class="n">SkyCoord</span>
 
-<span class="c1">#ipyaladin </span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">mocpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">MOC</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ipyaladin</span><span class="w"> </span><span class="kn">import</span> <span class="n">Aladin</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sidecar</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sidecar</span>
+
+<span class="c1"># Data Lab</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dl</span><span class="w"> </span><span class="kn">import</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
@@ -7634,7 +7639,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5cecb0e5-66ea-43ac-9d02-a8d68963b1b1">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=880fa9a6-9db5-44ee-962d-90e44a5be2b4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7642,9 +7647,36 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">aladin</span> <span class="o">=</span> <span class="n">Aladin</span><span class="p">()</span>
-<span class="k">with</span> <span class="n">Sidecar</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'aladin_output'</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">aladin</span> <span class="o">=</span> <span class="n">Aladin</span><span class="p">(</span><span class="n">full_screen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">Sidecar</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"aladin_output"</span><span class="p">,</span><span class="n">anchor</span><span class="o">=</span><span class="s1">'split-right'</span><span class="p">):</span>
     <span class="n">display</span><span class="p">(</span><span class="n">aladin</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e1c8f0bb-fa92-4bdc-8d35-07be304d784d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Next, let's adjust the field of view and center the Aladin viewer such that all three surveys are visible.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2ed3e876-43f5-490c-9a71-5ffb8f8c7da4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">aladin</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="s2">"12h04m22.76s"</span><span class="p">,</span> <span class="s2">"-59d53m20.8s"</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="s2">"icrs"</span><span class="p">)</span>
+
+<span class="n">aladin</span><span class="o">.</span><span class="n">fov</span> <span class="o">=</span> <span class="mi">180</span>
 </pre></div>
 </div>
 </div>
@@ -7658,7 +7690,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="Data"></a></p>
-<h1 id="Accessing-the-data">Accessing the data<a class="anchor-link" href="#Accessing-the-data">¶</a></h1><p>To create the MOCs that will be overlayed onto Aladin, we will use the mocpy library. But first, we need some data. For this tutorial, we will take advantage of some of the many data sets that are hosted by the Astro Data Lab. Specifically, we will be working with data from three surveys: The <strong>S</strong>urvey of the <strong>MA</strong>gellanic <strong>S</strong>tellar <strong>H</strong>istory <a href="https://datalab.noirlab.edu/smash/smash.php">(<strong>SMASH</strong>)</a>, The <strong>D</strong>ark <strong>E</strong>negery <strong>S</strong>urvey <a href="https://datalab.noirlab.edu/des/index.php">(<strong>DES</strong>)</a>, and The <strong>DEC</strong>am <strong>P</strong>lane <strong>S</strong>urvey <a href="https://datalab.noirlab.edu/decaps/index.php">(<strong>DECaPS DR2</strong>)</a>.</p>
+<h1 id="Accessing-the-data">Accessing the data<a class="anchor-link" href="#Accessing-the-data">¶</a></h1><p>To create the MOCs that will be overlayed onto Aladin, we will use the <a href="https://cds-astro.github.io/mocpy/index.html">mocpy library</a>. But first, we need some data. For this tutorial, we will take advantage of some of the many data sets that are hosted by the Astro Data Lab. Specifically, we will be working with data from three surveys: The Survey of the MAgellanic Stellar History <a href="https://datalab.noirlab.edu/smash/smash.php">(<strong>SMASH</strong>)</a>, The Dark Energy Survey <a href="https://datalab.noirlab.edu/des/index.php">(<strong>DES</strong>)</a>, and The DECam Plane Survey <a href="https://datalab.noirlab.edu/decaps/index.php">(<strong>DECaPS DR2</strong>)</a>.</p>
 <h3 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">¶</a></h3><p>Much of the functionality of Data Lab can be accessed without explicitly logging in (the service then uses an anonymous login). However, some capacities, such as saving the results of your queries to your virtual storage space, require a login (i.e., you will need a registered user account).</p>
 <p>If you need to log in to Data Lab, un-comment the first line of code in the cell below and execute it:</p>
 </div>
@@ -7681,22 +7713,16 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ebde264b-d4fc-4b05-8a90-c2ff4e769cde">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d94486a2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="Query"></a></p>
-<h1 id="Querying-the-Astro-Data-Lab">Querying the Astro Data Lab<a class="anchor-link" href="#Querying-the-Astro-Data-Lab">¶</a></h1><p>To access the data we will use to create the MOCs, we must draft some <a href="https://datalab.noirlab.edu/img/ADQL-20081030.pdf">ADQL</a> queries. Like SQL, the general format of an ADQL query uses at least three commands: SELECT, FROM, and WHERE. SELECT identifies which columns you want to extract data from, FROM identifies which table you want to pull the columns from, and WHERE allows you to put constraints on your search (such as only select rows WHERE the magnitude is less than 20.0).</p>
-<p>We are essentially using the Astro Data Lab's <a href="https://datalab.noirlab.edu/query.php">Web query interface</a> (<a href="https://datalab.noirlab.edu/docs/manual/UsingAstroDataLab/WebPortal/DataExplorer/WebQuery/WebQuery.html?highlight=query%20interface">click here to view the web query interface user manual</a>) tool to obtain the data. One power feature of this tool is that you can go through the tap schema for every table hosted by the Data Lab. This is an important tool to become familiar with because most of the surveys that the Data Lab hosts contain multiple data releases, each of which can contain multiple tables. For instance, the SMASH survey has two data releases. We are interested in the second data release, but this release contains 11 tables. We are interested in the object table, so our FROM command should look like this: FROM smash_dr2.object.</p>
-<p>Now that we know which table we are interested in, we must identify which columns to pull data from. Clicking on smash_dr2.object in the tap schema will open a new tab in the Query Interface tool, Column Information. Here, you will find all the columns in the table followed by a brief description and their data types. For this tutorial, we will be interested in the columns corresponding to the coordinates (ra and dec), g band magnitudes (mag_auto_g), and random_id. So our SELECT command should look like: SELECT ra, dec, mag_auto_g, random_id.</p>
-<p>Before continuing, it is important to note that although columns like ra and dec will appear in most tables, their names can change depending on the table you are working with. For the SMASH table we are working with here, they are listed as ra and dec, but if we were using the euclid_ero.fornax_vis table, we would need to call alpha_j2000 and delta_j2000</p>
-<p>All the tables hosted by the Data Lab greatly vary in size, but most are very large. So, we will need to modify our SELECT command so it doesn't select every row of the table. We will use the TOP command to do this, which only returns the top x  values from a specified column (where x is a specific integer value). So our SELECT command can be rewritten as: SELECT TOP 25000 ra, dec, mag_auto_g, random_id.</p>
-<p>Finally, we need to establish our search constraints using WHERE. To create the MOC for this table, we could select every row in the table and identify the boundaries of the table, but the smash_dr2.object table has 360,201,921 rows which would not only take a long time to download, but a table of this size would crash the Jupyter Notebook and Aladin Lite. To avoid this, we are going to utilize the random_id column. As the name implies, this column contains a unique random ID for each row whose values are floats in the range 0.0 and 100.0. Because the table is so large, we only need to establish a small window, say between 25.0 and 25.01. To use the WHERE command, we need to provide a column that the constraint will be applied to (random_id) and a constraint. In this case, our constraint is to only select rows whose random_id values are BETWEEN 25.0 and 25.01. So our WHERE command will look like: WHERE random_id BETWEEN 25.0 AND 25.01.</p>
-<p>Putting all of this together leaves us with the following query:</p>
+<h1 id="Querying-the-Astro-Data-Lab">Querying the Astro Data Lab<a class="anchor-link" href="#Querying-the-Astro-Data-Lab">¶</a></h1><p>To access the data we will use to create the MOCs, we must draft some <a href="https://datalab.noirlab.edu/img/ADQL-20081030.pdf">ADQL</a> queries like the following:</p>
 <p>SELECT TOP 25000 ra, dec, gmag, random_id FROM smash_dr2.object WHERE random_id BETWEEN 25.0 AND 25.01</p>
-<p>Now that we have an ADQL query prepared for SMASH, we will need to repeat the process to query the DECaPS and DES surveys. If you find yourself getting stuck with SQL/ADQL, you can visit the following link to learn about common <a href="https://datalab.noirlab.edu/docs/manual/UsingAstroDataLab/SQLGotchas/index.html?highlight=sql">SQL Gotchas</a>.</p>
+<p>After running the query for SMASH, we will need to repeat the process for the DECaPS and DES surveys. If you find yourself getting stuck with SQL/ADQL, you can visit the following link to learn about common <a href="https://datalab.noirlab.edu/docs/manual/UsingAstroDataLab/SQLGotchas/index.html?highlight=sql">SQL Gotchas</a>.</p>
 </div>
 </div>
 </div>
@@ -7711,10 +7737,8 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">'SELECT TOP 25000 ra, dec, mag_auto_g, random_id FROM des_dr2.main WHERE random_id BETWEEN 25.0 AND 25.01'</span>
 <span class="n">des</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span> <span class="o">=</span> <span class="n">query</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">=</span> <span class="s1">'pandas'</span><span class="p">)</span>
 
-<span class="c1"># Let's add two additional columns to the surveys</span>
-<span class="c1"># The first assigns a unique index to each data point.</span>
-<span class="c1"># The second attaches the survey name to each row</span>
-<span class="n">des</span><span class="p">[</span><span class="s1">'index'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">des</span><span class="p">)))</span>
+<span class="c1"># Let's add a column to the surveys</span>
+<span class="c1"># Attach the survey name to each row</span>
 <span class="n">des</span><span class="p">[</span><span class="s1">'survey'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'des_dr2'</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">'des_dr2 catalog'</span><span class="p">)</span>
@@ -7735,7 +7759,6 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">query2</span> <span class="o">=</span> <span class="s1">'SELECT TOP 25000 ra, dec, gmag, random_id FROM smash_dr2.object WHERE random_id BETWEEN 25.0 AND 25.01'</span>
 <span class="n">smash</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span> <span class="o">=</span> <span class="n">query2</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">=</span> <span class="s1">'pandas'</span><span class="p">)</span>
 
-<span class="n">smash</span><span class="p">[</span><span class="s1">'index'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">smash</span><span class="p">)))</span>
 <span class="n">smash</span><span class="p">[</span><span class="s1">'survey'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'smash_dr2'</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">'smash_dr2'</span><span class="p">)</span>
@@ -7756,7 +7779,6 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">query3</span> <span class="o">=</span> <span class="s1">'SELECT TOP 25000 ra, dec, mean_r, random_id FROM decaps_dr2.object WHERE random_id BETWEEN 25.0 AND 25.1'</span>
 <span class="n">decaps</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span> <span class="o">=</span> <span class="n">query3</span><span class="p">,</span> <span class="n">fmt</span> <span class="o">=</span> <span class="s1">'pandas'</span><span class="p">)</span>
 
-<span class="n">decaps</span><span class="p">[</span><span class="s1">'index'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">decaps</span><span class="p">)))</span>
 <span class="n">decaps</span><span class="p">[</span><span class="s1">'survey'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'decaps_dr2'</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">'decaps_dr2'</span><span class="p">)</span>
@@ -7778,7 +7800,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=760bc11b">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2bcc9f0f-29ab-4eea-b110-d1e9d8971b45">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7786,7 +7808,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prepare</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">max_norder</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prepare_mocs</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">max_norder</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    This function will perform two tasks:</span>
 <span class="sd">    (1) Read in columns of a dataframe and output a dictionary that is compatible with Aladin Lite</span>
@@ -7796,8 +7818,8 @@ a.anchor-link {
     <span class="c1"># Define a dictionary</span>
     <span class="n">col_dict</span> <span class="o">=</span> <span class="p">{}</span>
     
-    <span class="c1"># Read each item in the provided list and extract the values from the dataframe. Assign values to the dictionary.</span>
-    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
+    <span class="c1"># Read in all of the column names and then add them to the dictionary.</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
         <span class="n">col_dict</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
         
     <span class="c1"># Now we are going to establish our MOC.  </span>
@@ -7825,7 +7847,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=71b378cd">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=008611c0-2e83-4eed-b1a0-2608e40158bd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7833,14 +7855,11 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">des_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'ra'</span><span class="p">,</span><span class="s1">'dec'</span><span class="p">,</span><span class="s1">'index'</span><span class="p">,</span><span class="s1">'mag_auto_g'</span><span class="p">,</span><span class="s1">'survey'</span><span class="p">]</span>
-<span class="n">des_dict</span><span class="p">,</span> <span class="n">des_dr2_moc</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">des_list</span><span class="p">,</span> <span class="n">des</span><span class="p">,</span> <span class="n">max_norder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">des_dict</span><span class="p">,</span> <span class="n">des_dr2_moc</span> <span class="o">=</span> <span class="n">prepare_mocs</span><span class="p">(</span><span class="n">des</span><span class="p">,</span> <span class="n">max_norder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="n">smash_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'ra'</span><span class="p">,</span><span class="s1">'dec'</span><span class="p">,</span><span class="s1">'index'</span><span class="p">,</span><span class="s1">'gmag'</span><span class="p">,</span><span class="s1">'survey'</span><span class="p">]</span>
-<span class="n">smash_dict</span><span class="p">,</span> <span class="n">smash_dr2_moc</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">smash_list</span><span class="p">,</span> <span class="n">smash</span><span class="p">,</span> <span class="n">max_norder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">smash_dict</span><span class="p">,</span> <span class="n">smash_dr2_moc</span> <span class="o">=</span> <span class="n">prepare_mocs</span><span class="p">(</span><span class="n">smash</span><span class="p">,</span> <span class="n">max_norder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="n">decaps_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'ra'</span><span class="p">,</span><span class="s1">'dec'</span><span class="p">,</span><span class="s1">'index'</span><span class="p">,</span><span class="s1">'mean_r'</span><span class="p">,</span><span class="s1">'survey'</span><span class="p">]</span>
-<span class="n">decaps_dict</span><span class="p">,</span> <span class="n">decaps_dr2_moc</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">decaps_list</span><span class="p">,</span> <span class="n">decaps</span><span class="p">,</span> <span class="n">max_norder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">decaps_dict</span><span class="p">,</span> <span class="n">decaps_dr2_moc</span> <span class="o">=</span> <span class="n">prepare_mocs</span><span class="p">(</span><span class="n">decaps</span><span class="p">,</span> <span class="n">max_norder</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7866,7 +7885,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">moc</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">legend</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_mocs</span><span class="p">(</span><span class="n">moc</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">legend</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
     <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 
     <span class="k">for</span> <span class="n">c</span><span class="p">,</span><span class="n">m</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">moc</span><span class="p">):</span>
@@ -7918,8 +7937,8 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">moc</span> <span class="o">=</span> <span class="p">[</span><span class="n">des_dr2_moc</span><span class="p">,</span> <span class="n">smash_dr2_moc</span><span class="p">,</span> <span class="n">decaps_dr2_moc</span><span class="p">]</span>
 <span class="n">legend</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'des_dr2_moc'</span><span class="p">,</span> <span class="s1">'smash_dr2_moc'</span><span class="p">,</span> <span class="s1">'decaps_dr2_moc'</span><span class="p">]</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'cyan'</span><span class="p">,</span> <span class="s1">'red'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'yellow'</span><span class="p">,</span> <span class="s1">'purple'</span><span class="p">]</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">moc</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="n">legend</span><span class="p">)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'cyan'</span><span class="p">,</span> <span class="s1">'red'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">]</span>
+<span class="n">plot_mocs</span><span class="p">(</span><span class="n">moc</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="n">legend</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7945,11 +7964,22 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">aladin</span><span class="o">.</span><span class="n">add_moc</span><span class="p">(</span><span class="n">des_dr2_moc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span>   <span class="n">name</span><span class="o">=</span><span class="s1">'des_dr2_moc'</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
-<span class="n">aladin</span><span class="o">.</span><span class="n">add_moc</span><span class="p">(</span><span class="n">smash_dr2_moc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span>  <span class="n">name</span><span class="o">=</span><span class="s1">'smash_dr2_moc'</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
-<span class="n">aladin</span><span class="o">.</span><span class="n">add_moc</span><span class="p">(</span><span class="n">decaps_dr2_moc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'yellow'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'decaps_dr2_moc'</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">aladin</span><span class="o">.</span><span class="n">add_moc</span><span class="p">(</span><span class="n">des_dr2_moc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'cyan'</span><span class="p">,</span>   <span class="n">name</span><span class="o">=</span><span class="s1">'des_dr2_moc'</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">aladin</span><span class="o">.</span><span class="n">add_moc</span><span class="p">(</span><span class="n">smash_dr2_moc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span>  <span class="n">name</span><span class="o">=</span><span class="s1">'smash_dr2_moc'</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">aladin</span><span class="o">.</span><span class="n">add_moc</span><span class="p">(</span><span class="n">decaps_dr2_moc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'decaps_dr2_moc'</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f30c8ee8-ba95-48bd-9487-a7bbdea46efb">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>By now, all three MOCs are displayed on the Aladin viewer. Take the time to zoom in and pan around to view the areas where the different surveys overlap.</p>
 </div>
 </div>
 </div>
@@ -7974,17 +8004,17 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#des_dr2</span>
-<span class="n">des_table</span>    <span class="o">=</span> <span class="n">QTable</span><span class="p">([</span><span class="n">des_dict</span><span class="p">[</span><span class="s1">'ra'</span><span class="p">],</span><span class="n">des_dict</span><span class="p">[</span><span class="s1">'dec'</span><span class="p">],</span><span class="n">des_dict</span><span class="p">[</span><span class="s1">'index'</span><span class="p">],</span>\
+<span class="n">des_table</span>    <span class="o">=</span> <span class="n">QTable</span><span class="p">([</span><span class="n">des_dict</span><span class="p">[</span><span class="s1">'ra'</span><span class="p">],</span><span class="n">des_dict</span><span class="p">[</span><span class="s1">'dec'</span><span class="p">],</span><span class="n">des</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>\
                       <span class="n">des_dict</span><span class="p">[</span><span class="s1">'mag_auto_g'</span><span class="p">],</span><span class="n">des_dict</span><span class="p">[</span><span class="s1">'survey'</span><span class="p">]],</span>\
                       <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">"ra"</span><span class="p">,</span><span class="s2">"dec"</span><span class="p">,</span><span class="s2">"index"</span><span class="p">,</span><span class="s2">"mag_auto_g"</span><span class="p">,</span><span class="s2">"survey"</span><span class="p">])</span>
 
 <span class="c1">#smash_dr2</span>
-<span class="n">smash_table</span>  <span class="o">=</span> <span class="n">QTable</span><span class="p">([</span><span class="n">smash_dict</span><span class="p">[</span><span class="s1">'ra'</span><span class="p">],</span><span class="n">smash_dict</span><span class="p">[</span><span class="s1">'dec'</span><span class="p">],</span><span class="n">smash_dict</span><span class="p">[</span><span class="s1">'index'</span><span class="p">],</span>\
+<span class="n">smash_table</span>  <span class="o">=</span> <span class="n">QTable</span><span class="p">([</span><span class="n">smash_dict</span><span class="p">[</span><span class="s1">'ra'</span><span class="p">],</span><span class="n">smash_dict</span><span class="p">[</span><span class="s1">'dec'</span><span class="p">],</span><span class="n">smash</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>\
                       <span class="n">smash_dict</span><span class="p">[</span><span class="s1">'gmag'</span><span class="p">],</span><span class="n">smash_dict</span><span class="p">[</span><span class="s1">'survey'</span><span class="p">]],</span>\
                       <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">"ra"</span><span class="p">,</span><span class="s2">"dec"</span><span class="p">,</span><span class="s2">"index"</span><span class="p">,</span><span class="s2">"gmag"</span><span class="p">,</span><span class="s2">"survey"</span><span class="p">])</span>
 
 <span class="c1">#decaps_dr2</span>
-<span class="n">decaps_table</span> <span class="o">=</span> <span class="n">QTable</span><span class="p">([</span><span class="n">decaps_dict</span><span class="p">[</span><span class="s1">'ra'</span><span class="p">],</span><span class="n">decaps_dict</span><span class="p">[</span><span class="s1">'dec'</span><span class="p">],</span><span class="n">decaps_dict</span><span class="p">[</span><span class="s1">'index'</span><span class="p">],</span>\
+<span class="n">decaps_table</span> <span class="o">=</span> <span class="n">QTable</span><span class="p">([</span><span class="n">decaps_dict</span><span class="p">[</span><span class="s1">'ra'</span><span class="p">],</span><span class="n">decaps_dict</span><span class="p">[</span><span class="s1">'dec'</span><span class="p">],</span><span class="n">decaps</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>\
                       <span class="n">decaps_dict</span><span class="p">[</span><span class="s1">'mean_r'</span><span class="p">],</span><span class="n">decaps_dict</span><span class="p">[</span><span class="s1">'survey'</span><span class="p">]],</span>\
                       <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">"ra"</span><span class="p">,</span><span class="s2">"dec"</span><span class="p">,</span><span class="s2">"index"</span><span class="p">,</span><span class="s2">"mean_r"</span><span class="p">,</span><span class="s2">"survey"</span><span class="p">])</span>
 </pre></div>
@@ -8011,9 +8041,9 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">aladin</span><span class="o">.</span><span class="n">add_table</span><span class="p">(</span><span class="n">des_table</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">'des_dr2'</span><span class="p">)</span>
-<span class="n">aladin</span><span class="o">.</span><span class="n">add_table</span><span class="p">(</span><span class="n">smash_table</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">'smash_dr2'</span><span class="p">)</span>
-<span class="n">aladin</span><span class="o">.</span><span class="n">add_table</span><span class="p">(</span><span class="n">decaps_table</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">'decaps_dr2'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">aladin</span><span class="o">.</span><span class="n">add_table</span><span class="p">(</span><span class="n">des_table</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">'des_dr2'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'cyan'</span><span class="p">)</span>
+<span class="n">aladin</span><span class="o">.</span><span class="n">add_table</span><span class="p">(</span><span class="n">smash_table</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">'smash_dr2'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
+<span class="n">aladin</span><span class="o">.</span><span class="n">add_table</span><span class="p">(</span><span class="n">decaps_table</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">'decaps_dr2'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8028,6 +8058,20 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>By now, your Aladin viewer maybe hard to read since there are many MOCs and individual data points plotted ontop of each other. You can remove some of these objects by clicking the 'Overlays menu' in your Aladin viewer. A dropdown menu will appear displaying the names of all the MOCs and data tables currently being displayed. From there, you can hover your mouse over any item and either click on the 'eye' icon to hide the object, or the 'trash' icon to fully remove it from the viewer.</p>
 <p><img alt="Pointing out the location of the hide and remove icons in Aladin Lite." src="Remove_layer.png" title="Remove layer."/></p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=997319fd-c8d1-4996-8c39-b74f469d78e9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
 </div>
 </div>
 </div>
