@@ -12,6 +12,8 @@ The Astro Data Lab includes a collection of notebooks showcasing the DESI data. 
 
 - `02_DESI_SDSS_Comparison.ipynb` shows how to use SPARCL data discovery to find available SDSS DR16 and DESI DR1 spectra of sources in a specific region of the sky with redshift and spectype constraints, how to retrieve and compare spectra for the same galaxy observed with both SDSS and DESI.
 
+- `03_DESI_AGNQSO_VAC_tutorial.ipynb` adapts the [DESI tutorial](https://data.desi.lbl.gov/public/dr1/vac/dr1/agnqso/v1.0/tutorial/01_how_to_use_AGNQSO_catalog_dr1.html) for working with the AGN/QSO VAC to the Astro Data Lab platform. Shows how to query the catalog and use diagnostic bitmasks to select for specific types of objects (NII BPT identified AGN, for example). Also goes through the plotting of these objects on their respective diagnostic diagrams.
+
 ## How-to folder: `04_HowTos/`
 
 - `QueryClient/How_to_query_DESI_DR1_Data.ipynb` demonstrates a variety of queries to the Astro Data Lab `desi_dr1` database.
