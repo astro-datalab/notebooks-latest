@@ -1,0 +1,87 @@
+#- DESI value-added catalog of galaxies with AGN/QSO classification bitmasks
+
+#- AGN summary table bitmask
+AGN_MASKBITS:
+    # Note: not AGN would be AGN_MASKBITS=0; AGN_MASKBITS=1 (2**0) when bit 0 (name AGN_ANY) is set
+    - [AGN_ANY,       0, "any AGN classification is set"]
+    #- from QSO_MASKBITS definitons (based on Redrock + QuasarNet + MgII pipelines)
+    - [RR,            1, "RR determines this to be a QSO from template fitting"]
+    - [MGII,          2, "MgII afterburner detects broad line"]
+    - [QN,            3, "Quasar Net reclassifies as a QSO"]
+    - [QN_NEW_RR,     4, "Quasar Net prompts different RR redshift"]
+    - [QN_BGS,        5, "Quasar Net reclassifies BGS target as a QSO"]
+    - [QN_ELG,        6, "Quasar Net reclassifies ELG target as a QSO"]
+    - [QN_VAR_WISE,   7, "Quasar Net reclassifies VAR_WISE_QSO target as a QSO"]
+    #- from additional analysis of DESI spectral signatures 
+    #- (note: starting at a later bit as QSO_MASKBITS may change in future releases)
+    - [BPT_ANY_SY,    10, "At least one BPT diagnostic indicates SEYFERT (robust AGN)"]
+    - [BPT_ANY_AGN,   11, "At least one BPT diagnostic indicates SEYFERT, LINER or COMPOSITE"]
+    - [BROAD_LINE,    12, "Lines with FWHM >=1200 km/s in Halpha, Hbeta, MgII and/or CIV line"]
+    - [OPT_OTHER_AGN, 13, "Rest frame optical emission lines diagnostic not BPT (4000-10000 ang) indicate AGN"]
+    - [UV,            14, "Rest frame UV emission lines indicate AGN"]
+    #- from ancillary multiwavelength data 
+    - [WISE_ANY_AGN,  15, "At least one infrared (WISE) colour diagnostic indicates AGN"]
+    - [XRAY,          16, "X-rays indicate AGN (not yet implemented)"]
+    - [RADIO,         17, "Radio indicates AGN (not yet implemented)"]
+
+#- Detailed classification information
+OPT_UV_TYPE:
+    #- optical / UV emission line types
+    - [NII_BPT,     0, "NII BPT diagnostic is available"]
+    - [NII_SF,      1, "NII BPT Star-forming"]
+    - [NII_COMP,    2, "NII BPT Composite"]
+    - [NII_SY,      3, "NII BPT Seyfert"]
+    - [NII_LINER,   4, "NII BPT LINER"]
+    - [SII_BPT,     5, "SII BPT diagnostic is available"]
+    - [SII_SF,      6, "SII BPT Star-forming"]
+    - [SII_SY,      7, "SII BPT Seyfert"]
+    - [SII_LINER,   8, "SII BPT LINER"]
+    - [OI_BPT,      9, "OI BPT diagnostic is available"]
+    - [OI_SF,       10, "OI BPT Star-forming"]
+    - [OI_SY,       11, "OI BPT Seyfert"]
+    - [OI_LINER,    12, "OI BPT LINER"]
+    - [WHAN,        13, "WHAN is available (Halpha and [NII])"]
+    - [WHAN_SF,     14, "WHAN Star-forming"]
+    - [WHAN_SAGN,   15, "WHAN Strong AGN"]
+    - [WHAN_WAGN,   16, "WHAN Weak AGN"]
+    - [WHAN_RET,    17, "WHAN Retired"]
+    - [WHAN_PASS,   18, "WHAN Passive"]
+    - [BLUE,        19, "Blue diagram available"]
+    - [BLUE_AGN,    20, "Blue diagram AGN"]
+    - [BLUE_SLC,    21, "Blue diagram Star-forming/LINER/Composite"]
+    - [BLUE_LINER,  22, "Blue diagram LINER"]
+    - [BLUE_SF,     23, "Blue diagram Star-forming"]
+    - [BLUE_SFAGN,  24, "Blue diagram Star-forming/AGN"]
+    - [MEX,         25, "Mass-excitation"]
+    - [MEX_AGN,     26, "Mass-excitation AGN"]
+    - [MEX_SF,      27, "Mass-excitation Star-forming"]
+    - [MEX_INTERM,  28, "Mass-excitation Intermediate"]
+    - [KEX,         29, "Kinematics-excitation"]
+    - [KEX_AGN,     30, "Kinematics-excitation AGN"]
+    - [KEX_SF,      31, "Kinematics-excitation Star-forming"]
+    - [KEX_INTERM,  32, "Kinematics-excitation Intermediate"]
+    - [HEII_BPT,    33, "He II BPT diagnostic is available"]
+    - [HEII_AGN,    34, "He II BPT AGN"]
+    - [HEII_SF,     35, "He II BPT Star-forming"]
+    - [NEV,         36, "Ne V is available"]
+    - [NEV_AGN,     37, "Ne V AGN"]
+    - [NEV_SF,      38, "Ne V Star-forming"]
+    #-future optical& UV types and diagnostics here: e.g., DEW, others 
+
+IR_TYPE:
+    - [WISE_W12,      0, "WISE W1 and W2 available (update_AGNTYPE_WISE_colors)"]
+    - [WISE_W123,     1, "WISE W1, W2 and W3 available"]
+    - [WISE_AGN_J11,  2, "WISE diagnostic Jarrett et al. 2011 is AGN (based on W1,W2,W3)"]
+    - [WISE_SF_J11,   3, "WISE diagnostic Jarrett et al. 2011 is not an AGN (based on W1,W2,W3)"]
+    - [WISE_AGN_S12,  4, "WISE diagnostic Stern et al. 2012 is AGN (based on W1,W2)"]
+    - [WISE_SF_S12,   5, "WISE diagnostic Stern et al. 2012 is not an AGN (based on W1,W2)"]
+    - [WISE_AGN_M12,  6, "WISE diagnostic Mateos et al. 2012 is AGN (based on W1,W2,W3)"]
+    - [WISE_SF_M12,   7, "WISE diagnostic Mateos et al. 2012 is not an AGN (based on W1,W2,W3)"]
+    - [WISE_AGN_A18,  8, "WISE diagnostic Assef et al. 2018 is AGN (based on W1,W2)"]
+    - [WISE_SF_A18,   9, "WISE diagnostic Assef et al. 2018 is not an AGN (based on W1,W2)"]
+    - [WISE_AGN_Y20, 10, "WISE diagnostic Yao et al. 2020 is AGN (based on W1,W2,W3)"]
+    - [WISE_SF_Y20,  11, "WISE diagnostic Yao et al. 2020 is not an AGN (based on W1,W2,W3)"]
+    - [WISE_AGN_H22, 12, "WISE diagnostic Hviding et al. 2022 is AGN (based on W1,W2,W3)"]
+    - [WISE_SF_H22,  13, "WISE diagnostic Hviding et al. 2022 is not an AGN (based on W1,W2,W3)"]
+
+#-may add future types from multiwavelength (X-rays, radio, etc.)  
