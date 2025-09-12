@@ -7520,7 +7520,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0075'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Brian Merino &lt;brian.merino@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250729'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250912'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'gnirs'</span><span class="p">,</span><span class="s1">'gemini'</span><span class="p">,</span><span class="s1">'star'</span><span class="p">,</span><span class="s1">'dragons'</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -7626,6 +7626,7 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">astrodata</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
@@ -7659,7 +7660,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=32d4d70c-e205-42af-8910-667ccad86b8f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5cef9726-0867-49f8-b5bc-e3e1902dc849">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7674,10 +7675,6 @@ a.anchor-link {
     
     <span class="k">if</span> <span class="n">caldb_Exist</span><span class="p">:</span>
         <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s1">'./calibrations'</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">raw_Exist</span><span class="p">:</span>
-        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s1">'./raw'</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">"./raw"</span><span class="p">)</span> 
 
     <span class="c1">#Remove existing log and list files.</span>
     <span class="n">work_dir_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
@@ -7730,8 +7727,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><a class="anchor" id="About"></a></p>
-<h1 id="About-the-dataset">About the dataset<a class="anchor-link" href="#About-the-dataset">¶</a></h1><p>The data is a GNIRS L-band longslit observation of HD41335. The observation program utilized a 10 l/mm grating with the long-red camera and a 0.1 arcsec slit, centered at 3.7 μm.</p>
+<h3 id=""><a class="anchor" id="About"></a><a class="anchor-link" href="#">¶</a></h3><h1 id="About-the-dataset">About the dataset<a class="anchor-link" href="#About-the-dataset">¶</a></h1><p>The data is a GNIRS L-band longslit observation of HD41335. The observation program utilized a 10 l/mm grating with the long-red camera and a 0.1 arcsec slit, centered at 3.7 μm.</p>
 <p>The calibrations we use for this example are:</p>
 <ul>
 <li>BPM. The bad pixel masks are now found in the Gemini Science Archive instead of being packaged with the software. They are associated like the other calibrations. (The date in the name is the “valid from” date.)</li>
@@ -7781,7 +7777,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6a1bd5db-fd87-4c50-9af5-443595a94f61">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=889b024c-a0a2-4375-baee-a659302f82e1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7793,23 +7789,23 @@ a.anchor-link {
 
 <span class="c1"># Create a list of FITS files to be downloaded.</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">"\</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0121.fits</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0122.fits</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0123.fits</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0124.fits</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0125.fits</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0126.fits</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0127.fits</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0128.fits</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0129.fits</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0130.fits</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0131.fits</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0132.fits</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0113.fits</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0114.fits</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0115.fits</span>
-<span class="s2">https://archive.gemini.edu/file/N20180114S0116.fits</span>
-<span class="s2">https://archive.gemini.edu/file/bpm_20121101_gnirs_gnirsn_11_full_1amp.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0121.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0122.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0123.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0124.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0125.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0126.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0127.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0128.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0129.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0130.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0131.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0132.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0113.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0114.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0115.fits</span>
+<span class="s2">http://archive.gemini.edu/file/N20180114S0116.fits</span>
+<span class="s2">http://archive.gemini.edu/file/bpm_20121101_gnirs_gnirsn_11_full_1amp.fits\</span>
 <span class="s2">"</span><span class="w"> </span>&gt;<span class="w"> </span>gnirs_Lband.list
 </pre></div>
 </div>
@@ -7829,7 +7825,7 @@ a.anchor-link {
 <span class="nv">download</span><span class="o">=</span><span class="s2">"True"</span>
 
 <span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$download</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"True"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span>wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>-N<span class="w"> </span>-q<span class="w"> </span>-P<span class="w"> </span><span class="s1">'./raw'</span><span class="w"> </span>-i<span class="w"> </span>gnirs_Lband.list
+<span class="w">    </span>wget<span class="w"> </span>--no-check-certificate<span class="w"> </span>-N<span class="w"> </span>-q<span class="w"> </span>-i<span class="w"> </span>gnirs_Lband.list
 
 <span class="k">else</span>
 <span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Skipping download. To download the data set used in this notebook, set download=True."</span>
@@ -7888,7 +7884,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">all_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">'raw/*.fits'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">all_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">'*.fits'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">all_files</span><span class="p">)</span>
 </pre></div>
 </div>
