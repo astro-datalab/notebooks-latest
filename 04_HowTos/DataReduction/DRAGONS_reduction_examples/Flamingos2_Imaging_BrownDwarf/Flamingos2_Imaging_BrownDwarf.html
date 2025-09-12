@@ -7312,6 +7312,7 @@ a.anchor-link {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7519,7 +7520,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0038'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Brian Merino &lt;brian.merino@noirlab.edu&gt;, Vinicius Placco &lt;vinicius.placco@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20241209'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250912'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'flamingos-2'</span><span class="p">,</span><span class="s1">'gemini'</span><span class="p">,</span><span class="s1">'browndwarf'</span><span class="p">,</span><span class="s1">'dwarf'</span><span class="p">,</span><span class="s1">'dragons'</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -7534,7 +7535,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Gemini-Flamingos-2-Brown-Dwarf-reduction-using-DRAGONS-Python-API">Gemini Flamingos-2 Brown Dwarf reduction using DRAGONS Python API<a class="anchor-link" href="#Gemini-Flamingos-2-Brown-Dwarf-reduction-using-DRAGONS-Python-API">¶</a></h1><hr/>
-<h2 id="Public-archival-data-from-f2img_tutorial---GS-2013B-Q-15-(WISE-J041358.14-475039.3)">Public archival data from f2img_tutorial - GS-2013B-Q-15 (WISE J041358.14-475039.3)<a class="anchor-link" href="#Public-archival-data-from-f2img_tutorial---GS-2013B-Q-15-(WISE-J041358.14-475039.3)">¶</a></h2><h4 id="adapted-from-https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v3.2.1/ex1_f2im_ontarget_api.html">adapted from <a href="https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v3.2.1/ex1_f2im_ontarget_api.html">https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v3.2.1/ex1_f2im_ontarget_api.html</a><a class="anchor-link" href="#adapted-from-https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v3.2.1/ex1_f2im_ontarget_api.html">¶</a></h4><hr/>
+<h2 id="Public-archival-data-from-f2img_tutorial---GS-2013B-Q-15-(WISE-J041358.14-475039.3)">Public archival data from f2img_tutorial - GS-2013B-Q-15 (WISE J041358.14-475039.3)<a class="anchor-link" href="#Public-archival-data-from-f2img_tutorial---GS-2013B-Q-15-(WISE-J041358.14-475039.3)">¶</a></h2><h4 id="adapted-from-https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v4.0.0/ex1_f2im_ontarget_api.html">adapted from <a href="https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v4.0.0/ex1_f2im_ontarget_api.html">https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v4.0.0/ex1_f2im_ontarget_api.html</a><a class="anchor-link" href="#adapted-from-https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v4.0.0/ex1_f2im_ontarget_api.html">¶</a></h4><hr/>
 </div>
 </div>
 </div>
@@ -7560,12 +7561,13 @@ a.anchor-link {
 <li><a href="#Master_Flat">Create Master Flat Field</a></li>
 <li><a href="#Reduce_Science">Reduce Science Images</a></li>
 <li><a href="#Display_Image">Display stacked final image</a></li>
+<li><a href="#Display_final">Display final image</a></li>
 <li><a href="#Clean-up">Clean-up (optional)</a></li>
 </ul>
 <p><a class="anchor" id="goals"></a></p>
-<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">¶</a></h1><p>Showcase how to reduce Flamingos-2 imaging data using the Gemini DRAGONS package on the Data Lab science platform using a custom DRAGONS kernel <code>"DRAGONS (Py3.7)"</code>. The steps include downloading data from the Gemini archive, setting up a DRAGONS calibration service, processing flats, darks, a bad pixel mask, and science frames, and creating a single combined stacked image.</p>
+<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">¶</a></h1><p>Showcase how to reduce Flamingos-2 imaging data using the Gemini DRAGONS package on the Data Lab science platform using a custom DRAGONS kernel <code>"DRAGONS-4.0.0 (DL,Py3.12)"</code>. The steps include downloading data from the Gemini archive, setting up a DRAGONS calibration service, processing flats, darks, a bad pixel mask, and science frames, and creating a single combined stacked image.</p>
 <p><a class="anchor" id="summary"></a></p>
-<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>DRAGONS is a Python-based astronomical data reduction platform written by the Gemini Science User Support Department. It can currently be used to reduce imaging data from Gemini instruments GMOS, NIRI, Flamingos 2, GSAOI, and GNIRS, as well as spectroscopic data taken with GHOST and GMOS in longslit mode. Linked <a href="https://dragons.readthedocs.io/en/v3.2.1/">here</a> is a general list of guides, manuals, and tutorials about the use of DRAGONS.</p>
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>DRAGONS is a Python-based astronomical data reduction platform written by the Gemini Science User Support Department. It can currently be used to reduce imaging data from Gemini instruments GMOS, NIRI, Flamingos 2, GSAOI, and GNIRS, as well as spectroscopic data taken with GNIRS, GHOST, and GMOS in longslit mode. Linked <a href="https://dragons.readthedocs.io/en/stable/">here</a> is a general list of guides, manuals, and tutorials about the use of DRAGONS.</p>
 <p>The DRAGONS kernel has been made available in the Data Lab environment, allowing users to access the routines without being dependent on installing the software on their local machines.</p>
 <p>In this notebook, we present an example of a DRAGONS Jupyter notebook that works in the Data Lab environment to reduce example Gemini South Flamingos-2 Y-band imaging data fully. This notebook will not present all of the details of the many options available to adjust or optimize the DRAGONS Flamingos-2 data reduction process; rather, it will just show one example of a standard reduction of a Flamingos-2 imaging dataset.</p>
 <p>The data used in this notebook example is Flamingos-2 Y band imaging from the Gemini archive of the brown dwarf W0413-4750 from the Gemini South program "<a href="https://archive.gemini.edu/programinfo/GS-2013B-Q-15">A Study of the 450K Transition from T to Y Dwarf, and of the 350K Y Dwarfs</a>", PI: S. Leggett, program ID GS-2013B-Q-15.</p>
@@ -7623,23 +7625,23 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">import</span> <span class="nn">glob</span>
-<span class="kn">import</span> <span class="nn">shutil</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
 
-<span class="kn">from</span> <span class="nn">gempy.adlibrary</span> <span class="kn">import</span> <span class="n">dataselect</span>
-<span class="kn">from</span> <span class="nn">gempy.utils</span> <span class="kn">import</span> <span class="n">logutils</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gempy.adlibrary</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataselect</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gempy.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">logutils</span>
 
-<span class="kn">from</span> <span class="nn">recipe_system</span> <span class="kn">import</span> <span class="n">cal_service</span>
-<span class="kn">from</span> <span class="nn">recipe_system.reduction.coreReduce</span> <span class="kn">import</span> <span class="n">Reduce</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">recipe_system</span><span class="w"> </span><span class="kn">import</span> <span class="n">cal_service</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">recipe_system.reduction.coreReduce</span><span class="w"> </span><span class="kn">import</span> <span class="n">Reduce</span>
 
-<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
-<span class="kn">from</span> <span class="nn">astropy.wcs</span> <span class="kn">import</span> <span class="n">WCS</span>
-<span class="kn">from</span> <span class="nn">astropy.utils.exceptions</span> <span class="kn">import</span> <span class="n">AstropyWarning</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">fits</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.wcs</span><span class="w"> </span><span class="kn">import</span> <span class="n">WCS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.utils.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">AstropyWarning</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">Normalize</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">Normalize</span>
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">AstropyWarning</span><span class="p">)</span>
 </pre></div>
@@ -7667,7 +7669,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">clean_up</span><span class="p">(</span><span class="n">save_reduced</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_up</span><span class="p">(</span><span class="n">save_reduced</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="c1">#Does the calibrations directory already exist?</span>
     <span class="n">caldb_Exist</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">'./calibrations'</span><span class="p">)</span> 
     
@@ -8191,6 +8193,66 @@ a.anchor-link {
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Right Ascension [hh:mm:ss]'</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">'bold'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Declination [degree]'</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">'bold'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><a class="anchor" id="Display_final"></a></p>
+<h1 id="Display-the-final-product">Display the final product<a class="anchor-link" href="#Display-the-final-product">¶</a></h1>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">final_image</span> <span class="o">=</span> <span class="s2">"S20131121S0075_image.fits"</span>
+<span class="n">hdu_final</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">final_image</span><span class="p">)</span>
+<span class="n">wcs_final</span> <span class="o">=</span> <span class="n">WCS</span><span class="p">(</span><span class="n">hdu_final</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">)</span>
+<span class="n">hdu_final</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">data_final</span> <span class="o">=</span> <span class="n">hdu_final</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The output stack units are in electrons (header keyword BUNIT=electrons). The output stack is stored in a multi-extension FITS (MEF) file. The science signal is in the “SCI” extension, the variance is in the “VAR” extension, and the data quality plane (mask) is in the “DQ” extension.</p>
+<p>Note: The upper-left quadrant of this science sequence is rather messy. This is caused by the PWFS2 guide probe (see <a href="https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v4.0.0/05_issues_and_limitations.html#issue-p2">Emission from PWFS2 guide probe</a>). Photometry in this portion of the image is likely to be seriously compromised.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data_final</span><span class="p">,</span><span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">160</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1150</span><span class="p">,</span><span class="mi">1126</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span><span class="n">facecolors</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">edgecolors</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1095</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="s1">'W0413-4750'</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
