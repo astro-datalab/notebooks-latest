@@ -7520,7 +7520,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0075'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Brian Merino &lt;brian.merino@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250912'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250917'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'gnirs'</span><span class="p">,</span><span class="s1">'gemini'</span><span class="p">,</span><span class="s1">'star'</span><span class="p">,</span><span class="s1">'dragons'</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -7669,9 +7669,8 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_up</span><span class="p">(</span><span class="n">save_reduced</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="c1">#Do the calibrations and raw directories already exist?</span>
+    <span class="c1">#Does the calibrations directory already exist?</span>
     <span class="n">caldb_Exist</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">'./calibrations'</span><span class="p">)</span> 
-    <span class="n">raw_Exist</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">'./raw'</span><span class="p">)</span>
     
     <span class="k">if</span> <span class="n">caldb_Exist</span><span class="p">:</span>
         <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s1">'./calibrations'</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -7772,7 +7771,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="Downloading_Data"></a></p>
-<h1 id="Downloading-the-data">Downloading the data<a class="anchor-link" href="#Downloading-the-data">¶</a></h1><p>Downloading longslit data from the Gemini archive to the raw/ directory. This step only needs to be executed once.</p>
+<h1 id="Downloading-the-data">Downloading the data<a class="anchor-link" href="#Downloading-the-data">¶</a></h1><p>Downloading longslit data from the Gemini archive to the working directory. This step only needs to be executed once.</p>
 <p>If you run this notebook for the first time and need to download the dataset, set the variable "download=True". The notebook will not redownload the dataset if it is set to False. This will become particularly useful if you run the notebooks more than once.</p>
 </div>
 </div>
@@ -8177,7 +8176,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#clean_up(save_reduced=0)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#clean_up(save_reduced=1)</span>
 </pre></div>
 </div>
 </div>
