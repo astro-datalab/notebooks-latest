@@ -7520,7 +7520,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0053'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Eric Armengaud, Benjamin Weaver &lt;benjamin.weaver@noirlab.edu&gt;, Alice Jacques &lt;alice.jacques@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250317'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20251007'</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sdss_dr16'</span><span class="p">,</span> <span class="s1">'boss_dr16'</span><span class="p">,</span> <span class="s1">'desi_dr1'</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl'</span><span class="p">,</span> <span class="s1">'spectroscopy'</span><span class="p">,</span> <span class="s1">'sdss spectra'</span><span class="p">,</span> <span class="s1">'desi spectra'</span><span class="p">,</span> <span class="s1">'tutorial'</span><span class="p">,</span> <span class="s1">'prospect'</span><span class="p">,</span> <span class="s1">'specutils'</span><span class="p">]</span>
 </pre></div>
@@ -7568,11 +7568,12 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="goals"></a></p>
-<h2 id="Summary-&amp;-goals">Summary &amp; goals<a class="anchor-link" href="#Summary-&amp;-goals">¶</a></h2><p><a href="https://github.com/desihub/prospect/">prospect</a> is a spectrum visualization tool created by the <a href="https://www.desi.lbl.gov">DESI collaboration</a> to view and characterize DESI spectra. It has also been adapted to display data from other projects, specifically the <a href="https://www.sdss.org">Sloan Digital Sky Survey (SDSS)</a>.</p>
+<h2 id="Summary-&amp;-goals">Summary &amp; goals<a class="anchor-link" href="#Summary-&amp;-goals">¶</a></h2><p><a href="https://github.com/desihub/prospect/">prospect</a> is an interactive spectrum visualization tool created by the <a href="https://www.desi.lbl.gov">DESI collaboration</a> to view and characterize DESI spectra. It has also been adapted to display data from other projects, specifically the <a href="https://www.sdss.org">Sloan Digital Sky Survey (SDSS)</a>.</p>
 <p><em>Project</em>: Obtain DESI DR1, SDSS DR16, and (e)BOSS DR16 spectra using the <a href="https://astrosparcl.datalab.noirlab.edu">NOIRLab SPARCL spectrum service</a>, convert data to <a href="https://specutils.readthedocs.io/en/stable/">specutils objects</a> as needed, and use <a href="https://github.com/desihub/prospect/">prospect</a> to display the data.</p>
 <p><em>Takeaway</em>: At no point in this notebook will any data files be opened, except for an "Aside" section.</p>
 <p><em>Takeaway</em>: prospect allows multiple, independent spectra visualizations to coexist within the same notebook.</p>
-<p>This notebook is an adaptation of the <a href="https://github.com/desihub/prospect/blob/main/doc/nb/Prospect_spectrum_service.ipynb">Prospect + specutils + SPARCL</a> notebook.</p>
+<p>This notebook is an adaptation of the <a href="https://github.com/desihub/prospect/blob/main/doc/nb/Prospect_spectrum_service.ipynb">Prospect + specutils + SPARCL</a> notebook. The figure below shows a portion of the prospect display with an example DESI spectrum: the observed spectrum is plotted in red (smoothed by a small Gaussian kernel with $\sigma=1$), the best-fit pipeline model in black and the uncertainty in green (stored as the inverse variance <code>ivar</code>). DESI and SDSS spectra further include a <code>mask</code> array indicating if some pixels are problematic (in which case <code>mask!=0</code>) and SDSS spectra include a <code>sky</code> spectrum, which is not shown nor used in this notebook. The prospect tool also includes a color image at the location of the fiber and the interactive tool allows the user to click on the thumbnail image to open the <a href="https://www.legacysurvey.org/viewer">Legacy Surveys Viewer</a> at that sky location in a separate browser tab.</p>
+<p><img alt="No description has been provided for this image" src="images/prospect_example.jpg"/></p>
 </div>
 </div>
 </div>
@@ -8109,7 +8110,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Next we add targeting bitmasks.</p>
+<p>Next we add targeting bitmasks, which encode information on how objects were targeted and are defined in the <a href="https://desidatamodel.readthedocs.io/en/latest/bitmasks.html#target-masks">DESI Data Model documentation</a>.</p>
 </div>
 </div>
 </div>
@@ -8289,6 +8290,9 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">desi_zcatalog</span> <span class="o">=</span> <span class="n">desi_ids</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># prospect expects the column names in upper case letters and the HEALPIX column </span>
+<span class="c1"># to instead be named HPXPIXEL so we make these changes below</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">desi_zcatalog</span><span class="o">.</span><span class="n">colnames</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">col</span> <span class="o">==</span> <span class="s1">'healpix'</span><span class="p">:</span>
         <span class="n">desi_zcatalog</span><span class="o">.</span><span class="n">rename_column</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="s1">'HPXPIXEL'</span><span class="p">)</span>
@@ -8382,7 +8386,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Aside:-Model-spectra-in-DESI-DR1">Aside: Model spectra in DESI DR1<a class="anchor-link" href="#Aside:-Model-spectra-in-DESI-DR1">¶</a></h3><p>The models displayed along with the spectra in Prospect are assembled from a set of templates. <a href="https://github.com/desihub/redrock">Redrock</a> performs a best-fit and the resulting model is a linear combination of some of the templates, depending on the final type of the object (galaxy, QSO, etc.). In some cases it can be useful to reconstruct the models using software from redrock.In this section we'll take a look at how to perform this reconstruction.</p>
+<h3 id="Aside:-Model-spectra-in-DESI-DR1">Aside: Model spectra in DESI DR1<a class="anchor-link" href="#Aside:-Model-spectra-in-DESI-DR1">¶</a></h3><p>The models displayed along with the spectra in Prospect are assembled from a set of templates. <a href="https://github.com/desihub/redrock">Redrock</a> performs a best-fit and the resulting model is a linear combination of some of the templates, depending on the final type of the object (galaxy, QSO, etc.). In some cases it can be useful to reconstruct the models using software from redrock. In this section we'll take a look at how to perform this reconstruction.</p>
 <p>Some of the code below is adapted from an <a href="https://github.com/desihub/tutorials/blob/main/02_digging_deeper/RedrockOutputs.ipynb">in-depth tutorial</a> on redrock.</p>
 </div>
 </div>
@@ -8666,7 +8670,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">spectrum_index</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Step through spectra here.</span>
+<span class="n">spectrum_index</span> <span class="o">=</span> <span class="mi">12</span>  <span class="c1"># Step through spectra here.</span>
 <span class="n">pl0</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">qso_wavelength</span><span class="p">,</span> <span class="n">qso_flux</span><span class="p">[</span><span class="n">spectrum_index</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">'k-'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'SPARCL flux'</span><span class="p">)</span>
 <span class="n">pl1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">qso_wavelength</span><span class="p">,</span> <span class="n">qso_model_flux</span><span class="p">[</span><span class="n">spectrum_index</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">'r-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'SPARCL model'</span><span class="p">)</span>
 <span class="n">pl2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">qso_wavelength</span><span class="p">,</span> <span class="n">tmpl_model_flux</span><span class="p">[</span><span class="n">spectrum_index</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">'b-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Redrock model'</span><span class="p">)</span>
@@ -9636,20 +9640,6 @@ a.anchor-link {
             <span class="n">mask_type</span><span class="o">=</span><span class="s1">'EBOSS_TARGET1'</span><span class="p">,</span>
             <span class="n">model_from_zcat</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">model</span><span class="o">=</span><span class="n">boss_model</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>
