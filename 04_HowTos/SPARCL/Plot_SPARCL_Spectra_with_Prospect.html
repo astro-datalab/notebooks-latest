@@ -7520,7 +7520,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0053'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Eric Armengaud, Benjamin Weaver &lt;benjamin.weaver@noirlab.edu&gt;, Alice Jacques &lt;alice.jacques@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250317'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20251007'</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sdss_dr16'</span><span class="p">,</span> <span class="s1">'boss_dr16'</span><span class="p">,</span> <span class="s1">'desi_dr1'</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl'</span><span class="p">,</span> <span class="s1">'spectroscopy'</span><span class="p">,</span> <span class="s1">'sdss spectra'</span><span class="p">,</span> <span class="s1">'desi spectra'</span><span class="p">,</span> <span class="s1">'tutorial'</span><span class="p">,</span> <span class="s1">'prospect'</span><span class="p">,</span> <span class="s1">'specutils'</span><span class="p">]</span>
 </pre></div>
@@ -7547,9 +7547,9 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Table-of-contents">Table of contents<a class="anchor-link" href="#Table-of-contents">¶</a></h3><ul>
-<li><a href="#goals">Goals</a></li>
+<li><a href="#goals">Summary &amp; goals</a></li>
 <li><a href="#disclaimer">Disclaimer &amp; attribution</a></li>
-<li><a href="#imports">Imports and setup</a></li>
+<li><a href="#imports">Imports &amp; setup</a></li>
 <li>Find, retrieve, and plot spectra from:<ul>
 <li><a href="#desi">DESI</a></li>
 <li><a href="#sdss">SDSS</a></li>
@@ -7568,10 +7568,12 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="goals"></a></p>
-<h2 id="Goals">Goals<a class="anchor-link" href="#Goals">¶</a></h2><p><em>Project</em>: Obtain DESI DR1, SDSS DR16, and (e)BOSS DR16 spectra using the <a href="https://astrosparcl.datalab.noirlab.edu">NOIRLab SPARCL spectrum service</a>, convert data to <a href="https://specutils.readthedocs.io/en/stable/">specutils objects</a> as needed, and use <a href="https://desi-prospect.readthedocs.io/en/latest/">prospect</a> to display the data.</p>
-<p><em>Takeaway</em>: At no point in this notebook will any data files be opened.</p>
+<h2 id="Summary-&amp;-goals">Summary &amp; goals<a class="anchor-link" href="#Summary-&amp;-goals">¶</a></h2><p><a href="https://github.com/desihub/prospect/">prospect</a> is an interactive spectrum visualization tool created by the <a href="https://www.desi.lbl.gov">DESI collaboration</a> to view and characterize DESI spectra. It has also been adapted to display data from other projects, specifically the <a href="https://www.sdss.org">Sloan Digital Sky Survey (SDSS)</a>.</p>
+<p><em>Project</em>: Obtain DESI DR1, SDSS DR16, and (e)BOSS DR16 spectra using the <a href="https://astrosparcl.datalab.noirlab.edu">NOIRLab SPARCL spectrum service</a>, convert data to <a href="https://specutils.readthedocs.io/en/stable/">specutils objects</a> as needed, and use <a href="https://github.com/desihub/prospect/">prospect</a> to display the data.</p>
+<p><em>Takeaway</em>: At no point in this notebook will any data files be opened, except for an "Aside" section.</p>
 <p><em>Takeaway</em>: prospect allows multiple, independent spectra visualizations to coexist within the same notebook.</p>
-<p>This notebook is an adaptation of the <a href="https://github.com/desihub/prospect/blob/main/doc/nb/Prospect_spectrum_service.ipynb">Prospect + specutils + SPARCL</a> notebook.</p>
+<p>This notebook is an adaptation of the <a href="https://github.com/desihub/prospect/blob/main/doc/nb/Prospect_spectrum_service.ipynb">Prospect + specutils + SPARCL</a> notebook. The figure below shows a portion of the prospect display with an example DESI spectrum: the observed spectrum is plotted in red (smoothed by a small Gaussian kernel with $\sigma=1$), the best-fit pipeline model in black and the uncertainty in green (stored as the inverse variance <code>ivar</code>). DESI and SDSS spectra further include a <code>mask</code> array indicating if some pixels are problematic (in which case <code>mask!=0</code>) and SDSS spectra include a <code>sky</code> spectrum, which is not shown nor used in this notebook. The prospect tool also includes a color image at the location of the fiber and the interactive tool allows the user to click on the thumbnail image to open the <a href="https://www.legacysurvey.org/viewer">Legacy Surveys Viewer</a> at that sky location in a separate browser tab.</p>
+<p><img alt="No description has been provided for this image" src="images/prospect_example.jpg"/></p>
 </div>
 </div>
 </div>
@@ -7583,8 +7585,8 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="attribution"></a></p>
-<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">¶</a></h1><h2 id="Disclaimers">Disclaimers<a class="anchor-link" href="#Disclaimers">¶</a></h2><p>Note that using the Astro Data Lab constitutes your agreement with our minimal <a href="https://datalab.noirlab.edu/disclaimers.php">Disclaimers</a>.</p>
-<h2 id="Acknowledgments">Acknowledgments<a class="anchor-link" href="#Acknowledgments">¶</a></h2><p>If you use <strong>Astro Data Lab</strong> in your published research, please include the text in your paper's Acknowledgments section:</p>
+<h2 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">¶</a></h2><h3 id="Disclaimers">Disclaimers<a class="anchor-link" href="#Disclaimers">¶</a></h3><p>Note that using the Astro Data Lab constitutes your agreement with our minimal <a href="https://datalab.noirlab.edu/disclaimers.php">Disclaimers</a>.</p>
+<h3 id="Acknowledgments">Acknowledgments<a class="anchor-link" href="#Acknowledgments">¶</a></h3><p>If you use <strong>Astro Data Lab</strong> in your published research, please include the text in your paper's Acknowledgments section:</p>
 <p><em>This research uses services or data provided by the Astro Data Lab, which is part of the Community Science and Data Center (CSDC) Program of NSF NOIRLab. NOIRLab is operated by the Association of Universities for Research in Astronomy (AURA), Inc. under a cooperative agreement with the U.S. National Science Foundation.</em></p>
 <p>If you use <strong>SPARCL jointly with the Astro Data Lab platform</strong> (via JupyterLab, command-line, or web interface) in your published research, please include this text below in your paper's Acknowledgments section:</p>
 <p><em>This research uses services or data provided by the SPectra Analysis and Retrievable Catalog Lab (SPARCL) and the Astro Data Lab, which are both part of the Community Science and Data Center (CSDC) Program of NSF NOIRLab. NOIRLab is operated by the Association of Universities for Research in Astronomy (AURA), Inc. under a cooperative agreement with the U.S. National Science Foundation.</em></p>
@@ -7621,7 +7623,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="imports"></a></p>
-<h2 id="Imports-and-setup">Imports and setup<a class="anchor-link" href="#Imports-and-setup">¶</a></h2><p>Note that we are not relying heavily on the DESI software stack (<code>DESI 23.1</code>), although some imports will be embedded within <code>prospect</code>.</p>
+<h2 id="Imports-&amp;-setup">Imports &amp; setup<a class="anchor-link" href="#Imports-&amp;-setup">¶</a></h2><p>Note that we only lightly using the DESI software stack (<code>DESI 25.3</code>), although some imports will be embedded within <code>prospect</code>.</p>
 </div>
 </div>
 </div>
@@ -7633,25 +7635,62 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">NumbaDeprecationWarning</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">NumbaDeprecationWarning</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">NumbaDeprecationWarning</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="sa">r</span><span class="s1">'.*numba\.jit.*'</span><span class="p">)</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.nddata</span><span class="w"> </span><span class="kn">import</span> <span class="n">InverseVariance</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">fits</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">specutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">specutils_version</span><span class="p">,</span> <span class="n">Spectrum1D</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bokeh</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">bokeh_version</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">prospect</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">prospect_version</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">prospect.viewer</span><span class="w"> </span><span class="kn">import</span> <span class="n">plotspectra</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">prospect.specutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">Spectra</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">desispec</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">desispec_version</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">desispec.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">findfile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">redrock</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">redrock_version</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">redrock.templates</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_template_dir</span><span class="p">,</span> <span class="n">load_templates</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sparcl</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">sparcl_version</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sparcl.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">SparclClient</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dl</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">dl_version</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dl</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">dl_version</span><span class="p">,</span> <span class="n">queryClient</span> <span class="k">as</span> <span class="n">qc</span><span class="p">,</span> <span class="n">authClient</span> <span class="k">as</span> <span class="n">ac</span><span class="p">,</span> <span class="n">storeClient</span> <span class="k">as</span> <span class="n">sc</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"astro-datalab==</span><span class="si">{</span><span class="n">dl_version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"specutils==</span><span class="si">{</span><span class="n">specutils_version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"bokeh==</span><span class="si">{</span><span class="n">bokeh_version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"prospect==</span><span class="si">{</span><span class="n">prospect_version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"desispec==</span><span class="si">{</span><span class="n">desispec_version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"redrock==</span><span class="si">{</span><span class="n">redrock_version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"sparcl==</span><span class="si">{</span><span class="n">sparcl_version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Authentication">Authentication<a class="anchor-link" href="#Authentication">¶</a></h3><p>Much of the functionality of Data Lab can be accessed without explicitly logging in (the service then uses an anonymous login). But some capacities, for instance saving the results of your queries to your virtual storage space, require a login (<em>i.e.</em> you will need a registered user account).</p>
+<p>If you need to log in to Data Lab, un-comment the cell below and execute it:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># from getpass import getpass</span>
+<span class="c1"># token = ac.login(input("Enter user name: (+ENTER) "), getpass("Enter password: (+ENTER) "))</span>
+<span class="c1"># ac.whoAmI()</span>
 </pre></div>
 </div>
 </div>
@@ -7767,6 +7806,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>QA</strong>: Do we really have 50 unique spectra?</p>
+<p><code>assert</code> guarantees that the expression being evaluated is <code>True</code>, and is used in many standard tests in Python.</p>
 </div>
 </div>
 </div>
@@ -7821,6 +7861,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>QA</strong>: Did we really find all of the expected spectra?</p>
+<p>Side effect: this also sorts the returned records to match the order of the inputs.</p>
 </div>
 </div>
 </div>
@@ -7832,10 +7873,10 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">targetids_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">targetid</span><span class="p">)</span>
-<span class="k">assert</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">targetid</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">targetids_sorted</span><span class="p">])</span> <span class="o">==</span> <span class="n">desi_ids</span><span class="p">[</span><span class="s1">'targetid'</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-<span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">survey</span> <span class="o">==</span> <span class="s1">'main'</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">])</span>
-<span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">program</span> <span class="o">==</span> <span class="s1">'dark'</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">])</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">desi_records</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">targetid</span><span class="p">)</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">targetid</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">desi_records</span><span class="p">])</span> <span class="o">==</span> <span class="n">desi_ids</span><span class="p">[</span><span class="s1">'targetid'</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">survey</span> <span class="o">==</span> <span class="s1">'main'</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">desi_records</span><span class="p">])</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">program</span> <span class="o">==</span> <span class="s1">'dark'</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">desi_records</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -7860,7 +7901,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="nb">all</span><span class="p">([(</span><span class="n">r</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">==</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">])</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="nb">all</span><span class="p">([(</span><span class="n">r</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">==</span> <span class="n">desi_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">desi_records</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -7885,12 +7926,12 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">desi_fully_masked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">desi_fully_masked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_records</span><span class="p">),</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">)):</span>
-    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_records</span><span class="p">)):</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">desi_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">desi_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">desi_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING: Spectrum record </span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2"> is fully masked!"</span><span class="p">)</span>
         <span class="n">desi_fully_masked</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
@@ -7917,7 +7958,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">desi_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -7952,23 +7993,23 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                <span class="n">dtype</span><span class="o">=</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<span class="n">uncertainty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                       <span class="n">dtype</span><span class="o">=</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                <span class="n">dtype</span><span class="o">=</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_records</span><span class="p">),</span> <span class="n">desi_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">desi_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">uncertainty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_records</span><span class="p">),</span> <span class="n">desi_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                       <span class="n">dtype</span><span class="o">=</span><span class="n">desi_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_records</span><span class="p">),</span> <span class="n">desi_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">desi_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
 <span class="n">meta</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'sparcl_id'</span><span class="p">:</span> <span class="nb">list</span><span class="p">(),</span> <span class="s1">'data_release'</span><span class="p">:</span> <span class="nb">list</span><span class="p">()}</span>
 <span class="n">sparcl_id</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 <span class="n">data_release</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">)):</span>
-    <span class="n">flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span>
-    <span class="n">uncertainty</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span>
-    <span class="n">mask</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span>
-    <span class="n">meta</span><span class="p">[</span><span class="s1">'sparcl_id'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">sparcl_id</span><span class="p">)</span>
-    <span class="n">meta</span><span class="p">[</span><span class="s1">'data_release'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">data_release</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_records</span><span class="p">)):</span>
+    <span class="n">flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">desi_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span>
+    <span class="n">uncertainty</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">desi_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span>
+    <span class="n">mask</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">desi_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span>
+    <span class="n">meta</span><span class="p">[</span><span class="s1">'sparcl_id'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">desi_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">sparcl_id</span><span class="p">)</span>
+    <span class="n">meta</span><span class="p">[</span><span class="s1">'data_release'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">desi_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">data_release</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8005,6 +8046,17 @@ a.anchor-link {
 <span class="n">fibermap</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">'table'</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Prospect expects upper-case columns, so we convert that here.</p>
 </div>
 </div>
 </div>
@@ -8058,7 +8110,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Next we add targeting bitmasks.</p>
+<p>Next we add targeting bitmasks, which encode information on how objects were targeted and are defined in the <a href="https://desidatamodel.readthedocs.io/en/latest/bitmasks.html#target-masks">DESI Data Model documentation</a>.</p>
 </div>
 </div>
 </div>
@@ -8081,6 +8133,17 @@ a.anchor-link {
 <span class="n">targeting</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">'table'</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Convert column names to upper-case.</p>
 </div>
 </div>
 </div>
@@ -8119,6 +8182,31 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="p">(</span><span class="n">targeting</span><span class="p">[</span><span class="s1">'TARGETID'</span><span class="p">]</span> <span class="o">==</span> <span class="n">fibermap</span><span class="p">[</span><span class="s1">'TARGETID'</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>QA</strong>: Does the order of fibermap match the SPARCL records?</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">targetid</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">desi_records</span><span class="p">])</span> <span class="o">==</span> <span class="n">fibermap</span><span class="p">[</span><span class="s1">'TARGETID'</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -8171,7 +8259,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">desi_prospect</span> <span class="o">=</span> <span class="n">Spectra</span><span class="p">(</span><span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">'coadd'</span><span class="p">],</span>
-                        <span class="n">wave</span><span class="o">=</span><span class="p">{</span><span class="s1">'coadd'</span><span class="p">:</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">},</span>
+                        <span class="n">wave</span><span class="o">=</span><span class="p">{</span><span class="s1">'coadd'</span><span class="p">:</span> <span class="n">desi_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">},</span>
                         <span class="n">flux</span><span class="o">=</span><span class="p">{</span><span class="s1">'coadd'</span><span class="p">:</span> <span class="n">flux</span><span class="p">[</span><span class="o">~</span><span class="n">desi_fully_masked</span><span class="p">,</span> <span class="p">:]},</span>
                         <span class="n">ivar</span><span class="o">=</span><span class="p">{</span><span class="s1">'coadd'</span><span class="p">:</span> <span class="n">uncertainty</span><span class="p">[</span><span class="o">~</span><span class="n">desi_fully_masked</span><span class="p">,</span> <span class="p">:]},</span>
                         <span class="n">mask</span><span class="o">=</span><span class="p">{</span><span class="s1">'coadd'</span><span class="p">:</span> <span class="n">mask</span><span class="p">[</span><span class="o">~</span><span class="n">desi_fully_masked</span><span class="p">,</span> <span class="p">:]},</span>
@@ -8202,6 +8290,9 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">desi_zcatalog</span> <span class="o">=</span> <span class="n">desi_ids</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># prospect expects the column names in upper case letters and the HEALPIX column </span>
+<span class="c1"># to instead be named HPXPIXEL so we make these changes below</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">desi_zcatalog</span><span class="o">.</span><span class="n">colnames</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">col</span> <span class="o">==</span> <span class="s1">'healpix'</span><span class="p">:</span>
         <span class="n">desi_zcatalog</span><span class="o">.</span><span class="n">rename_column</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="s1">'HPXPIXEL'</span><span class="p">)</span>
@@ -8232,13 +8323,13 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">model_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                      <span class="n">dtype</span><span class="o">=</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">model_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_records</span><span class="p">),</span> <span class="n">desi_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                      <span class="n">dtype</span><span class="o">=</span><span class="n">desi_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">)):</span>
-        <span class="n">model_flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">model</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_records</span><span class="p">)):</span>
+        <span class="n">model_flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">desi_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">model</span>
 
-<span class="n">desi_model</span> <span class="o">=</span> <span class="p">(</span><span class="n">desi_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">model_flux</span><span class="p">[</span><span class="o">~</span><span class="n">desi_fully_masked</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">desi_model</span> <span class="o">=</span> <span class="p">(</span><span class="n">desi_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">model_flux</span><span class="p">[</span><span class="o">~</span><span class="n">desi_fully_masked</span><span class="p">,</span> <span class="p">:])</span>
 </pre></div>
 </div>
 </div>
@@ -8283,6 +8374,310 @@ a.anchor-link {
             <span class="n">mask_type</span><span class="o">=</span><span class="s1">'DESI_TARGET'</span><span class="p">,</span>
             <span class="n">model_from_zcat</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">model</span><span class="o">=</span><span class="n">desi_model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Aside:-Model-spectra-in-DESI-DR1">Aside: Model spectra in DESI DR1<a class="anchor-link" href="#Aside:-Model-spectra-in-DESI-DR1">¶</a></h3><p>The models displayed along with the spectra in Prospect are assembled from a set of templates. <a href="https://github.com/desihub/redrock">Redrock</a> performs a best-fit and the resulting model is a linear combination of some of the templates, depending on the final type of the object (galaxy, QSO, etc.). In some cases it can be useful to reconstruct the models using software from redrock. In this section we'll take a look at how to perform this reconstruction.</p>
+<p>Some of the code below is adapted from an <a href="https://github.com/desihub/tutorials/blob/main/02_digging_deeper/RedrockOutputs.ipynb">in-depth tutorial</a> on redrock.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Load-redrock-templates">Load redrock templates<a class="anchor-link" href="#Load-redrock-templates">¶</a></h4><p>This cell simply identifies the location of the template files.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">specprod</span> <span class="o">=</span> <span class="s1">'iron'</span>
+<span class="n">template_dir</span> <span class="o">=</span> <span class="n">get_template_dir</span><span class="p">()</span>
+<span class="n">templates</span> <span class="o">=</span> <span class="n">load_templates</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">template_dir</span><span class="si">}</span><span class="s1">/templates-</span><span class="si">{</span><span class="n">specprod</span><span class="si">}</span><span class="s1">.txt'</span><span class="p">,</span> <span class="n">asdict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Find-a-set-of-QSOs">Find a set of QSOs<a class="anchor-link" href="#Find-a-set-of-QSOs">¶</a></h4><p>There are two different sets of QSO templates, <code>LOZ</code> and <code>HIZ</code>, corresponding to different subtypes for <code>QSO</code> spectypes. This query will return a set of spectra with both <code>LOZ</code> and <code>HIZ</code> subtypes.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">SELECT z.targetid, z.chi2, z.z, z.zerr, z.zwarn, z.spectype, z.subtype,</span>
+<span class="s2">       z.coadd_numexp, z.coadd_exptime, z.healpix, z.deltachi2</span>
+<span class="s2">FROM desi_dr1.zpix AS z</span>
+<span class="s2">WHERE z.zcat_primary</span>
+<span class="s2">    AND z.survey = 'main'</span>
+<span class="s2">    AND z.program = 'dark'</span>
+<span class="s2">    AND z.spectype = 'QSO'</span>
+<span class="s2">    AND z.healpix = 26067</span>
+<span class="s2">    AND z.z BETWEEN 1.0 AND 4.0</span>
+<span class="s2">    AND z.zwarn = 0</span>
+<span class="s2">ORDER BY z.targetid</span>
+<span class="s2">LIMIT 50</span>
+<span class="s2">"""</span>
+<span class="n">desi_qso_ids</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">'table'</span><span class="p">)</span>
+<span class="n">desi_qso_ids</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Fetch-the-redrock-file-to-get-the-model-coefficients">Fetch the redrock file to get the model coefficients<a class="anchor-link" href="#Fetch-the-redrock-file-to-get-the-model-coefficients">¶</a></h4><p>This will also store the file locally so that it should only need to be downloaded once.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">overwrite</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">redrock_path</span> <span class="o">=</span> <span class="n">findfile</span><span class="p">(</span><span class="s1">'redrock'</span><span class="p">,</span> <span class="n">survey</span><span class="o">=</span><span class="s1">'main'</span><span class="p">,</span> <span class="n">faprogram</span><span class="o">=</span><span class="s1">'dark'</span><span class="p">,</span> <span class="n">healpix</span><span class="o">=</span><span class="mi">26067</span><span class="p">)</span>
+<span class="n">redrock_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">redrock_path</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">overwrite</span><span class="p">:</span>
+    <span class="n">sc</span><span class="o">.</span><span class="n">rm</span><span class="p">(</span><span class="sa">f</span><span class="s2">"vos://</span><span class="si">{</span><span class="n">redrock_file</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">sc</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="sa">f</span><span class="s2">"vos://</span><span class="si">{</span><span class="n">redrock_file</span><span class="si">}</span><span class="s2">"</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"INFO: </span><span class="si">{</span><span class="n">redrock_file</span><span class="si">}</span><span class="s2"> has already been downloaded."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">specprod_root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'DESI_SPECTRO_REDUX'</span><span class="p">],</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'SPECPROD'</span><span class="p">])</span>
+    <span class="n">redrock_url</span> <span class="o">=</span> <span class="n">redrock_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">specprod_root</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'https://data.desi.lbl.gov/public/dr1/spectro/redux/</span><span class="si">{</span><span class="n">specprod</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="sa">f</span><span class="s2">"vos://</span><span class="si">{</span><span class="n">redrock_file</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">redrock_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Append-the-model-coefficients-to-the-table-of-QSOs.">Append the model coefficients to the table of QSOs.<a class="anchor-link" href="#Append-the-model-coefficients-to-the-table-of-QSOs.">¶</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"vos://</span><span class="si">{</span><span class="n">redrock_file</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'fileobj'</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'readonly'</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdulist</span><span class="p">:</span>
+    <span class="n">redrock_table</span> <span class="o">=</span> <span class="n">hdulist</span><span class="p">[</span><span class="s1">'REDSHIFTS'</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">redrock_table</span><span class="p">[</span><span class="s1">'TARGETID'</span><span class="p">]</span><span class="o">.</span><span class="n">argsort</span><span class="p">()</span>
+<span class="n">redrock_table</span> <span class="o">=</span> <span class="n">redrock_table</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">redrock_table</span><span class="p">[</span><span class="s1">'TARGETID'</span><span class="p">],</span> <span class="n">desi_qso_ids</span><span class="p">[</span><span class="s1">'targetid'</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">w</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">50</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">redrock_table</span><span class="p">[</span><span class="s1">'TARGETID'</span><span class="p">][</span><span class="n">w</span><span class="p">]</span> <span class="o">==</span> <span class="n">desi_qso_ids</span><span class="p">[</span><span class="s1">'targetid'</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="n">desi_qso_ids</span><span class="p">[</span><span class="s1">'coeff'</span><span class="p">]</span> <span class="o">=</span> <span class="n">redrock_table</span><span class="p">[</span><span class="s1">'COEFF'</span><span class="p">][</span><span class="n">w</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">desi_qso_ids</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Retrieve-the-spectra-and-models-from-SPARCL">Retrieve the spectra and models from SPARCL<a class="anchor-link" href="#Retrieve-the-spectra-and-models-from-SPARCL">¶</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">include</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'DESI-DR1'</span><span class="p">])</span>
+<span class="n">desi_qso_spectra</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">retrieve_by_specid</span><span class="p">(</span><span class="n">specid_list</span><span class="o">=</span><span class="n">desi_qso_ids</span><span class="p">[</span><span class="s1">'targetid'</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                                             <span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span>
+                                             <span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'DESI-DR1'</span><span class="p">])</span>
+<span class="n">desi_qso_spectra</span><span class="o">.</span><span class="n">info</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Verify that we retrieved all the expected spectra, and sort the results to match the order of the inputs.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">desi_qso_records</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">desi_qso_spectra</span><span class="o">.</span><span class="n">records</span> <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">survey</span> <span class="o">==</span> <span class="s1">'main'</span> <span class="ow">and</span> <span class="n">r</span><span class="o">.</span><span class="n">program</span> <span class="o">==</span> <span class="s1">'dark'</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">targetid</span><span class="p">)</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">targetid</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">desi_qso_records</span><span class="p">])</span> <span class="o">==</span> <span class="n">desi_qso_ids</span><span class="p">[</span><span class="s1">'targetid'</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">qso_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_qso_records</span><span class="p">),</span> <span class="n">desi_qso_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                    <span class="n">dtype</span><span class="o">=</span><span class="n">desi_qso_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">qso_model_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_qso_records</span><span class="p">),</span> <span class="n">desi_qso_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                          <span class="n">dtype</span><span class="o">=</span><span class="n">desi_qso_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">qso_wavelength</span> <span class="o">=</span> <span class="n">desi_qso_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_qso_records</span><span class="p">)):</span>
+    <span class="n">qso_flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">desi_qso_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span>
+    <span class="n">qso_model_flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">desi_qso_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">model</span>        
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Combine-coefficients-and-templates-to-get-the-redrock-models">Combine coefficients and templates to get the redrock models<a class="anchor-link" href="#Combine-coefficients-and-templates-to-get-the-redrock-models">¶</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="p">(</span><span class="n">desi_qso_ids</span><span class="p">[</span><span class="s1">'spectype'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'QSO'</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">assert</span> <span class="p">((</span><span class="n">desi_qso_ids</span><span class="p">[</span><span class="s1">'subtype'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'HIZ'</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">desi_qso_ids</span><span class="p">[</span><span class="s1">'subtype'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'LOZ'</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="n">qso_loz</span> <span class="o">=</span> <span class="n">templates</span><span class="p">[(</span><span class="s1">'QSO'</span><span class="p">,</span> <span class="s1">'LOZ'</span><span class="p">)]</span>
+<span class="n">qso_hiz</span> <span class="o">=</span> <span class="n">templates</span><span class="p">[(</span><span class="s1">'QSO'</span><span class="p">,</span> <span class="s1">'HIZ'</span><span class="p">)]</span>
+<span class="n">tmpl_model_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">desi_qso_ids</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">qso_wavelength</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">qso_model_flux</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">desi_qso_ids</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">'subtype'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'LOZ'</span><span class="p">:</span>
+        <span class="n">tmpl_model_flux</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">qso_loz</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'coeff'</span><span class="p">],</span> <span class="n">qso_wavelength</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">'z'</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tmpl_model_flux</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">qso_hiz</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'coeff'</span><span class="p">],</span> <span class="n">qso_wavelength</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">'z'</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="Comparison-plot">Comparison plot<a class="anchor-link" href="#Comparison-plot">¶</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">spectrum_index</span> <span class="o">=</span> <span class="mi">12</span>  <span class="c1"># Step through spectra here.</span>
+<span class="n">pl0</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">qso_wavelength</span><span class="p">,</span> <span class="n">qso_flux</span><span class="p">[</span><span class="n">spectrum_index</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">'k-'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'SPARCL flux'</span><span class="p">)</span>
+<span class="n">pl1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">qso_wavelength</span><span class="p">,</span> <span class="n">qso_model_flux</span><span class="p">[</span><span class="n">spectrum_index</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">'r-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'SPARCL model'</span><span class="p">)</span>
+<span class="n">pl2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">qso_wavelength</span><span class="p">,</span> <span class="n">tmpl_model_flux</span><span class="p">[</span><span class="n">spectrum_index</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">'b-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Redrock model'</span><span class="p">)</span>
+<span class="n">txt</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Wavelength [Å]'</span><span class="p">)</span>
+<span class="n">txt</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'Flux [$10^{-17} \mathrm</span><span class="si">{erg}</span><span class="s1"> \, \mathrm</span><span class="si">{cm}</span><span class="s1">^{-2} \mathrm</span><span class="si">{s}</span><span class="s1">^{-1} \mathrm{\AA}^{-1}$]'</span><span class="p">)</span>
+<span class="n">txt</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"TARGETID=</span><span class="si">{</span><span class="n">desi_qso_ids</span><span class="p">[</span><span class="n">spectrum_index</span><span class="p">][</span><span class="s1">'targetid'</span><span class="p">]</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">; Z=</span><span class="si">{</span><span class="n">desi_qso_ids</span><span class="p">[</span><span class="n">spectrum_index</span><span class="p">][</span><span class="s1">'z'</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">; SPECTYPE=</span><span class="si">{</span><span class="n">desi_qso_ids</span><span class="p">[</span><span class="n">spectrum_index</span><span class="p">][</span><span class="s1">'spectype'</span><span class="p">]</span><span class="si">}</span><span class="s2">; SUBTYPE=</span><span class="si">{</span><span class="n">desi_qso_ids</span><span class="p">[</span><span class="n">spectrum_index</span><span class="p">][</span><span class="s1">'subtype'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -8401,6 +8796,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>QA</strong>: Did we really find all of the expected spectra? Note that we have to assume <code>specid == specobjid</code>.</p>
+<p>Side effect: this also sorts the returned records to match the order of the inputs.</p>
 </div>
 </div>
 </div>
@@ -8412,10 +8808,10 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">sdss_specids_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">specid</span><span class="p">)</span>
-<span class="k">assert</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">specid</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">sdss_specids_sorted</span><span class="p">])</span> <span class="o">==</span> <span class="n">sdss_ids</span><span class="p">[</span><span class="s1">'specobjid'</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-<span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">plate</span> <span class="o">==</span> <span class="mi">2955</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">])</span>
-<span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">mjd</span> <span class="o">==</span> <span class="mi">54562</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">])</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">sdss_records</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">specid</span><span class="p">)</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">specid</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">sdss_records</span><span class="p">])</span> <span class="o">==</span> <span class="n">sdss_ids</span><span class="p">[</span><span class="s1">'specobjid'</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">plate</span> <span class="o">==</span> <span class="mi">2955</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">sdss_records</span><span class="p">])</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">mjd</span> <span class="o">==</span> <span class="mi">54562</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">sdss_records</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -8440,7 +8836,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="nb">all</span><span class="p">([(</span><span class="n">r</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">==</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">])</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="nb">all</span><span class="p">([(</span><span class="n">r</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">==</span> <span class="n">sdss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">sdss_records</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -8465,12 +8861,12 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">sdss_fully_masked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">sdss_fully_masked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_records</span><span class="p">),</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">)):</span>
-    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_records</span><span class="p">)):</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">sdss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">sdss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">sdss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING: Spectrum record </span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2"> is fully masked!"</span><span class="p">)</span>
         <span class="n">sdss_fully_masked</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
@@ -8508,7 +8904,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">sdss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -8543,23 +8939,23 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                <span class="n">dtype</span><span class="o">=</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<span class="n">uncertainty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                       <span class="n">dtype</span><span class="o">=</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                <span class="n">dtype</span><span class="o">=</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_records</span><span class="p">),</span> <span class="n">sdss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">sdss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">uncertainty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_records</span><span class="p">),</span> <span class="n">sdss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                       <span class="n">dtype</span><span class="o">=</span><span class="n">sdss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_records</span><span class="p">),</span> <span class="n">sdss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">sdss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
 <span class="n">meta</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'sparcl_id'</span><span class="p">:</span> <span class="nb">list</span><span class="p">(),</span> <span class="s1">'data_release'</span><span class="p">:</span> <span class="nb">list</span><span class="p">()}</span>
 <span class="n">sparcl_id</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 <span class="n">data_release</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">)):</span>
-    <span class="n">flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span>
-    <span class="n">uncertainty</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span>
-    <span class="n">mask</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span>
-    <span class="n">meta</span><span class="p">[</span><span class="s1">'sparcl_id'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">sparcl_id</span><span class="p">)</span>
-    <span class="n">meta</span><span class="p">[</span><span class="s1">'data_release'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">data_release</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_records</span><span class="p">)):</span>
+    <span class="n">flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">sdss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span>
+    <span class="n">uncertainty</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">sdss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span>
+    <span class="n">mask</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">sdss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span>
+    <span class="n">meta</span><span class="p">[</span><span class="s1">'sparcl_id'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sdss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">sparcl_id</span><span class="p">)</span>
+    <span class="n">meta</span><span class="p">[</span><span class="s1">'data_release'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sdss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">data_release</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8584,12 +8980,14 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'objid'</span><span class="p">,</span> <span class="s1">'ra'</span><span class="p">,</span> <span class="s1">'dec'</span><span class="p">,</span> <span class="s1">'u'</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="s1">'i'</span><span class="p">,</span> <span class="s1">'z'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'z.specobjid'</span><span class="p">,</span> <span class="s1">'p.objid'</span><span class="p">,</span> <span class="s1">'p.ra'</span><span class="p">,</span> <span class="s1">'p.dec'</span><span class="p">,</span> <span class="s1">'p.u'</span><span class="p">,</span> <span class="s1">'p.g'</span><span class="p">,</span> <span class="s1">'p.r'</span><span class="p">,</span> <span class="s1">'p.i'</span><span class="p">,</span> <span class="s1">'p.z'</span><span class="p">)</span>
 <span class="n">q</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">SELECT </span><span class="si">{0}</span>
-<span class="s2">FROM sdss_dr16.photoplate</span>
-<span class="s2">WHERE objid IN (</span><span class="si">{1}</span><span class="s2">)</span>
-<span class="s2">ORDER BY objid</span>
+<span class="s2">FROM sdss_dr16.specobj AS z</span>
+<span class="s2">JOIN sdss_dr16.photoplate AS p</span>
+<span class="s2">ON z.bestobjid = p.objid</span>
+<span class="s2">WHERE p.objid IN (</span><span class="si">{1}</span><span class="s2">)</span>
+<span class="s2">ORDER BY z.specobjid</span>
 <span class="s2">"""</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">columns</span><span class="p">),</span> <span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">sdss_ids</span><span class="p">[</span><span class="s1">'bestobjid'</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]))</span>
 
 <span class="n">plugmap</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">'table'</span><span class="p">)</span>
@@ -8639,7 +9037,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="p">(</span><span class="n">plugmap</span><span class="p">[</span><span class="s1">'OBJID'</span><span class="p">]</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">sdss_ids</span><span class="p">[</span><span class="s1">'bestobjid'</span><span class="p">]))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="p">(</span><span class="n">plugmap</span><span class="p">[</span><span class="s1">'OBJID'</span><span class="p">]</span> <span class="o">==</span> <span class="n">sdss_ids</span><span class="p">[</span><span class="s1">'bestobjid'</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -8665,7 +9063,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">sdss_prospect</span> <span class="o">=</span> <span class="n">Spectrum1D</span><span class="p">(</span><span class="n">flux</span><span class="o">=</span><span class="n">flux</span><span class="p">[</span><span class="o">~</span><span class="n">sdss_fully_masked</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">'1e-17 erg / (Angstrom cm2 s)'</span><span class="p">),</span>
-                           <span class="n">spectral_axis</span><span class="o">=</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">'Angstrom'</span><span class="p">),</span>
+                           <span class="n">spectral_axis</span><span class="o">=</span><span class="n">sdss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">'Angstrom'</span><span class="p">),</span>
                            <span class="n">uncertainty</span><span class="o">=</span><span class="n">InverseVariance</span><span class="p">(</span><span class="n">uncertainty</span><span class="p">[</span><span class="o">~</span><span class="n">sdss_fully_masked</span><span class="p">,</span> <span class="p">:]),</span>
                            <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">[</span><span class="o">~</span><span class="n">sdss_fully_masked</span><span class="p">,</span> <span class="p">:]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span>
                            <span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">)</span>
@@ -8724,13 +9122,13 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">model_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                      <span class="n">dtype</span><span class="o">=</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">model_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_records</span><span class="p">),</span> <span class="n">sdss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                      <span class="n">dtype</span><span class="o">=</span><span class="n">sdss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">)):</span>
-        <span class="n">model_flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">model</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sdss_records</span><span class="p">)):</span>
+        <span class="n">model_flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">sdss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">model</span>
 
-<span class="n">sdss_model</span> <span class="o">=</span> <span class="p">(</span><span class="n">sdss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">model_flux</span><span class="p">[</span><span class="o">~</span><span class="n">sdss_fully_masked</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">sdss_model</span> <span class="o">=</span> <span class="p">(</span><span class="n">sdss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">model_flux</span><span class="p">[</span><span class="o">~</span><span class="n">sdss_fully_masked</span><span class="p">,</span> <span class="p">:])</span>
 </pre></div>
 </div>
 </div>
@@ -8884,6 +9282,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>QA</strong>: Did we really find all of the expected spectra?</p>
+<p>Side effect: this also sorts the returned records to match the order of the inputs.</p>
 </div>
 </div>
 </div>
@@ -8895,10 +9294,10 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">boss_specids_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">specid</span><span class="p">)</span>
-<span class="k">assert</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">specid</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">boss_specids_sorted</span><span class="p">])</span> <span class="o">==</span> <span class="n">boss_ids</span><span class="p">[</span><span class="s1">'specobjid'</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-<span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">plate</span> <span class="o">==</span> <span class="mi">9599</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">])</span>
-<span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">mjd</span> <span class="o">==</span> <span class="mi">58131</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">])</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">boss_records</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">specid</span><span class="p">)</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">specid</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">boss_records</span><span class="p">])</span> <span class="o">==</span> <span class="n">boss_ids</span><span class="p">[</span><span class="s1">'specobjid'</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">plate</span> <span class="o">==</span> <span class="mi">9599</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">boss_records</span><span class="p">])</span>
+<span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">mjd</span> <span class="o">==</span> <span class="mi">58131</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">boss_records</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -8923,7 +9322,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="nb">all</span><span class="p">([(</span><span class="n">r</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">==</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">])</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="nb">all</span><span class="p">([(</span><span class="n">r</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">==</span> <span class="n">boss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">boss_records</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -8948,12 +9347,12 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">boss_fully_masked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">boss_fully_masked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_records</span><span class="p">),</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">)):</span>
-    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_records</span><span class="p">)):</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">boss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">boss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">boss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING: Spectrum record </span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2"> is fully masked!"</span><span class="p">)</span>
         <span class="n">boss_fully_masked</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
@@ -8980,7 +9379,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">boss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -9015,23 +9414,23 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                <span class="n">dtype</span><span class="o">=</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<span class="n">uncertainty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                       <span class="n">dtype</span><span class="o">=</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                <span class="n">dtype</span><span class="o">=</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_records</span><span class="p">),</span> <span class="n">boss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">boss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">uncertainty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_records</span><span class="p">),</span> <span class="n">boss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                       <span class="n">dtype</span><span class="o">=</span><span class="n">boss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_records</span><span class="p">),</span> <span class="n">boss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">boss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
 <span class="n">meta</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'sparcl_id'</span><span class="p">:</span> <span class="nb">list</span><span class="p">(),</span> <span class="s1">'data_release'</span><span class="p">:</span> <span class="nb">list</span><span class="p">()}</span>
 <span class="n">sparcl_id</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 <span class="n">data_release</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">)):</span>
-    <span class="n">flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span>
-    <span class="n">uncertainty</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span>
-    <span class="n">mask</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span>
-    <span class="n">meta</span><span class="p">[</span><span class="s1">'sparcl_id'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">sparcl_id</span><span class="p">)</span>
-    <span class="n">meta</span><span class="p">[</span><span class="s1">'data_release'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">data_release</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_records</span><span class="p">)):</span>
+    <span class="n">flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">boss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span>
+    <span class="n">uncertainty</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">boss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">ivar</span>
+    <span class="n">mask</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">boss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span>
+    <span class="n">meta</span><span class="p">[</span><span class="s1">'sparcl_id'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">sparcl_id</span><span class="p">)</span>
+    <span class="n">meta</span><span class="p">[</span><span class="s1">'data_release'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">boss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">data_release</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9056,12 +9455,14 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'objid'</span><span class="p">,</span> <span class="s1">'ra'</span><span class="p">,</span> <span class="s1">'dec'</span><span class="p">,</span> <span class="s1">'u'</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="s1">'i'</span><span class="p">,</span> <span class="s1">'z'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'z.specobjid'</span><span class="p">,</span> <span class="s1">'p.objid'</span><span class="p">,</span> <span class="s1">'p.ra'</span><span class="p">,</span> <span class="s1">'p.dec'</span><span class="p">,</span> <span class="s1">'p.u'</span><span class="p">,</span> <span class="s1">'p.g'</span><span class="p">,</span> <span class="s1">'p.r'</span><span class="p">,</span> <span class="s1">'p.i'</span><span class="p">,</span> <span class="s1">'p.z'</span><span class="p">)</span>
 <span class="n">q</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">SELECT </span><span class="si">{0}</span>
-<span class="s2">FROM sdss_dr16.photoplate</span>
-<span class="s2">WHERE objid IN (</span><span class="si">{1}</span><span class="s2">)</span>
-<span class="s2">ORDER BY objid</span>
+<span class="s2">FROM sdss_dr16.specobj AS z</span>
+<span class="s2">JOIN sdss_dr16.photoplate AS p</span>
+<span class="s2">ON z.bestobjid = p.objid</span>
+<span class="s2">WHERE p.objid IN (</span><span class="si">{1}</span><span class="s2">)</span>
+<span class="s2">ORDER BY z.specobjid</span>
 <span class="s2">"""</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">columns</span><span class="p">),</span> <span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">boss_ids</span><span class="p">[</span><span class="s1">'bestobjid'</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]))</span>
 
 <span class="n">plugmap</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">sql</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">'table'</span><span class="p">)</span>
@@ -9113,7 +9514,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="p">(</span><span class="n">plugmap</span><span class="p">[</span><span class="s1">'OBJID'</span><span class="p">]</span> <span class="o">==</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">boss_ids</span><span class="p">[</span><span class="s1">'bestobjid'</span><span class="p">]))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="p">(</span><span class="n">plugmap</span><span class="p">[</span><span class="s1">'OBJID'</span><span class="p">]</span> <span class="o">==</span> <span class="n">boss_ids</span><span class="p">[</span><span class="s1">'bestobjid'</span><span class="p">])</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -9139,7 +9540,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">boss_prospect</span> <span class="o">=</span> <span class="n">Spectrum1D</span><span class="p">(</span><span class="n">flux</span><span class="o">=</span><span class="n">flux</span><span class="p">[</span><span class="o">~</span><span class="n">boss_fully_masked</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">'1e-17 erg / (Angstrom cm2 s)'</span><span class="p">),</span>
-                           <span class="n">spectral_axis</span><span class="o">=</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">'Angstrom'</span><span class="p">),</span>
+                           <span class="n">spectral_axis</span><span class="o">=</span><span class="n">boss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">'Angstrom'</span><span class="p">),</span>
                            <span class="n">uncertainty</span><span class="o">=</span><span class="n">InverseVariance</span><span class="p">(</span><span class="n">uncertainty</span><span class="p">[</span><span class="o">~</span><span class="n">boss_fully_masked</span><span class="p">,</span> <span class="p">:]),</span>
                            <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">[</span><span class="o">~</span><span class="n">boss_fully_masked</span><span class="p">,</span> <span class="p">:]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span>
                            <span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">)</span>
@@ -9198,13 +9599,13 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">model_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">),</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                      <span class="n">dtype</span><span class="o">=</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">model_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_records</span><span class="p">),</span> <span class="n">boss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                      <span class="n">dtype</span><span class="o">=</span><span class="n">boss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">)):</span>
-        <span class="n">model_flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">model</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">boss_records</span><span class="p">)):</span>
+        <span class="n">model_flux</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">boss_records</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">model</span>
 
-<span class="n">boss_model</span> <span class="o">=</span> <span class="p">(</span><span class="n">boss_spectra</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">model_flux</span><span class="p">[</span><span class="o">~</span><span class="n">boss_fully_masked</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">boss_model</span> <span class="o">=</span> <span class="p">(</span><span class="n">boss_records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">model_flux</span><span class="p">[</span><span class="o">~</span><span class="n">boss_fully_masked</span><span class="p">,</span> <span class="p">:])</span>
 </pre></div>
 </div>
 </div>
@@ -9239,20 +9640,6 @@ a.anchor-link {
             <span class="n">mask_type</span><span class="o">=</span><span class="s1">'EBOSS_TARGET1'</span><span class="p">,</span>
             <span class="n">model_from_zcat</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">model</span><span class="o">=</span><span class="n">boss_model</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>
