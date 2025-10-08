@@ -31,7 +31,6 @@ nbid,notebook
 0029,03_ScienceExamples/StarGalQSOSeparation/StarGalQsoDESDR1.ipynb
 0030,03_ScienceExamples/StarGalQSOSeparation/StarGalQsoLSDR9.ipynb
 0031,03_ScienceExamples/StarGalQSOSeparation/StarGalQsoLSDR9_master.ipynb
-0031,03_ScienceExamples/TimeSeriesAnalysisRrLyraeStar/TimeSeriesAnalysisOfRrLyraeStar.ipynb
 0032,03_ScienceExamples/WhiteDwarfs/HypervelocityWhiteDwarfCandidatesInGaiaDR3.ipynb
 0033,04_HowTos/AuthClient/How_to_use_the_Data_Lab_AuthClient.ipynb
 0034,04_HowTos/CrossmatchTables/Examples_using_pre_crossmatched_tables.ipynb
@@ -76,3 +75,5 @@ nbid,notebook
 0073,04_HowTos/QueryClient/How_to_query_DESI_DR1_Data.ipynb
 0074,03_ScienceExamples/DESI/01_Intro_to_DESI_DR1.ipynb
 0075,04_HowTos/DataReduction/DRAGONS_reduction_examples/GNIRS_longslit_Bestar.ipynb
+0076,03_ScienceExamples/TimeSeriesAnalysisRrLyraeStar/TimeSeriesAnalysisOfRrLyraeStar.ipynb
+0077,03_ScienceExamples/DESI/03_DESI_AGNQSO_VAC_tutorial.ipynb
