@@ -7763,7 +7763,7 @@ a.anchor-link {
 <p><a class="anchor" id="bitmask"></a></p>
 <h3 id="Create-a-function-to-decode-the-bitmasks">Create a function to decode the bitmasks<a class="anchor-link" href="#Create-a-function-to-decode-the-bitmasks">¶</a></h3><p>AGN diagnostic types are stored in ints, which can be broken up into sums of powers of 2: 1+2+8+...
 Each of these powers of 2 corresponds to a different identified type by a different diagnostic.
-A BPT identified AGN, for example, corresponds to 2^11 so any object that has 2$^{11}$ in its powers of 2 summation for the 'agn_maskbits' column is flagged as some sort of AGN by at least 1 BPT diagnostic.
+A BPT identified AGN, for example, corresponds to 2$^{11}$ so any object that has 2$^{11}$ in its powers of 2 summation for the 'agn_maskbits' column is flagged as some sort of AGN by at least 1 BPT diagnostic.
 The function below just holds that kind of information in memory as three separate bitmasks that we can later directly apply to a queried sample of galaxies.</p>
 </div>
 </div>
@@ -9296,7 +9296,7 @@ The function below just holds that kind of information in memory as three separa
 
 <span class="c1"># Set labels</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'log( M$_{*}$/M$_{☉}$ )'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'log( \[OIII\]/H$</span><span class="se">\\</span><span class="s1">beta$)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'log( [OIII]/H$</span><span class="se">\\</span><span class="s1">beta$)'</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -9439,7 +9439,7 @@ The function below just holds that kind of information in memory as three separa
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="wise"></a></p>
 <h4 id="6)-WISE-colors">6) WISE colors<a class="anchor-link" href="#6)-WISE-colors">¶</a></h4><p>WISE mid-infrared (MIR) magnitudes are a well-documented and developed diagnostic for selecting for AGN and Star-forming galaxies; red colors and bright photometry can both indicate AGN presence. Diagnostics use various combinations of the four available bands: W1 (3.4 $\mu$m), W2 (4.6 $\mu$m), W3 (12 $\mu$m), and W4 (22 $\mu$m). W4 is relatively shallow compared to the other bands so most diagnostics make use of W1, W2, W3. These generally assume that the observed MIR is tracing emission from the dusty torus, therefore may be less reliable at higher redshifts where this isn't the case.</p>
-<p>6 Sets of WISE diagnostic flags are available for DESI-DR1 data, corresponding to:</p>
+<p>Six sets of WISE diagnostic flags are available for DESI-DR1 data, corresponding to:</p>
 <ul>
 <li><a href="https://ui.adsabs.harvard.edu/abs/2011ApJ...735..112J/abstract">Jarrett et al. (2011)</a></li>
 <li><a href="https://ui.adsabs.harvard.edu/abs/2012ApJ...753...30S/abstract">Stern et al. (2012)</a></li>
