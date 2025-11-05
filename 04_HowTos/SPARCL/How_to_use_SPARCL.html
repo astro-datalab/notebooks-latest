@@ -7520,8 +7520,8 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0051'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Alice Jacques &lt;alice.jacques@noirlab.edu&gt;, Steve Pothier &lt;steve.pothier@noirlab.edu&gt;, Adam Bolton &lt;adam.bolton@slac.stanford.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20250318'</span> <span class="c1"># yyyymmdd</span>
-<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'boss_dr16'</span><span class="p">,</span> <span class="s1">'desi_dr1'</span><span class="p">,</span> <span class="s1">'desi_edr'</span><span class="p">,</span> <span class="s1">'sdss_dr16'</span><span class="p">]</span>  
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20251105'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'boss_dr17'</span><span class="p">,</span> <span class="s1">'desi_dr1'</span><span class="p">,</span> <span class="s1">'desi_edr'</span><span class="p">,</span> <span class="s1">'sdss_dr17'</span><span class="p">]</span>  
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl'</span><span class="p">,</span> <span class="s1">'spectroscopy'</span><span class="p">,</span> <span class="s1">'HowTo'</span><span class="p">,</span> <span class="s1">'sdss spectra'</span><span class="p">,</span> <span class="s1">'desi spectra'</span><span class="p">,</span> <span class="s1">'tutorial'</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -7565,6 +7565,7 @@ a.anchor-link {
 <li><a href="#convert">Convert retrieved output to Pandas DataFrame or Spectrum1D object</a></li>
 <li><a href="#plot">Plot spectra</a></li>
 <li><a href="#missing">Use <tt>client.missing()</tt> to find missing IDs in the SPARCL database</a></li>
+<li><a href="#missing_specids">Use <tt>client.missing_specids()</tt> to find missing SPARCL SpecIDs in the SPARCL database</a></li>
 </ul>
 </div>
 </div>
@@ -7579,7 +7580,7 @@ a.anchor-link {
 <p><a class="anchor" id="goalssummary"></a></p>
 <h2 id="Goals-&amp;-Summary">Goals &amp; Summary<a class="anchor-link" href="#Goals-&amp;-Summary">¶</a></h2><p>SPARCL (SPectra Analysis and Retrievable Catalog Lab) is an online service for discovery and retrieval of one-dimensional optical-infrared spectra (<a href="https://doi.org/10.48550/arXiv.2401.05576">Juneau et al. 2024</a>). SPARCL is designed to work for large survey datasets containing many millions of spectra, and to provide access to multiple different data sets through common methods. For more information, see the <a href="https://astrosparcl.datalab.noirlab.edu/static/SPARCLUserManual.pdf">SPARCL User Guide</a>.</p>
 <p>This notebook provides a basic introduction to using the SPARCL client (or sparclclient) to find and retrieve spectroscopic data within a Python notebook context. The sparclclient connects to the SPARCL server at <a href="https://noirlab.edu/public/">NSF NOIRLab</a> and provides access to the contents of the SPARCL database.</p>
-<p>To see the current data sets and number of spectra available in the SPARCL database, please visit the <a href="https://astrosparcl.datalab.noirlab.edu/sparc/">SPARCL summary page</a>.</p>
+<p>To see the current data sets and number of spectra available in the SPARCL database, please visit the <a href="https://astrosparcl.datalab.noirlab.edu/">SPARCL summary page</a>.</p>
 <p>To get the latest sparclclient documentation, visit the <a href="https://sparclclient.readthedocs.io/en/latest/">sparclclient readthedocs site</a>.</p>
 <p>Feedback on SPARCL (questions, comments, science use cases, feature requests, bug reports, confusing error messages, etc.) can be submitted to datalab-spectro@noirlab.edu. For bug reports and confusing error messages, it's helpful if you include: a log of <em>what you did</em>, <em>the result you got</em>, and <em>the result you expected</em>.</p>
 <p>See our science use-case notebooks that use SPARCL:</p>
@@ -7588,6 +7589,7 @@ a.anchor-link {
 <li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/DESI/02_DESI_SDSS_Comparison.ipynb">Comparing SDSS and DESI spectra using SPARCL</a></li>
 <li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/EmLineGalaxies/01_EmLineGalaxies_SpectraStack.ipynb">Stacking SDSS Spectra of Galaxies Selected from the BPT Diagram</a></li>
 <li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/EmLineGalaxies/02_EmLineGalaxies_Outliers.ipynb">Multi-wavelength Image Cutouts and SDSS Spectra of Active Galaxies with Extreme Emission-Line Ratios</a></li>
+<li><a href="https://github.com/astro-datalab/notebooks-latest/blob/master/03_ScienceExamples/LargeScaleStructure/LargeScaleStructureSdssCosmicSlime.ipynb">SDSS/BOSS Large Scale Structure and Cosmic Slime Catalog</a></li>
 </ul>
 <p>And our other How-To notebooks that use SPARCL:</p>
 <ul>
@@ -7605,7 +7607,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="attribution"></a></p>
-<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">¶</a></h1><h2 id="Disclaimers">Disclaimers<a class="anchor-link" href="#Disclaimers">¶</a></h2><p>Note that using the Astro Data Lab constitutes your agreement with our minimal <a href="https://datalab.noirlab.edu/disclaimers.php">Disclaimers</a>.</p>
+<h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">¶</a></h1><h2 id="Disclaimers">Disclaimers<a class="anchor-link" href="#Disclaimers">¶</a></h2><p>Note that using the Astro Data Lab constitutes your agreement with our minimal <a href="https://datalab.noirlab.edu/about/disclaimers">Disclaimers</a>.</p>
 <h2 id="Acknowledgments">Acknowledgments<a class="anchor-link" href="#Acknowledgments">¶</a></h2><p>If you use <strong>Astro Data Lab</strong> in your published research, please include the text in your paper's Acknowledgments section:</p>
 <p><em>This research uses services or data provided by the Astro Data Lab, which is part of the Community Science and Data Center (CSDC) Program of NSF NOIRLab. NOIRLab is operated by the Association of Universities for Research in Astronomy (AURA), Inc. under a cooperative agreement with the U.S. National Science Foundation.</em></p>
 <p>If you use <strong>SPARCL jointly with the Astro Data Lab platform</strong> (via JupyterLab, command-line, or web interface) in your published research, please include this text below in your paper's Acknowledgments section:</p>
@@ -7676,7 +7678,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># SPARCL imports</span>
@@ -7749,7 +7751,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">SparclClient</span><span class="p">()</span>
@@ -7763,10 +7765,17 @@ a.anchor-link {
 <div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>announcement=Data set deprecation warning: SDSS/BOSS DR16 will be replaced with SDSS/BOSS DR17 starting on or after November 1, 2025
+</pre>
+</div>
+</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(sparclclient:1.2.4, api:12.0, https://astrosparcl.datalab.noirlab.edu/sparc, client_hash=c2d5e218a26c43f503d93ab8d1d005aa46a58964, verbose=False, connect_timeout=1.1, read_timeout=5400.0)</pre>
+<pre>(sparclclient:1.2.6, api:12.0, https://astrosparcl.datalab.noirlab.edu/sparc, client_hash=, verbose=False, connect_timeout=1.1, read_timeout=5400.0, announcement=True)</pre>
 </div>
 </div>
 </div>
@@ -7812,16 +7821,29 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=944b18e6-3d8b-4239-9514-89103da393fa">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=944b18e6-3d8b-4239-9514-89103da393fa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">authorized</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>{'Loggedin_As': 'Anonymous',
+ 'Authorized_Datasets': {'BOSS-DR16', 'DESI-DR1', 'DESI-EDR', 'SDSS-DR16'}}</pre>
 </div>
 </div>
 </div>
@@ -7843,7 +7865,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">all_datasets</span>
@@ -7857,7 +7879,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>{'BOSS-DR16',
  'BOSS-DR17',
@@ -7887,7 +7909,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>client.get_default_fields<span class="o">?</span>
@@ -7910,10 +7932,10 @@ These are the fields used for the DEFAULT value of the include
 parameter of client.retrieve().
 
 Args:
-    dataset_list (:obj:`list`, optional): List of data sets from
-        which to get the default fields. Defaults to None, which
-        will return the intersection of default fields in all
-        data sets hosted on the SPARCL database.
+    dataset_list (:obj:`list` of :obj:`str`, optional): List of
+        data sets from which to get the default fields. Defaults
+        to None, which will return the intersection of default
+        fields in all data sets hosted on the SPARCL database.
 
 Returns:
     List of fields tagged as 'default' from DATASET_LIST.
@@ -7933,7 +7955,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">get_default_fields</span><span class="p">()</span>
@@ -7947,7 +7969,7 @@ Example:
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>['dec', 'flux', 'ra', 'sparcl_id', 'specid', 'wavelength']</pre>
 </div>
@@ -7971,7 +7993,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>client.get_all_fields<span class="o">?</span>
@@ -7994,10 +8016,10 @@ These are the fields used for the ALL value of the include parameter
 of client.retrieve().
 
 Args:
-    dataset_list (:obj:`list`, optional): List of data sets from
-        which to get all fields. Defaults to None, which
-        will return the intersection of all fields in all
-        data sets hosted on the SPARCL database.
+    dataset_list (:obj:`list` of :obj:`str`, optional): List of data
+        sets from which to get all fields. Defaults to None, which
+        will return the intersection of all fields in all data sets
+        hosted on the SPARCL database.
 
 Returns:
     List of fields tagged as 'all' from DATASET_LIST.
@@ -8017,7 +8039,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">()))</span>
@@ -8044,10 +8066,10 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'SDSS-DR16'</span><span class="p">,</span> <span class="s1">'BOSS-DR16'</span><span class="p">])))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'SDSS-DR17'</span><span class="p">,</span> <span class="s1">'BOSS-DR17'</span><span class="p">])))</span>
 </pre></div>
 </div>
 </div>
@@ -8071,7 +8093,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'DESI-DR1'</span><span class="p">])))</span>
@@ -8113,7 +8135,7 @@ Example:
 <tbody>
 </tbody>
 </table>
-<p>| data_release     | List of allowed values<br/>from <a href="https://astrosparcl.datalab.noirlab.edu/sparc/cats/">SPARCL Categoricals</a> | ['DESI-EDR', 'BOSS-DR16', 'SDSS-DR16']
+<p>| data_release     | List of allowed values<br/>from <a href="https://astrosparcl.datalab.noirlab.edu/sparc/cats/">SPARCL Categoricals</a> | ['DESI-DR1', 'BOSS-DR17', 'SDSS-DR17']
 | datasetgroup     | List of allowed values<br/>from <a href="https://astrosparcl.datalab.noirlab.edu/sparc/cats/">SPARCL Categoricals</a> | ['DESI', 'SDSS_BOSS']
 | dateobs_center   | Range of values | ['2013-03-14T10:16:17Z',<br/>'2014-05-24T12:10:00Z']
 | dec              | Range of values | [2.03, 7.76]
@@ -8223,13 +8245,13 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl_id'</span><span class="p">,</span> <span class="s1">'ra'</span><span class="p">,</span> <span class="s1">'dec'</span><span class="p">,</span> <span class="s1">'redshift'</span><span class="p">,</span> <span class="s1">'spectype'</span><span class="p">,</span> <span class="s1">'data_release'</span><span class="p">,</span> <span class="s1">'redshift_err'</span><span class="p">]</span>
 <span class="n">cons</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'spectype'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'GALAXY'</span><span class="p">],</span>
         <span class="s1">'redshift'</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span>
-        <span class="s1">'data_release'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'DESI-DR1'</span><span class="p">,</span> <span class="s1">'SDSS-DR16'</span><span class="p">,</span> <span class="s1">'BOSS-DR16'</span><span class="p">]}</span>
+        <span class="s1">'data_release'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'DESI-DR1'</span><span class="p">,</span> <span class="s1">'SDSS-DR17'</span><span class="p">,</span> <span class="s1">'BOSS-DR17'</span><span class="p">]}</span>
 </pre></div>
 </div>
 </div>
@@ -8251,7 +8273,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">found_I</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">outfields</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="n">cons</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
@@ -8267,28 +8289,28 @@ Example:
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>['000003e8-8a05-11ef-a71d-525400f334e1, DESI-DR1, 60.007777, 0.782049, 0.000012',
  '00000411-8603-11ef-a5eb-525400f334e1, DESI-DR1, 209.980362, 0.642873, 0.000077',
- '00000f02-a2dc-11ee-ac91-525400ad1336, BOSS-DR16, 230.697100, 0.522124, 0.000107',
  '00001191-8bdd-11ef-b09e-525400f334e1, DESI-DR1, 125.558443, 0.839844, 0.000140',
+ '000015b7-24e6-11f0-8b32-525400f334e1, BOSS-DR17, 193.358250, 0.804459, 0.000023',
  '0000187f-8bde-11ef-9bec-525400f334e1, DESI-DR1, 124.402481, 0.871175, 0.000003',
  '000019a8-8669-11ef-a9c4-525400f334e1, DESI-DR1, 199.708772, 0.740890, 0.000229',
- '00001b3a-a41b-11ee-8210-525400ad1336, BOSS-DR16, 9.635124, 0.542893, 0.000181',
  '00001cb5-87ee-11ef-bcb3-525400f334e1, DESI-DR1, 198.183387, 0.787802, 0.000003',
  '00001fc6-85f3-11ef-ba36-525400f334e1, DESI-DR1, 224.281279, 0.548497, 0.000099',
  '000021bf-88ae-11ef-a6c2-525400f334e1, DESI-DR1, 339.684280, 0.774977, 0.000302',
  '00002380-8a7c-11ef-9881-525400f334e1, DESI-DR1, 121.999478, 0.808449, 0.000036',
  '00002da0-8b8d-11ef-ba9d-525400f334e1, DESI-DR1, 32.640943, 0.688018, 0.000130',
  '00002f25-8613-11ef-ad4e-525400f334e1, DESI-DR1, 203.452070, 0.856671, 0.000025',
- '0000321e-a4a9-11ee-bde8-525400ad1336, BOSS-DR16, 228.064370, 0.631113, 0.000165',
  '000038b4-8786-11ef-a3b2-525400f334e1, DESI-DR1, 162.411482, 0.763255, 0.000130',
+ '00003da6-24c3-11f0-a492-525400f334e1, BOSS-DR17, 210.077830, 0.672948, 0.000336',
  '00004072-8b77-11ef-b0fa-525400f334e1, DESI-DR1, 38.812972, 0.520902, 0.000074',
- '000041af-a296-11ee-9b05-525400ad1336, BOSS-DR16, 203.071870, 0.572525, 0.000165',
- '00004954-a46e-11ee-b0bd-525400ad1336, BOSS-DR16, 143.997260, 0.833832, 0.000309',
  '00004a45-8810-11ef-992f-525400f334e1, DESI-DR1, 123.011984, 0.820051, 0.000028',
- '00004bbf-a42c-11ee-9dd6-525400ad1336, BOSS-DR16, 6.668670, 0.754319, 0.000283']</pre>
+ '00004cfe-86b0-11ef-ba4c-525400f334e1, DESI-DR1, 37.201769, 0.523393, 0.000107',
+ '00004d47-8782-11ef-9ee6-525400f334e1, DESI-DR1, 162.651860, 0.516051, 0.000082',
+ '00004de7-8956-11ef-aaf1-525400f334e1, DESI-DR1, 272.363778, 0.557947, 0.000089',
+ '000050e3-86bb-11ef-9e75-525400f334e1, DESI-DR1, 248.765344, 0.764676, 0.000039']</pre>
 </div>
 </div>
 </div>
@@ -8310,7 +8332,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">schema</span><span class="p">(</span><span class="s1">'sparcl.main'</span><span class="p">))</span>
@@ -8386,7 +8408,7 @@ redshift_warning   Bitmask with warning on redshift result
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">"""SELECT </span>
@@ -8411,7 +8433,7 @@ redshift_warning   Bitmask with warning on redshift result
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8444,223 +8466,223 @@ redshift_warning   Bitmask with warning on redshift result
 <tbody>
 <tr>
 <th>0</th>
-<td>9a5016c0-a1db-11ee-b15c-525400ad1336</td>
-<td>6802933904984788992</td>
-<td>238.053390</td>
-<td>43.941233</td>
-<td>0.615950</td>
+<td>b6f7b4f7-8b47-11ef-83b4-525400f334e1</td>
+<td>39627624225446116</td>
+<td>137.253175</td>
+<td>-6.684643</td>
+<td>0.783179</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000154</td>
+<td>DESI-DR1</td>
+<td>0.000023</td>
 </tr>
 <tr>
 <th>1</th>
-<td>414c359e-9d07-11ee-9b9b-525400ad1336</td>
-<td>39633149608592885</td>
-<td>237.243397</td>
-<td>44.080806</td>
-<td>0.618849</td>
+<td>597db022-9cec-11ee-9e16-525400ad1336</td>
+<td>39633267653085655</td>
+<td>214.101078</td>
+<td>51.324317</td>
+<td>0.621636</td>
 <td>GALAXY</td>
 <td>DESI-EDR</td>
-<td>0.000064</td>
+<td>0.000020</td>
 </tr>
 <tr>
 <th>2</th>
-<td>c1156072-a1cb-11ee-953a-525400ad1336</td>
-<td>6767971084522508288</td>
-<td>211.972990</td>
-<td>28.694906</td>
-<td>0.548824</td>
+<td>e7487b54-24f2-11f0-8426-525400f334e1</td>
+<td>-8144600636850939904</td>
+<td>339.680660</td>
+<td>-0.602220</td>
+<td>0.649597</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000149</td>
+<td>BOSS-DR17</td>
+<td>0.000309</td>
 </tr>
 <tr>
 <th>3</th>
-<td>911ab2b7-9f3e-11ee-a597-525400ad1336</td>
-<td>1426690603265058816</td>
-<td>128.166450</td>
-<td>28.023924</td>
-<td>0.633630</td>
+<td>0e4b9825-2491-11f0-80da-525400f334e1</td>
+<td>6607961355701213184</td>
+<td>208.393830</td>
+<td>20.729523</td>
+<td>0.543860</td>
 <td>GALAXY</td>
-<td>SDSS-DR16</td>
-<td>0.315646</td>
+<td>BOSS-DR17</td>
+<td>0.000145</td>
 </tr>
 <tr>
 <th>4</th>
-<td>53478e46-9b67-11ee-b77b-525400ad1336</td>
-<td>39627769637766794</td>
-<td>180.563917</td>
-<td>-0.716587</td>
-<td>0.863014</td>
+<td>6dbf1d0d-88d5-11ef-81d6-525400f334e1</td>
+<td>39628031366529761</td>
+<td>5.375199</td>
+<td>10.196052</td>
+<td>0.840876</td>
 <td>GALAXY</td>
-<td>DESI-EDR</td>
-<td>0.000049</td>
+<td>DESI-DR1</td>
+<td>0.000110</td>
 </tr>
 <tr>
 <th>5</th>
-<td>a7a49bf4-9f60-11ee-ab7b-525400ad1336</td>
-<td>4536428664930455552</td>
-<td>217.293440</td>
-<td>-1.445119</td>
-<td>0.535872</td>
+<td>248988ff-253b-11f0-8859-525400f334e1</td>
+<td>-6913983790388586496</td>
+<td>138.271710</td>
+<td>35.460225</td>
+<td>0.641960</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000204</td>
+<td>BOSS-DR17</td>
+<td>0.000218</td>
 </tr>
 <tr>
 <th>6</th>
-<td>1f3410af-a0f5-11ee-a5bf-525400ad1336</td>
-<td>5862600223436853248</td>
-<td>242.419380</td>
-<td>7.977997</td>
-<td>0.524114</td>
+<td>21a01419-864c-11ef-8ddd-525400f334e1</td>
+<td>39628406664462779</td>
+<td>215.960854</td>
+<td>26.390312</td>
+<td>0.648647</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000151</td>
+<td>DESI-DR1</td>
+<td>0.000107</td>
 </tr>
 <tr>
 <th>7</th>
-<td>976845d0-a3d8-11ee-9ae7-525400ad1336</td>
-<td>8633450365726248960</td>
-<td>353.990980</td>
-<td>23.535728</td>
-<td>0.653509</td>
+<td>c88b5ac9-86b5-11ef-8cb2-525400f334e1</td>
+<td>39627805968827467</td>
+<td>186.048964</td>
+<td>0.668881</td>
+<td>0.888597</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000196</td>
+<td>DESI-DR1</td>
+<td>0.000281</td>
 </tr>
 <tr>
 <th>8</th>
-<td>0699dae7-a508-11ee-bfb9-525400ad1336</td>
-<td>-8071304449020899328</td>
-<td>346.124650</td>
-<td>-0.927300</td>
-<td>0.654820</td>
+<td>11dba51a-887a-11ef-9839-525400f334e1</td>
+<td>39627778139623820</td>
+<td>327.367642</td>
+<td>-0.377570</td>
+<td>0.817962</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000182</td>
+<td>DESI-DR1</td>
+<td>0.000157</td>
 </tr>
 <tr>
 <th>9</th>
-<td>1ff6f4e6-a560-11ee-bfda-525400ad1336</td>
-<td>-7692018839834046464</td>
-<td>143.933660</td>
-<td>18.334093</td>
-<td>0.785994</td>
+<td>d488edf7-2526-11f0-8e64-525400f334e1</td>
+<td>5395585406757787648</td>
+<td>126.751660</td>
+<td>2.740040</td>
+<td>0.662443</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000080</td>
+<td>BOSS-DR17</td>
+<td>0.000172</td>
 </tr>
 <tr>
 <th>10</th>
-<td>cacfb6c2-9fca-11ee-9c39-525400ad1336</td>
-<td>4911301385507852288</td>
-<td>344.297430</td>
-<td>-2.604723</td>
-<td>0.566902</td>
+<td>58e352d5-87bf-11ef-a670-525400f334e1</td>
+<td>39627890186256803</td>
+<td>168.000520</td>
+<td>4.345249</td>
+<td>0.832304</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000245</td>
+<td>DESI-DR1</td>
+<td>0.000017</td>
 </tr>
 <tr>
 <th>11</th>
-<td>3944b361-a29a-11ee-80c7-525400ad1336</td>
-<td>7471599706856247296</td>
-<td>186.331270</td>
-<td>44.257821</td>
-<td>0.614164</td>
+<td>2d6b4244-88b7-11ef-aa4a-525400f334e1</td>
+<td>39628066502217749</td>
+<td>335.736520</td>
+<td>11.550395</td>
+<td>0.521792</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000132</td>
+<td>DESI-DR1</td>
+<td>0.000074</td>
 </tr>
 <tr>
 <th>12</th>
-<td>5552bd48-9b66-11ee-82d6-525400ad1336</td>
-<td>39633285986387037</td>
-<td>177.668864</td>
-<td>52.529184</td>
-<td>0.688995</td>
+<td>f2850afa-892a-11ef-9244-525400f334e1</td>
+<td>39628326737809969</td>
+<td>20.573623</td>
+<td>23.083271</td>
+<td>0.621056</td>
 <td>GALAXY</td>
-<td>DESI-EDR</td>
-<td>0.000081</td>
+<td>DESI-DR1</td>
+<td>0.000119</td>
 </tr>
 <tr>
 <th>13</th>
-<td>9673af20-a31a-11ee-9be2-525400ad1336</td>
-<td>8001969487737016320</td>
-<td>174.226020</td>
-<td>61.472635</td>
-<td>0.505193</td>
+<td>c6e55db2-887d-11ef-983f-525400f334e1</td>
+<td>39628021937737342</td>
+<td>155.607335</td>
+<td>9.863613</td>
+<td>0.766943</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000056</td>
+<td>DESI-DR1</td>
+<td>0.000078</td>
 </tr>
 <tr>
 <th>14</th>
-<td>c6c14db9-9e52-11ee-b3e4-525400ad1336</td>
-<td>-6882417905396068352</td>
-<td>158.575220</td>
-<td>33.747348</td>
-<td>0.709140</td>
+<td>72c29b0f-86f6-11ef-9e12-525400f334e1</td>
+<td>39627938877932364</td>
+<td>200.143718</td>
+<td>6.164748</td>
+<td>0.636379</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000151</td>
+<td>DESI-DR1</td>
+<td>0.000089</td>
 </tr>
 <tr>
 <th>15</th>
-<td>3bf03614-9e8f-11ee-8611-525400ad1336</td>
-<td>-6158471691026280448</td>
-<td>248.887370</td>
-<td>33.071720</td>
-<td>0.892999</td>
+<td>9ddfa674-88a4-11ef-ba0e-525400f334e1</td>
+<td>39627983182367103</td>
+<td>339.205545</td>
+<td>8.082502</td>
+<td>0.878536</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000112</td>
+<td>DESI-DR1</td>
+<td>0.000080</td>
 </tr>
 <tr>
 <th>16</th>
-<td>6bdd212c-a04d-11ee-8e4d-525400ad1336</td>
-<td>5299835806479044608</td>
-<td>201.163590</td>
-<td>40.816210</td>
-<td>0.507812</td>
+<td>f5bb0629-878c-11ef-a2d3-525400f334e1</td>
+<td>39627803368361804</td>
+<td>31.114696</td>
+<td>0.812274</td>
+<td>0.824131</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000099</td>
+<td>DESI-DR1</td>
+<td>0.000067</td>
 </tr>
 <tr>
 <th>17</th>
-<td>67d8f85f-a4fe-11ee-8915-525400ad1336</td>
-<td>-8111943498295128064</td>
-<td>358.573430</td>
-<td>2.079838</td>
-<td>0.669183</td>
+<td>8cf35ca4-88b5-11ef-95aa-525400f334e1</td>
+<td>39627932427092585</td>
+<td>173.758996</td>
+<td>5.976070</td>
+<td>0.634064</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000209</td>
+<td>DESI-DR1</td>
+<td>0.000081</td>
 </tr>
 <tr>
 <th>18</th>
-<td>35242386-a3fd-11ee-b362-525400ad1336</td>
-<td>8717889569062932480</td>
-<td>6.020312</td>
-<td>34.411377</td>
-<td>0.541011</td>
+<td>bcbf688b-8926-11ef-b007-525400f334e1</td>
+<td>39628315580960269</td>
+<td>21.016227</td>
+<td>22.595942</td>
+<td>0.867080</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000335</td>
+<td>DESI-DR1</td>
+<td>0.000072</td>
 </tr>
 <tr>
 <th>19</th>
-<td>291837e0-9f27-11ee-b62a-525400ad1336</td>
-<td>4330408768305385472</td>
-<td>184.548990</td>
-<td>0.780102</td>
-<td>0.570419</td>
+<td>53fab30e-8715-11ef-bdcf-525400f334e1</td>
+<td>39633091693643553</td>
+<td>255.166212</td>
+<td>40.786615</td>
+<td>0.885991</td>
 <td>GALAXY</td>
-<td>BOSS-DR16</td>
-<td>0.000150</td>
+<td>DESI-DR1</td>
+<td>0.000028</td>
 </tr>
 </tbody>
 </table>
@@ -8769,7 +8791,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Define the fields to include in the retrieve function</span>
@@ -8785,7 +8807,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">ids_I</span> <span class="o">=</span> <span class="n">found_I</span><span class="o">.</span><span class="n">ids</span>
@@ -8801,10 +8823,10 @@ Example:
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>{'status': {'success': True,
-  'info': ["Successfully found 20 records in dr_list={'DESI-EDR', 'BOSS-DR16', 'SDSS-DR16', 'DESI-DR1'}"],
+  'info': ["Successfully found 20 records in dr_list={'SDSS-DR16', 'SDSS-DR17-test', 'DESI-EDR', 'BOSS-DR17', 'SDSS-DR17', 'BOSS-DR16', 'DESI-DR1'}"],
   'warnings': []}}</pre>
 </div>
 </div>
@@ -8912,7 +8934,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">specids</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">found_II</span><span class="o">.</span><span class="n">specid</span><span class="p">]</span>
@@ -8926,7 +8948,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">results_II</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">retrieve_by_specid</span><span class="p">(</span><span class="n">specid_list</span><span class="o">=</span><span class="n">specids</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="n">inc</span><span class="p">)</span>
@@ -8941,10 +8963,10 @@ Example:
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>{'status': {'success': True,
-  'info': ["Successfully found 24 records in dr_list={'DESI-EDR', 'BOSS-DR16', 'SDSS-DR16', 'DESI-DR1'}"],
+  'info': ["Successfully found 21 records in dr_list={'SDSS-DR16', 'SDSS-DR17-test', 'DESI-EDR', 'BOSS-DR17', 'SDSS-DR17', 'BOSS-DR16', 'DESI-DR1'}"],
   'warnings': []}}</pre>
 </div>
 </div>
@@ -8968,7 +8990,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">ids_II</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">found_II</span><span class="o">.</span><span class="n">sparcl_id</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
@@ -8994,13 +9016,13 @@ Example:
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Order of SPARCL IDs originally:
-['414c359e-9d07-11ee-9b9b-525400ad1336', 'c1156072-a1cb-11ee-953a-525400ad1336', '911ab2b7-9f3e-11ee-a597-525400ad1336']
+['597db022-9cec-11ee-9e16-525400ad1336', 'e7487b54-24f2-11f0-8426-525400f334e1', '0e4b9825-2491-11f0-80da-525400f334e1']
 
 Order of SPARCL IDs after passing to retrieve():
-['414c359e-9d07-11ee-9b9b-525400ad1336', '911ab2b7-9f3e-11ee-a597-525400ad1336', 'c1156072-a1cb-11ee-953a-525400ad1336']
+['0e4b9825-2491-11f0-80da-525400f334e1', '597db022-9cec-11ee-9e16-525400ad1336', 'e7487b54-24f2-11f0-8426-525400f334e1']
 
 Use reorder() to obtain original order of SPARCL IDs:
-['414c359e-9d07-11ee-9b9b-525400ad1336', 'c1156072-a1cb-11ee-953a-525400ad1336', '911ab2b7-9f3e-11ee-a597-525400ad1336']
+['597db022-9cec-11ee-9e16-525400ad1336', 'e7487b54-24f2-11f0-8426-525400f334e1', '0e4b9825-2491-11f0-80da-525400f334e1']
 </pre>
 </div>
 </div>
@@ -9034,7 +9056,7 @@ Use reorder() to obtain original order of SPARCL IDs:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">records_I</span> <span class="o">=</span> <span class="n">results_I</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -9081,7 +9103,7 @@ Use reorder() to obtain original order of SPARCL IDs:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="n">r</span><span class="o">.</span><span class="n">sparcl_id</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">redshift</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">flux</span><span class="p">,]</span>
@@ -9098,7 +9120,7 @@ Use reorder() to obtain original order of SPARCL IDs:
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -9141,17 +9163,17 @@ Use reorder() to obtain original order of SPARCL IDs:
 </tr>
 <tr>
 <th>2</th>
-<td>00000f02-a2dc-11ee-ac91-525400ad1336</td>
-<td>0.522124</td>
-<td>[3568.617492834813, 3569.439291988468, 3570.26...</td>
-<td>[7.6649274826049805, 7.667514324188232, 7.6701...</td>
-</tr>
-<tr>
-<th>3</th>
 <td>00001191-8bdd-11ef-b09e-525400f334e1</td>
 <td>0.839844</td>
 <td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
 <td>[-1.0818794965744019, 0.3140740692615509, -0.8...</td>
+</tr>
+<tr>
+<th>3</th>
+<td>000015b7-24e6-11f0-8b32-525400f334e1</td>
+<td>0.804459</td>
+<td>[3580.1399184306892, 3580.964371026362, 3581.7...</td>
+<td>[-0.7605429887771606, -0.7607840895652771, -0....</td>
 </tr>
 <tr>
 <th>4</th>
@@ -9169,101 +9191,101 @@ Use reorder() to obtain original order of SPARCL IDs:
 </tr>
 <tr>
 <th>6</th>
-<td>00001b3a-a41b-11ee-8210-525400ad1336</td>
-<td>0.542893</td>
-<td>[3570.2612803901543, 3571.0834580834608, 3571....</td>
-<td>[4.828716278076172, 4.829677581787109, 4.83063...</td>
-</tr>
-<tr>
-<th>7</th>
 <td>00001cb5-87ee-11ef-bcb3-525400f334e1</td>
 <td>0.787802</td>
 <td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
 <td>[0.23685233294963837, -1.0375943183898926, 2.0...</td>
 </tr>
 <tr>
-<th>8</th>
+<th>7</th>
 <td>00001fc6-85f3-11ef-ba36-525400f334e1</td>
 <td>0.548497</td>
 <td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
 <td>[1.5522009134292603, -3.1973671913146973, -1.6...</td>
 </tr>
 <tr>
-<th>9</th>
+<th>8</th>
 <td>000021bf-88ae-11ef-a6c2-525400f334e1</td>
 <td>0.774977</td>
 <td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
 <td>[3.2808167934417725, -0.9528359770774841, -6.6...</td>
 </tr>
 <tr>
-<th>10</th>
+<th>9</th>
 <td>00002380-8a7c-11ef-9881-525400f334e1</td>
 <td>0.808449</td>
 <td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
 <td>[-0.5737500190734863, -5.435103893280029, 0.79...</td>
 </tr>
 <tr>
-<th>11</th>
+<th>10</th>
 <td>00002da0-8b8d-11ef-ba9d-525400f334e1</td>
 <td>0.688018</td>
 <td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
 <td>[-1.1429494619369507, 5.829587459564209, -0.20...</td>
 </tr>
 <tr>
-<th>12</th>
+<th>11</th>
 <td>00002f25-8613-11ef-ad4e-525400f334e1</td>
 <td>0.856671</td>
 <td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
 <td>[-3.895395278930664, 2.955808162689209, 7.2484...</td>
 </tr>
 <tr>
-<th>13</th>
-<td>0000321e-a4a9-11ee-bde8-525400ad1336</td>
-<td>0.631113</td>
-<td>[3592.5266624766173, 3593.353967553901, 3594.1...</td>
-<td>[-2.767551898956299, -2.7674343585968018, -2.7...</td>
-</tr>
-<tr>
-<th>14</th>
+<th>12</th>
 <td>000038b4-8786-11ef-a3b2-525400f334e1</td>
 <td>0.763255</td>
 <td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
 <td>[-1.953926682472229, -1.743704915046692, 0.765...</td>
 </tr>
 <tr>
-<th>15</th>
+<th>13</th>
+<td>00003da6-24c3-11f0-a492-525400f334e1</td>
+<td>0.672948</td>
+<td>[3579.3156556503877, 3580.1399184306892, 3580....</td>
+<td>[2.229609489440918, 2.229109287261963, 2.22861...</td>
+</tr>
+<tr>
+<th>14</th>
 <td>00004072-8b77-11ef-b0fa-525400f334e1</td>
 <td>0.520902</td>
 <td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
 <td>[1.5336757898330688, -1.4600194692611694, -0.8...</td>
 </tr>
 <tr>
-<th>16</th>
-<td>000041af-a296-11ee-9b05-525400ad1336</td>
-<td>0.572525</td>
-<td>[3562.049907308445, 3562.8701940455303, 3563.6...</td>
-<td>[6.18538236618042, 6.185926914215088, 6.186471...</td>
-</tr>
-<tr>
-<th>17</th>
-<td>00004954-a46e-11ee-b0bd-525400ad1336</td>
-<td>0.833832</td>
-<td>[3569.4392919884644, 3570.2612803901543, 3571....</td>
-<td>[-1.1925723552703857, -1.1927012205123901, -1....</td>
-</tr>
-<tr>
-<th>18</th>
+<th>15</th>
 <td>00004a45-8810-11ef-992f-525400f334e1</td>
 <td>0.820051</td>
 <td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
 <td>[-0.0031879995949566364, 3.8128466606140137, 2...</td>
 </tr>
 <tr>
+<th>16</th>
+<td>00004cfe-86b0-11ef-ba4c-525400f334e1</td>
+<td>0.523393</td>
+<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
+<td>[16.23464584350586, 8.252470016479492, -5.0138...</td>
+</tr>
+<tr>
+<th>17</th>
+<td>00004d47-8782-11ef-9ee6-525400f334e1</td>
+<td>0.516051</td>
+<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
+<td>[4.235471248626709, -8.122809410095215, 1.4457...</td>
+</tr>
+<tr>
+<th>18</th>
+<td>00004de7-8956-11ef-aaf1-525400f334e1</td>
+<td>0.557947</td>
+<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
+<td>[-0.9027780294418335, 0.14837239682674408, -1....</td>
+</tr>
+<tr>
 <th>19</th>
-<td>00004bbf-a42c-11ee-9dd6-525400ad1336</td>
-<td>0.754319</td>
-<td>[3567.795882885623, 3568.617492834813, 3569.43...</td>
-<td>[0.38861986994743347, 3.381983995437622, 0.267...</td>
+<td>000050e3-86bb-11ef-9e75-525400f334e1</td>
+<td>0.764676</td>
+<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
+<td>[3.164402961730957, -1.6995476484298706, 0.720...</td>
 </tr>
 </tbody>
 </table>
@@ -9288,7 +9310,7 @@ Use reorder() to obtain original order of SPARCL IDs:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">[</span><span class="n">Spectrum1D</span><span class="p">(</span><span class="n">spectral_axis</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">wavelength</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">AA</span><span class="p">,</span>
@@ -9308,7 +9330,7 @@ Use reorder() to obtain original order of SPARCL IDs:
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>&lt;Spectrum1D(flux=[-3.3829289674758912e-18 ... 5.723837018013001e-18] erg / (Angstrom s cm2) (shape=(7781,), mean=0.00000 erg / (Angstrom s cm2)); spectral_axis=&lt;SpectralAxis 
    (observer to target:
@@ -9324,7 +9346,7 @@ Use reorder() to obtain original order of SPARCL IDs:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plot a couple</span>
@@ -9366,7 +9388,7 @@ Use reorder() to obtain original order of SPARCL IDs:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_spec</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
@@ -9417,7 +9439,7 @@ Use reorder() to obtain original order of SPARCL IDs:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">plot_spec</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">results</span><span class="o">=</span><span class="n">results_I</span><span class="p">)</span>
@@ -9528,11 +9550,11 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">ids_test</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'000025da-914b-4b67-b9a9-97cc811b0459'</span><span class="p">,</span>
-            <span class="s1">'0000fabc-0e15-4d76-b44c-4f152f31de09'</span><span class="p">,</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">ids_test</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'b6f7b4f7-8b47-11ef-83b4-525400f334e1'</span><span class="p">,</span>
+            <span class="s1">'58e352d5-87bf-11ef-a670-525400f334e1'</span><span class="p">,</span>
             <span class="s1">'00001c20-b7ff-4367-af08-26432cd7e01d'</span><span class="p">,</span>
             <span class="s1">'0000403e-51da-43b0-a0e9-e806ea31ca9e'</span><span class="p">,</span>
             <span class="s1">'ddbb57ee-8e90-4a0d-823b-0f5d97028076'</span><span class="p">]</span>
@@ -9550,7 +9572,7 @@ Example:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/tmp/ipykernel_1398583/2568251338.py:7: UserWarning: Some UUIDs were not found. 5 out of the 500 requested uuids have no records available in the SPARCL database associated with DataSets {'DESI-EDR', 'BOSS-DR16', 'SDSS-DR16', 'DESI-DR1'}.Use "client.missing()" to get a list of the 5 unavailable uuids.
+<pre>/tmp/ipykernel_3079725/3665346794.py:7: UserWarning: Some UUIDs were not found. 3 out of the 5 requested uuids have no records available in the SPARCL database associated with DataSets {'SDSS-DR16', 'SDSS-DR17-test', 'DESI-EDR', 'BOSS-DR17', 'SDSS-DR17', 'BOSS-DR16', 'DESI-DR1'}.Use "client.missing()" to get a list of the 3 unavailable uuids.
   res_test = client.retrieve(uuid_list=ids_test)
 </pre>
 </div>
@@ -9573,7 +9595,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">missing</span><span class="p">(</span><span class="n">uuid_list</span><span class="o">=</span><span class="n">ids_test</span><span class="p">)</span>
@@ -9587,13 +9609,166 @@ Example:
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>['0000fabc-0e15-4d76-b44c-4f152f31de09',
- 'ddbb57ee-8e90-4a0d-823b-0f5d97028076',
+<pre>['0000403e-51da-43b0-a0e9-e806ea31ca9e',
  '00001c20-b7ff-4367-af08-26432cd7e01d',
- '000025da-914b-4b67-b9a9-97cc811b0459',
- '0000403e-51da-43b0-a0e9-e806ea31ca9e']</pre>
+ 'ddbb57ee-8e90-4a0d-823b-0f5d97028076']</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a45e921e-54d3-4e8b-b7b6-5989a43fbef3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><a class="anchor" id="missing_specids"></a></p>
+<h2 id="Use-client.missing_specids()-to-find-missing-SPARCL-SpecIDs-in-the-SPARCL-database">Use <code>client.missing_specids()</code> to find missing SPARCL SpecIDs in the SPARCL database<a class="anchor-link" href="#Use-client.missing_specids()-to-find-missing-SPARCL-SpecIDs-in-the-SPARCL-database">¶</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=054aa571-e370-4543-b314-1243d0c1eb00">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span>client.missing_specids<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre><span class="ansi-red-fg">Signature:</span>
+client<span class="ansi-blue-fg">.</span>missing_specids<span class="ansi-blue-fg">(</span>
+    specid_list<span class="ansi-blue-fg">,</span>
+    <span class="ansi-blue-fg">*</span><span class="ansi-blue-fg">,</span>
+    dataset_list<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    countOnly<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span>
+    verbose<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Docstring:</span>
+Return the subset of specids in the given specid_list that are
+NOT stored in the SPARCL database.
+
+Args:
+    specid_list (:obj:`list` of :obj:`int`): List of specids.
+
+    dataset_list (:obj:`list` of :obj:`str`, optional): List of data
+        sets from which to find missing specids. Defaults to None,
+        meaning all data sets hosted on the SPARCL database.
+
+    countOnly (:obj:`bool`, optional): Set to True to return only
+        a count of the missing specids from the specid_list.
+        Defaults to False.
+
+    verbose (:obj:`bool`, optional): Set to True for in-depth return
+        statement. Defaults to False.
+
+Returns:
+    A list of the subset of specids in the given specid_list that
+    are NOT stored in the SPARCL database.
+
+Example:
+    &gt;&gt;&gt; client = SparclClient()
+    &gt;&gt;&gt; specids = [398913623742323421, 6181239242670493696]
+    &gt;&gt;&gt; client.missing_specids(specid_list=specids)
+    [398913623742323421]
+<span class="ansi-red-fg">File:</span>      /data0/sw/anaconda3/lib/python3.10/site-packages/sparcl/client.py
+<span class="ansi-red-fg">Type:</span>      method</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=85fb9ef1-796d-4b17-90d1-a53bd70a844b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="When-you-try-to-retrieve-records-from-the-SPARCL-database-with-SpecIDs-that-do-not-exist-in-the-SPARCL-database,-a-warning-message-will-appear:">When you try to retrieve records from the SPARCL database with SpecIDs that do not exist in the SPARCL database, a warning message will appear:<a class="anchor-link" href="#When-you-try-to-retrieve-records-from-the-SPARCL-database-with-SpecIDs-that-do-not-exist-in-the-SPARCL-database,-a-warning-message-will-appear:">¶</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=55754888-76a0-4cf3-979a-e482602d5c17">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">specids_test</span> <span class="o">=</span> <span class="p">[</span><span class="mi">39627624225446116</span><span class="p">,</span>
+                <span class="mi">39627803368361804</span><span class="p">,</span>
+                <span class="mi">39628031366529761</span><span class="p">,</span>
+                <span class="mi">55075615557052151</span><span class="p">,</span>
+                <span class="mi">83985858867877886</span><span class="p">]</span>
+
+<span class="n">res_test</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">retrieve_by_specid</span><span class="p">(</span><span class="n">specid_list</span><span class="o">=</span><span class="n">specids_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>UserWarning: Some specIDs were not found. 2 out of the 5 requested specids have no records available in the SPARCL database associated with DataSets {'BOSS-DR16', 'SDSS-DR16', 'DESI-DR1', 'SDSS-DR17-test', 'BOSS-DR17', 'SDSS-DR17', 'DESI-EDR'}.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b0faadbd-fe62-4efb-805a-620793ce3911">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="In-order-to-figure-out-which-of-the-SpecIDs-from-your-list-do-not-exist-in-the-SPARCL-database,-use-the-client.missing_specids()-method:">In order to figure out which of the SpecIDs from your list do not exist in the SPARCL database, use the <code>client.missing_specids()</code> method:<a class="anchor-link" href="#In-order-to-figure-out-which-of-the-SpecIDs-from-your-list-do-not-exist-in-the-SPARCL-database,-use-the-client.missing_specids()-method:">¶</a></h4>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0a592c69-4255-4b69-acab-eeec305d470a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">missing_specids</span><span class="p">(</span><span class="n">specid_list</span><span class="o">=</span><span class="n">specids_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>[83985858867877886, 55075615557052151]</pre>
 </div>
 </div>
 </div>

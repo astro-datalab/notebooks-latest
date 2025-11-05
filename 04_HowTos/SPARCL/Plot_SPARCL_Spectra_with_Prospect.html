@@ -7520,8 +7520,8 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0053'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Eric Armengaud, Benjamin Weaver &lt;benjamin.weaver@noirlab.edu&gt;, Alice Jacques &lt;alice.jacques@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20251007'</span> <span class="c1"># yyyymmdd</span>
-<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sdss_dr16'</span><span class="p">,</span> <span class="s1">'boss_dr16'</span><span class="p">,</span> <span class="s1">'desi_dr1'</span><span class="p">]</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20251105'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'boss_dr17'</span><span class="p">,</span> <span class="s1">'desi_dr1'</span><span class="p">,</span> <span class="s1">'sdss_dr17'</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl'</span><span class="p">,</span> <span class="s1">'spectroscopy'</span><span class="p">,</span> <span class="s1">'sdss spectra'</span><span class="p">,</span> <span class="s1">'desi spectra'</span><span class="p">,</span> <span class="s1">'tutorial'</span><span class="p">,</span> <span class="s1">'prospect'</span><span class="p">,</span> <span class="s1">'specutils'</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -7569,7 +7569,7 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="goals"></a></p>
 <h2 id="Summary-&amp;-goals">Summary &amp; goals<a class="anchor-link" href="#Summary-&amp;-goals">¶</a></h2><p><a href="https://github.com/desihub/prospect/">prospect</a> is an interactive spectrum visualization tool created by the <a href="https://www.desi.lbl.gov">DESI collaboration</a> to view and characterize DESI spectra. It has also been adapted to display data from other projects, specifically the <a href="https://www.sdss.org">Sloan Digital Sky Survey (SDSS)</a>.</p>
-<p><em>Project</em>: Obtain DESI DR1, SDSS DR16, and (e)BOSS DR16 spectra using the <a href="https://astrosparcl.datalab.noirlab.edu">NOIRLab SPARCL spectrum service</a>, convert data to <a href="https://specutils.readthedocs.io/en/stable/">specutils objects</a> as needed, and use <a href="https://github.com/desihub/prospect/">prospect</a> to display the data.</p>
+<p><em>Project</em>: Obtain DESI DR1, SDSS DR17, and (e)BOSS DR17 spectra using the <a href="https://astrosparcl.datalab.noirlab.edu">NOIRLab SPARCL spectrum service</a>, convert data to <a href="https://specutils.readthedocs.io/en/stable/">specutils objects</a> as needed, and use <a href="https://github.com/desihub/prospect/">prospect</a> to display the data.</p>
 <p><em>Takeaway</em>: At no point in this notebook will any data files be opened, except for an "Aside" section.</p>
 <p><em>Takeaway</em>: prospect allows multiple, independent spectra visualizations to coexist within the same notebook.</p>
 <p>This notebook is an adaptation of the <a href="https://github.com/desihub/prospect/blob/main/doc/nb/Prospect_spectrum_service.ipynb">Prospect + specutils + SPARCL</a> notebook. The figure below shows a portion of the prospect display with an example DESI spectrum: the observed spectrum is plotted in red (smoothed by a small Gaussian kernel with $\sigma=1$), the best-fit pipeline model in black and the uncertainty in green (stored as the inverse variance <code>ivar</code>). DESI and SDSS spectra further include a <code>mask</code> array indicating if some pixels are problematic (in which case <code>mask!=0</code>) and SDSS spectra include a <code>sky</code> spectrum, which is not shown nor used in this notebook. The prospect tool also includes a color image at the location of the fiber and the interactive tool allows the user to click on the thumbnail image to open the <a href="https://www.legacysurvey.org/viewer">Legacy Surveys Viewer</a> at that sky location in a separate browser tab.</p>
@@ -7585,7 +7585,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="attribution"></a></p>
-<h2 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">¶</a></h2><h3 id="Disclaimers">Disclaimers<a class="anchor-link" href="#Disclaimers">¶</a></h3><p>Note that using the Astro Data Lab constitutes your agreement with our minimal <a href="https://datalab.noirlab.edu/disclaimers.php">Disclaimers</a>.</p>
+<h2 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">¶</a></h2><h3 id="Disclaimers">Disclaimers<a class="anchor-link" href="#Disclaimers">¶</a></h3><p>Note that using the Astro Data Lab constitutes your agreement with our minimal <a href="https://datalab.noirlab.edu/about/disclaimers">Disclaimers</a>.</p>
 <h3 id="Acknowledgments">Acknowledgments<a class="anchor-link" href="#Acknowledgments">¶</a></h3><p>If you use <strong>Astro Data Lab</strong> in your published research, please include the text in your paper's Acknowledgments section:</p>
 <p><em>This research uses services or data provided by the Astro Data Lab, which is part of the Community Science and Data Center (CSDC) Program of NSF NOIRLab. NOIRLab is operated by the Association of Universities for Research in Astronomy (AURA), Inc. under a cooperative agreement with the U.S. National Science Foundation.</em></p>
 <p>If you use <strong>SPARCL jointly with the Astro Data Lab platform</strong> (via JupyterLab, command-line, or web interface) in your published research, please include this text below in your paper's Acknowledgments section:</p>
@@ -7722,6 +7722,37 @@ a.anchor-link {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">##### TEMPORARY</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">getpass</span><span class="w"> </span><span class="kn">import</span> <span class="n">getpass</span>
+<span class="n">client</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter SSO user name: (+ENTER) "</span><span class="p">),</span><span class="n">getpass</span><span class="p">(</span><span class="s2">"Enter password: (+ENTER) "</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">authorized</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -7766,7 +7797,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Find-DESI-spectra">Find DESI spectra<a class="anchor-link" href="#Find-DESI-spectra">¶</a></h3><p>SPARCL provides access to DESI spectra that have been coadded by HEALPixel.  This corresponds to entries in the <code>desi_dr1.zpix</code> table at Astro Data Lab (see column information <a href="https://datalab.noirlab.edu/query.php?name=desi_dr1.zpix">here</a>).</p>
+<h3 id="Find-DESI-spectra">Find DESI spectra<a class="anchor-link" href="#Find-DESI-spectra">¶</a></h3><p>SPARCL provides access to DESI spectra that have been coadded by HEALPixel.  This corresponds to entries in the <code>desi_dr1.zpix</code> table at Astro Data Lab (see column information <a href="https://datalab.noirlab.edu/data-explorer?showTable=desi_dr1.zpix">here</a>).</p>
 </div>
 </div>
 </div>
@@ -8717,7 +8748,7 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">SELECT z.specobjid, z.bestobjid, z.z, z.zerr, z.zwarning, z.class, z.subclass,</span>
 <span class="s2">       z.rchi2diff, z.primtarget, z.sectarget</span>
-<span class="s2">FROM sdss_dr16.specobj AS z</span>
+<span class="s2">FROM sdss_dr17.specobj AS z</span>
 <span class="s2">WHERE z.bestobjid &gt; 0</span>
 <span class="s2">    AND z.run2d = '26'</span>
 <span class="s2">    AND z.plate = 2955</span>
@@ -8778,10 +8809,10 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">include</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'SDSS-DR16'</span><span class="p">])</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">include</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'SDSS-DR17'</span><span class="p">])</span>
 <span class="n">sdss_spectra</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">retrieve_by_specid</span><span class="p">(</span><span class="n">specid_list</span><span class="o">=</span><span class="n">sdss_ids</span><span class="p">[</span><span class="s1">'specobjid'</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
                                          <span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span>
-                                         <span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'SDSS-DR16'</span><span class="p">])</span>
+                                         <span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'SDSS-DR17'</span><span class="p">])</span>
 <span class="n">sdss_spectra</span><span class="o">.</span><span class="n">info</span>
 </pre></div>
 </div>
@@ -8983,8 +9014,8 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'z.specobjid'</span><span class="p">,</span> <span class="s1">'p.objid'</span><span class="p">,</span> <span class="s1">'p.ra'</span><span class="p">,</span> <span class="s1">'p.dec'</span><span class="p">,</span> <span class="s1">'p.u'</span><span class="p">,</span> <span class="s1">'p.g'</span><span class="p">,</span> <span class="s1">'p.r'</span><span class="p">,</span> <span class="s1">'p.i'</span><span class="p">,</span> <span class="s1">'p.z'</span><span class="p">)</span>
 <span class="n">q</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">SELECT </span><span class="si">{0}</span>
-<span class="s2">FROM sdss_dr16.specobj AS z</span>
-<span class="s2">JOIN sdss_dr16.photoplate AS p</span>
+<span class="s2">FROM sdss_dr17.specobj AS z</span>
+<span class="s2">JOIN sdss_dr17.photoplate AS p</span>
 <span class="s2">ON z.bestobjid = p.objid</span>
 <span class="s2">WHERE p.objid IN (</span><span class="si">{1}</span><span class="s2">)</span>
 <span class="s2">ORDER BY z.specobjid</span>
@@ -9203,7 +9234,7 @@ a.anchor-link {
 <span class="s2">SELECT z.specobjid, z.bestobjid, z.z, z.zerr, z.zwarning, z.class, z.subclass,</span>
 <span class="s2">       z.rchi2diff, z.boss_target1, z.eboss_target0, z.eboss_target1,</span>
 <span class="s2">       z.eboss_target2</span>
-<span class="s2">FROM sdss_dr16.specobj AS z</span>
+<span class="s2">FROM sdss_dr17.specobj AS z</span>
 <span class="s2">WHERE z.bestobjid &gt; 0</span>
 <span class="s2">    AND z.run2d = 'v5_13_0'</span>
 <span class="s2">    AND z.plate = 9599</span>
@@ -9264,10 +9295,10 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">include</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'BOSS-DR16'</span><span class="p">])</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">include</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'BOSS-DR17'</span><span class="p">])</span>
 <span class="n">boss_spectra</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">retrieve_by_specid</span><span class="p">(</span><span class="n">specid_list</span><span class="o">=</span><span class="n">boss_ids</span><span class="p">[</span><span class="s1">'specobjid'</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
                                          <span class="n">include</span><span class="o">=</span><span class="n">include</span><span class="p">,</span>
-                                         <span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'BOSS-DR16'</span><span class="p">])</span>
+                                         <span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'BOSS-DR17'</span><span class="p">])</span>
 <span class="n">boss_spectra</span><span class="o">.</span><span class="n">info</span>
 </pre></div>
 </div>
@@ -9458,8 +9489,8 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'z.specobjid'</span><span class="p">,</span> <span class="s1">'p.objid'</span><span class="p">,</span> <span class="s1">'p.ra'</span><span class="p">,</span> <span class="s1">'p.dec'</span><span class="p">,</span> <span class="s1">'p.u'</span><span class="p">,</span> <span class="s1">'p.g'</span><span class="p">,</span> <span class="s1">'p.r'</span><span class="p">,</span> <span class="s1">'p.i'</span><span class="p">,</span> <span class="s1">'p.z'</span><span class="p">)</span>
 <span class="n">q</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">SELECT </span><span class="si">{0}</span>
-<span class="s2">FROM sdss_dr16.specobj AS z</span>
-<span class="s2">JOIN sdss_dr16.photoplate AS p</span>
+<span class="s2">FROM sdss_dr17.specobj AS z</span>
+<span class="s2">JOIN sdss_dr17.photoplate AS p</span>
 <span class="s2">ON z.bestobjid = p.objid</span>
 <span class="s2">WHERE p.objid IN (</span><span class="si">{1}</span><span class="s2">)</span>
 <span class="s2">ORDER BY z.specobjid</span>
