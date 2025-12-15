@@ -7520,7 +7520,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0051'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Alice Jacques &lt;alice.jacques@noirlab.edu&gt;, Steve Pothier &lt;steve.pothier@noirlab.edu&gt;, Adam Bolton &lt;adam.bolton@slac.stanford.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20251105'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20251215'</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'boss_dr17'</span><span class="p">,</span> <span class="s1">'desi_dr1'</span><span class="p">,</span> <span class="s1">'desi_edr'</span><span class="p">,</span> <span class="s1">'sdss_dr17'</span><span class="p">]</span>  
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl'</span><span class="p">,</span> <span class="s1">'spectroscopy'</span><span class="p">,</span> <span class="s1">'HowTo'</span><span class="p">,</span> <span class="s1">'sdss spectra'</span><span class="p">,</span> <span class="s1">'desi spectra'</span><span class="p">,</span> <span class="s1">'tutorial'</span><span class="p">]</span>
 </pre></div>
@@ -7646,7 +7646,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4cb3b11f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4cb3b11f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7655,8 +7655,33 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Uncomment the following only if SPARCL client is not already installed</span>
-<span class="c1">#!pip install --upgrade sparclclient</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>sparclclient
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: sparclclient in ./.local/lib/python3.10/site-packages (1.2.7)
+Requirement already satisfied: requests==2.31.0 in /data0/sw/anaconda3/lib/python3.10/site-packages (from sparclclient) (2.31.0)
+Requirement already satisfied: numpy&lt;1.26.4,&gt;=1.23.5 in ./.local/lib/python3.10/site-packages (from sparclclient) (1.26.1)
+Requirement already satisfied: spectres in /data0/sw/anaconda3/lib/python3.10/site-packages (from sparclclient) (2.2.0)
+Requirement already satisfied: pyjwt in /data0/sw/anaconda3/lib/python3.10/site-packages (from sparclclient) (2.4.0)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /data0/sw/anaconda3/lib/python3.10/site-packages (from requests==2.31.0-&gt;sparclclient) (2.0.4)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /data0/sw/anaconda3/lib/python3.10/site-packages (from requests==2.31.0-&gt;sparclclient) (3.4)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /data0/sw/anaconda3/lib/python3.10/site-packages (from requests==2.31.0-&gt;sparclclient) (2.1.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /data0/sw/anaconda3/lib/python3.10/site-packages (from requests==2.31.0-&gt;sparclclient) (2024.2.2)
+
+<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> A new release of pip is available: <span class="ansi-red-fg">24.2</span> -&gt; <span class="ansi-green-fg">25.3</span>
+<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> To update, run: <span class="ansi-green-fg">pip install --upgrade pip</span>
+</pre>
 </div>
 </div>
 </div>
@@ -7678,7 +7703,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># SPARCL imports</span>
@@ -7725,7 +7750,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#token = ac.login(input("Enter user name: (+ENTER) "),getpass("Enter password: (+ENTER) "))</span>
@@ -7751,7 +7776,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">SparclClient</span><span class="p">()</span>
@@ -7768,14 +7793,14 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>announcement=Data set deprecation warning: SDSS/BOSS DR16 will be replaced with SDSS/BOSS DR17 starting on or after November 1, 2025
+<pre>announcement=Data set deprecation notice: on November 19, 2025 the SDSS/BOSS DR16 data sets were deprecated. Please use the new SDSS/BOSS DR17 data sets instead.
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(sparclclient:1.2.6, api:12.0, https://astrosparcl.datalab.noirlab.edu/sparc, client_hash=, verbose=False, connect_timeout=1.1, read_timeout=5400.0, announcement=True)</pre>
+<pre>(sparclclient:1.2.7, api:13.0, https://astrosparcl.datalab.noirlab.edu/api, client_hash=, verbose=False, connect_timeout=1.1, read_timeout=5400.0, announcement=True)</pre>
 </div>
 </div>
 </div>
@@ -7801,7 +7826,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#client.login(input("Enter SSO user name: (+ENTER) "),getpass("Enter password: (+ENTER) "))</span>
@@ -7826,7 +7851,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">authorized</span>
@@ -7840,10 +7865,10 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>{'Loggedin_As': 'Anonymous',
- 'Authorized_Datasets': {'BOSS-DR16', 'DESI-DR1', 'DESI-EDR', 'SDSS-DR16'}}</pre>
+ 'Authorized_Datasets': {'BOSS-DR17', 'DESI-DR1', 'DESI-EDR', 'SDSS-DR17'}}</pre>
 </div>
 </div>
 </div>
@@ -7865,7 +7890,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">all_datasets</span>
@@ -7879,7 +7904,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>{'BOSS-DR16',
  'BOSS-DR17',
@@ -7909,7 +7934,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>client.get_default_fields<span class="o">?</span>
@@ -7932,19 +7957,19 @@ These are the fields used for the DEFAULT value of the include
 parameter of client.retrieve().
 
 Args:
-    dataset_list (:obj:`list` of :obj:`str`, optional): List of
-        data sets from which to get the default fields. Defaults
-        to None, which will return the intersection of default
-        fields in all data sets hosted on the SPARCL database.
+    dataset_list (:obj:`list`, optional): List of data sets from
+        which to get the default fields. Defaults to None, which
+        will return the intersection of default fields in all
+        data sets hosted on the SPARCL database.
 
 Returns:
     List of fields tagged as 'default' from DATASET_LIST.
 
 Example:
-    &gt;&gt;&gt; client = SparclClient()
+    &gt;&gt;&gt; client = SparclClient(announcement=False)
     &gt;&gt;&gt; client.get_default_fields()
     ['dec', 'flux', 'ra', 'sparcl_id', 'specid', 'wavelength']
-<span class="ansi-red-fg">File:</span>      /data0/sw/anaconda3/lib/python3.10/site-packages/sparcl/client.py
+<span class="ansi-red-fg">File:</span>      /home/jail/dlusers/ajacques/.local/lib/python3.10/site-packages/sparcl/client.py
 <span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
@@ -7955,7 +7980,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">get_default_fields</span><span class="p">()</span>
@@ -7969,7 +7994,7 @@ Example:
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>['dec', 'flux', 'ra', 'sparcl_id', 'specid', 'wavelength']</pre>
 </div>
@@ -7993,7 +8018,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>client.get_all_fields<span class="o">?</span>
@@ -8016,19 +8041,19 @@ These are the fields used for the ALL value of the include parameter
 of client.retrieve().
 
 Args:
-    dataset_list (:obj:`list` of :obj:`str`, optional): List of data
-        sets from which to get all fields. Defaults to None, which
-        will return the intersection of all fields in all data sets
-        hosted on the SPARCL database.
+    dataset_list (:obj:`list`, optional): List of data sets from
+        which to get all fields. Defaults to None, which
+        will return the intersection of all fields in all
+        data sets hosted on the SPARCL database.
 
 Returns:
     List of fields tagged as 'all' from DATASET_LIST.
 
 Example:
-    &gt;&gt;&gt; client = SparclClient()
+    &gt;&gt;&gt; client = SparclClient(announcement=False)
     &gt;&gt;&gt; client.get_all_fields()
     ['data_release', 'datasetgroup', 'dateobs', 'dateobs_center', 'dec', 'exptime', 'flux', 'instrument', 'ivar', 'mask', 'model', 'ra', 'redshift', 'redshift_err', 'redshift_warning', 'site', 'sparcl_id', 'specid', 'specprimary', 'spectype', 'survey', 'targetid', 'telescope', 'wave_sigma', 'wavelength', 'wavemax', 'wavemin']
-<span class="ansi-red-fg">File:</span>      /data0/sw/anaconda3/lib/python3.10/site-packages/sparcl/client.py
+<span class="ansi-red-fg">File:</span>      /home/jail/dlusers/ajacques/.local/lib/python3.10/site-packages/sparcl/client.py
 <span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
@@ -8039,7 +8064,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">()))</span>
@@ -8066,7 +8091,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'SDSS-DR17'</span><span class="p">,</span> <span class="s1">'BOSS-DR17'</span><span class="p">])))</span>
@@ -8093,7 +8118,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'DESI-DR1'</span><span class="p">])))</span>
@@ -8162,7 +8187,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>client.find<span class="o">?</span>
@@ -8217,13 +8242,13 @@ Returns:
     :class:`~sparcl.Results.Found`: Contains header and records.
 
 Example:
-    &gt;&gt;&gt; client = SparclClient()
+    &gt;&gt;&gt; client = SparclClient(announcement=False)
     &gt;&gt;&gt; outs = ['sparcl_id', 'ra', 'dec']
     &gt;&gt;&gt; cons = {'spectype': ['GALAXY'], 'redshift': [0.5, 0.9]}
     &gt;&gt;&gt; found = client.find(outfields=outs, constraints=cons)
     &gt;&gt;&gt; sorted(list(found.records[0].keys()))
     ['_dr', 'dec', 'ra', 'sparcl_id']
-<span class="ansi-red-fg">File:</span>      /data0/sw/anaconda3/lib/python3.10/site-packages/sparcl/client.py
+<span class="ansi-red-fg">File:</span>      /home/jail/dlusers/ajacques/.local/lib/python3.10/site-packages/sparcl/client.py
 <span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
@@ -8245,7 +8270,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl_id'</span><span class="p">,</span> <span class="s1">'ra'</span><span class="p">,</span> <span class="s1">'dec'</span><span class="p">,</span> <span class="s1">'redshift'</span><span class="p">,</span> <span class="s1">'spectype'</span><span class="p">,</span> <span class="s1">'data_release'</span><span class="p">,</span> <span class="s1">'redshift_err'</span><span class="p">]</span>
@@ -8332,7 +8357,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="o">.</span><span class="n">schema</span><span class="p">(</span><span class="s1">'sparcl.main'</span><span class="p">))</span>
@@ -8408,7 +8433,7 @@ redshift_warning   Bitmask with warning on redshift result
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="s2">"""SELECT </span>
@@ -8433,7 +8458,7 @@ redshift_warning   Bitmask with warning on redshift result
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8713,7 +8738,7 @@ redshift_warning   Bitmask with warning on redshift result
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>client.retrieve<span class="o">?</span>
@@ -8763,13 +8788,13 @@ Returns:
     :class:`~sparcl.Results.Retrieved`: Contains header and records.
 
 Example:
-    &gt;&gt;&gt; client = SparclClient()
+    &gt;&gt;&gt; client = SparclClient(announcement=False)
     &gt;&gt;&gt; ids = client.find(limit=1).ids
     &gt;&gt;&gt; inc = ['sparcl_id', 'flux', 'wavelength', 'model']
     &gt;&gt;&gt; ret = client.retrieve(uuid_list=ids, include=inc)
     &gt;&gt;&gt; type(ret.records[0].wavelength)
     &lt;class 'numpy.ndarray'&gt;
-<span class="ansi-red-fg">File:</span>      /data0/sw/anaconda3/lib/python3.10/site-packages/sparcl/client.py
+<span class="ansi-red-fg">File:</span>      /home/jail/dlusers/ajacques/.local/lib/python3.10/site-packages/sparcl/client.py
 <span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
@@ -8791,7 +8816,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Define the fields to include in the retrieve function</span>
@@ -8807,7 +8832,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">ids_I</span> <span class="o">=</span> <span class="n">found_I</span><span class="o">.</span><span class="n">ids</span>
@@ -8823,10 +8848,10 @@ Example:
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>{'status': {'success': True,
-  'info': ["Successfully found 20 records in dr_list={'SDSS-DR16', 'SDSS-DR17-test', 'DESI-EDR', 'BOSS-DR17', 'SDSS-DR17', 'BOSS-DR16', 'DESI-DR1'}"],
+  'info': ["Successfully found 20 records in dr_list={'DESI-DR1', 'DESI-EDR', 'BOSS-DR17', 'SDSS-DR17'}"],
   'warnings': []}}</pre>
 </div>
 </div>
@@ -8854,7 +8879,7 @@ Example:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>client.retrieve_by_specid<span class="o">?</span>
@@ -8906,13 +8931,13 @@ Returns:
     :class:`~sparcl.Results.Retrieved`: Contains header and records.
 
 Example:
-    &gt;&gt;&gt; client = SparclClient()
+    &gt;&gt;&gt; client = SparclClient(announcement=False)
     &gt;&gt;&gt; sids = [5840097619402313728, -8985592895187431424]
     &gt;&gt;&gt; inc = ['specid', 'flux', 'wavelength', 'model']
     &gt;&gt;&gt; ret = client.retrieve_by_specid(specid_list=sids, include=inc)
     &gt;&gt;&gt; len(ret.records[0].wavelength)
     4617
-<span class="ansi-red-fg">File:</span>      /data0/sw/anaconda3/lib/python3.10/site-packages/sparcl/client.py
+<span class="ansi-red-fg">File:</span>      /home/jail/dlusers/ajacques/.local/lib/python3.10/site-packages/sparcl/client.py
 <span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
@@ -8966,7 +8991,7 @@ Example:
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>{'status': {'success': True,
-  'info': ["Successfully found 21 records in dr_list={'SDSS-DR16', 'SDSS-DR17-test', 'DESI-EDR', 'BOSS-DR17', 'SDSS-DR17', 'BOSS-DR16', 'DESI-DR1'}"],
+  'info': ["Successfully found 21 records in dr_list={'DESI-DR1', 'DESI-EDR', 'BOSS-DR17', 'SDSS-DR17'}"],
   'warnings': []}}</pre>
 </div>
 </div>
@@ -9477,7 +9502,7 @@ Use reorder() to obtain original order of SPARCL IDs:
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span>client.missing<span class="o">?</span>
@@ -9524,11 +9549,11 @@ Returns:
     are NOT stored in the SPARCL database.
 
 Example:
-    &gt;&gt;&gt; client = SparclClient()
+    &gt;&gt;&gt; client = SparclClient(announcement=False)
     &gt;&gt;&gt; ids = ['ddbb57ee-8e90-4a0d-823b-0f5d97028076',]
     &gt;&gt;&gt; client.missing(ids)
     ['ddbb57ee-8e90-4a0d-823b-0f5d97028076']
-<span class="ansi-red-fg">File:</span>      /data0/sw/anaconda3/lib/python3.10/site-packages/sparcl/client.py
+<span class="ansi-red-fg">File:</span>      /home/jail/dlusers/ajacques/.local/lib/python3.10/site-packages/sparcl/client.py
 <span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
@@ -9572,7 +9597,7 @@ Example:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/tmp/ipykernel_3079725/3665346794.py:7: UserWarning: Some UUIDs were not found. 3 out of the 5 requested uuids have no records available in the SPARCL database associated with DataSets {'SDSS-DR16', 'SDSS-DR17-test', 'DESI-EDR', 'BOSS-DR17', 'SDSS-DR17', 'BOSS-DR16', 'DESI-DR1'}.Use "client.missing()" to get a list of the 3 unavailable uuids.
+<pre>/tmp/ipykernel_2165628/3665346794.py:7: UserWarning: Some UUIDs were not found. 3 out of the 5 requested uuids have no records available in the SPARCL database associated with DataSets {'DESI-DR1', 'DESI-EDR', 'BOSS-DR17', 'SDSS-DR17'}.Use "client.missing()" to get a list of the 3 unavailable uuids.
   res_test = client.retrieve(uuid_list=ids_test)
 </pre>
 </div>
@@ -9611,9 +9636,9 @@ Example:
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>['0000403e-51da-43b0-a0e9-e806ea31ca9e',
- '00001c20-b7ff-4367-af08-26432cd7e01d',
- 'ddbb57ee-8e90-4a0d-823b-0f5d97028076']</pre>
+<pre>['00001c20-b7ff-4367-af08-26432cd7e01d',
+ 'ddbb57ee-8e90-4a0d-823b-0f5d97028076',
+ '0000403e-51da-43b0-a0e9-e806ea31ca9e']</pre>
 </div>
 </div>
 </div>
@@ -9664,11 +9689,11 @@ Return the subset of specids in the given specid_list that are
 NOT stored in the SPARCL database.
 
 Args:
-    specid_list (:obj:`list` of :obj:`int`): List of specids.
+    specid_list (:obj:`list`): List of specids.
 
-    dataset_list (:obj:`list` of :obj:`str`, optional): List of data
-        sets from which to find missing specids. Defaults to None,
-        meaning all data sets hosted on the SPARCL database.
+    dataset_list (:obj:`list`, optional): List of data sets from
+        which to find missing specids. Defaults to None, meaning
+        all data sets hosted on the SPARCL database.
 
     countOnly (:obj:`bool`, optional): Set to True to return only
         a count of the missing specids from the specid_list.
@@ -9682,11 +9707,12 @@ Returns:
     are NOT stored in the SPARCL database.
 
 Example:
-    &gt;&gt;&gt; client = SparclClient()
-    &gt;&gt;&gt; specids = [398913623742323421, 6181239242670493696]
-    &gt;&gt;&gt; client.missing_specids(specid_list=specids)
-    [398913623742323421]
-<span class="ansi-red-fg">File:</span>      /data0/sw/anaconda3/lib/python3.10/site-packages/sparcl/client.py
+    &gt;&gt;&gt; client = SparclClient(announcement=False)
+    &gt;&gt;&gt; found = client.find(outfields=['specid'], limit=2)
+    &gt;&gt;&gt; specids = [f.specid for f in found.records]
+    &gt;&gt;&gt; client.missing_specids(specids + ['6802933904984788992'])
+    ['6802933904984788992']
+<span class="ansi-red-fg">File:</span>      /home/jail/dlusers/ajacques/.local/lib/python3.10/site-packages/sparcl/client.py
 <span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
@@ -9730,7 +9756,7 @@ Example:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>UserWarning: Some specIDs were not found. 2 out of the 5 requested specids have no records available in the SPARCL database associated with DataSets {'BOSS-DR16', 'SDSS-DR16', 'DESI-DR1', 'SDSS-DR17-test', 'BOSS-DR17', 'SDSS-DR17', 'DESI-EDR'}.
+<pre>UserWarning: Some SPECIDs were not found. 2 out of the 5 requested uuids have no records available in the SPARCL database associated with DataSets {'DESI-EDR', 'BOSS-DR17', 'SDSS-DR16', 'SDSS-DR17', 'DESI-DR1', 'BOSS-DR16', 'SDSS-DR17-test'}.
 </pre>
 </div>
 </div>
