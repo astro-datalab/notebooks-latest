@@ -7520,7 +7520,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0051'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Alice Jacques &lt;alice.jacques@noirlab.edu&gt;, Steve Pothier &lt;steve.pothier@noirlab.edu&gt;, Adam Bolton &lt;adam.bolton@slac.stanford.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20251215'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20251216'</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'boss_dr17'</span><span class="p">,</span> <span class="s1">'desi_dr1'</span><span class="p">,</span> <span class="s1">'desi_edr'</span><span class="p">,</span> <span class="s1">'sdss_dr17'</span><span class="p">]</span>  
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl'</span><span class="p">,</span> <span class="s1">'spectroscopy'</span><span class="p">,</span> <span class="s1">'HowTo'</span><span class="p">,</span> <span class="s1">'sdss spectra'</span><span class="p">,</span> <span class="s1">'desi spectra'</span><span class="p">,</span> <span class="s1">'tutorial'</span><span class="p">]</span>
 </pre></div>
@@ -7646,7 +7646,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=4cb3b11f">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4cb3b11f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7655,33 +7655,8 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Uncomment the following only if SPARCL client is not already installed</span>
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>sparclclient
+<span class="c1">#!pip install --upgrade sparclclient</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Defaulting to user installation because normal site-packages is not writeable
-Requirement already satisfied: sparclclient in ./.local/lib/python3.10/site-packages (1.2.7)
-Requirement already satisfied: requests==2.31.0 in /data0/sw/anaconda3/lib/python3.10/site-packages (from sparclclient) (2.31.0)
-Requirement already satisfied: numpy&lt;1.26.4,&gt;=1.23.5 in ./.local/lib/python3.10/site-packages (from sparclclient) (1.26.1)
-Requirement already satisfied: spectres in /data0/sw/anaconda3/lib/python3.10/site-packages (from sparclclient) (2.2.0)
-Requirement already satisfied: pyjwt in /data0/sw/anaconda3/lib/python3.10/site-packages (from sparclclient) (2.4.0)
-Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /data0/sw/anaconda3/lib/python3.10/site-packages (from requests==2.31.0-&gt;sparclclient) (2.0.4)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /data0/sw/anaconda3/lib/python3.10/site-packages (from requests==2.31.0-&gt;sparclclient) (3.4)
-Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /data0/sw/anaconda3/lib/python3.10/site-packages (from requests==2.31.0-&gt;sparclclient) (2.1.0)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /data0/sw/anaconda3/lib/python3.10/site-packages (from requests==2.31.0-&gt;sparclclient) (2024.2.2)
-
-<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> A new release of pip is available: <span class="ansi-red-fg">24.2</span> -&gt; <span class="ansi-green-fg">25.3</span>
-<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> To update, run: <span class="ansi-green-fg">pip install --upgrade pip</span>
-</pre>
 </div>
 </div>
 </div>
@@ -7969,7 +7944,7 @@ Example:
     &gt;&gt;&gt; client = SparclClient(announcement=False)
     &gt;&gt;&gt; client.get_default_fields()
     ['dec', 'flux', 'ra', 'sparcl_id', 'specid', 'wavelength']
-<span class="ansi-red-fg">File:</span>      /home/jail/dlusers/ajacques/.local/lib/python3.10/site-packages/sparcl/client.py
+<span class="ansi-red-fg">File:</span>      /data0/sw/anaconda3/lib/python3.10/site-packages/sparcl/client.py
 <span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
@@ -8053,7 +8028,7 @@ Example:
     &gt;&gt;&gt; client = SparclClient(announcement=False)
     &gt;&gt;&gt; client.get_all_fields()
     ['data_release', 'datasetgroup', 'dateobs', 'dateobs_center', 'dec', 'exptime', 'flux', 'instrument', 'ivar', 'mask', 'model', 'ra', 'redshift', 'redshift_err', 'redshift_warning', 'site', 'sparcl_id', 'specid', 'specprimary', 'spectype', 'survey', 'targetid', 'telescope', 'wave_sigma', 'wavelength', 'wavemax', 'wavemin']
-<span class="ansi-red-fg">File:</span>      /home/jail/dlusers/ajacques/.local/lib/python3.10/site-packages/sparcl/client.py
+<span class="ansi-red-fg">File:</span>      /data0/sw/anaconda3/lib/python3.10/site-packages/sparcl/client.py
 <span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
@@ -8248,7 +8223,7 @@ Example:
     &gt;&gt;&gt; found = client.find(outfields=outs, constraints=cons)
     &gt;&gt;&gt; sorted(list(found.records[0].keys()))
     ['_dr', 'dec', 'ra', 'sparcl_id']
-<span class="ansi-red-fg">File:</span>      /home/jail/dlusers/ajacques/.local/lib/python3.10/site-packages/sparcl/client.py
+<span class="ansi-red-fg">File:</span>      /data0/sw/anaconda3/lib/python3.10/site-packages/sparcl/client.py
 <span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
@@ -8794,7 +8769,7 @@ Example:
     &gt;&gt;&gt; ret = client.retrieve(uuid_list=ids, include=inc)
     &gt;&gt;&gt; type(ret.records[0].wavelength)
     &lt;class 'numpy.ndarray'&gt;
-<span class="ansi-red-fg">File:</span>      /home/jail/dlusers/ajacques/.local/lib/python3.10/site-packages/sparcl/client.py
+<span class="ansi-red-fg">File:</span>      /data0/sw/anaconda3/lib/python3.10/site-packages/sparcl/client.py
 <span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
@@ -8937,7 +8912,7 @@ Example:
     &gt;&gt;&gt; ret = client.retrieve_by_specid(specid_list=sids, include=inc)
     &gt;&gt;&gt; len(ret.records[0].wavelength)
     4617
-<span class="ansi-red-fg">File:</span>      /home/jail/dlusers/ajacques/.local/lib/python3.10/site-packages/sparcl/client.py
+<span class="ansi-red-fg">File:</span>      /data0/sw/anaconda3/lib/python3.10/site-packages/sparcl/client.py
 <span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
@@ -9123,7 +9098,7 @@ Use reorder() to obtain original order of SPARCL IDs:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0e7e06ea">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7187be26-4651-4c67-9e3d-1b35dc572026">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9131,10 +9106,9 @@ Use reorder() to obtain original order of SPARCL IDs:
 <div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="n">r</span><span class="o">.</span><span class="n">sparcl_id</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">redshift</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">flux</span><span class="p">,]</span>
-                    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results_I</span><span class="o">.</span><span class="n">records</span><span class="p">],</span>
-                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'sparcl_id'</span><span class="p">,</span> <span class="s1">'redshift'</span><span class="p">,</span> <span class="s1">'wavelength'</span><span class="p">,</span> <span class="s1">'flux'</span><span class="p">])</span>
-<span class="n">df</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">results_I</span><span class="o">.</span><span class="n">records</span><span class="p">)</span>
+<span class="c1"># print the first 3 rows</span>
+<span class="n">df</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -9165,152 +9139,69 @@ Use reorder() to obtain original order of SPARCL IDs:
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>sparcl_id</th>
+<th>specid</th>
+<th>dec</th>
 <th>redshift</th>
+<th>spectype</th>
+<th>ra</th>
+<th>sparcl_id</th>
+<th>data_release</th>
+<th>mask</th>
+<th>model</th>
+<th>ivar</th>
 <th>wavelength</th>
 <th>flux</th>
+<th>_dr</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <th>0</th>
-<td>000003e8-8a05-11ef-a71d-525400f334e1</td>
+<td>39627683096695326</td>
+<td>-4.158844</td>
 <td>0.782049</td>
+<td>GALAXY</td>
+<td>60.007777</td>
+<td>000003e8-8a05-11ef-a71d-525400f334e1</td>
+<td>DESI-DR1</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+<td>[1.9106186628341675, 2.5040414333343506, 2.587...</td>
+<td>[0.08513869345188141, 0.09651071578264236, 0.1...</td>
 <td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
 <td>[-0.3382928967475891, 0.03231602534651756, 4.3...</td>
+<td>DESI-DR1</td>
 </tr>
 <tr>
 <th>1</th>
-<td>00000411-8603-11ef-a5eb-525400f334e1</td>
+<td>39627764088706085</td>
+<td>-1.026617</td>
 <td>0.642873</td>
+<td>GALAXY</td>
+<td>209.980362</td>
+<td>00000411-8603-11ef-a5eb-525400f334e1</td>
+<td>DESI-DR1</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+<td>[0.015172208659350872, 0.0206951554864645, 0.0...</td>
+<td>[0.2499736249446869, 0.24624930322170258, 0.26...</td>
 <td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
 <td>[0.26915818452835083, -0.8770749568939209, -1....</td>
+<td>DESI-DR1</td>
 </tr>
 <tr>
 <th>2</th>
-<td>00001191-8bdd-11ef-b09e-525400f334e1</td>
+<td>39628116154386099</td>
+<td>13.699124</td>
 <td>0.839844</td>
+<td>GALAXY</td>
+<td>125.558443</td>
+<td>00001191-8bdd-11ef-b09e-525400f334e1</td>
+<td>DESI-DR1</td>
+<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+<td>[0.1932898908853531, 0.2564601004123688, 0.265...</td>
+<td>[0.15085919201374054, 0.17155537009239197, 0.1...</td>
 <td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
 <td>[-1.0818794965744019, 0.3140740692615509, -0.8...</td>
-</tr>
-<tr>
-<th>3</th>
-<td>000015b7-24e6-11f0-8b32-525400f334e1</td>
-<td>0.804459</td>
-<td>[3580.1399184306892, 3580.964371026362, 3581.7...</td>
-<td>[-0.7605429887771606, -0.7607840895652771, -0....</td>
-</tr>
-<tr>
-<th>4</th>
-<td>0000187f-8bde-11ef-9bec-525400f334e1</td>
-<td>0.871175</td>
-<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
-<td>[3.0448248386383057, -1.3573006391525269, -2.3...</td>
-</tr>
-<tr>
-<th>5</th>
-<td>000019a8-8669-11ef-a9c4-525400f334e1</td>
-<td>0.740890</td>
-<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
-<td>[2.723160743713379, 3.4022016525268555, -1.188...</td>
-</tr>
-<tr>
-<th>6</th>
-<td>00001cb5-87ee-11ef-bcb3-525400f334e1</td>
-<td>0.787802</td>
-<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
-<td>[0.23685233294963837, -1.0375943183898926, 2.0...</td>
-</tr>
-<tr>
-<th>7</th>
-<td>00001fc6-85f3-11ef-ba36-525400f334e1</td>
-<td>0.548497</td>
-<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
-<td>[1.5522009134292603, -3.1973671913146973, -1.6...</td>
-</tr>
-<tr>
-<th>8</th>
-<td>000021bf-88ae-11ef-a6c2-525400f334e1</td>
-<td>0.774977</td>
-<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
-<td>[3.2808167934417725, -0.9528359770774841, -6.6...</td>
-</tr>
-<tr>
-<th>9</th>
-<td>00002380-8a7c-11ef-9881-525400f334e1</td>
-<td>0.808449</td>
-<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
-<td>[-0.5737500190734863, -5.435103893280029, 0.79...</td>
-</tr>
-<tr>
-<th>10</th>
-<td>00002da0-8b8d-11ef-ba9d-525400f334e1</td>
-<td>0.688018</td>
-<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
-<td>[-1.1429494619369507, 5.829587459564209, -0.20...</td>
-</tr>
-<tr>
-<th>11</th>
-<td>00002f25-8613-11ef-ad4e-525400f334e1</td>
-<td>0.856671</td>
-<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
-<td>[-3.895395278930664, 2.955808162689209, 7.2484...</td>
-</tr>
-<tr>
-<th>12</th>
-<td>000038b4-8786-11ef-a3b2-525400f334e1</td>
-<td>0.763255</td>
-<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
-<td>[-1.953926682472229, -1.743704915046692, 0.765...</td>
-</tr>
-<tr>
-<th>13</th>
-<td>00003da6-24c3-11f0-a492-525400f334e1</td>
-<td>0.672948</td>
-<td>[3579.3156556503877, 3580.1399184306892, 3580....</td>
-<td>[2.229609489440918, 2.229109287261963, 2.22861...</td>
-</tr>
-<tr>
-<th>14</th>
-<td>00004072-8b77-11ef-b0fa-525400f334e1</td>
-<td>0.520902</td>
-<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
-<td>[1.5336757898330688, -1.4600194692611694, -0.8...</td>
-</tr>
-<tr>
-<th>15</th>
-<td>00004a45-8810-11ef-992f-525400f334e1</td>
-<td>0.820051</td>
-<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
-<td>[-0.0031879995949566364, 3.8128466606140137, 2...</td>
-</tr>
-<tr>
-<th>16</th>
-<td>00004cfe-86b0-11ef-ba4c-525400f334e1</td>
-<td>0.523393</td>
-<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
-<td>[16.23464584350586, 8.252470016479492, -5.0138...</td>
-</tr>
-<tr>
-<th>17</th>
-<td>00004d47-8782-11ef-9ee6-525400f334e1</td>
-<td>0.516051</td>
-<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
-<td>[4.235471248626709, -8.122809410095215, 1.4457...</td>
-</tr>
-<tr>
-<th>18</th>
-<td>00004de7-8956-11ef-aaf1-525400f334e1</td>
-<td>0.557947</td>
-<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
-<td>[-0.9027780294418335, 0.14837239682674408, -1....</td>
-</tr>
-<tr>
-<th>19</th>
-<td>000050e3-86bb-11ef-9e75-525400f334e1</td>
-<td>0.764676</td>
-<td>[3600.0, 3600.8, 3601.6000000000004, 3602.4000...</td>
-<td>[3.164402961730957, -1.6995476484298706, 0.720...</td>
+<td>DESI-DR1</td>
 </tr>
 </tbody>
 </table>
@@ -9553,7 +9444,7 @@ Example:
     &gt;&gt;&gt; ids = ['ddbb57ee-8e90-4a0d-823b-0f5d97028076',]
     &gt;&gt;&gt; client.missing(ids)
     ['ddbb57ee-8e90-4a0d-823b-0f5d97028076']
-<span class="ansi-red-fg">File:</span>      /home/jail/dlusers/ajacques/.local/lib/python3.10/site-packages/sparcl/client.py
+<span class="ansi-red-fg">File:</span>      /data0/sw/anaconda3/lib/python3.10/site-packages/sparcl/client.py
 <span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
@@ -9597,7 +9488,7 @@ Example:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/tmp/ipykernel_2165628/3665346794.py:7: UserWarning: Some UUIDs were not found. 3 out of the 5 requested uuids have no records available in the SPARCL database associated with DataSets {'DESI-DR1', 'DESI-EDR', 'BOSS-DR17', 'SDSS-DR17'}.Use "client.missing()" to get a list of the 3 unavailable uuids.
+<pre>/tmp/ipykernel_2256846/3665346794.py:7: UserWarning: Some UUIDs were not found. 3 out of the 5 requested uuids have no records available in the SPARCL database associated with DataSets {'DESI-DR1', 'DESI-EDR', 'BOSS-DR17', 'SDSS-DR17'}.Use "client.missing()" to get a list of the 3 unavailable uuids.
   res_test = client.retrieve(uuid_list=ids_test)
 </pre>
 </div>
@@ -9712,7 +9603,7 @@ Example:
     &gt;&gt;&gt; specids = [f.specid for f in found.records]
     &gt;&gt;&gt; client.missing_specids(specids + ['6802933904984788992'])
     ['6802933904984788992']
-<span class="ansi-red-fg">File:</span>      /home/jail/dlusers/ajacques/.local/lib/python3.10/site-packages/sparcl/client.py
+<span class="ansi-red-fg">File:</span>      /data0/sw/anaconda3/lib/python3.10/site-packages/sparcl/client.py
 <span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
@@ -9756,7 +9647,7 @@ Example:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>UserWarning: Some SPECIDs were not found. 2 out of the 5 requested uuids have no records available in the SPARCL database associated with DataSets {'DESI-EDR', 'BOSS-DR17', 'SDSS-DR16', 'SDSS-DR17', 'DESI-DR1', 'BOSS-DR16', 'SDSS-DR17-test'}.
+<pre>UserWarning: Some SPECIDs were not found. 2 out of the 5 requested uuids have no records available in the SPARCL database associated with DataSets {'SDSS-DR17', 'SDSS-DR16', 'DESI-DR1', 'BOSS-DR17', 'SDSS-DR17-test', 'BOSS-DR16', 'DESI-EDR'}.
 </pre>
 </div>
 </div>
