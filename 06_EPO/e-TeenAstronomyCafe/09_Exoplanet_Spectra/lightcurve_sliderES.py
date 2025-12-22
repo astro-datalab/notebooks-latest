@@ -126,7 +126,7 @@ def practice_slider():
                         }
                         source.change.emit();
                         """)
-    plot1 = figure(plot_width=350,plot_height=80,x_range=[-1,5],y_range=[-1,2],tools="")
+    plot1 = figure(width=350,height=80,x_range=[-1,5],y_range=[-1,2],tools="")
     
     txt = Text(x='x',y='y',text='txt',text_color='color')
     plot1.add_glyph(source,txt)
@@ -163,10 +163,16 @@ def lightcurve_slider(free_radius=True,free_impact=False,savePlot=False):
     planet_dict = dict(r=r,x=xCircle,y=yCircle,time_now=time_now,flux_now=flux_now,marker_size=marker_size)
     source_planet = ColumnDataSource(data=planet_dict)
 
-    plot1 = figure(y_range=(97.5, 100.2), plot_width=400, plot_height=200,tools="")
+    plot1 = figure(y_range=(97.5, 100.2), width=400, height=200,tools="")
 
     plot1.line('x', 'y', source=source, line_width=3, line_alpha=0.6)
-    plot1.circle('time_now','flux_now',size='marker_size',source=source_planet,color='green')
+    plot1.scatter(
+    'time_now', 'flux_now',
+    source=source_planet,
+    marker='circle',
+    size='marker_size',
+    color='green',
+	)
 
     plot1.title.text = 'Curva de luz'
     plot1.xaxis.axis_label = "Tiempo al Centro del Tránsito (horas)"
@@ -174,7 +180,7 @@ def lightcurve_slider(free_radius=True,free_impact=False,savePlot=False):
     plot1.xaxis.axis_label_text_font_size = axes_font_size
     plot1.yaxis.axis_label_text_font_size = axes_font_size
 
-    plot2 = figure(x_range=(-20, 20),y_range=(-20, 20), plot_width=400, plot_height=400,tools="")
+    plot2 = figure(x_range=(-20, 20),y_range=(-20, 20), width=400, height=400,tools="")
 
     
     ## make a limb darkened star
@@ -273,7 +279,7 @@ def scattering_slider(savePlot=False,plots=['planet','spectrum','lightcurve']):
     
     source = ColumnDataSource(data=dict(w=w, rad=rad_arr,posx=posx,posy=posy,colors=colors_array))
     
-    plot1 = figure(x_range=(-1.3,1.3),y_range=(-1.3,1.3), plot_width=400, plot_height=400,tools="")
+    plot1 = figure(x_range=(-1.3,1.3),y_range=(-1.3,1.3), width=400, height=400,tools="")
     
     plot1.scatter('posx','posy',radius='rad',source=source, line_width=3,
                   fill_color=None,line_color='colors')
@@ -285,7 +291,7 @@ def scattering_slider(savePlot=False,plots=['planet','spectrum','lightcurve']):
     plot1.xaxis.axis_label_text_font_size = axes_font_size
     plot1.yaxis.axis_label_text_font_size = axes_font_size
 
-    plot2 = figure(y_range=[0.77,1.15],plot_width=400, plot_height=400,tools="")
+    plot2 = figure(y_range=[0.77,1.15],width=400, height=400,tools="")
     plot2.line('w','rad',source=source)
     plot2.xaxis.axis_label = "Longitud de Onda (micrones)"
     plot2.yaxis.axis_label = "Radio (Radios Terrestres)"
@@ -308,7 +314,7 @@ def scattering_slider(savePlot=False,plots=['planet','spectrum','lightcurve']):
     
     source_lc = ColumnDataSource(data=lc_dict)
     
-    plot3 = figure(y_range=[98.5,100.1],plot_width=400, plot_height=400,tools="")
+    plot3 = figure(y_range=[98.5,100.1],width=400, height=400,tools="")
     
     for waveInd in np.arange(nWave):
         plot3.line('t','f {}'.format(waveInd),source=source_lc,
@@ -403,7 +409,7 @@ def transmission_spec_slider(mysteryNum=1,savePlot=False):
     source_lc = ColumnDataSource(data=lc_dict)
     source_data = ColumnDataSource(data=lc_data)
     
-    plot1 = figure(y_range=[82,100.1],plot_width=400, plot_height=600,tools='')
+    plot1 = figure(y_range=[82,100.1],width=400, height=600,tools='')
     
     for waveInd in np.arange(nWave):
         plot1.scatter('t','f {}'.format(waveInd),source=source_data,
@@ -418,13 +424,20 @@ def transmission_spec_slider(mysteryNum=1,savePlot=False):
     plot1.title.text = 'Gráfica de la Curva de luz'
     
     
-    plot2 = figure(y_range=[1.0,2.0],plot_width=400, plot_height=300,tools='')
+    plot2 = figure(y_range=[1.0,2.0],width=400, height=300,tools='')
     plot2.line('w','rad',source=source,color='black',line_width=3)
     plot2.xaxis.axis_label = "Longitud de Onda (micrones)"
     plot2.yaxis.axis_label = "Radio (Radios Terrestres)"
     plot2.xaxis.axis_label_text_font_size = axes_font_size
     plot2.yaxis.axis_label_text_font_size = axes_font_size
-    plot2.square('w','rad',source=source,line_width=3,fill_color='colors',size=16)
+    plot2.scatter(
+    'w', 'rad',
+    source=source,
+    marker='square',
+    line_width=3,
+    fill_color='colors',
+    size=16,
+	)
     plot2.title.text = 'Gráfica del Espectro'
     
     slider_list = []
@@ -471,14 +484,14 @@ def example_spectra(atmospheres=['H2O','CH4','CO2','No Atmosphere'],savePlot=Fal
     plotList = []
     for ind, atmosphere in enumerate(atmospheres):
         if len(atmospheres) > 1:
-            plot_width=180
-            plot_height=180
+            plot_width = 180
+            plot_height = 180
         else:
-            plot_width=500
-            plot_height=400
+            plot_width = 500
+            plot_height = 400
         
-        plot1 = figure(plot_width=plot_width,plot_height=plot_height,tools='',
-                      x_range=[2.3,5.1],y_range=[1.3,2.0])
+        plot1 = figure(width=plot_width, height=plot_height, tools='',
+                       x_range=[2.3, 5.1], y_range=[1.3, 2.0])
         rad = np.sqrt(dat[atmosphere]) * 10.
         rad = (rad - np.mean(rad)) * 60. + np.mean(rad) ## exaggerate to see better
         plot1.line(dat['Wave'],rad,line_width=4)
