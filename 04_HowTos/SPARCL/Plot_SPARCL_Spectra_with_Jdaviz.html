@@ -7515,7 +7515,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0052'</span>
@@ -7643,33 +7643,60 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1b12bf2e">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1b12bf2e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Handle warnings below</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'HOME'</span><span class="p">],</span> <span class="s1">'Documents'</span><span class="p">,</span> <span class="s1">'Code'</span><span class="p">,</span> <span class="s1">'git'</span><span class="p">,</span> <span class="s1">'nsf-noirlab'</span><span class="p">,</span> <span class="s1">'csdc'</span><span class="p">,</span> <span class="s1">'datalab'</span><span class="p">,</span> <span class="s1">'sparcl'</span><span class="p">,</span> <span class="s1">'sparclclient'</span><span class="p">))</span>
+<span class="c1"># Handle warnings below</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="c1"># Numpy import</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="c1"># SPARCL import</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sparcl</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">sparcl_version</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sparcl.client</span><span class="w"> </span><span class="kn">import</span> <span class="n">SparclClient</span>
 <span class="c1"># Jdaviz import</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jdaviz</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">jdaviz_version</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">jdaviz</span><span class="w"> </span><span class="kn">import</span> <span class="n">Specviz</span>
 <span class="c1"># Jupyter</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">widgets</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
 <span class="c1"># Specutils import</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">specutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">Spectrum1D</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">specutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">specutils_version</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">specutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">Spectrum</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">specutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">Spectrum1D</span> <span class="k">as</span> <span class="n">Spectrum</span>
 <span class="c1"># Astropy import</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.nddata</span><span class="w"> </span><span class="kn">import</span> <span class="n">InverseVariance</span><span class="p">,</span> <span class="n">StdDevUncertainty</span>
 <span class="c1"># Jdaviz can emit warnings about Angstrom which we will ignore.</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">u</span><span class="o">.</span><span class="n">UnitsWarning</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="sa">r</span><span class="s1">'.*VOUnit standard.*'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"sparcl_version==</span><span class="si">{</span><span class="n">sparcl_version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"jdaviz_version==</span><span class="si">{</span><span class="n">jdaviz_version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"specutils_version==</span><span class="si">{</span><span class="n">specutils_version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>sparcl_version==1.2.8
+jdaviz_version==4.2.3
+specutils_version==1.20.3
+</pre>
 </div>
 </div>
 </div>
@@ -7685,17 +7712,36 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=482c5e93">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=482c5e93">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">SparclClient</span><span class="p">()</span>
 <span class="n">client</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>announcement=Data set deprecation notice: on November 19, 2025 the SDSS/BOSS DR16 data sets were deprecated. Please use the new SDSS/BOSS DR17 data sets instead.
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>(sparclclient:1.2.8, api:13.0, https://astrosparcl.datalab.noirlab.edu/api, client_hash=16e04212a9a27f648c0f43dcb99d9b5ae9ec37e0, verbose=False, connect_timeout=1.1, read_timeout=5400.0, announcement=True)</pre>
 </div>
 </div>
 </div>
@@ -7711,17 +7757,30 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9e288542-73aa-45cf-9f69-668bd3208d70">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9e288542-73aa-45cf-9f69-668bd3208d70">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">desi_fields</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_all_fields</span><span class="p">(</span><span class="n">dataset_list</span><span class="o">=</span><span class="p">[</span><span class="s1">'DESI-DR1'</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">desi_fields</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>['bgs_target', 'chi2', 'cmx_target', 'coadd_fiberstatus', 'coadd_numexp', 'coadd_numnight', 'coadd_numtile', 'coeff', 'data_release', 'datasetgroup', 'dateobs', 'dateobs_center', 'dec', 'deltachi2', 'desi_target', 'desiname', 'exptime', 'fa_target', 'fa_type', 'flux', 'healpix', 'instrument', 'ivar', 'main_nspec', 'main_primary', 'mask', 'mean_delta_x', 'mean_delta_y', 'mean_fiber_dec', 'mean_fiber_ra', 'mean_mjd', 'mean_psf_to_fiber_specflux', 'model', 'mws_target', 'ncoeff', 'npixels', 'numobs_init', 'objtype', 'obsconditions', 'plate_dec', 'plate_ra', 'pmdec', 'pmra', 'priority_init', 'program', 'ra', 'redshift', 'redshift_err', 'redshift_warning', 'ref_epoch', 'rms_delta_x', 'rms_delta_y', 'scnd_target', 'site', 'sparcl_id', 'specid', 'specprimary', 'spectype', 'spgrpval', 'std_fiber_dec', 'std_fiber_ra', 'subpriority', 'subtype', 'survey', 'sv1_bgs_target', 'sv1_desi_target', 'sv1_mws_target', 'sv1_scnd_target', 'sv2_bgs_target', 'sv2_desi_target', 'sv2_mws_target', 'sv2_scnd_target', 'sv3_bgs_target', 'sv3_desi_target', 'sv3_mws_target', 'sv3_scnd_target', 'sv_nspec', 'sv_primary', 'targetid', 'telescope', 'tsnr2_bgs', 'tsnr2_elg', 'tsnr2_gpbbackup', 'tsnr2_gpbbright', 'tsnr2_gpbdark', 'tsnr2_lrg', 'tsnr2_lya', 'tsnr2_qso', 'wave_sigma', 'wavelength', 'wavemax', 'wavemin', 'zcat_nspec']
+</pre>
 </div>
 </div>
 </div>
@@ -7761,7 +7820,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">outfields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl_id'</span><span class="p">,</span> <span class="s1">'ra'</span><span class="p">,</span> <span class="s1">'dec'</span><span class="p">,</span> <span class="s1">'spectype'</span><span class="p">,</span> <span class="s1">'subtype'</span><span class="p">,</span> <span class="s1">'specid'</span><span class="p">,</span>
@@ -7782,7 +7841,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">found</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">outfields</span><span class="o">=</span><span class="n">outfields</span><span class="p">,</span>
@@ -7810,7 +7869,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">radec_to_desiname</span><span class="p">(</span><span class="n">target_ra</span><span class="p">,</span> <span class="n">target_dec</span><span class="p">):</span>
@@ -7885,7 +7944,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">found</span><span class="o">.</span><span class="n">records</span><span class="p">:</span>
@@ -7921,7 +7980,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_selected</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
@@ -7935,7 +7994,8 @@ a.anchor-link {
     <span class="n">specunit</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s1">'10-17 erg cm-2 s-1 AA-1'</span><span class="p">)</span>
     <span class="n">key</span> <span class="o">=</span> <span class="n">entries</span><span class="p">[</span><span class="n">b</span><span class="p">[</span><span class="s1">'new'</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">uuid_list</span><span class="o">=</span><span class="p">[</span><span class="n">ids</span><span class="p">[</span><span class="n">b</span><span class="p">[</span><span class="s1">'new'</span><span class="p">]]],</span>
-                             <span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">'specid'</span><span class="p">,</span>
+                             <span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">'data_release'</span><span class="p">,</span>
+                                      <span class="s1">'specid'</span><span class="p">,</span>
                                       <span class="s1">'survey'</span><span class="p">,</span>
                                       <span class="s1">'ra'</span><span class="p">,</span>
                                       <span class="s1">'dec'</span><span class="p">,</span>
@@ -7950,13 +8010,20 @@ a.anchor-link {
         <span class="c1">#</span>
         <span class="c1"># Note how the data and the model are prepared as two separate objects.</span>
         <span class="c1">#</span>
-        <span class="n">spectra</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Spectrum1D</span><span class="p">(</span><span class="n">spectral_axis</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'wavelength'</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">AA</span><span class="p">,</span>
-                                   <span class="n">flux</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'flux'</span><span class="p">]</span><span class="o">*</span><span class="n">specunit</span><span class="p">,</span>
-                                   <span class="n">uncertainty</span><span class="o">=</span><span class="n">InverseVariance</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'ivar'</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">specunit</span><span class="o">**-</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">represent_as</span><span class="p">(</span><span class="n">StdDevUncertainty</span><span class="p">),</span>
-                                   <span class="n">mask</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'mask'</span><span class="p">],</span>
-                                   <span class="n">redshift</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'redshift'</span><span class="p">]),</span>
-                        <span class="n">Spectrum1D</span><span class="p">(</span><span class="n">spectral_axis</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'wavelength'</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">AA</span><span class="p">,</span>
-                                   <span class="n">flux</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'model'</span><span class="p">]</span><span class="o">*</span><span class="n">specunit</span><span class="p">))</span>
+        <span class="c1"># result_specutils = result.to_specutils()</span>
+        <span class="c1">#</span>
+        <span class="c1"># result_specutils.flux = result_specutils.flux[0, :]</span>
+        <span class="c1"># result_specutils.uncertainty = result_specutils.uncertainty.represent_as(StdDevUncertainty)[0, :]</span>
+        <span class="c1"># result_specutils.mask = result_specutils.mask[0, :]</span>
+        <span class="n">spectra</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Spectrum</span><span class="p">(</span><span class="n">spectral_axis</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'wavelength'</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">AA</span><span class="p">,</span>
+                                 <span class="n">flux</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'flux'</span><span class="p">]</span><span class="o">*</span><span class="n">specunit</span><span class="p">,</span>
+                                 <span class="n">uncertainty</span><span class="o">=</span><span class="n">InverseVariance</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'ivar'</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">specunit</span><span class="o">**-</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">represent_as</span><span class="p">(</span><span class="n">StdDevUncertainty</span><span class="p">),</span>
+                                 <span class="n">mask</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'mask'</span><span class="p">],</span>
+                                 <span class="n">redshift</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'redshift'</span><span class="p">]),</span>
+                        <span class="n">Spectrum</span><span class="p">(</span><span class="n">spectral_axis</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'wavelength'</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">AA</span><span class="p">,</span>
+                                 <span class="n">flux</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'model'</span><span class="p">]</span><span class="o">*</span><span class="n">specunit</span><span class="p">))</span>
+        <span class="c1"># spectra[key] = (result_specutils, Spectrum(spectral_axis=result_specutils.spectral_axis, flux=result_specutils.meta['model']*specunit))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">spectra</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flux</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
     <span class="k">if</span> <span class="s1">'old'</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
         <span class="c1">#</span>
         <span class="c1"># Remove the previous spectrum.</span>
@@ -7970,7 +8037,7 @@ a.anchor-link {
     <span class="c1">#</span>
     <span class="n">specviz</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">spectra</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">data_label</span><span class="o">=</span><span class="n">key</span> <span class="o">+</span> <span class="s1">' Data'</span><span class="p">)</span>
     <span class="n">opt</span> <span class="o">=</span> <span class="n">specviz</span><span class="o">.</span><span class="n">plugins</span><span class="p">[</span><span class="s1">'Plot Options'</span><span class="p">]</span>
-    <span class="n">opt</span><span class="o">.</span><span class="n">layer</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">' Data'</span>
+    <span class="n">opt</span><span class="o">.</span><span class="n">layer</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">' Data [0]'</span>
     <span class="n">opt</span><span class="o">.</span><span class="n">line_color</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">'#000000'</span>  <span class="c1"># Black</span>
     <span class="n">opt</span><span class="o">.</span><span class="n">line_as_steps</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">opt</span><span class="o">.</span><span class="n">uncertainty_visible</span> <span class="o">=</span> <span class="kc">True</span>
@@ -7987,15 +8054,15 @@ a.anchor-link {
     <span class="c1">#</span>
     <span class="n">specviz</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">spectra</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">data_label</span><span class="o">=</span><span class="n">key</span> <span class="o">+</span> <span class="s1">' Model'</span><span class="p">)</span>
     <span class="n">opt</span> <span class="o">=</span> <span class="n">specviz</span><span class="o">.</span><span class="n">plugins</span><span class="p">[</span><span class="s1">'Plot Options'</span><span class="p">]</span>
-    <span class="n">opt</span><span class="o">.</span><span class="n">layer</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">' Model'</span>
+    <span class="n">opt</span><span class="o">.</span><span class="n">layer</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">' Model [0]'</span>
     <span class="n">opt</span><span class="o">.</span><span class="n">line_color</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="s1">'#FF0000'</span>  <span class="c1"># Red</span>
     <span class="n">opt</span><span class="o">.</span><span class="n">line_as_steps</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="c1">#</span>
     <span class="c1"># This is a workaround for a bug where metadata is not initially displayed.</span>
     <span class="c1">#</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">specviz</span><span class="o">.</span><span class="n">plugins</span><span class="p">[</span><span class="s1">'Metadata'</span><span class="p">]</span>
-    <span class="n">m</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">' Model'</span>
-    <span class="n">m</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">' Data'</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">' Model [0]'</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">' Data [0]'</span>
 </pre></div>
 </div>
 </div>
@@ -8014,12 +8081,12 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e6867ab3-b29c-46f1-94b8-7b5665c8bed5">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e6867ab3-b29c-46f1-94b8-7b5665c8bed5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#</span>
@@ -8047,6 +8114,103 @@ a.anchor-link {
 <span class="c1">#</span>
 <span class="n">display</span><span class="p">(</span><span class="n">select</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>(7781,)
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[13], line 12</span>
+<span class="ansi-green-intense-fg ansi-bold">      8</span> specviz <span style="color: rgb(98,98,98)">=</span> Specviz()
+<span class="ansi-green-intense-fg ansi-bold">      9</span> <span style="color: rgb(95,135,135)">#</span>
+<span class="ansi-green-intense-fg ansi-bold">     10</span> <span style="color: rgb(95,135,135)"># Trigger the download if this is the very first spectrum.</span>
+<span class="ansi-green-intense-fg ansi-bold">     11</span> <span style="color: rgb(95,135,135)">#</span>
+<span class="ansi-green-fg">---&gt; 12</span> <span class="ansi-yellow-bg">on_selected</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">{</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">'</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">new</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">'</span><span class="ansi-yellow-bg">:</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">0</span><span class="ansi-yellow-bg">}</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     13</span> <span style="color: rgb(95,135,135)">#</span>
+<span class="ansi-green-intense-fg ansi-bold">     14</span> <span style="color: rgb(95,135,135)"># Connect the function action to the dropdown menu.</span>
+<span class="ansi-green-intense-fg ansi-bold">     15</span> <span style="color: rgb(95,135,135)">#</span>
+<span class="ansi-green-intense-fg ansi-bold">     16</span> select<span style="color: rgb(98,98,98)">.</span>observe(on_selected, names<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">value</span><span style="color: rgb(175,0,0)">'</span>)
+
+Cell <span class="ansi-green-fg">In[12], line 55</span>, in <span class="ansi-cyan-fg">on_selected</span><span class="ansi-blue-fg">(b)</span>
+<span class="ansi-green-intense-fg ansi-bold">     53</span> specviz<span style="color: rgb(98,98,98)">.</span>load_data(spectra[key][<span style="color: rgb(98,98,98)">0</span>], data_label<span style="color: rgb(98,98,98)">=</span>key <span style="color: rgb(98,98,98)">+</span> <span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)"> Data</span><span style="color: rgb(175,0,0)">'</span>)
+<span class="ansi-green-intense-fg ansi-bold">     54</span> opt <span style="color: rgb(98,98,98)">=</span> specviz<span style="color: rgb(98,98,98)">.</span>plugins[<span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">Plot Options</span><span style="color: rgb(175,0,0)">'</span>]
+<span class="ansi-green-fg">---&gt; 55</span> <span class="ansi-yellow-bg">opt</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">layer</span> <span style="color: rgb(98,98,98)">=</span> key <span style="color: rgb(98,98,98)">+</span> <span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)"> Data [0]</span><span style="color: rgb(175,0,0)">'</span>
+<span class="ansi-green-intense-fg ansi-bold">     56</span> opt<span style="color: rgb(98,98,98)">.</span>line_color<span style="color: rgb(98,98,98)">.</span>value <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">#000000</span><span style="color: rgb(175,0,0)">'</span>  <span style="color: rgb(95,135,135)"># Black</span>
+<span class="ansi-green-intense-fg ansi-bold">     57</span> opt<span style="color: rgb(98,98,98)">.</span>line_as_steps <span style="color: rgb(98,98,98)">=</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>
+
+File <span class="ansi-green-fg">~/Documents/local/products/venv/kitchen_sink/lib/python3.10/site-packages/jdaviz/core/user_api.py:69</span>, in <span class="ansi-cyan-fg">UserApiWrapper.__setattr__</span><span class="ansi-blue-fg">(self, attr, value)</span>
+<span class="ansi-green-intense-fg ansi-bold">     67</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">isinstance</span>(exp_obj, UnitSelectPluginComponent) <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> <span style="color: rgb(0,135,0)">isinstance</span>(value, u<span style="color: rgb(98,98,98)">.</span>Unit):
+<span class="ansi-green-intense-fg ansi-bold">     68</span>         value <span style="color: rgb(98,98,98)">=</span> value<span style="color: rgb(98,98,98)">.</span>to_string()
+<span class="ansi-green-fg">---&gt; 69</span>     <span class="ansi-yellow-bg">exp_obj</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">selected</span> <span style="color: rgb(98,98,98)">=</span> value
+<span class="ansi-green-intense-fg ansi-bold">     70</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span>
+<span class="ansi-green-intense-fg ansi-bold">     71</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> <span style="color: rgb(0,135,0)">isinstance</span>(exp_obj, AddResults):
+
+File <span class="ansi-green-fg">~/Documents/local/products/venv/kitchen_sink/lib/python3.10/site-packages/jdaviz/core/template_mixin.py:767</span>, in <span class="ansi-cyan-fg">BasePluginComponent.__setattr__</span><span class="ansi-blue-fg">(self, attr, value, force_super)</span>
+<span class="ansi-green-intense-fg ansi-bold">    764</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> attr[<span style="color: rgb(98,98,98)">0</span>] <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">_</span><span style="color: rgb(175,0,0)">'</span> <span class="ansi-bold" style="color: rgb(175,0,255)">or</span> force_super <span class="ansi-bold" style="color: rgb(175,0,255)">or</span> attr <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_plugin_traitlets<span style="color: rgb(98,98,98)">.</span>keys():
+<span class="ansi-green-intense-fg ansi-bold">    765</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span style="color: rgb(0,135,0)">super</span>()<span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,255)">__setattr__</span>(attr, value)
+<span class="ansi-green-fg">--&gt; 767</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">setattr</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_plugin</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_plugin_traitlets</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">get</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">attr</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">value</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/Documents/local/products/venv/kitchen_sink/lib/python3.10/site-packages/traitlets/traitlets.py:716</span>, in <span class="ansi-cyan-fg">TraitType.__set__</span><span class="ansi-blue-fg">(self, obj, value)</span>
+<span class="ansi-green-intense-fg ansi-bold">    714</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>read_only:
+<span class="ansi-green-intense-fg ansi-bold">    715</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> TraitError(<span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">The </span><span style="color: rgb(175,0,0)">"</span><span class="ansi-bold" style="color: rgb(175,95,135)">%s</span><span style="color: rgb(175,0,0)">"</span><span style="color: rgb(175,0,0)"> trait is read-only.</span><span style="color: rgb(175,0,0)">'</span> <span style="color: rgb(98,98,98)">%</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>name)
+<span class="ansi-green-fg">--&gt; 716</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">set</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">obj</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">value</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/Documents/local/products/venv/kitchen_sink/lib/python3.10/site-packages/traitlets/traitlets.py:706</span>, in <span class="ansi-cyan-fg">TraitType.set</span><span class="ansi-blue-fg">(self, obj, value)</span>
+<span class="ansi-green-intense-fg ansi-bold">    702</span>     silent <span style="color: rgb(98,98,98)">=</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>
+<span class="ansi-green-intense-fg ansi-bold">    703</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> silent <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>:
+<span class="ansi-green-intense-fg ansi-bold">    704</span>     <span style="color: rgb(95,135,135)"># we explicitly compare silent to True just in case the equality</span>
+<span class="ansi-green-intense-fg ansi-bold">    705</span>     <span style="color: rgb(95,135,135)"># comparison above returns something other than True/False</span>
+<span class="ansi-green-fg">--&gt; 706</span>     <span class="ansi-yellow-bg">obj</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_notify_trait</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">old_value</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">new_value</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/Documents/local/products/venv/kitchen_sink/lib/python3.10/site-packages/traitlets/traitlets.py:1513</span>, in <span class="ansi-cyan-fg">HasTraits._notify_trait</span><span class="ansi-blue-fg">(self, name, old_value, new_value)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1512</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span style="color: rgb(0,0,255)">_notify_trait</span>(<span style="color: rgb(0,135,0)">self</span>, name: <span style="color: rgb(0,135,0)">str</span>, old_value: t<span style="color: rgb(98,98,98)">.</span>Any, new_value: t<span style="color: rgb(98,98,98)">.</span>Any) <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">&gt;</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">-&gt; 1513</span>     <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">notify_change</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">   1514</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">Bunch</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">   1515</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1516</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">old</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">old_value</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1517</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">new</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">new_value</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1518</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg">owner</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1519</span> <span class="ansi-yellow-bg">            </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">type</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">"</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">change</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">"</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1520</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1521</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/Documents/local/products/venv/kitchen_sink/lib/python3.10/site-packages/ipywidgets/widgets/widget.py:701</span>, in <span class="ansi-cyan-fg">Widget.notify_change</span><span class="ansi-blue-fg">(self, change)</span>
+<span class="ansi-green-intense-fg ansi-bold">    698</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> name <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>keys <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_should_send_property(name, <span style="color: rgb(0,135,0)">getattr</span>(<span style="color: rgb(0,135,0)">self</span>, name)):
+<span class="ansi-green-intense-fg ansi-bold">    699</span>         <span style="color: rgb(95,135,135)"># Send new state to front-end</span>
+<span class="ansi-green-intense-fg ansi-bold">    700</span>         <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>send_state(key<span style="color: rgb(98,98,98)">=</span>name)
+<span class="ansi-green-fg">--&gt; 701</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">super</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">notify_change</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">change</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/Documents/local/products/venv/kitchen_sink/lib/python3.10/site-packages/traitlets/traitlets.py:1525</span>, in <span class="ansi-cyan-fg">HasTraits.notify_change</span><span class="ansi-blue-fg">(self, change)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1523</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span style="color: rgb(0,0,255)">notify_change</span>(<span style="color: rgb(0,135,0)">self</span>, change: Bunch) <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">&gt;</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-intense-fg ansi-bold">   1524</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">"""Notify observers of a change event"""</span>
+<span class="ansi-green-fg">-&gt; 1525</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_notify_observers</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">change</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/Documents/local/products/venv/kitchen_sink/lib/python3.10/site-packages/traitlets/traitlets.py:1568</span>, in <span class="ansi-cyan-fg">HasTraits._notify_observers</span><span class="ansi-blue-fg">(self, event)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1565</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> <span style="color: rgb(0,135,0)">isinstance</span>(c, EventHandler) <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> c<span style="color: rgb(98,98,98)">.</span>name <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-intense-fg ansi-bold">   1566</span>     c <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">getattr</span>(<span style="color: rgb(0,135,0)">self</span>, c<span style="color: rgb(98,98,98)">.</span>name)
+<span class="ansi-green-fg">-&gt; 1568</span> <span class="ansi-yellow-bg">c</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">event</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/Documents/local/products/venv/kitchen_sink/lib/python3.10/site-packages/jdaviz/core/template_mixin.py:1141</span>, in <span class="ansi-cyan-fg">SelectPluginComponent._selected_changed</span><span class="ansi-blue-fg">(self, event)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1139</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> event[<span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">new</span><span style="color: rgb(175,0,0)">'</span>] <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> valid <span style="color: rgb(98,98,98)">+</span> [<span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">'</span>]:
+<span class="ansi-green-intense-fg ansi-bold">   1140</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>selected <span style="color: rgb(98,98,98)">=</span> event[<span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">old</span><span style="color: rgb(175,0,0)">'</span>]
+<span class="ansi-green-fg">-&gt; 1141</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(<span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">"</span><span class="ansi-bold" style="color: rgb(175,95,0)">\'</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>event[<span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">new</span><span style="color: rgb(175,0,0)">'</span>]<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span class="ansi-bold" style="color: rgb(175,95,0)">\'</span><span style="color: rgb(175,0,0)"> not one of </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>valid<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">, reverting selection to </span><span class="ansi-bold" style="color: rgb(175,95,0)">\'</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>event[<span style="color: rgb(175,0,0)">'</span><span style="color: rgb(175,0,0)">old</span><span style="color: rgb(175,0,0)">'</span>]<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span class="ansi-bold" style="color: rgb(175,95,0)">\'</span><span style="color: rgb(175,0,0)">"</span>)
+
+<span class="ansi-red-fg">ValueError</span>: 'DESI J003.7111+07.9541 Data [0]' not one of ['DESI J003.7111+07.9541 Data'], reverting selection to 'DESI J003.7111+07.9541 Data'</pre>
 </div>
 </div>
 </div>
