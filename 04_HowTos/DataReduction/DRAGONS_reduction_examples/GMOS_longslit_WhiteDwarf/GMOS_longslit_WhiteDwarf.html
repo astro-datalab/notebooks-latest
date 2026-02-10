@@ -7805,7 +7805,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0041'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Brian Merino &lt;brian.merino@noirlab.edu&gt;, Vinicius Placco &lt;vinicius.placco@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20260203'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20251209'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'gmos'</span><span class="p">,</span><span class="s1">'gemini'</span><span class="p">,</span><span class="s1">'longslit'</span><span class="p">,</span><span class="s1">'whitedwarf'</span><span class="p">,</span><span class="s1">'dragons'</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -7852,22 +7852,12 @@ a.anchor-link {
 <li><a href="#Clean-up">Clean-up (optional)</a></li>
 </ul>
 <p><a class="anchor" id="goals"></a></p>
-<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">¶</a></h1><p>Showcase how to reduce GMOS longslit data using the Gemini DRAGONS package on the Data Lab science platform using a custom DRAGONS kernel <code>"DRAGONS-4.0.0 (DL,Py3.12)"</code>. The steps include downloading data from the Gemini archive, setting up a DRAGONS calibration service, processing flats, darks, a bad pixel mask, and science frames, and creating a single combined stacked image.</p>
+<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">¶</a></h1><p>Showcase how to reduce GMOS longslit data using the Gemini DRAGONS package on the Data Lab science platform using a custom DRAGONS kernel <code>"DRAGONS (Py3.7)"</code>. The steps include downloading data from the Gemini archive, setting up a DRAGONS calibration service, processing flats, darks, a bad pixel mask, and science frames, and creating a single combined stacked image.</p>
 <p><a class="anchor" id="summary"></a></p>
-<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>DRAGONS is a Python-based astronomical data reduction platform written by the Gemini Science User Support Department. It can currently be used to reduce imaging data from Gemini instruments GMOS, NIRI, Flamingos 2, GSAOI, and GNIRS, as well as spectroscopic data taken with GNIRS, GHOST, and GMOS in longslit mode. Linked <a href="https://dragons.readthedocs.io/en/stable/">here</a> is a general list of guides, manuals, and tutorials about the use of DRAGONS.</p>
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>DRAGONS is a Python-based astronomical data reduction platform written by the Gemini Science User Support Department. It can currently be used to reduce imaging data from Gemini instruments GMOS, NIRI, Flamingos 2, GSAOI, and GNIRS, as well as spectroscopic data taken with GHOST and GMOS in longslit mode. Linked <a href="https://dragons.readthedocs.io/en/v3.2.1/">here</a> is a general list of guides, manuals, and tutorials about the use of DRAGONS.</p>
 <p>The DRAGONS kernel has been made available in the Data Lab environment, allowing users to access the routines without being dependent on installing the software on their local machines.</p>
 <p>In this notebook, we present an example of a DRAGONS Jupyter notebook that works in the Data Lab environment to reduce example Gemini South GMOS longslit data fully. This notebook will not present all of the details of the many options available to adjust or optimize the DRAGONS GMOS longslit data reduction process; rather, it will just show one example of a standard reduction of a GMOS longslit dataset.</p>
 <p>The data used in this notebook example is GMOS longslit data from the Gemini archive of the candiate DB white dwarf J2145+0031 from the Gemini South program "<a href="https://archive.gemini.edu/programinfo/GS-2017B-Q-72">Spectroscopy of massive DB white dwarf candidate stars</a>", PI: Alejandra Romero, program ID GS-2017B-Q-72.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=788e1755">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="disclaimer"></a></p>
 <h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">¶</a></h1><h2 id="Disclaimers">Disclaimers<a class="anchor-link" href="#Disclaimers">¶</a></h2><p>Note that using the Astro Data Lab constitutes your agreement with our minimal <a href="https://datalab.noirlab.edu/disclaimers.php">Disclaimers</a>.</p>
 <h2 id="Acknowledgments">Acknowledgments<a class="anchor-link" href="#Acknowledgments">¶</a></h2><p>If you use <strong>Astro Data Lab</strong> in your published research, please include the text in your paper's Acknowledgments section:</p>
@@ -8170,33 +8160,6 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7d57ad0a-85d8-477e-8434-b55761767ad3">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Create a list of all the FITS files in the directory</strong></p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=863ce90e-cb30-49aa-99ae-63e842acf7d4">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">all_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">'S2017*.fits'</span><span class="p">)</span>
-<span class="n">all_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">'bpm*.fits'</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">all_files</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=89416329-f45d-42c1-8ecb-c59604432bfa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8220,6 +8183,33 @@ a.anchor-link {
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">logutils</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="s1">'gmosls.log'</span><span class="p">)</span>
 <span class="n">caldb</span> <span class="o">=</span> <span class="n">cal_service</span><span class="o">.</span><span class="n">set_local_database</span><span class="p">()</span>
 <span class="n">caldb</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="s2">"w"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7d57ad0a-85d8-477e-8434-b55761767ad3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Create a list of all the FITS files in the directory</strong></p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=863ce90e-cb30-49aa-99ae-63e842acf7d4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">all_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">'S2017*.fits'</span><span class="p">)</span>
+<span class="n">all_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">'bpm*.fits'</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">all_files</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -8509,9 +8499,9 @@ S20170825S0347.fits ... S20170826S0228.fits, 10 files submitted.
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="662a65a5-3f32-4027-b1b6-0f244af337d0" tabindex="0">
+<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="01834d46-b7c7-404d-a786-e27120d5662f" tabindex="0">
 <script type="text/javascript">
-var element = document.getElementById('662a65a5-3f32-4027-b1b6-0f244af337d0');
+var element = document.getElementById('01834d46-b7c7-404d-a786-e27120d5662f');
 (function(root) {
   function now() {
     return new Date();
@@ -8763,9 +8753,9 @@ function(Bokeh) {} // ensure no trailing comma for IE
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="835b1b5f-5573-4341-8e00-8da1e521e418" tabindex="0">
+<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="178f5597-ee5d-4f0d-ae80-d2289af46f80" tabindex="0">
 <script type="text/javascript">
-var element = document.getElementById('835b1b5f-5573-4341-8e00-8da1e521e418');
+var element = document.getElementById('178f5597-ee5d-4f0d-ae80-d2289af46f80');
 
 if ((window.PyViz === undefined) || (window.PyViz instanceof HTMLElement)) {
   window.PyViz = {comms: {}, comm_status:{}, kernels:{}, receivers: {}, plot_index: []}
@@ -9012,12 +9002,12 @@ if (window.Jupyter !== undefined) {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<div id="aeed86c7-a4c9-45df-9aa8-276996fcba21">
-<div data-root-id="aeed86c7-a4c9-45df-9aa8-276996fcba21" id="ecb31f54-b538-4472-9558-cafcf04fd639" style="display: contents;"></div>
+<div id="698962e6-7a31-4b3b-8005-96c28a258189">
+<div data-root-id="698962e6-7a31-4b3b-8005-96c28a258189" id="f4abc3d1-ab42-49b5-ae5a-c3e3b11cc61b" style="display: contents;"></div>
 </div>
 <script type="application/javascript">(function(root) {
-  var docs_json = {"23ee4b93-ca00-4e62-9ecc-34948fceae77":{"version":"3.7.3","title":"Bokeh Application","roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"aeed86c7-a4c9-45df-9aa8-276996fcba21"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"7f00f238-3637-43c7-b407-f61fcb14c00d","attributes":{"plot_id":"aeed86c7-a4c9-45df-9aa8-276996fcba21","comm_id":"038261e2f1b0495da329a4a260be88eb","client_comm_id":"95797fbb4aff437ab26406e9a218b867"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]}]}};
-  var render_items = [{"docid":"23ee4b93-ca00-4e62-9ecc-34948fceae77","roots":{"aeed86c7-a4c9-45df-9aa8-276996fcba21":"ecb31f54-b538-4472-9558-cafcf04fd639"},"root_ids":["aeed86c7-a4c9-45df-9aa8-276996fcba21"]}];
+  var docs_json = {"3712b98b-02c7-4189-80dd-65cf77d1aabd":{"version":"3.7.3","title":"Bokeh Application","roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"698962e6-7a31-4b3b-8005-96c28a258189"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"5b14a1ed-72c2-487e-bd3d-2f59e1723446","attributes":{"plot_id":"698962e6-7a31-4b3b-8005-96c28a258189","comm_id":"8aa33a45ce8c46418c94a7eb46aff620","client_comm_id":"755462a8a0124cc6b2688494f52d9c54"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]}]}};
+  var render_items = [{"docid":"3712b98b-02c7-4189-80dd-65cf77d1aabd","roots":{"698962e6-7a31-4b3b-8005-96c28a258189":"f4abc3d1-ab42-49b5-ae5a-c3e3b11cc61b"},"root_ids":["698962e6-7a31-4b3b-8005-96c28a258189"]}];
   var docs = Object.values(docs_json)
   if (!docs) {
     return
@@ -9581,7 +9571,7 @@ reduce completed successfully.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">reduce_arcs</span> <span class="o">=</span> <span class="n">Reduce</span><span class="p">()</span>
@@ -9783,7 +9773,7 @@ reduce completed successfully.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">reduce_std</span> <span class="o">=</span> <span class="n">Reduce</span><span class="p">()</span>
@@ -9962,7 +9952,7 @@ reduce completed successfully.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">reduce_science</span> <span class="o">=</span> <span class="n">Reduce</span><span class="p">()</span>
@@ -10285,7 +10275,7 @@ reduce completed successfully.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="s1">'S20171022S0087_2D.fits'</span>
@@ -10339,7 +10329,7 @@ reduce completed successfully.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">writeascii</span> <span class="o">=</span> <span class="n">Reduce</span><span class="p">()</span>
@@ -10394,7 +10384,7 @@ reduce completed successfully.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">ad</span> <span class="o">=</span> <span class="n">astrodata</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'S20171022S0087_1D.fits'</span><span class="p">)</span>
@@ -10442,10 +10432,24 @@ reduce completed successfully.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#clean_up(save_reduced=1)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">clean_up</span><span class="p">(</span><span class="n">save_reduced</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=766a08d4-9eb1-4008-8d63-19c904f6b180">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>
