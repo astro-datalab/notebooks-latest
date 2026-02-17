@@ -7312,6 +7312,7 @@ a.anchor-link {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7331,7 +7332,12 @@ a.anchor-link {
     if (!diagrams.length) {
       return;
     }
-    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs")).default;
+    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs")).default;
+    const elkUrl = "https://cdnjs.cloudflare.com/ajax/libs/mermaid-layout-elk/0.1.9/mermaid-layout-elk.esm.min.mjs";
+    if(elkUrl) {
+      const elkLayouts = (await import(elkUrl)).default;
+      mermaid.registerLayoutLoaders(elkLayouts);
+    }
     const parser = new DOMParser();
 
     mermaid.initialize({
@@ -7428,7 +7434,8 @@ a.anchor-link {
      * Post-process to ensure mermaid diagrams contain only valid SVG and XHTML.
      */
     function cleanMermaidSvg(svg) {
-      return svg.replace(RE_VOID_ELEMENT, replaceVoidElement);
+      svg = svg.replace(RE_VOID_ELEMENT, replaceVoidElement);
+      return `${SVG_XML_HEADER}${svg}`;
     }
 
 
@@ -7454,6 +7461,285 @@ a.anchor-link {
       }
       return `<${tag} ${rest}>`;
     }
+
+
+  /**
+   * Named HTML entities with their decimal equivalent codes.
+   *
+   * @see https://www.w3.org/TR/WD-html40-970708/sgml/entities.html
+   * */
+  const HTML_ENTITIES = `<!ENTITY Aacute "&#193;">
+<!ENTITY aacute "&#225;">
+<!ENTITY Acirc "&#194;">
+<!ENTITY acirc "&#226;">
+<!ENTITY acute "&#180;">
+<!ENTITY AElig "&#198;">
+<!ENTITY aelig "&#230;">
+<!ENTITY Agrave "&#192;">
+<!ENTITY agrave "&#224;">
+<!ENTITY alefsym "&#8501;">
+<!ENTITY Alpha "&#913;">
+<!ENTITY alpha "&#945;">
+<!ENTITY amp "&#38;">
+<!ENTITY and "&#8869;">
+<!ENTITY ang "&#8736;">
+<!ENTITY Aring "&#197;">
+<!ENTITY aring "&#229;">
+<!ENTITY asymp "&#8776;">
+<!ENTITY Atilde "&#195;">
+<!ENTITY atilde "&#227;">
+<!ENTITY Auml "&#196;">
+<!ENTITY auml "&#228;">
+<!ENTITY bdquo "&#8222;">
+<!ENTITY Beta "&#914;">
+<!ENTITY beta "&#946;">
+<!ENTITY brvbar "&#166;">
+<!ENTITY bull "&#8226;">
+<!ENTITY cap "&#8745;">
+<!ENTITY Ccedil "&#199;">
+<!ENTITY ccedil "&#231;">
+<!ENTITY cedil "&#184;">
+<!ENTITY cent "&#162;">
+<!ENTITY Chi "&#935;">
+<!ENTITY chi "&#967;">
+<!ENTITY circ "&#710;">
+<!ENTITY clubs "&#9827;">
+<!ENTITY cong "&#8773;">
+<!ENTITY copy "&#169;">
+<!ENTITY crarr "&#8629;">
+<!ENTITY cup "&#8746;">
+<!ENTITY curren "&#164;">
+<!ENTITY dagger "&#8224;">
+<!ENTITY Dagger "&#8225;">
+<!ENTITY darr "&#8595;">
+<!ENTITY dArr "&#8659;">
+<!ENTITY deg "&#176;">
+<!ENTITY Delta "&#916;">
+<!ENTITY delta "&#948;">
+<!ENTITY diams "&#9830;">
+<!ENTITY divide "&#247;">
+<!ENTITY Eacute "&#201;">
+<!ENTITY eacute "&#233;">
+<!ENTITY Ecirc "&#202;">
+<!ENTITY ecirc "&#234;">
+<!ENTITY Egrave "&#200;">
+<!ENTITY egrave "&#232;">
+<!ENTITY empty "&#8709;">
+<!ENTITY emsp "&#8195;">
+<!ENTITY ensp "&#8194;">
+<!ENTITY epsilon "&#949;">
+<!ENTITY Epsilon "&#917;">
+<!ENTITY equiv "&#8801;">
+<!ENTITY Eta "&#919;">
+<!ENTITY eta "&#951;">
+<!ENTITY ETH "&#208;">
+<!ENTITY eth "&#240;">
+<!ENTITY Euml "&#203;">
+<!ENTITY euml "&#235;">
+<!ENTITY exist "&#8707;">
+<!ENTITY fnof "&#402;">
+<!ENTITY forall "&#8704;">
+<!ENTITY frac12 "&#189;">
+<!ENTITY frac14 "&#188;">
+<!ENTITY frac34 "&#190;">
+<!ENTITY frasl "&#8260;">
+<!ENTITY Gamma "&#915;">
+<!ENTITY gamma "&#947;">
+<!ENTITY ge "&#8805;">
+<!ENTITY gt "&#62;">
+<!ENTITY harr "&#8596;">
+<!ENTITY hArr "&#8660;">
+<!ENTITY hearts "&#9829;">
+<!ENTITY hellip "&#8230;">
+<!ENTITY Iacute "&#205;">
+<!ENTITY iacute "&#237;">
+<!ENTITY Icirc "&#206;">
+<!ENTITY icirc "&#238;">
+<!ENTITY iexcl "&#161;">
+<!ENTITY Igrave "&#204;">
+<!ENTITY igrave "&#236;">
+<!ENTITY image "&#8465;">
+<!ENTITY infin "&#8734;">
+<!ENTITY int "&#8747;">
+<!ENTITY Iota "&#921;">
+<!ENTITY iota "&#953;">
+<!ENTITY iquest "&#191;">
+<!ENTITY isin "&#8712;">
+<!ENTITY Iuml "&#207;">
+<!ENTITY iuml "&#239;">
+<!ENTITY Kappa "&#922;">
+<!ENTITY kappa "&#954;">
+<!ENTITY Lambda "&#923;">
+<!ENTITY lambda "&#955;">
+<!ENTITY lang "&#9001;">
+<!ENTITY laquo "&#171;">
+<!ENTITY larr "&#8592;">
+<!ENTITY lArr "&#8656;">
+<!ENTITY lceil "&#8968;">
+<!ENTITY ldquo "&#8220;">
+<!ENTITY le "&#8804;">
+<!ENTITY lfloor "&#8970;">
+<!ENTITY lowast "&#8727;">
+<!ENTITY loz "&#9674;">
+<!ENTITY lrm "&#8206;">
+<!ENTITY lsaquo "&#8249;">
+<!ENTITY lsquo "&#8216;">
+<!ENTITY lt "&#60;">
+<!ENTITY macr "&#175;">
+<!ENTITY mdash "&#8212;">
+<!ENTITY micro "&#181;">
+<!ENTITY middot "&#183;">
+<!ENTITY minus "&#8722;">
+<!ENTITY Mu "&#924;">
+<!ENTITY mu "&#956;">
+<!ENTITY nabla "&#8711;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ndash "&#8211;">
+<!ENTITY ne "&#8800;">
+<!ENTITY ni "&#8715;">
+<!ENTITY not "&#172;">
+<!ENTITY notin "&#8713;">
+<!ENTITY nsub "&#8836;">
+<!ENTITY Ntilde "&#209;">
+<!ENTITY ntilde "&#241;">
+<!ENTITY Nu "&#925;">
+<!ENTITY nu "&#957;">
+<!ENTITY Oacute "&#211;">
+<!ENTITY oacute "&#243;">
+<!ENTITY Ocirc "&#212;">
+<!ENTITY ocirc "&#244;">
+<!ENTITY OElig "&#338;">
+<!ENTITY oelig "&#339;">
+<!ENTITY Ograve "&#210;">
+<!ENTITY ograve "&#242;">
+<!ENTITY oline "&#8254;">
+<!ENTITY Omega "&#937;">
+<!ENTITY omega "&#969;">
+<!ENTITY Omicron "&#927;">
+<!ENTITY omicron "&#959;">
+<!ENTITY oplus "&#8853;">
+<!ENTITY or "&#8870;">
+<!ENTITY ordf "&#170;">
+<!ENTITY ordm "&#186;">
+<!ENTITY Oslash "&#216;">
+<!ENTITY oslash "&#248;">
+<!ENTITY Otilde "&#213;">
+<!ENTITY otilde "&#245;">
+<!ENTITY otimes "&#8855;">
+<!ENTITY Ouml "&#214;">
+<!ENTITY ouml "&#246;">
+<!ENTITY para "&#182;">
+<!ENTITY part "&#8706;">
+<!ENTITY permil "&#8240;">
+<!ENTITY perp "&#8869;">
+<!ENTITY Phi "&#934;">
+<!ENTITY phi "&#966;">
+<!ENTITY Pi "&#928;">
+<!ENTITY pi "&#960;">
+<!ENTITY piv "&#982;">
+<!ENTITY plusmn "&#177;">
+<!ENTITY pound "&#163;">
+<!ENTITY prime "&#8242;">
+<!ENTITY Prime "&#8243;">
+<!ENTITY prod "&#8719;">
+<!ENTITY prop "&#8733;">
+<!ENTITY Psi "&#936;">
+<!ENTITY psi "&#968;">
+<!ENTITY quot "&#34;">
+<!ENTITY radic "&#8730;">
+<!ENTITY rang "&#9002;">
+<!ENTITY raquo "&#187;">
+<!ENTITY rarr "&#8594;">
+<!ENTITY rArr "&#8658;">
+<!ENTITY rceil "&#8969;">
+<!ENTITY rdquo "&#8221;">
+<!ENTITY real "&#8476;">
+<!ENTITY reg "&#174;">
+<!ENTITY rfloor "&#8971;">
+<!ENTITY Rho "&#929;">
+<!ENTITY rho "&#961;">
+<!ENTITY rlm "&#8207;">
+<!ENTITY rsaquo "&#8250;">
+<!ENTITY rsquo "&#8217;">
+<!ENTITY sbquo "&#8218;">
+<!ENTITY Scaron "&#352;">
+<!ENTITY scaron "&#353;">
+<!ENTITY sdot "&#8901;">
+<!ENTITY sect "&#167;">
+<!ENTITY shy "&#173;">
+<!ENTITY Sigma "&#931;">
+<!ENTITY sigma "&#963;">
+<!ENTITY sigmaf "&#962;">
+<!ENTITY sim "&#8764;">
+<!ENTITY spades "&#9824;">
+<!ENTITY sub "&#8834;">
+<!ENTITY sube "&#8838;">
+<!ENTITY sum "&#8721;">
+<!ENTITY sup "&#8835;">
+<!ENTITY sup1 "&#185;">
+<!ENTITY sup2 "&#178;">
+<!ENTITY sup3 "&#179;">
+<!ENTITY supe "&#8839;">
+<!ENTITY szlig "&#223;">
+<!ENTITY Tau "&#932;">
+<!ENTITY tau "&#964;">
+<!ENTITY there4 "&#8756;">
+<!ENTITY Theta "&#920;">
+<!ENTITY theta "&#952;">
+<!ENTITY thetasym "&#977;">
+<!ENTITY thinsp "&#8201;">
+<!ENTITY THORN "&#222;">
+<!ENTITY thorn "&#254;">
+<!ENTITY tilde "&#732;">
+<!ENTITY times "&#215;">
+<!ENTITY trade "&#8482;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY uarr "&#8593;">
+<!ENTITY uArr "&#8657;">
+<!ENTITY Ucirc "&#219;">
+<!ENTITY ucirc "&#251;">
+<!ENTITY Ugrave "&#217;">
+<!ENTITY ugrave "&#249;">
+<!ENTITY uml "&#168;">
+<!ENTITY upsih "&#978;">
+<!ENTITY Upsilon "&#933;">
+<!ENTITY upsilon "&#965;">
+<!ENTITY Uuml "&#220;">
+<!ENTITY uuml "&#252;">
+<!ENTITY weierp "&#8472;">
+<!ENTITY Xi "&#926;">
+<!ENTITY xi "&#958;">
+<!ENTITY Yacute "&#221;">
+<!ENTITY yacute "&#253;">
+<!ENTITY yen "&#165;">
+<!ENTITY Yuml "&#376;">
+<!ENTITY yuml "&#255;">
+<!ENTITY Zeta "&#918;">
+<!ENTITY zeta "&#950;">
+<!ENTITY zwj "&#8205;">
+<!ENTITY zwnj "&#8204;">`.replace(/\n/g, ' ');
+
+  /**
+   * A reasonably strict xml declaration.
+   */
+  const XML_DECL = '<?xml version="1.0" standalone="no"?>';
+
+  /**
+   * The beginning of the XML doctype declaration.
+   */
+  const DOCTYPE_START = `<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [`;
+
+  /**
+   * The end of the XML docype declaration.
+   */
+  const DOCTYPE_END = ']>';
+
+  /**
+   * A full header for an SVG XML document.
+   */
+  const SVG_XML_HEADER = `${XML_DECL}
+    ${DOCTYPE_START}${HTML_ENTITIES}${DOCTYPE_END}`;
 
     void Promise.all([...diagrams].map(renderOneMarmaid));
   });
@@ -7519,7 +7805,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0038'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Brian Merino &lt;brian.merino@noirlab.edu&gt;, Vinicius Placco &lt;vinicius.placco@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20241209'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20260203'</span> <span class="c1"># yyyymmdd; version datestamp of this notebook</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'flamingos-2'</span><span class="p">,</span><span class="s1">'gemini'</span><span class="p">,</span><span class="s1">'browndwarf'</span><span class="p">,</span><span class="s1">'dwarf'</span><span class="p">,</span><span class="s1">'dragons'</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -7534,7 +7820,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Gemini-Flamingos-2-Brown-Dwarf-reduction-using-DRAGONS-Python-API">Gemini Flamingos-2 Brown Dwarf reduction using DRAGONS Python API<a class="anchor-link" href="#Gemini-Flamingos-2-Brown-Dwarf-reduction-using-DRAGONS-Python-API">¶</a></h1><hr/>
-<h2 id="Public-archival-data-from-f2img_tutorial---GS-2013B-Q-15-(WISE-J041358.14-475039.3)">Public archival data from f2img_tutorial - GS-2013B-Q-15 (WISE J041358.14-475039.3)<a class="anchor-link" href="#Public-archival-data-from-f2img_tutorial---GS-2013B-Q-15-(WISE-J041358.14-475039.3)">¶</a></h2><h4 id="adapted-from-https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v3.2.1/ex1_f2im_ontarget_api.html">adapted from <a href="https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v3.2.1/ex1_f2im_ontarget_api.html">https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v3.2.1/ex1_f2im_ontarget_api.html</a><a class="anchor-link" href="#adapted-from-https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v3.2.1/ex1_f2im_ontarget_api.html">¶</a></h4><hr/>
+<h2 id="Public-archival-data-from-f2img_tutorial---GS-2013B-Q-15-(WISE-J041358.14-475039.3)">Public archival data from f2img_tutorial - GS-2013B-Q-15 (WISE J041358.14-475039.3)<a class="anchor-link" href="#Public-archival-data-from-f2img_tutorial---GS-2013B-Q-15-(WISE-J041358.14-475039.3)">¶</a></h2><h4 id="adapted-from-https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v4.0.0/ex1_f2im_ontarget_api.html">adapted from <a href="https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v4.0.0/ex1_f2im_ontarget_api.html">https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v4.0.0/ex1_f2im_ontarget_api.html</a><a class="anchor-link" href="#adapted-from-https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v4.0.0/ex1_f2im_ontarget_api.html">¶</a></h4><hr/>
 </div>
 </div>
 </div>
@@ -7560,15 +7846,26 @@ a.anchor-link {
 <li><a href="#Master_Flat">Create Master Flat Field</a></li>
 <li><a href="#Reduce_Science">Reduce Science Images</a></li>
 <li><a href="#Display_Image">Display stacked final image</a></li>
+<li><a href="#Display_final">Display final image</a></li>
 <li><a href="#Clean-up">Clean-up (optional)</a></li>
 </ul>
 <p><a class="anchor" id="goals"></a></p>
-<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">¶</a></h1><p>Showcase how to reduce Flamingos-2 imaging data using the Gemini DRAGONS package on the Data Lab science platform using a custom DRAGONS kernel <code>"DRAGONS (Py3.7)"</code>. The steps include downloading data from the Gemini archive, setting up a DRAGONS calibration service, processing flats, darks, a bad pixel mask, and science frames, and creating a single combined stacked image.</p>
+<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">¶</a></h1><p>Showcase how to reduce Flamingos-2 imaging data using the Gemini DRAGONS package on the Data Lab science platform using a custom DRAGONS kernel <code>"DRAGONS-4.0.0 (DL,Py3.12)"</code>. The steps include downloading data from the Gemini archive, setting up a DRAGONS calibration service, processing flats, darks, a bad pixel mask, and science frames, and creating a single combined stacked image.</p>
 <p><a class="anchor" id="summary"></a></p>
-<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>DRAGONS is a Python-based astronomical data reduction platform written by the Gemini Science User Support Department. It can currently be used to reduce imaging data from Gemini instruments GMOS, NIRI, Flamingos 2, GSAOI, and GNIRS, as well as spectroscopic data taken with GHOST and GMOS in longslit mode. Linked <a href="https://dragons.readthedocs.io/en/v3.2.1/">here</a> is a general list of guides, manuals, and tutorials about the use of DRAGONS.</p>
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>DRAGONS is a Python-based astronomical data reduction platform written by the Gemini Science User Support Department. It can currently be used to reduce imaging data from Gemini instruments GMOS, NIRI, Flamingos 2, GSAOI, and GNIRS, as well as spectroscopic data taken with GNIRS, GHOST, and GMOS in longslit mode. Linked <a href="https://dragons.readthedocs.io/en/stable/">here</a> is a general list of guides, manuals, and tutorials about the use of DRAGONS.</p>
 <p>The DRAGONS kernel has been made available in the Data Lab environment, allowing users to access the routines without being dependent on installing the software on their local machines.</p>
 <p>In this notebook, we present an example of a DRAGONS Jupyter notebook that works in the Data Lab environment to reduce example Gemini South Flamingos-2 Y-band imaging data fully. This notebook will not present all of the details of the many options available to adjust or optimize the DRAGONS Flamingos-2 data reduction process; rather, it will just show one example of a standard reduction of a Flamingos-2 imaging dataset.</p>
 <p>The data used in this notebook example is Flamingos-2 Y band imaging from the Gemini archive of the brown dwarf W0413-4750 from the Gemini South program "<a href="https://archive.gemini.edu/programinfo/GS-2013B-Q-15">A Study of the 450K Transition from T to Y Dwarf, and of the 350K Y Dwarfs</a>", PI: S. Leggett, program ID GS-2013B-Q-15.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="disclaimer"></a></p>
 <h1 id="Disclaimer-&amp;-attribution">Disclaimer &amp; attribution<a class="anchor-link" href="#Disclaimer-&amp;-attribution">¶</a></h1><h2 id="Disclaimers">Disclaimers<a class="anchor-link" href="#Disclaimers">¶</a></h2><p>Note that using the Astro Data Lab constitutes your agreement with our minimal <a href="https://datalab.noirlab.edu/disclaimers.php">Disclaimers</a>.</p>
 <h2 id="Acknowledgments">Acknowledgments<a class="anchor-link" href="#Acknowledgments">¶</a></h2><p>If you use <strong>Astro Data Lab</strong> in your published research, please include the text in your paper's Acknowledgments section:</p>
@@ -7623,23 +7920,23 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">import</span> <span class="nn">glob</span>
-<span class="kn">import</span> <span class="nn">shutil</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
 
-<span class="kn">from</span> <span class="nn">gempy.adlibrary</span> <span class="kn">import</span> <span class="n">dataselect</span>
-<span class="kn">from</span> <span class="nn">gempy.utils</span> <span class="kn">import</span> <span class="n">logutils</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gempy.adlibrary</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataselect</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gempy.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">logutils</span>
 
-<span class="kn">from</span> <span class="nn">recipe_system</span> <span class="kn">import</span> <span class="n">cal_service</span>
-<span class="kn">from</span> <span class="nn">recipe_system.reduction.coreReduce</span> <span class="kn">import</span> <span class="n">Reduce</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">recipe_system</span><span class="w"> </span><span class="kn">import</span> <span class="n">cal_service</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">recipe_system.reduction.coreReduce</span><span class="w"> </span><span class="kn">import</span> <span class="n">Reduce</span>
 
-<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
-<span class="kn">from</span> <span class="nn">astropy.wcs</span> <span class="kn">import</span> <span class="n">WCS</span>
-<span class="kn">from</span> <span class="nn">astropy.utils.exceptions</span> <span class="kn">import</span> <span class="n">AstropyWarning</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">fits</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.wcs</span><span class="w"> </span><span class="kn">import</span> <span class="n">WCS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.utils.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">AstropyWarning</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">Normalize</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">Normalize</span>
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">AstropyWarning</span><span class="p">)</span>
 </pre></div>
@@ -7667,7 +7964,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">clean_up</span><span class="p">(</span><span class="n">save_reduced</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_up</span><span class="p">(</span><span class="n">save_reduced</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="c1">#Does the calibrations directory already exist?</span>
     <span class="n">caldb_Exist</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">'./calibrations'</span><span class="p">)</span> 
     
@@ -8191,6 +8488,66 @@ a.anchor-link {
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Right Ascension [hh:mm:ss]'</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">'bold'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Declination [degree]'</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s1">'bold'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><a class="anchor" id="Display_final"></a></p>
+<h1 id="Display-the-final-product">Display the final product<a class="anchor-link" href="#Display-the-final-product">¶</a></h1>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">final_image</span> <span class="o">=</span> <span class="s2">"S20131121S0075_image.fits"</span>
+<span class="n">hdu_final</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">final_image</span><span class="p">)</span>
+<span class="n">wcs_final</span> <span class="o">=</span> <span class="n">WCS</span><span class="p">(</span><span class="n">hdu_final</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">)</span>
+<span class="n">hdu_final</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">data_final</span> <span class="o">=</span> <span class="n">hdu_final</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The output stack units are in electrons (header keyword BUNIT=electrons). The output stack is stored in a multi-extension FITS (MEF) file. The science signal is in the “SCI” extension, the variance is in the “VAR” extension, and the data quality plane (mask) is in the “DQ” extension.</p>
+<p>Note: The upper-left quadrant of this science sequence is rather messy. This is caused by the PWFS2 guide probe (see <a href="https://dragons.readthedocs.io/projects/f2img-drtutorial/en/v4.0.0/05_issues_and_limitations.html#issue-p2">Emission from PWFS2 guide probe</a>). Photometry in this portion of the image is likely to be seriously compromised.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data_final</span><span class="p">,</span><span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">,</span><span class="n">vmin</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">160</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1150</span><span class="p">,</span><span class="mi">1126</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span><span class="n">facecolors</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">edgecolors</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1095</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="s1">'W0413-4750'</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
