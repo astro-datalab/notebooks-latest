@@ -1,11 +1,13 @@
 __author__ = 'Robert Nikutta <robert.nikutta@noirlab.edu>, Data Lab Team <datalab@noirlab.edu>'
-__version__ = '20240920'
+__version__ = '20260222'
 
 # imports
 
 # stdlib
+import argparse
 import glob
 import json
+import multiprocessing
 import os
 import re
 import time
@@ -160,6 +162,98 @@ errors.
     return nbpath, nb, errors
 
 
+def run_notebook_worker(nbfile):
+    """Worker for parallel execution. Runs one notebook; always returns a result dict.
+
+    All exceptions are caught here so future.result() never raises in the main process.
+
+    Parameters
+    ----------
+    nbfile : str
+        Full path to the .ipynb file to execute.
+
+    Returns
+    -------
+    dict with keys: nbfile, status, errors, exception_msg, start, stop
+    """
+    start = time.time()
+    try:
+        kernel = get_kernel_name(nbfile)
+        _nbpath, _nb, errors = run_notebook(nbfile, kernel=kernel)
+        status = 'success'
+        exception_msg = None
+    except DeadKernelError:
+        errors = []; status = 'dead_kernel'; exception_msg = None
+    except NoSuchKernel:
+        errors = []; status = 'no_kernel';   exception_msg = None
+    except Exception as e:
+        errors = []; status = 'exception';   exception_msg = str(e)
+    return {
+        'nbfile': nbfile, 'status': status, 'errors': errors,
+        'exception_msg': exception_msg, 'start': start, 'stop': time.time(),
+    }
+
+
+def print_notebook_result(result, j, total, plain=False):
+    """Print the result block for one completed notebook test.
+
+    Parameters
+    ----------
+    result : dict
+        Dict returned by run_notebook_worker().
+    j : int
+        1-based position of this notebook in the run (for "X/Y" display).
+    total : int
+        Total number of notebooks being tested.
+    plain : bool
+        If True, strip ANSI escape codes from traceback output.
+
+    Returns
+    -------
+    test : str
+        'PASS' or 'FAIL'
+    duration : float
+        Elapsed seconds for this notebook.
+    """
+    nbfile        = result['nbfile']
+    status        = result['status']
+    errors        = result['errors']
+    exception_msg = result['exception_msg']
+    duration      = result['stop'] - result['start']
+
+    print('================================================')
+    print('TESTING NOTEBOOK %d/%d: %s' % (j, total, nbfile))
+
+    if status == 'dead_kernel':
+        cprint('KERNEL DIED (LIKELY RAM EXHAUSTED)', 'red')
+        test = 'FAIL'
+    elif status == 'no_kernel':
+        cprint('REQUIRED KERNEL NOT PRESENT', 'red')
+        test = 'FAIL'
+    elif status == 'exception':
+        cprint('AN EXCEPTION OCCURRED: %s' % exception_msg, 'red')
+        test = 'FAIL'
+    else:  # 'success'
+        if errors:
+            for e in errors:
+                traceback = e.pop('traceback')
+                for _ in traceback:
+                    if plain is True:
+                        _ = ansi_escape.sub('', _)
+                    print(_)
+                print()
+            cprint('TEST FAILURES ENCOUNTERED IN NOTEBOOK EXECUTION', 'red')
+            test = 'FAIL'
+        else:
+            cprint('NOTEBOOK EXECUTED WITHOUT ERRORS', 'green')
+            test = 'PASS'
+
+    print('RUNTIME: %.1f seconds' % duration)
+    print('================================================')
+    print('\n')
+    return test, duration
+
+
 def glob_with_pattern(paths,patterns=('/**/*.ipynb',)):
     
     if isinstance(paths,str):
@@ -306,7 +400,7 @@ def get_nbs(paths,include=('/**/*.ipynb',),exclude=('/**/*_tested.ipynb',)):
     return nbs
 
 
-def run(nbs,plain=False):
+def run(nbs, plain=False, workers=4):
 
     """Run *.ipynb files given in the `nbs` list via nbconvert and report PASS/FAIL test matrix.
 
@@ -321,77 +415,74 @@ def run(nbs,plain=False):
     plain: bool
         If False (the default, for usage in Jupyter and color-aware
         terminals), report errors with ANSI escape codes for color. If
-        True, filter out these escape codes (i.e. print in plain text)
+        True, filter out these escape codes (i.e. print in plain text).
+
+    workers: int
+        Number of parallel worker processes. Default 1 runs notebooks
+        sequentially (original behaviour). Set to N > 1 to run up to N
+        notebooks simultaneously using multiprocessing.Pool (spawn context).
 
     """
-    
+
     tests = []  # will record test results per notebook file
-        
-    for j, nbfile in enumerate(nbs):
-        start = time.time()
+    total = len(nbs)
 
-        print('================================================')
-        print('TESTING NOTEBOOK %d/%d: %s' % (j+1,len(nbs),nbfile))
+    all_starts = []
+    all_stops  = []
 
-        kernel = get_kernel_name(nbfile)
+    if workers <= 1:
+        # sequential path — unchanged behaviour
+        for j, nbfile in enumerate(nbs, 1):
+            result = run_notebook_worker(nbfile)
+            test, duration = print_notebook_result(result, j, total, plain=plain)
+            tests.append([nbfile, test, duration])
+            all_starts.append(result['start'])
+            all_stops.append(result['stop'])
 
-        print('Running under kernel: %s' % kernel)
-        
-        # run NB; trap when the kernel died (likely due to RAM exhaustion), or if kernel is not present
-        try:
-            nbpath, nb, errors = run_notebook(nbfile,kernel=kernel)
-        except DeadKernelError:
-            cprint('KERNEL DIED (LIKELY RAM EXHAUSTED)','red')
-            test = 'FAIL'
-        except NoSuchKernel:
-            cprint('REQUIRED KERNEL NOT PRESENT','red')
-            test = 'FAIL'
-        except Exception as e:
-            cprint('AN EXCEPTION OCCURRED: %s' % e,'red')
-            test = 'FAIL'
-        else:
-            try:
-                assert errors == []
-            except:
-                for e in errors:
-                    traceback = e.pop('traceback')
-                    for _ in traceback:
-                        if plain is True:
-                            _ = ansi_escape.sub('', _)
-                        print(_)
-                    print()
+    else:
+        # parallel path — spawn fresh interpreters so forked asyncio state doesn't
+        # bleed into workers (fork inherits the Jupyter event loop as "running")
+        cprint('Running %d notebooks with %d parallel workers' % (total, workers),
+               color='yellow', bar=0, pad='', newline=True)
+        ctx = multiprocessing.get_context('spawn')
+        completed = 0
+        with ctx.Pool(workers) as pool:
+            for result in pool.imap_unordered(run_notebook_worker, nbs):
+                completed += 1
+                test, duration = print_notebook_result(result, completed, total, plain=plain)
+                tests.append([result['nbfile'], test, duration])
+                all_starts.append(result['start'])
+                all_stops.append(result['stop'])
 
-                cprint('TEST FAILURES ENCOUNTERED IN NOTEBOOK EXECUTION','red')
-                test = 'FAIL'
-            else:
-                cprint('NOTEBOOK EXECUTED WITHOUT ERRORS','green')
-                test = 'PASS'
-        
-        stop = time.time()
-        duration = stop-start
-        tests.append([nbfile,test,duration])  # append test results for this notebook
-        print('RUNTIME: %.1f seconds' % duration)
-        print('================================================')
-        print('\n')
-        
+        # sort alphabetically so DataFrame order matches sequential mode
+        tests.sort(key=lambda row: row[0])
+
     # make a test result matrix
-    df = pd.DataFrame(tests,columns=['notebook','test','duration'])
+    df = pd.DataFrame(tests, columns=['notebook', 'test', 'duration'])
     subset = ['test']
-    
+
     # styling
-    bgcolor = lambda x: 'background-color: red' if x == 'FAIL' else 'background-color: green'
-    fgcolor = lambda x: 'color: white'
+    bgcolor    = lambda x: 'background-color: red' if x == 'FAIL' else 'background-color: green'
+    fgcolor    = lambda x: 'color: white'
     fontweight = lambda x: 'font-weight: bold'
-    
-    testresults = df.style.map(bgcolor,subset=subset).map(fgcolor,subset=subset).map(fontweight,subset=subset)
-    
+
+    testresults = df.style.map(bgcolor, subset=subset).map(fgcolor, subset=subset).map(fontweight, subset=subset)
+
+    # attach wall-clock time derived from the measured per-notebook timestamps
+    testresults.wall_time = max(all_stops) - min(all_starts)
+
     return testresults
 
 
 if __name__ == '__main__':
 
+    parser = argparse.ArgumentParser(description='Run Jupyter notebook test suite.')
+    parser.add_argument('-w', '--workers', type=int, default=4, metavar='N',
+                        help='Number of parallel worker processes (default: 1 = sequential)')
+    args = parser.parse_args()
+
     start = time.time()
-    
+
     cprint('Running testnotebooks.py',color='yellow',bar=5,newline=True)
 
     # List all paths with notebooks to test.
@@ -423,7 +514,7 @@ if __name__ == '__main__':
     nbs = get_nbs(paths=paths,exclude=exclude)
     
     # run the tests (this can take a while)
-    testresults = run(nbs,plain=True)
+    testresults = run(nbs, plain=True, workers=args.workers)
 
     stop = time.time()
     cprint('Total runtime: %g seconds' % (stop-start),color='yellow',bar=0,pad='',newline=True)
