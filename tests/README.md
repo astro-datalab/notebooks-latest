@@ -1,4 +1,4 @@
-*Version:* 20240819
+*Version:* 20260222
 
 *Author:* Robert Nikutta \<robert.nikutta@noirlab.edu\>, Data Lab Team \<datalab@noirlab.edu\>
 
@@ -38,10 +38,12 @@ Run `testnotebooks.ipynb` to test a collection of other notebooks for runtime fa
     Otherwise adjust `paths` as shown in the comment in that cell.
 
     * If you are OK with the defaults, leave the `exclude` variable as-is **(recommended)**.
-    
+
     Otherwise, you can adjust it as shown in the comment in that cell, to exclude additional directories or notebooks from testing.
 
-4. The notebooks will be tested one by one, with the test status printed in <span style="color:green">**green**</span> if a notebook runs error-free, and <span style="color:red">**red**</span> if not. For failed notebooks, the tracelog will be printed out as well.
+    * To run notebooks **in parallel**, set the `workers` variable (in the same cell as `paths` and `exclude`) to the desired number of parallel workers, e.g. `workers = 4`. The default `workers = 4` runs 4 notebooks in parallel; set `workers = 1` for serial execution.
+
+4. The notebooks will be tested (by default 4 at a time), with the test status printed in <span style="color:green">**green**</span> if a notebook runs error-free, and <span style="color:red">**red**</span> if not. For failed notebooks, the tracelog will be printed out as well.
 
 5. When all tests have finished, the final cell summarizes the test suite, with simple <span style="color:green">**PASS**</span> / <span style="color:red">**FAIL**</span> flags for each tested notebooks, plus the run-time of each test.
 
@@ -75,8 +77,21 @@ OR
 
     * `cd` into `notebooks-latest/tests/`
     * Either accept the default `paths` and `exclude` variables, or adjust them by editing them towards the end of the `testnotebooks.py` file. **Note: the `.py` file, not `.ipynb`!**
-    * Run the test suite via: `python ./testnotebooks.py`
-  
+    * Run the test suite via:
+
+        ```
+        # Run with default 4 parallel workers:
+        python ./testnotebooks.py
+
+        # Run with a different number of workers, e.g. 8:
+        python ./testnotebooks.py -w 8
+
+        # Run serially:
+        python ./testnotebooks.py -w 1
+        ```
+
+        Use the `-w N` / `--workers N` flag to set the number of notebooks run simultaneously. The default is `-w 4`.
+
   You will see something akin to this:
   
   ![Terminal](./figures/view_terminal.png)
