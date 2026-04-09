@@ -7805,7 +7805,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0082'</span>  <span class="c1"># ID of this notebook in the DL NB collection</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Stephanie Juneau &lt;stephanie.juneau@noirlab.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20260408'</span>  <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20260409'</span>  <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sdss_dr17'</span><span class="p">]</span>
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sdss spectra'</span><span class="p">,</span> <span class="s1">'spectrum stacking'</span><span class="p">,</span> <span class="s1">'sparcl'</span><span class="p">,</span> <span class="s1">'stars'</span><span class="p">,</span> <span class="s1">'galaxies'</span><span class="p">]</span>
 </pre></div>
@@ -7861,7 +7861,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="goals"></a></p>
-<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">¶</a></h1><p>In this notebook, we will show how to access and plot spectra of stars and of galaxies from SDSS in bins of optical colors. The spectra will be retrieved using <a href="https://astrosparcl.datalab.noirlab.edu/sparc/">SPARCL</a> (SPectral Analysis and Retrievable Catalog Lab) and then stacked to create composite spectra with increased signal-to-noise.</p>
+<h1 id="Goals">Goals<a class="anchor-link" href="#Goals">¶</a></h1><p>In this notebook, we will show how to access and plot spectra of stars and of galaxies from SDSS in bins of optical colors. The spectra will be retrieved using <a href="https://astrosparcl.datalab.noirlab.edu/sparc/">SPARCL</a> (SPectra Analysis and Retrievable Catalog Lab) and then stacked to create composite spectra with increased signal-to-noise.</p>
 <h2 id="Steps">Steps<a class="anchor-link" href="#Steps">¶</a></h2><ol>
 <li>Query the SDSS DR17 spectroscopic catalog for stars with good signal-to-noise</li>
 <li>Compute optical colors (g−r, r−z) and visualize the stellar locus (Part I) or galaxy locus (Part II)</li>
@@ -8157,7 +8157,7 @@ Length = 177 rows
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="colors"></a></p>
 <h2 id="Color-color-diagram">Color-color diagram<a class="anchor-link" href="#Color-color-diagram">¶</a></h2><p>We visualize all stars in g−r vs. r−z color space. Stars trace a well-defined <strong>stellar locus</strong> that reflects their effective temperatures: hot blue stars (low g−r) sit at the bottom left, while cool red stars (high g−r) sit at the top right.</p>
-<p>The red lines mark the color region we select for spectral stacking: r−z between −0.3 and 0.7, and g−r between −0.1 and 1.2. Within this region we define 8 bins of width 0.1 mag in g−r.</p>
+<p>The red lines mark the color region we select for spectral stacking: r−z between −0.3 and 0.7, and g−r between −0.1 and 0.7. Within this region we define 8 bins of width 0.1 mag in g−r.</p>
 </div>
 </div>
 </div>
@@ -8276,29 +8276,33 @@ Length = 177 rows
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">stack_spectra</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">return_number</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Function to Stack the spectra of all the sources in the given table.</span>
-<span class="sd">    Uses SPARCL to retrieve spectra</span>
-<span class="sd">    </span>
-<span class="sd">    Returns an inverse variance weighted mean of the input spectra.</span>
-<span class="sd">    </span>
+<span class="sd">    Uses SPARCL to retrieve spectra and returns an average of the input spectra.</span>
+<span class="sd">        </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    table : table</span>
 <span class="sd">        Table of sources whose spectra need to be stacked</span>
+<span class="sd">        Must contain 'specobjid' and 'z' columns.</span>
+
+<span class="sd">    return_number : bool, optional</span>
+<span class="sd">        If True, also return the number of spectra contributing to each</span>
+<span class="sd">        wavelength element. Default is False.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    wavelength_stack : array</span>
-<span class="sd">        Wavelength array of the stacked spectra</span>
+<span class="sd">        Wavelength array of the stacked spectra (rest-frame, in Angstrom).</span>
 <span class="sd">        </span>
 <span class="sd">    flux_stack : array</span>
-<span class="sd">        Flux array of the stacked spectra</span>
+<span class="sd">        Flux array of the stacked spectra, normalized by the median flux</span>
+<span class="sd">        in the 6700–6900 Angstrom rest-frame continuum window.</span>
 <span class="sd">    </span>
 <span class="sd">    model_stack : array</span>
 <span class="sd">        Model array of the stacked spectra</span>
 
-<span class="sd">    n_stack : array</span>
-<span class="sd">        If return_number = True </span>
-<span class="sd">    </span>
+<span class="sd">    number_stack : array</span>
+<span class="sd">        Number of spectra contributing to each wavelength element.</span>
+<span class="sd">        Only returned if return_number=True.</span>
 <span class="sd">    """</span>
     
     <span class="c1"># Create an array with the targeted loglam values - reference array</span>
