@@ -1,37 +1,36 @@
 
 ## DRAGONS data reduction (Jupyter Notebooks):
 
-This repository has Jupyter Notebook examples of data reduction for the Gemini Observatory instruments. Usually, you need DRAGONS installed on your computer to run these notebooks, but the Astro Data Lab has a custom kernel called DRAGONS (Py3.7) that will allow you to run them. The notebooks are set to open the DRAGONS kernel by default, but if this doesn’t happen, click on the name of the current kernel in the top-right corner and select DRAGONS (Py3.7). These notebooks were written using the [DRAGONS' Application Program Interface (API)](https://dragons.readthedocs.io/projects/recipe-system-users-manual/en/release-3.2.x/appendices/full_api_example.html) for Python, based on the examples provided in the [DRAGONS Documentation](https://dragons.readthedocs.io/).
+This repository has Jupyter Notebook examples of data reduction for the Gemini Observatory instruments. Usually, you need DRAGONS installed on your computer to run these notebooks, but the Astro Data Lab has a custom kernel called DRAGONS-4.2.1 (DL,Py3.12) that will allow you to run them. The notebooks are set to open the DRAGONS kernel by default, but if this doesn’t happen, click on the name of the current kernel in the top-right corner and select DRAGONS-4.2.1 (DL,Py3.12). These notebooks were written using the [DRAGONS' Application Program Interface (API)](https://dragons.readthedocs.io/projects/recipe-system-users-manual/en/stable/appendices/full_api_example.html) for Python, based on the examples provided in the [DRAGONS Documentation](https://dragons.readthedocs.io/).
 
 ---
-## Current notebooks available:
+## Available Notebooks
 
-### Flamingos2_Imaging_BrownDwarf.ipynb
+### Imaging
 
-Flamingos-2 imaging (Y-band) of the brown dwarf WISE J041358.14-475039.3. This is extracted from the Gemini/DRAGONS F2 tutorial, Section 3. Dataset includes flats, darks, and science frames. Link to the [Jupyter notebook](https://github.com/astro-datalab/notebooks-latest/tree/master/04_HowTos/DataReduction/DRAGONS_reduction_examples/Flamingos2_Imaging_BrownDwarf/Flamingos2_Imaging_BrownDwarf.ipynb).
+| Notebook | Instrument | Target | Band | Description |
+|---|---|---|---|---|
+| [Flamingos2_Imaging_BrownDwarf.ipynb](Flamingos2_Imaging_BrownDwarf/Flamingos2_Imaging_BrownDwarf.ipynb) | Flamingos-2 | WISE J041358.14-475039.3 | Y | Brown dwarf imaging. Includes Flats, Darks, and Science frames. |
+| [GMOS_Imaging_StarryField.ipynb](GMOS_Imaging_StarryField/GMOS_Imaging_StarryField.ipynb) | GMOS | Stellar field | i | Imaging of a stellar field. Includes Biases, Twilight Flats, and Science frames. |
+| [GMOS_Imaging_Galaxy.ipynb](GMOS_Imaging_Galaxy/GMOS_Imaging_Galaxy.ipynb) | GMOS | NGC 5018 | g | Imaging of an elliptical galaxy. Includes Biases, Twilight Flats, and Science frames. |
+| [GNIRS_Imaging_GammaRayBurst.ipynb](GNIRS_Imaging_GammaRayBurst/GNIRS_Imaging_GammaRayBurst.ipynb) | GNIRS | GRB120116A | J | Point-source imaging through the keyhole. Includes Flats, Darks, and Science frames. |
+| [GSAOI_Imaging_EllipticalGalaxy.ipynb](GSAOI_Imaging_EllipticalGalaxy/GSAOI_Imaging_EllipticalGalaxy.ipynb) | GSAOI | NGC 5128 field | K-short | AO-assisted imaging of an elliptical galaxy field. Includes Flats, Standard Star, and Science frames. |
+| [NIRI_Imaging_Supernova.ipynb](NIRI_Imaging_Supernova/NIRI_Imaging_Supernova.ipynb) | NIRI | SN 2014J | K-prime | Supernova imaging. Includes Flats, Standard Star, Darks, and Science frames. |
 
-### GMOS_Imaging_StarryField.ipynb
+### Longslit Spectroscopy
 
-GMOS imaging (i-band) of a stellar field. This is extracted from the Gemini/DRAGONS GMOS tutorial, Section 3. Dataset includes biases, twilight flats, and science frames. Link to the [Jupyter notebook](https://github.com/astro-datalab/notebooks-latest/tree/master/04_HowTos/DataReduction/DRAGONS_reduction_examples/GMOS_Imaging_StarryField/GMOS_Imaging_StarryField.ipynb).
+| Notebook | Instrument | Target | Band | Description |
+|---|---|---|---|---|
+| [GMOS_Longslit_WhiteDwarf.ipynb](GMOS_longslit_WhiteDwarf/GMOS_Longslit_WhiteDwarf.ipynb) | GMOS | J2145+0031 | Optical | Candidate DB white dwarf longslit reduction. Includes arcs, biases, and flats for both the standard star and science target. Contains optional commented-out cells for interactive mode. |
+| [GNIRS_longslit_Bestar.ipynb](GNIRS_longslit_Bestar/GNIRS_longslit_Bestar.ipynb) | GNIRS | HD 41335 | L | Longslit spectroscopy of a Be-star. Includes science, flats, tellurics, and a bad pixel mask. |
+| [Flamingos2_longslit_JH_HK_point_source.ipynb](Flamingos2_longslit_JH_HK_point_source/Flamingos2_longslit_JH_HK_point_source.ipynb) | Flamingos-2 | J1344+0005 | JH HK | Longslit point-source spectroscopy. Includes science, flats, arcs, tellurics, and a bad pixel mask. |
 
-### GMOS_Imaging_Galaxy.ipynb
+### Cross-dispersed Spectroscopy
 
-GMOS imaging (g-band) of the elliptical galaxy NGC5018.  Dataset includes biases, twilight flats, and science frames. Link to the [Jupyter notebook](https://github.com/astro-datalab/notebooks-latest/tree/master/04_HowTos/DataReduction/DataReduction/DRAGONS_reduction_examples/GMOS_Imaging_Galaxy/GMOS_Imaging_Galaxy.ipynb).
+| Notebook | Instrument | Target | Band | Description |
+|---|---|---|---|---|
+| [GNIRS_XD_Short_Blue.ipynb](GNIRS_XD_Short_Blue/GNIRS_XD_Short_Blue.ipynb) | GNIRS | SN 2016ija / DLT16am | XD Short Blue | Cross-dispersed spectroscopy of a Type II supernova. Includes science, flats, arcs, pinholes, tellurics, and a bad pixel mask. |
 
-### GNIRS_Imaging_GammaRayBurst.ipynb
-
-GNIRS imaging (J-band - point source through keyhole) of GRB120116A. This is extracted from the Gemini/DRAGONS GNIRS tutorial, Example 1-B. Dataset includes flats, darks, and science frames. Link to the [Jupyter notebook](https://github.com/astro-datalab/notebooks-latest/tree/master/04_HowTos/DataReduction/DRAGONS_reduction_examples/GNIRS_Imaging_GammaRayBurst/GNIRS_Imaging_GammaRayBurst.ipynb).
-
-### GSAOI_Imaging_EllipticalGalaxy.ipynb
-
-GSAOI imaging (K-short) of a field around NGC5128. This is extracted from the Gemini/DRAGONS GSAOI tutorial, Section 3. Dataset includes flats, standard star, and science frames. Link to the [Jupyter notebook](https://github.com/astro-datalab/notebooks-latest/tree/master/04_HowTos/DataReduction/DRAGONS_reduction_examples/GSAOI_Imaging_EllipticalGalaxy/GSAOI_Imaging_EllipticalGalaxy.ipynb).
-
-### NIRI_Imaging_Supernova.ipynb
-
-NIRI imaging (K-prime) of SN2014J. This is extracted from the Gemini/DRAGONS NIRI tutorial, Section 4. Dataset includes flats, standard star, darks, and science frames. Link to the [Jupyter notebook](https://github.com/astro-datalab/notebooks-latest/tree/master/04_HowTos/DataReduction/DRAGONS_reduction_examples/NIRI_Imaging_Supernova/NIRI_Imaging_Supernova.ipynb).
-
-### GMOS_Longslit_WhiteDwarf.ipynb
-GMOS longslit data of a candidate DB white dwarf J2145+0031. This example is based on the Gemini DRAGONS GMOS longslit tutorial, Section 3. This dataset includes arcs, biases, and flats for the standard star and science target. This tutorial contains commented-out code that enables interactive mode. These cells are not required for this example, but feel free to uncomment them to test the interactive features. Link to the [Jupyter notebook](https://github.com/astro-datalab/notebooks-latest/tree/master/04_HowTos/DataReduction/DRAGONS_reduction_examples/GMOS_Longslit_WhiteDwarf/GMOS_Longslit_WhiteDwarf.ipynb).
 
 ---
 ## Additional resources
@@ -41,9 +40,9 @@ GMOS longslit data of a candidate DB white dwarf J2145+0031. This example is bas
 ---
 ## Need help?
 
-Do you have problems, comments, suggestions, or need help running DRAGONS? You can contact the US NGO members via our [Portal](http://ast.noao.edu/csdc/usngo).
+Do you have problems, comments, suggestions, or need help running DRAGONS? You can contact the US NGO members via our [Portal](https://noirlab.edu/science/programs/csdc/usngo).
 
-If you are experiencing trouble with the DRAGONS (Py3.7) kernel or running the Jupyter Notebooks, please reach out to us via the Astro Data Lab Helpdesk: 
+If you are experiencing trouble with the DRAGONS-4.2.1 (DL,Py3.12) kernel or running the Jupyter Notebooks, please reach out to us via the Astro Data Lab Helpdesk: 
 https://datalab.noirlab.edu/help/
 
 ---
