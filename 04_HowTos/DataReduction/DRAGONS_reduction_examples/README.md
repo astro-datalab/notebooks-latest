@@ -31,6 +31,10 @@ This repository has Jupyter Notebook examples of data reduction for the Gemini O
 |---|---|---|---|---|
 | [GNIRS_XD_Short_Blue.ipynb](GNIRS_XD_Short_Blue/GNIRS_XD_Short_Blue.ipynb) | GNIRS | SN 2016ija / DLT16am | XD Short Blue | Cross-dispersed spectroscopy of a Type II supernova. Includes science, flats, arcs, pinholes, tellurics, and a bad pixel mask. |
 
+### IFU Spectroscopy
+|---|---|---|---|---|
+| [GHOST_IFU_Star.ipynb](GHOST_IFU_Star/GHOST_IFU_Star.ipynb) | GHOST | XX Oph | Optical | Standard-resolution, single-target IFU spectroscopy.Covers full reduction of a stellar target including processing for biases, flat fields, and arc calibration frames.  |
+
 
 ---
 ## Additional resources
