@@ -1,23 +1,30 @@
 allwise
 ANTARES
 authentication
+browndwarf
 catalogues
 cluster
 convolution
+cross-dispersed
 crossmatch
 data reduction
 desi spectra
 DRAGONS
+dwarf
 dwarf galaxies
 Exploratory Analysis
 extragalactic
 file service
+flamingos-2
 galaxies
 Gemini
 gemini llp
 GMOS
+gnirs
 GHOST
 Gravitational wave events
+GRB
+gsaoi
 Healpix map
 histogram
 HowTo
@@ -34,10 +41,13 @@ lightcurve
 LMC
 login
 Lomb-Scargle
+longslit
 M31
 Milky Way
 movingobject
 mydb
+niri
+nova
 object classification
 Pal5
 parallax
@@ -72,6 +82,7 @@ SQL
 star clusters
 stars
 Supervised Machine Learning
+supernova
 tap
 time domain
 time series
@@ -82,3 +93,4 @@ variable
 vospace
 vospace:copy
 WCS
+whitedwarf

@@ -74,7 +74,7 @@ nbid,notebook
 0072,03_ScienceExamples/MagellanicClouds/ExtremelyMetalPoorStarsInTheLMC.ipynb
 0073,04_HowTos/QueryClient/How_to_query_DESI_DR1_Data.ipynb
 0074,03_ScienceExamples/DESI/01_Intro_to_DESI_DR1.ipynb
-0075,04_HowTos/DataReduction/DRAGONS_reduction_examples/GNIRS_longslit_Bestar.ipynb
+0075,04_HowTos/DataReduction/DRAGONS_reduction_examples/GNIRS_longslit_Bestar/GNIRS_longslit_Bestar.ipynb
 0076,03_ScienceExamples/TimeSeriesAnalysisRrLyraeStar/TimeSeriesAnalysisOfRrLyraeStar.ipynb
 0077,03_ScienceExamples/DESI/03_DESI_agngal_VAC_tutorial.ipynb
 0078,04_HowTos/Aladin/ipyaladin_MOC.ipynb
@@ -82,3 +82,5 @@ nbid,notebook
 0080,03_ScienceExamples/KS4_DR1/KS4_DR1_GettingStarted.ipynb	
 0081,03_ScienceExamples/KS4_DR1/KS4_DR1_StarGal_Xmatch.ipynb
 0082,03_ScienceExamples/SpectralStacking/SpectralStacking_SDSS.ipynb
+0083,04_HowTos/DataReduction/DRAGONS_reduction_examples/Flamingos2_longslit_JH_HK_point_source/Flamingos2_longslit_JH_HK_point_source.ipynb
+0084,04_HowTos/DataReduction/DRAGONS_reduction_examples/GNIRS_XD_Short_Blue/GNIRS_XD_Short_Blue.ipynb
