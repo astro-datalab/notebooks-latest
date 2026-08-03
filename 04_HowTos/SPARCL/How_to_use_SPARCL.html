@@ -7805,7 +7805,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">__nbid__</span> <span class="o">=</span> <span class="s1">'0051'</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">'Alice Jacques &lt;alice.jacques@noirlab.edu&gt;, Steve Pothier &lt;steve.pothier@noirlab.edu&gt;, Adam Bolton &lt;adam.bolton@slac.stanford.edu&gt;'</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20260504'</span> <span class="c1"># yyyymmdd</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">'20260803'</span> <span class="c1"># yyyymmdd</span>
 <span class="n">__datasets__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'boss_dr17'</span><span class="p">,</span> <span class="s1">'desi_dr1'</span><span class="p">,</span> <span class="s1">'desi_edr'</span><span class="p">,</span> <span class="s1">'sdss_dr17'</span><span class="p">]</span>  
 <span class="n">__keywords__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'sparcl'</span><span class="p">,</span> <span class="s1">'spectroscopy'</span><span class="p">,</span> <span class="s1">'HowTo'</span><span class="p">,</span> <span class="s1">'sdss spectra'</span><span class="p">,</span> <span class="s1">'desi spectra'</span><span class="p">,</span> <span class="s1">'tutorial'</span><span class="p">]</span>
 </pre></div>
@@ -8186,7 +8186,7 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="datadiscoveryI"></a></p>
-<h2 id="Data-discovery-I:-using-SPARCL's-client.find()-method">Data discovery I: using SPARCL's <code>client.find()</code> method<a class="anchor-link" href="#Data-discovery-I:-using-SPARCL's-client.find()-method">¶</a></h2><p>The first way you can discover your data is by using SPARCL's <code>client.find()</code> method, which allows you to find records in the SPARCL database based on certain parameters passed to the function. Only Core fields may be in the <code>outfields</code> and <code>constraints</code> parameters. The descriptions for all fields, including Core fields, is located <a href="https://astrosparcl.datalab.noirlab.edu/sparc/sfc/">here</a>. The SPARCL Core fields constraint types are:</p>
+<h2 id="Data-discovery-I:-using-SPARCL's-client.find()-method">Data discovery I: using SPARCL's <code>client.find()</code> method<a class="anchor-link" href="#Data-discovery-I:-using-SPARCL's-client.find()-method">¶</a></h2><p>The first way you can discover your data is by using SPARCL's <code>client.find()</code> method, which allows you to find records in the SPARCL database based on certain parameters passed to the function. Only Core fields may be in the <code>outfields</code> and <code>constraints</code> parameters. The descriptions for all fields, including Core fields, is located <a href="https://astrosparcl.datalab.noirlab.edu/sparc/field_catalog/">here</a>. The SPARCL Core fields constraint types are:</p>
 <table>
 <thead>
 <tr>
@@ -8787,12 +8787,12 @@ redshift_warning   Bitmask with warning on redshift result
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="retrieve"></a></p>
 <h2 id="Retrieve-records-by-sparcl_id-using-client.retrieve()">Retrieve records by <code>sparcl_id</code> using <code>client.retrieve()</code><a class="anchor-link" href="#Retrieve-records-by-sparcl_id-using-client.retrieve()">¶</a></h2><p>In order to retrieve spectra records from SPARCL by <code>sparcl_id</code>, pass the following to the <code>client.retrieve()</code> method:</p>
-<p><code>uuid_list</code> : List of SPARCL IDs.<br>
-<code>dataset_list</code> : List of data sets to search for the SPARCL IDs in (default: None, which will search all available data sets).<br>
-<code>include</code> : List of field names to include in each record (default: 'DEFAULT').<br>
-<code>limit</code> : Maximum number of records to return (default: 500). Max allowed is 24,000.<br>
-<code>units</code> : Set to True to include units in the header for each applicable field (default: True).<br>
-<code>fmt</code> : Output format for the results. If 'specutils', the results are automatically converted to the most appropriate specutils object (either a Spectrum, SpectrumList, or SpectrumCollection) depending on the data. If 'pandas', the results are automatically converted to a Pandas Dataframe object (default: None, which returns a <code>sparcl.Results.Retrieved</code> object).</br></br></br></br></br></p>
+<p><code>uuid_list</code> : List of SPARCL IDs.<br/>
+<code>dataset_list</code> : List of data sets to search for the SPARCL IDs in (default: None, which will search all available data sets).<br/>
+<code>include</code> : List of field names to include in each record (default: 'DEFAULT').<br/>
+<code>limit</code> : Maximum number of records to return (default: 500). Max allowed is 24,000.<br/>
+<code>units</code> : Set to True to include units in the header for each applicable field (default: True).<br/>
+<code>fmt</code> : Output format for the results. If 'specutils', the results are automatically converted to the most appropriate specutils object (either a Spectrum, SpectrumList, or SpectrumCollection) depending on the data. If 'pandas', the results are automatically converted to a Pandas Dataframe object (default: None, which returns a <code>sparcl.Results.Retrieved</code> object).</p>
 <p><strong>NOTE: A reasonable number of records to request retrieval of is about 10,000. Exceeding this value may cause the retrieval to timeout or fail.</strong></p>
 <h3 id="specutils">specutils<a class="anchor-link" href="#specutils">¶</a></h3><p>Both <code>client.retrieve()</code> and <code>client.retrieve_by_specid()</code> can accept a <code>fmt='specutils'</code> argument that automatically converts results into the most appropriate <a href="https://specutils.readthedocs.io/">specutils</a> object, with units read directly from the SPARCL response header.</p>
 <p>Depending on the wavelength grids of the retrieved spectra, the return type will be:</p>
@@ -9168,12 +9168,12 @@ Spectral axis shape: (3862,)
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><a class="anchor" id="retrieve_specid"></a></p>
 <h2 id="Retrieve-records-by-specid-using-client.retrieve_by_specid()">Retrieve records by <code>specid</code> using <code>client.retrieve_by_specid()</code><a class="anchor-link" href="#Retrieve-records-by-specid-using-client.retrieve_by_specid()">¶</a></h2><p>In order to retrieve spectra records from SPARCL by <code>specid</code>, pass the following to the <code>client.retrieve_by_specid()</code> method:</p>
-<p><code>specid_list</code> : List of specIDs.<br>
-<code>dataset_list</code> : List of data sets to search for the specIDs in (default: None, which will search all available data sets).<br>
-<code>include</code> : List of field names to include in each record (default: 'DEFAULT').<br>
-<code>limit</code> : Maximum number of records to return (default: 500). Max allowed is 24,000.<br>
-<code>units</code> : Set to True to include units in the header for each applicable field (default: True).<br>
-<code>fmt</code> : Output format for the results. If 'specutils', the results are automatically converted to the most appropriate specutils object (either a Spectrum, SpectrumList, or SpectrumCollection) depending on the data. If 'pandas', the results are automatically converted to a Pandas Dataframe object (default: None, which returns a <code>sparcl.Results.Retrieved</code> object).</br></br></br></br></br></p>
+<p><code>specid_list</code> : List of specIDs.<br/>
+<code>dataset_list</code> : List of data sets to search for the specIDs in (default: None, which will search all available data sets).<br/>
+<code>include</code> : List of field names to include in each record (default: 'DEFAULT').<br/>
+<code>limit</code> : Maximum number of records to return (default: 500). Max allowed is 24,000.<br/>
+<code>units</code> : Set to True to include units in the header for each applicable field (default: True).<br/>
+<code>fmt</code> : Output format for the results. If 'specutils', the results are automatically converted to the most appropriate specutils object (either a Spectrum, SpectrumList, or SpectrumCollection) depending on the data. If 'pandas', the results are automatically converted to a Pandas Dataframe object (default: None, which returns a <code>sparcl.Results.Retrieved</code> object).</p>
 <p><strong>NOTE: A reasonable number of records to request retrieval of is about 10,000. Exceeding this value may cause the retrieval to timeout or fail.</strong></p>
 </div>
 </div>
@@ -9551,7 +9551,7 @@ Example:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Note:</strong> When using <code>fmt='pandas'</code>, Astropy unit information is not attached to the columns, the DataFrame contains plain NumPy arrays and scalar values. Units are documented on the <a href="https://astrosparcl.datalab.noirlab.edu/sparc/sfc/">Fields page</a> of the SPARCL website. If you need unit-aware data, use <code>fmt='specutils'</code> instead.</p>
+<p><strong>Note:</strong> When using <code>fmt='pandas'</code>, Astropy unit information is not attached to the columns, the DataFrame contains plain NumPy arrays and scalar values. Units are documented on the <a href="https://astrosparcl.datalab.noirlab.edu/sparc/field_catalog/">Fields page</a> of the SPARCL website. If you need unit-aware data, use <code>fmt='specutils'</code> instead.</p>
 </div>
 </div>
 </div>
